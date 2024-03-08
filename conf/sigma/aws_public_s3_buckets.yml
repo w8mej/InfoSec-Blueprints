@@ -1,0 +1,36 @@
+title: AWS Public S3 Buckets
+status: experimental
+author: wssheldo
+date: 2020/05/14
+description: >
+  Public S3 buckets has been a big issue since the creation
+  of the service. If a bucket is set to public by mistake,
+  it can leak confidential and sensitive information.
+  More importantly, if a bucket is public and also has the write
+  permissions on it, its content could be altered by a
+  malicious attacker. By looking for the PutBucketAcl event name
+  where the grantee URI is AllUsers we can identify
+  and report the open buckets.
+references:
+  - https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html
+logsource:
+  service: cloudtrail
+detection: |-
+    sourcetype=aws:cloudtrail earliest=-1d@d AllUsers
+    eventName=PutBucketAcl errorCode=Success
+    | spath output=userIdentityArn path=userIdentity.arn
+    | spath output=bucketName path=requestParameters.bucketName
+    | spath output=aclControlList
+    path=requestParameters.AccessControlPolicy.AccessControlList
+    | spath input=aclControlList output=grantee path=Grant{}
+    | mvexpand grantee
+    | spath input=grantee
+    | search Grantee.URI=*AllUsers
+    | rename userIdentityArn as user
+    | table _time, src,awsRegion Permission, Grantee.URI, bucketName, user
+severity: 3
+page: false
+falsepositives: >
+    - AWS S3 buckets that require public access
+tags: >
+  - attack.t1530

@@ -1,0 +1,30 @@
+title: Massive processes termination burst
+description: Detects scenarios where an attacker attempts to kill multiples services on a host. Attacker may target services related to databases, security products or backups (Veeam, Symantec, Acronis ...).
+references:
+- https://www.microsoft.com/security/blog/2020/03/05/human-operated-ransomware-attacks-a-preventable-disaster/
+- https://thedfirreport.com/2022/07/11/select-xmrig-from-sqlserver/
+- https://research.nccgroup.com/2022/08/19/back-in-black-unlocking-a-lockbit-3-0-ransomware-attack/
+- http://woshub.com/killing-windows-services-that-hang-on-stopping/
+- https://fourcore.io/blogs/ryuk-ransomware-simulation-mitre-ttp
+- https://www.trendmicro.com/en_us/research/22/e/avoslocker-ransomware-variant-abuses-driver-file-to-disable-anti-Virus-scans-log4shell.html
+tags:
+- attack.impact
+- attack.t1489 # Service Stop 
+- attack.defense_evasion
+- attack.1562.001 # Impair Defenses: Disable or Modify Tools 
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection: # "taskkill /f /im sql"  
+  selection: 
+    NewProcessName|endswith: '\taskkill.exe'
+    CommandLine|contains:
+      - '/f'
+      - '-f'
+  condition: selection | count(EventRecordID) by Computer > 2
+  timeframe: 1m
+falsepositives:
+- Administrator debugging
+level: high

@@ -1,0 +1,21 @@
+title: Noisy Rule Test 4
+date: 2017/01/10
+detection:
+  SELECTION_1:
+    EventID: 529
+  SELECTION_2:
+    EventID: 4625
+  SELECTION_3:
+    TargetUserName: '*'
+  SELECTION_4:
+    WorkstationName: '*'
+  condition: ((SELECTION_1 or SELECTION_2) and SELECTION_3 and SELECTION_4) | count(TargetUserName)
+    by WorkstationName > 3
+id: 9f5663ce-6205-4753-b486-fb8498d1fae5
+level: medium
+logsource:
+  product: windows
+  service: security
+modified: 2021/09/21
+status: experimental
+ruletype: SIGMA

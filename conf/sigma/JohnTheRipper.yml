@@ -1,0 +1,641 @@
+title: Simple keyword detection rule for JohnTheRipper
+id: fe776f31-e7a5-4b77-b641-9ef0509236f3
+status: experimental
+description: Detects interesting keywords based on JohnTheRipper tool
+references:
+- https://github.com/magnumripper/JohnTheRipper
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.T1110
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - OriginalFileName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - CurrentDirectory:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ParentImage:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ParentCommandLine:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - TargetFilename:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Signature:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - signature:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ImageLoaded:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Company:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Description:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - description:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - CommandLine:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - SourceImage:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - TargetImage:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - CallTrace:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - TargetObject:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Details:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - PipeName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Consumer:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Destination:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Query:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - NewName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - StartAddress:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - StartModule:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - StartFunction:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - SourceHostname:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Device:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - file_name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - file_path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - original_file_name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - parent_process:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process_path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - service_path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry_path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry_value_data:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry_value_name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ContextInfo:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Payload:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ScriptBlockText:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ServerName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - TransportName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - NewProcessName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ParentProcessName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Application:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Product Name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Threat Name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Process Name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ImagePath:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ServiceName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ProcessPath:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - AppName:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - AppPath:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ModulePath:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry.data.strings:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry.path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry.value:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.args:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.command_line:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.env_vars:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.io.text:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.executable:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.title:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.company:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.description:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.original_file_name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.product:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - os.full:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - host.hostname:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - file.fork_name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - file.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - file.path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - file.target_path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - email.attachments.file.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - email.subject:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - dll.path:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - device.model.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - container.image.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - container.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - object:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - ParentCommandLine:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - CommandLine:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - Details:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - registry.value:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.args:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.command_line:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.env_vars:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.io.text:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - process.title:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.company:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.description:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - pe.product:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - os.full:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - host.hostname:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - event.original:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - email.subject:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - device.model.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - container.image.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  - container.name:
+    - '*John*the*Ripper*'
+    - '*john * --wordlist=*'
+    - '*john NTDS.dit*'
+    - '* --format=NT -w=*_password.txt*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,21 @@
+title: Sysmon Check command lines
+description: hogehoge
+enabled: true
+author: Yea
+logsource:
+    product: windows
+detection:
+    selection:
+        EventLog: Sysmon
+        EventID: 1
+        CommandLine: '*'
+    condition: selection
+falsepositives:
+    - unknown
+level: info
+tags:
+    - attack.test3
+output: 'CommandLine=%CommandLine%¥nParentImage=%ParentImage%'
+creation_date: 2020/11/8
+updated_date: 2020/11/8
+

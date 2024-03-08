@@ -1,0 +1,766 @@
+title: Simple keyword detection rule for ReverseTCPShell
+id: e3c6a0ad-a571-43b5-8ef8-a150cd75eff3
+status: experimental
+description: Detects interesting keywords based on ReverseTCPShell tool
+references:
+- https://github.com/ZHacker13/ReverseTCPShell
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- 'attack.T1059.001 '
+- 'attack.TA0011 '
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - OriginalFileName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - CurrentDirectory:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ParentImage:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ParentCommandLine:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - TargetFilename:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Signature:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - signature:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ImageLoaded:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Company:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Description:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - description:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - CommandLine:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - SourceImage:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - TargetImage:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - CallTrace:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - TargetObject:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Details:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - PipeName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Consumer:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Destination:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Query:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - NewName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - StartAddress:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - StartModule:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - StartFunction:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - SourceHostname:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Device:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - file_name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - file_path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - original_file_name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - parent_process:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process_path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - service_path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - registry_path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - registry_value_data:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - registry_value_name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ContextInfo:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Payload:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ScriptBlockText:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ServerName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - TransportName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - NewProcessName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ParentProcessName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Application:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Product Name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Threat Name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Process Name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - Path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ImagePath:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ServiceName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ProcessPath:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - AppName:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - AppPath:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - ModulePath:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - registry.data.strings:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - registry.path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - registry.value:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.args:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.command_line:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.env_vars:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.io.text:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.executable:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - process.title:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - pe.company:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - pe.description:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - pe.original_file_name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - pe.product:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - os.full:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - host.hostname:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - file.fork_name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - file.name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - file.path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - file.target_path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - email.attachments.file.name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - email.subject:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - dll.path:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - device.model.name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - container.image.name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - container.name:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - object:
+    - '*ReverseTCPShell-main*'
+    - '*function BXOR_Obfuscation*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+    - '*function Base64_Obfuscation*'
+  - url:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - dest_url:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - uri:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - uri_query:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - query:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - url_domain:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - uri_path:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - domain:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - QueryName:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - QueryResults:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - DestinationHostname:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - DestinationIp:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - http_referrer:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - http_referrer_domain:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - http_user_agent:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - dest_nt_host:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - sender:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - recipient:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - orig_recipient:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - subject:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - url.domain:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - url.full:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - url.original:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - url.query:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - user_agent.original:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - network.application:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - http.request.body.content:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - http.request.referrer:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - email.from.address:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - dns.question.name:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  - destination.domain:
+    - '*ReverseTCPShell-main*'
+    - '*ReverseTCP.ps1*'
+    - '*/ReverseTCPShell*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

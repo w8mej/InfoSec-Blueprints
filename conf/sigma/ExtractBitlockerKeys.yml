@@ -1,0 +1,1171 @@
+title: Simple keyword detection rule for ExtractBitlockerKeys
+id: e7905c85-7dd3-4307-ade2-533ba89f2259
+status: experimental
+description: Detects interesting keywords based on ExtractBitlockerKeys tool
+references:
+- https://github.com/p0dalirius/ExtractBitlockerKeys
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.002
+- attack.T1039
+- attack.T1087.002
+- attack.TA0006
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - CommandLine:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Details:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry.value:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.args:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.command_line:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.env_vars:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.io.text:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.title:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.company:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.description:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.product:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - os.full:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - host.hostname:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - event.original:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - email.subject:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - device.model.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - container.image.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - container.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Image:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - OriginalFileName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - CurrentDirectory:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ParentImage:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ParentCommandLine:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - TargetFilename:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Signature:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - signature:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ImageLoaded:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Company:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Description:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - description:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - CommandLine:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - SourceImage:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - TargetImage:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - CallTrace:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - TargetObject:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Details:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - PipeName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Consumer:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Destination:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Query:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - NewName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - StartAddress:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - StartModule:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - StartFunction:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - SourceHostname:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Device:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - file_name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - file_path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - original_file_name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - parent_process:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process_path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - service_path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry_path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry_value_data:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry_value_name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ContextInfo:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Payload:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ScriptBlockText:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ServerName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - TransportName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - NewProcessName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ParentProcessName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Application:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Product Name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Threat Name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Process Name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - Path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ImagePath:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ServiceName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ProcessPath:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - AppName:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - AppPath:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - ModulePath:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry.data.strings:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry.path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - registry.value:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.args:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.command_line:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.env_vars:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.io.text:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.executable:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - process.title:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.company:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.description:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.original_file_name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - pe.product:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - os.full:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - host.hostname:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - file.fork_name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - file.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - file.path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - file.target_path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - email.attachments.file.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - email.subject:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - dll.path:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - device.model.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - container.image.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - container.name:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - object:
+    - '*.ps1 -dcip * -Username * -Password* -ExportToCSV *.csv -ExportToJSON *.json*'
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitLockerKeys*@podalirius_*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - url:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - dest_url:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - uri:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - uri_query:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - query:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - url_domain:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - uri_path:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - domain:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - QueryName:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - QueryResults:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - DestinationHostname:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - DestinationIp:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - http_referrer:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - http_referrer_domain:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - http_user_agent:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - dest_nt_host:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - sender:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - recipient:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - orig_recipient:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - subject:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - url.domain:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - url.full:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - url.original:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - url.query:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - user_agent.original:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - network.application:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - http.request.body.content:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - http.request.referrer:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - email.from.address:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - dns.question.name:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  - destination.domain:
+    - '*ExtractBitlockerKeys-main*'
+    - '*p0dalirius/ExtractBitlockerKeys*'
+    - '*ExtractBitlockerKeys.ps1*'
+    - '*ExtractBitlockerKeys.py*'
+    - '*/ExtractBitlockerKeys.git*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,883 @@
+title: Simple keyword detection rule for EvilSln
+id: 48cd31e9-6fae-4694-88d0-01f50cdf9a44
+status: experimental
+description: Detects interesting keywords based on EvilSln tool
+references:
+- https://github.com/cjm00n/EvilSln
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1204.002
+- attack.T1564.001
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - OriginalFileName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - CurrentDirectory:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ParentImage:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ParentCommandLine:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - TargetFilename:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Signature:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - signature:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ImageLoaded:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Company:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Description:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - description:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - CommandLine:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - SourceImage:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - TargetImage:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - CallTrace:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - TargetObject:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Details:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - PipeName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Consumer:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Destination:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Query:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - NewName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - StartAddress:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - StartModule:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - StartFunction:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - SourceHostname:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Device:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - file_name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - file_path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - original_file_name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - parent_process:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process_path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - service_path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - registry_path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - registry_value_data:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - registry_value_name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ContextInfo:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Payload:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ScriptBlockText:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ServerName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - TransportName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - NewProcessName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ParentProcessName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Application:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Product Name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Threat Name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Process Name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - Path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ImagePath:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ServiceName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ProcessPath:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - AppName:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - AppPath:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - ModulePath:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - registry.data.strings:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - registry.path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - registry.value:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.args:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.command_line:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.env_vars:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.io.text:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.executable:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - process.title:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - pe.company:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - pe.description:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - pe.original_file_name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - pe.product:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - os.full:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - host.hostname:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - file.fork_name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - file.name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - file.path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - file.target_path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - email.attachments.file.name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - email.subject:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - dll.path:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - device.model.name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - container.image.name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - container.name:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - object:
+    - '*cjm00n/EvilSln*'
+    - '*0FE0D049-F352-477D-BCCD-ACBF7D4F6F15*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+    - '*\EvilSln\*.suo*'
+  - url:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - dest_url:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - uri:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - uri_query:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - query:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - url_domain:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - uri_path:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - domain:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - QueryName:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - QueryResults:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - DestinationHostname:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - DestinationIp:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - http_referrer:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - http_referrer_domain:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - http_user_agent:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - dest_nt_host:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - sender:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - recipient:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - orig_recipient:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - subject:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - url.domain:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - url.full:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - url.original:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - url.query:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - user_agent.original:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - network.application:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - http.request.body.content:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - http.request.referrer:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - email.from.address:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - dns.question.name:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  - destination.domain:
+    - '*cjm00n/EvilSln*'
+    - '*/EvilSln/*.suo*'
+    - '*/EvilSln.git*'
+    - '*EvilSln-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

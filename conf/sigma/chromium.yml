@@ -1,0 +1,374 @@
+title: Simple keyword detection rule for chromium
+id: fa06af0d-3dca-487a-8ba7-8a88d936d7b8
+status: experimental
+description: Detects interesting keywords based on chromium tool
+references:
+- https://redcanary.com/blog/intelligence-insights-june-2023/
+- https://www.mandiant.com/resources/blog/lnk-between-browsers
+- https://www.splunk.com/en_us/blog/security/mockbin-and-the-art-of-deception-tracing-adversaries-going-headless-and-mocking-apis.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.005
+- attack.T1059.007
+- attack.T1071.001
+- attack.T1136.001
+- attack.T1176
+- attack.T1553.002
+- attack.T1561
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - CommandLine:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - Details:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - registry.value:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - process.args:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - process.command_line:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - process.env_vars:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - process.io.text:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - process.title:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - pe.company:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - pe.description:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - pe.product:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - os.full:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - host.hostname:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - event.original:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - email.subject:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - device.model.name:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - container.image.name:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - container.name:
+    - '*msedge.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*vivaldi* --headless * --dump-dom http*'
+    - '*msedge* --headless * --dump-dom http*'
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+    - '*vivaldi.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*brave.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome* --headless * --dump-dom http*'
+    - '*brave* --headless * --dump-dom http*'
+    - '*opera* --headless * --dump-dom http*'
+    - '*opera.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+    - '*chrome.exe* --load-extension="*\Users\*\Appdata\Local\Temp\*'
+  - url:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - dest_url:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - uri:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - uri_query:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - query:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - url_domain:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - uri_path:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - domain:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - QueryName:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - QueryResults:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - DestinationHostname:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - DestinationIp:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - http_referrer:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - http_referrer_domain:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - http_user_agent:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - dest_nt_host:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - sender:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - recipient:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - orig_recipient:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - subject:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - url.domain:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - url.full:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - url.original:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - url.query:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - user_agent.original:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - network.application:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - http.request.body.content:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - http.request.referrer:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - email.from.address:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - dns.question.name:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  - destination.domain:
+    - '*msedge* --headless --disable-gpu --remote-debugging-port=*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,214 @@
+title: Simple keyword detection rule for assoc
+id: 8d16931a-c7b5-4c11-821a-829608a46b74
+status: experimental
+description: Detects interesting keywords based on assoc tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1033
+- attack.T1059
+- attack.T1083
+- attack.TA0002
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - CommandLine:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - Details:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - registry.value:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - process.args:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - process.command_line:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - process.env_vars:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - process.io.text:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - process.title:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - pe.company:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - pe.description:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - pe.product:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - os.full:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - host.hostname:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - event.original:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - email.subject:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - device.model.name:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - container.image.name:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  - container.name:
+    - '*assoc *findstr =cm*'
+    - '*assoc *findstr s1x*'
+    - '*assoc *findstr *s1x*'
+    - '*assoc *findstr lCmd*'
+    - '*assoc *findstr *mdf*'
+    - '*assoc *findstr *=cm*'
+    - '*assoc *findstr *lCmd*'
+    - '*assoc *findstr mdf*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,1041 @@
+title: Simple keyword detection rule for AtomLdr
+id: eb84dd19-7e1b-4c33-a043-0a38cc4fcc7d
+status: experimental
+description: Detects interesting keywords based on AtomLdr tool
+references:
+- https://github.com/NUL0x4C/AtomLdr
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.003
+- attack.T1059.001
+- attack.T1059.003
+- attack.T1071.001
+- attack.T1071.004
+- attack.T1546.003
+- attack.T1569.002
+- attack.T1574.001
+- attack.T1574.002
+- attack.T1574.003
+- attack.T1574.004
+- attack.TA0002
+- attack.TA0006
+- attack.TA0007
+- attack.TA0008
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - OriginalFileName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - CurrentDirectory:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ParentImage:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ParentCommandLine:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - TargetFilename:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Signature:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - signature:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ImageLoaded:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Company:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Description:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - description:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - CommandLine:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - SourceImage:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - TargetImage:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - CallTrace:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - TargetObject:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Details:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - PipeName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Consumer:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Destination:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Query:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - NewName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - StartAddress:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - StartModule:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - StartFunction:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - SourceHostname:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Device:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - file_name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - file_path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - original_file_name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - parent_process:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process_path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - service_path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - registry_path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - registry_value_data:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - registry_value_name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ContextInfo:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Payload:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ScriptBlockText:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ServerName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - TransportName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - NewProcessName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ParentProcessName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Application:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Product Name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Threat Name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Process Name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - Path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ImagePath:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ServiceName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ProcessPath:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - AppName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - AppPath:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - ModulePath:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - registry.data.strings:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - registry.path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - registry.value:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.args:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.command_line:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.env_vars:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.io.text:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.executable:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - process.title:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - pe.company:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - pe.description:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - pe.original_file_name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - pe.product:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - os.full:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - host.hostname:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - file.fork_name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - file.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - file.path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - file.target_path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - email.attachments.file.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - email.subject:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - dll.path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - device.model.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - container.image.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - container.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - object:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*\AtomLdr\x64*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - url:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - dest_url:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - uri:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - uri_query:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - query:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - url_domain:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - uri_path:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - domain:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - QueryName:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - QueryResults:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - DestinationHostname:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - DestinationIp:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - http_referrer:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - http_referrer_domain:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - http_user_agent:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - dest_nt_host:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - sender:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - recipient:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - orig_recipient:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - subject:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - url.domain:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - url.full:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - url.original:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - url.query:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - user_agent.original:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - network.application:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - http.request.body.content:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - http.request.referrer:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - email.from.address:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - dns.question.name:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  - destination.domain:
+    - '*NUL0x4C/AtomLdr*'
+    - '*AtomLdr-main.zip*'
+    - '*/AtomLdr.git*'
+    - '*AtomLdr.sln*'
+    - '*AtomLdr.dll*'
+    - '*AtomLdr.vcxproj*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

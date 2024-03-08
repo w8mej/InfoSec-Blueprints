@@ -1,0 +1,1139 @@
+title: Simple keyword detection rule for SharpGhostTask
+id: 33046852-2acb-448e-bc9d-f3cb3b3733f1
+status: experimental
+description: Detects interesting keywords based on SharpGhostTask tool
+references:
+- https://github.com/dmcxblue/SharpGhostTask
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1053.005
+- attack.T1112
+- attack.T1564.001
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - OriginalFileName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - CurrentDirectory:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ParentImage:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ParentCommandLine:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - TargetFilename:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Signature:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - signature:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ImageLoaded:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Company:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Description:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - description:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - CommandLine:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - SourceImage:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - TargetImage:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - CallTrace:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - TargetObject:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Details:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - PipeName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Consumer:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Destination:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Query:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - NewName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - StartAddress:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - StartModule:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - StartFunction:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - SourceHostname:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Device:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - file_name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - file_path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - original_file_name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - parent_process:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process_path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - service_path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry_path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry_value_data:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry_value_name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ContextInfo:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Payload:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ScriptBlockText:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ServerName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - TransportName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - NewProcessName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ParentProcessName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Application:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Product Name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Threat Name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Process Name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ImagePath:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ServiceName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ProcessPath:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - AppName:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - AppPath:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ModulePath:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry.data.strings:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry.path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry.value:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.args:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.command_line:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.env_vars:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.io.text:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.executable:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.title:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.company:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.description:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.original_file_name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.product:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - os.full:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - host.hostname:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - file.fork_name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - file.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - file.path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - file.target_path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - email.attachments.file.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - email.subject:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - dll.path:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - device.model.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - container.image.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - container.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - object:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - ParentCommandLine:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - CommandLine:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - Details:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - registry.value:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.args:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.command_line:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.env_vars:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.io.text:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - process.title:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.company:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.description:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - pe.product:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - os.full:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - host.hostname:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - event.original:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - email.subject:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - device.model.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - container.image.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - container.name:
+    - '*1A8C9BD8-1800-46B0-8E22-7D3823C68366*'
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*\SharpGhostTask*'
+    - '*SharpGhostTask.csproj*'
+    - '*.exe --targettask * --targetbinary  *'
+  - url:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - dest_url:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - uri:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - uri_query:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - query:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - url_domain:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - uri_path:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - domain:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - QueryName:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - QueryResults:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - DestinationHostname:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - DestinationIp:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - http_referrer:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - http_referrer_domain:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - http_user_agent:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - dest_nt_host:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - sender:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - recipient:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - orig_recipient:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - subject:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - url.domain:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - url.full:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - url.original:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - url.query:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - user_agent.original:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - network.application:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - http.request.body.content:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - http.request.referrer:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - email.from.address:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - dns.question.name:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  - destination.domain:
+    - '*SharpGhostTask.sln*'
+    - '*/SharpGhostTask*'
+    - '*SharpGhostTask.exe*'
+    - '*SharpGhostTask.csproj*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

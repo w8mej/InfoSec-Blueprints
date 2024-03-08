@@ -1,0 +1,978 @@
+title: Simple keyword detection rule for social-engineer-toolkit
+id: f9c03b8a-ea84-4587-aba2-0fa60dd6cb36
+status: experimental
+description: Detects interesting keywords based on social-engineer-toolkit tool
+references:
+- https://github.com/trustedsec/social-engineer-toolkit
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.004
+- attack.T1564.001
+- attack.T1566
+- attack.T1598
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - OriginalFileName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - CurrentDirectory:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ParentImage:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ParentCommandLine:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - TargetFilename:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Signature:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - signature:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ImageLoaded:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Company:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Description:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - description:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - CommandLine:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - SourceImage:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - TargetImage:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - CallTrace:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - TargetObject:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Details:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - PipeName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Consumer:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Destination:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Query:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - NewName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - StartAddress:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - StartModule:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - StartFunction:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - SourceHostname:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Device:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - file_name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - file_path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - original_file_name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - parent_process:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process_path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - service_path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry_path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry_value_data:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry_value_name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ContextInfo:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Payload:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ScriptBlockText:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ServerName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - TransportName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - NewProcessName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ParentProcessName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Application:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Product Name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Threat Name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Process Name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ImagePath:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ServiceName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ProcessPath:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - AppName:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - AppPath:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ModulePath:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry.data.strings:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry.path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry.value:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.args:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.command_line:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.env_vars:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.io.text:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.executable:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.title:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.company:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.description:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.original_file_name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.product:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - os.full:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - host.hostname:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - file.fork_name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - file.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - file.path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - file.target_path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - email.attachments.file.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - email.subject:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - dll.path:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - device.model.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - container.image.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - container.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - object:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - ParentCommandLine:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - CommandLine:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - Details:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - registry.value:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.args:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.command_line:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.env_vars:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.io.text:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - process.title:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.company:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.description:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - pe.product:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - os.full:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - host.hostname:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - event.original:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - email.subject:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - device.model.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - container.image.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - container.name:
+    - '* setoolkit*'
+    - '*Social Engineer Toolkit*'
+    - '*setoolkit *'
+    - '*apt install set -y*'
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - url:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - dest_url:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - uri:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - uri_query:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - query:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - url_domain:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - uri_path:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - domain:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - QueryName:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - QueryResults:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - DestinationHostname:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - DestinationIp:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - http_referrer:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - http_referrer_domain:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - http_user_agent:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - dest_nt_host:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - sender:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - recipient:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - orig_recipient:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - subject:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - url.domain:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - url.full:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - url.original:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - url.query:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - user_agent.original:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - network.application:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - http.request.body.content:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - http.request.referrer:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - email.from.address:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - dns.question.name:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  - destination.domain:
+    - '*trustedsec/social-engineer-toolkit*'
+    - '*bin/setoolkit*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

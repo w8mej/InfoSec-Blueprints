@@ -1,0 +1,1111 @@
+title: Simple keyword detection rule for SMShell
+id: 4c031570-19fc-4e38-b2ff-209f6af5c7c4
+status: experimental
+description: Detects interesting keywords based on SMShell tool
+references:
+- https://github.com/persistent-security/SMShell
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.001
+- attack.T1059.006
+- attack.T1069.003
+- attack.T1071.004
+- attack.TA0002
+- attack.TA0009
+- attack.TA0011
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - OriginalFileName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - CurrentDirectory:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ParentImage:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ParentCommandLine:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - TargetFilename:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Signature:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - signature:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ImageLoaded:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Company:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Description:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - description:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - CommandLine:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - SourceImage:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - TargetImage:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - CallTrace:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - TargetObject:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Details:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - PipeName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Consumer:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Destination:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Query:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - NewName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - StartAddress:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - StartModule:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - StartFunction:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - SourceHostname:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Device:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - file_name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - file_path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - original_file_name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - parent_process:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process_path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - service_path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry_path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry_value_data:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry_value_name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ContextInfo:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Payload:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ScriptBlockText:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ServerName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - TransportName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - NewProcessName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ParentProcessName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Application:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Product Name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Threat Name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Process Name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ImagePath:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ServiceName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ProcessPath:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - AppName:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - AppPath:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ModulePath:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry.data.strings:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry.path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry.value:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.args:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.command_line:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.env_vars:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.io.text:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.executable:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.title:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.company:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.description:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.original_file_name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.product:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - os.full:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - host.hostname:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - file.fork_name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - file.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - file.path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - file.target_path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - email.attachments.file.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - email.subject:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - dll.path:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - device.model.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - container.image.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - container.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - object:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - ParentCommandLine:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - CommandLine:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - Details:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - registry.value:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.args:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.command_line:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.env_vars:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.io.text:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - process.title:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.company:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.description:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - pe.product:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - os.full:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - host.hostname:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - event.original:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - email.subject:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - device.model.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - container.image.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - container.name:
+    - '*/SMShell/*'
+    - '*persistent-security/SMShell*'
+    - '*server-console.py --mifi-ip *'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+    - '*server-console.exe +*'
+    - '*--mifi-username * --mifi-password * --number +*'
+  - url:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - dest_url:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - uri:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - uri_query:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - query:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - url_domain:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - uri_path:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - domain:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - QueryName:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - QueryResults:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - DestinationHostname:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - DestinationIp:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - http_referrer:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - http_referrer_domain:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - http_user_agent:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - dest_nt_host:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - sender:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - recipient:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - orig_recipient:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - subject:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - url.domain:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - url.full:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - url.original:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - url.query:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - user_agent.original:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - network.application:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - http.request.body.content:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - http.request.referrer:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - email.from.address:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - dns.question.name:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  - destination.domain:
+    - '*persistent-security/SMShell*'
+    - '*/SMShell.git*'
+    - '*SMShell.sln*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

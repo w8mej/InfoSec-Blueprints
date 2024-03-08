@@ -1,0 +1,998 @@
+title: Simple keyword detection rule for DueDLLigence
+id: bc55c9cf-15e1-4f1f-a938-33d22b7907a5
+status: experimental
+description: Detects interesting keywords based on DueDLLigence tool
+references:
+- https://github.com/mandiant/DueDLLigence
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.012
+- attack.T1218.011
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - OriginalFileName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - CurrentDirectory:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ParentImage:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ParentCommandLine:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - TargetFilename:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Signature:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - signature:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ImageLoaded:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Company:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Description:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - description:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - CommandLine:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - SourceImage:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - TargetImage:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - CallTrace:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - TargetObject:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Details:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - PipeName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Consumer:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Destination:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Query:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - NewName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - StartAddress:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - StartModule:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - StartFunction:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - SourceHostname:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Device:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - file_name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - file_path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - original_file_name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - parent_process:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process_path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - service_path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - registry_path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - registry_value_data:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - registry_value_name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ContextInfo:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Payload:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ScriptBlockText:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ServerName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - TransportName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - NewProcessName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ParentProcessName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Application:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Product Name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Threat Name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Process Name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - Path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ImagePath:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ServiceName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ProcessPath:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - AppName:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - AppPath:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - ModulePath:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - registry.data.strings:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - registry.path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - registry.value:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.args:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.command_line:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.env_vars:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.io.text:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.executable:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - process.title:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - pe.company:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - pe.description:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - pe.original_file_name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - pe.product:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - os.full:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - host.hostname:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - file.fork_name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - file.name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - file.path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - file.target_path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - email.attachments.file.name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - email.subject:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - dll.path:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - device.model.name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - container.image.name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - container.name:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - object:
+    - '*73948912-CEBD-48ED-85E2-85FCD1D4F560*'
+    - '*\duedlligence.dll*'
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - url:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - dest_url:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - uri:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - uri_query:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - query:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - url_domain:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - uri_path:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - domain:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - QueryName:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - QueryResults:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - DestinationHostname:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - DestinationIp:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - http_referrer:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - http_referrer_domain:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - http_user_agent:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - dest_nt_host:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - sender:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - recipient:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - orig_recipient:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - subject:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - url.domain:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - url.full:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - url.original:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - url.query:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - user_agent.original:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - network.application:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - http.request.body.content:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - http.request.referrer:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - email.from.address:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - dns.question.name:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  - destination.domain:
+    - '*DueDLLigence-master*'
+    - '*DueDLLigence.sln*'
+    - '*mandiant/DueDLLigence*'
+    - '*/DueDLLigence.git*'
+    - '*DueDLLigence.cs*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

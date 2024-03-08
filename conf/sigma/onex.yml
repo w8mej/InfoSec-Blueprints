@@ -1,0 +1,1036 @@
+title: Simple keyword detection rule for onex
+id: 6d336b78-4389-4b05-a83e-f4fb336aebaa
+status: experimental
+description: Detects interesting keywords based on onex tool
+references:
+- https://github.com/cube0x0/MiniDump
+- https://github.com/rajkumardusad/onex
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1003.001
+- attack.T1021.001
+- attack.T1053
+- attack.T1055
+- attack.T1057
+- attack.T1059.003
+- attack.T1070
+- attack.T1071
+- attack.T1078.002
+- attack.T1078.003
+- attack.T1078.005
+- attack.T1106
+- attack.T1136
+- attack.T1204
+- attack.T1218
+- attack.T1543
+- attack.T1547
+- attack.T1550 T1555 T1212 T1558
+- attack.T1555.003
+- attack.T1555.004
+- attack.T1573
+- attack.T1574
+- attack.T1596
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+- attack.TA0008
+- attack.TA0010
+- attack.TA0011
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - CommandLine:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Details:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry.value:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.args:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.command_line:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.env_vars:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.io.text:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.title:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.company:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.description:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.product:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - os.full:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - host.hostname:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - event.original:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - email.subject:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - device.model.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - container.image.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - container.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Image:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - OriginalFileName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - CurrentDirectory:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ParentImage:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ParentCommandLine:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - TargetFilename:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Signature:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - signature:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ImageLoaded:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Company:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Description:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - description:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - CommandLine:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - SourceImage:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - TargetImage:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - CallTrace:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - TargetObject:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Details:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - PipeName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Consumer:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Destination:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Query:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - NewName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - StartAddress:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - StartModule:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - StartFunction:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - SourceHostname:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Device:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - file_name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - file_path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - original_file_name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - parent_process:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process_path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - service_path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry_path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry_value_data:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry_value_name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ContextInfo:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Payload:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ScriptBlockText:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ServerName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - TransportName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - NewProcessName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ParentProcessName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Application:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Product Name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Threat Name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Process Name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - Path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ImagePath:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ServiceName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ProcessPath:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - AppName:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - AppPath:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - ModulePath:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry.data.strings:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry.path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - registry.value:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.args:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.command_line:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.env_vars:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.io.text:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.executable:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - process.title:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.company:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.description:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.original_file_name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - pe.product:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - os.full:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - host.hostname:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - file.fork_name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - file.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - file.path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - file.target_path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - email.attachments.file.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - email.subject:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - dll.path:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - device.model.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - container.image.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - container.name:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - object:
+    - '*procdump* lsass.exe *.dmp*'
+    - onex install *
+    - '*/onex.git*'
+    - '*minidump.* lsass.dmp*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - url:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - dest_url:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - uri:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - uri_query:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - query:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - url_domain:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - uri_path:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - domain:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - QueryName:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - QueryResults:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - DestinationHostname:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - DestinationIp:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - http_referrer:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - http_referrer_domain:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - http_user_agent:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - dest_nt_host:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - sender:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - recipient:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - orig_recipient:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - subject:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - url.domain:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - url.full:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - url.original:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - url.query:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - user_agent.original:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - network.application:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - http.request.body.content:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - http.request.referrer:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - email.from.address:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - dns.question.name:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  - destination.domain:
+    - '*/onex.git*'
+    - '*rajkumardusad/onex*'
+    - '*cube0x0/MiniDump*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

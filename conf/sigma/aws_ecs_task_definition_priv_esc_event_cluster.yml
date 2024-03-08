@@ -1,0 +1,44 @@
+title: AWS ConsoleLogin From New Country
+status: experimental
+author: wssheldo
+date: 2020/05/19
+description: >
+  Task definitions can be used to potentially escalate privileges
+  in an AWS environment by stealing credentials from running
+  containers using the ECS Task Metadata Service.
+references:
+  - https://rhinosecuritylabs.com/aws/weaponizing-ecs-task-definitions-steal-credentials-running-containers/?utm_content=129721809&utm_medium=social&utm_source=twitter&hss_channel=tw-1184539364
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d eventName=ListClusters OR
+  eventName=RegisterTaskDefinition OR eventName=RunTask
+  OR eventName=DeRegisterTaskDefinition
+  | transaction userIdentity.accountId maxspan=1d connected=false
+  | search eventName=RegisterTaskDefinition eventName=RunTask
+  eventName=DeregisterTaskDefinition eventName=ListClusters
+  | join userIdentity.accountId
+    [ search sourcetype=aws:cloudtrail eventName=RunTask earliest=-1d
+    | fields "userIdentity.accountId",
+    "requestParameters.networkConfiguration.awsvpcConfiguration.assignPublicIp",
+    "requestParameters.launchType"
+    | rename
+    "requestParameters.networkConfiguration.awsvpcConfiguration.assignPublicIp"
+    as assignPublicIp, "requestParameters.launchType" as launchType]
+  | join userIdentity.accountId
+    [ search sourcetype=aws:cloudtrail eventName=RegisterTaskDefinition
+    earliest=-1d
+    | fields "userIdentity.accountId",
+    "requestParameters.containerDefinitions.entryPoint{}",
+    "requestParameters.containerDefinitions{}.command{}"
+    | rename "requestParameters.containerDefinitions{}.entryPoint{}"
+    as entryPoint,
+    "requestParameters.containerDefinitions{}.command{}" as command]
+  | search assignPublicIp="PUBLIC" AND launchType="FARGATE" AND entryPoint="*"
+  | table _time, eventName, userIdentity.accountId,
+  assignPublicIp, launchType, command, entryPoint
+severity: 3
+page: false
+falsepositives:
+tags: >
+  - attack.t1522

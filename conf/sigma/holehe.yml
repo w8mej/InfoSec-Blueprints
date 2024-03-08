@@ -1,0 +1,1448 @@
+title: Simple keyword detection rule for holehe
+id: fe6e93f8-8138-47f7-a905-c157f4a95c66
+status: experimental
+description: Detects interesting keywords based on holehe tool
+references:
+- https://github.com/megadose/holehe
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1592.002
+- attack.T1598.001
+- attack.T1598.004
+- attack.TA0003
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - OriginalFileName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - CurrentDirectory:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ParentImage:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ParentCommandLine:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - TargetFilename:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Signature:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - signature:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ImageLoaded:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Company:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Description:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - description:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - CommandLine:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - SourceImage:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - TargetImage:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - CallTrace:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - TargetObject:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Details:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - PipeName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Consumer:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Destination:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Query:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - NewName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - StartAddress:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - StartModule:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - StartFunction:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - SourceHostname:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Device:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - file_name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - file_path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - original_file_name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - parent_process:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process_path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - service_path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry_path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry_value_data:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry_value_name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ContextInfo:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Payload:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ScriptBlockText:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ServerName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - TransportName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - NewProcessName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ParentProcessName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Application:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Product Name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Threat Name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Process Name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ImagePath:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ServiceName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ProcessPath:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - AppName:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - AppPath:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ModulePath:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry.data.strings:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry.path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry.value:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.args:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.command_line:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.env_vars:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.io.text:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.executable:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.title:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.company:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.description:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.original_file_name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.product:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - os.full:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - host.hostname:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - file.fork_name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - file.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - file.path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - file.target_path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - email.attachments.file.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - email.subject:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - dll.path:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - device.model.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - container.image.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - container.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - object:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - ParentCommandLine:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - CommandLine:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - Details:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - registry.value:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.args:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.command_line:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.env_vars:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.io.text:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - process.title:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.company:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.description:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - pe.product:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - os.full:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - host.hostname:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - event.original:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - email.subject:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - device.model.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - container.image.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - container.name:
+    - '*holehe.core:main*'
+    - '* install holehe*'
+    - '*holehe-master.*'
+    - '*holehe\holehe*'
+    - '*pornhub.py*'
+    - '*/holehe.git*'
+    - '*holehe *@gmail.com*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+    - '*from holehe.core import*'
+  - url:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - dest_url:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - uri:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - uri_query:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - query:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - url_domain:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - uri_path:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - domain:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - QueryName:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - QueryResults:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - DestinationHostname:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - DestinationIp:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - http_referrer:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - http_referrer_domain:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - http_user_agent:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - dest_nt_host:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - sender:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - recipient:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - orig_recipient:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - subject:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - url.domain:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - url.full:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - url.original:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - url.query:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - user_agent.original:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - network.application:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - http.request.body.content:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - http.request.referrer:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - email.from.address:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - dns.question.name:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  - destination.domain:
+    - '*holehe-master.*'
+    - '*/holehe.git*'
+    - '*megadose/holehe*'
+    - '*megadose@protonmail.com*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

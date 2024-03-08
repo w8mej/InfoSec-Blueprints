@@ -1,0 +1,35 @@
+title: AWS ConsoleLogin From New Country
+status: experimental
+author: wssheldo
+date: 2020/05/19
+description: >
+  I looked at all our Cloudtrail data and filtered
+  out logins from any observed country. When a
+  new country appears, this will alert.
+references:
+  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d@d eventName="ConsoleLogin"
+  | iplocation sourceIPAddress
+  | search (Country!="United States" Country!="Canada" Country!="Sweden"
+  Country!="Colombia" Country!="Australia" Country!="United Kingdom"
+  Country!="Germany" Country!="Netherlands" Country!="South Africa"
+  Country!="Singapore" Country!="United Arab Emirates" Country!="Turkey"
+  Country!="Norway" Country!="South Korea"
+  Country!="France" Country!="India" Country!="Mexico")
+  | search useridentity.principalid!="*-Isengard"
+  | spath output=MFAUsed path=additionalEventData.MFAUsed
+  | spath output=Result path=responseElements.ConsoleLogin
+  | spath output=Account path=userIdentity.accountId
+  | spath output=ARN path=userIdentity.arn
+  | table _time, eventTime, awsRegion, eventID, eventName,
+  eventSource, eventType, MFAUsed, Result, recipientAccountId,
+  sourceIPAddress, userAgent, ARN
+severity: 3
+page: false
+falsepositives: >
+  - Legitmate logins to the console from a previously unobserved country
+tags: >
+  - attack.t1078

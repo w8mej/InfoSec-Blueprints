@@ -1,0 +1,1262 @@
+title: Simple keyword detection rule for pyshell
+id: 0ce43eb2-cfa7-440f-af4d-961dd54cdd9a
+status: experimental
+description: Detects interesting keywords based on pyshell tool
+references:
+- https://github.com/JoelGMSec/PyShell
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.001
+- attack.T1059.002
+- attack.T1059.005
+- attack.T1059.007
+- attack.TA0002
+- attack.TA0003
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - OriginalFileName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - CurrentDirectory:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ParentImage:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ParentCommandLine:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - TargetFilename:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Signature:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - signature:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ImageLoaded:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Company:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Description:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - description:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - CommandLine:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - SourceImage:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - TargetImage:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - CallTrace:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - TargetObject:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Details:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - PipeName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Consumer:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Destination:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Query:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - NewName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - StartAddress:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - StartModule:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - StartFunction:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - SourceHostname:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Device:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - file_name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - file_path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - original_file_name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - parent_process:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process_path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - service_path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - registry_path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - registry_value_data:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - registry_value_name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ContextInfo:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Payload:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ScriptBlockText:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ServerName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - TransportName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - NewProcessName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ParentProcessName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Application:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Product Name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Threat Name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Process Name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - Path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ImagePath:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ServiceName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ProcessPath:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - AppName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - AppPath:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - ModulePath:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - registry.data.strings:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - registry.path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - registry.value:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.args:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.command_line:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.env_vars:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.io.text:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.executable:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - process.title:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - pe.company:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - pe.description:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - pe.original_file_name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - pe.product:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - os.full:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - host.hostname:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - file.fork_name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - file.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - file.path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - file.target_path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - email.attachments.file.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - email.subject:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - dll.path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - device.model.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - container.image.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - container.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - object:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*./PyShell *'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - url:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - dest_url:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - uri:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - uri_query:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - query:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - url_domain:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - uri_path:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - domain:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - QueryName:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - QueryResults:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - DestinationHostname:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - DestinationIp:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - http_referrer:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - http_referrer_domain:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - http_user_agent:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - dest_nt_host:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - sender:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - recipient:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - orig_recipient:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - subject:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - url.domain:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - url.full:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - url.original:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - url.query:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - user_agent.original:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - network.application:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - http.request.body.content:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - http.request.referrer:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - email.from.address:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - dns.question.name:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  - destination.domain:
+    - '*/Shells/wordpress.zip*'
+    - '*/Shells/shell.sh*'
+    - '*/JoelGMSec/PyShell*'
+    - '*/Shells/tomcat.war*'
+    - '*/Shells/shell.py*'
+    - '*/Shells/shell.php*'
+    - '*/Shells/shell.jsp*'
+    - '*/Shells/shell.aspx*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

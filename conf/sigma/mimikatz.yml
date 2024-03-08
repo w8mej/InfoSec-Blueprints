@@ -1,0 +1,371 @@
+title: Simple keyword detection rule for Mimikatz
+id: 2b934847-9eb8-44ef-9f04-5aff518707dd
+status: experimental
+description: Detects interesting keywords based on Mimikatz tool
+references:
+- https://github.com/xorrior/RandomPS-Scripts
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1055
+- attack.T1078
+- attack.TA0006
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Invoke-RemoteMimikatz*'
+  - OriginalFileName:
+    - '*Invoke-RemoteMimikatz*'
+  - CurrentDirectory:
+    - '*Invoke-RemoteMimikatz*'
+  - ParentImage:
+    - '*Invoke-RemoteMimikatz*'
+  - ParentCommandLine:
+    - '*Invoke-RemoteMimikatz*'
+  - TargetFilename:
+    - '*Invoke-RemoteMimikatz*'
+  - Signature:
+    - '*Invoke-RemoteMimikatz*'
+  - signature:
+    - '*Invoke-RemoteMimikatz*'
+  - ImageLoaded:
+    - '*Invoke-RemoteMimikatz*'
+  - Company:
+    - '*Invoke-RemoteMimikatz*'
+  - Description:
+    - '*Invoke-RemoteMimikatz*'
+  - description:
+    - '*Invoke-RemoteMimikatz*'
+  - CommandLine:
+    - '*Invoke-RemoteMimikatz*'
+  - SourceImage:
+    - '*Invoke-RemoteMimikatz*'
+  - TargetImage:
+    - '*Invoke-RemoteMimikatz*'
+  - CallTrace:
+    - '*Invoke-RemoteMimikatz*'
+  - TargetObject:
+    - '*Invoke-RemoteMimikatz*'
+  - Details:
+    - '*Invoke-RemoteMimikatz*'
+  - PipeName:
+    - '*Invoke-RemoteMimikatz*'
+  - Consumer:
+    - '*Invoke-RemoteMimikatz*'
+  - Destination:
+    - '*Invoke-RemoteMimikatz*'
+  - Name:
+    - '*Invoke-RemoteMimikatz*'
+  - Query:
+    - '*Invoke-RemoteMimikatz*'
+  - NewName:
+    - '*Invoke-RemoteMimikatz*'
+  - StartAddress:
+    - '*Invoke-RemoteMimikatz*'
+  - StartModule:
+    - '*Invoke-RemoteMimikatz*'
+  - StartFunction:
+    - '*Invoke-RemoteMimikatz*'
+  - SourceHostname:
+    - '*Invoke-RemoteMimikatz*'
+  - Device:
+    - '*Invoke-RemoteMimikatz*'
+  - file_name:
+    - '*Invoke-RemoteMimikatz*'
+  - file_path:
+    - '*Invoke-RemoteMimikatz*'
+  - process:
+    - '*Invoke-RemoteMimikatz*'
+  - original_file_name:
+    - '*Invoke-RemoteMimikatz*'
+  - parent_process:
+    - '*Invoke-RemoteMimikatz*'
+  - process_path:
+    - '*Invoke-RemoteMimikatz*'
+  - service_path:
+    - '*Invoke-RemoteMimikatz*'
+  - registry_path:
+    - '*Invoke-RemoteMimikatz*'
+  - registry_value_data:
+    - '*Invoke-RemoteMimikatz*'
+  - registry_value_name:
+    - '*Invoke-RemoteMimikatz*'
+  - ContextInfo:
+    - '*Invoke-RemoteMimikatz*'
+  - Payload:
+    - '*Invoke-RemoteMimikatz*'
+  - ScriptBlockText:
+    - '*Invoke-RemoteMimikatz*'
+  - ServerName:
+    - '*Invoke-RemoteMimikatz*'
+  - TransportName:
+    - '*Invoke-RemoteMimikatz*'
+  - NewProcessName:
+    - '*Invoke-RemoteMimikatz*'
+  - ParentProcessName:
+    - '*Invoke-RemoteMimikatz*'
+  - Application:
+    - '*Invoke-RemoteMimikatz*'
+  - Product Name:
+    - '*Invoke-RemoteMimikatz*'
+  - Threat Name:
+    - '*Invoke-RemoteMimikatz*'
+  - Process Name:
+    - '*Invoke-RemoteMimikatz*'
+  - Path:
+    - '*Invoke-RemoteMimikatz*'
+  - ImagePath:
+    - '*Invoke-RemoteMimikatz*'
+  - ServiceName:
+    - '*Invoke-RemoteMimikatz*'
+  - ProcessPath:
+    - '*Invoke-RemoteMimikatz*'
+  - AppName:
+    - '*Invoke-RemoteMimikatz*'
+  - AppPath:
+    - '*Invoke-RemoteMimikatz*'
+  - ModulePath:
+    - '*Invoke-RemoteMimikatz*'
+  - registry.data.strings:
+    - '*Invoke-RemoteMimikatz*'
+  - registry.path:
+    - '*Invoke-RemoteMimikatz*'
+  - registry.value:
+    - '*Invoke-RemoteMimikatz*'
+  - process.args:
+    - '*Invoke-RemoteMimikatz*'
+  - process.command_line:
+    - '*Invoke-RemoteMimikatz*'
+  - process.env_vars:
+    - '*Invoke-RemoteMimikatz*'
+  - process.io.text:
+    - '*Invoke-RemoteMimikatz*'
+  - process.executable:
+    - '*Invoke-RemoteMimikatz*'
+  - process.name:
+    - '*Invoke-RemoteMimikatz*'
+  - process.title:
+    - '*Invoke-RemoteMimikatz*'
+  - pe.company:
+    - '*Invoke-RemoteMimikatz*'
+  - pe.description:
+    - '*Invoke-RemoteMimikatz*'
+  - pe.original_file_name:
+    - '*Invoke-RemoteMimikatz*'
+  - pe.product:
+    - '*Invoke-RemoteMimikatz*'
+  - os.full:
+    - '*Invoke-RemoteMimikatz*'
+  - host.hostname:
+    - '*Invoke-RemoteMimikatz*'
+  - file.fork_name:
+    - '*Invoke-RemoteMimikatz*'
+  - file.name:
+    - '*Invoke-RemoteMimikatz*'
+  - file.path:
+    - '*Invoke-RemoteMimikatz*'
+  - file.target_path:
+    - '*Invoke-RemoteMimikatz*'
+  - email.attachments.file.name:
+    - '*Invoke-RemoteMimikatz*'
+  - email.subject:
+    - '*Invoke-RemoteMimikatz*'
+  - dll.path:
+    - '*Invoke-RemoteMimikatz*'
+  - device.model.name:
+    - '*Invoke-RemoteMimikatz*'
+  - container.image.name:
+    - '*Invoke-RemoteMimikatz*'
+  - container.name:
+    - '*Invoke-RemoteMimikatz*'
+  - object:
+    - '*Invoke-RemoteMimikatz*'
+  - url:
+    - '*Invoke-RemoteMimikatz*'
+  - dest_url:
+    - '*Invoke-RemoteMimikatz*'
+  - uri:
+    - '*Invoke-RemoteMimikatz*'
+  - uri_query:
+    - '*Invoke-RemoteMimikatz*'
+  - query:
+    - '*Invoke-RemoteMimikatz*'
+  - url_domain:
+    - '*Invoke-RemoteMimikatz*'
+  - uri_path:
+    - '*Invoke-RemoteMimikatz*'
+  - domain:
+    - '*Invoke-RemoteMimikatz*'
+  - QueryName:
+    - '*Invoke-RemoteMimikatz*'
+  - QueryResults:
+    - '*Invoke-RemoteMimikatz*'
+  - DestinationHostname:
+    - '*Invoke-RemoteMimikatz*'
+  - DestinationIp:
+    - '*Invoke-RemoteMimikatz*'
+  - http_referrer:
+    - '*Invoke-RemoteMimikatz*'
+  - http_referrer_domain:
+    - '*Invoke-RemoteMimikatz*'
+  - http_user_agent:
+    - '*Invoke-RemoteMimikatz*'
+  - dest_nt_host:
+    - '*Invoke-RemoteMimikatz*'
+  - sender:
+    - '*Invoke-RemoteMimikatz*'
+  - recipient:
+    - '*Invoke-RemoteMimikatz*'
+  - orig_recipient:
+    - '*Invoke-RemoteMimikatz*'
+  - subject:
+    - '*Invoke-RemoteMimikatz*'
+  - url.domain:
+    - '*Invoke-RemoteMimikatz*'
+  - url.full:
+    - '*Invoke-RemoteMimikatz*'
+  - url.original:
+    - '*Invoke-RemoteMimikatz*'
+  - url.query:
+    - '*Invoke-RemoteMimikatz*'
+  - user_agent.original:
+    - '*Invoke-RemoteMimikatz*'
+  - network.application:
+    - '*Invoke-RemoteMimikatz*'
+  - http.request.body.content:
+    - '*Invoke-RemoteMimikatz*'
+  - http.request.referrer:
+    - '*Invoke-RemoteMimikatz*'
+  - email.from.address:
+    - '*Invoke-RemoteMimikatz*'
+  - dns.question.name:
+    - '*Invoke-RemoteMimikatz*'
+  - destination.domain:
+    - '*Invoke-RemoteMimikatz*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

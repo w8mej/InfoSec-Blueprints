@@ -1,0 +1,289 @@
+title: Simple keyword detection rule for netsh
+id: 19f7c42e-837f-4ec1-9da7-3969083ed505
+status: experimental
+description: Detects interesting keywords based on netsh tool
+references:
+- https://github.com/ice-wzl/wmiexec2
+- https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF
+- https://media.defense.gov/2024/Feb/07/2003389936/-1/-1/0/JOINT-GUIDANCE-IDENTIFYING-AND-MITIGATING-LOTL.PDF
+- https://tria.ge/231006-ydmxjsfe5s/behavioral1/analog?proc=66
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1016
+- attack.T1027
+- attack.T1047
+- attack.T1055.001
+- attack.T1059
+- attack.T1059.005
+- attack.T1089
+- attack.T1090.003
+- attack.T1123
+- attack.T1552.001
+- attack.T1562.004
+- attack.TA0002
+- attack.TA0005
+- 'attack.TA0005 '
+- attack.TA0006
+- attack.TA0007
+- attack.TA0009
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - CommandLine:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - Details:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - registry.value:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - process.args:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - process.command_line:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - process.env_vars:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - process.io.text:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - process.title:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - pe.company:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - pe.description:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - pe.product:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - os.full:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - host.hostname:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - event.original:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - email.subject:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - device.model.name:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - container.image.name:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  - container.name:
+    - '*netsh interface portproxy add v4tov4 listenport=* connectport=* connectaddress=*'
+    - '*netsh advfirewall firewall show rule name=all*'
+    - '*netsh interface portproxy show v4tov4*'
+    - '*netsh.exe wlan show profiles key=clear*'
+    - '*netsh wlan show profiles key=clear*'
+    - '*netsh firewall set opmode disable*'
+    - '*netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=*'
+    - '*NetSh Advfirewall set allprofiles state off*'
+    - '*netsh interface portproxy delete v4tov4 listenport=*'
+    - '*netsh interface portproxy add v4tov4*listenaddress=* listenport=*connectaddress=*connectport*'
+    - '*netsh firewall add allowedprogram "C:\Users\*\AppData\*.exe" "*.exe" ENABLE*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

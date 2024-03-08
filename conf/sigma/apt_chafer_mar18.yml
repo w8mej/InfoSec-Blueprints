@@ -1,0 +1,34 @@
+action: global
+title: Chafer Activity
+id: 53ba33fd-3a50-4468-a5ef-c583635cfa92
+description: Detects Chafer activity attributed to OilRig as reported in Nyotron report in March 2018
+references:
+    - https://nyotron.com/nyotron-discovers-next-generation-oilrig-attacks/
+tags:
+    - attack.persistence
+    - attack.g0049
+    - attack.t1053
+    - attack.s0111
+    - attack.defense_evasion
+    - attack.t1112
+date: 2018/03/23
+modified: 2019/03/01
+author: Florian Roth, Markus Neis
+falsepositives:
+    - Unknown
+level: critical
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_process1:
+        CommandLine: 
+            - '*\Service.exe i'
+            - '*\Service.exe u'
+            - '*\microsoft\Taskbar\autoit3.exe'
+            - 'C:\wsc.exe*'
+    selection_process2:
+        Image: '*\Windows\Temp\DB\\*.exe'
+    selection_process3:
+        CommandLine: '*\nslookup.exe -q=TXT*'
+        ParentImage: '*\Autoit*'

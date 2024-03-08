@@ -1,0 +1,887 @@
+title: Simple keyword detection rule for Mshikaki
+id: 0f50a598-c6c3-473a-a0e9-7113dd3903aa
+status: experimental
+description: Detects interesting keywords based on Mshikaki tool
+references:
+- https://github.com/trevorsaudi/Mshikaki
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027.002
+- attack.T1055.012
+- attack.T1116
+- attack.T1562.001
+- attack.TA0002
+- attack.TA0005
+- attack.TA0006
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - OriginalFileName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - CurrentDirectory:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ParentImage:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ParentCommandLine:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - TargetFilename:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Signature:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - signature:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ImageLoaded:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Company:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Description:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - description:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - CommandLine:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - SourceImage:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - TargetImage:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - CallTrace:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - TargetObject:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Details:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - PipeName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Consumer:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Destination:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Query:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - NewName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - StartAddress:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - StartModule:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - StartFunction:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - SourceHostname:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Device:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - file_name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - file_path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - original_file_name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - parent_process:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process_path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - service_path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - registry_path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - registry_value_data:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - registry_value_name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ContextInfo:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Payload:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ScriptBlockText:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ServerName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - TransportName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - NewProcessName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ParentProcessName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Application:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Product Name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Threat Name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Process Name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - Path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ImagePath:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ServiceName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ProcessPath:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - AppName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - AppPath:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - ModulePath:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - registry.data.strings:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - registry.path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - registry.value:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.args:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.command_line:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.env_vars:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.io.text:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.executable:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - process.title:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - pe.company:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - pe.description:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - pe.original_file_name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - pe.product:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - os.full:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - host.hostname:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - file.fork_name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - file.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - file.path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - file.target_path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - email.attachments.file.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - email.subject:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - dll.path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - device.model.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - container.image.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - container.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - object:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*\Mshikaki.cpp*'
+    - '*/Mshikaki.git*'
+    - '* Mshikaki.cpp*'
+    - '*trevorsaudi/Mshikaki*'
+  - url:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - dest_url:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - uri:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - uri_query:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - query:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - url_domain:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - uri_path:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - domain:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - QueryName:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - QueryResults:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - DestinationHostname:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - DestinationIp:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - http_referrer:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - http_referrer_domain:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - http_user_agent:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - dest_nt_host:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - sender:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - recipient:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - orig_recipient:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - subject:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - url.domain:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - url.full:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - url.original:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - url.query:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - user_agent.original:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - network.application:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - http.request.body.content:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - http.request.referrer:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - email.from.address:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - dns.question.name:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  - destination.domain:
+    - '*Mshikaki-main*'
+    - '*Mshikaki.exe*'
+    - '*/Mshikaki.git*'
+    - '*trevorsaudi/Mshikaki*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

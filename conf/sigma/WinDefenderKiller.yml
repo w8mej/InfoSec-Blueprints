@@ -1,0 +1,1067 @@
+title: Simple keyword detection rule for WinDefenderKiller
+id: 5a3a7b38-ee44-4640-a6c2-c799aa68cfb3
+status: experimental
+description: Detects interesting keywords based on WinDefenderKiller tool
+references:
+- https://github.com/S12cybersecurity/WinDefenderKiller
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.002
+- attack.T1070.004
+- attack.T1562.001
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - OriginalFileName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - CurrentDirectory:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ParentImage:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ParentCommandLine:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - TargetFilename:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Signature:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - signature:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ImageLoaded:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Company:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Description:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - description:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - CommandLine:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - SourceImage:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - TargetImage:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - CallTrace:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - TargetObject:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Details:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - PipeName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Consumer:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Destination:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Query:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - NewName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - StartAddress:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - StartModule:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - StartFunction:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - SourceHostname:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Device:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - file_name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - file_path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - original_file_name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - parent_process:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process_path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - service_path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry_path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry_value_data:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry_value_name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ContextInfo:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Payload:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ScriptBlockText:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ServerName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - TransportName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - NewProcessName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ParentProcessName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Application:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Product Name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Threat Name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Process Name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ImagePath:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ServiceName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ProcessPath:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - AppName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - AppPath:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ModulePath:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry.data.strings:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry.path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry.value:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.args:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.command_line:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.env_vars:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.io.text:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.executable:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.title:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.company:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.description:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.original_file_name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.product:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - os.full:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - host.hostname:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - file.fork_name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - file.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - file.path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - file.target_path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - email.attachments.file.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - email.subject:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - dll.path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - device.model.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - container.image.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - container.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - object:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - ParentCommandLine:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - CommandLine:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - Details:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - registry.value:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.args:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.command_line:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.env_vars:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.io.text:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - process.title:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.company:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.description:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - pe.product:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - os.full:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - host.hostname:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - event.original:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - email.subject:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - device.model.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - container.image.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - container.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+    - '* winDefKiller *'
+  - url:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - dest_url:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - uri:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - uri_query:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - query:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - url_domain:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - uri_path:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - domain:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - QueryName:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - QueryResults:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - DestinationHostname:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - DestinationIp:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - http_referrer:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - http_referrer_domain:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - http_user_agent:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - dest_nt_host:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - sender:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - recipient:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - orig_recipient:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - subject:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - url.domain:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - url.full:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - url.original:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - url.query:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - user_agent.original:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - network.application:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - http.request.body.content:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - http.request.referrer:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - email.from.address:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - dns.question.name:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  - destination.domain:
+    - '*RevWinDefKiller.exe*'
+    - '*disableWinDef.cpp*'
+    - '*WinDefenderKiller*'
+    - '*winDefKiller.exe*'
+    - '*reverseDisableWinDef.cpp*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,29 @@
+title: Windows Subsystem for Linux (WSL) package turned on (native)
+description: Detects scenarios where an attacker enables the WSL to cary out malicious activities in a virtual instance to avoid detection.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0005-Defense%20Evasion/T1564-Hide%20artifacts
+- https://learn.microsoft.com/en-us/windows/wsl/install-manual
+- https://learn.microsoft.com/en-us/windows/wsl/install
+- https://lolbas-project.github.io/lolbas/OtherMSBinaries/Wsl/
+- https://blog.f-secure.com/hunting-for-windows-subsystem-for-linux/
+- https://blog.lumen.com/no-longer-just-theory-black-lotus-labs-uncovers-linux-executables-deployed-as-stealth-windows-loaders/
+tags:
+- attack.defense_evasion
+- attack.t1564.006
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: setup
+detection:
+  selection:
+    Channel: Setup
+    Provider: Microsoft-Windows-Servicing
+    EventID: 9 # "Selectable update Microsoft-Windows-Subsystem-Linux of package Microsoft-Windows-Lxss-Optional was successfully turned on.""
+    UpdateName: 
+      - Microsoft-Windows-Subsystem-Linux
+      - VirtualMachinePlatform 
+  condition: selection
+falsepositives:
+- developer computer
+level: medium

@@ -1,0 +1,944 @@
+title: Simple keyword detection rule for hping
+id: 25bab9b0-b8bc-4f13-8f82-55dd45963402
+status: experimental
+description: Detects interesting keywords based on hping tool
+references:
+- https://github.com/antirez/hping
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1190
+- attack.T1200
+- attack.TA0001
+- attack.TA0002
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - OriginalFileName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - CurrentDirectory:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ParentImage:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ParentCommandLine:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - TargetFilename:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Signature:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - signature:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ImageLoaded:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Company:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Description:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - description:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - CommandLine:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - SourceImage:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - TargetImage:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - CallTrace:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - TargetObject:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Details:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - PipeName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Consumer:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Destination:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Query:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - NewName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - StartAddress:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - StartModule:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - StartFunction:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - SourceHostname:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Device:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - file_name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - file_path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - original_file_name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - parent_process:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process_path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - service_path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry_path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry_value_data:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry_value_name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ContextInfo:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Payload:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ScriptBlockText:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ServerName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - TransportName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - NewProcessName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ParentProcessName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Application:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Product Name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Threat Name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Process Name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ImagePath:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ServiceName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ProcessPath:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - AppName:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - AppPath:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ModulePath:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry.data.strings:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry.path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry.value:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.args:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.command_line:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.env_vars:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.io.text:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.executable:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.title:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.company:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.description:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.original_file_name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.product:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - os.full:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - host.hostname:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - file.fork_name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - file.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - file.path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - file.target_path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - email.attachments.file.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - email.subject:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - dll.path:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - device.model.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - container.image.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - container.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - object:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - ParentCommandLine:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - CommandLine:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - Details:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - registry.value:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.args:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.command_line:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.env_vars:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.io.text:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - process.title:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.company:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.description:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - pe.product:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - os.full:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - host.hostname:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - event.original:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - email.subject:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - device.model.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - container.image.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - container.name:
+    - '*install hping3*'
+    - '*antirez/hping*'
+    - '* hping3 *'
+    - '*./hping *'
+    - '*hping3 -*'
+    - '*hping2.h*'
+  - url:
+    - '*antirez/hping*'
+  - dest_url:
+    - '*antirez/hping*'
+  - uri:
+    - '*antirez/hping*'
+  - uri_query:
+    - '*antirez/hping*'
+  - query:
+    - '*antirez/hping*'
+  - url_domain:
+    - '*antirez/hping*'
+  - uri_path:
+    - '*antirez/hping*'
+  - domain:
+    - '*antirez/hping*'
+  - QueryName:
+    - '*antirez/hping*'
+  - QueryResults:
+    - '*antirez/hping*'
+  - DestinationHostname:
+    - '*antirez/hping*'
+  - DestinationIp:
+    - '*antirez/hping*'
+  - http_referrer:
+    - '*antirez/hping*'
+  - http_referrer_domain:
+    - '*antirez/hping*'
+  - http_user_agent:
+    - '*antirez/hping*'
+  - dest_nt_host:
+    - '*antirez/hping*'
+  - sender:
+    - '*antirez/hping*'
+  - recipient:
+    - '*antirez/hping*'
+  - orig_recipient:
+    - '*antirez/hping*'
+  - subject:
+    - '*antirez/hping*'
+  - url.domain:
+    - '*antirez/hping*'
+  - url.full:
+    - '*antirez/hping*'
+  - url.original:
+    - '*antirez/hping*'
+  - url.query:
+    - '*antirez/hping*'
+  - user_agent.original:
+    - '*antirez/hping*'
+  - network.application:
+    - '*antirez/hping*'
+  - http.request.body.content:
+    - '*antirez/hping*'
+  - http.request.referrer:
+    - '*antirez/hping*'
+  - email.from.address:
+    - '*antirez/hping*'
+  - dns.question.name:
+    - '*antirez/hping*'
+  - destination.domain:
+    - '*antirez/hping*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

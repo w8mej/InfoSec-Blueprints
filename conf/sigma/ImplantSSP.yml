@@ -1,0 +1,1211 @@
+title: Simple keyword detection rule for ImplantSSP
+id: b797f3ee-a975-48ee-9f81-101725a73c73
+status: experimental
+description: Detects interesting keywords based on ImplantSSP tool
+references:
+- https://github.com/matterpreter/OffensiveCSharp/tree/master/ImplantSSP
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.001
+- attack.T1073.001
+- attack.T1547.008
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - OriginalFileName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - CurrentDirectory:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ParentImage:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ParentCommandLine:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - TargetFilename:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Signature:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - signature:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ImageLoaded:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Company:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Description:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - description:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - CommandLine:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - SourceImage:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - TargetImage:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - CallTrace:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - TargetObject:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Details:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - PipeName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Consumer:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Destination:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Query:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - NewName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - StartAddress:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - StartModule:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - StartFunction:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - SourceHostname:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Device:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - file_name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - file_path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - original_file_name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - parent_process:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process_path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - service_path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry_path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry_value_data:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry_value_name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ContextInfo:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Payload:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ScriptBlockText:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ServerName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - TransportName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - NewProcessName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ParentProcessName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Application:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Product Name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Threat Name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Process Name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ImagePath:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ServiceName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ProcessPath:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - AppName:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - AppPath:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ModulePath:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry.data.strings:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry.path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry.value:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.args:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.command_line:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.env_vars:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.io.text:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.executable:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.title:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.company:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.description:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.original_file_name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.product:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - os.full:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - host.hostname:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - file.fork_name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - file.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - file.path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - file.target_path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - email.attachments.file.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - email.subject:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - dll.path:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - device.model.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - container.image.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - container.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - object:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - ParentCommandLine:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - CommandLine:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - Details:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - registry.value:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.args:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.command_line:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.env_vars:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.io.text:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - process.title:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.company:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.description:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - pe.product:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - os.full:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - host.hostname:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - event.original:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - email.subject:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - device.model.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - container.image.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - container.name:
+    - '*master/ImplantSSP/*'
+    - '* ImplantSSP.exe*'
+    - '*\ImplantSSP.exe*'
+    - '*/ImplantSSP.exe*'
+    - '*[+] Registry key set. DLL will be loaded on reboot*'
+    - '*ImplantSSP.csproj*'
+    - '*[+] Adding your DLL to the LSA Security Packages registry key*'
+    - '*[+] Safety checks passed. Implanting your DLL*'
+  - url:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - dest_url:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - uri:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - uri_query:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - query:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - url_domain:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - uri_path:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - domain:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - QueryName:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - QueryResults:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - DestinationHostname:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - DestinationIp:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - http_referrer:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - http_referrer_domain:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - http_user_agent:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - dest_nt_host:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - sender:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - recipient:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - orig_recipient:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - subject:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - url.domain:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - url.full:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - url.original:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - url.query:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - user_agent.original:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - network.application:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - http.request.body.content:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - http.request.referrer:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - email.from.address:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - dns.question.name:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  - destination.domain:
+    - '*master/ImplantSSP/*'
+    - '*/ImplantSSP.exe*'
+    - '*ImplantSSP.csproj*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

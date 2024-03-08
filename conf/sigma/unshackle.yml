@@ -1,0 +1,1140 @@
+title: Simple keyword detection rule for unshackle
+id: a23a1d87-a83a-4d16-87ef-b43f60ca6b78
+status: experimental
+description: Detects interesting keywords based on unshackle tool
+references:
+- https://github.com/Fadi002/unshackle
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.004
+- attack.T1070.004
+- attack.T1110.004
+- attack.TA0002
+- attack.TA0005
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - OriginalFileName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - CurrentDirectory:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ParentImage:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ParentCommandLine:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - TargetFilename:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Signature:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - signature:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ImageLoaded:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Company:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Description:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - description:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - CommandLine:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - SourceImage:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - TargetImage:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - CallTrace:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - TargetObject:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Details:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - PipeName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Consumer:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Destination:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Query:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - NewName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - StartAddress:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - StartModule:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - StartFunction:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - SourceHostname:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Device:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - file_name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - file_path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - original_file_name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - parent_process:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process_path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - service_path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry_path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry_value_data:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry_value_name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ContextInfo:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Payload:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ScriptBlockText:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ServerName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - TransportName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - NewProcessName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ParentProcessName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Application:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Product Name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Threat Name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Process Name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ImagePath:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ServiceName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ProcessPath:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - AppName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - AppPath:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ModulePath:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry.data.strings:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry.path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry.value:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.args:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.command_line:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.env_vars:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.io.text:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.executable:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.title:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.company:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.description:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.original_file_name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.product:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - os.full:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - host.hostname:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - file.fork_name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - file.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - file.path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - file.target_path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - email.attachments.file.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - email.subject:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - dll.path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - device.model.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - container.image.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - container.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - object:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - ParentCommandLine:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - CommandLine:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - Details:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - registry.value:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.args:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.command_line:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.env_vars:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.io.text:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - process.title:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.company:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.description:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - pe.product:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - os.full:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - host.hostname:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - event.original:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - email.subject:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - device.model.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - container.image.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - container.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.modules*'
+    - '*/unshackle.git*'
+    - '*/bin/unshackle*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+    - '*unshackle --*'
+  - url:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - dest_url:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - uri:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - uri_query:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - query:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - url_domain:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - uri_path:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - domain:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - QueryName:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - QueryResults:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - DestinationHostname:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - DestinationIp:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - http_referrer:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - http_referrer_domain:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - http_user_agent:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - dest_nt_host:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - sender:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - recipient:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - orig_recipient:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - subject:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - url.domain:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - url.full:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - url.original:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - url.query:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - user_agent.original:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - network.application:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - http.request.body.content:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - http.request.referrer:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - email.from.address:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - dns.question.name:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  - destination.domain:
+    - '*unshackle-v1.0.iso*'
+    - '*/unshackle.git*'
+    - '*Fadi002/unshackle*'
+    - '*unshackle-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

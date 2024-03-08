@@ -1,0 +1,1417 @@
+title: Simple keyword detection rule for S3Scanner
+id: 081b38c4-8783-475f-8d95-213ad7819124
+status: experimental
+description: Detects interesting keywords based on S3Scanner tool
+references:
+- https://github.com/sa7mon/S3Scanner
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1114
+- attack.T1114.002
+- attack.T1583
+- attack.T1583.002
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - CommandLine:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Details:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry.value:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.args:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.command_line:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.env_vars:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.io.text:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.title:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.company:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.description:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.product:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - os.full:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - host.hostname:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - event.original:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - email.subject:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - device.model.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - container.image.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - container.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Image:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - OriginalFileName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - CurrentDirectory:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ParentImage:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ParentCommandLine:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - TargetFilename:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Signature:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - signature:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ImageLoaded:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Company:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Description:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - description:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - CommandLine:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - SourceImage:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - TargetImage:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - CallTrace:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - TargetObject:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Details:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - PipeName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Consumer:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Destination:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Query:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - NewName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - StartAddress:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - StartModule:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - StartFunction:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - SourceHostname:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Device:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - file_name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - file_path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - original_file_name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - parent_process:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process_path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - service_path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry_path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry_value_data:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry_value_name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ContextInfo:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Payload:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ScriptBlockText:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ServerName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - TransportName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - NewProcessName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ParentProcessName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Application:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Product Name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Threat Name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Process Name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - Path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ImagePath:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ServiceName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ProcessPath:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - AppName:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - AppPath:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - ModulePath:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry.data.strings:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry.path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - registry.value:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.args:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.command_line:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.env_vars:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.io.text:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.executable:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - process.title:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.company:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.description:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.original_file_name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - pe.product:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - os.full:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - host.hostname:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - file.fork_name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - file.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - file.path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - file.target_path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - email.attachments.file.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - email.subject:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - dll.path:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - device.model.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - container.image.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - container.name:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - object:
+    - '*python3 -m S3Scanner*'
+    - '*s3scanner dump *'
+    - '* dump --bucket *--dump-dir*'
+    - '*install s3scanner*'
+    - '*s3scanner -*'
+    - '*s3scanner scan *'
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+    - '* --threads * scan --buckets-file* '
+  - url:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - dest_url:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - uri:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - uri_query:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - query:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - url_domain:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - uri_path:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - domain:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - QueryName:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - QueryResults:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - DestinationHostname:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - DestinationIp:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - http_referrer:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - http_referrer_domain:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - http_user_agent:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - dest_nt_host:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - sender:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - recipient:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - orig_recipient:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - subject:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - url.domain:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - url.full:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - url.original:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - url.query:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - user_agent.original:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - network.application:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - http.request.body.content:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - http.request.referrer:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - email.from.address:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - dns.question.name:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  - destination.domain:
+    - '*/S3Scanner.git*'
+    - '*S3Scanner-master*'
+    - '*sa7mon/S3Scanner*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,1440 @@
+title: Simple keyword detection rule for Sudomy
+id: aad04335-ddc6-428b-8402-88e0a1c3c50d
+status: experimental
+description: Detects interesting keywords based on Sudomy tool
+references:
+- https://github.com/screetsec/Sudomy
+- https://github.com/screetsec/Vegile
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1587
+- attack.T1588
+- attack.T1595
+- attack.T1608
+- attack.TA0002
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - OriginalFileName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - CurrentDirectory:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ParentImage:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ParentCommandLine:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - TargetFilename:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Signature:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - signature:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ImageLoaded:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Company:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Description:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - description:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - CommandLine:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - SourceImage:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - TargetImage:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - CallTrace:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - TargetObject:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Details:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - PipeName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Consumer:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Destination:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Query:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - NewName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - StartAddress:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - StartModule:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - StartFunction:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - SourceHostname:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Device:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - file_name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - file_path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - original_file_name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - parent_process:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process_path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - service_path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry_path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry_value_data:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry_value_name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ContextInfo:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Payload:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ScriptBlockText:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ServerName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - TransportName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - NewProcessName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ParentProcessName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Application:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Product Name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Threat Name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Process Name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ImagePath:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ServiceName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ProcessPath:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - AppName:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - AppPath:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ModulePath:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry.data.strings:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry.path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry.value:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.args:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.command_line:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.env_vars:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.io.text:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.executable:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.title:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.company:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.description:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.original_file_name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.product:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - os.full:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - host.hostname:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - file.fork_name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - file.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - file.path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - file.target_path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - email.attachments.file.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - email.subject:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - dll.path:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - device.model.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - container.image.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - container.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - object:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - ParentCommandLine:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - CommandLine:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - Details:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - registry.value:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.args:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.command_line:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.env_vars:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.io.text:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - process.title:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.company:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.description:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - pe.product:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - os.full:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - host.hostname:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - event.original:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - email.subject:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - device.model.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - container.image.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - container.name:
+    - '*screetsec/Vegile*'
+    - '*-dP -eP -rS -cF -pS -tO -gW --httpx --dnsprobe  -aI webanalyze -sS*'
+    - '*sudomy.git*'
+    - sudomy -*
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - url:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - dest_url:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - uri:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - uri_query:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - query:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - url_domain:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - uri_path:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - domain:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - QueryName:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - QueryResults:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - DestinationHostname:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - DestinationIp:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - http_referrer:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - http_referrer_domain:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - http_user_agent:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - dest_nt_host:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - sender:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - recipient:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - orig_recipient:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - subject:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - url.domain:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - url.full:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - url.original:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - url.query:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - user_agent.original:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - network.application:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - http.request.body.content:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - http.request.referrer:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - email.from.address:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - dns.question.name:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  - destination.domain:
+    - '*screetsec/Vegile*'
+    - '*sudomy.git*'
+    - '*screetsec/Sudomy*'
+    - '*All_SubdomainTOP_Seclist.txt*'
+    - '*/sudomy.api*'
+    - '*./sudomy*'
+    - '*processhider.c*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

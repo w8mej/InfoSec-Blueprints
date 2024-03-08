@@ -1,0 +1,1176 @@
+title: Simple keyword detection rule for DavRelayUp
+id: 92c3ec3b-25c0-42d9-bfb3-db67de78c2fd
+status: experimental
+description: Detects interesting keywords based on DavRelayUp tool
+references:
+- https://github.com/ShorSec/DavRelayUp
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1068
+- attack.T1078
+- attack.T1078.004
+- attack.TA0003
+- attack.TA0004
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - OriginalFileName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - CurrentDirectory:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ParentImage:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ParentCommandLine:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - TargetFilename:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Signature:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - signature:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ImageLoaded:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Company:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Description:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - description:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - CommandLine:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - SourceImage:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - TargetImage:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - CallTrace:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - TargetObject:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Details:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - PipeName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Consumer:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Destination:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Query:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - NewName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - StartAddress:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - StartModule:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - StartFunction:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - SourceHostname:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Device:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - file_name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - file_path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - original_file_name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - parent_process:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process_path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - service_path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - registry_path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - registry_value_data:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - registry_value_name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ContextInfo:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Payload:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ScriptBlockText:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ServerName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - TransportName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - NewProcessName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ParentProcessName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Application:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Product Name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Threat Name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Process Name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - Path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ImagePath:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ServiceName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ProcessPath:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - AppName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - AppPath:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - ModulePath:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - registry.data.strings:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - registry.path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - registry.value:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.args:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.command_line:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.env_vars:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.io.text:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.executable:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - process.title:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - pe.company:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - pe.description:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - pe.original_file_name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - pe.product:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - os.full:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - host.hostname:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - file.fork_name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - file.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - file.path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - file.target_path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - email.attachments.file.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - email.subject:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - dll.path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - device.model.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - container.image.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - container.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - object:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - url:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - dest_url:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - uri:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - uri_query:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - query:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - url_domain:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - uri_path:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - domain:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - QueryName:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - QueryResults:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - DestinationHostname:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - DestinationIp:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - http_referrer:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - http_referrer_domain:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - http_user_agent:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - dest_nt_host:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - sender:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - recipient:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - orig_recipient:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - subject:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - url.domain:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - url.full:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - url.original:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - url.query:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - user_agent.original:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - network.application:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - http.request.body.content:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - http.request.referrer:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - email.from.address:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - dns.question.name:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  - destination.domain:
+    - '*DavRelayUp.csproj*'
+    - '*DavRelayUp.sln*'
+    - '*DavRelayUp.exe*'
+    - '*/DavRelayUp.git*'
+    - '*GoRelayServer.dll*'
+    - '*/DavRelayUp/*'
+    - '*DavRelayUp-master*'
+    - '*ShorSec/DavRelayUp*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

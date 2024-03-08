@@ -1,0 +1,944 @@
+title: Simple keyword detection rule for JustEvadeBro
+id: bbefee12-f950-46cf-adc0-b577e5e69929
+status: experimental
+description: Detects interesting keywords based on JustEvadeBro tool
+references:
+- https://github.com/sinfulz/JustEvadeBro
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.012
+- attack.T1218.011
+- attack.T1562.001
+- attack.TA0005
+- attack.TA0010
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - OriginalFileName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - CurrentDirectory:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ParentImage:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ParentCommandLine:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - TargetFilename:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Signature:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - signature:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ImageLoaded:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Company:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Description:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - description:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - CommandLine:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - SourceImage:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - TargetImage:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - CallTrace:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - TargetObject:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Details:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - PipeName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Consumer:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Destination:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Query:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - NewName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - StartAddress:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - StartModule:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - StartFunction:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - SourceHostname:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Device:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - file_name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - file_path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - original_file_name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - parent_process:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process_path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - service_path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry_path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry_value_data:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry_value_name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ContextInfo:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Payload:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ScriptBlockText:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ServerName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - TransportName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - NewProcessName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ParentProcessName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Application:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Product Name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Threat Name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Process Name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ImagePath:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ServiceName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ProcessPath:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - AppName:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - AppPath:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ModulePath:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry.data.strings:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry.path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry.value:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.args:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.command_line:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.env_vars:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.io.text:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.executable:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.title:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.company:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.description:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.original_file_name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.product:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - os.full:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - host.hostname:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - file.fork_name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - file.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - file.path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - file.target_path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - email.attachments.file.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - email.subject:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - dll.path:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - device.model.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - container.image.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - container.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - object:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - ParentCommandLine:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - CommandLine:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - Details:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - registry.value:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.args:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.command_line:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.env_vars:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.io.text:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - process.title:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.company:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.description:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - pe.product:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - os.full:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - host.hostname:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - event.original:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - email.subject:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - device.model.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - container.image.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - container.name:
+    - '*\papacat.zip*'
+    - '* papacat.ps1*'
+    - '*\papacat.ps1*'
+    - '*aQBlAHgAIAAoAE4AZwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAwAC4AMQAwAC4AMQA0AC4AMgAvAHIAZQB2AC4AcABzADEAJwApAA*'
+    - '*/papacat.zip*'
+    - '*papacat -l -p *'
+  - url:
+    - '*/papacat.zip*'
+  - dest_url:
+    - '*/papacat.zip*'
+  - uri:
+    - '*/papacat.zip*'
+  - uri_query:
+    - '*/papacat.zip*'
+  - query:
+    - '*/papacat.zip*'
+  - url_domain:
+    - '*/papacat.zip*'
+  - uri_path:
+    - '*/papacat.zip*'
+  - domain:
+    - '*/papacat.zip*'
+  - QueryName:
+    - '*/papacat.zip*'
+  - QueryResults:
+    - '*/papacat.zip*'
+  - DestinationHostname:
+    - '*/papacat.zip*'
+  - DestinationIp:
+    - '*/papacat.zip*'
+  - http_referrer:
+    - '*/papacat.zip*'
+  - http_referrer_domain:
+    - '*/papacat.zip*'
+  - http_user_agent:
+    - '*/papacat.zip*'
+  - dest_nt_host:
+    - '*/papacat.zip*'
+  - sender:
+    - '*/papacat.zip*'
+  - recipient:
+    - '*/papacat.zip*'
+  - orig_recipient:
+    - '*/papacat.zip*'
+  - subject:
+    - '*/papacat.zip*'
+  - url.domain:
+    - '*/papacat.zip*'
+  - url.full:
+    - '*/papacat.zip*'
+  - url.original:
+    - '*/papacat.zip*'
+  - url.query:
+    - '*/papacat.zip*'
+  - user_agent.original:
+    - '*/papacat.zip*'
+  - network.application:
+    - '*/papacat.zip*'
+  - http.request.body.content:
+    - '*/papacat.zip*'
+  - http.request.referrer:
+    - '*/papacat.zip*'
+  - email.from.address:
+    - '*/papacat.zip*'
+  - dns.question.name:
+    - '*/papacat.zip*'
+  - destination.domain:
+    - '*/papacat.zip*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

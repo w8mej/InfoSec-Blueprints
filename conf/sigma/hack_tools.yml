@@ -1,0 +1,1064 @@
+title: Simple keyword detection rule for hack-tools
+id: 1d77cbb5-3b37-4aae-a8bf-b58fccd3ef46
+status: experimental
+description: Detects interesting keywords based on hack-tools tool
+references:
+- https://github.com/LasCC/Hack-Tools
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.007
+- attack.T1068
+- attack.T1216
+- attack.T1505
+- attack.T1547.009
+- attack.TA0001
+- attack.TA0002
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - OriginalFileName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - CurrentDirectory:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ParentImage:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ParentCommandLine:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - TargetFilename:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Signature:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - signature:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ImageLoaded:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Company:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Description:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - description:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - CommandLine:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - SourceImage:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - TargetImage:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - CallTrace:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - TargetObject:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Details:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - PipeName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Consumer:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Destination:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Query:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - NewName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - StartAddress:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - StartModule:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - StartFunction:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - SourceHostname:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Device:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - file_name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - file_path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - original_file_name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - parent_process:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process_path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - service_path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - registry_path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - registry_value_data:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - registry_value_name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ContextInfo:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Payload:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ScriptBlockText:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ServerName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - TransportName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - NewProcessName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ParentProcessName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Application:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Product Name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Threat Name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Process Name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - Path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ImagePath:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ServiceName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ProcessPath:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - AppName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - AppPath:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - ModulePath:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - registry.data.strings:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - registry.path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - registry.value:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.args:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.command_line:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.env_vars:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.io.text:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.executable:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - process.title:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - pe.company:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - pe.description:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - pe.original_file_name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - pe.product:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - os.full:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - host.hostname:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - file.fork_name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - file.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - file.path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - file.target_path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - email.attachments.file.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - email.subject:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - dll.path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - device.model.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - container.image.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - container.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - object:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - url:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - dest_url:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - uri:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - uri_query:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - query:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - url_domain:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - uri_path:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - domain:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - QueryName:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - QueryResults:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - DestinationHostname:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - DestinationIp:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - http_referrer:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - http_referrer_domain:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - http_user_agent:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - dest_nt_host:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - sender:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - recipient:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - orig_recipient:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - subject:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - url.domain:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - url.full:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - url.original:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - url.query:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - user_agent.original:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - network.application:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - http.request.body.content:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - http.request.referrer:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - email.from.address:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - dns.question.name:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  - destination.domain:
+    - '*hacktools-*.xpi*'
+    - '*/Hack-Tools.git*'
+    - '*Hack-Tools-master*'
+    - '*LasCC/Hack-Tools*'
+    - '*cmbndhnoonmghfofefkcccljbkdpamhi_14678.crx*'
+    - '*https://crackstation.net/*'
+    - '*hack-tools/cmbndhnoonmghfofefkcccljbkdpamhi*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

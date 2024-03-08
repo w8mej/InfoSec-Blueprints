@@ -1,0 +1,832 @@
+title: Simple keyword detection rule for PowerBruteLogon
+id: 8ba6dac2-0c3f-4404-8317-8f15814e927f
+status: experimental
+description: Detects interesting keywords based on PowerBruteLogon tool
+references:
+- https://github.com/DarkCoderSc/PowerBruteLogon
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1110
+- attack.T1110.001
+- attack.T1110.002
+- attack.TA0005
+- attack.TA0006
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - OriginalFileName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - CurrentDirectory:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ParentImage:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ParentCommandLine:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - TargetFilename:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Signature:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - signature:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ImageLoaded:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Company:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Description:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - description:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - CommandLine:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - SourceImage:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - TargetImage:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - CallTrace:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - TargetObject:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Details:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - PipeName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Consumer:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Destination:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Query:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - NewName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - StartAddress:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - StartModule:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - StartFunction:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - SourceHostname:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Device:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - file_name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - file_path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - original_file_name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - parent_process:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process_path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - service_path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - registry_path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - registry_value_data:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - registry_value_name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ContextInfo:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Payload:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ScriptBlockText:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ServerName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - TransportName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - NewProcessName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ParentProcessName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Application:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Product Name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Threat Name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Process Name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - Path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ImagePath:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ServiceName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ProcessPath:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - AppName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - AppPath:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - ModulePath:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - registry.data.strings:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - registry.path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - registry.value:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.args:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.command_line:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.env_vars:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.io.text:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.executable:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - process.title:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - pe.company:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - pe.description:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - pe.original_file_name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - pe.product:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - os.full:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - host.hostname:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - file.fork_name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - file.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - file.path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - file.target_path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - email.attachments.file.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - email.subject:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - dll.path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - device.model.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - container.image.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - container.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - object:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - url:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - dest_url:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - uri:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - uri_query:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - query:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - url_domain:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - uri_path:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - domain:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - QueryName:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - QueryResults:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - DestinationHostname:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - DestinationIp:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - http_referrer:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - http_referrer_domain:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - http_user_agent:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - dest_nt_host:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - sender:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - recipient:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - orig_recipient:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - subject:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - url.domain:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - url.full:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - url.original:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - url.query:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - user_agent.original:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - network.application:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - http.request.body.content:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - http.request.referrer:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - email.from.address:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - dns.question.name:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  - destination.domain:
+    - '*Invoke-BruteLogonAccount*'
+    - '*PowerBruteLogon.*'
+    - '*/PowerBruteLogon*'
+    - '*Invoke-BruteAvailableLogons*'
+    - '*Invoke-BruteLogonList*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

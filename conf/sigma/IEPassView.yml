@@ -1,0 +1,1147 @@
+title: Simple keyword detection rule for IEPassView
+id: 5b982624-4306-42c6-8daa-b72159691fd1
+status: experimental
+description: Detects interesting keywords based on IEPassView tool
+references:
+- https://www.nirsoft.net/utils/internet_explorer_password.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1212
+- attack.T1555
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - OriginalFileName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - CurrentDirectory:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ParentImage:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ParentCommandLine:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - TargetFilename:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Signature:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - signature:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ImageLoaded:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Company:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Description:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - description:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - CommandLine:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - SourceImage:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - TargetImage:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - CallTrace:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - TargetObject:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Details:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - PipeName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Consumer:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Destination:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Query:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - NewName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - StartAddress:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - StartModule:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - StartFunction:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - SourceHostname:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Device:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - file_name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - file_path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - original_file_name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - parent_process:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process_path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - service_path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry_path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry_value_data:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry_value_name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ContextInfo:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Payload:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ScriptBlockText:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ServerName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - TransportName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - NewProcessName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ParentProcessName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Application:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Product Name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Threat Name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Process Name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ImagePath:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ServiceName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ProcessPath:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - AppName:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - AppPath:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ModulePath:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry.data.strings:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry.path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry.value:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.args:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.command_line:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.env_vars:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.io.text:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.executable:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.title:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.company:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.description:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.original_file_name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.product:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - os.full:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - host.hostname:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - file.fork_name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - file.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - file.path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - file.target_path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - email.attachments.file.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - email.subject:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - dll.path:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - device.model.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - container.image.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - container.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - object:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - ParentCommandLine:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - CommandLine:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - Details:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - registry.value:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.args:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.command_line:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.env_vars:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.io.text:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - process.title:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.company:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.description:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - pe.product:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - os.full:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - host.hostname:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - event.original:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - email.subject:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - device.model.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - container.image.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - container.name:
+    - '*\iepv.zip.lnk*'
+    - '*Description''>IE Passwords Viewer*'
+    - '*iepv.exe /stext *'
+    - '*\IEPV.EXE-*.pf*'
+    - '*_iepv.zip.*'
+    - '*/toolsdownload/iepv.zip*'
+    - '*\iepv.exe*'
+    - '*\iepv.cfg*'
+  - url:
+    - '*/toolsdownload/iepv.zip*'
+  - dest_url:
+    - '*/toolsdownload/iepv.zip*'
+  - uri:
+    - '*/toolsdownload/iepv.zip*'
+  - uri_query:
+    - '*/toolsdownload/iepv.zip*'
+  - query:
+    - '*/toolsdownload/iepv.zip*'
+  - url_domain:
+    - '*/toolsdownload/iepv.zip*'
+  - uri_path:
+    - '*/toolsdownload/iepv.zip*'
+  - domain:
+    - '*/toolsdownload/iepv.zip*'
+  - QueryName:
+    - '*/toolsdownload/iepv.zip*'
+  - QueryResults:
+    - '*/toolsdownload/iepv.zip*'
+  - DestinationHostname:
+    - '*/toolsdownload/iepv.zip*'
+  - DestinationIp:
+    - '*/toolsdownload/iepv.zip*'
+  - http_referrer:
+    - '*/toolsdownload/iepv.zip*'
+  - http_referrer_domain:
+    - '*/toolsdownload/iepv.zip*'
+  - http_user_agent:
+    - '*/toolsdownload/iepv.zip*'
+  - dest_nt_host:
+    - '*/toolsdownload/iepv.zip*'
+  - sender:
+    - '*/toolsdownload/iepv.zip*'
+  - recipient:
+    - '*/toolsdownload/iepv.zip*'
+  - orig_recipient:
+    - '*/toolsdownload/iepv.zip*'
+  - subject:
+    - '*/toolsdownload/iepv.zip*'
+  - url.domain:
+    - '*/toolsdownload/iepv.zip*'
+  - url.full:
+    - '*/toolsdownload/iepv.zip*'
+  - url.original:
+    - '*/toolsdownload/iepv.zip*'
+  - url.query:
+    - '*/toolsdownload/iepv.zip*'
+  - user_agent.original:
+    - '*/toolsdownload/iepv.zip*'
+  - network.application:
+    - '*/toolsdownload/iepv.zip*'
+  - http.request.body.content:
+    - '*/toolsdownload/iepv.zip*'
+  - http.request.referrer:
+    - '*/toolsdownload/iepv.zip*'
+  - email.from.address:
+    - '*/toolsdownload/iepv.zip*'
+  - dns.question.name:
+    - '*/toolsdownload/iepv.zip*'
+  - destination.domain:
+    - '*/toolsdownload/iepv.zip*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

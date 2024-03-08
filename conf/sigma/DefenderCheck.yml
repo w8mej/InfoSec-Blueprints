@@ -1,0 +1,579 @@
+title: Simple keyword detection rule for DefenderCheck
+id: 5e587d35-3b3c-4f9a-84df-e787988f3c33
+status: experimental
+description: Detects interesting keywords based on DefenderCheck tool
+references:
+- https://github.com/matterpreter/DefenderCheck
+- https://github.com/rasta-mouse/ThreatCheck
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1027.002
+- attack.T1055
+- attack.T1059.001
+- attack.T1059.005
+- attack.T1070.004
+- attack.T1553
+- attack.T1562
+- attack.TA0002
+- attack.TA0005
+- attack.TA0006
+- attack.TA0008
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - OriginalFileName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - CurrentDirectory:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ParentImage:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ParentCommandLine:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - TargetFilename:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Signature:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - signature:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ImageLoaded:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Company:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Description:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - description:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - CommandLine:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - SourceImage:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - TargetImage:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - CallTrace:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - TargetObject:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Details:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - PipeName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Consumer:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Destination:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Query:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - NewName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - StartAddress:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - StartModule:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - StartFunction:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - SourceHostname:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Device:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - file_name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - file_path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - original_file_name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - parent_process:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process_path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - service_path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - registry_path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - registry_value_data:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - registry_value_name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ContextInfo:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Payload:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ScriptBlockText:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ServerName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - TransportName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - NewProcessName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ParentProcessName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Application:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Product Name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Threat Name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Process Name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - Path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ImagePath:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ServiceName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ProcessPath:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - AppName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - AppPath:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - ModulePath:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - registry.data.strings:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - registry.path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - registry.value:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.args:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.command_line:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.env_vars:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.io.text:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.executable:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - process.title:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - pe.company:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - pe.description:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - pe.original_file_name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - pe.product:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - os.full:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - host.hostname:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - file.fork_name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - file.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - file.path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - file.target_path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - email.attachments.file.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - email.subject:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - dll.path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - device.model.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - container.image.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - container.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - object:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+    - '*DefenderCheck*'
+  - url:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - dest_url:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - uri:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - uri_query:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - query:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - url_domain:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - uri_path:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - domain:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - QueryName:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - QueryResults:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - DestinationHostname:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - DestinationIp:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - http_referrer:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - http_referrer_domain:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - http_user_agent:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - dest_nt_host:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - sender:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - recipient:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - orig_recipient:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - subject:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - url.domain:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - url.full:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - url.original:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - url.query:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - user_agent.original:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - network.application:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - http.request.body.content:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - http.request.referrer:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - email.from.address:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - dns.question.name:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  - destination.domain:
+    - '*matterpreter/DefenderCheck*'
+    - '*DefenderCheck.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

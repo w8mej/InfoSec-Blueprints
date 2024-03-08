@@ -1,0 +1,364 @@
+title: Simple keyword detection rule for Free Proxy VPN
+id: 9e4cd2b2-255d-4d55-ac30-cb0a995eae27
+status: experimental
+description: Detects interesting keywords based on Free Proxy VPN tool
+references:
+- https://raw.githubusercontent.com/SigmaHQ/sigma/43277f26fc1c81fc98fc79147b711189e901b757/rules/windows/registry/registry_set/registry_set_chrome_extension.yml
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1090.003
+- attack.T1133
+- attack.T1572
+- attack.TA0001
+- attack.TA0003
+- attack.TA0005
+- attack.TA0010
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - OriginalFileName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - CurrentDirectory:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ParentImage:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ParentCommandLine:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - TargetFilename:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Signature:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - signature:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ImageLoaded:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Company:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Description:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - description:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - CommandLine:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - SourceImage:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - TargetImage:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - CallTrace:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - TargetObject:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Details:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - PipeName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Consumer:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Destination:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Query:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - NewName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - StartAddress:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - StartModule:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - StartFunction:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - SourceHostname:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Device:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - file_name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - file_path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - original_file_name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - parent_process:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process_path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - service_path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - registry_path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - registry_value_data:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - registry_value_name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ContextInfo:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Payload:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ScriptBlockText:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ServerName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - TransportName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - NewProcessName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ParentProcessName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Application:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Product Name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Threat Name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Process Name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - Path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ImagePath:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ServiceName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ProcessPath:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - AppName:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - AppPath:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - ModulePath:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - registry.data.strings:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - registry.path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - registry.value:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.args:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.command_line:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.env_vars:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.io.text:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.executable:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - process.title:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - pe.company:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - pe.description:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - pe.original_file_name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - pe.product:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - os.full:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - host.hostname:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - file.fork_name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - file.name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - file.path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - file.target_path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - email.attachments.file.name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - email.subject:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - dll.path:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - device.model.name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - container.image.name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - container.name:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  - object:
+    - '*dhadilbmmjiooceioladdphemaliiobo*'
+    - '*pgfpignfckbloagkfnamnolkeaecfgfh*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

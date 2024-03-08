@@ -1,0 +1,451 @@
+title: Simple keyword detection rule for reverse-shell-generator
+id: 6b36ee51-ad88-490c-953f-77b6a13ff3c6
+status: experimental
+description: Detects interesting keywords based on reverse-shell-generator tool
+references:
+- https://github.com/0dayCTF/reverse-shell-generator
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059 T1071
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - OriginalFileName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - CurrentDirectory:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ParentImage:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ParentCommandLine:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - TargetFilename:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Signature:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - signature:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ImageLoaded:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Company:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Description:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - description:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - CommandLine:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - SourceImage:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - TargetImage:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - CallTrace:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - TargetObject:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Details:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - PipeName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Consumer:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Destination:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Query:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - NewName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - StartAddress:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - StartModule:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - StartFunction:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - SourceHostname:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Device:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - file_name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - file_path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - original_file_name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - parent_process:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process_path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - service_path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - registry_path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - registry_value_data:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - registry_value_name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ContextInfo:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Payload:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ScriptBlockText:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ServerName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - TransportName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - NewProcessName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ParentProcessName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Application:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Product Name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Threat Name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Process Name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - Path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ImagePath:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ServiceName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ProcessPath:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - AppName:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - AppPath:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - ModulePath:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - registry.data.strings:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - registry.path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - registry.value:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.args:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.command_line:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.env_vars:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.io.text:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.executable:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - process.title:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - pe.company:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - pe.description:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - pe.original_file_name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - pe.product:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - os.full:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - host.hostname:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - file.fork_name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - file.name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - file.path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - file.target_path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - email.attachments.file.name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - email.subject:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - dll.path:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - device.model.name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - container.image.name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - container.name:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - object:
+    - '* reverse_shell_generator*'
+    - '*/reverse-shell-generator*'
+  - url:
+    - '*/reverse-shell-generator*'
+  - dest_url:
+    - '*/reverse-shell-generator*'
+  - uri:
+    - '*/reverse-shell-generator*'
+  - uri_query:
+    - '*/reverse-shell-generator*'
+  - query:
+    - '*/reverse-shell-generator*'
+  - url_domain:
+    - '*/reverse-shell-generator*'
+  - uri_path:
+    - '*/reverse-shell-generator*'
+  - domain:
+    - '*/reverse-shell-generator*'
+  - QueryName:
+    - '*/reverse-shell-generator*'
+  - QueryResults:
+    - '*/reverse-shell-generator*'
+  - DestinationHostname:
+    - '*/reverse-shell-generator*'
+  - DestinationIp:
+    - '*/reverse-shell-generator*'
+  - http_referrer:
+    - '*/reverse-shell-generator*'
+  - http_referrer_domain:
+    - '*/reverse-shell-generator*'
+  - http_user_agent:
+    - '*/reverse-shell-generator*'
+  - dest_nt_host:
+    - '*/reverse-shell-generator*'
+  - sender:
+    - '*/reverse-shell-generator*'
+  - recipient:
+    - '*/reverse-shell-generator*'
+  - orig_recipient:
+    - '*/reverse-shell-generator*'
+  - subject:
+    - '*/reverse-shell-generator*'
+  - url.domain:
+    - '*/reverse-shell-generator*'
+  - url.full:
+    - '*/reverse-shell-generator*'
+  - url.original:
+    - '*/reverse-shell-generator*'
+  - url.query:
+    - '*/reverse-shell-generator*'
+  - user_agent.original:
+    - '*/reverse-shell-generator*'
+  - network.application:
+    - '*/reverse-shell-generator*'
+  - http.request.body.content:
+    - '*/reverse-shell-generator*'
+  - http.request.referrer:
+    - '*/reverse-shell-generator*'
+  - email.from.address:
+    - '*/reverse-shell-generator*'
+  - dns.question.name:
+    - '*/reverse-shell-generator*'
+  - destination.domain:
+    - '*/reverse-shell-generator*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

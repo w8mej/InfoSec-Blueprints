@@ -1,0 +1,601 @@
+title: Simple keyword detection rule for bypasswaf
+id: 8202598b-8c2b-4308-ba61-aca14fff6dbb
+status: experimental
+description: Detects interesting keywords based on bypasswaf tool
+references:
+- https://github.com/codewatchorg/bypasswaf
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1001
+- attack.T1090
+- attack.T1189
+- attack.TA0002
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - OriginalFileName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - CurrentDirectory:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ParentImage:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ParentCommandLine:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - TargetFilename:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Signature:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - signature:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ImageLoaded:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Company:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Description:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - description:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - CommandLine:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - SourceImage:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - TargetImage:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - CallTrace:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - TargetObject:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Details:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - PipeName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Consumer:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Destination:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Query:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - NewName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - StartAddress:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - StartModule:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - StartFunction:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - SourceHostname:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Device:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - file_name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - file_path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - original_file_name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - parent_process:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process_path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - service_path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - registry_path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - registry_value_data:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - registry_value_name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ContextInfo:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Payload:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ScriptBlockText:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ServerName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - TransportName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - NewProcessName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ParentProcessName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Application:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Product Name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Threat Name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Process Name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - Path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ImagePath:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ServiceName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ProcessPath:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - AppName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - AppPath:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - ModulePath:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - registry.data.strings:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - registry.path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - registry.value:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.args:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.command_line:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.env_vars:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.io.text:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.executable:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - process.title:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - pe.company:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - pe.description:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - pe.original_file_name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - pe.product:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - os.full:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - host.hostname:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - file.fork_name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - file.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - file.path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - file.target_path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - email.attachments.file.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - email.subject:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - dll.path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - device.model.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - container.image.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - container.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - object:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - url:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - dest_url:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - uri:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - uri_query:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - query:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - url_domain:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - uri_path:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - domain:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - QueryName:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - QueryResults:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - DestinationHostname:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - DestinationIp:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - http_referrer:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - http_referrer_domain:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - http_user_agent:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - dest_nt_host:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - sender:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - recipient:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - orig_recipient:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - subject:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - url.domain:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - url.full:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - url.original:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - url.query:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - user_agent.original:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - network.application:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - http.request.body.content:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - http.request.referrer:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - email.from.address:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - dns.question.name:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  - destination.domain:
+    - '*codewatchorg/bypasswaf*'
+    - '*bypasswaf.py*'
+    - '*bypasswaf.jar*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

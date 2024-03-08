@@ -1,0 +1,1038 @@
+title: Simple keyword detection rule for msfvenom
+id: eea1deec-a6ed-4782-a0aa-c22f92774b88
+status: experimental
+description: Detects interesting keywords based on msfvenom tool
+references:
+- https://github.com/rapid7/metasploit-framework/wiki/How-to-use-msfvenom
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1059.001
+- attack.T1204.002
+- attack.T1210.001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - OriginalFileName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - CurrentDirectory:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ParentImage:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ParentCommandLine:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - TargetFilename:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Signature:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - signature:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ImageLoaded:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Company:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Description:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - description:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - CommandLine:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - SourceImage:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - TargetImage:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - CallTrace:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - TargetObject:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Details:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - PipeName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Consumer:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Destination:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Query:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - NewName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - StartAddress:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - StartModule:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - StartFunction:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - SourceHostname:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Device:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - file_name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - file_path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - original_file_name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - parent_process:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process_path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - service_path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry_path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry_value_data:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry_value_name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ContextInfo:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Payload:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ScriptBlockText:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ServerName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - TransportName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - NewProcessName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ParentProcessName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Application:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Product Name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Threat Name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Process Name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ImagePath:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ServiceName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ProcessPath:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - AppName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - AppPath:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ModulePath:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry.data.strings:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry.path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry.value:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.args:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.command_line:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.env_vars:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.io.text:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.executable:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.title:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.company:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.description:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.original_file_name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.product:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - os.full:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - host.hostname:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - file.fork_name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - file.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - file.path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - file.target_path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - email.attachments.file.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - email.subject:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - dll.path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - device.model.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - container.image.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - container.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - object:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - ParentCommandLine:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - CommandLine:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - Details:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - registry.value:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.args:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.command_line:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.env_vars:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.io.text:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - process.title:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.company:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.description:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - pe.product:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - os.full:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - host.hostname:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - event.original:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - email.subject:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - device.model.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - container.image.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - container.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfvenom -*'
+    - '*msfpayload*'
+    - '* windows/shell/bind_tcp *'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - url:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - dest_url:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - uri:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - uri_query:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - query:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - url_domain:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - uri_path:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - domain:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - QueryName:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - QueryResults:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - DestinationHostname:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - DestinationIp:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - http_referrer:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - http_referrer_domain:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - http_user_agent:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - dest_nt_host:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - sender:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - recipient:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - orig_recipient:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - subject:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - url.domain:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - url.full:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - url.original:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - url.query:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - user_agent.original:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - network.application:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - http.request.body.content:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - http.request.referrer:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - email.from.address:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - dns.question.name:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  - destination.domain:
+    - '*msfencode*'
+    - '*/msfvenom/*'
+    - '*msfpayload*'
+    - '*exec CMD=/bin/sh -f elf -o *.elf*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

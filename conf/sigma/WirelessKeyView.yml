@@ -1,0 +1,841 @@
+title: Simple keyword detection rule for WirelessKeyView
+id: b07c267b-4ed3-4de2-84d0-fa319a247eac
+status: experimental
+description: Detects interesting keywords based on WirelessKeyView tool
+references:
+- https://www.nirsoft.net/utils/wireless_key.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1016
+- attack.T1021
+- attack.T1056
+- attack.T1110
+- attack.T1212
+- attack.T1552
+- attack.T1557
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - OriginalFileName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - CurrentDirectory:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ParentImage:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ParentCommandLine:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - TargetFilename:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Signature:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - signature:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ImageLoaded:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Company:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Description:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - description:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - CommandLine:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - SourceImage:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - TargetImage:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - CallTrace:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - TargetObject:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Details:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - PipeName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Consumer:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Destination:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Query:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - NewName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - StartAddress:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - StartModule:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - StartFunction:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - SourceHostname:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Device:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - file_name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - file_path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - original_file_name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - parent_process:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process_path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - service_path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - registry_path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - registry_value_data:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - registry_value_name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ContextInfo:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Payload:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ScriptBlockText:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ServerName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - TransportName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - NewProcessName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ParentProcessName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Application:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Product Name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Threat Name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Process Name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - Path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ImagePath:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ServiceName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ProcessPath:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - AppName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - AppPath:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - ModulePath:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - registry.data.strings:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - registry.path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - registry.value:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.args:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.command_line:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.env_vars:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.io.text:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.executable:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - process.title:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - pe.company:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - pe.description:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - pe.original_file_name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - pe.product:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - os.full:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - host.hostname:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - file.fork_name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - file.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - file.path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - file.target_path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - email.attachments.file.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - email.subject:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - dll.path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - device.model.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - container.image.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - container.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - object:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - url:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - dest_url:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - uri:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - uri_query:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - query:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - url_domain:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - uri_path:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - domain:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - QueryName:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - QueryResults:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - DestinationHostname:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - DestinationIp:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - http_referrer:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - http_referrer_domain:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - http_user_agent:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - dest_nt_host:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - sender:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - recipient:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - orig_recipient:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - subject:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - url.domain:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - url.full:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - url.original:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - url.query:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - user_agent.original:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - network.application:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - http.request.body.content:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - http.request.referrer:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - email.from.address:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - dns.question.name:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  - destination.domain:
+    - '*wirelesskeyview.zip*'
+    - '*WirelessKeyView_x64.exe*'
+    - '*wirelesskeyview-no-command-line.zip*'
+    - '*wirelesskeyview.exe*'
+    - '*wirelesskeyview-x64.zip*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

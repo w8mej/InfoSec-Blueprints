@@ -1,0 +1,1110 @@
+title: Simple keyword detection rule for adidnsdump
+id: 646b01d4-8ae0-44e6-b7a1-4ff1e869a007
+status: experimental
+description: Detects interesting keywords based on adidnsdump tool
+references:
+- https://github.com/dirkjanm/adidnsdump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1039
+- attack.T1056
+- attack.T1087
+- attack.T1201
+- attack.TA0005
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - OriginalFileName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - CurrentDirectory:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ParentImage:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ParentCommandLine:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - TargetFilename:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Signature:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - signature:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ImageLoaded:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Company:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Description:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - description:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - CommandLine:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - SourceImage:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - TargetImage:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - CallTrace:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - TargetObject:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Details:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - PipeName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Consumer:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Destination:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Query:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - NewName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - StartAddress:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - StartModule:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - StartFunction:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - SourceHostname:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Device:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - file_name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - file_path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - original_file_name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - parent_process:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process_path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - service_path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry_path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry_value_data:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry_value_name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ContextInfo:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Payload:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ScriptBlockText:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ServerName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - TransportName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - NewProcessName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ParentProcessName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Application:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Product Name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Threat Name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Process Name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ImagePath:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ServiceName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ProcessPath:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - AppName:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - AppPath:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ModulePath:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry.data.strings:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry.path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry.value:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.args:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.command_line:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.env_vars:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.io.text:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.executable:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.title:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.company:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.description:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.original_file_name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.product:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - os.full:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - host.hostname:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - file.fork_name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - file.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - file.path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - file.target_path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - email.attachments.file.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - email.subject:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - dll.path:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - device.model.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - container.image.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - container.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - object:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - ParentCommandLine:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - CommandLine:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - Details:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - registry.value:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.args:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.command_line:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.env_vars:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.io.text:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - process.title:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.company:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.description:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - pe.product:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - os.full:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - host.hostname:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - event.original:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - email.subject:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - device.model.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - container.image.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - container.name:
+    - '*\dnsdump.py*'
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+    - '* dnsdump.py*'
+    - '*.py -u * ?print-zones *'
+    - '*adidnsdump*'
+  - url:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - dest_url:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - uri:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - uri_query:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - query:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - url_domain:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - uri_path:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - domain:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - QueryName:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - QueryResults:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - DestinationHostname:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - DestinationIp:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - http_referrer:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - http_referrer_domain:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - http_user_agent:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - dest_nt_host:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - sender:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - recipient:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - orig_recipient:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - subject:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - url.domain:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - url.full:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - url.original:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - url.query:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - user_agent.original:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - network.application:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - http.request.body.content:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - http.request.referrer:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - email.from.address:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - dns.question.name:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  - destination.domain:
+    - '*/dnsdump.py*'
+    - '*dirkjanm/adidnsdump*'
+    - '*/adidnsdump.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

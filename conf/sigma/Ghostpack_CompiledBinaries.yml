@@ -1,0 +1,605 @@
+title: Simple keyword detection rule for Ghostpack-CompiledBinaries
+id: 400e1eb1-ee79-49be-9d99-653e961c37f1
+status: experimental
+description: Detects interesting keywords based on Ghostpack-CompiledBinaries tool
+references:
+- https://github.com/r3motecontrol/Ghostpack-CompiledBinaries
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1036.004
+- attack.T1055
+- attack.T1140
+- attack.T1547.002
+- attack.T1559.002
+- attack.TA0002
+- attack.TA0005
+- attack.TA0036
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - OriginalFileName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - CurrentDirectory:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ParentImage:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ParentCommandLine:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - TargetFilename:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Signature:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - signature:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ImageLoaded:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Company:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Description:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - description:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - CommandLine:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - SourceImage:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - TargetImage:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - CallTrace:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - TargetObject:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Details:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - PipeName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Consumer:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Destination:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Query:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - NewName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - StartAddress:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - StartModule:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - StartFunction:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - SourceHostname:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Device:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - file_name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - file_path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - original_file_name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - parent_process:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process_path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - service_path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - registry_path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - registry_value_data:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - registry_value_name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ContextInfo:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Payload:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ScriptBlockText:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ServerName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - TransportName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - NewProcessName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ParentProcessName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Application:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Product Name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Threat Name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Process Name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - Path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ImagePath:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ServiceName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ProcessPath:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - AppName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - AppPath:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - ModulePath:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - registry.data.strings:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - registry.path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - registry.value:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.args:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.command_line:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.env_vars:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.io.text:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.executable:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - process.title:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - pe.company:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - pe.description:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - pe.original_file_name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - pe.product:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - os.full:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - host.hostname:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - file.fork_name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - file.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - file.path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - file.target_path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - email.attachments.file.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - email.subject:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - dll.path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - device.model.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - container.image.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - container.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - object:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - url:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - dest_url:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - uri:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - uri_query:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - query:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - url_domain:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - uri_path:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - domain:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - QueryName:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - QueryResults:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - DestinationHostname:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - DestinationIp:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - http_referrer:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - http_referrer_domain:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - http_user_agent:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - dest_nt_host:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - sender:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - recipient:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - orig_recipient:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - subject:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - url.domain:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - url.full:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - url.original:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - url.query:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - user_agent.original:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - network.application:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - http.request.body.content:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - http.request.referrer:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - email.from.address:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - dns.question.name:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  - destination.domain:
+    - '*Ghostpack-CompiledBinaries*'
+    - '*SharpRoast.exe*'
+    - '*RestrictedAdmin.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

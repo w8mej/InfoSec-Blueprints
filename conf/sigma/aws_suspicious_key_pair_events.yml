@@ -1,0 +1,19 @@
+title: AWS Suspicious Key Pair Events
+status: experimental
+author: wssheldo
+date: 2020/05/20
+description: Detects AWS keypair events from the command line
+references:
+  - https://expel.io/blog/finding-evil-in-aws/
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d@d
+  (CreateKeyPair OR ImportKeyPair) userAgent="aws-cli/*"
+  userIdentity.arn!="*-Isengard"
+severity: 3
+page: false
+falsepositives: >
+  -
+tags: >
+  - attack.t1078

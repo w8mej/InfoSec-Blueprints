@@ -1,0 +1,1375 @@
+title: Simple keyword detection rule for SwampThing
+id: 2c2ced7d-198a-4a5f-9e9a-eb587c0537a0
+status: experimental
+description: Detects interesting keywords based on SwampThing tool
+references:
+- https://github.com/FuzzySecurity/Sharp-Suite/tree/master/SwampThing
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1036.005
+- attack.T1564.002
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - OriginalFileName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - CurrentDirectory:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ParentImage:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ParentCommandLine:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - TargetFilename:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Signature:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - signature:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ImageLoaded:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Company:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Description:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - description:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - CommandLine:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - SourceImage:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - TargetImage:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - CallTrace:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - TargetObject:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Details:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - PipeName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Consumer:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Destination:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Query:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - NewName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - StartAddress:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - StartModule:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - StartFunction:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - SourceHostname:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Device:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - file_name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - file_path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - original_file_name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - parent_process:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process_path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - service_path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry_path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry_value_data:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry_value_name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ContextInfo:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Payload:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ScriptBlockText:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ServerName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - TransportName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - NewProcessName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ParentProcessName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Application:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Product Name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Threat Name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Process Name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ImagePath:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ServiceName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ProcessPath:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - AppName:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - AppPath:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ModulePath:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry.data.strings:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry.path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry.value:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.args:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.command_line:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.env_vars:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.io.text:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.executable:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.title:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.company:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.description:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.original_file_name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.product:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - os.full:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - host.hostname:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - file.fork_name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - file.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - file.path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - file.target_path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - email.attachments.file.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - email.subject:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - dll.path:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - device.model.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - container.image.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - container.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - object:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - ParentCommandLine:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - CommandLine:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - Details:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - registry.value:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.args:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.command_line:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.env_vars:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.io.text:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - process.title:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.company:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.description:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - pe.product:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - os.full:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - host.hostname:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - event.original:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - email.subject:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - device.model.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - container.image.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - container.name:
+    - '*SwampThing.sln*'
+    - '* -FakeCmdLine *'
+    - '*\SpoofCmdLine\TheThing*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+    - '*\TheThing.exe*'
+    - '* -RealCmdLine *'
+  - url:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - dest_url:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - uri:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - uri_query:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - query:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - url_domain:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - uri_path:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - domain:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - QueryName:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - QueryResults:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - DestinationHostname:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - DestinationIp:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - http_referrer:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - http_referrer_domain:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - http_user_agent:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - dest_nt_host:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - sender:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - recipient:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - orig_recipient:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - subject:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - url.domain:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - url.full:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - url.original:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - url.query:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - user_agent.original:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - network.application:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - http.request.body.content:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - http.request.referrer:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - email.from.address:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - dns.question.name:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  - destination.domain:
+    - '*SwampThing.sln*'
+    - '*master/SwampThing*'
+    - '*SwampThing.pdb*'
+    - '*SwampThing.exe*'
+    - SwampThing.csproj
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

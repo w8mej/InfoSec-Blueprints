@@ -1,0 +1,801 @@
+title: Simple keyword detection rule for Internal-Monologue
+id: bfc3087e-ac64-47be-a4f5-6eade232732b
+status: experimental
+description: Detects interesting keywords based on Internal-Monologue tool
+references:
+- https://github.com/eladshamir/Internal-Monologue
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1051
+- attack.T1110
+- attack.T1547
+- attack.T1574
+- attack.TA0003
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - CommandLine:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Details:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry.value:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.args:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.command_line:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.env_vars:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.io.text:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.title:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.company:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.description:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.product:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - os.full:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - host.hostname:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - event.original:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - email.subject:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - device.model.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - container.image.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - container.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Image:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - OriginalFileName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - CurrentDirectory:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ParentImage:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ParentCommandLine:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - TargetFilename:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Signature:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - signature:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ImageLoaded:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Company:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Description:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - description:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - CommandLine:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - SourceImage:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - TargetImage:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - CallTrace:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - TargetObject:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Details:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - PipeName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Consumer:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Destination:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Query:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - NewName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - StartAddress:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - StartModule:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - StartFunction:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - SourceHostname:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Device:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - file_name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - file_path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - original_file_name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - parent_process:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process_path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - service_path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry_path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry_value_data:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry_value_name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ContextInfo:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Payload:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ScriptBlockText:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ServerName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - TransportName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - NewProcessName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ParentProcessName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Application:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Product Name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Threat Name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Process Name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - Path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ImagePath:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ServiceName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ProcessPath:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - AppName:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - AppPath:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - ModulePath:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry.data.strings:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry.path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - registry.value:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.args:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.command_line:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.env_vars:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.io.text:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.executable:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - process.title:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.company:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.description:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.original_file_name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - pe.product:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - os.full:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - host.hostname:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - file.fork_name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - file.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - file.path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - file.target_path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - email.attachments.file.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - email.subject:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - dll.path:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - device.model.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - container.image.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - container.name:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - object:
+    - '* -Downgrade False -Restore False -Impersonate True * -challange *'
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - url:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - dest_url:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - uri:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - uri_query:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - query:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - url_domain:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - uri_path:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - domain:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - QueryName:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - QueryResults:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - DestinationHostname:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - DestinationIp:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - http_referrer:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - http_referrer_domain:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - http_user_agent:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - dest_nt_host:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - sender:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - recipient:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - orig_recipient:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - subject:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - url.domain:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - url.full:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - url.original:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - url.query:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - user_agent.original:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - network.application:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - http.request.body.content:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - http.request.referrer:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - email.from.address:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - dns.question.name:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  - destination.domain:
+    - '*InternalMonologueDll*'
+    - '*InternalMonologueExe*'
+    - '*Internal-Monologue.exe*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

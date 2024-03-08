@@ -1,0 +1,1006 @@
+title: Simple keyword detection rule for hashcat
+id: bd113cd2-6ce6-49db-9c06-5ba964bb71a5
+status: experimental
+description: Detects interesting keywords based on hashcat tool
+references:
+- https://github.com/hashcat/hashcat
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.T1021.001
+- attack.T1110.001
+- attack.TA0006
+- attack.TA0009
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - CommandLine:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Details:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry.value:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.args:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.command_line:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.env_vars:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.io.text:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.title:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.company:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.description:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.product:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - os.full:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - host.hostname:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - event.original:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - email.subject:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - device.model.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - container.image.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - container.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Image:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - OriginalFileName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - CurrentDirectory:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ParentImage:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ParentCommandLine:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - TargetFilename:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Signature:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - signature:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ImageLoaded:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Company:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Description:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - description:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - CommandLine:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - SourceImage:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - TargetImage:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - CallTrace:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - TargetObject:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Details:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - PipeName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Consumer:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Destination:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Query:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - NewName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - StartAddress:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - StartModule:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - StartFunction:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - SourceHostname:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Device:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - file_name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - file_path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - original_file_name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - parent_process:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process_path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - service_path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry_path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry_value_data:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry_value_name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ContextInfo:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Payload:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ScriptBlockText:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ServerName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - TransportName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - NewProcessName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ParentProcessName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Application:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Product Name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Threat Name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Process Name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - Path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ImagePath:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ServiceName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ProcessPath:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - AppName:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - AppPath:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - ModulePath:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry.data.strings:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry.path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - registry.value:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.args:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.command_line:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.env_vars:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.io.text:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.executable:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - process.title:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.company:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.description:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.original_file_name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - pe.product:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - os.full:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - host.hostname:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - file.fork_name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - file.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - file.path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - file.target_path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - email.attachments.file.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - email.subject:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - dll.path:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - device.model.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - container.image.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - container.name:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - object:
+    - '* ntlm.wordlist *--hex-wordlist*'
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat*'
+    - '*hashcat.git*'
+    - '* --dc-ip * -request * -format hashcat*'
+  - url:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - dest_url:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - uri:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - uri_query:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - query:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - url_domain:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - uri_path:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - domain:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - QueryName:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - QueryResults:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - DestinationHostname:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - DestinationIp:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - http_referrer:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - http_referrer_domain:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - http_user_agent:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - dest_nt_host:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - sender:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - recipient:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - orig_recipient:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - subject:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - url.domain:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - url.full:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - url.original:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - url.query:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - user_agent.original:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - network.application:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - http.request.body.content:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - http.request.referrer:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - email.from.address:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - dns.question.name:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  - destination.domain:
+    - '*hashcat-*.7z*'
+    - '*hashcat/hashcat*'
+    - '*hashcat.git*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

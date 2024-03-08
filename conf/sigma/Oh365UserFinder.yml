@@ -1,0 +1,719 @@
+title: Simple keyword detection rule for Oh365UserFinder
+id: 52e689f2-3ec9-4ea1-a3bb-01dab4e68e92
+status: experimental
+description: Detects interesting keywords based on Oh365UserFinder tool
+references:
+- https://github.com/dievus/Oh365UserFinder
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1589
+- attack.T1591
+- attack.T1592
+- attack.T1595
+- attack.T1598
+- attack.TA0004
+- attack.TA0005
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - OriginalFileName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - CurrentDirectory:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ParentImage:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ParentCommandLine:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - TargetFilename:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Signature:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - signature:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ImageLoaded:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Company:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Description:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - description:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - CommandLine:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - SourceImage:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - TargetImage:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - CallTrace:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - TargetObject:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Details:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - PipeName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Consumer:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Destination:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Query:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - NewName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - StartAddress:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - StartModule:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - StartFunction:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - SourceHostname:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Device:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - file_name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - file_path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - original_file_name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - parent_process:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process_path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - service_path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - registry_path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - registry_value_data:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - registry_value_name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ContextInfo:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Payload:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ScriptBlockText:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ServerName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - TransportName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - NewProcessName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ParentProcessName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Application:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Product Name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Threat Name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Process Name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - Path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ImagePath:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ServiceName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ProcessPath:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - AppName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - AppPath:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - ModulePath:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - registry.data.strings:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - registry.path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - registry.value:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.args:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.command_line:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.env_vars:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.io.text:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.executable:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - process.title:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - pe.company:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - pe.description:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - pe.original_file_name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - pe.product:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - os.full:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - host.hostname:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - file.fork_name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - file.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - file.path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - file.target_path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - email.attachments.file.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - email.subject:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - dll.path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - device.model.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - container.image.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - container.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - object:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - url:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - dest_url:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - uri:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - uri_query:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - query:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - url_domain:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - uri_path:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - domain:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - QueryName:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - QueryResults:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - DestinationHostname:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - DestinationIp:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - http_referrer:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - http_referrer_domain:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - http_user_agent:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - dest_nt_host:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - sender:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - recipient:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - orig_recipient:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - subject:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - url.domain:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - url.full:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - url.original:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - url.query:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - user_agent.original:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - network.application:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - http.request.body.content:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - http.request.referrer:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - email.from.address:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - dns.question.name:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  - destination.domain:
+    - '*Oh365UserFinder-main*'
+    - '*/Oh365UserFinder*'
+    - '*oh365userfinder.py*'
+    - '*Oh365UserFinder.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

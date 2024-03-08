@@ -1,0 +1,770 @@
+title: Simple keyword detection rule for SpringCore0day
+id: e9c759af-cd48-41f0-bd8f-e129f6a9de4b
+status: experimental
+description: Detects interesting keywords based on SpringCore0day tool
+references:
+- https://github.com/craig/SpringCore0day
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1212
+- attack.T1550
+- attack.T1555
+- attack.T1558
+- attack.TA0001
+- attack.TA0004
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - OriginalFileName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - CurrentDirectory:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ParentImage:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ParentCommandLine:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - TargetFilename:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Signature:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - signature:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ImageLoaded:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Company:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Description:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - description:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - CommandLine:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - SourceImage:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - TargetImage:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - CallTrace:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - TargetObject:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Details:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - PipeName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Consumer:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Destination:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Query:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - NewName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - StartAddress:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - StartModule:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - StartFunction:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - SourceHostname:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Device:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - file_name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - file_path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - original_file_name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - parent_process:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process_path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - service_path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry_path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry_value_data:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry_value_name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ContextInfo:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Payload:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ScriptBlockText:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ServerName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - TransportName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - NewProcessName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ParentProcessName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Application:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Product Name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Threat Name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Process Name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ImagePath:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ServiceName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ProcessPath:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - AppName:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - AppPath:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ModulePath:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry.data.strings:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry.path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry.value:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.args:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.command_line:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.env_vars:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.io.text:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.executable:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.title:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.company:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.description:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.original_file_name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.product:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - os.full:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - host.hostname:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - file.fork_name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - file.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - file.path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - file.target_path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - email.attachments.file.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - email.subject:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - dll.path:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - device.model.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - container.image.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - container.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - object:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - ParentCommandLine:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - CommandLine:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - Details:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - registry.value:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.args:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.command_line:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.env_vars:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.io.text:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - process.title:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.company:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.description:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - pe.product:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - os.full:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - host.hostname:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - event.original:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - email.subject:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - device.model.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - container.image.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - container.name:
+    - '*/SpringCore0day*'
+    - '*python3 ./exp.py --url http://*'
+    - '*vulfocus/spring-core-rce-*'
+    - '*curl --output *http*/tomcatwar.jsp?*'
+  - url:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - dest_url:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - uri:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - uri_query:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - query:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - url_domain:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - uri_path:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - domain:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - QueryName:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - QueryResults:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - DestinationHostname:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - DestinationIp:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - http_referrer:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - http_referrer_domain:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - http_user_agent:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - dest_nt_host:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - sender:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - recipient:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - orig_recipient:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - subject:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - url.domain:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - url.full:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - url.original:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - url.query:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - user_agent.original:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - network.application:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - http.request.body.content:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - http.request.referrer:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - email.from.address:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - dns.question.name:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  - destination.domain:
+    - '*/SpringCore0day*'
+    - '*vulfocus/spring-core-rce-*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

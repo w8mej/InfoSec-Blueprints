@@ -1,0 +1,683 @@
+title: Simple keyword detection rule for CredPhisher
+id: 722f34f9-12e0-412d-865c-621ff64b3954
+status: experimental
+description: Detects interesting keywords based on CredPhisher tool
+references:
+- https://github.com/matterpreter/OffensiveCSharp/tree/master/CredPhisher
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1056.002
+- attack.T1111
+- 'attack.TA0004 '
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - OriginalFileName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - CurrentDirectory:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ParentImage:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ParentCommandLine:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - TargetFilename:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Signature:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - signature:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ImageLoaded:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Company:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Description:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - description:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - CommandLine:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - SourceImage:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - TargetImage:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - CallTrace:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - TargetObject:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Details:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - PipeName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Consumer:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Destination:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Query:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - NewName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - StartAddress:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - StartModule:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - StartFunction:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - SourceHostname:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Device:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - file_name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - file_path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - original_file_name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - parent_process:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process_path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - service_path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - registry_path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - registry_value_data:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - registry_value_name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ContextInfo:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Payload:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ScriptBlockText:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ServerName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - TransportName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - NewProcessName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ParentProcessName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Application:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Product Name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Threat Name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Process Name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - Path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ImagePath:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ServiceName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ProcessPath:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - AppName:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - AppPath:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - ModulePath:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - registry.data.strings:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - registry.path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - registry.value:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.args:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.command_line:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.env_vars:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.io.text:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.executable:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - process.title:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - pe.company:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - pe.description:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - pe.original_file_name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - pe.product:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - os.full:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - host.hostname:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - file.fork_name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - file.name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - file.path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - file.target_path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - email.attachments.file.name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - email.subject:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - dll.path:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - device.model.name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - container.image.name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - container.name:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - object:
+    - '*namespace CredPhisher*'
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - url:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - dest_url:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - uri:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - uri_query:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - query:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - url_domain:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - uri_path:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - domain:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - QueryName:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - QueryResults:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - DestinationHostname:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - DestinationIp:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - http_referrer:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - http_referrer_domain:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - http_user_agent:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - dest_nt_host:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - sender:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - recipient:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - orig_recipient:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - subject:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - url.domain:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - url.full:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - url.original:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - url.query:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - user_agent.original:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - network.application:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - http.request.body.content:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - http.request.referrer:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - email.from.address:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - dns.question.name:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  - destination.domain:
+    - '*CredPhisher.exe*'
+    - '*CredPhisher.csproj*'
+    - '*/CredPhisher/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

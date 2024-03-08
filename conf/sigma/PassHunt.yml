@@ -1,0 +1,603 @@
+title: Simple keyword detection rule for PassHunt
+id: 51d46906-216e-4eb9-a39c-94706cbba83c
+status: experimental
+description: Detects interesting keywords based on PassHunt tool
+references:
+- https://github.com/Dionach/PassHunt
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1039
+- attack.T1081
+- attack.T1083
+- attack.T1213
+- attack.TA0003
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - OriginalFileName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - CurrentDirectory:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ParentImage:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ParentCommandLine:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - TargetFilename:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Signature:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - signature:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ImageLoaded:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Company:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Description:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - description:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - CommandLine:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - SourceImage:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - TargetImage:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - CallTrace:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - TargetObject:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Details:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - PipeName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Consumer:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Destination:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Query:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - NewName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - StartAddress:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - StartModule:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - StartFunction:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - SourceHostname:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Device:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - file_name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - file_path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - original_file_name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - parent_process:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process_path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - service_path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - registry_path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - registry_value_data:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - registry_value_name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ContextInfo:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Payload:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ScriptBlockText:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ServerName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - TransportName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - NewProcessName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ParentProcessName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Application:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Product Name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Threat Name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Process Name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - Path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ImagePath:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ServiceName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ProcessPath:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - AppName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - AppPath:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - ModulePath:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - registry.data.strings:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - registry.path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - registry.value:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.args:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.command_line:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.env_vars:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.io.text:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.executable:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - process.title:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - pe.company:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - pe.description:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - pe.original_file_name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - pe.product:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - os.full:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - host.hostname:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - file.fork_name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - file.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - file.path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - file.target_path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - email.attachments.file.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - email.subject:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - dll.path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - device.model.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - container.image.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - container.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - object:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - url:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - dest_url:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - uri:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - uri_query:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - query:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - url_domain:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - uri_path:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - domain:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - QueryName:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - QueryResults:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - DestinationHostname:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - DestinationIp:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - http_referrer:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - http_referrer_domain:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - http_user_agent:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - dest_nt_host:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - sender:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - recipient:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - orig_recipient:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - subject:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - url.domain:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - url.full:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - url.original:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - url.query:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - user_agent.original:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - network.application:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - http.request.body.content:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - http.request.referrer:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - email.from.address:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - dns.question.name:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  - destination.domain:
+    - '*passhunt.py*'
+    - '*passhunt.exe*'
+    - '*Dionach*PassHunt*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

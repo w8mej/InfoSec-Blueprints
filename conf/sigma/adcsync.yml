@@ -1,0 +1,1210 @@
+title: Simple keyword detection rule for adcsync
+id: 753d0cbb-b598-4e6e-a70d-14c1ddb5c7da
+status: experimental
+description: Detects interesting keywords based on adcsync tool
+references:
+- https://github.com/JPG0mez/ADCSync
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.006
+- attack.T1021
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - CommandLine:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Details:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry.value:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.args:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.command_line:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.env_vars:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.io.text:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.title:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.company:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.description:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.product:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - os.full:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - host.hostname:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - event.original:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - email.subject:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - device.model.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - container.image.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - container.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Image:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - OriginalFileName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - CurrentDirectory:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ParentImage:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ParentCommandLine:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - TargetFilename:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Signature:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - signature:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ImageLoaded:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Company:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Description:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - description:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - CommandLine:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - SourceImage:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - TargetImage:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - CallTrace:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - TargetObject:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Details:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - PipeName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Consumer:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Destination:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Query:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - NewName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - StartAddress:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - StartModule:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - StartFunction:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - SourceHostname:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Device:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - file_name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - file_path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - original_file_name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - parent_process:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process_path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - service_path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry_path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry_value_data:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry_value_name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ContextInfo:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Payload:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ScriptBlockText:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ServerName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - TransportName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - NewProcessName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ParentProcessName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Application:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Product Name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Threat Name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Process Name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - Path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ImagePath:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ServiceName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ProcessPath:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - AppName:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - AppPath:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - ModulePath:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry.data.strings:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry.path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - registry.value:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.args:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.command_line:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.env_vars:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.io.text:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.executable:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - process.title:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.company:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.description:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.original_file_name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - pe.product:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - os.full:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - host.hostname:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - file.fork_name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - file.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - file.path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - file.target_path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - email.attachments.file.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - email.subject:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - dll.path:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - device.model.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - container.image.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - container.name:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - object:
+    - '*Certipy not found. Please install Certipy before running ADCSync*'
+    - '*/adcsync.py*'
+    - '*certipy req -u * -p * -target-ip * -dc-ip * -ca *'
+    - '*adcsync.py -*'
+    - '* adcsync.py*'
+    - '*\adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - url:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - dest_url:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - uri:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - uri_query:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - query:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - url_domain:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - uri_path:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - domain:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - QueryName:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - QueryResults:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - DestinationHostname:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - DestinationIp:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - http_referrer:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - http_referrer_domain:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - http_user_agent:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - dest_nt_host:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - sender:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - recipient:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - orig_recipient:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - subject:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - url.domain:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - url.full:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - url.original:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - url.query:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - user_agent.original:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - network.application:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - http.request.body.content:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - http.request.referrer:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - email.from.address:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - dns.question.name:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  - destination.domain:
+    - '*/adcsync.py*'
+    - '*/adcsync.git*'
+    - '*JPG0mez/ADCSync*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

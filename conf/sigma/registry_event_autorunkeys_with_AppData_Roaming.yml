@@ -1,0 +1,41 @@
+title: Registry Autorun Keys With \AppData\Roaming\
+id: 937a4ef4-d56b-4976-93a0-6936f89b3dfe
+description: Attempts to detect direct modification of autostart extensibility point (ASEP) in registry
+status: experimental
+references:
+    - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1547.001/T1547.001.md
+    # Adversaries may achieve persistence by adding a program to a startup folder or referencing 
+    # it with a Registry run key. Adding an entry to the "run keys" in the Registry or startup folder
+    # will cause the program referenced to be executed when a user logs in. (Citation: Microsoft Run Key) 
+    # These programs will be executed under the context of the user and will have the account's 
+    # associated permissions level.
+tags:
+    - attack.registry_run_keys_/_startup_folder
+    - attack.t1547.001
+date: 2021/10/20
+author: Christopher Peacock (@securepeacock)
+level: high
+logsource:
+    product: windows
+    category: registry_event
+detection:
+    selection1:
+        TargetObject|contains: 
+            - '\software\Microsoft\Windows\CurrentVersion\Run'
+            - '\software\Microsoft\Windows\CurrentVersion\RunOnce'
+            - '\software\Microsoft\Windows\CurrentVersion\RunOnceEx'
+            - '\software\Microsoft\Windows\CurrentVersion\RunServices'
+            - '\software\Microsoft\Windows\CurrentVersion\RunServicesOnce'
+            - '\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit'
+            - '\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell'
+            - '\software\Microsoft\Windows NT\CurrentVersion\Windows'
+            - '\software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
+            - '\system\CurrentControlSet\Control\SafeBoot\AlternateShell'
+        Details|contains:
+            - \AppData\Roaming\
+    condition: selection1
+fields:
+    - TargetObject
+falsepositives:
+    - Known applications may leverage these keys at times, it is recomended to search for anomolous keys inidicative of malware.
+

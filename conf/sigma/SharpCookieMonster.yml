@@ -1,0 +1,1060 @@
+title: Simple keyword detection rule for SharpCookieMonster
+id: 68bdc62e-28b9-4071-b18a-bd5068d7016d
+status: experimental
+description: Detects interesting keywords based on SharpCookieMonster tool
+references:
+- https://github.com/m0rv4i/SharpCookieMonster
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1539
+- attack.T1606
+- attack.TA0002
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - OriginalFileName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - CurrentDirectory:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ParentImage:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ParentCommandLine:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - TargetFilename:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Signature:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - signature:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ImageLoaded:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Company:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Description:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - description:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - CommandLine:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - SourceImage:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - TargetImage:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - CallTrace:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - TargetObject:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Details:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - PipeName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Consumer:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Destination:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Query:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - NewName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - StartAddress:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - StartModule:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - StartFunction:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - SourceHostname:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Device:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - file_name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - file_path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - original_file_name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - parent_process:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process_path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - service_path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - registry_path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - registry_value_data:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - registry_value_name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ContextInfo:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Payload:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ScriptBlockText:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ServerName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - TransportName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - NewProcessName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ParentProcessName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Application:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Product Name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Threat Name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Process Name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - Path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ImagePath:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ServiceName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ProcessPath:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - AppName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - AppPath:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - ModulePath:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - registry.data.strings:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - registry.path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - registry.value:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.args:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.command_line:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.env_vars:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.io.text:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.executable:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - process.title:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - pe.company:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - pe.description:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - pe.original_file_name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - pe.product:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - os.full:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - host.hostname:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - file.fork_name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - file.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - file.path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - file.target_path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - email.attachments.file.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - email.subject:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - dll.path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - device.model.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - container.image.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - container.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - object:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - url:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - dest_url:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - uri:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - uri_query:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - query:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - url_domain:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - uri_path:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - domain:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - QueryName:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - QueryResults:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - DestinationHostname:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - DestinationIp:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - http_referrer:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - http_referrer_domain:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - http_user_agent:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - dest_nt_host:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - sender:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - recipient:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - orig_recipient:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - subject:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - url.domain:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - url.full:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - url.original:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - url.query:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - user_agent.original:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - network.application:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - http.request.body.content:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - http.request.referrer:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - email.from.address:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - dns.question.name:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  - destination.domain:
+    - '*SharpCookieMonster*WebSocket4Net.dll*'
+    - '*SharpCookieMonster.csproj*'
+    - '*SharpCookieMonster.exe*'
+    - '*m0rv4i/SharpCookieMonster*'
+    - '*SharpCookieMonster.sln*'
+    - '*execute-assembly*sharpcookiemonster*'
+    - '*SharpCookieMonsterOriginal.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

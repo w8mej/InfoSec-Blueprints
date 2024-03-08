@@ -1,0 +1,1138 @@
+title: Simple keyword detection rule for onesixtyone
+id: 097ce238-4803-4c3f-b9a0-e2dc57ccc696
+status: experimental
+description: Detects interesting keywords based on onesixtyone tool
+references:
+- https://github.com/trailofbits/onesixtyone
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1046
+- attack.TA0005
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - OriginalFileName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - CurrentDirectory:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ParentImage:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ParentCommandLine:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - TargetFilename:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Signature:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - signature:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ImageLoaded:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Company:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Description:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - description:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - CommandLine:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - SourceImage:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - TargetImage:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - CallTrace:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - TargetObject:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Details:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - PipeName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Consumer:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Destination:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Query:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - NewName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - StartAddress:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - StartModule:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - StartFunction:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - SourceHostname:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Device:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - file_name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - file_path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - original_file_name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - parent_process:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process_path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - service_path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry_path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry_value_data:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry_value_name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ContextInfo:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Payload:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ScriptBlockText:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ServerName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - TransportName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - NewProcessName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ParentProcessName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Application:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Product Name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Threat Name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Process Name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ImagePath:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ServiceName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ProcessPath:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - AppName:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - AppPath:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ModulePath:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry.data.strings:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry.path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry.value:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.args:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.command_line:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.env_vars:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.io.text:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.executable:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.title:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.company:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.description:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.original_file_name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.product:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - os.full:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - host.hostname:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - file.fork_name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - file.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - file.path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - file.target_path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - email.attachments.file.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - email.subject:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - dll.path:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - device.model.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - container.image.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - container.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - object:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - ParentCommandLine:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - CommandLine:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - Details:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - registry.value:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.args:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.command_line:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.env_vars:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.io.text:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - process.title:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.company:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.description:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - pe.product:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - os.full:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - host.hostname:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - event.original:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - email.subject:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - device.model.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - container.image.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - container.name:
+    - '*onesixtyone.1*'
+    - '* onesixtyone.c*'
+    - '* -i snmp-ips.txt -c community.txt*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone -i * -c*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - url:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - dest_url:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - uri:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - uri_query:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - query:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - url_domain:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - uri_path:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - domain:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - QueryName:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - QueryResults:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - DestinationHostname:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - DestinationIp:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - http_referrer:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - http_referrer_domain:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - http_user_agent:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - dest_nt_host:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - sender:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - recipient:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - orig_recipient:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - subject:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - url.domain:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - url.full:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - url.original:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - url.query:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - user_agent.original:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - network.application:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - http.request.body.content:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - http.request.referrer:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - email.from.address:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - dns.question.name:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  - destination.domain:
+    - '*onesixtyone.1*'
+    - '*/onesixtyone/dict.txt*'
+    - '*onesixtyone.git*'
+    - '*trailofbits/onesixtyone*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

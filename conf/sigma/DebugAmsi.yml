@@ -1,0 +1,1259 @@
+title: Simple keyword detection rule for DebugAmsi
+id: 8367b5d9-8564-4914-b2d2-e380ea56f102
+status: experimental
+description: Detects interesting keywords based on DebugAmsi tool
+references:
+- https://github.com/MzHmO/DebugAmsi
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1050.005
+- attack.T1562.001
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - OriginalFileName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - CurrentDirectory:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ParentImage:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ParentCommandLine:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - TargetFilename:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Signature:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - signature:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ImageLoaded:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Company:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Description:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - description:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - CommandLine:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - SourceImage:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - TargetImage:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - CallTrace:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - TargetObject:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Details:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - PipeName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Consumer:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Destination:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Query:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - NewName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - StartAddress:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - StartModule:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - StartFunction:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - SourceHostname:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Device:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - file_name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - file_path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - original_file_name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - parent_process:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process_path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - service_path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - registry_path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - registry_value_data:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - registry_value_name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ContextInfo:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Payload:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ScriptBlockText:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ServerName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - TransportName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - NewProcessName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ParentProcessName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Application:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Product Name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Threat Name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Process Name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - Path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ImagePath:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ServiceName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ProcessPath:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - AppName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - AppPath:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - ModulePath:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - registry.data.strings:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - registry.path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - registry.value:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.args:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.command_line:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.env_vars:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.io.text:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.executable:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - process.title:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - pe.company:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - pe.description:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - pe.original_file_name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - pe.product:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - os.full:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - host.hostname:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - file.fork_name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - file.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - file.path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - file.target_path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - email.attachments.file.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - email.subject:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - dll.path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - device.model.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - container.image.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - container.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - object:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*375D8508-F60D-4E24-9DF6-1E591D2FA474*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - url:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - dest_url:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - uri:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - uri_query:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - query:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - url_domain:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - uri_path:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - domain:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - QueryName:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - QueryResults:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - DestinationHostname:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - DestinationIp:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - http_referrer:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - http_referrer_domain:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - http_user_agent:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - dest_nt_host:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - sender:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - recipient:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - orig_recipient:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - subject:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - url.domain:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - url.full:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - url.original:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - url.query:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - user_agent.original:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - network.application:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - http.request.body.content:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - http.request.referrer:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - email.from.address:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - dns.question.name:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  - destination.domain:
+    - '*DebugAmsi.sln*'
+    - '*MzHmO/DebugAmsi*'
+    - '*DebugAmsi.exe*'
+    - '*DebugAmsix64.exe*'
+    - '*DebugAmsix86.exe*'
+    - '*/DebugAmsi.git*'
+    - '*DebugAmsi-main*'
+    - '*DebugAmsi.vcxproj*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

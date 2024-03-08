@@ -1,0 +1,82 @@
+title: Simple keyword detection rule for php
+id: a8ee5d80-2018-4021-aa12-2a3d2dd564a9
+status: experimental
+description: Detects interesting keywords based on php tool
+references:
+- https://github.com/RoseSecurity/Red-Teaming-TTPs/blob/main/Linux.md
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021
+- attack.T1071
+- attack.T1071.004
+- attack.TA0002
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - CommandLine:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - Details:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - registry.value:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - process.args:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - process.command_line:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - process.env_vars:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - process.io.text:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - process.title:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - pe.company:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - pe.description:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - pe.product:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - os.full:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - host.hostname:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - event.original:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - email.subject:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - device.model.name:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - container.image.name:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  - container.name:
+    - '*php -r *$sock=fsockopen(*exec(*/bin/sh -i <&3 >&3 2>&3*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

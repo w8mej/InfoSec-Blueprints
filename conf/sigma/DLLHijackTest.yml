@@ -1,0 +1,1306 @@
+title: Simple keyword detection rule for DLLHijackTest
+id: d042f5e7-2e41-446f-84da-c22f04c037ab
+status: experimental
+description: Detects interesting keywords based on DLLHijackTest tool
+references:
+- https://github.com/slyd0g/DLLHijackTest
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1036.005
+- attack.T1055.001
+- attack.T1059.001
+- attack.T1574.002
+- attack.TA0002
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - OriginalFileName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - CurrentDirectory:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ParentImage:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ParentCommandLine:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - TargetFilename:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Signature:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - signature:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ImageLoaded:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Company:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Description:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - description:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - CommandLine:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - SourceImage:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - TargetImage:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - CallTrace:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - TargetObject:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Details:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - PipeName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Consumer:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Destination:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Query:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - NewName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - StartAddress:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - StartModule:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - StartFunction:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - SourceHostname:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Device:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - file_name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - file_path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - original_file_name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - parent_process:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process_path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - service_path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry_path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry_value_data:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry_value_name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ContextInfo:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Payload:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ScriptBlockText:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ServerName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - TransportName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - NewProcessName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ParentProcessName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Application:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Product Name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Threat Name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Process Name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ImagePath:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ServiceName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ProcessPath:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - AppName:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - AppPath:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ModulePath:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry.data.strings:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry.path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry.value:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.args:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.command_line:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.env_vars:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.io.text:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.executable:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.title:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.company:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.description:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.original_file_name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.product:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - os.full:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - host.hostname:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - file.fork_name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - file.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - file.path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - file.target_path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - email.attachments.file.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - email.subject:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - dll.path:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - device.model.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - container.image.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - container.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - object:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - ParentCommandLine:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - CommandLine:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - Details:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - registry.value:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.args:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.command_line:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.env_vars:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.io.text:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - process.title:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.company:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.description:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - pe.product:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - os.full:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - host.hostname:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - event.original:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - email.subject:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - device.model.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - container.image.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - container.name:
+    - '*644758B1-C146-4D3B-B614-8EB6C933B0AA*'
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*[+] Parsed Procmon output for potential DLL hijack paths!*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - url:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - dest_url:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - uri:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - uri_query:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - query:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - url_domain:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - uri_path:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - domain:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - QueryName:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - QueryResults:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - DestinationHostname:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - DestinationIp:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - http_referrer:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - http_referrer_domain:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - http_user_agent:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - dest_nt_host:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - sender:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - recipient:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - orig_recipient:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - subject:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - url.domain:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - url.full:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - url.original:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - url.query:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - user_agent.original:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - network.application:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - http.request.body.content:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - http.request.referrer:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - email.from.address:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - dns.question.name:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  - destination.domain:
+    - '*slyd0g/DLLHijackTest*'
+    - '*DLLHijackTest-master*'
+    - '*/DLLHijackTest.git*'
+    - '*DLLHijackTest.dll*'
+    - '*Get-PotentialDLLHijack*'
+    - '*DLLHijackTest.sln*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

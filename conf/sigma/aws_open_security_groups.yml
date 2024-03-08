@@ -1,0 +1,44 @@
+title: AWS Open Security Groups
+status: experimental
+author: wssheldo
+date: 2020/05/19
+description: >
+  We look for rules allowing inbound traffic
+  on port 22 from any IPs. Then we look for the
+  associated instance IDs and append them to the list.
+references:
+  - https://www.threatstack.com/blog/101-aws-security-tips-quotes-part-3-best-practices-for-using-security-groups-in-aws
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype="aws:cloudtrail" earliest=-1d@d
+  eventSource="ec2.amazonaws.com"
+  eventName="AuthorizeSecurityGroupIngress"
+  | spath output=fromPort path=requestParameters.ipPermissions.items{}.fromPort
+  | spath output=toPort path=requestParameters.ipPermissions.items{}.toPort
+  | spath output=cidrIp
+  path=requestParameters.ipPermissions.items{}.ipRanges.items{}.cidrIp
+  | spath output=groupId path=requestParameters.groupId
+  | spath output=accountId path=userIdentity.accountId
+  | spath output=type path=userIdentity.type
+  | search (fromPort=22 toPort=22 AND cidrIp="0.0.0.0/0")
+  | spath output=ipPermissions path=requestParameters.ipPermissions.items{}
+  | mvexpand ipPermissions
+  | fields - fromPort, toPort, cidrIp
+  | spath input=ipPermissions
+  | spath output=cidrIp path=ipRanges.items{}.cidrIp input=ipPermissions
+  | join groupId
+    [ search sourcetype=aws:cloudtrail eventName=RunInstances earliest=-7d
+    | fields "responseElements.instancesSet.items{}.groupSet.items{}.groupId",
+    "responseElements.instancesSet.items{}.instanceId"
+    | rename responseElements.instancesSet.items{}.groupSet.items{}.groupId
+    as groupId, "responseElements.instancesSet.items{}.instanceId"
+    as instanceId]
+  | stats values(instanceId) by groupId, userName, accountId, type,
+  sourceIPAddress, cidrIp, fromPort, toPort, ipProtocol
+severity: 3
+page: false
+falsepositives: >
+  - Legitmate services that need to be exposed to the internet
+tags: >
+  - attack.t1108

@@ -1,0 +1,1406 @@
+title: Simple keyword detection rule for micr0_shell
+id: ec35029d-a91e-4bb7-80c3-10d890955570
+status: experimental
+description: Detects interesting keywords based on micr0_shell tool
+references:
+- https://github.com/senzee1984/micr0_shell
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027.001
+- attack.T1059.003
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - OriginalFileName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - CurrentDirectory:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ParentImage:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ParentCommandLine:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - TargetFilename:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Signature:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - signature:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ImageLoaded:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Company:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Description:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - description:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - CommandLine:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - SourceImage:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - TargetImage:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - CallTrace:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - TargetObject:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Details:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - PipeName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Consumer:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Destination:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Query:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - NewName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - StartAddress:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - StartModule:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - StartFunction:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - SourceHostname:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Device:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - file_name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - file_path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - original_file_name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - parent_process:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process_path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - service_path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry_path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry_value_data:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry_value_name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ContextInfo:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Payload:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ScriptBlockText:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ServerName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - TransportName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - NewProcessName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ParentProcessName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Application:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Product Name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Threat Name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Process Name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ImagePath:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ServiceName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ProcessPath:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - AppName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - AppPath:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ModulePath:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry.data.strings:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry.path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry.value:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.args:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.command_line:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.env_vars:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.io.text:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.executable:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.title:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.company:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.description:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.original_file_name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.product:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - os.full:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - host.hostname:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - file.fork_name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - file.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - file.path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - file.target_path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - email.attachments.file.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - email.subject:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - dll.path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - device.model.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - container.image.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - container.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - object:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - ParentCommandLine:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - CommandLine:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - Details:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - registry.value:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.args:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.command_line:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.env_vars:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.io.text:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - process.title:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.company:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.description:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - pe.product:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - os.full:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - host.hostname:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - event.original:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - email.subject:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - device.model.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - container.image.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - container.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '* --execution false --save True --output *.bin*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '* --ip * --port * --type cmd --language *'
+    - '*/micr0_shell.git*'
+    - '* --ip * --variable shellcode *'
+  - url:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - dest_url:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - uri:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - uri_query:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - query:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - url_domain:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - uri_path:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - domain:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - QueryName:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - QueryResults:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - DestinationHostname:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - DestinationIp:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - http_referrer:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - http_referrer_domain:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - http_user_agent:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - dest_nt_host:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - sender:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - recipient:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - orig_recipient:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - subject:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - url.domain:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - url.full:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - url.original:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - url.query:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - user_agent.original:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - network.application:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - http.request.body.content:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - http.request.referrer:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - email.from.address:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - dns.question.name:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  - destination.domain:
+    - '*micr0shell.py *'
+    - '*micr0_shell-main*'
+    - '*senzee1984/micr0_shell*'
+    - '*/micr0%20shell.py*'
+    - '*micr0 shell.py*'
+    - '*/micr0_shell.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,738 @@
+title: Simple keyword detection rule for SharpSQLPwn
+id: 26975719-7ad2-464b-aa2c-79222bd73370
+status: experimental
+description: Detects interesting keywords based on SharpSQLPwn tool
+references:
+- https://github.com/lefayjey/SharpSQLPwn
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1078.003
+- attack.T1210.002
+- attack.TA0001
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - CommandLine:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Details:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry.value:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.args:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.command_line:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.env_vars:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.io.text:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.title:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.company:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.description:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.product:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - os.full:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - host.hostname:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - event.original:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - email.subject:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - device.model.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - container.image.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - container.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Image:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - OriginalFileName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - CurrentDirectory:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ParentImage:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ParentCommandLine:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - TargetFilename:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Signature:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - signature:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ImageLoaded:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Company:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Description:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - description:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - CommandLine:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - SourceImage:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - TargetImage:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - CallTrace:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - TargetObject:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Details:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - PipeName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Consumer:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Destination:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Query:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - NewName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - StartAddress:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - StartModule:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - StartFunction:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - SourceHostname:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Device:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - file_name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - file_path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - original_file_name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - parent_process:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process_path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - service_path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry_path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry_value_data:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry_value_name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ContextInfo:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Payload:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ScriptBlockText:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ServerName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - TransportName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - NewProcessName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ParentProcessName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Application:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Product Name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Threat Name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Process Name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - Path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ImagePath:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ServiceName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ProcessPath:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - AppName:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - AppPath:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - ModulePath:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry.data.strings:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry.path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - registry.value:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.args:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.command_line:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.env_vars:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.io.text:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.executable:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - process.title:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.company:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.description:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.original_file_name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - pe.product:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - os.full:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - host.hostname:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - file.fork_name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - file.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - file.path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - file.target_path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - email.attachments.file.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - email.subject:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - dll.path:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - device.model.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - container.image.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - container.name:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - object:
+    - '* /modules:* /target:* /linkedsql:*'
+    - '* /cmdtech:* /cmd:* /impuser:*'
+    - '*SharpSQLPwn*'
+    - '* /cmdtech:* /cmd:* /query:*'
+  - url:
+    - '*SharpSQLPwn*'
+  - dest_url:
+    - '*SharpSQLPwn*'
+  - uri:
+    - '*SharpSQLPwn*'
+  - uri_query:
+    - '*SharpSQLPwn*'
+  - query:
+    - '*SharpSQLPwn*'
+  - url_domain:
+    - '*SharpSQLPwn*'
+  - uri_path:
+    - '*SharpSQLPwn*'
+  - domain:
+    - '*SharpSQLPwn*'
+  - QueryName:
+    - '*SharpSQLPwn*'
+  - QueryResults:
+    - '*SharpSQLPwn*'
+  - DestinationHostname:
+    - '*SharpSQLPwn*'
+  - DestinationIp:
+    - '*SharpSQLPwn*'
+  - http_referrer:
+    - '*SharpSQLPwn*'
+  - http_referrer_domain:
+    - '*SharpSQLPwn*'
+  - http_user_agent:
+    - '*SharpSQLPwn*'
+  - dest_nt_host:
+    - '*SharpSQLPwn*'
+  - sender:
+    - '*SharpSQLPwn*'
+  - recipient:
+    - '*SharpSQLPwn*'
+  - orig_recipient:
+    - '*SharpSQLPwn*'
+  - subject:
+    - '*SharpSQLPwn*'
+  - url.domain:
+    - '*SharpSQLPwn*'
+  - url.full:
+    - '*SharpSQLPwn*'
+  - url.original:
+    - '*SharpSQLPwn*'
+  - url.query:
+    - '*SharpSQLPwn*'
+  - user_agent.original:
+    - '*SharpSQLPwn*'
+  - network.application:
+    - '*SharpSQLPwn*'
+  - http.request.body.content:
+    - '*SharpSQLPwn*'
+  - http.request.referrer:
+    - '*SharpSQLPwn*'
+  - email.from.address:
+    - '*SharpSQLPwn*'
+  - dns.question.name:
+    - '*SharpSQLPwn*'
+  - destination.domain:
+    - '*SharpSQLPwn*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

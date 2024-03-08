@@ -1,0 +1,20 @@
+title: AWS ConsoleLogin Bruteforce
+author: wssheldo
+date: 2020/05/20
+description: >
+  Alert when a user has more than
+  10 failed authentication attempts to the console in 3 days
+references:
+  - https://docs.datadoghq.com/security_monitoring/default_rules/cloudtrail-aws-login-failures/
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-3d@d
+  "Failed authentication" errorMessage="Failed authentication"
+  userName=* | stats count(errorMessage) as failed by user| where failed > 10
+severity: 3
+page: false
+falsepositives: >
+  - A faulty script or network issue
+tags: >
+  - attack.t1078

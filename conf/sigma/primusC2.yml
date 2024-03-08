@@ -1,0 +1,1437 @@
+title: Simple keyword detection rule for primusC2
+id: 5df26f2f-b8b0-4532-8850-985f93ed6f0c
+status: experimental
+description: Detects interesting keywords based on primusC2 tool
+references:
+- https://github.com/Primusinterp/PrimusC2
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1071
+- attack.T1090
+- attack.TA0002
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - CommandLine:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Details:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry.value:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.args:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.command_line:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.env_vars:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.io.text:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.title:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.company:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.description:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.product:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - os.full:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - host.hostname:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - event.original:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - email.subject:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - device.model.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - container.image.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - container.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Image:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - OriginalFileName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - CurrentDirectory:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ParentImage:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ParentCommandLine:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - TargetFilename:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Signature:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - signature:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ImageLoaded:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Company:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Description:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - description:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - CommandLine:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - SourceImage:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - TargetImage:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - CallTrace:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - TargetObject:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Details:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - PipeName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Consumer:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Destination:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Query:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - NewName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - StartAddress:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - StartModule:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - StartFunction:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - SourceHostname:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Device:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - file_name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - file_path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - original_file_name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - parent_process:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process_path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - service_path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry_path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry_value_data:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry_value_name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ContextInfo:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Payload:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ScriptBlockText:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ServerName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - TransportName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - NewProcessName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ParentProcessName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Application:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Product Name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Threat Name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Process Name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - Path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ImagePath:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ServiceName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ProcessPath:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - AppName:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - AppPath:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - ModulePath:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry.data.strings:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry.path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - registry.value:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.args:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.command_line:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.env_vars:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.io.text:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.executable:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - process.title:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.company:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.description:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.original_file_name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - pe.product:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - os.full:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - host.hostname:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - file.fork_name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - file.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - file.path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - file.target_path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - email.attachments.file.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - email.subject:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - dll.path:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - device.model.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - container.image.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - container.name:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - object:
+    - '*SELECT displayName FROM AntiVirusProduct*'
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*ssh -N -R 4567:localhost:*root*'
+    - '*PrimusC2-main.zip*'
+  - url:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - dest_url:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - uri:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - uri_query:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - query:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - url_domain:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - uri_path:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - domain:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - QueryName:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - QueryResults:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - DestinationHostname:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - DestinationIp:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - http_referrer:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - http_referrer_domain:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - http_user_agent:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - dest_nt_host:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - sender:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - recipient:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - orig_recipient:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - subject:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - url.domain:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - url.full:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - url.original:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - url.query:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - user_agent.original:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - network.application:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - http.request.body.content:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - http.request.referrer:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - email.from.address:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - dns.question.name:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  - destination.domain:
+    - '*:8999/Payloads/*'
+    - '*127.0.0.1:4567*'
+    - '*localhost:4567*'
+    - '*/PrimusC2*'
+    - '*/C2/server.py*'
+    - '*/PrimusC2.git*'
+    - '*PrimusC2-main.zip*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

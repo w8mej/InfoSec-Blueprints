@@ -1,0 +1,1872 @@
+title: Simple keyword detection rule for RedGuard
+id: 0deb80d0-8fc5-403d-837e-f4a22b7c6f71
+status: experimental
+description: Detects interesting keywords based on RedGuard tool
+references:
+- https://github.com/wikiZ/RedGuard
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1001.003
+- attack.T1003.001
+- attack.T1003.002
+- attack.T1005
+- attack.T1007
+- attack.T1012
+- attack.T1016
+- attack.T1018
+- attack.T1021.001
+- attack.T1021.002
+- attack.T1021.003
+- attack.T1021.004
+- attack.T1021.006
+- attack.T1027
+- attack.T1029
+- attack.T1030
+- attack.T1047
+- attack.T1049
+- attack.T1055.001
+- attack.T1055.012
+- attack.T1057
+- attack.T1059.001
+- attack.T1059.003
+- attack.T1059.004
+- attack.T1068.001
+- attack.T1068.002
+- attack.T1069.001
+- attack.T1069.002
+- attack.T1071.001
+- attack.T1071.004
+- attack.T1071.005
+- attack.T1078.002
+- attack.T1078.003
+- attack.T1083
+- attack.T1087.002
+- attack.T1090.001
+- attack.T1090.004
+- attack.T1095
+- attack.T1113
+- attack.T1134.001
+- attack.T1134.003
+- attack.T1134.004
+- attack.T1135
+- attack.T1137.001
+- attack.T1140
+- attack.T1185
+- attack.T1197
+- attack.T1203
+- attack.T1218.011
+- attack.T1518
+- attack.T1548.002
+- attack.T1548.003
+- attack.T1550.002
+- attack.T1553.002
+- attack.T1562.001
+- attack.T1564.010
+- attack.T1569.002
+- attack.T1572
+- attack.T1573.001
+- attack.T1573.002
+- attack.T1620
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+- attack.TA0008
+- attack.TA0011
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - OriginalFileName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - CurrentDirectory:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ParentImage:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ParentCommandLine:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - TargetFilename:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Signature:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - signature:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ImageLoaded:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Company:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Description:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - description:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - CommandLine:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - SourceImage:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - TargetImage:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - CallTrace:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - TargetObject:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Details:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - PipeName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Consumer:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Destination:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Query:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - NewName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - StartAddress:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - StartModule:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - StartFunction:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - SourceHostname:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Device:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file_name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file_path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - original_file_name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - parent_process:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process_path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - service_path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - registry_path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - registry_value_data:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - registry_value_name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ContextInfo:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Payload:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ScriptBlockText:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ServerName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - TransportName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - NewProcessName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ParentProcessName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Application:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Product Name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Threat Name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Process Name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ImagePath:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ServiceName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ProcessPath:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - AppName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - AppPath:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - ModulePath:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - registry.data.strings:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - registry.path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - registry.value:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.args:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.command_line:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.env_vars:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.io.text:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.executable:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - process.title:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - pe.company:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - pe.description:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - pe.original_file_name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - pe.product:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - os.full:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - host.hostname:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file.fork_name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file.path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file.target_path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - email.attachments.file.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - email.subject:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - dll.path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - device.model.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - container.image.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - container.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - object:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - Hashes:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - file_hash:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - hash.md5:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - hash.sha1:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - hash.sha256:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - hash.sha384:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - hash.sha512:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - hash.ssdeep:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - service_hash:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - description:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*OverrideLHOST 360.com*'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard/core*'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - RedGuard -*
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - url:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - dest_url:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - uri:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - uri_query:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - query:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - url_domain:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - uri_path:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - domain:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - QueryName:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - QueryResults:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - DestinationHostname:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - DestinationIp:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - http_referrer:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - http_referrer_domain:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - http_user_agent:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - dest_nt_host:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - sender:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - recipient:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - orig_recipient:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - subject:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - url.domain:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - url.full:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - url.original:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - url.query:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - user_agent.original:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - network.application:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - http.request.body.content:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - http.request.referrer:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - email.from.address:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - dns.question.name:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  - destination.domain:
+    - '*RedGuard_x86.exe*'
+    - '*./RedGuard*'
+    - '*/wikiZ/RedGuard*'
+    - '*/RedGuard_32'
+    - '*/RedGuard.go*'
+    - '*/RedGuard.git*'
+    - '*/RedGuard_64'
+    - '*RedGuard.log*'
+    - '*RedGuard_x64.exe*'
+    - '*866e5289337ab033f89bc57c5274c7ca*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- Hashes
+- file_hash
+- hash.md5
+- hash.sha1
+- hash.sha256
+- hash.sha384
+- hash.sha512
+- hash.ssdeep
+- service_hash
+- description
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

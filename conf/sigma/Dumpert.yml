@@ -1,0 +1,1232 @@
+title: Simple keyword detection rule for Dumpert
+id: b01d6d6b-99dd-4c18-9994-137432b0a5c0
+status: experimental
+description: Detects interesting keywords based on Dumpert tool
+references:
+- https://github.com/outflanknl/Dumpert
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1055
+- attack.T1059
+- attack.T1083
+- attack.T1204
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - OriginalFileName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - CurrentDirectory:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ParentImage:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ParentCommandLine:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - TargetFilename:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Signature:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - signature:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ImageLoaded:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Company:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Description:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - description:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - CommandLine:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - SourceImage:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - TargetImage:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - CallTrace:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - TargetObject:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Details:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - PipeName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Consumer:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Destination:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Query:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - NewName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - StartAddress:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - StartModule:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - StartFunction:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - SourceHostname:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Device:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - file_name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - file_path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - original_file_name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - parent_process:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process_path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - service_path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - registry_path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - registry_value_data:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - registry_value_name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ContextInfo:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Payload:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ScriptBlockText:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ServerName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - TransportName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - NewProcessName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ParentProcessName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Application:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Product Name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Threat Name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Process Name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - Path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ImagePath:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ServiceName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ProcessPath:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - AppName:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - AppPath:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - ModulePath:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - registry.data.strings:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - registry.path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - registry.value:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.args:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.command_line:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.env_vars:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.io.text:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.executable:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - process.title:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - pe.company:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - pe.description:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - pe.original_file_name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - pe.product:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - os.full:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - host.hostname:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - file.fork_name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - file.name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - file.path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - file.target_path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - email.attachments.file.name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - email.subject:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - dll.path:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - device.model.name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - container.image.name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - container.name:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - object:
+    - '*Dumpert*'
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*\Temp\dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - url:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - dest_url:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - uri:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - uri_query:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - query:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - url_domain:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - uri_path:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - domain:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - QueryName:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - QueryResults:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - DestinationHostname:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - DestinationIp:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - http_referrer:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - http_referrer_domain:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - http_user_agent:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - dest_nt_host:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - sender:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - recipient:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - orig_recipient:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - subject:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - url.domain:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - url.full:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - url.original:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - url.query:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - user_agent.original:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - network.application:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - http.request.body.content:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - http.request.referrer:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - email.from.address:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - dns.question.name:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  - destination.domain:
+    - '*Dumpert.exe*'
+    - '*Dumpert-DLL*'
+    - '*outflanknl/Dumpert*'
+    - '*Outflank-Dumpert*'
+    - '*dumpert.dmp*'
+    - '*Dumpert-Aggressor*'
+    - '*Dumpert.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

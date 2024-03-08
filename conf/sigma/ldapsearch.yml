@@ -1,0 +1,121 @@
+title: Simple keyword detection rule for ldapsearch
+id: 9c54636f-91eb-41da-8291-d3b014d88e08
+status: experimental
+description: Detects interesting keywords based on ldapsearch tool
+references:
+- https://man7.org/linux/man-pages/man1/ldapsearch.1.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1069
+- attack.T1087
+- attack.TA0002
+- attack.TA0007
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - CommandLine:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - Details:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - registry.value:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - process.args:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - process.command_line:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - process.env_vars:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - process.io.text:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - process.title:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - pe.company:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - pe.description:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - pe.product:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - os.full:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - host.hostname:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - event.original:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - email.subject:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - device.model.name:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - container.image.name:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  - container.name:
+    - '*ldapsearch * ldap://*'
+    - '*ldapsearch -x -h * -s base*'
+    - ldapsearch -h * -x*
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

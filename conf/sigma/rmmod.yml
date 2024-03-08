@@ -1,0 +1,539 @@
+title: Simple keyword detection rule for rmmod
+id: 4038be02-d2b8-4ebc-848e-078f48981736
+status: experimental
+description: Detects interesting keywords based on rmmod tool
+references:
+- https://github.com/elastic/detection-rules/blob/main/rules/linux/defense_evasion_kernel_module_removal.toml
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1070.006
+- attack.T1547.006
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - CommandLine:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Details:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry.value:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.args:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.command_line:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.env_vars:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.io.text:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.title:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.company:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.description:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.product:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - os.full:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - host.hostname:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - event.original:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - email.subject:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - device.model.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - container.image.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - container.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Image:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - OriginalFileName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - CurrentDirectory:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ParentImage:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ParentCommandLine:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - TargetFilename:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Signature:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - signature:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ImageLoaded:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Company:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Description:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - description:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - CommandLine:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - SourceImage:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - TargetImage:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - CallTrace:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - TargetObject:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Details:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - PipeName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Consumer:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Destination:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Query:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - NewName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - StartAddress:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - StartModule:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - StartFunction:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - SourceHostname:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Device:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - file_name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - file_path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - original_file_name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - parent_process:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process_path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - service_path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry_path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry_value_data:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry_value_name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ContextInfo:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Payload:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ScriptBlockText:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ServerName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - TransportName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - NewProcessName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ParentProcessName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Application:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Product Name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Threat Name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Process Name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - Path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ImagePath:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ServiceName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ProcessPath:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - AppName:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - AppPath:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - ModulePath:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry.data.strings:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry.path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - registry.value:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.args:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.command_line:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.env_vars:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.io.text:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.executable:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - process.title:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.company:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.description:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.original_file_name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - pe.product:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - os.full:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - host.hostname:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - file.fork_name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - file.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - file.path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - file.target_path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - email.attachments.file.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - email.subject:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - dll.path:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - device.model.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - container.image.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - container.name:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  - object:
+    - '*rmmod --remove*'
+    - '*rmmod -r*'
+    - '*sudo rmmod -r*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

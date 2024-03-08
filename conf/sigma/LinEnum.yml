@@ -1,0 +1,728 @@
+title: Simple keyword detection rule for LinEnum
+id: 875bde10-785e-4096-b522-f87d92401799
+status: experimental
+description: Detects interesting keywords based on LinEnum tool
+references:
+- https://github.com/rebootuser/LinEnum
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1007
+- attack.T1016
+- attack.T1018
+- attack.T1046
+- attack.T1049
+- attack.T1057
+- attack.T1059.004
+- attack.T1069.001
+- attack.T1082
+- attack.T1083
+- attack.T1087.001
+- attack.T1135
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - OriginalFileName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - CurrentDirectory:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ParentImage:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ParentCommandLine:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - TargetFilename:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Signature:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - signature:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ImageLoaded:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Company:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Description:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - description:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - CommandLine:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - SourceImage:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - TargetImage:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - CallTrace:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - TargetObject:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Details:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - PipeName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Consumer:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Destination:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Query:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - NewName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - StartAddress:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - StartModule:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - StartFunction:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - SourceHostname:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Device:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - file_name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - file_path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - original_file_name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - parent_process:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process_path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - service_path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - registry_path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - registry_value_data:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - registry_value_name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ContextInfo:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Payload:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ScriptBlockText:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ServerName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - TransportName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - NewProcessName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ParentProcessName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Application:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Product Name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Threat Name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Process Name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - Path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ImagePath:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ServiceName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ProcessPath:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - AppName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - AppPath:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - ModulePath:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - registry.data.strings:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - registry.path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - registry.value:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.args:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.command_line:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.env_vars:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.io.text:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.executable:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - process.title:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - pe.company:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - pe.description:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - pe.original_file_name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - pe.product:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - os.full:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - host.hostname:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - file.fork_name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - file.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - file.path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - file.target_path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - email.attachments.file.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - email.subject:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - dll.path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - device.model.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - container.image.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - container.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - object:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - url:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - dest_url:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - uri:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - uri_query:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - query:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - url_domain:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - uri_path:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - domain:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - QueryName:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - QueryResults:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - DestinationHostname:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - DestinationIp:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - http_referrer:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - http_referrer_domain:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - http_user_agent:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - dest_nt_host:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - sender:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - recipient:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - orig_recipient:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - subject:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - url.domain:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - url.full:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - url.original:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - url.query:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - user_agent.original:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - network.application:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - http.request.body.content:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - http.request.referrer:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - email.from.address:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - dns.question.name:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  - destination.domain:
+    - '*/LinEnum/*'
+    - '*LinEnum.sh*'
+    - '*LinEnum-master.ip*'
+    - '*/LinEnum.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

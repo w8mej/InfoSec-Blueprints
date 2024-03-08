@@ -1,0 +1,1114 @@
+title: Simple keyword detection rule for UnlinkDLL
+id: 67bb4785-15c2-4a52-b571-599ea11e62e3
+status: experimental
+description: Detects interesting keywords based on UnlinkDLL tool
+references:
+- https://github.com/frkngksl/UnlinkDLL
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1055
+- attack.T1070
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - OriginalFileName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - CurrentDirectory:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ParentImage:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ParentCommandLine:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - TargetFilename:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Signature:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - signature:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ImageLoaded:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Company:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Description:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - description:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - CommandLine:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - SourceImage:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - TargetImage:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - CallTrace:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - TargetObject:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Details:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - PipeName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Consumer:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Destination:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Query:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - NewName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - StartAddress:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - StartModule:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - StartFunction:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - SourceHostname:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Device:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - file_name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - file_path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - original_file_name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - parent_process:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process_path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - service_path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - registry_path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - registry_value_data:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - registry_value_name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ContextInfo:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Payload:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ScriptBlockText:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ServerName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - TransportName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - NewProcessName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ParentProcessName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Application:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Product Name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Threat Name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Process Name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - Path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ImagePath:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ServiceName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ProcessPath:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - AppName:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - AppPath:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - ModulePath:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - registry.data.strings:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - registry.path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - registry.value:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.args:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.command_line:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.env_vars:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.io.text:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.executable:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - process.title:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - pe.company:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - pe.description:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - pe.original_file_name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - pe.product:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - os.full:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - host.hostname:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - file.fork_name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - file.name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - file.path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - file.target_path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - email.attachments.file.name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - email.subject:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - dll.path:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - device.model.name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - container.image.name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - container.name:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - object:
+    - '*UnlinkDLL\Main.nim*'
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*UnlinkDLL\Structs.nim*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - url:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - dest_url:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - uri:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - uri_query:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - query:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - url_domain:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - uri_path:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - domain:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - QueryName:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - QueryResults:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - DestinationHostname:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - DestinationIp:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - http_referrer:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - http_referrer_domain:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - http_user_agent:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - dest_nt_host:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - sender:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - recipient:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - orig_recipient:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - subject:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - url.domain:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - url.full:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - url.original:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - url.query:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - user_agent.original:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - network.application:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - http.request.body.content:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - http.request.referrer:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - email.from.address:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - dns.question.name:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  - destination.domain:
+    - '*MaliciousInjectedDll.dll*'
+    - '*UnlinkDLL.exe*'
+    - '*UnlinkDLL-main*'
+    - '*frkngksl/UnlinkDLL*'
+    - '*/UnlinkDLL.git*'
+    - '*listdlls64.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

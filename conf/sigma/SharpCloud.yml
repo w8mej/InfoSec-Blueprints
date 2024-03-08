@@ -1,0 +1,1176 @@
+title: Simple keyword detection rule for SharpCloud
+id: 1a6dad2e-121f-4f68-a245-fe84445a3460
+status: experimental
+description: Detects interesting keywords based on SharpCloud tool
+references:
+- https://github.com/chrismaddalena/SharpCloud
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.001
+- attack.T1083
+- attack.T1114.002
+- 'attack.TA0002 '
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - OriginalFileName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - CurrentDirectory:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ParentImage:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ParentCommandLine:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - TargetFilename:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Signature:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - signature:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ImageLoaded:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Company:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Description:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - description:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - CommandLine:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - SourceImage:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - TargetImage:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - CallTrace:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - TargetObject:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Details:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - PipeName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Consumer:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Destination:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Query:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - NewName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - StartAddress:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - StartModule:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - StartFunction:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - SourceHostname:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Device:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - file_name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - file_path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - original_file_name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - parent_process:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process_path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - service_path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - registry_path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - registry_value_data:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - registry_value_name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ContextInfo:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Payload:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ScriptBlockText:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ServerName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - TransportName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - NewProcessName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ParentProcessName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Application:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Product Name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Threat Name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Process Name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - Path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ImagePath:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ServiceName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ProcessPath:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - AppName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - AppPath:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - ModulePath:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - registry.data.strings:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - registry.path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - registry.value:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.args:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.command_line:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.env_vars:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.io.text:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.executable:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - process.title:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - pe.company:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - pe.description:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - pe.original_file_name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - pe.product:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - os.full:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - host.hostname:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - file.fork_name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - file.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - file.path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - file.target_path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - email.attachments.file.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - email.subject:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - dll.path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - device.model.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - container.image.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - container.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - object:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - url:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - dest_url:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - uri:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - uri_query:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - query:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - url_domain:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - uri_path:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - domain:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - QueryName:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - QueryResults:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - DestinationHostname:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - DestinationIp:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - http_referrer:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - http_referrer_domain:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - http_user_agent:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - dest_nt_host:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - sender:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - recipient:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - orig_recipient:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - subject:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - url.domain:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - url.full:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - url.original:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - url.query:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - user_agent.original:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - network.application:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - http.request.body.content:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - http.request.referrer:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - email.from.address:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - dns.question.name:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  - destination.domain:
+    - '*SharpCloud.exe*'
+    - '*SharpCloud.sln*'
+    - '*sharpcloud.cna*'
+    - '*/SharpCloud.git*'
+    - '*chrismaddalena/SharpCloud*'
+    - '*SharpCloud-master*'
+    - '*SharpCloud.csproj*'
+    - '*execute_assembly SharpCloud*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

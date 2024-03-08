@@ -1,0 +1,34 @@
+title: New member added to an Exchange administration group (medium risk)
+description: Detects scenarios where a new member is added to a sensitive group related to Exchange server
+references:
+- https://msexchangeguru.com/2015/12/18/rbac-2016/
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1098.xxx-Account%20manipulation
+tags:
+- attack.persistence
+- attack.t1098
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID:
+      - 4728 # security global group member added
+      - 4756 # universal group member added
+      - 4732 # local and domain local group member added
+    TargetUserName:
+      - 'Security Reader'
+      - 'Exchange View-Only Administrators'
+      - 'Organization Management'
+      - 'Public Folder Management'
+      - 'Recipient Management'
+      - 'Records Management'
+      - 'Server Management'
+      - 'UM Management'
+      - 'View-only Organization Management'
+  condition: selection
+falsepositives:
+- Exchange administrator updating server configuration
+- Exchange upgrade or migration
+level: medium

@@ -1,0 +1,1001 @@
+title: Simple keyword detection rule for PE-Obfuscator
+id: 76e81fcc-21f2-4822-86fd-f69020786d3c
+status: experimental
+description: Detects interesting keywords based on PE-Obfuscator tool
+references:
+- https://github.com/TheD1rkMtr/PE-Obfuscator
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1027.002
+- attack.T1055
+- attack.T1140
+- attack.T1564.003
+- attack.TA0002
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - OriginalFileName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - CurrentDirectory:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ParentImage:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ParentCommandLine:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - TargetFilename:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Signature:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - signature:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ImageLoaded:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Company:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Description:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - description:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - CommandLine:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - SourceImage:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - TargetImage:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - CallTrace:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - TargetObject:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Details:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - PipeName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Consumer:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Destination:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Query:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - NewName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - StartAddress:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - StartModule:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - StartFunction:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - SourceHostname:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Device:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - file_name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - file_path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - original_file_name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - parent_process:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process_path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - service_path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - registry_path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - registry_value_data:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - registry_value_name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ContextInfo:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Payload:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ScriptBlockText:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ServerName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - TransportName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - NewProcessName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ParentProcessName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Application:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Product Name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Threat Name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Process Name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - Path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ImagePath:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ServiceName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ProcessPath:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - AppName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - AppPath:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - ModulePath:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - registry.data.strings:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - registry.path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - registry.value:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.args:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.command_line:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.env_vars:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.io.text:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.executable:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - process.title:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - pe.company:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - pe.description:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - pe.original_file_name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - pe.product:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - os.full:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - host.hostname:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - file.fork_name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - file.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - file.path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - file.target_path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - email.attachments.file.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - email.subject:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - dll.path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - device.model.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - container.image.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - container.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - object:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*xor-bin.py *.exe*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+    - '*\out_pe.exe*'
+  - url:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - dest_url:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - uri:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - uri_query:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - query:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - url_domain:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - uri_path:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - domain:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - QueryName:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - QueryResults:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - DestinationHostname:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - DestinationIp:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - http_referrer:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - http_referrer_domain:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - http_user_agent:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - dest_nt_host:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - sender:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - recipient:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - orig_recipient:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - subject:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - url.domain:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - url.full:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - url.original:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - url.query:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - user_agent.original:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - network.application:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - http.request.body.content:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - http.request.referrer:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - email.from.address:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - dns.question.name:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  - destination.domain:
+    - '*PE-Obfuscator.git*'
+    - '*script/xor-bin.py*'
+    - '*/PE-Obfuscator*'
+    - '*PE-Obfuscator-main*'
+    - '*PE-Obfuscator.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,1077 @@
+title: Simple keyword detection rule for gato
+id: 04da293b-8003-4e18-9f90-05927592d8cc
+status: experimental
+description: Detects interesting keywords based on gato tool
+references:
+- https://github.com/praetorian-inc/gato
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1081
+- attack.T1083
+- attack.T1087
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - OriginalFileName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - CurrentDirectory:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ParentImage:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ParentCommandLine:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - TargetFilename:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Signature:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - signature:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ImageLoaded:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Company:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Description:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - description:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - CommandLine:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - SourceImage:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - TargetImage:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - CallTrace:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - TargetObject:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Details:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - PipeName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Consumer:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Destination:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Query:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - NewName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - StartAddress:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - StartModule:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - StartFunction:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - SourceHostname:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Device:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - file_name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - file_path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - original_file_name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - parent_process:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process_path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - service_path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry_path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry_value_data:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry_value_name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ContextInfo:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Payload:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ScriptBlockText:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ServerName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - TransportName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - NewProcessName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ParentProcessName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Application:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Product Name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Threat Name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Process Name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ImagePath:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ServiceName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ProcessPath:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - AppName:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - AppPath:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ModulePath:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry.data.strings:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry.path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry.value:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.args:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.command_line:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.env_vars:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.io.text:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.executable:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.title:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.company:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.description:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.original_file_name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.product:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - os.full:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - host.hostname:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - file.fork_name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - file.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - file.path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - file.target_path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - email.attachments.file.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - email.subject:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - dll.path:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - device.model.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - container.image.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - container.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - object:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - ParentCommandLine:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - CommandLine:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - Details:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - registry.value:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.args:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.command_line:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.env_vars:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.io.text:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - process.title:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.company:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.description:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - pe.product:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - os.full:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - host.hostname:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - event.original:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - email.subject:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - device.model.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - container.image.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - container.name:
+    - '*praetorian-inc/gato*'
+    - '*/enumerate/enumerate.py*'
+    - '*gato * attack*'
+    - '*gato * --http-proxy*'
+    - '*/gato/*attack.py*'
+    - '*gato * --socks-proxy*'
+    - '*gato * enumerate*'
+  - url:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - dest_url:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - uri:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - uri_query:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - query:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - url_domain:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - uri_path:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - domain:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - QueryName:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - QueryResults:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - DestinationHostname:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - DestinationIp:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - http_referrer:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - http_referrer_domain:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - http_user_agent:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - dest_nt_host:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - sender:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - recipient:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - orig_recipient:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - subject:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - url.domain:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - url.full:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - url.original:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - url.query:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - user_agent.original:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - network.application:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - http.request.body.content:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - http.request.referrer:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - email.from.address:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - dns.question.name:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  - destination.domain:
+    - '*praetorian-inc/gato*'
+    - '*/gato/*attack.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

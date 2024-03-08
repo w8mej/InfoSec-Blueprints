@@ -1,0 +1,38 @@
+title: Scheduled task creation with command line
+description: Detects scenarios where an attacker creates a scheduled task via commmand line.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0002-Execution/T1053.005-Scheduled%20Task
+- https://www.ired.team/offensive-security/persistence/t1053-schtask
+- https://pentestlab.blog/2019/11/04/persistence-scheduled-tasks/
+- http://www.fuzzysecurity.com/tutorials/19.html
+- https://nasbench.medium.com/a-deep-dive-into-windows-scheduled-tasks-and-the-processes-running-them-218d1eed4cce
+- https://posts.specterops.io/abstracting-scheduled-tasks-3b6451f6a1c5
+- https://www.darkoperator.com/blog/2009/4/11/abusing-the-scheduler-with-meterpreter.html
+- https://blog.menasec.net/2019/03/threat-hunting-25-scheduled-tasks-for.html
+- https://strontic.github.io/xcyclopedia/library/schtasks.exe-5BD86A7193D38880F339D4AFB1F9B63A.html
+- https://nasbench.medium.com/behind-the-detection-schtasks-eb67a33a8710
+- https://redcanary.com/threat-detection-report/techniques/scheduled-task/
+- https://www.linkedin.com/pulse/lolbin-attacks-scheduled-tasks-t1503005-how-detect-them-v%C3%B6gele
+tags:
+- attack.execution
+- attack.t1053.005
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection: # Full command: "schtasks" /create /sc minute /mo 1 /tn eviltask /tr C:\tools\shell.cmd /ru SYSTEM
+  selection:
+    EventID: 4688
+    NewProcessName|endswith: \schtasks.exe
+    CommandLine|contains: create
+  filter:
+    CommandLine|contains|all: # See schedule persistent rule with SYSTEM privileges
+      - ru      # Run with privileges from user X
+      - SYSTEM  # Run with SYSTEM privileges
+      - tr      # Program, path or command to run
+      - sc      # Run task every X minutes
+  condition: selection and not filter
+falsepositives:
+- Administrator
+level: medium

@@ -1,0 +1,736 @@
+title: Simple keyword detection rule for LdrLockLiberator
+id: d4382922-0519-461b-861b-f68183cf238d
+status: experimental
+description: Detects interesting keywords based on LdrLockLiberator tool
+references:
+- https://github.com/ElliotKillick/LdrLockLiberator
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1574.002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - OriginalFileName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - CurrentDirectory:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ParentImage:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ParentCommandLine:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - TargetFilename:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Signature:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - signature:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ImageLoaded:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Company:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Description:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - description:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - CommandLine:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - SourceImage:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - TargetImage:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - CallTrace:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - TargetObject:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Details:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - PipeName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Consumer:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Destination:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Query:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - NewName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - StartAddress:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - StartModule:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - StartFunction:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - SourceHostname:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Device:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - file_name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - file_path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - original_file_name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - parent_process:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process_path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - service_path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - registry_path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - registry_value_data:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - registry_value_name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ContextInfo:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Payload:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ScriptBlockText:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ServerName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - TransportName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - NewProcessName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ParentProcessName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Application:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Product Name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Threat Name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Process Name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - Path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ImagePath:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ServiceName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ProcessPath:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - AppName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - AppPath:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - ModulePath:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - registry.data.strings:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - registry.path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - registry.value:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.args:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.command_line:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.env_vars:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.io.text:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.executable:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - process.title:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - pe.company:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - pe.description:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - pe.original_file_name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - pe.product:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - os.full:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - host.hostname:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - file.fork_name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - file.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - file.path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - file.target_path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - email.attachments.file.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - email.subject:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - dll.path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - device.model.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - container.image.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - container.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - object:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+    - '*\LdrLockLiberator.c*'
+    - '*LdrLockLiberator-main*'
+    - '*\LdrLockLiberatorWDK.c*'
+  - url:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - dest_url:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - uri:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - uri_query:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - query:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - url_domain:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - uri_path:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - domain:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - QueryName:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - QueryResults:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - DestinationHostname:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - DestinationIp:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - http_referrer:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - http_referrer_domain:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - http_user_agent:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - dest_nt_host:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - sender:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - recipient:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - orig_recipient:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - subject:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - url.domain:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - url.full:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - url.original:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - url.query:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - user_agent.original:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - network.application:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - http.request.body.content:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - http.request.referrer:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - email.from.address:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - dns.question.name:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  - destination.domain:
+    - '*/LdrLockLiberator.git*'
+    - '*ElliotKillick/LdrLockLiberator*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

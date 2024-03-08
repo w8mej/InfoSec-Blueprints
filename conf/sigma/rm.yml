@@ -1,0 +1,845 @@
+title: Simple keyword detection rule for rm
+id: f01be8d4-3602-4981-b8e7-82c8845202c4
+status: experimental
+description: Detects interesting keywords based on rm tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1070.006
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - CommandLine:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Details:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry.value:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.args:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.command_line:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.env_vars:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.io.text:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.title:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.company:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.description:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.product:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - os.full:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - host.hostname:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - event.original:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - email.subject:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - device.model.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - container.image.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - container.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Image:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - OriginalFileName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - CurrentDirectory:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ParentImage:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ParentCommandLine:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - TargetFilename:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Signature:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - signature:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ImageLoaded:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Company:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Description:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - description:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - CommandLine:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - SourceImage:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - TargetImage:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - CallTrace:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - TargetObject:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Details:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - PipeName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Consumer:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Destination:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Query:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - NewName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - StartAddress:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - StartModule:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - StartFunction:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - SourceHostname:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Device:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - file_name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - file_path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - original_file_name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - parent_process:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process_path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - service_path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry_path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry_value_data:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry_value_name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ContextInfo:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Payload:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ScriptBlockText:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ServerName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - TransportName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - NewProcessName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ParentProcessName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Application:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Product Name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Threat Name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Process Name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - Path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ImagePath:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ServiceName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ProcessPath:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - AppName:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - AppPath:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - ModulePath:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry.data.strings:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry.path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - registry.value:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.args:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.command_line:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.env_vars:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.io.text:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.executable:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - process.title:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.company:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.description:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.original_file_name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - pe.product:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - os.full:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - host.hostname:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - file.fork_name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - file.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - file.path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - file.target_path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - email.attachments.file.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - email.subject:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - dll.path:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - device.model.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - container.image.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - container.name:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  - object:
+    - '*rm -rf ~/.bash_history*'
+    - '*rm $HISTFILE*'
+    - '*rm .bash_history*'
+    - '*rm ~/.bash_history*'
+    - '*rm -rf .bash_history*'
+    - '*rm /var/log/*.log*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,724 @@
+title: Simple keyword detection rule for Passware Kit Forensic
+id: 6517c573-0663-4d79-b0ca-af782fcf5a26
+status: experimental
+description: Detects interesting keywords based on Passware Kit Forensic tool
+references:
+- https://www.passware.com/kit-forensic/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1021
+- attack.T1056
+- attack.T1110
+- attack.T1212
+- attack.T1552
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - OriginalFileName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - CurrentDirectory:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ParentImage:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ParentCommandLine:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - TargetFilename:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Signature:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - signature:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ImageLoaded:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Company:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Description:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - description:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - CommandLine:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - SourceImage:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - TargetImage:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - CallTrace:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - TargetObject:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Details:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - PipeName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Consumer:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Destination:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Query:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - NewName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - StartAddress:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - StartModule:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - StartFunction:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - SourceHostname:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Device:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - file_name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - file_path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - original_file_name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - parent_process:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process_path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - service_path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - registry_path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - registry_value_data:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - registry_value_name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ContextInfo:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Payload:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ScriptBlockText:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ServerName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - TransportName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - NewProcessName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ParentProcessName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Application:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Product Name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Threat Name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Process Name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - Path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ImagePath:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ServiceName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ProcessPath:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - AppName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - AppPath:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - ModulePath:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - registry.data.strings:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - registry.path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - registry.value:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.args:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.command_line:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.env_vars:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.io.text:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.executable:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - process.title:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - pe.company:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - pe.description:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - pe.original_file_name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - pe.product:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - os.full:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - host.hostname:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - file.fork_name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - file.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - file.path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - file.target_path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - email.attachments.file.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - email.subject:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - dll.path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - device.model.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - container.image.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - container.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - object:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - url:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - dest_url:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - uri:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - uri_query:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - query:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - url_domain:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - uri_path:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - domain:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - QueryName:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - QueryResults:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - DestinationHostname:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - DestinationIp:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - http_referrer:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - http_referrer_domain:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - http_user_agent:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - dest_nt_host:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - sender:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - recipient:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - orig_recipient:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - subject:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - url.domain:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - url.full:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - url.original:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - url.query:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - user_agent.original:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - network.application:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - http.request.body.content:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - http.request.referrer:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - email.from.address:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - dns.question.name:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  - destination.domain:
+    - '*passware-kit-forensic.sls*'
+    - '*PasswareKitForensic_*_Setup.dmg*'
+    - '*passware-kit-forensic-64bit.msi*'
+    - '*PasswareKitForensic_*_Setup.msi*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

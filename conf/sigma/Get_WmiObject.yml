@@ -1,0 +1,121 @@
+title: Simple keyword detection rule for Get-WmiObject
+id: 7e835bfd-7380-4c37-95b7-3fd2209fb947
+status: experimental
+description: Detects interesting keywords based on Get-WmiObject tool
+references:
+- https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1049
+- attack.T1087
+- attack.TA0002
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - CommandLine:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - Details:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - registry.value:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - process.args:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - process.command_line:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - process.env_vars:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - process.io.text:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - process.title:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - pe.company:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - pe.description:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - pe.product:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - os.full:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - host.hostname:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - event.original:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - email.subject:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - device.model.name:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - container.image.name:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  - container.name:
+    - '*Get-WmiObject win32_loggedonuser -ComputerName *'
+    - '*Get-WmiObject ?ComputerName * ?Class Win32_ComputerSystem | * UserName*'
+    - '*Get-WmiObject -class SMS_Authority -namespace root\CCM*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

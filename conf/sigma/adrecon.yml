@@ -1,0 +1,534 @@
+title: Simple keyword detection rule for adrecon
+id: 5c35c51b-c22f-45f3-94bf-9f23db6582dd
+status: experimental
+description: Detects interesting keywords based on adrecon tool
+references:
+- https://github.com/adrecon/ADRecon
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.002
+- attack.T1018
+- attack.T1069.001
+- attack.T1087.001
+- attack.T1482
+- attack.TA0007
+- attack.TA0009
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - CommandLine:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Details:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry.value:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.args:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.command_line:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.env_vars:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.io.text:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.title:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.company:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.description:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.product:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - os.full:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - host.hostname:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - event.original:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - email.subject:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - device.model.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - container.image.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - container.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Image:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - OriginalFileName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - CurrentDirectory:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ParentImage:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ParentCommandLine:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - TargetFilename:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Signature:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - signature:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ImageLoaded:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Company:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Description:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - description:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - CommandLine:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - SourceImage:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - TargetImage:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - CallTrace:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - TargetObject:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Details:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - PipeName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Consumer:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Destination:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Query:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - NewName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - StartAddress:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - StartModule:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - StartFunction:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - SourceHostname:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Device:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - file_name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - file_path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - original_file_name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - parent_process:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process_path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - service_path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry_path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry_value_data:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry_value_name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ContextInfo:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Payload:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ScriptBlockText:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ServerName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - TransportName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - NewProcessName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ParentProcessName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Application:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Product Name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Threat Name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Process Name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - Path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ImagePath:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ServiceName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ProcessPath:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - AppName:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - AppPath:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - ModulePath:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry.data.strings:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry.path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - registry.value:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.args:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.command_line:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.env_vars:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.io.text:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.executable:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - process.title:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.company:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.description:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.original_file_name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - pe.product:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - os.full:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - host.hostname:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - file.fork_name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - file.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - file.path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - file.target_path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - email.attachments.file.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - email.subject:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - dll.path:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - device.model.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - container.image.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - container.name:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - object:
+    - '*ADRecon -OutputDir *'
+    - '*ADRecon.ps1*'
+  - url:
+    - '*ADRecon.ps1*'
+  - dest_url:
+    - '*ADRecon.ps1*'
+  - uri:
+    - '*ADRecon.ps1*'
+  - uri_query:
+    - '*ADRecon.ps1*'
+  - query:
+    - '*ADRecon.ps1*'
+  - url_domain:
+    - '*ADRecon.ps1*'
+  - uri_path:
+    - '*ADRecon.ps1*'
+  - domain:
+    - '*ADRecon.ps1*'
+  - QueryName:
+    - '*ADRecon.ps1*'
+  - QueryResults:
+    - '*ADRecon.ps1*'
+  - DestinationHostname:
+    - '*ADRecon.ps1*'
+  - DestinationIp:
+    - '*ADRecon.ps1*'
+  - http_referrer:
+    - '*ADRecon.ps1*'
+  - http_referrer_domain:
+    - '*ADRecon.ps1*'
+  - http_user_agent:
+    - '*ADRecon.ps1*'
+  - dest_nt_host:
+    - '*ADRecon.ps1*'
+  - sender:
+    - '*ADRecon.ps1*'
+  - recipient:
+    - '*ADRecon.ps1*'
+  - orig_recipient:
+    - '*ADRecon.ps1*'
+  - subject:
+    - '*ADRecon.ps1*'
+  - url.domain:
+    - '*ADRecon.ps1*'
+  - url.full:
+    - '*ADRecon.ps1*'
+  - url.original:
+    - '*ADRecon.ps1*'
+  - url.query:
+    - '*ADRecon.ps1*'
+  - user_agent.original:
+    - '*ADRecon.ps1*'
+  - network.application:
+    - '*ADRecon.ps1*'
+  - http.request.body.content:
+    - '*ADRecon.ps1*'
+  - http.request.referrer:
+    - '*ADRecon.ps1*'
+  - email.from.address:
+    - '*ADRecon.ps1*'
+  - dns.question.name:
+    - '*ADRecon.ps1*'
+  - destination.domain:
+    - '*ADRecon.ps1*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

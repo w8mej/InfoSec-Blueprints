@@ -1,0 +1,39 @@
+title: LSASS process dump by a non system account
+description: Detects scenarios where an attacker will dump the LSASS memory content using tools like Mimikatz, ProcDump, TaskMgr, ...
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0006-Credential%20Access/T1003-Credential%20dumping
+tags:
+- attack.credential_access
+- attack.t1003.001
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID:
+      - 4656 # A handle to an object was requested. / Kernel object
+      - 4663 # An attempt was made to access an object / Kernel object
+    ObjectType: Process
+    ObjectServer: Security
+    ObjectName|endswith: '\System32\lsass.exe'
+    # AccessMask:
+      #- '0x1410'
+      #- '0x1010'
+      #- '0x1438' # could refers to misc::memssp
+      #- '0x143a'
+      #- '0x1418'
+  filter:
+    SubjectUserName|endswith: '$'
+    ProcessName:
+      - '*\\AppData\Local\Google\Chrome\User Data\SwReporter\\*\software_reporter_tool.exe' # Google Chrome Security tool
+      - '*\ProgramData\Microsoft\Windows Defender\Platform\*'
+      - '*\Program Files\Windows Defender Advanced Threat Protection\*'
+      - '*\system32\csrss.exe'
+      - '*\system32\wininit.exe'
+      - '*\Windows\System32\rundll32.exe' # See LSASSY dedicated rule
+  condition: selection and not filter
+falsepositives:
+- Antivirus, security products, browsers
+level: high

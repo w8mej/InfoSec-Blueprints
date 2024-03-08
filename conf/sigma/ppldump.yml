@@ -1,0 +1,921 @@
+title: Simple keyword detection rule for ppldump
+id: 3585f049-d0fb-48eb-92d4-87f56c525602
+status: experimental
+description: Detects interesting keywords based on ppldump tool
+references:
+- https://github.com/itm4n/PPLdump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1055
+- attack.T1078
+- attack.T1112
+- attack.T1553
+- attack.T1555
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - OriginalFileName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - CurrentDirectory:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ParentImage:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ParentCommandLine:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - TargetFilename:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Signature:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - signature:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ImageLoaded:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Company:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Description:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - description:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - CommandLine:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - SourceImage:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - TargetImage:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - CallTrace:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - TargetObject:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Details:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - PipeName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Consumer:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Destination:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Query:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - NewName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - StartAddress:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - StartModule:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - StartFunction:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - SourceHostname:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Device:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - file_name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - file_path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - original_file_name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - parent_process:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process_path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - service_path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - registry_path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - registry_value_data:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - registry_value_name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ContextInfo:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Payload:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ScriptBlockText:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ServerName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - TransportName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - NewProcessName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ParentProcessName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Application:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Product Name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Threat Name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Process Name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - Path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ImagePath:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ServiceName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ProcessPath:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - AppName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - AppPath:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - ModulePath:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - registry.data.strings:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - registry.path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - registry.value:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.args:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.command_line:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.env_vars:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.io.text:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.executable:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - process.title:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - pe.company:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - pe.description:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - pe.original_file_name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - pe.product:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - os.full:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - host.hostname:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - file.fork_name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - file.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - file.path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - file.target_path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - email.attachments.file.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - email.subject:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - dll.path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - device.model.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - container.image.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - container.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - object:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*lsass.exe*.dmp*'
+    - '*PPLdump*'
+  - url:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - dest_url:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - uri:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - uri_query:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - query:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - url_domain:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - uri_path:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - domain:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - QueryName:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - QueryResults:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - DestinationHostname:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - DestinationIp:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - http_referrer:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - http_referrer_domain:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - http_user_agent:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - dest_nt_host:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - sender:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - recipient:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - orig_recipient:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - subject:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - url.domain:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - url.full:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - url.original:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - url.query:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - user_agent.original:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - network.application:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - http.request.body.content:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - http.request.referrer:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - email.from.address:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - dns.question.name:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  - destination.domain:
+    - '*dllexploit.*'
+    - '*PPLdump64.exe*'
+    - '*PPLdump.exe*'
+    - '*PPLdumpDll*'
+    - '*PPLdump*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

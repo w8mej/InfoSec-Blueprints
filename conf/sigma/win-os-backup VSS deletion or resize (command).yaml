@@ -1,0 +1,36 @@
+title: VSS backup deletion or resize
+description: Detects scenarios where an attacker attempts to delete or resize existing VSS backup.
+references:
+- https://www.picussecurity.com/resource/blog/how-to-beat-nefilim-ransomware-attacks
+- https://www.itechtics.com/volume-shadow-copies/
+- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/wbadmin
+- https://www.picussecurity.com/resource/blog/technique-to-delete-volume-shadow-copies-deviceiocontrol
+- https://thedfirreport.com/2021/12/13/diavol-ransomware/
+- https://www.mandiant.com/resources/chasing-avaddon-ransomware
+- https://blogs.vmware.com/security/2022/09/threat-report-illuminating-volume-shadow-deletion.html
+- https://fourcore.io/blogs/ryuk-ransomware-simulation-mitre-ttp
+tags:
+- attack.impact
+- attack.t1490
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_baseline: 
+    EventID: 4688
+    NewProcessName|endswith: '\vssadmin.exe'
+
+  selection_delete: # "vssadmin.exe delete shadows /all /quiet" 
+    CommandLine|contains|all:
+      - shadows
+      - delete
+  selection_resize: # "vssadmin resize shadowstorage /for=c: /on=c: /maxsize=401MB"
+    CommandLine|contains|all:
+      - resize
+      - shadowstorage
+  condition: selection_baseline and (selection_delete or selection_resize)
+falsepositives:
+- administrator cleaning outdated backup
+level: high

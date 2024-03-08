@@ -1,0 +1,23 @@
+title: Noisy Rule Test1
+date: 2019/01/12
+detection:
+  SELECTION_1:
+    EventID: 19
+  SELECTION_2:
+    EventID: 20
+  SELECTION_3:
+    EventID: 21
+  condition: (SELECTION_1 or SELECTION_2 or SELECTION_3)
+falsepositives:
+- exclude legitimate (vetted) use of WMI event subscription in your network
+id: 0090ea60-f4a2-43a8-8657-3a9a4ddcf547
+level: high
+logsource:
+  category: wmi_event
+  product: windows
+status: experimental
+tags:
+- attack.t1084
+- attack.persistence
+- attack.t1546.003
+ruletype: SIGMA

@@ -1,0 +1,29 @@
+title: Service permissions hijacked for privileges abuse (reg via command)
+description: Detects scenarios where an attacker modify the permissions of a service in order to abuse its privileges
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1543.003-Create%20or%20Modify%20System%20Process-Windows%20Service
+- http://woshub.com/set-permissions-on-windows-service/
+- https://www.winhelponline.com/blog/view-edit-service-permissions-windows/
+- https://decoder.cloud/2019/02/07/demystifying-windows-service-permissions-configuration/
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.1
+- https://medium.com/r3d-buck3t/abuse-service-registry-acls-windows-privesc-f88079140509
+- https://github.com/rohnedwards/PowerShellAccessControl
+tags:
+- attack.persistence
+- attack.t1543.003
+- attack.t1574.010
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    EventID: 4688
+    NewProcessName|endswith: \reg.exe
+    CommandLine|contains: 'REG ADD'
+    CommandLine|re: '\\SYSTEM\\CurrentControlSet\\Services\\.*\\Security' # HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xboxsvc\Security
+  condition: selection
+falsepositives:
+- administrator reconfiguring service
+level: high

@@ -1,0 +1,843 @@
+title: Simple keyword detection rule for Sharp-Suite
+id: e5b4e024-6a74-4bb3-8075-0457bdc87bcd
+status: experimental
+description: Detects interesting keywords based on Sharp-Suite tool
+references:
+- https://github.com/FuzzySecurity/Sharp-Suite
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1059.001
+- attack.T1136.001
+- attack.T1562.001
+- attack.TA0002
+- attack.TA0004
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - OriginalFileName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - CurrentDirectory:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ParentImage:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ParentCommandLine:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - TargetFilename:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Signature:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - signature:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ImageLoaded:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Company:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Description:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - description:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - CommandLine:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - SourceImage:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - TargetImage:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - CallTrace:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - TargetObject:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Details:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - PipeName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Consumer:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Destination:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Query:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - NewName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - StartAddress:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - StartModule:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - StartFunction:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - SourceHostname:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Device:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - file_name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - file_path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - original_file_name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - parent_process:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process_path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - service_path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry_path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry_value_data:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry_value_name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ContextInfo:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Payload:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ScriptBlockText:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ServerName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - TransportName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - NewProcessName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ParentProcessName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Application:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Product Name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Threat Name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Process Name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ImagePath:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ServiceName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ProcessPath:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - AppName:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - AppPath:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ModulePath:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry.data.strings:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry.path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry.value:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.args:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.command_line:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.env_vars:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.io.text:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.executable:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.title:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.company:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.description:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.original_file_name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.product:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - os.full:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - host.hostname:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - file.fork_name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - file.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - file.path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - file.target_path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - email.attachments.file.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - email.subject:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - dll.path:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - device.model.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - container.image.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - container.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - object:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - ParentCommandLine:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - CommandLine:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - Details:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - registry.value:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.args:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.command_line:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.env_vars:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.io.text:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - process.title:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.company:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.description:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - pe.product:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - os.full:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - host.hostname:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - event.original:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - email.subject:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - device.model.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - container.image.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - container.name:
+    - '*Sharp-Suite.git*'
+    - '*FuzzySecurity/Sharp-Suite*'
+    - '*Londor.exe -t Script*'
+    - '*Londor.exe -t Coverage*'
+    - '*UrbanBishop.exe*'
+  - url:
+    - '*UrbanBishop.exe*'
+  - dest_url:
+    - '*UrbanBishop.exe*'
+  - uri:
+    - '*UrbanBishop.exe*'
+  - uri_query:
+    - '*UrbanBishop.exe*'
+  - query:
+    - '*UrbanBishop.exe*'
+  - url_domain:
+    - '*UrbanBishop.exe*'
+  - uri_path:
+    - '*UrbanBishop.exe*'
+  - domain:
+    - '*UrbanBishop.exe*'
+  - QueryName:
+    - '*UrbanBishop.exe*'
+  - QueryResults:
+    - '*UrbanBishop.exe*'
+  - DestinationHostname:
+    - '*UrbanBishop.exe*'
+  - DestinationIp:
+    - '*UrbanBishop.exe*'
+  - http_referrer:
+    - '*UrbanBishop.exe*'
+  - http_referrer_domain:
+    - '*UrbanBishop.exe*'
+  - http_user_agent:
+    - '*UrbanBishop.exe*'
+  - dest_nt_host:
+    - '*UrbanBishop.exe*'
+  - sender:
+    - '*UrbanBishop.exe*'
+  - recipient:
+    - '*UrbanBishop.exe*'
+  - orig_recipient:
+    - '*UrbanBishop.exe*'
+  - subject:
+    - '*UrbanBishop.exe*'
+  - url.domain:
+    - '*UrbanBishop.exe*'
+  - url.full:
+    - '*UrbanBishop.exe*'
+  - url.original:
+    - '*UrbanBishop.exe*'
+  - url.query:
+    - '*UrbanBishop.exe*'
+  - user_agent.original:
+    - '*UrbanBishop.exe*'
+  - network.application:
+    - '*UrbanBishop.exe*'
+  - http.request.body.content:
+    - '*UrbanBishop.exe*'
+  - http.request.referrer:
+    - '*UrbanBishop.exe*'
+  - email.from.address:
+    - '*UrbanBishop.exe*'
+  - dns.question.name:
+    - '*UrbanBishop.exe*'
+  - destination.domain:
+    - '*UrbanBishop.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

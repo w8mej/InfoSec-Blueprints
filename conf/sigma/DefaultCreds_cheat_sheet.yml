@@ -1,0 +1,768 @@
+title: Simple keyword detection rule for DefaultCreds-cheat-sheet
+id: d28f4eac-8c37-4166-b6c6-d349d44571b3
+status: experimental
+description: Detects interesting keywords based on DefaultCreds-cheat-sheet tool
+references:
+- https://github.com/ihebski/DefaultCreds-cheat-sheet
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1110.001
+- attack.T1110.003
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - OriginalFileName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - CurrentDirectory:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ParentImage:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ParentCommandLine:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - TargetFilename:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Signature:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - signature:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ImageLoaded:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Company:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Description:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - description:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - CommandLine:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - SourceImage:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - TargetImage:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - CallTrace:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - TargetObject:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Details:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - PipeName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Consumer:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Destination:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Query:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - NewName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - StartAddress:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - StartModule:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - StartFunction:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - SourceHostname:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Device:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - file_name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - file_path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - original_file_name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - parent_process:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process_path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - service_path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - registry_path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - registry_value_data:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - registry_value_name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ContextInfo:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Payload:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ScriptBlockText:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ServerName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - TransportName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - NewProcessName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ParentProcessName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Application:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Product Name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Threat Name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Process Name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - Path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ImagePath:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ServiceName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ProcessPath:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - AppName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - AppPath:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - ModulePath:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - registry.data.strings:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - registry.path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - registry.value:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.args:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.command_line:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.env_vars:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.io.text:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.executable:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - process.title:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - pe.company:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - pe.description:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - pe.original_file_name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - pe.product:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - os.full:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - host.hostname:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - file.fork_name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - file.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - file.path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - file.target_path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - email.attachments.file.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - email.subject:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - dll.path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - device.model.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - container.image.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - container.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - object:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*/tmp/*-passwords.txt*'
+    - '*DefaultCreds-cheat-sheet*'
+    - '*/tmp/*-usernames.txt*'
+  - url:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - dest_url:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - uri:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - uri_query:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - query:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - url_domain:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - uri_path:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - domain:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - QueryName:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - QueryResults:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - DestinationHostname:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - DestinationIp:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - http_referrer:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - http_referrer_domain:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - http_user_agent:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - dest_nt_host:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - sender:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - recipient:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - orig_recipient:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - subject:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - url.domain:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - url.full:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - url.original:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - url.query:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - user_agent.original:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - network.application:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - http.request.body.content:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - http.request.referrer:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - email.from.address:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - dns.question.name:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  - destination.domain:
+    - '*/DefaultCreds_db.json*'
+    - '*/creds-*/creds.zip*'
+    - '*DefaultCreds-cheat-sheet*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

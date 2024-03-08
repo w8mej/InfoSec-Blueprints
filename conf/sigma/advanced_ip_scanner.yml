@@ -1,0 +1,1313 @@
+title: Simple keyword detection rule for advanced-ip-scanner
+id: ab685e2b-1325-4e44-88f2-c58f524e4ffc
+status: experimental
+description: Detects interesting keywords based on advanced-ip-scanner tool
+references:
+- https://www.huntandhackett.com/blog/advanced-ip-scanner-the-preferred-scanner-in-the-apt-toolbox
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1595
+- attack.TA0007
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - CommandLine:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Details:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry.value:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.args:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.command_line:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.env_vars:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.io.text:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.title:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.company:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.description:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.product:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - os.full:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - host.hostname:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - event.original:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - email.subject:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - device.model.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - container.image.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - container.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Image:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - OriginalFileName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - CurrentDirectory:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ParentImage:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ParentCommandLine:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - TargetFilename:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Signature:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - signature:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ImageLoaded:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Company:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Description:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - description:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - CommandLine:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - SourceImage:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - TargetImage:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - CallTrace:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - TargetObject:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Details:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - PipeName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Consumer:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Destination:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Query:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - NewName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - StartAddress:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - StartModule:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - StartFunction:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - SourceHostname:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Device:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - file_name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - file_path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - original_file_name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - parent_process:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process_path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - service_path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry_path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry_value_data:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry_value_name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ContextInfo:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Payload:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ScriptBlockText:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ServerName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - TransportName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - NewProcessName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ParentProcessName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Application:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Product Name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Threat Name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Process Name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - Path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ImagePath:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ServiceName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ProcessPath:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - AppName:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - AppPath:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - ModulePath:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry.data.strings:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry.path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - registry.value:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.args:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.command_line:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.env_vars:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.io.text:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.executable:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - process.title:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.company:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.description:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.original_file_name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - pe.product:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - os.full:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - host.hostname:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - file.fork_name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - file.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - file.path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - file.target_path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - email.attachments.file.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - email.subject:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - dll.path:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - device.model.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - container.image.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - container.name:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - object:
+    - '*\Local\Temp\Advanced IP Scanner 2\*'
+    - '*\Programs\Advanced IP Scanner Portable\*'
+    - '*\Program Files (x86)\Advanced IP Scanner\*'
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*.exe /s:ip_ranges.txt /f:scan_results.txt*'
+    - '*Advanced IP Scanner*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - url:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - dest_url:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - uri:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - uri_query:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - query:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - url_domain:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - uri_path:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - domain:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - QueryName:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - QueryResults:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - DestinationHostname:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - DestinationIp:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - http_referrer:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - http_referrer_domain:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - http_user_agent:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - dest_nt_host:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - sender:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - recipient:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - orig_recipient:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - subject:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - url.domain:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - url.full:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - url.original:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - url.query:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - user_agent.original:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - network.application:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - http.request.body.content:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - http.request.referrer:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - email.from.address:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - dns.question.name:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  - destination.domain:
+    - '*Advanced_IP_Scanner*.exe*'
+    - '*advanced_ip_scanner_console.exe*'
+    - '*https://download.advanced-ip-scanner.com/download/files/*.exe*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,27 @@
+title: AWS ECS Task Definition Priv Esc
+status: experimental
+author: wssheldo
+date: 2020/05/20
+description: >
+  Task definitions can be used to potentially escalate
+  privileges in an AWS environment by stealing credentials
+  from running containers using the ECS Task Metadata Service.
+references:
+  - https://rhinosecuritylabs.com/aws/weaponizing-ecs-task-definitions-steal-credentials-running-containers/?utm_content=129721809&utm_medium=social&utm_source=twitter&hss_channel=tw-1184539364
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d@d eventSource="ecs.amazonaws.com"
+  eventName=RunTask "requestParameters.launchType"=FARGATE
+  "requestParameters.networkConfiguration.awsvpcConfiguration.assignPublicIp"=ENABLED
+  "requestParameters.overrides.containerOverrides{}.command{}"="*"
+  "requestParameters.overrides.containerOverrides{}.command{}"!="trigger-*"
+  "requestParameters.overrides.containerOverrides{}.command{}"!="*run_dsar.py*"
+severity: 3
+page: false
+falsepositives: >
+  - There are currently only task definitions running with commands that
+  begin with "trigger-*", this could change in the future.
+  Any command with curl or bash scripting is suspicious.
+tags: >
+  - attack.t1522

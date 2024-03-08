@@ -1,0 +1,563 @@
+title: Simple keyword detection rule for SharpLdapRelayScan
+id: 2fc2ba26-33d0-48fb-b662-126c4ead5c30
+status: experimental
+description: Detects interesting keywords based on SharpLdapRelayScan tool
+references:
+- https://github.com/klezVirus/SharpLdapRelayScan
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1078.003
+- attack.T1557.001
+- attack.TA0002
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - CommandLine:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Details:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry.value:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.args:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.command_line:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.env_vars:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.io.text:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.title:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.company:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.description:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.product:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - os.full:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - host.hostname:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - event.original:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - email.subject:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - device.model.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - container.image.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - container.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Image:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - OriginalFileName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - CurrentDirectory:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ParentImage:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ParentCommandLine:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - TargetFilename:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Signature:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - signature:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ImageLoaded:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Company:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Description:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - description:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - CommandLine:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - SourceImage:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - TargetImage:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - CallTrace:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - TargetObject:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Details:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - PipeName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Consumer:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Destination:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Query:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - NewName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - StartAddress:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - StartModule:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - StartFunction:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - SourceHostname:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Device:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - file_name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - file_path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - original_file_name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - parent_process:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process_path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - service_path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry_path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry_value_data:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry_value_name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ContextInfo:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Payload:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ScriptBlockText:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ServerName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - TransportName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - NewProcessName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ParentProcessName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Application:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Product Name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Threat Name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Process Name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - Path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ImagePath:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ServiceName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ProcessPath:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - AppName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - AppPath:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - ModulePath:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry.data.strings:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry.path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - registry.value:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.args:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.command_line:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.env_vars:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.io.text:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.executable:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - process.title:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.company:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.description:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.original_file_name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - pe.product:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - os.full:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - host.hostname:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - file.fork_name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - file.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - file.path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - file.target_path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - email.attachments.file.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - email.subject:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - dll.path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - device.model.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - container.image.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - container.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - object:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - url:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - dest_url:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - uri:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - uri_query:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - query:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - url_domain:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - uri_path:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - domain:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - QueryName:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - QueryResults:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - DestinationHostname:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - DestinationIp:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - http_referrer:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - http_referrer_domain:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - http_user_agent:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - dest_nt_host:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - sender:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - recipient:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - orig_recipient:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - subject:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - url.domain:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - url.full:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - url.original:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - url.query:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - user_agent.original:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - network.application:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - http.request.body.content:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - http.request.referrer:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - email.from.address:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - dns.question.name:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  - destination.domain:
+    - '*.exe -d * -u * -p * -m LDAPS*'
+    - '*SharpLdapRelayScan*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

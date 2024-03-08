@@ -1,0 +1,771 @@
+title: Simple keyword detection rule for spring-core-rce
+id: 8caa5753-49c8-401a-b15b-def39a0c4991
+status: experimental
+description: Detects interesting keywords based on spring-core-rce tool
+references:
+- https://github.com/Mr-xn/spring-core-rce
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1212
+- attack.T1550
+- attack.T1555
+- attack.T1558
+- attack.TA0001
+- attack.TA0004
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - OriginalFileName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - CurrentDirectory:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ParentImage:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ParentCommandLine:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - TargetFilename:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Signature:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - signature:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ImageLoaded:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Company:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Description:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - description:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - CommandLine:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - SourceImage:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - TargetImage:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - CallTrace:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - TargetObject:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Details:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - PipeName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Consumer:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Destination:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Query:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - NewName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - StartAddress:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - StartModule:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - StartFunction:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - SourceHostname:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Device:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - file_name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - file_path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - original_file_name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - parent_process:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process_path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - service_path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - registry_path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - registry_value_data:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - registry_value_name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ContextInfo:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Payload:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ScriptBlockText:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ServerName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - TransportName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - NewProcessName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ParentProcessName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Application:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Product Name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Threat Name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Process Name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - Path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ImagePath:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ServiceName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ProcessPath:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - AppName:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - AppPath:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - ModulePath:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - registry.data.strings:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - registry.path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - registry.value:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.args:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.command_line:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.env_vars:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.io.text:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.executable:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - process.title:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - pe.company:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - pe.description:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - pe.original_file_name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - pe.product:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - os.full:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - host.hostname:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - file.fork_name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - file.name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - file.path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - file.target_path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - email.attachments.file.name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - email.subject:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - dll.path:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - device.model.name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - container.image.name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - container.name:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - object:
+    - '*/spring-core-rce*'
+    - '*target/tomcatwar.jsp?pwd=j&cmd=*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*cat ./apache-tomcat-8.5.77/webapps/ROOT/tomcatwar.jsp'
+    - '*github*/Mr-xn/*'
+  - url:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - dest_url:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - uri:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - uri_query:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - query:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - url_domain:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - uri_path:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - domain:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - QueryName:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - QueryResults:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - DestinationHostname:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - DestinationIp:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - http_referrer:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - http_referrer_domain:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - http_user_agent:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - dest_nt_host:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - sender:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - recipient:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - orig_recipient:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - subject:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - url.domain:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - url.full:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - url.original:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - url.query:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - user_agent.original:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - network.application:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - http.request.body.content:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - http.request.referrer:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - email.from.address:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - dns.question.name:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  - destination.domain:
+    - '*/spring-core-rce*'
+    - '*spring-core-rce*ROOT.war*'
+    - '*github*/Mr-xn/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

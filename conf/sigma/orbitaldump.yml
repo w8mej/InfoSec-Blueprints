@@ -1,0 +1,1136 @@
+title: Simple keyword detection rule for orbitaldump
+id: 6823582b-9260-4251-bfa9-31628b275e91
+status: experimental
+description: Detects interesting keywords based on orbitaldump tool
+references:
+- https://github.com/k4yt3x/orbitaldump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1110
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - OriginalFileName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - CurrentDirectory:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ParentImage:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ParentCommandLine:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - TargetFilename:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Signature:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - signature:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ImageLoaded:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Company:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Description:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - description:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - CommandLine:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - SourceImage:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - TargetImage:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - CallTrace:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - TargetObject:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Details:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - PipeName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Consumer:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Destination:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Query:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - NewName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - StartAddress:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - StartModule:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - StartFunction:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - SourceHostname:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Device:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - file_name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - file_path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - original_file_name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - parent_process:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process_path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - service_path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry_path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry_value_data:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry_value_name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ContextInfo:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Payload:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ScriptBlockText:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ServerName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - TransportName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - NewProcessName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ParentProcessName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Application:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Product Name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Threat Name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Process Name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ImagePath:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ServiceName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ProcessPath:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - AppName:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - AppPath:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ModulePath:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry.data.strings:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry.path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry.value:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.args:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.command_line:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.env_vars:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.io.text:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.executable:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.title:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.company:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.description:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.original_file_name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.product:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - os.full:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - host.hostname:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - file.fork_name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - file.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - file.path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - file.target_path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - email.attachments.file.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - email.subject:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - dll.path:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - device.model.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - container.image.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - container.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - object:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - ParentCommandLine:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - CommandLine:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - Details:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - registry.value:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.args:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.command_line:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.env_vars:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.io.text:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - process.title:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.company:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.description:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - pe.product:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - os.full:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - host.hostname:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - event.original:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - email.subject:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - device.model.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - container.image.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - container.name:
+    - '*--user orbitaldump*'
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*python3 -m orbitaldump *'
+    - '*orbitaldump.py*'
+    - '*python -m orbitaldump *'
+  - url:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - dest_url:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - uri:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - uri_query:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - query:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - url_domain:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - uri_path:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - domain:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - QueryName:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - QueryResults:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - DestinationHostname:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - DestinationIp:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - http_referrer:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - http_referrer_domain:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - http_user_agent:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - dest_nt_host:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - sender:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - recipient:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - orig_recipient:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - subject:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - url.domain:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - url.full:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - url.original:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - url.query:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - user_agent.original:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - network.application:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - http.request.body.content:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - http.request.referrer:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - email.from.address:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - dns.question.name:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  - destination.domain:
+    - '*orbitaldump/orbitaldump*'
+    - '*/orbitaldump.git*'
+    - '*k4yt3x/orbitaldump*'
+    - '*orbitaldump.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

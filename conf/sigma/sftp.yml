@@ -1,0 +1,83 @@
+title: Simple keyword detection rule for sftp
+id: 43904564-4e79-4dc0-860a-e078da53d708
+status: experimental
+description: Detects interesting keywords based on sftp tool
+references:
+- https://attack.mitre.org/techniques/T1105/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1041
+- attack.T1105
+- attack.T1106
+- attack.TA0002
+- attack.TA0008
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*sftp *@*:* *'
+  - CommandLine:
+    - '*sftp *@*:* *'
+  - Details:
+    - '*sftp *@*:* *'
+  - registry.value:
+    - '*sftp *@*:* *'
+  - process.args:
+    - '*sftp *@*:* *'
+  - process.command_line:
+    - '*sftp *@*:* *'
+  - process.env_vars:
+    - '*sftp *@*:* *'
+  - process.io.text:
+    - '*sftp *@*:* *'
+  - process.title:
+    - '*sftp *@*:* *'
+  - pe.company:
+    - '*sftp *@*:* *'
+  - pe.description:
+    - '*sftp *@*:* *'
+  - pe.product:
+    - '*sftp *@*:* *'
+  - os.full:
+    - '*sftp *@*:* *'
+  - host.hostname:
+    - '*sftp *@*:* *'
+  - event.original:
+    - '*sftp *@*:* *'
+  - email.subject:
+    - '*sftp *@*:* *'
+  - device.model.name:
+    - '*sftp *@*:* *'
+  - container.image.name:
+    - '*sftp *@*:* *'
+  - container.name:
+    - '*sftp *@*:* *'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,31 @@
+title: High risk local/domain local group membership change
+description: Detects scenarios where a suspicious group membership is changed. Having Microsoft LAPS installed may trigger false positive events for the builtin administrators group triggered by the system account (S-1-5-18).
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1098.xxx-Account%20manipulation
+- https://ss64.com/nt/syntax-groups.html
+- https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/security-identifiers
+tags:
+- attack.persistence
+- attack.t1098
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4732 # local and domain local group
+    TargetSid|startswith: 'S-1-5-32-'
+    TargetSid|endswith:
+      - '-544' # Administrators
+      - '-547' # Power Users
+      - '-548' # Account Operators
+      - '-549' # Server Operators
+      - '-551' # Backup Operators
+      - '-578' # Hyper-V Administrators
+  filter:
+    SubjectUserName|endswith: '$' # LAPS or others IAM solutions may trigger this as a false positive
+  condition: selection and not filter
+falsepositives:
+- Administrator activity
+level: high

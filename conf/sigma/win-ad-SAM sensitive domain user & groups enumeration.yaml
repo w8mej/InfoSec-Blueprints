@@ -1,0 +1,36 @@
+title: Sensitive SAM domain user & groups discovery (native)
+description: Detects scenarios where an attacker attempts to enumerate sensitive domain group settings and membership.
+correlation: correlate TargetLogonId from ID 4624 with SubjectLogonId from ID 4661 to identify the source of the enumeration.
+requirements: extended rights auditing enabled (https://www.manageengine.com/products/active-directory-audit/active-directory-auditing-configuration-guide-configure-object-level-auditing-manually.html)
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0007-Discovery/T1069-Permission%20Groups%20Discovery
+- https://bitvijays.github.io/LFF-IPS-P3-Exploitation.html
+tags:
+- attack.discovery
+- attack.t1069.002
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4661
+    ProcessName|endswith: '\lsass.exe'
+    ObjectServer: 'Security Account Manager'
+    ObjectName|startswith:
+      - S-1-5-32- # refers to builtin domain local groups
+      - S-1-5-21- # refers to domain users andgroups
+    ObjectType:
+      - SAM_USER
+      - SAM_GROUP
+    ObjectName|endswith:
+      - '-500' # local administrator / "net user administrator /domain"
+      - '-512' # Domain Admins       / "net group "Domain Admins" /domain"
+      - '-513' # Domain users
+  filter:
+    SubjectUserName|endswith: '$'
+  condition: selection and not filter
+falsepositives:
+- Administrator activity
+level: high

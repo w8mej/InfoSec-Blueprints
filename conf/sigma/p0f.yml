@@ -1,0 +1,767 @@
+title: Simple keyword detection rule for p0f
+id: 1396722a-fba0-4ac5-927a-0da894457358
+status: experimental
+description: Detects interesting keywords based on p0f tool
+references:
+- https://www.kali.org/tools/p0f/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1040
+- attack.T1046
+- attack.TA0007
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - OriginalFileName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - CurrentDirectory:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ParentImage:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ParentCommandLine:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - TargetFilename:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Signature:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - signature:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ImageLoaded:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Company:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Description:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - description:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - CommandLine:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - SourceImage:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - TargetImage:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - CallTrace:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - TargetObject:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Details:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - PipeName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Consumer:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Destination:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Query:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - NewName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - StartAddress:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - StartModule:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - StartFunction:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - SourceHostname:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Device:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - file_name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - file_path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - original_file_name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - parent_process:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process_path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - service_path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry_path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry_value_data:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry_value_name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ContextInfo:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Payload:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ScriptBlockText:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ServerName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - TransportName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - NewProcessName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ParentProcessName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Application:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Product Name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Threat Name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Process Name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ImagePath:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ServiceName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ProcessPath:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - AppName:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - AppPath:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ModulePath:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry.data.strings:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry.path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry.value:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.args:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.command_line:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.env_vars:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.io.text:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.executable:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.title:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.company:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.description:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.original_file_name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.product:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - os.full:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - host.hostname:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - file.fork_name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - file.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - file.path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - file.target_path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - email.attachments.file.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - email.subject:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - dll.path:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - device.model.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - container.image.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - container.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - object:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - ParentCommandLine:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - CommandLine:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - Details:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - registry.value:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.args:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.command_line:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.env_vars:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.io.text:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - process.title:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.company:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.description:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - pe.product:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - os.full:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - host.hostname:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - event.original:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - email.subject:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - device.model.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - container.image.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - container.name:
+    - '*install p0f*'
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+    - '*p0f -i eth* -p*'
+  - url:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - dest_url:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - uri:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - uri_query:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - query:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - url_domain:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - uri_path:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - domain:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - QueryName:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - QueryResults:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - DestinationHostname:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - DestinationIp:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - http_referrer:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - http_referrer_domain:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - http_user_agent:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - dest_nt_host:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - sender:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - recipient:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - orig_recipient:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - subject:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - url.domain:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - url.full:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - url.original:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - url.query:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - user_agent.original:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - network.application:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - http.request.body.content:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - http.request.referrer:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - email.from.address:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - dns.question.name:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  - destination.domain:
+    - '*p0f/p0f.fp*'
+    - '*/tmp/p0f.log*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

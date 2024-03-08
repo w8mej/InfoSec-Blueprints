@@ -1,0 +1,1346 @@
+title: Simple keyword detection rule for bropper
+id: 0b91e453-4485-462e-8e46-4591c4fd4241
+status: experimental
+description: Detects interesting keywords based on bropper tool
+references:
+- https://github.com/Hakumarachi/Bropper
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.003
+- attack.T1068
+- attack.T1140
+- attack.TA0002
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - OriginalFileName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - CurrentDirectory:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ParentImage:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ParentCommandLine:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - TargetFilename:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Signature:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - signature:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ImageLoaded:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Company:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Description:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - description:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - CommandLine:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - SourceImage:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - TargetImage:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - CallTrace:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - TargetObject:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Details:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - PipeName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Consumer:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Destination:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Query:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - NewName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - StartAddress:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - StartModule:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - StartFunction:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - SourceHostname:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Device:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - file_name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - file_path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - original_file_name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - parent_process:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process_path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - service_path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry_path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry_value_data:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry_value_name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ContextInfo:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Payload:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ScriptBlockText:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ServerName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - TransportName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - NewProcessName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ParentProcessName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Application:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Product Name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Threat Name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Process Name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ImagePath:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ServiceName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ProcessPath:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - AppName:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - AppPath:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ModulePath:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry.data.strings:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry.path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry.value:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.args:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.command_line:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.env_vars:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.io.text:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.executable:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.title:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.company:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.description:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.original_file_name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.product:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - os.full:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - host.hostname:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - file.fork_name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - file.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - file.path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - file.target_path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - email.attachments.file.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - email.subject:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - dll.path:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - device.model.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - container.image.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - container.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - object:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - ParentCommandLine:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - CommandLine:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - Details:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - registry.value:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.args:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.command_line:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.env_vars:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.io.text:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - process.title:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.company:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.description:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - pe.product:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - os.full:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - host.hostname:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - event.original:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - email.subject:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - device.model.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - container.image.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - container.name:
+    - '*/bropper.py*'
+    - '* -t 127.0.0.1 -p 1337 *'
+    - '*bropper.py *'
+    - '*Bropper-main.zip*'
+    - '*.py * --brop *'
+    - '* bropper.py*'
+    - '*--expected Bad --expected-stop Welcome*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - url:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - dest_url:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - uri:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - uri_query:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - query:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - url_domain:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - uri_path:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - domain:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - QueryName:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - QueryResults:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - DestinationHostname:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - DestinationIp:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - http_referrer:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - http_referrer_domain:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - http_user_agent:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - dest_nt_host:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - sender:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - recipient:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - orig_recipient:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - subject:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - url.domain:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - url.full:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - url.original:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - url.query:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - user_agent.original:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - network.application:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - http.request.body.content:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - http.request.referrer:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - email.from.address:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - dns.question.name:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  - destination.domain:
+    - '*/bropper.py*'
+    - '*Bropper-main.zip*'
+    - '*/Bropper.git*'
+    - '*Hakumarachi/Bropper*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

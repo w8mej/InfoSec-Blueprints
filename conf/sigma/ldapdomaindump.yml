@@ -1,0 +1,1144 @@
+title: Simple keyword detection rule for ldapdomaindump
+id: a012166c-d7d2-4b6c-8d22-efde054ad995
+status: experimental
+description: Detects interesting keywords based on ldapdomaindump tool
+references:
+- https://github.com/dirkjanm/ldapdomaindump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1005
+- attack.T1016
+- attack.T1087
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - OriginalFileName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - CurrentDirectory:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ParentImage:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ParentCommandLine:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - TargetFilename:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Signature:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - signature:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ImageLoaded:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Company:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Description:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - description:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - CommandLine:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - SourceImage:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - TargetImage:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - CallTrace:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - TargetObject:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Details:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - PipeName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Consumer:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Destination:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Query:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - NewName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - StartAddress:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - StartModule:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - StartFunction:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - SourceHostname:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Device:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - file_name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - file_path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - original_file_name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - parent_process:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process_path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - service_path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - registry_path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - registry_value_data:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - registry_value_name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ContextInfo:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Payload:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ScriptBlockText:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ServerName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - TransportName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - NewProcessName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ParentProcessName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Application:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Product Name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Threat Name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Process Name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - Path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ImagePath:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ServiceName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ProcessPath:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - AppName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - AppPath:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - ModulePath:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - registry.data.strings:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - registry.path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - registry.value:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.args:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.command_line:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.env_vars:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.io.text:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.executable:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - process.title:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - pe.company:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - pe.description:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - pe.original_file_name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - pe.product:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - os.full:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - host.hostname:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - file.fork_name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - file.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - file.path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - file.target_path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - email.attachments.file.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - email.subject:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - dll.path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - device.model.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - container.image.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - container.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - object:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '* domainDumper*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - url:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - dest_url:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - uri:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - uri_query:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - query:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - url_domain:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - uri_path:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - domain:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - QueryName:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - QueryResults:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - DestinationHostname:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - DestinationIp:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - http_referrer:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - http_referrer_domain:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - http_user_agent:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - dest_nt_host:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - sender:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - recipient:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - orig_recipient:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - subject:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - url.domain:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - url.full:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - url.original:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - url.query:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - user_agent.original:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - network.application:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - http.request.body.content:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - http.request.referrer:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - email.from.address:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - dns.question.name:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  - destination.domain:
+    - '*getAllUserSpns*'
+    - '*ldd2bloodhound*'
+    - '*bin/ldd2pretty*'
+    - '*/john.git*'
+    - '*dirkjan@sanoweb.nl*'
+    - '*ldapdomaindump*'
+    - '*domainDumpConfig*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

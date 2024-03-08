@@ -1,0 +1,28 @@
+title: Firewall deactivation (firewall)
+description: Detects scenarios where an attacker disabled the Windows Firewall to evade defense.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0005-Defense%20Evasion/T1562.004-Impair%20Defenses-Disable%20or%20Modify%20System%20Firewall
+- https://www.winhelponline.com/blog/enable-and-disable-windows-firewall-quickly-using-command-line/
+tags:
+- attack.defense_evasion
+- attack.t1562.004
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: firewall-as
+detection:
+  selection_advanced: # Avanced ID provides the SID of the Subject User
+    Channel: 'Microsoft-Windows-Windows Firewall With Advanced Security/Firewall'
+    EventID: 2003 # Firewall setting  has changed.
+    SettingType: '1' # Enable Windows Firewall
+    SettingValueString: 'No' # Enable Windows Firewall > No
+
+  selection_basic:
+    EventID: 4950 # MPSSVC Rule-Level Policy Change
+    SettingType: 'Enable Windows Firewall'
+    SettingValue: 'No' # Enable Windows Firewall
+  condition: selection_advanced or selection_basic
+falsepositives:
+- Administrator activity
+level: high

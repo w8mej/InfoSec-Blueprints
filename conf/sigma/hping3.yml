@@ -1,0 +1,83 @@
+title: Simple keyword detection rule for hping3
+id: 95728c0c-9753-4e55-bf0d-567d371c9714
+status: experimental
+description: Detects interesting keywords based on hping3 tool
+references:
+- https://github.com/RoseSecurity/Red-Teaming-TTPs
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1045
+- attack.T1095
+- attack.T1498
+- attack.TA0001
+- attack.TA0040
+- attack.TA0043
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - CommandLine:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - Details:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - registry.value:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - process.args:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - process.command_line:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - process.env_vars:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - process.io.text:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - process.title:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - pe.company:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - pe.description:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - pe.product:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - os.full:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - host.hostname:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - event.original:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - email.subject:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - device.model.name:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - container.image.name:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  - container.name:
+    - '*hping3 * --flood --frag --spoof * --destport*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

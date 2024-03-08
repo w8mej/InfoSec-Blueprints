@@ -1,0 +1,966 @@
+title: Simple keyword detection rule for Lime-Crypter
+id: ba4fdb3f-e7bd-4715-93af-aac48b4398ba
+status: experimental
+description: Detects interesting keywords based on Lime-Crypter tool
+references:
+- https://github.com/NYAN-x-CAT/Lime-Crypter
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1045
+- 'attack.TA0005 '
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - OriginalFileName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - CurrentDirectory:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ParentImage:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ParentCommandLine:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - TargetFilename:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Signature:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - signature:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ImageLoaded:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Company:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Description:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - description:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - CommandLine:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - SourceImage:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - TargetImage:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - CallTrace:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - TargetObject:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Details:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - PipeName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Consumer:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Destination:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Query:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - NewName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - StartAddress:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - StartModule:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - StartFunction:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - SourceHostname:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Device:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - file_name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - file_path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - original_file_name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - parent_process:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process_path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - service_path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - registry_path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - registry_value_data:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - registry_value_name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ContextInfo:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Payload:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ScriptBlockText:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ServerName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - TransportName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - NewProcessName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ParentProcessName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Application:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Product Name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Threat Name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Process Name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - Path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ImagePath:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ServiceName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ProcessPath:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - AppName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - AppPath:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - ModulePath:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - registry.data.strings:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - registry.path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - registry.value:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.args:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.command_line:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.env_vars:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.io.text:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.executable:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - process.title:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - pe.company:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - pe.description:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - pe.original_file_name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - pe.product:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - os.full:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - host.hostname:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - file.fork_name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - file.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - file.path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - file.target_path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - email.attachments.file.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - email.subject:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - dll.path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - device.model.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - container.image.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - container.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - object:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*\Lime-Crypter\*'
+    - '*\Lime-Crypter.sln*'
+    - '*Lime-Crypter.exe*'
+    - '*F93C99ED-28C9-48C5-BB90-DD98F18285A6*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - url:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - dest_url:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - uri:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - uri_query:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - query:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - url_domain:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - uri_path:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - domain:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - QueryName:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - QueryResults:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - DestinationHostname:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - DestinationIp:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - http_referrer:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - http_referrer_domain:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - http_user_agent:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - dest_nt_host:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - sender:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - recipient:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - orig_recipient:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - subject:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - url.domain:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - url.full:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - url.original:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - url.query:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - user_agent.original:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - network.application:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - http.request.body.content:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - http.request.referrer:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - email.from.address:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - dns.question.name:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  - destination.domain:
+    - '*Release.Lime-Crypter.v0.5.1.exe.zip*'
+    - '*Lime-Crypter.exe*'
+    - '*/Lime-Crypter.git*'
+    - '*NYAN-x-CAT/Lime-Crypter*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

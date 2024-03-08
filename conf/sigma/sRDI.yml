@@ -1,0 +1,911 @@
+title: Simple keyword detection rule for sRDI
+id: b51551da-475c-4992-a96f-bb00a1999b37
+status: experimental
+description: Detects interesting keywords based on sRDI tool
+references:
+- https://github.com/monoxgas/sRDI
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1550 T1555 T1212 T1558
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - OriginalFileName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - CurrentDirectory:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ParentImage:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ParentCommandLine:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - TargetFilename:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Signature:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - signature:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ImageLoaded:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Company:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Description:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - description:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - CommandLine:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - SourceImage:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - TargetImage:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - CallTrace:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - TargetObject:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Details:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - PipeName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Consumer:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Destination:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Query:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - NewName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - StartAddress:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - StartModule:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - StartFunction:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - SourceHostname:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Device:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - file_name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - file_path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - original_file_name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - parent_process:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process_path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - service_path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - registry_path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - registry_value_data:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - registry_value_name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ContextInfo:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Payload:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ScriptBlockText:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ServerName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - TransportName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - NewProcessName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ParentProcessName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Application:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Product Name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Threat Name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Process Name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - Path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ImagePath:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ServiceName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ProcessPath:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - AppName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - AppPath:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - ModulePath:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - registry.data.strings:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - registry.path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - registry.value:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.args:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.command_line:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.env_vars:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.io.text:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.executable:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - process.title:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - pe.company:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - pe.description:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - pe.original_file_name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - pe.product:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - os.full:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - host.hostname:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - file.fork_name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - file.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - file.path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - file.target_path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - email.attachments.file.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - email.subject:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - dll.path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - device.model.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - container.image.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - container.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - object:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*ConvertTo-Shellcode -*'
+    - '*Invoke-Shellcode*'
+  - url:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - dest_url:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - uri:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - uri_query:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - query:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - url_domain:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - uri_path:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - domain:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - QueryName:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - QueryResults:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - DestinationHostname:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - DestinationIp:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - http_referrer:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - http_referrer_domain:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - http_user_agent:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - dest_nt_host:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - sender:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - recipient:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - orig_recipient:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - subject:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - url.domain:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - url.full:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - url.original:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - url.query:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - user_agent.original:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - network.application:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - http.request.body.content:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - http.request.referrer:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - email.from.address:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - dns.question.name:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  - destination.domain:
+    - '*ShellcodeRDI.*'
+    - '*monoxgas/sRDI*'
+    - '*ConvertToShellcode.py*'
+    - '*ConvertTo-Shellcode.*'
+    - '*Invoke-Shellcode*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

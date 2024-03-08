@@ -1,0 +1,32 @@
+title: AWS EC2 Startup Shell Script Change Event Cluster
+status: experimental
+author: wssheldo
+date: 2020/05/20
+description: >
+  Detects changes to the EC2 instance startup script.
+  The shell script will be executed as root/SYSTEM everytime
+  the specific instances are booted up.
+references:
+  - https://github.com/RhinoSecurityLabs/pacu/blob/master/modules/ec2__startup_shell_script/main.py#L9
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d eventName=ModifyInstanceAttribute
+  OR eventName=DescribeInstanceAttribute OR eventName=StartInstances
+  OR eventName=StopInstances AND sourceIPAddress!="autoscaling.amazonaws.com"
+  | transaction userIdentity.accountId maxspan=1d connected=false
+  | search eventName=ModifyInstanceAttribute eventName=DescribeInstanceAttribute
+  eventName=StartInstances eventName=StopInstances
+  | join userIdentity.accountId
+      [ search sourcetype=aws:cloudtrail eventName=ModifyInstanceAttribute
+      earliest=-1d
+      | fields "userIdentity.accountId", "requestParameters.userData",
+      | rename "requestParameters.userData" as userData]
+  | search userData="*"
+  | table _time, eventName, userIdentity.accountId, userData
+severity: 3
+page: false
+falsepositives: >
+  - Valid changes to the startup script
+tags: >
+  - attack.t1525

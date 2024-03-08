@@ -1,0 +1,1369 @@
+title: Simple keyword detection rule for processhacker
+id: 2a7032e1-5218-4aae-a6a3-50406716eb9b
+status: experimental
+description: Detects interesting keywords based on processhacker tool
+references:
+- https://processhacker.sourceforge.io/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.T1055.001
+- attack.T1055.012
+- attack.T1056.005
+- attack.TA0005
+- attack.TA0006
+- attack.TA0009
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - OriginalFileName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - CurrentDirectory:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ParentImage:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ParentCommandLine:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - TargetFilename:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Signature:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - signature:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ImageLoaded:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Company:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Description:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - description:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - CommandLine:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - SourceImage:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - TargetImage:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - CallTrace:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - TargetObject:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Details:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - PipeName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Consumer:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Destination:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Query:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - NewName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - StartAddress:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - StartModule:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - StartFunction:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - SourceHostname:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Device:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - file_name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - file_path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - original_file_name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - parent_process:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process_path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - service_path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry_path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry_value_data:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry_value_name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ContextInfo:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Payload:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ScriptBlockText:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ServerName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - TransportName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - NewProcessName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ParentProcessName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Application:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Product Name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Threat Name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Process Name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ImagePath:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ServiceName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ProcessPath:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - AppName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - AppPath:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ModulePath:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry.data.strings:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry.path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry.value:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.args:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.command_line:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.env_vars:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.io.text:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.executable:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.title:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.company:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.description:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.original_file_name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.product:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - os.full:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - host.hostname:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - file.fork_name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - file.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - file.path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - file.target_path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - email.attachments.file.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - email.subject:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - dll.path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - device.model.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - container.image.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - container.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - object:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - ParentCommandLine:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - CommandLine:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - Details:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - registry.value:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.args:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.command_line:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.env_vars:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.io.text:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - process.title:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.company:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.description:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - pe.product:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - os.full:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - host.hostname:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - event.original:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - email.subject:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - device.model.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - container.image.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - container.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - url:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - dest_url:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - uri:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - uri_query:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - query:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - url_domain:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - uri_path:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - domain:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - QueryName:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - QueryResults:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - DestinationHostname:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - DestinationIp:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - http_referrer:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - http_referrer_domain:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - http_user_agent:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - dest_nt_host:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - sender:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - recipient:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - orig_recipient:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - subject:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - url.domain:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - url.full:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - url.original:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - url.query:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - user_agent.original:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - network.application:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - http.request.body.content:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - http.request.referrer:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - email.from.address:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - dns.question.name:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  - destination.domain:
+    - '*/processhacker-*-bin.zip*'
+    - '*ProcessHacker.sln*'
+    - '*processhacker-*-sdk.zip*'
+    - '*ProcessHacker.exe*'
+    - '*\Process Hacker 2\*'
+    - '*processhacker-*-setup.exe*'
+    - '*processhacker-*-src.zip*'
+    - '*/processhacker/files/latest/download*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

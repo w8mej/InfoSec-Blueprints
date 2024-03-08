@@ -1,0 +1,27 @@
+title: GCP Permissions Granted Over Service Account
+id: cd3a4aaf-cd8c-4ce6-8e0d-c65efdc9c266
+description: Identifies when permissions granted to principal to impersonate or create keys for a service account.
+author: Center for Threat-Informed Defense, Google Cloud CSA, Michael Butt
+status: experimental
+date: 2022/06/07
+references:
+    - https://github.com/GoogleCloudPlatform/security-analytics/blob/main/src/2.20/2.20.md
+logsource:
+  product: gcp
+  service: gcp.audit
+  detection:
+    methodnamestart:
+        gcp.audit.method_name|beginswith: google.iam.admin
+    methodsetpolicy:
+        gcp.audit.method_name: SetIamPolicy
+    selection_resource_type:
+        protoPayload.serviceData.policyDelta.bindingDeltas.member: "serviceAccount"
+    group_key:
+        - "roles/iam.serviceAccountKeyAdmin"
+    condition: selection_resource_type and ((1 of method*) or group_key)
+level: low
+tags:
+    - attack.privilege_escalation
+    - attack.t1484.002
+falsepositives:
+ - Validate permissions have not been granted for valid reason.

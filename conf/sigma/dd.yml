@@ -1,0 +1,360 @@
+title: Simple keyword detection rule for dd
+id: 6adf15a4-088c-44a1-9e88-c04c25a97acd
+status: experimental
+description: Detects interesting keywords based on dd tool
+references:
+- https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1485/T1485.yaml
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1070.004
+- attack.T1485
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - OriginalFileName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - CurrentDirectory:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ParentImage:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ParentCommandLine:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - TargetFilename:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Signature:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - signature:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ImageLoaded:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Company:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Description:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - description:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - CommandLine:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - SourceImage:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - TargetImage:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - CallTrace:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - TargetObject:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Details:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - PipeName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Consumer:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Destination:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Query:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - NewName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - StartAddress:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - StartModule:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - StartFunction:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - SourceHostname:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Device:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - file_name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - file_path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - original_file_name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - parent_process:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process_path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - service_path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - registry_path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - registry_value_data:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - registry_value_name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ContextInfo:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Payload:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ScriptBlockText:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ServerName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - TransportName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - NewProcessName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ParentProcessName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Application:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Product Name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Threat Name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Process Name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - Path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ImagePath:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ServiceName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ProcessPath:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - AppName:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - AppPath:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - ModulePath:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - registry.data.strings:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - registry.path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - registry.value:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.args:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.command_line:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.env_vars:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.io.text:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.executable:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - process.title:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - pe.company:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - pe.description:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - pe.original_file_name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - pe.product:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - os.full:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - host.hostname:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - file.fork_name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - file.name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - file.path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - file.target_path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - email.attachments.file.name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - email.subject:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - dll.path:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - device.model.name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - container.image.name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - container.name:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  - object:
+    - '*dd if=/dev/nul*'
+    - '*dd if=/dev/zero*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

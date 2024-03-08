@@ -1,0 +1,22 @@
+title: Excluded Rule 3
+date: 2021/05/03
+detection:
+  SELECTION_1:
+    EventID: 4720
+  SELECTION_2:
+    TargetUserName: '*$'
+  condition: (SELECTION_1 and SELECTION_2)
+falsepositives:
+- unknown
+fields:
+- EventCode
+- AccountName
+id: 00000000-0000-0000-0000-000000000000
+level: high
+logsource:
+  product: windows
+  service: security
+references:
+- https://twitter.com/SBousseaden/status/1387743867663958021
+status: experimental
+ruletype: SIGMA

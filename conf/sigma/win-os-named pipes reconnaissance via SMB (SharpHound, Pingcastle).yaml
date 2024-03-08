@@ -1,0 +1,31 @@
+title: SharpHound enumeration via SMB named pipes
+description: Detects scenarios where an attacker enumerate different host via named pipes with SharpHound for discovery purposes.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0007-Discovery/T1135.xxx-Network%20Share%20Discovery
+- https://docs.google.com/presentation/d/1OdufXKGYPgoV1d5jDrMYSe-SYKZ7lcA4w2MFn8AkUWE/edit
+- https://www.youtube.com/watch?v=_GJDkbUTSLY
+- https://community.rsa.com/t5/rsa-netwitness-platform-blog/keeping-an-eye-on-your-hounds/ba-p/519889
+- https://bloodhound.readthedocs.io/en/latest/data-collection/sharphound.html
+tags:
+- attack.discovery
+- attack.t1135
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5145
+    ShareName: '\\*\IPC$'
+    RelativeTargetName:
+     - lsarpc
+     - samr
+     - srvsvc # May also be triggered by other tools like DonPapi, CrackMapExec
+  filter:
+    IpAddress: '%administration_hosts%' # List of IPs of your administration hosts to reduce false positive
+  condition: selection and not filter | count(Computer) by IpAddress > 30
+  timeframe: 15m
+falsepositives:
+- Administrator activity, backup solutions, Windows Server Manager
+level: medium

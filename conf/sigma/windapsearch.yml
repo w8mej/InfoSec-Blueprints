@@ -1,0 +1,1139 @@
+title: Simple keyword detection rule for windapsearch
+id: 4e04e121-e5a3-4008-8908-c8e13d8a8612
+status: experimental
+description: Detects interesting keywords based on windapsearch tool
+references:
+- https://github.com/ropnop/windapsearch
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1069.002
+- attack.T1087.002
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - CommandLine:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Details:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry.value:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.args:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.command_line:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.env_vars:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.io.text:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.title:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.company:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.description:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.product:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - os.full:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - host.hostname:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - event.original:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - email.subject:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - device.model.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - container.image.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - container.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Image:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - OriginalFileName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - CurrentDirectory:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ParentImage:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ParentCommandLine:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - TargetFilename:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Signature:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - signature:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ImageLoaded:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Company:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Description:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - description:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - CommandLine:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - SourceImage:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - TargetImage:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - CallTrace:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - TargetObject:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Details:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - PipeName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Consumer:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Destination:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Query:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - NewName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - StartAddress:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - StartModule:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - StartFunction:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - SourceHostname:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Device:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - file_name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - file_path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - original_file_name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - parent_process:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process_path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - service_path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry_path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry_value_data:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry_value_name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ContextInfo:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Payload:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ScriptBlockText:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ServerName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - TransportName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - NewProcessName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ParentProcessName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Application:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Product Name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Threat Name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Process Name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - Path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ImagePath:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ServiceName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ProcessPath:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - AppName:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - AppPath:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - ModulePath:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry.data.strings:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry.path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - registry.value:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.args:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.command_line:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.env_vars:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.io.text:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.executable:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - process.title:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.company:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.description:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.original_file_name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - pe.product:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - os.full:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - host.hostname:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - file.fork_name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - file.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - file.path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - file.target_path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - email.attachments.file.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - email.subject:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - dll.path:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - device.model.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - container.image.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - container.name:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - object:
+    - '* --unconstrained-users*'
+    - '* --user-spns*'
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '* -d * -u *\* -p * --da*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - url:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - dest_url:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - uri:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - uri_query:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - query:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - url_domain:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - uri_path:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - domain:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - QueryName:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - QueryResults:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - DestinationHostname:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - DestinationIp:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - http_referrer:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - http_referrer_domain:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - http_user_agent:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - dest_nt_host:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - sender:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - recipient:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - orig_recipient:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - subject:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - url.domain:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - url.full:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - url.original:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - url.query:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - user_agent.original:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - network.application:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - http.request.body.content:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - http.request.referrer:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - email.from.address:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - dns.question.name:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  - destination.domain:
+    - '*windapsearch.py*'
+    - '*windapsearch-master*'
+    - '*windapsearch_py2.py*'
+    - '*/windapsearch.git*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

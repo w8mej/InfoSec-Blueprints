@@ -1,0 +1,2471 @@
+title: Simple keyword detection rule for HRShell
+id: 2807afe5-6e0b-4364-be91-4d9f9bf7bde4
+status: experimental
+description: Detects interesting keywords based on HRShell tool
+references:
+- https://github.com/chrispetrou/HRShell
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.002
+- attack.T1059.001
+- attack.T1059.003
+- attack.T1064
+- attack.T1105
+- attack.TA0002
+- attack.TA0008
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - CommandLine:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Details:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry.value:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.args:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.command_line:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.env_vars:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.io.text:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.title:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.company:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.description:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.product:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - os.full:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - host.hostname:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - event.original:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - email.subject:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - device.model.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - container.image.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - container.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Image:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - OriginalFileName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - CurrentDirectory:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ParentImage:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ParentCommandLine:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - TargetFilename:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Signature:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - signature:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ImageLoaded:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Company:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Description:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - description:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - CommandLine:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - SourceImage:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - TargetImage:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - CallTrace:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - TargetObject:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Details:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - PipeName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Consumer:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Destination:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Query:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - NewName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - StartAddress:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - StartModule:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - StartFunction:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - SourceHostname:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Device:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - file_name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - file_path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - original_file_name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - parent_process:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process_path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - service_path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry_path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry_value_data:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry_value_name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ContextInfo:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Payload:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ScriptBlockText:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ServerName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - TransportName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - NewProcessName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ParentProcessName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Application:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Product Name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Threat Name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Process Name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - Path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ImagePath:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ServiceName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ProcessPath:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - AppName:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - AppPath:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - ModulePath:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry.data.strings:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry.path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - registry.value:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.args:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.command_line:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.env_vars:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.io.text:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.executable:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - process.title:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.company:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.description:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.original_file_name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - pe.product:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - os.full:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - host.hostname:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - file.fork_name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - file.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - file.path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - file.target_path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - email.attachments.file.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - email.subject:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - dll.path:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - device.model.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - container.image.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - container.name:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - object:
+    - '* server.py -s tornado --cert /*pem --key /*.pem*'
+    - '*inject shellcode*'
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*shellcode1 += b*'
+    - '*clear_cmd'
+    - '*chrispetrou/HRShell*'
+    - set shellcode *
+    - '*HRShell*server.py*'
+    - '*set shellcode *'
+    - '*/meterpreter/reverse_tcp*'
+    - exploit -j -z
+    - '*history_cmd'
+    - show shellcodes
+    - '*/HRShell/*'
+    - '*from shellcodes import *'
+    - '*set_shellcode'
+    - '* client.py -s http*:5000 --cert /*.pem*'
+    - '*/HRShell.git*'
+  - url:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - dest_url:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - uri:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - uri_query:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - query:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - url_domain:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - uri_path:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - domain:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - QueryName:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - QueryResults:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - DestinationHostname:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - DestinationIp:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - http_referrer:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - http_referrer_domain:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - http_user_agent:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - dest_nt_host:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - sender:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - recipient:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - orig_recipient:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - subject:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - url.domain:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - url.full:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - url.original:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - url.query:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - user_agent.original:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - network.application:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - http.request.body.content:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - http.request.referrer:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - email.from.address:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - dns.question.name:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  - destination.domain:
+    - '*HRShell*client.py*'
+    - '*/shellcodes/utils.py*'
+    - '*chrispetrou/HRShell*'
+    - '*HRShell*server.py*'
+    - '*/meterpreter/reverse_tcp*'
+    - '*/HRShell/*'
+    - '*/HRShell.git*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

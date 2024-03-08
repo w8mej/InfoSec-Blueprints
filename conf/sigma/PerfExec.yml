@@ -1,0 +1,945 @@
+title: Simple keyword detection rule for PerfExec
+id: 2c90b71c-2e1b-432c-9fa0-3c5578037d16
+status: experimental
+description: Detects interesting keywords based on PerfExec tool
+references:
+- https://github.com/0xthirteen/PerfExec
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027.002
+- attack.T1055.001
+- attack.T1059.001
+- attack.T1059.003
+- attack.TA0002
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - OriginalFileName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - CurrentDirectory:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ParentImage:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ParentCommandLine:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - TargetFilename:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Signature:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - signature:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ImageLoaded:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Company:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Description:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - description:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - CommandLine:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - SourceImage:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - TargetImage:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - CallTrace:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - TargetObject:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Details:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - PipeName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Consumer:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Destination:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Query:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - NewName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - StartAddress:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - StartModule:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - StartFunction:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - SourceHostname:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Device:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - file_name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - file_path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - original_file_name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - parent_process:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process_path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - service_path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry_path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry_value_data:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry_value_name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ContextInfo:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Payload:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ScriptBlockText:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ServerName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - TransportName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - NewProcessName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ParentProcessName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Application:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Product Name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Threat Name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Process Name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ImagePath:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ServiceName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ProcessPath:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - AppName:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - AppPath:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ModulePath:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry.data.strings:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry.path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry.value:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.args:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.command_line:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.env_vars:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.io.text:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.executable:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.title:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.company:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.description:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.original_file_name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.product:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - os.full:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - host.hostname:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - file.fork_name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - file.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - file.path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - file.target_path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - email.attachments.file.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - email.subject:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - dll.path:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - device.model.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - container.image.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - container.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - object:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - ParentCommandLine:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - CommandLine:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - Details:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - registry.value:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.args:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.command_line:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.env_vars:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.io.text:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - process.title:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.company:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.description:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - pe.product:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - os.full:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - host.hostname:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - event.original:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - email.subject:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - device.model.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - container.image.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - container.name:
+    - '*PerfExec.sln*'
+    - '*\PerfExec.exe*'
+    - '*0xthirteen/PerfExec*'
+    - '*PerfExec-main.zip*'
+    - '* wmirun=true dllpath=*.dll* computername=*'
+    - '* diagrun=true service=DNS* dllpath=*.dll* computername=*'
+  - url:
+    - '*0xthirteen/PerfExec*'
+  - dest_url:
+    - '*0xthirteen/PerfExec*'
+  - uri:
+    - '*0xthirteen/PerfExec*'
+  - uri_query:
+    - '*0xthirteen/PerfExec*'
+  - query:
+    - '*0xthirteen/PerfExec*'
+  - url_domain:
+    - '*0xthirteen/PerfExec*'
+  - uri_path:
+    - '*0xthirteen/PerfExec*'
+  - domain:
+    - '*0xthirteen/PerfExec*'
+  - QueryName:
+    - '*0xthirteen/PerfExec*'
+  - QueryResults:
+    - '*0xthirteen/PerfExec*'
+  - DestinationHostname:
+    - '*0xthirteen/PerfExec*'
+  - DestinationIp:
+    - '*0xthirteen/PerfExec*'
+  - http_referrer:
+    - '*0xthirteen/PerfExec*'
+  - http_referrer_domain:
+    - '*0xthirteen/PerfExec*'
+  - http_user_agent:
+    - '*0xthirteen/PerfExec*'
+  - dest_nt_host:
+    - '*0xthirteen/PerfExec*'
+  - sender:
+    - '*0xthirteen/PerfExec*'
+  - recipient:
+    - '*0xthirteen/PerfExec*'
+  - orig_recipient:
+    - '*0xthirteen/PerfExec*'
+  - subject:
+    - '*0xthirteen/PerfExec*'
+  - url.domain:
+    - '*0xthirteen/PerfExec*'
+  - url.full:
+    - '*0xthirteen/PerfExec*'
+  - url.original:
+    - '*0xthirteen/PerfExec*'
+  - url.query:
+    - '*0xthirteen/PerfExec*'
+  - user_agent.original:
+    - '*0xthirteen/PerfExec*'
+  - network.application:
+    - '*0xthirteen/PerfExec*'
+  - http.request.body.content:
+    - '*0xthirteen/PerfExec*'
+  - http.request.referrer:
+    - '*0xthirteen/PerfExec*'
+  - email.from.address:
+    - '*0xthirteen/PerfExec*'
+  - dns.question.name:
+    - '*0xthirteen/PerfExec*'
+  - destination.domain:
+    - '*0xthirteen/PerfExec*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

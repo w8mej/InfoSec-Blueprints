@@ -1,0 +1,1274 @@
+title: Simple keyword detection rule for sprayhound
+id: 8712f99d-7de0-4508-a145-a9c552df2747
+status: experimental
+description: Detects interesting keywords based on sprayhound tool
+references:
+- https://github.com/Hackndo/sprayhound
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1069.002
+- attack.T1110.003
+- attack.T1210.001
+- attack.TA0003
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - OriginalFileName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - CurrentDirectory:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ParentImage:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ParentCommandLine:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - TargetFilename:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Signature:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - signature:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ImageLoaded:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Company:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Description:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - description:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - CommandLine:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - SourceImage:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - TargetImage:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - CallTrace:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - TargetObject:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Details:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - PipeName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Consumer:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Destination:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Query:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - NewName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - StartAddress:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - StartModule:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - StartFunction:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - SourceHostname:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Device:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - file_name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - file_path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - original_file_name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - parent_process:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process_path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - service_path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry_path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry_value_data:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry_value_name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ContextInfo:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Payload:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ScriptBlockText:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ServerName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - TransportName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - NewProcessName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ParentProcessName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Application:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Product Name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Threat Name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Process Name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ImagePath:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ServiceName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ProcessPath:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - AppName:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - AppPath:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ModulePath:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry.data.strings:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry.path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry.value:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.args:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.command_line:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.env_vars:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.io.text:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.executable:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.title:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.company:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.description:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.original_file_name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.product:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - os.full:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - host.hostname:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - file.fork_name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - file.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - file.path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - file.target_path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - email.attachments.file.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - email.subject:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - dll.path:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - device.model.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - container.image.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - container.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - object:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - ParentCommandLine:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - CommandLine:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - Details:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - registry.value:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.args:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.command_line:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.env_vars:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.io.text:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - process.title:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.company:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.description:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - pe.product:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - os.full:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - host.hostname:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - event.original:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - email.subject:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - device.model.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - container.image.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - container.name:
+    - '*sprayhound -*'
+    - '*-nh 127.0.0.1 -nP 7687 -nu neo4j -np *'
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+    - '* --neo4j-host *--neo4j-port*'
+  - url:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - dest_url:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - uri:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - uri_query:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - query:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - url_domain:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - uri_path:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - domain:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - QueryName:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - QueryResults:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - DestinationHostname:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - DestinationIp:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - http_referrer:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - http_referrer_domain:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - http_user_agent:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - dest_nt_host:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - sender:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - recipient:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - orig_recipient:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - subject:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - url.domain:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - url.full:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - url.original:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - url.query:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - user_agent.original:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - network.application:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - http.request.body.content:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - http.request.referrer:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - email.from.address:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - dns.question.name:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  - destination.domain:
+    - '*Hackndo/sprayhound*'
+    - '*sprayhound-master.zip*'
+    - '*/sprayhound/*.py*'
+    - '*neo4jconnection.py*'
+    - '*/sprayhound.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

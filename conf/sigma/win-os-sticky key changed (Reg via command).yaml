@@ -1,0 +1,28 @@
+title: Stickey key IFEO (Reg via command)
+description: Detects scenarios where an attacker attempts to enable the Image File Execution Options (IFEO) debugger for sethc.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0004-Privilege%20Escalation/T1546-Image%20File%20Execution%20Options%20Injection
+- https://blogs.technet.microsoft.com/jonathantrull/2016/10/03/detecting-sticky-key-backdoors/
+- https://www.mandiant.com/resources/apt29-domain-frontin
+- https://www.clearskysec.com/wp-content/uploads/2020/02/ClearSky-Fox-Kitten-Campaign-v1.pdf
+- https://blog.talosintelligence.com/2022/08/recent-cyber-attack.html?m=1
+- https://www.bleepingcomputer.com/news/security/winrar-sfx-archives-can-run-powershell-without-being-detected/
+tags:
+- attack.privilege_escalation
+- attack.t1546.008
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    EventID: 4688
+    NewProcessName|endswith: '\reg.exe'
+    CommandLine|contains|all: # Full command: REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /t REG_SZ /v Debugger /d "C:\windows\system32\cmd.exe" /f
+      - 'REG ADD'
+      - '\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\'
+      - 'Debugger'
+  condition: selection
+falsepositives:
+- None
+level: high

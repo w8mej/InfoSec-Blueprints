@@ -1,0 +1,281 @@
+title: Simple keyword detection rule for PRT
+id: 31dc6e5b-93e0-4748-a7ae-b939779d1e4b
+status: experimental
+description: Detects interesting keywords based on PRT tool
+references:
+- https://github.com/RUB-NDS/PRT
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1027.002
+- attack.T1210.001
+- attack.T1505
+- attack.T1564.001
+- attack.TA0001
+- attack.TA0002
+- attack.TA0007
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*Exploitation Toolkit*'
+  - OriginalFileName:
+    - '*Exploitation Toolkit*'
+  - CurrentDirectory:
+    - '*Exploitation Toolkit*'
+  - ParentImage:
+    - '*Exploitation Toolkit*'
+  - ParentCommandLine:
+    - '*Exploitation Toolkit*'
+  - TargetFilename:
+    - '*Exploitation Toolkit*'
+  - Signature:
+    - '*Exploitation Toolkit*'
+  - signature:
+    - '*Exploitation Toolkit*'
+  - ImageLoaded:
+    - '*Exploitation Toolkit*'
+  - Company:
+    - '*Exploitation Toolkit*'
+  - Description:
+    - '*Exploitation Toolkit*'
+  - description:
+    - '*Exploitation Toolkit*'
+  - CommandLine:
+    - '*Exploitation Toolkit*'
+  - SourceImage:
+    - '*Exploitation Toolkit*'
+  - TargetImage:
+    - '*Exploitation Toolkit*'
+  - CallTrace:
+    - '*Exploitation Toolkit*'
+  - TargetObject:
+    - '*Exploitation Toolkit*'
+  - Details:
+    - '*Exploitation Toolkit*'
+  - PipeName:
+    - '*Exploitation Toolkit*'
+  - Consumer:
+    - '*Exploitation Toolkit*'
+  - Destination:
+    - '*Exploitation Toolkit*'
+  - Name:
+    - '*Exploitation Toolkit*'
+  - Query:
+    - '*Exploitation Toolkit*'
+  - NewName:
+    - '*Exploitation Toolkit*'
+  - StartAddress:
+    - '*Exploitation Toolkit*'
+  - StartModule:
+    - '*Exploitation Toolkit*'
+  - StartFunction:
+    - '*Exploitation Toolkit*'
+  - SourceHostname:
+    - '*Exploitation Toolkit*'
+  - Device:
+    - '*Exploitation Toolkit*'
+  - file_name:
+    - '*Exploitation Toolkit*'
+  - file_path:
+    - '*Exploitation Toolkit*'
+  - process:
+    - '*Exploitation Toolkit*'
+  - original_file_name:
+    - '*Exploitation Toolkit*'
+  - parent_process:
+    - '*Exploitation Toolkit*'
+  - process_path:
+    - '*Exploitation Toolkit*'
+  - service_path:
+    - '*Exploitation Toolkit*'
+  - registry_path:
+    - '*Exploitation Toolkit*'
+  - registry_value_data:
+    - '*Exploitation Toolkit*'
+  - registry_value_name:
+    - '*Exploitation Toolkit*'
+  - ContextInfo:
+    - '*Exploitation Toolkit*'
+  - Payload:
+    - '*Exploitation Toolkit*'
+  - ScriptBlockText:
+    - '*Exploitation Toolkit*'
+  - ServerName:
+    - '*Exploitation Toolkit*'
+  - TransportName:
+    - '*Exploitation Toolkit*'
+  - NewProcessName:
+    - '*Exploitation Toolkit*'
+  - ParentProcessName:
+    - '*Exploitation Toolkit*'
+  - Application:
+    - '*Exploitation Toolkit*'
+  - Product Name:
+    - '*Exploitation Toolkit*'
+  - Threat Name:
+    - '*Exploitation Toolkit*'
+  - Process Name:
+    - '*Exploitation Toolkit*'
+  - Path:
+    - '*Exploitation Toolkit*'
+  - ImagePath:
+    - '*Exploitation Toolkit*'
+  - ServiceName:
+    - '*Exploitation Toolkit*'
+  - ProcessPath:
+    - '*Exploitation Toolkit*'
+  - AppName:
+    - '*Exploitation Toolkit*'
+  - AppPath:
+    - '*Exploitation Toolkit*'
+  - ModulePath:
+    - '*Exploitation Toolkit*'
+  - registry.data.strings:
+    - '*Exploitation Toolkit*'
+  - registry.path:
+    - '*Exploitation Toolkit*'
+  - registry.value:
+    - '*Exploitation Toolkit*'
+  - process.args:
+    - '*Exploitation Toolkit*'
+  - process.command_line:
+    - '*Exploitation Toolkit*'
+  - process.env_vars:
+    - '*Exploitation Toolkit*'
+  - process.io.text:
+    - '*Exploitation Toolkit*'
+  - process.executable:
+    - '*Exploitation Toolkit*'
+  - process.name:
+    - '*Exploitation Toolkit*'
+  - process.title:
+    - '*Exploitation Toolkit*'
+  - pe.company:
+    - '*Exploitation Toolkit*'
+  - pe.description:
+    - '*Exploitation Toolkit*'
+  - pe.original_file_name:
+    - '*Exploitation Toolkit*'
+  - pe.product:
+    - '*Exploitation Toolkit*'
+  - os.full:
+    - '*Exploitation Toolkit*'
+  - host.hostname:
+    - '*Exploitation Toolkit*'
+  - file.fork_name:
+    - '*Exploitation Toolkit*'
+  - file.name:
+    - '*Exploitation Toolkit*'
+  - file.path:
+    - '*Exploitation Toolkit*'
+  - file.target_path:
+    - '*Exploitation Toolkit*'
+  - email.attachments.file.name:
+    - '*Exploitation Toolkit*'
+  - email.subject:
+    - '*Exploitation Toolkit*'
+  - dll.path:
+    - '*Exploitation Toolkit*'
+  - device.model.name:
+    - '*Exploitation Toolkit*'
+  - container.image.name:
+    - '*Exploitation Toolkit*'
+  - container.name:
+    - '*Exploitation Toolkit*'
+  - object:
+    - '*Exploitation Toolkit*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

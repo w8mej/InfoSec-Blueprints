@@ -1,0 +1,1439 @@
+title: Simple keyword detection rule for Windows-Privilege-Escalation
+id: 0ff86a45-b4b3-49a8-a723-2fcdaf80cdf1
+status: experimental
+description: Detects interesting keywords based on Windows-Privilege-Escalation tool
+references:
+- https://github.com/frizb/Windows-Privilege-Escalation
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1078
+- attack.T1548
+- attack.TA0004
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - OriginalFileName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - CurrentDirectory:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ParentImage:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ParentCommandLine:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - TargetFilename:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Signature:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - signature:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ImageLoaded:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Company:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Description:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - description:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - CommandLine:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - SourceImage:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - TargetImage:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - CallTrace:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - TargetObject:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Details:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - PipeName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Consumer:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Destination:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Query:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - NewName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - StartAddress:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - StartModule:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - StartFunction:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - SourceHostname:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Device:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - file_name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - file_path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - original_file_name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - parent_process:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process_path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - service_path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry_path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry_value_data:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry_value_name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ContextInfo:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Payload:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ScriptBlockText:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ServerName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - TransportName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - NewProcessName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ParentProcessName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Application:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Product Name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Threat Name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Process Name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ImagePath:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ServiceName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ProcessPath:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - AppName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - AppPath:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ModulePath:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry.data.strings:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry.path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry.value:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.args:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.command_line:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.env_vars:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.io.text:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.executable:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.title:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.company:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.description:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.original_file_name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.product:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - os.full:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - host.hostname:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - file.fork_name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - file.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - file.path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - file.target_path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - email.attachments.file.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - email.subject:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - dll.path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - device.model.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - container.image.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - container.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - object:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - ParentCommandLine:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - CommandLine:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - Details:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - registry.value:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.args:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.command_line:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.env_vars:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.io.text:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - process.title:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.company:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.description:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - pe.product:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - os.full:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - host.hostname:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - event.original:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - email.subject:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - device.model.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - container.image.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - container.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*cscript dl.vbs *http*/*.zip*.zip*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*\Users\Public\nc.exe*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - url:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - dest_url:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - uri:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - uri_query:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - query:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - url_domain:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - uri_path:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - domain:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - QueryName:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - QueryResults:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - DestinationHostname:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - DestinationIp:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - http_referrer:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - http_referrer_domain:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - http_user_agent:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - dest_nt_host:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - sender:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - recipient:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - orig_recipient:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - subject:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - url.domain:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - url.full:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - url.original:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - url.query:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - user_agent.original:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - network.application:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - http.request.body.content:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - http.request.referrer:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - email.from.address:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - dns.question.name:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  - destination.domain:
+    - '*CopyAndPasteEnum.bat*'
+    - '*windows-privesc-check*'
+    - '*winreconstreamline.bat*'
+    - '*CopyAndPasteFileDownloader.bat*'
+    - '*windows_recon.bat*'
+    - '*Windows-Privilege-Escalation*'
+    - '*ReverseShell.ps1*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

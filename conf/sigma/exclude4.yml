@@ -1,0 +1,20 @@
+title: Excluded Rule 4
+date: 2017/03/14
+detection:
+  SELECTION_1:
+    EventID: 4732
+  SELECTION_2:
+    TargetUserName: Administr*
+  SELECTION_3:
+    TargetSid: S-1-5-32-544
+  SELECTION_4:
+    SubjectUserName: '*$'
+  condition: ((SELECTION_1 and (SELECTION_2 or SELECTION_3)) and  not (SELECTION_4))
+id: 00000000-0000-0000-0000-000000000000
+level: medium
+logsource:
+  product: windows
+  service: security
+modified: 2021/07/07
+status: stable
+ruletype: SIGMA

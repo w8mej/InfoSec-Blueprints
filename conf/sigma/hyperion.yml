@@ -1,0 +1,1077 @@
+title: Simple keyword detection rule for hyperion
+id: 727018c8-d7e2-4cf8-81e1-be5f517561ec
+status: experimental
+description: Detects interesting keywords based on hyperion tool
+references:
+- https://www.kali.org/tools/hyperion/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027.002
+- attack.T1059.001
+- attack.T1116
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - CommandLine:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Details:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry.value:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.args:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.command_line:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.env_vars:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.io.text:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.title:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.company:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.description:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.product:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - os.full:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - host.hostname:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - event.original:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - email.subject:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - device.model.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - container.image.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - container.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Image:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - OriginalFileName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - CurrentDirectory:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ParentImage:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ParentCommandLine:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - TargetFilename:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Signature:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - signature:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ImageLoaded:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Company:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Description:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - description:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - CommandLine:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - SourceImage:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - TargetImage:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - CallTrace:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - TargetObject:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Details:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - PipeName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Consumer:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Destination:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Query:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - NewName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - StartAddress:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - StartModule:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - StartFunction:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - SourceHostname:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Device:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - file_name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - file_path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - original_file_name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - parent_process:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process_path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - service_path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry_path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry_value_data:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry_value_name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ContextInfo:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Payload:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ScriptBlockText:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ServerName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - TransportName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - NewProcessName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ParentProcessName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Application:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Product Name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Threat Name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Process Name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - Path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ImagePath:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ServiceName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ProcessPath:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - AppName:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - AppPath:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - ModulePath:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry.data.strings:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry.path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - registry.value:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.args:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.command_line:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.env_vars:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.io.text:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.executable:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - process.title:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.company:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.description:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.original_file_name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - pe.product:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - os.full:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - host.hostname:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - file.fork_name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - file.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - file.path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - file.target_path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - email.attachments.file.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - email.subject:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - dll.path:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - device.model.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - container.image.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - container.name:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - object:
+    - '*apt install hyperion*'
+    - '*Hyperion PE-Crypter*'
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+    - '*hyperion.exe *'
+    - '*/windows-resources/hyperion*'
+    - '*\hyperion.exe*'
+  - url:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - dest_url:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - uri:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - uri_query:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - query:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - url_domain:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - uri_path:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - domain:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - QueryName:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - QueryResults:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - DestinationHostname:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - DestinationIp:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - http_referrer:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - http_referrer_domain:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - http_user_agent:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - dest_nt_host:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - sender:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - recipient:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - orig_recipient:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - subject:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - url.domain:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - url.full:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - url.original:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - url.query:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - user_agent.original:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - network.application:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - http.request.body.content:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - http.request.referrer:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - email.from.address:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - dns.question.name:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  - destination.domain:
+    - '*hyperion_2.0.orig.tar.gz*'
+    - '*/hyperion.exe*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

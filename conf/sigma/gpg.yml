@@ -1,0 +1,78 @@
+title: Simple keyword detection rule for gpg
+id: e9d2c0d2-5c19-44e4-aece-0932ccf5b5c8
+status: experimental
+description: Detects interesting keywords based on gpg tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1553.002
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*gpg --list-keys*'
+  - CommandLine:
+    - '*gpg --list-keys*'
+  - Details:
+    - '*gpg --list-keys*'
+  - registry.value:
+    - '*gpg --list-keys*'
+  - process.args:
+    - '*gpg --list-keys*'
+  - process.command_line:
+    - '*gpg --list-keys*'
+  - process.env_vars:
+    - '*gpg --list-keys*'
+  - process.io.text:
+    - '*gpg --list-keys*'
+  - process.title:
+    - '*gpg --list-keys*'
+  - pe.company:
+    - '*gpg --list-keys*'
+  - pe.description:
+    - '*gpg --list-keys*'
+  - pe.product:
+    - '*gpg --list-keys*'
+  - os.full:
+    - '*gpg --list-keys*'
+  - host.hostname:
+    - '*gpg --list-keys*'
+  - event.original:
+    - '*gpg --list-keys*'
+  - email.subject:
+    - '*gpg --list-keys*'
+  - device.model.name:
+    - '*gpg --list-keys*'
+  - container.image.name:
+    - '*gpg --list-keys*'
+  - container.name:
+    - '*gpg --list-keys*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

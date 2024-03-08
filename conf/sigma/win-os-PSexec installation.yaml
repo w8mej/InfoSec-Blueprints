@@ -1,0 +1,27 @@
+title: PSexec application execution
+description: Detects scenarios where an attacker installs and executes PSexec.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0008-Lateral%20Movement/T1021.002%20-SMB%20Windows%20Admin%20Shares
+- https://attack.mitre.org/software/S0029/
+- https://pentera.io/blog/135-is-the-new-145/
+- https://nv2lt.github.io/windows/smb-psexec-smbexec-winexe-how-to/
+tags:
+- attack.execution
+- attack.t1569.002
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_process_child:
+    NewProcessName|endswith: \PSEXESVC.exe
+
+  selection_process_parent:
+    ParentProcessName|endswith: \PSEXESVC.exe
+    Version: 2  # parent process name is available starting Windows 10 / Server 2016 and higher
+
+  condition: selection_process_child or selection_process_parent
+falsepositives:
+- Administrator activity
+level: medium
