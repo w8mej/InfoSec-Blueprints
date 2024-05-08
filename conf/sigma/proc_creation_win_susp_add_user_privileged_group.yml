@@ -14,14 +14,10 @@ date: 2024/02/23
 tags:
     - attack.persistence
     - attack.t1098
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main:
         - CommandLine|contains|all:
               # net.exe
@@ -33,10 +29,9 @@ detection:
               - ' -Group '
     selection_group:
         CommandLine|contains:
-            - Group Policy Creator Owners
-            - Schema Admins
-    condition: process_creation and (all of selection_*)
+            - 'Group Policy Creator Owners'
+            - 'Schema Admins'
+    condition: all of selection_*
 falsepositives:
     - Administrative activity that must be investigated
 level: high
-ruletype: Sigma

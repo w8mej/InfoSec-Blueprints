@@ -10,39 +10,32 @@ references:
     - https://twitter.com/_st0pp3r_/status/1583914515996897281
 author: frack113
 date: 2022/01/16
-modified: 2022/12/08
+modified: 2024/03/13
 tags:
     - attack.defense_evasion
     - attack.t1218.007
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \msiexec.exe
-        CommandLine|contains:
-            - ' /y'
-            - ' -y'
+        Image|endswith: '\msiexec.exe'
+        CommandLine|contains|windash: ' -y'
     filter_apple:
         CommandLine|contains:
-            - \MsiExec.exe" /Y "C:\Program Files\Bonjour\mdnsNSP.dll
-            - \MsiExec.exe" /Y "C:\Program Files (x86)\Bonjour\mdnsNSP.dll
-            - \MsiExec.exe" /Y "C:\Program Files (x86)\Apple Software Update\ScriptingObjectModel.dll
-            - \MsiExec.exe" /Y "C:\Program Files (x86)\Apple Software Update\SoftwareUpdateAdmin.dll
-            - \MsiExec.exe" /Y "C:\Windows\CCM\
-            - \MsiExec.exe" /Y C:\Windows\CCM\   # also need non-quoted execution
-            - \MsiExec.exe" -Y "C:\Program Files\Bonjour\mdnsNSP.dll
-            - \MsiExec.exe" -Y "C:\Program Files (x86)\Bonjour\mdnsNSP.dll
-            - \MsiExec.exe" -Y "C:\Program Files (x86)\Apple Software Update\ScriptingObjectModel.dll
-            - \MsiExec.exe" -Y "C:\Program Files (x86)\Apple Software Update\SoftwareUpdateAdmin.dll
-            - \MsiExec.exe" -Y "C:\Windows\CCM\
-            - \MsiExec.exe" -Y C:\Windows\CCM\   # also need non-quoted execution
-    condition: process_creation and (selection and not 1 of filter_*)
+            - '\MsiExec.exe" /Y "C:\Program Files\Bonjour\mdnsNSP.dll'
+            - '\MsiExec.exe" /Y "C:\Program Files (x86)\Bonjour\mdnsNSP.dll'
+            - '\MsiExec.exe" /Y "C:\Program Files (x86)\Apple Software Update\ScriptingObjectModel.dll'
+            - '\MsiExec.exe" /Y "C:\Program Files (x86)\Apple Software Update\SoftwareUpdateAdmin.dll'
+            - '\MsiExec.exe" /Y "C:\Windows\CCM\'
+            - '\MsiExec.exe" /Y C:\Windows\CCM\' # also need non-quoted execution
+            - '\MsiExec.exe" -Y "C:\Program Files\Bonjour\mdnsNSP.dll'
+            - '\MsiExec.exe" -Y "C:\Program Files (x86)\Bonjour\mdnsNSP.dll'
+            - '\MsiExec.exe" -Y "C:\Program Files (x86)\Apple Software Update\ScriptingObjectModel.dll'
+            - '\MsiExec.exe" -Y "C:\Program Files (x86)\Apple Software Update\SoftwareUpdateAdmin.dll'
+            - '\MsiExec.exe" -Y "C:\Windows\CCM\'
+            - '\MsiExec.exe" -Y C:\Windows\CCM\' # also need non-quoted execution
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Legitimate script
 level: medium
-ruletype: Sigma

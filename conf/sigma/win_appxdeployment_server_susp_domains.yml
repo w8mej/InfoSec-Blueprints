@@ -16,40 +16,37 @@ logsource:
     product: windows
     service: appxdeployment-server
 detection:
-    appxdeployment_server:
-        Channel: Microsoft-Windows-AppXDeploymentServer/Operational
     selection:
         EventID: 854
         Path|contains:
-            - .githubusercontent.com         # Includes both gists and github repositories / Michael Haag (idea)
-            - anonfiles.com
-            - cdn.discordapp.com
-            - cdn.discordapp.com/attachments/
-            - ddns.net
-            - dl.dropboxusercontent.com
-            - ghostbin.co
-            - glitch.me
-            - gofile.io
-            - hastebin.com
-            - mediafire.com
-            - mega.nz
-            - onrender.com
-            - paste.ee
-            - pastebin.com
-            - pastebin.pl
-            - pastetext.net
-            - privatlab.com
-            - privatlab.net
-            - send.exploit.in
-            - sendspace.com
-            - storage.googleapis.com
-            - storjshare.io
-            - supabase.co
-            - temp.sh
-            - transfer.sh
-            - ufile.io
-    condition: appxdeployment_server and selection
+            - '.githubusercontent.com'       # Includes both gists and github repositories / Michael Haag (idea)
+            - 'anonfiles.com'
+            - 'cdn.discordapp.com'
+            - 'cdn.discordapp.com/attachments/'
+            - 'ddns.net'
+            - 'dl.dropboxusercontent.com'
+            - 'ghostbin.co'
+            - 'glitch.me'
+            - 'gofile.io'
+            - 'hastebin.com'
+            - 'mediafire.com'
+            - 'mega.nz'
+            - 'onrender.com'
+            - 'paste.ee'
+            - 'pastebin.com'
+            - 'pastebin.pl'
+            - 'pastetext.net'
+            - 'privatlab.com'
+            - 'privatlab.net'
+            - 'send.exploit.in'
+            - 'sendspace.com'
+            - 'storage.googleapis.com'
+            - 'storjshare.io'
+            - 'supabase.co'
+            - 'temp.sh'
+            - 'transfer.sh'
+            - 'ufile.io'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

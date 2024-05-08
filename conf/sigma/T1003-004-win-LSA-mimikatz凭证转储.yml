@@ -1,0 +1,27 @@
+title: Mimikatz使用
+description: 检测常见的mimikatz命令参数
+tags:
+    - attack.s0002
+    - attack.t1003
+    - attack.lateral_movement
+    - attack.credential_access
+logsource:
+    product: windows
+detection:
+    keywords:
+        Message:
+        - "* mimikatz *"
+        - "* mimilib *"
+        - "* <3 eo.oe *"
+        - "* eo.oe.kiwi *"
+        - "* privilege::debug *"
+        - "* sekurlsa::logonpasswords *"
+        - "* lsadump::sam *"
+        - "* mimidrv.sys *"
+        - "* p::d *"
+        - "* s::l *"
+    condition: keywords
+falsepositives:
+    - Naughty administrators
+    - Penetration test
+level: critical

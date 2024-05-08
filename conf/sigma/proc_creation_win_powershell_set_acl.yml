@@ -16,28 +16,23 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/10/18
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
     selection_cmdlet:
         CommandLine|contains|all:
             - 'Set-Acl '
             - '-AclObject '
             - '-Path '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

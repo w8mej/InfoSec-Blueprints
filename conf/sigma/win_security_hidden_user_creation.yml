@@ -14,15 +14,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4720
-        TargetUserName|endswith: $
+        TargetUserName|endswith: '$'
     filter_main_homegroup:
-        TargetUserName: HomeGroupUser$
-    condition: security and (selection and not 1 of filter_main_*)
+        TargetUserName: 'HomeGroupUser$'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

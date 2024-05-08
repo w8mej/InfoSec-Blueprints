@@ -15,22 +15,17 @@ date: 2023/11/21
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains|all:
-            - \Control\Keyboard Layouts\
-            - Ime File
+            - '\Control\Keyboard Layouts\'
+            - 'Ime File'
     filter_main_known_extension:
-        Details|endswith: .ime
-    condition: registry_set and (selection and not 1 of filter_main_*)
+        Details|endswith: '.ime'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - IMEs are essential for languages that have more characters than can be represented on a standard keyboard, such as Chinese, Japanese, and Korean.
 level: high
-ruletype: Sigma

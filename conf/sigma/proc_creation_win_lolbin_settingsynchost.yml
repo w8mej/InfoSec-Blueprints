@@ -11,28 +11,23 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - attack.t1574.008
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     system_utility:
         Image|startswith:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
     parent_is_settingsynchost:
         ParentCommandLine|contains|all:
-            - cmd.exe /c
-            - RoamDiag.cmd
-            - -outputpath
-    condition: process_creation and (not system_utility and parent_is_settingsynchost)
+            - 'cmd.exe /c'
+            - 'RoamDiag.cmd'
+            - '-outputpath'
+    condition: not system_utility and parent_is_settingsynchost
 fields:
     - TargetFilename
     - Image
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

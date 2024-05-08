@@ -11,25 +11,20 @@ date: 2023/07/28
 modified: 2024/01/22
 tags:
     - attack.credential_access
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \mstsc.exe
+        TargetImage|endswith: '\mstsc.exe'
         SourceImage|contains:
-            - :\Temp\
-            - :\Users\Public\
-            - :\Windows\PerfLogs\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-    condition: create_remote_thread and selection
+            - ':\Temp\'
+            - ':\Users\Public\'
+            - ':\Windows\PerfLogs\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

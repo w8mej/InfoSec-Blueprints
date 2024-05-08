@@ -13,35 +13,30 @@ tags:
     - attack.persistence
     - attack.defense_evasion
     - attack.t1553.003
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_root:
         TargetObject|contains:
-            - \SOFTWARE\Microsoft\Cryptography\Providers\
-            - \SOFTWARE\Microsoft\Cryptography\OID\EncodingType
-            - \SOFTWARE\WOW6432Node\Microsoft\Cryptography\Providers\
-            - \SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType
+            - '\SOFTWARE\Microsoft\Cryptography\Providers\'
+            - '\SOFTWARE\Microsoft\Cryptography\OID\EncodingType'
+            - '\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Providers\'
+            - '\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType'
     selection_dll:
         TargetObject|contains:
-            - \Dll
-            - \$DLL
+            - '\Dll'
+            - '\$DLL'
     filter:
         Details:
             # Add more legitimate SIP providers according to your env
             - WINTRUST.DLL
             - mso.dll
     filter_poqexec:
-        Image: C:\Windows\System32\poqexec.exe
-        TargetObject|contains: \CryptSIPDll
-        Details: C:\Windows\System32\PsfSip.dll
-    condition: registry_set and (all of selection_* and not 1 of filter*)
+        Image: 'C:\Windows\System32\poqexec.exe'
+        TargetObject|contains: '\CryptSIPDll'
+        Details: 'C:\Windows\System32\PsfSip.dll'
+    condition: all of selection_* and not 1 of filter*
 falsepositives:
     - Legitimate SIP being registered by the OS or different software.
 level: medium
-ruletype: Sigma

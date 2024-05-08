@@ -10,34 +10,29 @@ date: 2022/08/01
 modified: 2023/08/17
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main:
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Associations\
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Associations\'
     selection_value_default_file_type_rsik:
-        TargetObject|endswith: \DefaultFileTypeRisk
-        Details: DWORD (0x00006152)
+        TargetObject|endswith: '\DefaultFileTypeRisk'
+        Details: 'DWORD (0x00006152)'
     selection_value_low_risk_filetypes:
-        TargetObject|endswith: \LowRiskFileTypes
+        TargetObject|endswith: '\LowRiskFileTypes'
         Details|contains: # Add more as you see fit
-            - .zip;
-            - .rar;
-            - .exe;
-            - .bat;
-            - .com;
-            - .cmd;
-            - .reg;
-            - .msi;
-            - .htm;
-            - .html;
-    condition: registry_set and (selection_main and 1 of selection_value_*)
+            - '.zip;'
+            - '.rar;'
+            - '.exe;'
+            - '.bat;'
+            - '.com;'
+            - '.cmd;'
+            - '.reg;'
+            - '.msi;'
+            - '.htm;'
+            - '.html;'
+    condition: selection_main and 1 of selection_value_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

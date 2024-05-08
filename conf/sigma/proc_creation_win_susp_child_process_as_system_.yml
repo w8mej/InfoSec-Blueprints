@@ -13,35 +13,30 @@ modified: 2022/12/15
 tags:
     - attack.privilege_escalation
     - attack.t1134.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
     definition: 'Requirements: ParentUser field needs sysmon >= 13.30'
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ParentUser|contains:
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
         ParentUser|endswith:
-            - \NETWORK SERVICE
-            - \LOCAL SERVICE
+            - '\NETWORK SERVICE'
+            - '\LOCAL SERVICE'
         User|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
         User|endswith: # System
-            - \SYSTEM
-            - \Système
-            - \СИСТЕМА
-        IntegrityLevel: System
+            - '\SYSTEM'
+            - '\Système'
+            - '\СИСТЕМА'
+        IntegrityLevel: 'System'
     filter_rundll32:
-        Image|endswith: \rundll32.exe
-        CommandLine|contains: DavSetCookie
-    condition: process_creation and (selection and not 1 of filter_*)
+        Image|endswith: '\rundll32.exe'
+        CommandLine|contains: 'DavSetCookie'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

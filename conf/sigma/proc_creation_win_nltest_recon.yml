@@ -25,32 +25,27 @@ tags:
     - attack.discovery
     - attack.t1016
     - attack.t1482
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_nltest:
-        - Image|endswith: \nltest.exe
-        - OriginalFileName: nltestrk.exe
+        - Image|endswith: '\nltest.exe'
+        - OriginalFileName: 'nltestrk.exe'
     selection_recon:
         - CommandLine|contains|all:
-              - server
-              - query
+              - 'server'
+              - 'query'
         - CommandLine|contains:
-              - /user
-              - all_trusts   # Flag for /domain_trusts
+              - '/user'
+              - 'all_trusts' # Flag for /domain_trusts
               - 'dclist:'
               - 'dnsgetdc:'
-              - domain_trusts
+              - 'domain_trusts'
               - 'dsgetdc:'
-              - parentdomain
-              - trusted_domains
-    condition: process_creation and (all of selection_*)
+              - 'parentdomain'
+              - 'trusted_domains'
+    condition: all of selection_*
 falsepositives:
     - Legitimate administration use but user and host must be investigated
 level: medium
-ruletype: Sigma

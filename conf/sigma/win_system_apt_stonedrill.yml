@@ -16,15 +16,12 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ServiceName: NtsSrv
         ImagePath|endswith: ' LocalService'
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

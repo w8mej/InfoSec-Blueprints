@@ -12,17 +12,13 @@ tags:
     - attack.privilege_escalation
     - attack.persistence
     - attack.t1546.015
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \rundll32.exe
-        - OriginalFileName: RUNDLL32.EXE
+        - Image|endswith: '\rundll32.exe'
+        - OriginalFileName: 'RUNDLL32.EXE'
     selection_cli:
         CommandLine|contains:
             - '-sta '
@@ -30,8 +26,7 @@ detection:
         CommandLine|contains|all:
             - '{'
             - '}'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate use
 level: high
-ruletype: Sigma

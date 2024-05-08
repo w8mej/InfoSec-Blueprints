@@ -13,22 +13,17 @@ modified: 2023/02/14
 tags:
     - attack.defense_evasion
     - attack.t1562.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \SharpEvtMute.exe
-        - Description: SharpEvtMute
+        - Image|endswith: '\SharpEvtMute.exe'
+        - Description: 'SharpEvtMute'
         - CommandLine|contains:
               - '--Filter "rule '
-              - --Encoded --Filter \"
-    condition: process_creation and selection
+              - '--Encoded --Filter \"'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

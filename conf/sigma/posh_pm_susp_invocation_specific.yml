@@ -22,61 +22,55 @@ logsource:
     category: ps_module
     definition: 0ad03ef1-f21b-4a79-8ce8-e6900c54b65b
 detection:
-    ps_module:
-        EventID: 4103
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_convert_b64:
         ContextInfo|contains|all:
-            - -nop
+            - '-nop'
             - ' -w '
-            - hidden
+            - 'hidden'
             - ' -c '
             - '[Convert]::FromBase64String'
     selection_iex:
         ContextInfo|contains|all:
             - ' -w '
-            - hidden
-            - -noni
-            - -nop
+            - 'hidden'
+            - '-noni'
+            - '-nop'
             - ' -c '
-            - iex
-            - New-Object
+            - 'iex'
+            - 'New-Object'
     selection_enc:
         ContextInfo|contains|all:
             - ' -w '
-            - hidden
-            - -ep
-            - bypass
-            - -Enc
+            - 'hidden'
+            - '-ep'
+            - 'bypass'
+            - '-Enc'
     selection_reg:
         ContextInfo|contains|all:
-            - powershell
-            - reg
-            - add
-            - HKCU\software\microsoft\windows\currentversion\run
+            - 'powershell'
+            - 'reg'
+            - 'add'
+            - 'HKCU\software\microsoft\windows\currentversion\run'
     selection_webclient:
         ContextInfo|contains|all:
-            - bypass
-            - -noprofile
-            - -windowstyle
-            - hidden
-            - new-object
-            - system.net.webclient
-            - .download
+            - 'bypass'
+            - '-noprofile'
+            - '-windowstyle'
+            - 'hidden'
+            - 'new-object'
+            - 'system.net.webclient'
+            - '.download'
     selection_iex_webclient:
         ContextInfo|contains|all:
-            - iex
-            - New-Object
-            - Net.WebClient
-            - .Download
+            - 'iex'
+            - 'New-Object'
+            - 'Net.WebClient'
+            - '.Download'
     filter_chocolatey:
         ContextInfo|contains:
-            - (New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1
-            - Write-ChocolateyWarning
-    condition: ps_module and (1 of selection_* and not 1 of filter_*)
+            - "(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1"
+            - 'Write-ChocolateyWarning'
+    condition: 1 of selection_* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -13,24 +13,19 @@ modified: 2023/01/19
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \fsutil.exe
-        - OriginalFileName: fsutil.exe
+        - Image|endswith: '\fsutil.exe'
+        - OriginalFileName: 'fsutil.exe'
     selection_cli:
         CommandLine|contains|all:
             - 'behavior '
             - 'set '
-            - SymlinkEvaluation
-    condition: process_creation and (all of selection_*)
+            - 'SymlinkEvaluation'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

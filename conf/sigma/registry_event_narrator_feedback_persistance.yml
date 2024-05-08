@@ -10,25 +10,17 @@ modified: 2022/03/26
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         EventType: DeleteValue
-        TargetObject|endswith: \AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute
+        TargetObject|endswith: '\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute'
     selection2:
-        TargetObject|endswith: \AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\(Default)
+        TargetObject|endswith: '\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\(Default)'
     # Add the payload in the (Default)
-    condition: registry_event and (1 of selection*)
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

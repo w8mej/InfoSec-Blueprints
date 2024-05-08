@@ -10,33 +10,28 @@ modified: 2022/11/03
 tags:
     - attack.execution
     - attack.t1204
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|contains:
-            - \Desktop\
-            - \Temp\
-            - \Temporary Internet
+            - '\Desktop\'
+            - '\Temp\'
+            - '\Temporary Internet'
     filter_parent:
         - ParentImage:
-              - C:\Windows\System32\cleanmgr.exe
-              - C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\BackgroundDownload.exe
-              - C:\Windows\System32\dxgiadaptercache.exe
-        - ParentImage|startswith: C:\Program Files (x86)\NVIDIA Corporation\
+            - 'C:\Windows\System32\cleanmgr.exe'
+            - 'C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\BackgroundDownload.exe'
+            - 'C:\Windows\System32\dxgiadaptercache.exe'
+        - ParentImage|startswith: 'C:\Program Files (x86)\NVIDIA Corporation\'
     filter_other:
-        Image|endswith: setup.exe    # the missing \ at the beginning is intended - to cover e.g. MySoftwareSetup.exe as well
+        Image|endswith: 'setup.exe'  # the missing \ at the beginning is intended - to cover e.g. MySoftwareSetup.exe as well
     filter_edge:
-        Image|startswith: C:\Program Files (x86)\Microsoft\Temp\
-        Image|endswith: .tmp\MicrosoftEdgeUpdate.exe
+        Image|startswith: 'C:\Program Files (x86)\Microsoft\Temp\'
+        Image|endswith: '.tmp\MicrosoftEdgeUpdate.exe'
         #OriginalFileName: msedgeupdate.dll
-    condition: process_creation and (selection and not 1 of filter*)
+    condition: selection and not 1 of filter*
 falsepositives:
     - Installers are expected to be run from the "AppData\Local\Temp" and "C:\Windows\Temp\" directories
 level: low
-ruletype: Sigma

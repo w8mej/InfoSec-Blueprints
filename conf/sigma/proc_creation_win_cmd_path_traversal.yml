@@ -11,34 +11,29 @@ modified: 2023/03/06
 tags:
     - attack.execution
     - attack.t1059.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - ParentImage|endswith: \cmd.exe
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: cmd.exe
+        - ParentImage|endswith: '\cmd.exe'
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'cmd.exe'
     selection_flags:
         - ParentCommandLine|contains:
-              - /c
-              - /k
-              - /r
+              - '/c'
+              - '/k'
+              - '/r'
         - CommandLine|contains:
-              - /c
-              - /k
-              - /r
+              - '/c'
+              - '/k'
+              - '/r'
     selection_path_traversal:
-        - ParentCommandLine: /../../
-        - CommandLine|contains: /../../
+        - ParentCommandLine: '/../../'
+        - CommandLine|contains: '/../../'
     filter_java:
-        CommandLine|contains: \Tasktop\keycloak\bin\/../../jre\bin\java
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+        CommandLine|contains: '\Tasktop\keycloak\bin\/../../jre\bin\java'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Java tools are known to produce false-positive when loading libraries
 level: high
-ruletype: Sigma

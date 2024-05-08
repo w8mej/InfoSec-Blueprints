@@ -12,26 +12,21 @@ tags:
     - attack.defense_evasion
     - attack.t1574
     - attack.t1574.010
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     integrity:
-        IntegrityLevel: Medium
+        IntegrityLevel: 'Medium'
     program_files:
         TargetFilename|contains:
-            - \Program Files\
-            - \Program Files (x86)\
+            - '\Program Files\'
+            - '\Program Files (x86)\'
     windows:
-        TargetFilename|startswith: \Windows\
+        TargetFilename|startswith: '\Windows\'
     temp:
-        TargetFilename|contains: temp
-    condition: file_event and (integrity and (program_files or windows and not temp))
+        TargetFilename|contains: 'temp'
+    condition: integrity and (program_files or windows and not temp)
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

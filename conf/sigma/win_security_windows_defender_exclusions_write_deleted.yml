@@ -21,13 +21,10 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Security Settings/Local Policies/Audit Policy, Registry System Access Control (SACL): Auditing/User'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4660 # An object was deleted.
-        ObjectName|contains: \Microsoft\Windows Defender\Exclusions\
-    condition: security and selection
+        ObjectName|contains: '\Microsoft\Windows Defender\Exclusions\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

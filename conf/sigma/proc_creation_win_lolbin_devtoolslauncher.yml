@@ -11,19 +11,14 @@ modified: 2021/11/27
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \devtoolslauncher.exe
-        CommandLine|contains: LaunchForDeploy
-    condition: process_creation and selection
+        Image|endswith: '\devtoolslauncher.exe'
+        CommandLine|contains: 'LaunchForDeploy'
+    condition: selection
 falsepositives:
     - Legitimate use of devtoolslauncher.exe by legitimate user
 level: high
-ruletype: Sigma

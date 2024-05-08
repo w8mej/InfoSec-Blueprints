@@ -14,30 +14,26 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     selection:
         # Notes:
         #   - The parent must not have CLI options
         #   - The Child Image must be named "cmd" as its hardcoded in the "forfiles" binary
         #   - The Child CLI will always contains "/c echo" as its hardcoded in the original "forfiles" binary
         ParentCommandLine|endswith:
-            - .exe
-            - .exe"
-        CommandLine|startswith: /c echo "
-        NewProcessName|endswith: \cmd.exe
+            - '.exe'
+            - '.exe"'
+        Image|endswith: '\cmd.exe'
+        CommandLine|startswith: '/c echo "'
     filter_main_parent_not_sys:
-        ParentProcessName|contains:
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-        ParentProcessName|endswith: \forfiles.exe
-        NewProcessName|contains:
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-        NewProcessName|endswith: \cmd.exe
-    condition: process_creation and (selection and not 1 of filter_main_*)
+        ParentImage|contains:
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+        ParentImage|endswith: '\forfiles.exe'
+        Image|contains:
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+        Image|endswith: '\cmd.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

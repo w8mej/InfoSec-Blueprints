@@ -10,18 +10,14 @@ tags:
     - attack.discovery
     - attack.credential_access
     - attack.t1649
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \Certipy.exe
-        - OriginalFileName: Certipy.exe
-        - Description|contains: Certipy
+        - Image|endswith: '\Certipy.exe'
+        - OriginalFileName: 'Certipy.exe'
+        - Description|contains: 'Certipy'
     selection_cli_commands:
         CommandLine|contains:
             - ' auth '
@@ -41,11 +37,10 @@ detection:
             - ' -target'
             - ' -username '
             - ' -vulnerable'
-            - auth -pfx
-            - shadow auto
-            - shadow list
-    condition: process_creation and (selection_img or all of selection_cli_*)
+            - 'auth -pfx'
+            - 'shadow auto'
+            - 'shadow list'
+    condition: selection_img or all of selection_cli_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

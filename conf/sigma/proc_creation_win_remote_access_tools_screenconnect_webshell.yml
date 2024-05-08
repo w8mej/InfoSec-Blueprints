@@ -10,21 +10,16 @@ date: 2024/02/26
 tags:
     - attack.initial_access
     - attack.t1190
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \ScreenConnect.Service.exe
+        ParentImage|endswith: '\ScreenConnect.Service.exe'
         Image|endswith:
-            - \cmd.exe
-            - \csc.exe
-    condition: process_creation and selection
+            - '\cmd.exe'
+            - '\csc.exe'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -13,20 +13,15 @@ tags:
     - attack.t1505.001
     - cve.2023.27363
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \FoxitPDFReader.exe
-        TargetFilename|contains: \Microsoft\Windows\Start Menu\Programs\Startup\
-        TargetFilename|endswith: .hta
-    condition: file_event and selection
+        Image|endswith: '\FoxitPDFReader.exe'
+        TargetFilename|contains: '\Microsoft\Windows\Start Menu\Programs\Startup\'
+        TargetFilename|endswith: '.hta'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

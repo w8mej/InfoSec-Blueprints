@@ -17,20 +17,15 @@ modified: 2023/12/15
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - \System\CurrentControlSet\Control\Lsa\
-            - DisableRestrictedAdmin
-    condition: process_creation and selection
+            - '\System\CurrentControlSet\Control\Lsa\'
+            - 'DisableRestrictedAdmin'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

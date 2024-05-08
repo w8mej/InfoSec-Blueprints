@@ -15,22 +15,17 @@ tags:
     - attack.defense_evasion
     - attack.t1218.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \hh.exe
+        Image|endswith: '\hh.exe'
         Initiated: 'true'
         DestinationPort:
             - 80
             - 443
-    condition: network_connection and selection
+    condition: selection
 falsepositives:
     - False positive is expected from launching "hh.exe" for the first time on a machine in a while or simply from help files containing reference to external sources. Best correlate this with process creation and file events.
 level: medium
-ruletype: Sigma

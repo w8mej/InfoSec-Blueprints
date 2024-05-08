@@ -14,51 +14,46 @@ tags:
     - attack.t1574
     - attack.t1574.001
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
             # add more processes when you find them
-            - \winword.exe
-            - \excel.exe
-            - \powerpnt.exe
-            - \MSACCESS.EXE
-            - \MSPUB.EXE
-            - \fltldr.exe
-            - \cmd.exe
-            - \certutil.exe
-            - \mshta.exe
-            - \cscript.exe
-            - \wscript.exe
-            - \curl.exe
-            - \powershell.exe
-            - \pwsh.exe
-        TargetFilename|endswith: .dll
+            - '\winword.exe'
+            - '\excel.exe'
+            - '\powerpnt.exe'
+            - '\MSACCESS.EXE'
+            - '\MSPUB.EXE'
+            - '\fltldr.exe'
+            - '\cmd.exe'
+            - '\certutil.exe'
+            - '\mshta.exe'
+            - '\cscript.exe'
+            - '\wscript.exe'
+            - '\curl.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        TargetFilename|endswith: '.dll'
         TargetFilename|contains|all:
-            - \Users\
-            - \AppData\
+            - '\Users\'
+            - '\AppData\'
         TargetFilename|contains:
             # add more suspicious paths when you find them
-            - \Microsoft\OneDrive\
-            - \Microsoft OneDrive\
-            - \Microsoft\Teams\
-            - \Local\slack\app-
-            - \Local\Programs\Microsoft VS Code\
+            - '\Microsoft\OneDrive\'
+            - '\Microsoft OneDrive\'
+            - '\Microsoft\Teams\'
+            - '\Local\slack\app-'
+            - '\Local\Programs\Microsoft VS Code\'
     filter:
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         TargetFilename|contains|all:
-            - \Users\
-            - \AppData\
-            - \Microsoft\OneDrive\
-            - \api-ms-win-core-
-    condition: file_event and (selection and not filter)
+            - '\Users\'
+            - '\AppData\'
+            - '\Microsoft\OneDrive\'
+            - '\api-ms-win-core-'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

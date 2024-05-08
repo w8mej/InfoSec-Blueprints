@@ -14,20 +14,16 @@ modified: 2022/10/04
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \SyncAppvPublishingServer.exe
-        - OriginalFileName: syncappvpublishingserver.exe
+        - Image|endswith: '\SyncAppvPublishingServer.exe'
+        - OriginalFileName: 'syncappvpublishingserver.exe'
     selection_cli:
         CommandLine|contains: '"n; '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 fields:
     - ComputerName
     - User
@@ -36,4 +32,3 @@ fields:
 falsepositives:
     - App-V clients
 level: medium
-ruletype: Sigma

@@ -21,24 +21,21 @@ logsource:
     service: taskscheduler
     definition: 'Requirements: The "Microsoft-Windows-TaskScheduler/Operational" is disabled by default and needs to be enabled in order for this detection to trigger'
 detection:
-    taskscheduler:
-        Channel: Microsoft-Windows-TaskScheduler/Operational
     selection:
         EventID: 141
         TaskName|contains:
-            - \Windows\SystemRestore\SR
-            - \Windows\Windows Defender\
-            - \Windows\BitLocker
-            - \Windows\WindowsBackup\
-            - \Windows\WindowsUpdate\
-            - \Windows\UpdateOrchestrator\
-            - \Windows\ExploitGuard
+            - '\Windows\SystemRestore\SR'
+            - '\Windows\Windows Defender\'
+            - '\Windows\BitLocker'
+            - '\Windows\WindowsBackup\'
+            - '\Windows\WindowsUpdate\'
+            - '\Windows\UpdateOrchestrator\'
+            - '\Windows\ExploitGuard'
     filter:
         UserName|contains:
-            - AUTHORI
-            - AUTORI
-    condition: taskscheduler and (selection and not filter)
+            - 'AUTHORI'
+            - 'AUTORI'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -12,21 +12,16 @@ modified: 2023/12/11
 tags:
     - attack.defense_evasion
     - attack.t1218.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: HH.exe
-        - Image|endswith: \hh.exe
+        - OriginalFileName: 'HH.exe'
+        - Image|endswith: '\hh.exe'
     selection_cli:
-        CommandLine|contains: .chm
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: '.chm'
+    condition: all of selection_*
 falsepositives:
     - False positives are expected with legitimate ".CHM"
 level: low
-ruletype: Sigma

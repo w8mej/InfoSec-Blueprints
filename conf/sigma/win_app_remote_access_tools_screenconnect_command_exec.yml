@@ -17,14 +17,11 @@ logsource:
     service: application
     product: windows
 detection:
-    application:
-        Channel: Application
     selection:
-        Provider_Name: ScreenConnect
+        Provider_Name: 'ScreenConnect'
         EventID: 200
-        Data|contains: Executed command of length
-    condition: application and selection
+        Data|contains: 'Executed command of length'
+    condition: selection
 falsepositives:
     - Legitimate use of ScreenConnect
 level: low
-ruletype: Sigma

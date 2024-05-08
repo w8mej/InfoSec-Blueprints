@@ -24,23 +24,15 @@ tags:
     - attack.t1112
     - attack.command_and_control
     - attack.t1071.004
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|endswith:
-            - SOFTWARE\Microsoft\Windows\CurrentVersion\UMe
-            - SOFTWARE\Microsoft\Windows\CurrentVersion\UT
-    condition: registry_event and selection
+            - 'SOFTWARE\Microsoft\Windows\CurrentVersion\UMe'
+            - 'SOFTWARE\Microsoft\Windows\CurrentVersion\UT'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

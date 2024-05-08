@@ -10,33 +10,28 @@ modified: 2022/10/20
 tags:
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \cmd.exe
-              - \powershell.exe
-              - \pwsh.exe
+              - '\cmd.exe'
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - Cmd.Exe
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'Cmd.Exe'
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_parent:
         ParentImage|contains|all:
-            - \Windows\Installer\
-            - msi
-        ParentImage|endswith: tmp
-    condition: process_creation and (all of selection_*)
+            - '\Windows\Installer\'
+            - 'msi'
+        ParentImage|endswith: 'tmp'
+    condition: all of selection_*
 fields:
     - Image
     - ParentImage
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,27 +14,22 @@ tags:
     - attack.initial_access
     - attack.persistence
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \java.exe
+        ParentImage|endswith: '\java.exe'
         Image|endswith:
-            - \bash.exe
-            - \cmd.exe
-            - \powershell.exe
-            - \pwsh.exe
+            - '\bash.exe'
+            - '\cmd.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
     filter_main_build:
-        ParentImage|contains: build    # excluding CI build agents
-        CommandLine|contains: build    # excluding CI build agents
-    condition: process_creation and (selection and not 1 of filter_main_*)
+        ParentImage|contains: 'build'  # excluding CI build agents
+        CommandLine|contains: 'build'  # excluding CI build agents
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Legitimate calls to system binaries
     - Company specific internal usage
 level: medium
-ruletype: Sigma

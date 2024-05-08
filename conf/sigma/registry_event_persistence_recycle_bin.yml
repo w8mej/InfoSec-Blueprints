@@ -12,25 +12,17 @@ modified: 2022/12/06
 tags:
     - attack.persistence
     - attack.t1547
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_create:
         EventType: RenameKey
-        NewName|contains: \CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\open
+        NewName|contains: '\CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\open'
     selection_set:
         EventType: SetValue
-        TargetObject|contains: \CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\open\command\(Default)
-    condition: registry_event and (1 of selection_*)
+        TargetObject|contains: '\CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\shell\open\command\(Default)'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

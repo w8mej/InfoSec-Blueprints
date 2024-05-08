@@ -16,14 +16,10 @@ modified: 2023/11/11
 tags:
     - attack.discovery
     - attack.t1057
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
             # Note: Add additional CLI to increase and enhance coverage
@@ -35,26 +31,26 @@ detection:
             - 'ipconfig.exe /all | findstr '
             - 'ipconfig.exe | find '
             - 'ipconfig.exe | findstr '
-            - net start | find
-            - net start | findstr
-            - net.exe start | find
-            - net.exe start | findstr
-            - net1 start | find
-            - net1 start | findstr
-            - net1.exe start | find
-            - net1.exe start | findstr
-            - netstat -ano | find
-            - netstat -ano | findstr
-            - netstat | find
-            - netstat | findstr
-            - netstat.exe -ano | find
-            - netstat.exe -ano | findstr
-            - netstat.exe | find
-            - netstat.exe | findstr
-            - ping | find
-            - ping | findstr
-            - ping.exe | find
-            - ping.exe | findstr
+            - 'net start | find'
+            - 'net start | findstr'
+            - 'net.exe start | find'
+            - 'net.exe start | findstr'
+            - 'net1 start | find'
+            - 'net1 start | findstr'
+            - 'net1.exe start | find'
+            - 'net1.exe start | findstr'
+            - 'netstat -ano | find'
+            - 'netstat -ano | findstr'
+            - 'netstat | find'
+            - 'netstat | findstr'
+            - 'netstat.exe -ano | find'
+            - 'netstat.exe -ano | findstr'
+            - 'netstat.exe | find'
+            - 'netstat.exe | findstr'
+            - 'ping | find'
+            - 'ping | findstr'
+            - 'ping.exe | find'
+            - 'ping.exe | findstr'
             - 'systeminfo | find '
             - 'systeminfo | findstr '
             - 'systeminfo.exe | find '
@@ -67,8 +63,7 @@ detection:
             - 'whoami /all | findstr '
             - 'whoami.exe /all | find '
             - 'whoami.exe /all | findstr '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

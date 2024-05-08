@@ -15,18 +15,15 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 4657
             - 4656
             - 4663
         ObjectName|contains:
-            - \SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\NonPackaged
-            - \SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam\NonPackaged
-    condition: security and selection
+            - '\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\NonPackaged'
+            - '\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam\NonPackaged'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

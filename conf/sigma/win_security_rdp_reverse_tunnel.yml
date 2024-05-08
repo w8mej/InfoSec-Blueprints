@@ -20,28 +20,25 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5156
     sourceRDP:
         SourcePort: 3389
         DestAddress:
-            - 127.*
-            - ::1
+            - '127.*'
+            - '::1'
     destinationRDP:
         DestPort: 3389
         SourceAddress:
-            - 127.*
-            - ::1
+            - '127.*'
+            - '::1'
     filter_app_container:
-        FilterOrigin: AppContainer Loopback
+        FilterOrigin: 'AppContainer Loopback'
     filter_thor:  # checking BlueKeep vulnerability
         Application|endswith:
-            - \thor.exe
-            - \thor64.exe
-    condition: security and (selection and ( sourceRDP or destinationRDP ) and not 1 of filter*)
+            - '\thor.exe'
+            - '\thor64.exe'
+    condition: selection and ( sourceRDP or destinationRDP ) and not 1 of filter*
 falsepositives:
     - Programs that connect locally to the RDP port
 level: high
-ruletype: Sigma

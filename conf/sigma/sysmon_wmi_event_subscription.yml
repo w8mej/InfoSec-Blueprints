@@ -12,24 +12,16 @@ modified: 2021/11/27
 tags:
     - attack.persistence
     - attack.t1546.003
-    - sysmon
 logsource:
     product: windows
     category: wmi_event
 detection:
-    wmi_event:
-        EventID:
-            - 19
-            - 20
-            - 21
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventID:
             - 19
             - 20
             - 21
-    condition: wmi_event and selection
+    condition: selection
 falsepositives:
     - Exclude legitimate (vetted) use of WMI event subscription in your network
 level: medium
-ruletype: Sigma

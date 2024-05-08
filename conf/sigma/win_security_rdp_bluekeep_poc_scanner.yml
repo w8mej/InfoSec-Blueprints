@@ -16,13 +16,10 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4625
         TargetUserName: AAAAAAA
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

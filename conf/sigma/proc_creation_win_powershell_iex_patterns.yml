@@ -11,18 +11,14 @@ modified: 2022/11/28
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_combined_1:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
             - ' | iex;'
             - ' | iex '
@@ -33,17 +29,16 @@ detection:
             - ');IEX '
     selection_combined_2:
         CommandLine|contains:
-            - ::FromBase64String
+            - '::FromBase64String'
             - '.GetString([System.Convert]::'
     selection_standalone:
         CommandLine|contains:
-            - )|iex;$
-            - );iex($
-            - );iex $
+            - ')|iex;$'
+            - ');iex($'
+            - ');iex $'
             - ' | IEX | '
             - ' | iex\"'
-    condition: process_creation and (all of selection_combined_* or selection_standalone)
+    condition: all of selection_combined_* or selection_standalone
 falsepositives:
     - Legitimate scripts that use IEX
 level: high
-ruletype: Sigma

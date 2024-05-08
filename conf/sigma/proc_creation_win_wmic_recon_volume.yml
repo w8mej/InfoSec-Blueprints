@@ -18,23 +18,18 @@ tags:
     - attack.discovery
     - attack.t1047
     - attack.t1082
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \WMIC.exe
-        - OriginalFileName: wmic.exe
+        - Image|endswith: '\WMIC.exe'
+        - OriginalFileName: 'wmic.exe'
     selection_cli:
         CommandLine|contains:
-            - volume
-            - path win32_logicaldisk
-    condition: process_creation and (all of selection_*)
+            - 'volume'
+            - 'path win32_logicaldisk'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

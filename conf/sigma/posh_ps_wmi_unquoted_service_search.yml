@@ -20,23 +20,17 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
             - 'Get-WmiObject '
             - 'gwmi '
         ScriptBlockText|contains|all:
             - ' Win32_Service '
-            - Name
-            - DisplayName
-            - PathName
-            - StartMode
-    condition: ps_script and selection
+            - 'Name'
+            - 'DisplayName'
+            - 'PathName'
+            - 'StartMode'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -1,0 +1,20 @@
+title: 在DCSync位置进行检测
+description: windows server 2008 测试结果（域控本地）
+references: https://yojimbosecurity.ninja/dcsync/
+tags: T1003-006
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4662 #在对象上已执行操作。
+        Operationtype: 'Obeject Access' #操作>操作类型
+        Access: '访问控制' #操作>访问
+        Properties:
+             - '*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*'  #特征值 mimikatz导出域账户
+             - '*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*'  #特征值 mimikatz导出administrator
+             - ‘*89e95b76-444d-4c62-991a-0facbeda640c*’  #特征值
+    condition: selection
+level: medium

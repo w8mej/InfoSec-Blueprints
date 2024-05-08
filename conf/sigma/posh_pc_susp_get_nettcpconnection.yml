@@ -14,13 +14,9 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection:
-        Data|contains: Get-NetTCPConnection
-    condition: ps_classic_start and selection
+        Data|contains: 'Get-NetTCPConnection'
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

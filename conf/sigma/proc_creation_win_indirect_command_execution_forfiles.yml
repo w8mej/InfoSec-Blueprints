@@ -14,16 +14,12 @@ modified: 2023/01/04
 tags:
     - attack.defense_evasion
     - attack.t1202
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|endswith: \forfiles.exe
+        ParentImage|endswith: '\forfiles.exe'
     selection_c:
         ParentCommandLine|contains:
             - ' /c '
@@ -37,12 +33,11 @@ detection:
             - ' /m '
             - ' -m '
     filter:
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         CommandLine|contains|all:
-            - xcopy
-            - cmd /c del
-    condition: process_creation and (all of selection_* and not filter)
+            - 'xcopy'
+            - 'cmd /c del'
+    condition: all of selection_* and not filter
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

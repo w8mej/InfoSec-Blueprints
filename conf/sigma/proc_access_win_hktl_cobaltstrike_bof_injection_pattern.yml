@@ -13,21 +13,16 @@ tags:
     - attack.t1106
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CallTrace|re: ^C:\\Windows\\SYSTEM32\\ntdll\.dll\+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll\+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$
+        CallTrace|re: '^C:\\Windows\\SYSTEM32\\ntdll\.dll\+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll\+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$'
         GrantedAccess:
             - '0x1028'
             - '0x1fffff'
-    condition: process_access and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

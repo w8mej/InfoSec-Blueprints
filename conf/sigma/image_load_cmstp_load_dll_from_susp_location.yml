@@ -10,28 +10,23 @@ modified: 2023/02/17
 tags:
     - attack.defense_evasion
     - attack.t1218.003
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \cmstp.exe
+        Image|endswith: '\cmstp.exe'
         ImageLoaded|contains:
             # Add more suspicious paths as you see fit in your env
-            - \PerfLogs\
-            - \ProgramData\
-            - \Users\
-            - \Windows\Temp\
-            - C:\Temp\
+            - '\PerfLogs\'
+            - '\ProgramData\'
+            - '\Users\'
+            - '\Windows\Temp\'
+            - 'C:\Temp\'
         ImageLoaded|endswith:
-            - .dll
-            - .ocx
-    condition: image_load and selection
+            - '.dll'
+            - '.ocx'
+    condition: selection
 falsepositives:
     - Unikely
 level: high
-ruletype: Sigma

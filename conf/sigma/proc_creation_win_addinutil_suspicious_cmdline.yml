@@ -10,42 +10,37 @@ date: 2023/09/18
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \addinutil.exe
-        - OriginalFileName: AddInUtil.exe
+        - Image|endswith: '\addinutil.exe'
+        - OriginalFileName: 'AddInUtil.exe'
     selection_susp_1_flags:
         CommandLine|contains:
             - '-AddInRoot:'
             - '-PipelineRoot:'
     selection_susp_1_paths:
         CommandLine|contains:
-            - \AppData\Local\Temp\
-            - \Desktop\
-            - \Downloads\
-            - \Users\Public\
-            - \Windows\Temp\
+            - '\AppData\Local\Temp\'
+            - '\Desktop\'
+            - '\Downloads\'
+            - '\Users\Public\'
+            - '\Windows\Temp\'
     selection_susp_2:
         CommandLine|contains:
-            - -AddInRoot:.
-            - -AddInRoot:"."
-            - -PipelineRoot:.
-            - -PipelineRoot:"."
+            - '-AddInRoot:.'
+            - '-AddInRoot:"."'
+            - '-PipelineRoot:.'
+            - '-PipelineRoot:"."'
         CurrentDirectory|contains:
-            - \AppData\Local\Temp\
-            - \Desktop\
-            - \Downloads\
-            - \Users\Public\
-            - \Windows\Temp\
-    condition: process_creation and (selection_img and (all of selection_susp_1_* or selection_susp_2))
+            - '\AppData\Local\Temp\'
+            - '\Desktop\'
+            - '\Downloads\'
+            - '\Users\Public\'
+            - '\Windows\Temp\'
+    condition: selection_img and (all of selection_susp_1_* or selection_susp_2)
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -16,21 +16,16 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: process_access
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         SourceImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-        TargetImage|endswith: \lsass.exe
-    condition: process_access and selection
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        TargetImage|endswith: '\lsass.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

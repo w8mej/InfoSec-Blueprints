@@ -15,21 +15,16 @@ tags:
     - attack.s0111
     - car.2013-08-001
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains:
-            - :\Windows\System32\Tasks\
-            - :\Windows\SysWOW64\Tasks\
-            - :\Windows\Tasks\
-    condition: file_event and selection
+            - ':\Windows\System32\Tasks\'
+            - ':\Windows\SysWOW64\Tasks\'
+            - ':\Windows\Tasks\'
+    condition: selection
 falsepositives:
     - Normal behaviour on Windows
 level: low
-ruletype: Sigma

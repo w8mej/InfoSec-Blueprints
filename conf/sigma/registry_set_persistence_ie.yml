@@ -11,35 +11,30 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_domains:
-        TargetObject|contains: \Software\Microsoft\Windows\CurrentVersion\Internet Settings
+        TargetObject|contains: '\Software\Microsoft\Windows\CurrentVersion\Internet Settings'
     filter_dword:
-        Details|startswith: DWORD
+        Details|startswith: 'DWORD'
     filter_office:
         Details:
             - 'Cookie:'
             - 'Visited:'
-            - (Empty)
+            - '(Empty)'
     filter_path:
         TargetObject|contains:
-            - \Cache
-            - \ZoneMap
-            - \WpadDecision
+            - '\Cache'
+            - '\ZoneMap'
+            - '\WpadDecision'
     filter_binary:
-        Details: Binary Data
+        Details: 'Binary Data'
     filter_accepted_documents:
         # Spotted during office installations
-        TargetObject|contains: \Accepted Documents\
-    condition: registry_set and (selection_domains and not 1 of filter_*)
+        TargetObject|contains: '\Accepted Documents\'
+    condition: selection_domains and not 1 of filter_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

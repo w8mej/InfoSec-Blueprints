@@ -15,12 +15,10 @@ logsource:
     service: ntlm
     definition: Requires events from Microsoft-Windows-NTLM/Operational
 detection:
-    ntlm:
-        Channel: Microsoft-Windows-NTLM/Operational
     selection:
         EventID: 8001
-        TargetName|startswith: TERMSRV
-    condition: ntlm and selection
+        TargetName|startswith: 'TERMSRV'
+    condition: selection
 fields:
     - Computer
     - UserName
@@ -31,4 +29,3 @@ falsepositives:
     - Host connections not using host FQDN.
     - Host connections to external legitimate domains.
 level: medium
-ruletype: Sigma

@@ -14,24 +14,19 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded|startswith:
-            - C:\Windows\System32\logonUI.exe.local\
-            - C:\Windows\System32\werFault.exe.local\
-            - C:\Windows\System32\consent.exe.local\
-            - C:\Windows\System32\narrator.exe.local\
-            - C:\windows\system32\wermgr.exe.local\
-        ImageLoaded|endswith: \comctl32.dll
-    condition: image_load and selection
+            - 'C:\Windows\System32\logonUI.exe.local\'
+            - 'C:\Windows\System32\werFault.exe.local\'
+            - 'C:\Windows\System32\consent.exe.local\'
+            - 'C:\Windows\System32\narrator.exe.local\'
+            - 'C:\windows\system32\wermgr.exe.local\'
+        ImageLoaded|endswith: '\comctl32.dll'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

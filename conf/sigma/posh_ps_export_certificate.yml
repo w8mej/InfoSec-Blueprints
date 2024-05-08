@@ -20,19 +20,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Export-PfxCertificate
-            - Export-Certificate
+            - 'Export-PfxCertificate'
+            - 'Export-Certificate'
     filter_optional_module_export:
-        ScriptBlockText|contains: CmdletsToExport = @(
-    condition: ps_script and (selection and not 1 of filter_optional_*)
+        ScriptBlockText|contains: 'CmdletsToExport = @('
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - Legitimate certificate exports by administrators. Additional filters might be required.
 level: medium
-ruletype: Sigma

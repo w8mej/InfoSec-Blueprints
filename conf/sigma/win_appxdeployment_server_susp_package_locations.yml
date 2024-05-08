@@ -15,26 +15,23 @@ logsource:
     product: windows
     service: appxdeployment-server
 detection:
-    appxdeployment_server:
-        Channel: Microsoft-Windows-AppXDeploymentServer/Operational
     selection:
         EventID: 854
         Path|contains:
             # Paths can be written using forward slash if the "file://" protocol is used
-            - C:\Users\Public\
-            - /users/public/
-            - C:\PerfLogs\
-            - C:/perflogs/
-            - \Desktop\
-            - /desktop/
-            - \Downloads\
-            - /Downloads/
-            - C:\Windows\Temp\
-            - C:/Windows/Temp/
-            - \AppdData\Local\Temp\
-            - /AppdData/Local/Temp/
-    condition: appxdeployment_server and selection
+            - 'C:\Users\Public\'
+            - '/users/public/'
+            - 'C:\PerfLogs\'
+            - 'C:/perflogs/'
+            - '\Desktop\'
+            - '/desktop/'
+            - '\Downloads\'
+            - '/Downloads/'
+            - 'C:\Windows\Temp\'
+            - 'C:/Windows/Temp/'
+            - '\AppdData\Local\Temp\'
+            - '/AppdData/Local/Temp/'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

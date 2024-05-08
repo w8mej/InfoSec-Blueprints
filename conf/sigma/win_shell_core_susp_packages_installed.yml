@@ -12,26 +12,23 @@ logsource:
     product: windows
     service: shell-core
 detection:
-    shell_core:
-        Channel: Microsoft-Windows-Shell-Core/Operational
     selection_name:
         EventID: 28115
         Name|contains:
             # Please add more
-            - Zenmap
-            - AnyDesk
-            - wireshark
-            - openvpn
+            - 'Zenmap'
+            - 'AnyDesk'
+            - 'wireshark'
+            - 'openvpn'
     selection_packageid:
         EventID: 28115
         AppID|contains:
             # Please add more
-            - zenmap.exe
-            - prokzult ad   # AnyDesk
-            - wireshark
-            - openvpn
-    condition: shell_core and (1 of selection_*)
+            - 'zenmap.exe'
+            - 'prokzult ad' # AnyDesk
+            - 'wireshark'
+            - 'openvpn'
+    condition: 1 of selection_*
 falsepositives:
     - Packages or applications being legitimately used by users or administrators
 level: medium
-ruletype: Sigma

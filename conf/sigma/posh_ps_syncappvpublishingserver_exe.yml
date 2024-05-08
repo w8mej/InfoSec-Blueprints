@@ -9,7 +9,7 @@ status: test
 description: Detects SyncAppvPublishingServer process execution which usually utilized by adversaries to bypass PowerShell execution restrictions.
 references:
     - https://lolbas-project.github.io/lolbas/Binaries/Syncappvpublishingserver/
-author: Ensar Şamil, @sblmsrsn, OSCD Community
+author: 'Ensar Şamil, @sblmsrsn, OSCD Community'
 date: 2020/10/05
 modified: 2022/12/25
 tags:
@@ -20,15 +20,9 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
-        ScriptBlockText|contains: SyncAppvPublishingServer.exe
-    condition: ps_script and selection
+        ScriptBlockText|contains: 'SyncAppvPublishingServer.exe'
+    condition: selection
 falsepositives:
     - App-V clients
 level: medium
-ruletype: Sigma

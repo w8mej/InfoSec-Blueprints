@@ -14,15 +14,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         AuditSourceName: VSSAudit
         EventID:
             - 4904
             - 4905
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Legitimate use of VSSVC. Maybe backup operations. It would usually be done by C:\Windows\System32\VSSVC.exe.
 level: informational
-ruletype: Sigma

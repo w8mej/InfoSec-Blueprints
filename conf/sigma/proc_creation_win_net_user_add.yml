@@ -14,28 +14,23 @@ modified: 2023/02/21
 tags:
     - attack.persistence
     - attack.t1136.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \net.exe
-              - \net1.exe
+              - '\net.exe'
+              - '\net1.exe'
         - OriginalFileName:
-              - net.exe
-              - net1.exe
+              - 'net.exe'
+              - 'net1.exe'
     selection_cli:
         CommandLine|contains|all:
-            - user
-            - add
-    condition: process_creation and (all of selection_*)
+            - 'user'
+            - 'add'
+    condition: all of selection_*
 falsepositives:
     - Legitimate user creation.
     - Better use event IDs for user creation rather than command line rules.
 level: medium
-ruletype: Sigma

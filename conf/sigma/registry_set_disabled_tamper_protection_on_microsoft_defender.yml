@@ -10,24 +10,19 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Microsoft\Windows Defender\Features\TamperProtection
+        TargetObject|contains: '\Microsoft\Windows Defender\Features\TamperProtection'
         Details: DWORD (0x00000000)
     filter_msmpeng_client: # only disabled temporarily during updates
-        Image|startswith: C:\ProgramData\Microsoft\Windows Defender\Platform\
-        Image|endswith: \MsMpEng.exe
+        Image|startswith: 'C:\ProgramData\Microsoft\Windows Defender\Platform\'
+        Image|endswith: '\MsMpEng.exe'
     filter_msmpeng_domain_controller: # only disabled temporarily during updates
-        Image: C:\Program Files\Windows Defender\MsMpEng.exe
-    condition: registry_set and (selection and not 1 of filter_*)
+        Image: 'C:\Program Files\Windows Defender\MsMpEng.exe'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

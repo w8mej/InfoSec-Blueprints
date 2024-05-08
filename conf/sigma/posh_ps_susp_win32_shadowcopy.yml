@@ -15,18 +15,12 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
-            - Get-WmiObject
-            - Win32_Shadowcopy
-            - .Delete()
-    condition: ps_script and selection
+            - 'Get-WmiObject'
+            - 'Win32_Shadowcopy'
+            - '.Delete()'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

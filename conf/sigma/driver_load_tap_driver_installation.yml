@@ -11,18 +11,13 @@ modified: 2021/09/21
 tags:
     - attack.exfiltration
     - attack.t1048
-    - sysmon
 logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImagePath|contains: tap0901
-    condition: driver_load and selection
+        ImagePath|contains: 'tap0901'
+    condition: selection
 falsepositives:
     - Legitimate OpenVPN TAP insntallation
 level: medium
-ruletype: Sigma

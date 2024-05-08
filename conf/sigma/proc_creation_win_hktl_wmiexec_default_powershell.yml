@@ -9,18 +9,13 @@ date: 2023/03/08
 tags:
     - attack.defense_evasion
     - attack.lateral_movement
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: -NoP -NoL -sta -NonI -W Hidden -Exec Bypass -Enc
-    condition: process_creation and selection
+        CommandLine|contains: '-NoP -NoL -sta -NonI -W Hidden -Exec Bypass -Enc'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

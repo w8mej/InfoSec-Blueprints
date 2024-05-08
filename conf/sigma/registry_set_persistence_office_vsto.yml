@@ -11,40 +11,35 @@ modified: 2023/08/28
 tags:
     - attack.t1137.006
     - attack.persistence
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \Software\Microsoft\Office\Outlook\Addins\
-            - \Software\Microsoft\Office\Word\Addins\
-            - \Software\Microsoft\Office\Excel\Addins\
-            - \Software\Microsoft\Office\Powerpoint\Addins\
-            - \Software\Microsoft\VSTO\Security\Inclusion\
+            - '\Software\Microsoft\Office\Outlook\Addins\'
+            - '\Software\Microsoft\Office\Word\Addins\'
+            - '\Software\Microsoft\Office\Excel\Addins\'
+            - '\Software\Microsoft\Office\Powerpoint\Addins\'
+            - '\Software\Microsoft\VSTO\Security\Inclusion\'
     filter_image:
         Image|endswith:
-            - \msiexec.exe
-            - \regsvr32.exe   # e.g. default Evernote installation
+            - '\msiexec.exe'
+            - '\regsvr32.exe' # e.g. default Evernote installation
     # triggered by a default Office 2019 installation
     filter_office:
         Image|endswith:
-            - \excel.exe
-            - \integrator.exe
-            - \OfficeClickToRun.exe
-            - \winword.exe
-            - \visio.exe
+            - '\excel.exe'
+            - '\integrator.exe'
+            - '\OfficeClickToRun.exe'
+            - '\winword.exe'
+            - '\visio.exe'
     filter_teams:
-        Image|endswith: \Teams.exe
+        Image|endswith: '\Teams.exe'
     filter_avg:
-        Image: C:\Program Files\AVG\Antivirus\RegSvr.exe
-        TargetObject|contains: \Microsoft\Office\Outlook\Addins\Antivirus.AsOutExt\
-    condition: registry_set and (selection and not 1 of filter_*)
+        Image: 'C:\Program Files\AVG\Antivirus\RegSvr.exe'
+        TargetObject|contains: '\Microsoft\Office\Outlook\Addins\Antivirus.AsOutExt\'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Legitimate Addin Installation
 level: medium
-ruletype: Sigma

@@ -12,25 +12,20 @@ modified: 2022/11/22
 tags:
     - attack.defense_evasion
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
             # Removed the start just in case the logging backend doesn't expand ENV variables when they're used
-            - \Microsoft\Event Viewer\RecentViews
-            - \Microsoft\EventV~1\RecentViews
+            - '\Microsoft\Event Viewer\RecentViews'
+            - '\Microsoft\EventV~1\RecentViews'
     filter:
         Image|startswith:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
-    condition: file_event and (selection and not filter)
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

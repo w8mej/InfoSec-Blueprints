@@ -13,16 +13,13 @@ logsource:
     product: windows
     service: appxdeployment-server
 detection:
-    appxdeployment_server:
-        Channel: Microsoft-Windows-AppXDeploymentServer/Operational
     selection:
         EventID:
             - 441
             - 442
             - 453
             - 454
-    condition: appxdeployment_server and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

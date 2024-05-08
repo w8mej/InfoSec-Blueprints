@@ -14,20 +14,15 @@ tags:
     - attack.command_and_control
     - attack.t1105
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \curl.exe
-        - Product: The curl executable
-    condition: process_creation and selection
+        - Image|endswith: '\curl.exe'
+        - Product: 'The curl executable'
+    condition: selection
 falsepositives:
     - Scripts created by developers and admins
     - Administrative activity
 level: low
-ruletype: Sigma

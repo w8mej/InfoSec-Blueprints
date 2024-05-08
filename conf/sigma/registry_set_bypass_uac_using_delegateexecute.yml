@@ -13,19 +13,14 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1548.002
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \open\command\DelegateExecute
+        TargetObject|endswith: '\open\command\DelegateExecute'
         Details: (Empty)
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

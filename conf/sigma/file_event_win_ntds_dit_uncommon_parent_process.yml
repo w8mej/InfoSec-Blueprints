@@ -16,39 +16,34 @@ modified: 2023/01/05
 tags:
     - attack.credential_access
     - attack.t1003.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
     definition: 'Requirements: The "ParentImage" field is not available by default on EID 11 of Sysmon logs. To be able to use this rule to the full extent you need to enrich the log with additional ParentImage data'
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_file:
-        TargetFilename|endswith: \ntds.dit
+        TargetFilename|endswith: '\ntds.dit'
     selection_process_parent:
         # Note: ParentImage is a custom field and is not available by default on Sysmon EID 11
         ParentImage|endswith:
-            - \cscript.exe
-            - \httpd.exe
-            - \nginx.exe
-            - \php-cgi.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \w3wp.exe
-            - \wscript.exe
+            - '\cscript.exe'
+            - '\httpd.exe'
+            - '\nginx.exe'
+            - '\php-cgi.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\w3wp.exe'
+            - '\wscript.exe'
     selection_process_parent_path:
         # Note: ParentImage is a custom field and is not available by default on Sysmon EID 11
         ParentImage|contains:
-            - \apache
-            - \tomcat
-            - \AppData\
-            - \Temp\
-            - \Public\
-            - \PerfLogs\
-    condition: file_event and (selection_file and 1 of selection_process_*)
+            - '\apache'
+            - '\tomcat'
+            - '\AppData\'
+            - '\Temp\'
+            - '\Public\'
+            - '\PerfLogs\'
+    condition: selection_file and 1 of selection_process_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

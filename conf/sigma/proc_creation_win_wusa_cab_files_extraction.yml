@@ -8,19 +8,14 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/08/04
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \wusa.exe
+        Image|endswith: '\wusa.exe'
         CommandLine|contains: '/extract:'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - The "extract" flag still works on older 'wusa.exe' versions, which could be a legitimate use (monitor the path of the cab being extracted)
 level: medium
-ruletype: Sigma

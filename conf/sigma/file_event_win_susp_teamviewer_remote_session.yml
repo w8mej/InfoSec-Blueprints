@@ -9,24 +9,19 @@ date: 2022/01/30
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         TargetFilename|endswith:
-            - \TeamViewer\RemotePrinting\tvprint.db
-            - \TeamViewer\TVNetwork.log
+            - '\TeamViewer\RemotePrinting\tvprint.db'
+            - '\TeamViewer\TVNetwork.log'
     selection2:
         TargetFilename|contains|all:
-            - \TeamViewer
-            - _Logfile.log
-    condition: file_event and (1 of selection*)
+            - '\TeamViewer'
+            - '_Logfile.log'
+    condition: 1 of selection*
 falsepositives:
     - Legitimate uses of TeamViewer in an organisation
 level: medium
-ruletype: Sigma

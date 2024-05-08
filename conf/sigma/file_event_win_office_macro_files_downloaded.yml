@@ -14,52 +14,47 @@ modified: 2023/04/18
 tags:
     - attack.initial_access
     - attack.t1566.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_processes:
         Image|endswith:
             # Email clients
-            - \RuntimeBroker.exe   # Windows Email clients uses RuntimeBroker to create the files
-            - \outlook.exe
-            - \thunderbird.exe
+            - '\RuntimeBroker.exe' # Windows Email clients uses RuntimeBroker to create the files
+            - '\outlook.exe'
+            - '\thunderbird.exe'
             # Browsers
-            - \brave.exe
-            - \chrome.exe
-            - \firefox.exe
-            - \iexplore.exe
-            - \maxthon.exe
-            - \MicrosoftEdge.exe
-            - \msedge.exe
-            - \msedgewebview2.exe
-            - \opera.exe
-            - \safari.exe
-            - \seamonkey.exe
-            - \vivaldi.exe
-            - \whale.exe
+            - '\brave.exe'
+            - '\chrome.exe'
+            - '\firefox.exe'
+            - '\iexplore.exe'
+            - '\maxthon.exe'
+            - '\MicrosoftEdge.exe'
+            - '\msedge.exe'
+            - '\msedgewebview2.exe'
+            - '\opera.exe'
+            - '\safari.exe'
+            - '\seamonkey.exe'
+            - '\vivaldi.exe'
+            - '\whale.exe'
     selection_ext:
         - TargetFilename|endswith:
-              - .docm
-              - .dotm
-              - .xlsm
-              - .xltm
-              - .potm
-              - .pptm
+              - '.docm'
+              - '.dotm'
+              - '.xlsm'
+              - '.xltm'
+              - '.potm'
+              - '.pptm'
         - TargetFilename|contains:
-              - .docm:Zone
-              - .dotm:Zone
-              - .xlsm:Zone
-              - .xltm:Zone
-              - .potm:Zone
-              - .pptm:Zone
-    condition: file_event and (all of selection_*)
+              - '.docm:Zone'
+              - '.dotm:Zone'
+              - '.xlsm:Zone'
+              - '.xltm:Zone'
+              - '.potm:Zone'
+              - '.pptm:Zone'
+    condition: all of selection_*
 falsepositives:
     - Legitimate macro files downloaded from the internet
     - Legitimate macro files sent as attachments via emails
 level: medium
-ruletype: Sigma

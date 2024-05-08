@@ -20,16 +20,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID: 16
         Provider_Name: Microsoft-Windows-Kernel-General
         HiveName|contains:
-            - \Temp\SAM
-            - \Temp\SECURITY
-    condition: system and selection
+            - '\Temp\SAM'
+            - '\Temp\SECURITY'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

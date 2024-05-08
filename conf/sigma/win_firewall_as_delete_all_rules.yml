@@ -14,18 +14,15 @@ logsource:
     product: windows
     service: firewall-as
 detection:
-    firewall_as:
-        Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     selection:
         EventID:
             - 2033 # All rules have been deleted from the Windows Defender Firewall configuration on this computer
             - 2059 # All rules have been deleted from the Windows Defender Firewall configuration on this computer. (Windows 11)
     filter_main_svchost:
-        ModifyingApplication|endswith: :\Windows\System32\svchost.exe
+        ModifyingApplication|endswith: ':\Windows\System32\svchost.exe'
     filter_optional_msmpeng:
         ModifyingApplication|contains|all:
-            - :\ProgramData\Microsoft\Windows Defender\Platform\
-            - \MsMpEng.exe
-    condition: firewall_as and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+            - ':\ProgramData\Microsoft\Windows Defender\Platform\'
+            - '\MsMpEng.exe'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 level: high
-ruletype: Sigma

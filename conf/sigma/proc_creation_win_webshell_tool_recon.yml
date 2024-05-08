@@ -11,47 +11,42 @@ modified: 2023/11/09
 tags:
     - attack.persistence
     - attack.t1505.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_webserver_image:
         ParentImage|endswith:
-            - \caddy.exe
-            - \httpd.exe
-            - \nginx.exe
-            - \php-cgi.exe
-            - \w3wp.exe
-            - \ws_tomcatservice.exe
+            - '\caddy.exe'
+            - '\httpd.exe'
+            - '\nginx.exe'
+            - '\php-cgi.exe'
+            - '\w3wp.exe'
+            - '\ws_tomcatservice.exe'
     selection_webserver_characteristics_tomcat1:
         ParentImage|endswith:
-            - \java.exe
-            - \javaw.exe
+            - '\java.exe'
+            - '\javaw.exe'
         ParentImage|contains:
-            - -tomcat-
-            - \tomcat
+            - '-tomcat-'
+            - '\tomcat'
     selection_webserver_characteristics_tomcat2:
         ParentImage|endswith:
-            - \java.exe
-            - \javaw.exe
+            - '\java.exe'
+            - '\javaw.exe'
         CommandLine|contains:
-            - CATALINA_HOME
-            - catalina.jar
+            - 'CATALINA_HOME'
+            - 'catalina.jar'
     selection_recon:
         CommandLine|contains:
-            - perl --help
-            - perl -h
-            - python --help
-            - python -h
-            - python3 --help
-            - python3 -h
-            - wget --help
-    condition: process_creation and (1 of selection_webserver_* and selection_recon)
+            - 'perl --help'
+            - 'perl -h'
+            - 'python --help'
+            - 'python -h'
+            - 'python3 --help'
+            - 'python3 -h'
+            - 'wget --help'
+    condition: 1 of selection_webserver_* and selection_recon
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

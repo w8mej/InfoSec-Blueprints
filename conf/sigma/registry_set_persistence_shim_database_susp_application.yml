@@ -11,30 +11,25 @@ modified: 2023/12/06
 tags:
     - attack.persistence
     - attack.t1546.011
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\'
         TargetObject|endswith:
             # Note: add other application to increase coverage
-            - \csrss.exe
-            - \dllhost.exe
-            - \explorer.exe
-            - \RuntimeBroker.exe
-            - \services.exe
-            - \sihost.exe
-            - \svchost.exe
-            - \taskhostw.exe
-            - \winlogon.exe
-            - \WmiPrvSe.exe
-    condition: registry_set and selection
+            - '\csrss.exe'
+            - '\dllhost.exe'
+            - '\explorer.exe'
+            - '\RuntimeBroker.exe'
+            - '\services.exe'
+            - '\sihost.exe'
+            - '\svchost.exe'
+            - '\taskhostw.exe'
+            - '\winlogon.exe'
+            - '\WmiPrvSe.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,19 +11,15 @@ modified: 2023/02/04
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \reg.exe
+        Image|endswith: '\reg.exe'
         CommandLine|contains:
-            - SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths
-            - SOFTWARE\Microsoft\Microsoft Antimalware\Exclusions\Paths
+            - 'SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths'
+            - 'SOFTWARE\Microsoft\Microsoft Antimalware\Exclusions\Paths'
         CommandLine|contains|all:
             - 'ADD '
             - '/t '
@@ -31,8 +27,7 @@ detection:
             - '/v '
             - '/d '
             - '0'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

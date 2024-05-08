@@ -3,7 +3,7 @@ id: 155c7fd5-47b4-49b2-bbeb-eb4fab335429
 related:
     - id: b36d01a3-ddaf-4804-be18-18a6247adfcd
       type: similar
-status: experimental
+status: test
 description: Detects usage of the "Add-WindowsCapability" cmdlet to add Windows capabilities. Notable capabilities could be "OpenSSH" and others.
 references:
     - https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
@@ -18,17 +18,11 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
         ScriptBlockText|contains: 'Add-WindowsCapability '
     selection_capa:
-        ScriptBlockText|contains: -Name OpenSSH.   # For both "OpenSSH.Server" and "OpenSSH.Client"
-    condition: ps_script and (all of selection_*)
+        ScriptBlockText|contains: '-Name OpenSSH.' # For both "OpenSSH.Server" and "OpenSSH.Client"
+    condition: all of selection_*
 falsepositives:
     - Legitimate usage of the capabilities by administrators or users. Add additional filters accordingly.
 level: medium
-ruletype: Sigma

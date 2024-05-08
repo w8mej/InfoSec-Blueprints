@@ -16,14 +16,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5145
-        ShareName: \\\\\*\\IPC$   # looking for the string \\*\IPC$
+        ShareName: '\\\\\*\\IPC$' # looking for the string \\*\IPC$
         RelativeTargetName: spoolss
-    condition: security and selection
+    condition: selection
 falsepositives:
-    - Domain Controllers acting as printer servers too? :)
+    - 'Domain Controllers acting as printer servers too? :)'
 level: medium
-ruletype: Sigma

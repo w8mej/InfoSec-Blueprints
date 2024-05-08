@@ -19,27 +19,21 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
             - '[System.Net.WebRequest]::create'
             - 'curl '
-            - Invoke-RestMethod
-            - Invoke-WebRequest
+            - 'Invoke-RestMethod'
+            - 'Invoke-WebRequest'
             - 'iwr '
-            - Net.WebClient
-            - Resume-BitsTransfer
-            - Start-BitsTransfer
+            - 'Net.WebClient'
+            - 'Resume-BitsTransfer'
+            - 'Start-BitsTransfer'
             - 'wget '
-            - WinHttp.WinHttpRequest
+            - 'WinHttp.WinHttpRequest'
     filter:
-        Path|startswith: C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\
-    condition: ps_script and (selection and not filter)
+        Path|startswith: 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\'
+    condition: selection and not filter
 falsepositives:
     - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer.
 level: medium
-ruletype: Sigma

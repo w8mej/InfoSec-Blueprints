@@ -9,19 +9,14 @@ date: 2021/11/19
 modified: 2023/08/17
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: Classes\.
-        Details: exefile
-    condition: registry_set and selection
+        TargetObject|contains: 'Classes\.'
+        Details: 'exefile'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

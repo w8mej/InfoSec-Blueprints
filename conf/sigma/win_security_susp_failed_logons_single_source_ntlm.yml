@@ -15,19 +15,16 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID: 4776
         Status: '*0xC000006A' #Account logon with misspelled or bad password.
     filter:
         TargetUserName: '*$'
     timeframe: 24h
-    condition: (security and selection1 and not filter) | count(TargetUserName) by Workstation > 10
+    condition: selection1 and not filter | count(TargetUserName) by Workstation > 10
 falsepositives:
     - Terminal servers
     - Jump servers
     - Other multiuser systems like Citrix server farms
     - Workstations with frequently changing users
 level: medium
-ruletype: Sigma

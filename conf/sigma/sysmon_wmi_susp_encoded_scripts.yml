@@ -12,27 +12,19 @@ tags:
     - attack.t1047
     - attack.persistence
     - attack.t1546.003
-    - sysmon
 logsource:
     product: windows
     category: wmi_event
 detection:
-    wmi_event:
-        EventID:
-            - 19
-            - 20
-            - 21
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_destination:
         Destination|base64offset|contains:
-            - WriteProcessMemory
-            - This program cannot be run in DOS mode
-            - This program must be run under Win32
-    condition: wmi_event and selection_destination
+            - 'WriteProcessMemory'
+            - 'This program cannot be run in DOS mode'
+            - 'This program must be run under Win32'
+    condition: selection_destination
 fields:
     - User
     - Operation
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

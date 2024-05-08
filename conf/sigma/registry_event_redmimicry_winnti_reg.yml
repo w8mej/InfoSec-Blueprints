@@ -10,21 +10,13 @@ modified: 2021/11/27
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains: HKLM\SOFTWARE\Microsoft\HTMLHelp\data
-    condition: registry_event and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

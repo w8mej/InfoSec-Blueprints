@@ -13,60 +13,55 @@ logsource:
     service: powershell
     definition: Script block logging must be enabled for 4104, Module Logging must be enabled for 4103
 detection:
-    powershell:
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_convert_b64:
         '|all':
-            - -nop
+            - '-nop'
             - ' -w '
-            - hidden
+            - 'hidden'
             - ' -c '
             - '[Convert]::FromBase64String'
     selection_iex:
         '|all':
             - ' -w '
-            - hidden
-            - -noni
-            - -nop
+            - 'hidden'
+            - '-noni'
+            - '-nop'
             - ' -c '
-            - iex
-            - New-Object
+            - 'iex'
+            - 'New-Object'
     selection_enc:
         '|all':
             - ' -w '
-            - hidden
-            - -ep
-            - bypass
-            - -Enc
+            - 'hidden'
+            - '-ep'
+            - 'bypass'
+            - '-Enc'
     selection_reg:
         '|all':
-            - powershell
-            - reg
-            - add
-            - HKCU\software\microsoft\windows\currentversion\run
+            - 'powershell'
+            - 'reg'
+            - 'add'
+            - 'HKCU\software\microsoft\windows\currentversion\run'
     selection_webclient:
-        '|all':
-            - bypass
-            - -noprofile
-            - -windowstyle
-            - hidden
-            - new-object
-            - system.net.webclient
-            - .download
+         '|all':
+            - 'bypass'
+            - '-noprofile'
+            - '-windowstyle'
+            - 'hidden'
+            - 'new-object'
+            - 'system.net.webclient'
+            - '.download'
     selection_iex_webclient:
         '|all':
-            - iex
-            - New-Object
-            - Net.WebClient
-            - .Download
+            - 'iex'
+            - 'New-Object'
+            - 'Net.WebClient'
+            - '.Download'
     filter_chocolatey:
-        - (New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1
-        - (New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')
-        - Write-ChocolateyWarning
-    condition: powershell and (1 of selection_* and not 1 of filter_*)
+        - "(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1"
+        - "(New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')"
+        - 'Write-ChocolateyWarning'
+    condition: 1 of selection_* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

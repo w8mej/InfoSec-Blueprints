@@ -11,21 +11,16 @@ modified: 2023/02/08
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     product: windows
     category: registry_delete
 detection:
-    registry_delete:
-        EventID: 12
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventType: DeleteKey
         TargetObject|endswith:
             - '{2781761E-28E0-4109-99FE-B9D127C57AFE}' # IOfficeAntiVirus
             - '{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}' # ProtectionManagement.dll
-    condition: registry_delete and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

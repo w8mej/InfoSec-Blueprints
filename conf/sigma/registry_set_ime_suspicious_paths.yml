@@ -15,38 +15,33 @@ date: 2023/11/21
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_registry:
         TargetObject|contains|all:
-            - \Control\Keyboard Layouts\
-            - Ime File
+            - '\Control\Keyboard Layouts\'
+            - 'Ime File'
     selection_folders_1:
         Details|contains:
-            - :\Perflogs\
-            - :\Users\Public\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-            - \AppData\Roaming\
-            - \Temporary Internet
+            - ':\Perflogs\'
+            - ':\Users\Public\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+            - '\AppData\Roaming\'
+            - '\Temporary Internet'
     selection_folders_2:
         - Details|contains|all:
-              - :\Users\
-              - \Favorites\
+              - ':\Users\'
+              - '\Favorites\'
         - Details|contains|all:
-              - :\Users\
-              - \Favourites\
+              - ':\Users\'
+              - '\Favourites\'
         - Details|contains|all:
-              - :\Users\
-              - \Contacts\
-    condition: registry_set and (selection_registry and 1 of selection_folders_*)
+              - ':\Users\'
+              - '\Contacts\'
+    condition: selection_registry and 1 of selection_folders_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

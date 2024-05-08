@@ -16,18 +16,13 @@ tags:
     - attack.t1559.001
     - attack.defense_evasion
     - attack.t1218.010
-    - sysmon
 logsource:
     category: dns_query
     product: windows
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \regsvr32.exe
-    condition: dns_query and selection
+        Image|endswith: '\regsvr32.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

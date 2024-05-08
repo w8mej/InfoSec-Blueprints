@@ -14,20 +14,17 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 4656
             - 4663
-        ObjectType: key
+        ObjectType: 'key'
         ObjectName|endswith:
-            - lsa\JD
-            - lsa\GBG
-            - lsa\Skew1
-            - lsa\Data
-    condition: security and selection
+            - 'lsa\JD'
+            - 'lsa\GBG'
+            - 'lsa\Skew1'
+            - 'lsa\Data'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

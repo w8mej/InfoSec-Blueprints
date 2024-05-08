@@ -11,23 +11,18 @@ references:
     - https://github.com/S3cur3Th1sSh1t/OffensiveVBA/blob/28cc6a2802d8176195ac19b3c8e9a749009a82a3/src/AMSIbypasses.vba
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains|all:
-            - \SOFTWARE\
-            - \Microsoft\Office\
-            - \Common\Security
-        TargetObject|endswith: \MacroRuntimeScanScope
+            - '\SOFTWARE\'
+            - '\Microsoft\Office\'
+            - '\Common\Security'
+        TargetObject|endswith: '\MacroRuntimeScanScope'
         Details: DWORD (0x00000000)
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

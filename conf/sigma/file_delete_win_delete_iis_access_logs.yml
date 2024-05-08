@@ -10,22 +10,15 @@ modified: 2023/02/15
 tags:
     - attack.defense_evasion
     - attack.t1070
-    - sysmon
 logsource:
     category: file_delete
     product: windows
 detection:
-    file_delete:
-        EventID:
-            - 23
-            - 26
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \inetpub\logs\LogFiles\
-        TargetFilename|endswith: .log
-    condition: file_delete and selection
+        TargetFilename|contains: '\inetpub\logs\LogFiles\'
+        TargetFilename|endswith: '.log'
+    condition: selection
 falsepositives:
     - During uninstallation of the IIS service
     - During log rotation
 level: medium
-ruletype: Sigma

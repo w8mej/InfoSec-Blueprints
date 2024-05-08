@@ -10,21 +10,16 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1562.002
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SYSTEM\CurrentControlSet\Services\EventLog\
-        TargetObject|endswith: \File
+        TargetObject|contains: '\SYSTEM\CurrentControlSet\Services\EventLog\'
+        TargetObject|endswith: '\File'
     filter:
-        Details|contains: \System32\Winevt\Logs\
-    condition: registry_set and (selection and not filter)
+        Details|contains: '\System32\Winevt\Logs\'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

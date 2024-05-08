@@ -15,23 +15,15 @@ tags:
     - attack.t1053.005
     - car.2013-08-001
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\
-            - \Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\
-    condition: registry_event and selection
+            - '\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\'
+            - '\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\'
+    condition: selection
 falsepositives:
     - Likely as this is a normal behaviour on Windows
 level: low
-ruletype: Sigma

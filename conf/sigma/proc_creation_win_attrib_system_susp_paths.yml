@@ -16,42 +16,37 @@ modified: 2023/03/14
 tags:
     - attack.defense_evasion
     - attack.t1564.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \attrib.exe
-        - OriginalFileName: ATTRIB.EXE
+        - Image|endswith: '\attrib.exe'
+        - OriginalFileName: 'ATTRIB.EXE'
     selection_cli:
         CommandLine|contains: ' +s'
     selection_paths:
         CommandLine|contains:
             - ' %' # Custom Environment variable
-            - \Users\Public\
-            - \AppData\Local\
-            - \ProgramData\
-            - \Downloads\
-            - \Windows\Temp\
+            - '\Users\Public\'
+            - '\AppData\Local\'
+            - '\ProgramData\'
+            - '\Downloads\'
+            - '\Windows\Temp\'
     selection_ext:
         CommandLine|contains:
-            - .bat
-            - .dll
-            - .exe
-            - .hta
-            - .ps1
-            - .vbe
-            - .vbs
+            - '.bat'
+            - '.dll'
+            - '.exe'
+            - '.hta'
+            - '.ps1'
+            - '.vbe'
+            - '.vbs'
     filter:
         CommandLine|contains|all:
-            - \Windows\TEMP\
-            - .exe
-    condition: process_creation and (all of selection* and not filter)
+            - '\Windows\TEMP\'
+            - '.exe'
+    condition: all of selection* and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

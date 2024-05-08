@@ -13,21 +13,16 @@ tags:
     - attack.command_and_control
     - attack.t1104
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - powershell
-            - .DownloadFile
-            - System.Net.WebClient
-    condition: process_creation and selection
+            - 'powershell'
+            - '.DownloadFile'
+            - 'System.Net.WebClient'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

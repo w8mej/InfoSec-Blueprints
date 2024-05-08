@@ -11,50 +11,45 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/07/22
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|contains: PDQDeployRunner-
+        ParentImage|contains: 'PDQDeployRunner-'
     selection_susp:
         # Improve this section by adding other suspicious processes, commandlines or paths
         - Image|endswith:
               # If you use any of the following processes legitimately comment them out
-              - \wscript.exe
-              - \cscript.exe
-              - \rundll32.exe
-              - \regsvr32.exe
-              - \wmic.exe
-              - \msiexec.exe
-              - \mshta.exe
-              - \csc.exe
-              - \dllhost.exe
-              - \certutil.exe
-              - \scriptrunner.exe
-              - \bash.exe
-              - \wsl.exe
+              - '\wscript.exe'
+              - '\cscript.exe'
+              - '\rundll32.exe'
+              - '\regsvr32.exe'
+              - '\wmic.exe'
+              - '\msiexec.exe'
+              - '\mshta.exe'
+              - '\csc.exe'
+              - '\dllhost.exe'
+              - '\certutil.exe'
+              - '\scriptrunner.exe'
+              - '\bash.exe'
+              - '\wsl.exe'
         - Image|contains:
-              - C:\Users\Public\
-              - C:\ProgramData\
-              - C:\Windows\TEMP\
-              - \AppData\Local\Temp
+              - 'C:\Users\Public\'
+              - 'C:\ProgramData\'
+              - 'C:\Windows\TEMP\'
+              - '\AppData\Local\Temp'
         - CommandLine|contains:
               - 'iex '
-              - Invoke-
-              - DownloadString
-              - http
+              - 'Invoke-'
+              - 'DownloadString'
+              - 'http'
               - ' -enc '
               - ' -encodedcommand '
-              - FromBase64String
+              - 'FromBase64String'
               - ' -decode '
               - ' -w hidden'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of the PDQDeploy tool to execute these commands
 level: medium
-ruletype: Sigma

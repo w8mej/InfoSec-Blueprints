@@ -13,21 +13,16 @@ modified: 2023/02/04
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Image|endswith:
-              - \PowerTool.exe
-              - \PowerTool64.exe
-        - OriginalFileName: PowerTool.exe
-    condition: process_creation and selection
+              - '\PowerTool.exe'
+              - '\PowerTool64.exe'
+        - OriginalFileName: 'PowerTool.exe'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

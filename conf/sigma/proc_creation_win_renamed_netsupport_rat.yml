@@ -9,23 +9,18 @@ date: 2022/09/19
 modified: 2023/02/04
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Product|contains: NetSupport Remote Control
-        - OriginalFileName|contains: client32.exe
+        - Product|contains: 'NetSupport Remote Control'
+        - OriginalFileName|contains: 'client32.exe'
         - Imphash: a9d50692e95b79723f3e76fcf70d023e
         - Hashes|contains: IMPHASH=A9D50692E95B79723F3E76FCF70D023E
     filter:
-        Image|endswith: \client32.exe
-    condition: process_creation and (selection and not filter)
+        Image|endswith: '\client32.exe'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

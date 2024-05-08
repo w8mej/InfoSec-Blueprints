@@ -29,16 +29,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ServiceName:
-            - SC Scheduled Scan
-            - UpdatMachine
-    condition: system and selection
+            - 'SC Scheduled Scan'
+            - 'UpdatMachine'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

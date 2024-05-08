@@ -11,23 +11,15 @@ tags:
     - attack.defense_evasion
     - attack.t1562
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains|all:
-            - \SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\
-            - Windows TeamCity Settings User Interface
-    condition: registry_event and selection
+            - '\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\'
+            - 'Windows TeamCity Settings User Interface'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

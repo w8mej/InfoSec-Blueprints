@@ -12,30 +12,26 @@ tags:
     - attack.execution
     - attack.t1564
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|startswith: C:\Users\Public\
+        ParentImage|startswith: 'C:\Users\Public\'
         CommandLine|contains:
-            - powershell
+            - 'powershell'
             - 'cmd.exe /c '
             - 'cmd.exe /r '
             - 'cmd.exe /k '
             - 'cmd /c '
             - 'cmd /r '
             - 'cmd /k '
-            - wscript.exe
-            - cscript.exe
-            - bitsadmin
-            - certutil
-            - mshta.exe
-    condition: process_creation and selection
+            - 'wscript.exe'
+            - 'cscript.exe'
+            - 'bitsadmin'
+            - 'certutil'
+            - 'mshta.exe'
+    condition: selection
 fields:
     - ComputerName
     - User
@@ -43,4 +39,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

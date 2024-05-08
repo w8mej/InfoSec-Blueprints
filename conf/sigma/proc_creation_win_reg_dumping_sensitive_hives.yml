@@ -22,17 +22,13 @@ tags:
     - attack.t1003.004
     - attack.t1003.005
     - car.2013-07-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: '\reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_cli_flag:
         CommandLine|contains:
             - ' save '
@@ -41,24 +37,23 @@ detection:
             - ' eˣport '
     selection_cli_hklm:
         CommandLine|contains:
-            - hklm
-            - hk˪m
-            - hkey_local_machine
-            - hkey_˪ocal_machine
-            - hkey_loca˪_machine
-            - hkey_˪oca˪_machine
+            - 'hklm'
+            - 'hk˪m'
+            - 'hkey_local_machine'
+            - 'hkey_˪ocal_machine'
+            - 'hkey_loca˪_machine'
+            - 'hkey_˪oca˪_machine'
     selection_cli_hive:
         CommandLine|contains:
-            - \system
-            - \sam
-            - \security
-            - \ˢystem
-            - \syˢtem
-            - \ˢyˢtem
-            - \ˢam
-            - \ˢecurity
-    condition: process_creation and (all of selection_*)
+            - '\system'
+            - '\sam'
+            - '\security'
+            - '\ˢystem'
+            - '\syˢtem'
+            - '\ˢyˢtem'
+            - '\ˢam'
+            - '\ˢecurity'
+    condition: all of selection_*
 falsepositives:
     - Dumping hives for legitimate purpouse i.e. backup or forensic investigation
 level: high
-ruletype: Sigma

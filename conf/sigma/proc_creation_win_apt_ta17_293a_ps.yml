@@ -13,20 +13,15 @@ tags:
     - attack.t1036.003
     - car.2013-05-009
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - ps.exe -accepteula
-            - -s cmd /c netstat
-    condition: process_creation and selection
+            - 'ps.exe -accepteula'
+            - '-s cmd /c netstat'
+    condition: selection
 falsepositives:
     - Renamed SysInternals tool
 level: high
-ruletype: Sigma

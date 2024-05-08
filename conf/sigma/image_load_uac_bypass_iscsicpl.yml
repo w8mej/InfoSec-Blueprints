@@ -12,23 +12,18 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image: C:\Windows\SysWOW64\iscsicpl.exe
-        ImageLoaded|endswith: \iscsiexe.dll
+        ImageLoaded|endswith: '\iscsiexe.dll'
     filter:
         ImageLoaded|contains|all:
-            - C:\Windows\
-            - iscsiexe.dll
-    condition: image_load and (selection and not filter)
+            - 'C:\Windows\'
+            - 'iscsiexe.dll'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

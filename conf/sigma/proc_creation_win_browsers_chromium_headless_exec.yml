@@ -13,24 +13,19 @@ date: 2023/09/12
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \brave.exe
-            - \chrome.exe
-            - \msedge.exe
-            - \opera.exe
-            - \vivaldi.exe
-        CommandLine|contains: --headless
-    condition: process_creation and selection
+            - '\brave.exe'
+            - '\chrome.exe'
+            - '\msedge.exe'
+            - '\opera.exe'
+            - '\vivaldi.exe'
+        CommandLine|contains: '--headless'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

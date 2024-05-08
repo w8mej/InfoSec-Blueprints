@@ -11,19 +11,16 @@ logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - wuauclt.exe
-            - /UpdateDeploymentProvider
-            - /Runhandlercomserver
+            - 'wuauclt.exe'
+            - '/UpdateDeploymentProvider'
+            - '/Runhandlercomserver'
     filter:
         CommandLine|contains:
-            - wuaueng.dll
-            - UpdateDeploymentProvider.dll /ClassId
-    condition: process_creation and (selection and not filter)
+            - 'wuaueng.dll'
+            - 'UpdateDeploymentProvider.dll /ClassId'
+    condition: selection and not filter
 falsepositives:
     - Wuaueng.dll which is a module belonging to Microsoft Windows Update.
 fields:
@@ -33,5 +30,3 @@ tags:
     - attack.defense_evasion
     - attack.execution
     - attack.t1218
-    - sysmon
-ruletype: Sigma

@@ -22,11 +22,6 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_args:
         ScriptBlockText|contains|all:
             - 'Set-NetFirewallProfile '
@@ -35,11 +30,10 @@ detection:
     selection_opt:
         ScriptBlockText|contains:
             - ' -All '
-            - Public
-            - Domain
-            - Private
-    condition: ps_script and (all of selection*)
+            - 'Public'
+            - 'Domain'
+            - 'Private'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

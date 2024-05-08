@@ -13,58 +13,53 @@ modified: 2023/12/13
 tags:
     - attack.resource_development
     - attack.t1587.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_word_paths:
-        - TargetFilename|contains: \Microsoft\Word\STARTUP
+        - TargetFilename|contains: '\Microsoft\Word\STARTUP'
         - TargetFilename|contains|all:
-              - \Office
-              - \Program Files
-              - \STARTUP
+              - '\Office'
+              - '\Program Files'
+              - '\STARTUP'
     filter_exclude_word_ext:
         TargetFilename|endswith:
-            - .docb   # Word binary document introduced in Microsoft Office 2007
-            - .docm   # Word macro-enabled document; same as docx, but may contain macros and scripts
-            - .docx   # Word document
-            - .dotm   # Word macro-enabled template; same as dotx, but may contain macros and scripts
-            - .mdb   # MS Access DB
-            - .mdw   # MS Access DB
-            - .pdf   # PDF documents
-            - .wll   # Word add-in
-            - .wwl   # Word add-in
+            - '.docb' # Word binary document introduced in Microsoft Office 2007
+            - '.docm' # Word macro-enabled document; same as docx, but may contain macros and scripts
+            - '.docx' # Word document
+            - '.dotm' # Word macro-enabled template; same as dotx, but may contain macros and scripts
+            - '.mdb' # MS Access DB
+            - '.mdw' # MS Access DB
+            - '.pdf' # PDF documents
+            - '.wll' # Word add-in
+            - '.wwl' # Word add-in
     selection_excel_paths:
-        - TargetFilename|contains: \Microsoft\Excel\XLSTART
+        - TargetFilename|contains: '\Microsoft\Excel\XLSTART'
         - TargetFilename|contains|all:
-              - \Office
-              - \Program Files
-              - \XLSTART
+              - '\Office'
+              - '\Program Files'
+              - '\XLSTART'
     filter_exclude_excel_ext:
         TargetFilename|endswith:
-            - .xll
-            - .xls
-            - .xlsm
-            - .xlsx
-            - .xlt
-            - .xltm
-            - .xlw
+            - '.xll'
+            - '.xls'
+            - '.xlsm'
+            - '.xlsx'
+            - '.xlt'
+            - '.xltm'
+            - '.xlw'
     filter_main_office_click_to_run:
-        Image|contains: :\Program Files\Common Files\Microsoft Shared\ClickToRun\
-        Image|endswith: \OfficeClickToRun.exe
+        Image|contains: ':\Program Files\Common Files\Microsoft Shared\ClickToRun\'
+        Image|endswith: '\OfficeClickToRun.exe'
     filter_main_office_apps:
         Image|contains:
-            - :\Program Files\Microsoft Office\
-            - :\Program Files (x86)\Microsoft Office\
+            - ':\Program Files\Microsoft Office\'
+            - ':\Program Files (x86)\Microsoft Office\'
         Image|endswith:
-            - \winword.exe
-            - \excel.exe
-    condition: file_event and (((selection_word_paths and not filter_exclude_word_ext) or (selection_excel_paths and not filter_exclude_excel_ext)) and not 1 of filter_main_*)
+            - '\winword.exe'
+            - '\excel.exe'
+    condition: ((selection_word_paths and not filter_exclude_word_ext) or (selection_excel_paths and not filter_exclude_excel_ext)) and not 1 of filter_main_*
 falsepositives:
     - False positive might stem from rare extensions used by other Office utilities.
 level: high
-ruletype: Sigma

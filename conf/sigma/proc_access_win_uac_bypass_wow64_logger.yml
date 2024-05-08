@@ -11,20 +11,15 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        SourceImage|contains: :\Windows\SysWOW64\
+        SourceImage|contains: ':\Windows\SysWOW64\'
         GrantedAccess: '0x1fffff'
-        CallTrace|startswith: UNKNOWN(0000000000000000)|UNKNOWN(0000000000000000)|
-    condition: process_access and selection
+        CallTrace|startswith: 'UNKNOWN(0000000000000000)|UNKNOWN(0000000000000000)|'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

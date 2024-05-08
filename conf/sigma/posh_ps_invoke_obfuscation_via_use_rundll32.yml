@@ -17,24 +17,18 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_4104:
         ScriptBlockText|contains|all:
             - '&&'
-            - rundll32
-            - shell32.dll
-            - shellexec_rundll
+            - 'rundll32'
+            - 'shell32.dll'
+            - 'shellexec_rundll'
         ScriptBlockText|contains:
-            - value
-            - invoke
-            - comspec
-            - iex
-    condition: ps_script and selection_4104
+            - 'value'
+            - 'invoke'
+            - 'comspec'
+            - 'iex'
+    condition: selection_4104
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

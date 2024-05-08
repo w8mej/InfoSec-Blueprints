@@ -13,54 +13,49 @@ modified: 2023/02/04
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        - ParentImage|contains: tomcat
+        - ParentImage|contains: 'tomcat'
         - ParentImage|endswith:
-              - \amigo.exe
-              - \browser.exe
-              - \chrome.exe
-              - \firefox.exe
-              - \httpd.exe
-              - \iexplore.exe
-              - \jbosssvc.exe
-              - \microsoftedge.exe
-              - \microsoftedgecp.exe
-              - \MicrosoftEdgeSH.exe
-              - \mshta.exe
-              - \nginx.exe
-              - \outlook.exe
-              - \php-cgi.exe
-              - \regsvr32.exe
-              - \rundll32.exe
-              - \safari.exe
-              - \services.exe
-              - \sqlagent.exe
-              - \sqlserver.exe
-              - \sqlservr.exe
-              - \vivaldi.exe
-              - \w3wp.exe
+              - '\amigo.exe'
+              - '\browser.exe'
+              - '\chrome.exe'
+              - '\firefox.exe'
+              - '\httpd.exe'
+              - '\iexplore.exe'
+              - '\jbosssvc.exe'
+              - '\microsoftedge.exe'
+              - '\microsoftedgecp.exe'
+              - '\MicrosoftEdgeSH.exe'
+              - '\mshta.exe'
+              - '\nginx.exe'
+              - '\outlook.exe'
+              - '\php-cgi.exe'
+              - '\regsvr32.exe'
+              - '\rundll32.exe'
+              - '\safari.exe'
+              - '\services.exe'
+              - '\sqlagent.exe'
+              - '\sqlserver.exe'
+              - '\sqlservr.exe'
+              - '\vivaldi.exe'
+              - '\w3wp.exe'
     selection_powershell:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - CommandLine|contains:
-              - /c powershell    # FPs with sub processes that contained "powershell" somewhere in the command line
-              - /c pwsh
-        - Description: Windows PowerShell
-        - Product: PowerShell Core 6
+              - '/c powershell'  # FPs with sub processes that contained "powershell" somewhere in the command line
+              - '/c pwsh'
+        - Description: 'Windows PowerShell'
+        - Product: 'PowerShell Core 6'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
-    condition: process_creation and (all of selection_*)
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
+    condition: all of selection_*
 falsepositives:
     - Other scripts
 level: high
-ruletype: Sigma

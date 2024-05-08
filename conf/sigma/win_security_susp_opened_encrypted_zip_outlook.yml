@@ -15,15 +15,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5379
         TargetName|contains|all:
-            - Microsoft_Windows_Shell_ZipFolder:filename
-            - \Temporary Internet Files\Content.Outlook
-    condition: security and selection
+            - 'Microsoft_Windows_Shell_ZipFolder:filename'
+            - '\Temporary Internet Files\Content.Outlook'
+    condition: selection
 falsepositives:
     - Legitimate used of encrypted ZIP files
 level: high
-ruletype: Sigma

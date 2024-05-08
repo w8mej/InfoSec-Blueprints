@@ -19,21 +19,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     webclient:
-        ScriptBlockText|contains: System.Net.WebClient
+        ScriptBlockText|contains: 'System.Net.WebClient'
     download:
         ScriptBlockText|contains:
-            - .DownloadFile(
-            - .DownloadFileAsync(
-            - .DownloadString(
-            - .DownloadStringAsync(
-    condition: ps_script and (webclient and download)
+            - '.DownloadFile('
+            - '.DownloadFileAsync('
+            - '.DownloadString('
+            - '.DownloadStringAsync('
+    condition: webclient and download
 falsepositives:
     - PowerShell scripts that download content from the Internet
 level: medium
-ruletype: Sigma

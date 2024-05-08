@@ -12,36 +12,31 @@ tags:
     - attack.g0032
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cmd1:
         CommandLine|contains|all:
             - 'cmd.exe /c '
             - ' -p 0x'
     selection_cmd2:
         CommandLine|contains:
-            - C:\ProgramData\
-            - C:\RECYCLER\
+            - 'C:\ProgramData\'
+            - 'C:\RECYCLER\'
     selection_rundll1:
         CommandLine|contains|all:
             - 'rundll32.exe '
-            - C:\ProgramData\
+            - 'C:\ProgramData\'
     selection_rundll2:
         CommandLine|contains:
-            - .bin,
-            - .tmp,
-            - .dat,
-            - .io,
-            - .ini,
-            - .db,
-    condition: process_creation and (( selection_cmd1 and selection_cmd2 ) or ( selection_rundll1 and selection_rundll2 ))
+            - '.bin,'
+            - '.tmp,'
+            - '.dat,'
+            - '.io,'
+            - '.ini,'
+            - '.db,'
+    condition: ( selection_cmd1 and selection_cmd2 ) or ( selection_rundll1 and selection_rundll2 )
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

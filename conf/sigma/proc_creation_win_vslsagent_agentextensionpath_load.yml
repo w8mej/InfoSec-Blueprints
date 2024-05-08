@@ -9,24 +9,19 @@ date: 2022/10/30
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \vsls-agent.exe
-        CommandLine|contains: --agentExtensionPath
+        Image|endswith: '\vsls-agent.exe'
+        CommandLine|contains: '--agentExtensionPath'
     filter:
-        CommandLine|contains: Microsoft.VisualStudio.LiveShare.Agent.
-    condition: process_creation and (selection and not filter)
+        CommandLine|contains: 'Microsoft.VisualStudio.LiveShare.Agent.'
+    condition: selection and not filter
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - False positives depend on custom use of vsls-agent.exe
 level: medium
-ruletype: Sigma

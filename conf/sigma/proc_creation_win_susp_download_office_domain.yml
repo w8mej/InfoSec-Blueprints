@@ -12,32 +12,27 @@ tags:
     - attack.command_and_control
     - attack.t1105
     - attack.t1608
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_download:
         - Image|endswith:
-              - \curl.exe
-              - \wget.exe
+              - '\curl.exe'
+              - '\wget.exe'
         - CommandLine|contains:
-              - Invoke-WebRequest
+              - 'Invoke-WebRequest'
               - 'iwr '
               - 'curl '
               - 'wget '
-              - Start-BitsTransfer
-              - .DownloadFile(
-              - .DownloadString(
+              - 'Start-BitsTransfer'
+              - '.DownloadFile('
+              - '.DownloadString('
     selection_domains:
         CommandLine|contains:
-            - https://attachment.outlook.live.net/owa/
-            - https://onenoteonlinesync.onenote.com/onenoteonlinesync/
-    condition: process_creation and (all of selection_*)
+            - 'https://attachment.outlook.live.net/owa/'
+            - 'https://onenoteonlinesync.onenote.com/onenoteonlinesync/'
+    condition: all of selection_*
 falsepositives:
     - Scripts or tools that download attachments from these domains (OneNote, Outlook 365)
 level: high
-ruletype: Sigma

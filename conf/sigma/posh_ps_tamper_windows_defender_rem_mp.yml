@@ -17,21 +17,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_remove:
-        ScriptBlockText|contains: Remove-MpPreference
+        ScriptBlockText|contains: 'Remove-MpPreference'
     selection_tamper:
         ScriptBlockText|contains:
             - '-ControlledFolderAccessProtectedFolders '
             - '-AttackSurfaceReductionRules_Ids '
             - '-AttackSurfaceReductionRules_Actions '
             - '-CheckForSignaturesBeforeRunningScan '
-    condition: ps_script and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate PowerShell scripts
 level: high
-ruletype: Sigma

@@ -12,31 +12,26 @@ modified: 2023/02/08
 tags:
     - attack.persistence
     - attack.t1137.006
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_wlldropped:
-        TargetFilename|contains: \Microsoft\Word\Startup\
-        TargetFilename|endswith: .wll
+        TargetFilename|contains: '\Microsoft\Word\Startup\'
+        TargetFilename|endswith: '.wll'
     selection_xlldropped:
-        TargetFilename|contains: \Microsoft\Excel\Startup\
-        TargetFilename|endswith: .xll
+        TargetFilename|contains: '\Microsoft\Excel\Startup\'
+        TargetFilename|endswith: '.xll'
     selection_xladropped:
-        TargetFilename|contains: Microsoft\Excel\XLSTART\
-        TargetFilename|endswith: .xlam
+        TargetFilename|contains: 'Microsoft\Excel\XLSTART\'
+        TargetFilename|endswith: '.xlam'
     selection_generic:
-        TargetFilename|contains: \Microsoft\Addins\
+        TargetFilename|contains: '\Microsoft\Addins\'
         TargetFilename|endswith:
-            - .xlam
-            - .xla
-            - .ppam
-    condition: file_event and (1 of selection_*)
+            - '.xlam'
+            - '.xla'
+            - '.ppam'
+    condition: 1 of selection_*
 falsepositives:
     - Legitimate add-ins
 level: high
-ruletype: Sigma

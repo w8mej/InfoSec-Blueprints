@@ -10,26 +10,21 @@ modified: 2023/02/14
 tags:
     - attack.execution
     - attack.t1047
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: wmic.exe
-        - Image|endswith: \WMIC.exe
+        - OriginalFileName: 'wmic.exe'
+        - Image|endswith: '\WMIC.exe'
     selection_cli:
         CommandLine|contains|all:
             - ' service '
             - ' call '
         CommandLine|contains:
-            - stopservice
-            - startservice
-    condition: process_creation and (all of selection_*)
+            - 'stopservice'
+            - 'startservice'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

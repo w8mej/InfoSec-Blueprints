@@ -31,15 +31,12 @@ logsource:
     product: windows
     service: application
 detection:
-    application:
-        Channel: Application
     selection:
         Provider_Name:
-            - Microsoft-Windows-Audit-CVE
-            - Audit-CVE
+            - 'Microsoft-Windows-Audit-CVE'
+            - 'Audit-CVE'
         EventID: 1
-    condition: application and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

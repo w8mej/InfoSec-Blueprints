@@ -11,39 +11,34 @@ modified: 2023/09/18
 tags:
     - attack.discovery
     - attack.t1482
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        QueryName|startswith: _ldap.
+        QueryName|startswith: '_ldap.'
     filter_main_generic:
         Image|contains:
-            - :\Program Files\
-            - :\Program Files (x86)\
-            - :\Windows\
+            - ':\Program Files\'
+            - ':\Program Files (x86)\'
+            - ':\Windows\'
     filter_main_defender:
-        Image|contains: :\ProgramData\Microsoft\Windows Defender\Platform\
-        Image|endswith: \MsMpEng.exe
+        Image|contains: ':\ProgramData\Microsoft\Windows Defender\Platform\'
+        Image|endswith: '\MsMpEng.exe'
     filter_main_unknown:
-        Image: <unknown process>
+        Image: '<unknown process>'
     filter_optional_azure:
-        Image|startswith: C:\WindowsAzure\GuestAgent
+        Image|startswith: 'C:\WindowsAzure\GuestAgent'
     filter_main_null:
-        Image:
+        Image: null
     filter_optional_browsers:
         # Note: This list is for browsers installed in the user context. To avoid basic evasions based on image name. Best to baseline this list with the browsers you use internally and add their full paths.
         Image|endswith:
-            - \chrome.exe
-            - \firefox.exe
-            - \opera.exe
-    condition: dns_query and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+            - '\chrome.exe'
+            - '\firefox.exe'
+            - '\opera.exe'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Likely
 # Note: Incrase the level once a baseline is established
 level: low
-ruletype: Sigma

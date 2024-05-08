@@ -11,60 +11,55 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2024/02/23
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_websites:
         CommandLine|contains:
             # Note: You might want to baseline the github domain before including it
-            #- '.githubusercontent.com'       # Includes both gists and github repositories / Michael Haag (idea).
-            - anonfiles.com
-            - cdn.discordapp.com
-            - cdn.discordapp.com/attachments/
-            - ddns.net
-            - dl.dropboxusercontent.com
-            - ghostbin.co
-            - glitch.me
-            - gofile.io
-            - hastebin.com
-            - mediafire.com
-            - mega.nz
-            - onrender.com
-            - paste.ee
-            - pastebin.com
-            - pastebin.pl
-            - pastetext.net
-            - privatlab.com
-            - privatlab.net
-            - send.exploit.in
-            - sendspace.com
-            - storage.googleapis.com
-            - storjshare.io
-            - supabase.co
-            - temp.sh
-            - transfer.sh
-            - ufile.io
+            # - '.githubusercontent.com'       # Includes both gists and github repositories / Michael Haag (idea).
+            - 'anonfiles.com'
+            - 'cdn.discordapp.com'
+            - 'cdn.discordapp.com/attachments/'
+            - 'ddns.net'
+            - 'dl.dropboxusercontent.com'
+            - 'ghostbin.co'
+            - 'glitch.me'
+            - 'gofile.io'
+            - 'hastebin.com'
+            - 'mediafire.com'
+            - 'mega.nz'
+            - 'onrender.com'
+            - 'paste.ee'
+            - 'pastebin.com'
+            - 'pastebin.pl'
+            - 'pastetext.net'
+            - 'privatlab.com'
+            - 'privatlab.net'
+            - 'send.exploit.in'
+            - 'sendspace.com'
+            - 'storage.googleapis.com'
+            - 'storjshare.io'
+            - 'supabase.co'
+            - 'temp.sh'
+            - 'transfer.sh'
+            - 'ufile.io'
     selection_download:
         CommandLine|contains:
-            - .DownloadString(
-            - .DownloadFile(
+            - '.DownloadString('
+            - '.DownloadFile('
             - 'Invoke-WebRequest '
             - 'iwr '
             - 'wget '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

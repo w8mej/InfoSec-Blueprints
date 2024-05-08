@@ -16,29 +16,24 @@ tags:
     - attack.t1190
     - attack.initial_access
     - attack.t1505.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \w3wp.exe
-        CommandLine|contains: MSExchange
+        Image|endswith: '\w3wp.exe'
+        CommandLine|contains: 'MSExchange'
     selection_types:
         TargetFilename|endswith:
-            - .aspx
-            - .asp
-            - .ashx
-            - .ps1
-            - .bat
-            - .exe
-            - .dll
-            - .vbs
-    condition: file_event and (all of selection*)
+            - '.aspx'
+            - '.asp'
+            - '.ashx'
+            - '.ps1'
+            - '.bat'
+            - '.exe'
+            - '.dll'
+            - '.vbs'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,23 +14,18 @@ date: 2022/10/14
 modified: 2023/08/23
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \wermgr.exe
+        Image|endswith: '\wermgr.exe'
     filter_main_legit_location:
         Image|startswith:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
-            - C:\Windows\WinSxS\
-    condition: process_creation and (selection and not 1 of filter_main_*)
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
+            - 'C:\Windows\WinSxS\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

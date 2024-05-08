@@ -16,18 +16,15 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection2:
         EventID: 4776
         TargetUserName: '*'
         Workstation: '*'
     timeframe: 24h
-    condition: (security and selection2) | count(TargetUserName) by Workstation > 3
+    condition: selection2 | count(TargetUserName) by Workstation > 3
 falsepositives:
     - Terminal servers
     - Jump servers
     - Other multiuser systems like Citrix server farms
     - Workstations with frequently changing users
 level: medium
-ruletype: Sigma

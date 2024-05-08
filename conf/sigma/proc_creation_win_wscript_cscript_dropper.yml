@@ -15,35 +15,30 @@ tags:
     - attack.execution
     - attack.t1059.005
     - attack.t1059.007
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_exec:
         Image|endswith:
-            - \wscript.exe
-            - \cscript.exe
+            - '\wscript.exe'
+            - '\cscript.exe'
     selection_paths:
         CommandLine|contains:
-            - :\Temp\
-            - :\Tmp\
-            - :\Users\Public\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
+            - ':\Temp\'
+            - ':\Tmp\'
+            - ':\Users\Public\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
     selection_ext:
         CommandLine|contains:
-            - .js
-            - .jse
-            - .vba
-            - .vbe
-            - .vbs
-            - .wsf
-    condition: process_creation and (all of selection_*)
+            - '.js'
+            - '.jse'
+            - '.vba'
+            - '.vbe'
+            - '.vbs'
+            - '.wsf'
+    condition: all of selection_*
 falsepositives:
     - Some installers might generate a similar behavior. An initial baseline is required
 level: medium
-ruletype: Sigma

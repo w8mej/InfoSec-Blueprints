@@ -13,20 +13,15 @@ tags:
     - attack.t1587.001
     - attack.execution
     - attack.t1569.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \csexec.exe
+        Image|endswith: '\csexec.exe'
     selection_pe:
-        Description: csexec
-    condition: process_creation and (1 of selection*)
+        Description: 'csexec'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

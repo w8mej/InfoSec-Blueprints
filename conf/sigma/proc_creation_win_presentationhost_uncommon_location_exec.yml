@@ -12,25 +12,20 @@ tags:
     - attack.defense_evasion
     - attack.execution
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \presentationhost.exe
-        - OriginalFileName: PresentationHost.exe
+        - Image|endswith: '\presentationhost.exe'
+        - OriginalFileName: 'PresentationHost.exe'
     selection_cli:
-        CommandLine|contains: .xbap
+        CommandLine|contains: '.xbap'
     filter_main_generic:
         CommandLine|contains: # Filter out legitimate locations if you find them
             - ' C:\Windows\'
             - ' C:\Program Files'
-    condition: process_creation and (all of selection* and not 1 of filter_main_*)
+    condition: all of selection* and not 1 of filter_main_*
 falsepositives:
     - Legitimate ".xbap" being executed via "PresentationHost"
 level: medium
-ruletype: Sigma

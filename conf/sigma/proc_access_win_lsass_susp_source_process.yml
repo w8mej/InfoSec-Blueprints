@@ -15,127 +15,122 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
+        TargetImage|endswith: '\lsass.exe'
         GrantedAccess|endswith:
             - '10'
             - '30'
             - '50'
             - '70'
             - '90'
-            - B0
-            - D0
-            - F0
+            - 'B0'
+            - 'D0'
+            - 'F0'
             - '18'
             - '38'
             - '58'
             - '78'
             - '98'
-            - B8
-            - D8
-            - F8
-            - 1A
-            - 3A
-            - 5A
-            - 7A
-            - 9A
-            - BA
-            - DA
-            - FA
+            - 'B8'
+            - 'D8'
+            - 'F8'
+            - '1A'
+            - '3A'
+            - '5A'
+            - '7A'
+            - '9A'
+            - 'BA'
+            - 'DA'
+            - 'FA'
             - '0x14C2'  # https://github.com/b4rtik/ATPMiniDump/blob/76304f93b390af3bb66e4f451ca16562a479bdc9/ATPMiniDump/ATPMiniDump.c
-            - FF
+            - 'FF'
         SourceImage|contains:
-            - \Temp\
-            - \Users\Public\
-            - \PerfLogs\
-            - \AppData\
-            - \Temporary
+            - '\Temp\'
+            - '\Users\Public\'
+            - '\PerfLogs\'
+            - '\AppData\'
+            - '\Temporary'
     filter_optional_generic_appdata:
         SourceImage|contains|all:
-            - :\Users\
-            - \AppData\Local\
+            - ':\Users\'
+            - '\AppData\Local\'
         SourceImage|endswith:
-            - \Microsoft VS Code\Code.exe
-            - \software_reporter_tool.exe
-            - \DropboxUpdate.exe
-            - \MBAMInstallerService.exe
-            - \WebexMTA.exe
-            - \Meetings\WebexMTAV2.exe
-            - \WebEx\WebexHost.exe
-            - \JetBrains\Toolbox\bin\jetbrains-toolbox.exe
+            - '\Microsoft VS Code\Code.exe'
+            - '\software_reporter_tool.exe'
+            - '\DropboxUpdate.exe'
+            - '\MBAMInstallerService.exe'
+            - '\WebexMTA.exe'
+            - '\Meetings\WebexMTAV2.exe'
+            - '\WebEx\WebexHost.exe'
+            - '\JetBrains\Toolbox\bin\jetbrains-toolbox.exe'
         GrantedAccess: '0x410'
     filter_optional_dropbox_1:
-        SourceImage|contains: :\Windows\Temp\
-        SourceImage|endswith: .tmp\DropboxUpdate.exe
+        SourceImage|contains: ':\Windows\Temp\'
+        SourceImage|endswith: '.tmp\DropboxUpdate.exe'
         GrantedAccess:
             - '0x410'
             - '0x1410'
     filter_optional_dropbox_2:
         SourceImage|contains|all:
-            - :\Users\
-            - \AppData\Local\Temp\
-        SourceImage|endswith: .tmp\DropboxUpdate.exe
+            - ':\Users\'
+            - '\AppData\Local\Temp\'
+        SourceImage|endswith: '.tmp\DropboxUpdate.exe'
         GrantedAccess: '0x1410'
     filter_optional_dropbox_3:
         SourceImage|contains:
-            - :\Program Files (x86)\Dropbox\
-            - :\Program Files\Dropbox\
-        SourceImage|endswith: \DropboxUpdate.exe
+            - ':\Program Files (x86)\Dropbox\'
+            - ':\Program Files\Dropbox\'
+        SourceImage|endswith: '\DropboxUpdate.exe'
         GrantedAccess: '0x1410'
     filter_optional_nextron:
         SourceImage|contains:
-            - :\Windows\Temp\asgard2-agent\
-            - :\Windows\Temp\asgard2-agent-sc\
+            - ':\Windows\Temp\asgard2-agent\'
+            - ':\Windows\Temp\asgard2-agent-sc\'
         SourceImage|endswith:
-            - \thor64.exe
-            - \thor.exe
-            - \aurora-agent-64.exe
-            - \aurora-agent.exe
+            - '\thor64.exe'
+            - '\thor.exe'
+            - '\aurora-agent-64.exe'
+            - '\aurora-agent.exe'
         GrantedAccess:
             - '0x1fffff'
             - '0x1010'
             - '0x101010'
     filter_optional_ms_products:
         SourceImage|contains|all:
-            - :\Users\
-            - \AppData\Local\Temp\
-            - \vs_bootstrapper_
+            - ':\Users\'
+            - '\AppData\Local\Temp\'
+            - '\vs_bootstrapper_'
         GrantedAccess: '0x1410'
     filter_optional_chrome_update:
-        SourceImage|contains: :\Program Files (x86)\Google\Temp\
-        SourceImage|endswith: .tmp\GoogleUpdate.exe
+        SourceImage|contains: ':\Program Files (x86)\Google\Temp\'
+        SourceImage|endswith: '.tmp\GoogleUpdate.exe'
         GrantedAccess:
             - '0x410'
             - '0x1410'
     filter_optional_keybase:
-        SourceImage|contains: :\Users\
+        SourceImage|contains: ':\Users\'
         SourceImage|endswith: \AppData\Local\Keybase\keybase.exe
         GrantedAccess: '0x1fffff'
     filter_optional_avira:
-        SourceImage|contains: \AppData\Local\Temp\is-
-        SourceImage|endswith: .tmp\avira_system_speedup.tmp
+        SourceImage|contains: '\AppData\Local\Temp\is-'
+        SourceImage|endswith: '.tmp\avira_system_speedup.tmp'
         GrantedAccess: '0x1410'
     filter_optional_viberpc_updater:
-        SourceImage|contains: \AppData\Roaming\ViberPC\
-        SourceImage|endswith: \updater.exe
-        TargetImage|endswith: \winlogon.exe
+        SourceImage|contains: '\AppData\Roaming\ViberPC\'
+        SourceImage|endswith: '\updater.exe'
+        TargetImage|endswith: '\winlogon.exe'
         GrantedAccess: '0x1fffff'
     filter_optional_adobe_arm_helper:
         SourceImage|contains:  # Example path: 'C:\Program Files (x86)\Common Files\Adobe\ARM\1.0\Temp\2092867405\AdobeARMHelper.exe'
-            - :\Program Files\Common Files\Adobe\ARM\
-            - :\Program Files (x86)\Common Files\Adobe\ARM\
-        SourceImage|endswith: \AdobeARMHelper.exe
+            - ':\Program Files\Common Files\Adobe\ARM\'
+            - ':\Program Files (x86)\Common Files\Adobe\ARM\'
+        SourceImage|endswith: '\AdobeARMHelper.exe'
         GrantedAccess: '0x1410'
-    condition: process_access and (selection and not 1 of filter_optional_*)
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - Updaters and installers are typical false positives. Apply custom filters depending on your environment
 level: medium
-ruletype: Sigma

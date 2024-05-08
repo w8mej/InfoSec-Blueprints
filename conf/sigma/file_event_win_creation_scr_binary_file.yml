@@ -12,26 +12,21 @@ modified: 2022/11/08
 tags:
     - attack.persistence
     - attack.t1546.002
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: .scr
+        TargetFilename|endswith: '.scr'
     filter_generic:
         Image|endswith:
-            - \Kindle.exe
-            - \Bin\ccSvcHst.exe   # Symantec Endpoint Protection
+            - '\Kindle.exe'
+            - '\Bin\ccSvcHst.exe' # Symantec Endpoint Protection
     filter_tiworker:
         # ParentCommandLine: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
-        Image|endswith: \TiWorker.exe
-        TargetFilename|endswith: \uwfservicingscr.scr
-    condition: file_event and (selection and not 1 of filter_*)
+        Image|endswith: '\TiWorker.exe'
+        TargetFilename|endswith: '\uwfservicingscr.scr'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

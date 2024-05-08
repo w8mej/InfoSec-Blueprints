@@ -15,14 +15,11 @@ logsource:
     product: windows
     service: application
 detection:
-    application:
-        Channel: Application
     selection:
-        Provider_Name: MSSQLSERVER
+        Provider_Name: 'MSSQLSERVER'
         EventID: 8128
-        Message|contains: maggie
-    condition: application and selection
+        Message|contains: 'maggie'
+    condition: selection
 falsepositives:
     - Legitimate extended stored procedures named maggie
 level: high
-ruletype: Sigma

@@ -17,19 +17,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Get-Inbox.ps1
-            - Microsoft.Office.Interop.Outlook
-            - Microsoft.Office.Interop.Outlook.olDefaultFolders
-            - -comobject outlook.application
-    condition: ps_script and selection
+            - 'Get-Inbox.ps1'
+            - 'Microsoft.Office.Interop.Outlook'
+            - 'Microsoft.Office.Interop.Outlook.olDefaultFolders'
+            - '-comobject outlook.application'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

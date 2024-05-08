@@ -16,26 +16,20 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_add:
-        ScriptBlockText|contains: Add-Content $profile
+        ScriptBlockText|contains: 'Add-Content $profile'
     selection_options:
         ScriptBlockText|contains:
             # Note: You can add more suspicious values
             - '-Value "IEX '
-            - -Value "Invoke-Expression
-            - -Value "Invoke-WebRequest
-            - -Value "Start-Process
+            - '-Value "Invoke-Expression'
+            - '-Value "Invoke-WebRequest'
+            - '-Value "Start-Process'
             - "-Value 'IEX "
-            - -Value 'Invoke-Expression
-            - -Value 'Invoke-WebRequest
-            - -Value 'Start-Process
-    condition: ps_script and (all of selection_*)
+            - "-Value 'Invoke-Expression"
+            - "-Value 'Invoke-WebRequest"
+            - "-Value 'Start-Process"
+    condition: all of selection_*
 falsepositives:
     - Legitimate administration and tuning scripts that aim to add functionality to a user PowerShell session
 level: medium
-ruletype: Sigma

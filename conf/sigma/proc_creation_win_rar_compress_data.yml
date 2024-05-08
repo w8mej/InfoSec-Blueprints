@@ -11,19 +11,14 @@ modified: 2023/02/05
 tags:
     - attack.collection
     - attack.t1560.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \rar.exe
+        Image|endswith: '\rar.exe'
         CommandLine|contains: ' a '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Highly likely if rar is a default archiver in the monitored environment.
 level: low
-ruletype: Sigma

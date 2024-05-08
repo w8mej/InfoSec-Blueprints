@@ -11,23 +11,18 @@ modified: 2023/11/11
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \Wuauclt.exe
-        - OriginalFileName: Wuauclt.exe
+        - Image|endswith: '\Wuauclt.exe'
+        - OriginalFileName: 'Wuauclt.exe'
     selection_cli:
         CommandLine|endswith:
-            - Wuauclt
-            - Wuauclt.exe
-    condition: process_creation and (all of selection*)
+            - 'Wuauclt'
+            - 'Wuauclt.exe'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

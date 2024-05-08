@@ -9,22 +9,17 @@ date: 2023/11/09
 tags:
     - attack.execution
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - TargetFilename|endswith:
-              - :\Program Files\SysAidServer\tomcat\webapps\usersfiles\user.exe
-              - :\Program Files\SysAidServer\tomcat\webapps\usersfiles.war
-              - :\Program Files\SysAidServer\tomcat\webapps\leave
-        - TargetFilename|contains: :\Program Files\SysAidServer\tomcat\webapps\user.
-    condition: file_event and selection
+              - ':\Program Files\SysAidServer\tomcat\webapps\usersfiles\user.exe'
+              - ':\Program Files\SysAidServer\tomcat\webapps\usersfiles.war'
+              - ':\Program Files\SysAidServer\tomcat\webapps\leave'
+        - TargetFilename|contains: ':\Program Files\SysAidServer\tomcat\webapps\user.'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

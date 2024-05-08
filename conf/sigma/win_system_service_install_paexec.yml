@@ -13,16 +13,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_eid:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     selection_image:
-        - ServiceName|startswith: PAExec-
-        - ImagePath|startswith: C:\WINDOWS\PAExec-
-    condition: system and (all of selection_*)
+        - ServiceName|startswith: 'PAExec-'
+        - ImagePath|startswith: 'C:\WINDOWS\PAExec-'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

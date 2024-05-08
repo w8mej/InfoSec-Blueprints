@@ -15,27 +15,24 @@ logsource:
     product: windows
     service: bits-client
 detection:
-    bits_client:
-        Channel: Microsoft-Windows-Bits-Client/Operational
     selection:
         EventID: 16403
         LocalName|endswith:
             # TODO: Extend this list with more interesting file extensions
-            - .bat
-            - .dll
-            - .exe   # TODO: Might wanna comment this if it generates tons of FPs
-            - .hta
-            - .ps1
-            - .psd1
-            - .sh
-            - .vbe
-            - .vbs
+            - '.bat'
+            - '.dll'
+            - '.exe' # TODO: Might wanna comment this if it generates tons of FPs
+            - '.hta'
+            - '.ps1'
+            - '.psd1'
+            - '.sh'
+            - '.vbe'
+            - '.vbs'
     filter_optional_generic:
         # Typical updates: Chrome, Dropbox etc.
-        LocalName|contains: \AppData\
-        RemoteName|contains: .com
-    condition: bits_client and (selection and not 1 of filter_optional_*)
+        LocalName|contains: '\AppData\'
+        RemoteName|contains: '.com'
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - While the file extensions in question can be suspicious at times. It's best to add filters according to your environment to avoid large amount false positives
 level: medium
-ruletype: Sigma

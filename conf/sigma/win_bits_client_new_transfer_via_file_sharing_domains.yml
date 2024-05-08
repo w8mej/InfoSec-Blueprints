@@ -18,40 +18,37 @@ logsource:
     product: windows
     service: bits-client
 detection:
-    bits_client:
-        Channel: Microsoft-Windows-Bits-Client/Operational
     selection:
         EventID: 16403
         RemoteName|contains:
-            - .githubusercontent.com         # Includes both gists and github repositories / Michael Haag (idea)
-            - anonfiles.com
-            - cdn.discordapp.com
-            - cdn.discordapp.com/attachments/
-            - ddns.net
-            - dl.dropboxusercontent.com
-            - ghostbin.co
-            - glitch.me
-            - gofile.io
-            - hastebin.com
-            - mediafire.com
-            - mega.nz
-            - onrender.com
-            - paste.ee
-            - pastebin.com
-            - pastebin.pl
-            - pastetext.net
-            - privatlab.com
-            - privatlab.net
-            - send.exploit.in
-            - sendspace.com
-            - storage.googleapis.com
-            - storjshare.io
-            - supabase.co
-            - temp.sh
-            - transfer.sh
-            - ufile.io
-    condition: bits_client and selection
+            - '.githubusercontent.com'       # Includes both gists and github repositories / Michael Haag (idea)
+            - 'anonfiles.com'
+            - 'cdn.discordapp.com'
+            - 'cdn.discordapp.com/attachments/'
+            - 'ddns.net'
+            - 'dl.dropboxusercontent.com'
+            - 'ghostbin.co'
+            - 'glitch.me'
+            - 'gofile.io'
+            - 'hastebin.com'
+            - 'mediafire.com'
+            - 'mega.nz'
+            - 'onrender.com'
+            - 'paste.ee'
+            - 'pastebin.com'
+            - 'pastebin.pl'
+            - 'pastetext.net'
+            - 'privatlab.com'
+            - 'privatlab.net'
+            - 'send.exploit.in'
+            - 'sendspace.com'
+            - 'storage.googleapis.com'
+            - 'storjshare.io'
+            - 'supabase.co'
+            - 'temp.sh'
+            - 'transfer.sh'
+            - 'ufile.io'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

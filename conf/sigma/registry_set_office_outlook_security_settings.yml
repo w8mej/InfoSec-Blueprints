@@ -14,20 +14,15 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1137
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains|all:
-            - \SOFTWARE\Microsoft\Office\
-            - \Outlook\Security\
-    condition: registry_set and selection
+            - '\SOFTWARE\Microsoft\Office\'
+            - '\Outlook\Security\'
+    condition: selection
 falsepositives:
     - Administrative activity
 level: medium
-ruletype: Sigma

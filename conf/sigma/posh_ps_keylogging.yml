@@ -16,19 +16,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_basic:
-        ScriptBlockText|contains: Get-Keystrokes
+        ScriptBlockText|contains: 'Get-Keystrokes'
     selection_high: # want to run in background and keyboard
         ScriptBlockText|contains|all:
-            - Get-ProcAddress user32.dll GetAsyncKeyState
-            - Get-ProcAddress user32.dll GetForegroundWindow
-    condition: ps_script and (1 of selection_*)
+            - 'Get-ProcAddress user32.dll GetAsyncKeyState'
+            - 'Get-ProcAddress user32.dll GetForegroundWindow'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

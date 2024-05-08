@@ -10,21 +10,16 @@ date: 2023/01/02
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \ruby.exe
-        - OriginalFileName: ruby.exe
+        - Image|endswith: '\ruby.exe'
+        - OriginalFileName: 'ruby.exe'
     selection_cli:
         CommandLine|contains: ' -e'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

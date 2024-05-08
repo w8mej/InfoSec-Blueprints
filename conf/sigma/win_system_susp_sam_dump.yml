@@ -13,17 +13,14 @@ logsource:
     service: system
     definition: The source of this type of event is Kernel-General
 detection:
-    system:
-        Channel: System
     selection:
         Provider_Name: Microsoft-Windows-Kernel-General
         EventID: 16
     keywords:
         '|all':
-            - \AppData\Local\Temp\SAM-
-            - .dmp
-    condition: system and (selection and keywords)
+            - '\AppData\Local\Temp\SAM-'
+            - '.dmp'
+    condition: selection and keywords
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

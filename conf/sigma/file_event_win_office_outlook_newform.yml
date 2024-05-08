@@ -13,21 +13,16 @@ modified: 2023/02/22
 tags:
     - attack.persistence
     - attack.t1137.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \outlook.exe
+        Image|endswith: '\outlook.exe'
         TargetFilename|contains:
-            - \AppData\Local\Microsoft\FORMS\IPM
-            - \Local Settings\Application Data\Microsoft\Forms   # Windows XP
-    condition: file_event and selection
+            - '\AppData\Local\Microsoft\FORMS\IPM'
+            - '\Local Settings\Application Data\Microsoft\Forms' # Windows XP
+    condition: selection
 falsepositives:
     - Legitimate use of outlook forms
 level: high
-ruletype: Sigma

@@ -13,19 +13,15 @@ tags:
     - attack.credential_access
     - attack.t1003
     - attack.t1003.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - esentutl
+            - 'esentutl'
             - ' /p'
-    condition: process_creation and selection
+    condition: selection
 fields:
     - User
     - CommandLine
@@ -34,4 +30,3 @@ fields:
 falsepositives:
     - To be determined
 level: medium
-ruletype: Sigma

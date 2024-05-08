@@ -13,16 +13,12 @@ modified: 2022/12/08
 tags:
     - attack.defense_evasion
     - attack.t1036.003
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_org:
-        OriginalFileName: procdump
+        OriginalFileName: 'procdump'
     selection_args_ma:
         CommandLine|contains:
             - ' -ma '
@@ -33,11 +29,10 @@ detection:
             - ' /accepteula '
     filter:
         Image|endswith:
-            - \procdump.exe
-            - \procdump64.exe
-    condition: process_creation and ((selection_org or all of selection_args_*) and not filter)
+            - '\procdump.exe'
+            - '\procdump64.exe'
+    condition: (selection_org or all of selection_args_*) and not filter
 falsepositives:
     - Procdump illegaly bundled with legitimate software
     - Administrators who rename binaries (should be investigated)
 level: high
-ruletype: Sigma

@@ -17,25 +17,19 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_action:
         ScriptBlockText|contains:
             - ls
             - get-childitem
             - gci
     selection_recurse:
-        ScriptBlockText|contains: -recurse
+        ScriptBlockText|contains: '-recurse'
     selection_file:
         ScriptBlockText|contains:
-            - .pass
-            - .kdbx
-            - .kdb
-    condition: ps_script and (all of selection_*)
+            - '.pass'
+            - '.kdbx'
+            - '.kdb'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

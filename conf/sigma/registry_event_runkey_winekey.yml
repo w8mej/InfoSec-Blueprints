@@ -10,20 +10,13 @@ modified: 2021/11/27
 tags:
     - attack.persistence
     - attack.t1547
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: Software\Microsoft\Windows\CurrentVersion\Run\Backup Mgr
-    condition: registry_event and selection
+        TargetObject|endswith: 'Software\Microsoft\Windows\CurrentVersion\Run\Backup Mgr'
+    condition: selection
 fields:
     - ComputerName
     - Image
@@ -32,4 +25,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

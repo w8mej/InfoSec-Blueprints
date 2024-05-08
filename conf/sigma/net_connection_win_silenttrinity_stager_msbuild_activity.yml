@@ -10,23 +10,18 @@ modified: 2022/10/05
 tags:
     - attack.execution
     - attack.t1127.001
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \msbuild.exe
+        Image|endswith: '\msbuild.exe'
     filter:
         DestinationPort:
             - 80
             - 443
         Initiated: 'true'
-    condition: network_connection and (selection and filter)
+    condition: selection and filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

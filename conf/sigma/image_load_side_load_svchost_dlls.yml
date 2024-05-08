@@ -16,24 +16,19 @@ tags:
     - attack.defense_evasion
     - attack.t1574.002
     - attack.t1574.001
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \svchost.exe
+        Image|endswith: '\svchost.exe'
         ImageLoaded|endswith:
-            - \tsmsisrv.dll
-            - \tsvipsrv.dll
-            - \wlbsctrl.dll
+            - '\tsmsisrv.dll'
+            - '\tsvipsrv.dll'
+            - '\wlbsctrl.dll'
     filter:
-        ImageLoaded|startswith: C:\Windows\WinSxS\
-    condition: image_load and (selection and not filter)
+        ImageLoaded|startswith: 'C:\Windows\WinSxS\'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

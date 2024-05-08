@@ -8,27 +8,21 @@ references:
     - https://kb.acronis.com/content/60892
 author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/05/16
+modified: 2024/03/13
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \livekd.exe
-              - \livekd64.exe
-        - OriginalFileName: livekd.exe
+              - '\livekd.exe'
+              - '\livekd64.exe'
+        - OriginalFileName: 'livekd.exe'
     selection_cli:
-        CommandLine|contains|all:
-            - ' /m'
-            - ' -m'
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains|windash: ' -m'
+    condition: all of selection_*
 falsepositives:
     - Unlikely in production environment
 level: high
-ruletype: Sigma

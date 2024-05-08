@@ -11,56 +11,51 @@ modified: 2023/12/11
 tags:
     - attack.defense_evasion
     - attack.t1562.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \netsh.exe
-        - OriginalFileName: netsh.exe
+        - Image|endswith: '\netsh.exe'
+        - OriginalFileName: 'netsh.exe'
     selection_cli:
         - CommandLine|contains|all:
-              - firewall
-              - add
-              - allowedprogram
+              - 'firewall'
+              - 'add'
+              - 'allowedprogram'
         - CommandLine|contains|all:
-              - advfirewall
-              - firewall
-              - add
-              - rule
-              - action=allow
-              - program=
+              - 'advfirewall'
+              - 'firewall'
+              - 'add'
+              - 'rule'
+              - 'action=allow'
+              - 'program='
     selection_paths:
         CommandLine|contains:
-            - :\$Recycle.bin\
-            - :\RECYCLER.BIN\
-            - :\RECYCLERS.BIN\
-            - :\SystemVolumeInformation\
-            - :\Temp\
-            - :\Users\Default\
-            - :\Users\Desktop\
-            - :\Users\Public\
-            - :\Windows\addins\
-            - :\Windows\cursors\
-            - :\Windows\debug\
-            - :\Windows\drivers\
-            - :\Windows\fonts\
-            - :\Windows\help\
-            - :\Windows\system32\tasks\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - \Downloads\
-            - \Local Settings\Temporary Internet Files\
-            - \Temporary Internet Files\Content.Outlook\
+            - ':\$Recycle.bin\'
+            - ':\RECYCLER.BIN\'
+            - ':\RECYCLERS.BIN\'
+            - ':\SystemVolumeInformation\'
+            - ':\Temp\'
+            - ':\Users\Default\'
+            - ':\Users\Desktop\'
+            - ':\Users\Public\'
+            - ':\Windows\addins\'
+            - ':\Windows\cursors\'
+            - ':\Windows\debug\'
+            - ':\Windows\drivers\'
+            - ':\Windows\fonts\'
+            - ':\Windows\help\'
+            - ':\Windows\system32\tasks\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - '\Downloads\'
+            - '\Local Settings\Temporary Internet Files\'
+            - '\Temporary Internet Files\Content.Outlook\'
             - '%Public%\'
             - '%TEMP%'
             - '%TMP%'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

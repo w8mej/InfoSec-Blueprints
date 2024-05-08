@@ -13,29 +13,24 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \dbgcore.dll
+        ImageLoaded|endswith: '\dbgcore.dll'
     filter_main_generic:
         ImageLoaded|startswith:
-            - C:\Program Files (x86)\
-            - C:\Program Files\
-            - C:\Windows\SoftwareDistribution\
-            - C:\Windows\System32\
-            - C:\Windows\SystemTemp\
-            - C:\Windows\SysWOW64\
-            - C:\Windows\WinSxS\
+            - 'C:\Program Files (x86)\'
+            - 'C:\Program Files\'
+            - 'C:\Windows\SoftwareDistribution\'
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SystemTemp\'
+            - 'C:\Windows\SysWOW64\'
+            - 'C:\Windows\WinSxS\'
     filter_optional_steam:
-        ImageLoaded|endswith: \Steam\bin\cef\cef.win7x64\dbgcore.dll
-    condition: image_load and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        ImageLoaded|endswith: '\Steam\bin\cef\cef.win7x64\dbgcore.dll'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate applications loading their own versions of the DLL mentioned in this rule
 level: medium
-ruletype: Sigma

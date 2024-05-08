@@ -23,17 +23,13 @@ tags:
     - attack.g0049
     - attack.g0075
     - attack.g0096
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \certutil.exe
-        - OriginalFileName: CertUtil.exe
+        - Image|endswith: '\certutil.exe'
+        - OriginalFileName: 'CertUtil.exe'
     selection_cli:
         CommandLine|contains:
             - ' -decode '
@@ -48,11 +44,10 @@ detection:
             - ' /verifyctl '
             - ' /encode '
             - ' /exportPFX '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - False positives depend on scripts and administrative tools used in the monitored environment
 level: high
-ruletype: Sigma

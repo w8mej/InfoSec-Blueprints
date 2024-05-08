@@ -11,18 +11,13 @@ tags:
     - attack.execution
     - cve.2021.44077
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \ManageEngine\SupportCenterPlus\bin\msiexec.exe
-    condition: file_event and selection
+        TargetFilename|endswith: '\ManageEngine\SupportCenterPlus\bin\msiexec.exe'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -11,23 +11,18 @@ tags:
     - attack.privilege_escalation
     - attack.discovery
     - attack.t1033
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_user:
         User|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
     selection_img:
-        - OriginalFileName: whoami.exe
-        - Image|endswith: \whoami.exe
-    condition: process_creation and (all of selection*)
+        - OriginalFileName: 'whoami.exe'
+        - Image|endswith: '\whoami.exe'
+    condition: all of selection*
 falsepositives:
     - Possible name overlap with NT AUHTORITY substring to cover all languages
 level: high
-ruletype: Sigma

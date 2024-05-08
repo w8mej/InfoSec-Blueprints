@@ -16,34 +16,29 @@ tags:
     - attack.t1027.010
     - attack.t1547.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_key:
         EventType: SetValue
-        TargetObject|contains: \Shell\Open\Command
+        TargetObject|contains: '\Shell\Open\Command'
     selection_value_img:
         Details|contains:
-            - powershell
-            - pwsh
+            - 'powershell'
+            - 'pwsh'
     selection_value_namespace:
-        Details|contains: System.Security.Cryptography.
+        Details|contains: 'System.Security.Cryptography.'
     selection_value_classes:
         Details|contains:
-            - .AesCryptoServiceProvider
-            - .DESCryptoServiceProvider
-            - .DSACryptoServiceProvider
-            - .RC2CryptoServiceProvider
-            - .Rijndael
-            - .RSACryptoServiceProvider
-            - .TripleDESCryptoServiceProvider
-    condition: registry_set and (all of selection_*)
+            - '.AesCryptoServiceProvider'
+            - '.DESCryptoServiceProvider'
+            - '.DSACryptoServiceProvider'
+            - '.RC2CryptoServiceProvider'
+            - '.Rijndael'
+            - '.RSACryptoServiceProvider'
+            - '.TripleDESCryptoServiceProvider'
+    condition: all of selection_*
 falsepositives:
     - Classes are legitimately used, but less so when e.g. parents with low prevalence or decryption of content in temporary folders.
 level: medium
-ruletype: Sigma

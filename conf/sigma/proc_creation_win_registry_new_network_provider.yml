@@ -14,26 +14,21 @@ modified: 2023/02/02
 tags:
     - attack.credential_access
     - attack.t1003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - \System\CurrentControlSet\Services\
-            - \NetworkProvider
+            - '\System\CurrentControlSet\Services\'
+            - '\NetworkProvider'
     # filter:
     #     CommandLine|contains:
     #         - '\System\CurrentControlSet\Services\WebClient\NetworkProvider'
     #         - '\System\CurrentControlSet\Services\LanmanWorkstation\NetworkProvider'
     #         - '\System\CurrentControlSet\Services\RDPNP\NetworkProvider'
     #         - '\System\CurrentControlSet\Services\P9NP\NetworkProvider' # Related to WSL remove the comment if you use WSL in your ENV
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Other legitimate network providers used and not filtred in this rule
 level: high
-ruletype: Sigma

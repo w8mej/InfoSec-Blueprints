@@ -1,0 +1,16 @@
+title: windows下可疑的用户账户访问权限
+tags: T1531
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 
+            - 4723 #试图更改帐户密码
+            - 4724 #尝试重置帐户密码
+            - 4726 #用户帐户已删除
+            - 4740 #用户帐户被锁定
+    condition: selection
+level: low

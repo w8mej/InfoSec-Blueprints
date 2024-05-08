@@ -13,20 +13,15 @@ modified: 2022/10/09
 tags:
     - attack.persistence
     - attack.t1505.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: Install-TransportAgent
-    condition: process_creation and selection
+        CommandLine|contains: 'Install-TransportAgent'
+    condition: selection
 fields:
     - AssemblyPath
 falsepositives:
     - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this.
 level: medium
-ruletype: Sigma

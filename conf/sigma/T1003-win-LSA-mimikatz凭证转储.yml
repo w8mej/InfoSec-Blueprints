@@ -1,0 +1,15 @@
+title: T1003-win-基于LSA-mimikatz凭证获取
+description: win7 模拟测试结果
+status: experimental
+author: 12306Bro
+references: https://github.com/gentilkiwi/mimikatz/wiki/module-~-lsadump
+tags: ATT&CK T1003
+logsource:
+​    product: windows
+​    service: sysmon
+detection:
+​    selection:
+​        EventID: 10
+​        TargetImage: 'C:\Windows\system32\lsass.exe'
+​    condition: selection
+level: high

@@ -19,28 +19,23 @@ modified: 2023/01/10
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
             - '[System.Net.WebRequest]::create'
             - 'curl '
-            - Invoke-RestMethod
-            - Invoke-WebRequest
+            - 'Invoke-RestMethod'
+            - 'Invoke-WebRequest'
             - 'iwr '
-            - Net.WebClient
-            - Resume-BitsTransfer
-            - Start-BitsTransfer
+            - 'Net.WebClient'
+            - 'Resume-BitsTransfer'
+            - 'Start-BitsTransfer'
             - 'wget '
-            - WinHttp.WinHttpRequest
-    condition: process_creation and selection
+            - 'WinHttp.WinHttpRequest'
+    condition: selection
 falsepositives:
     - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer.
 level: medium
-ruletype: Sigma

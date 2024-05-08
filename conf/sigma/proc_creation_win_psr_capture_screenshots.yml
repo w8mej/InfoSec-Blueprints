@@ -12,21 +12,16 @@ modified: 2024/01/04
 tags:
     - attack.collection
     - attack.t1113
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \Psr.exe
+        Image|endswith: '\Psr.exe'
         CommandLine|contains:
-            - /start
-            - -start
-    condition: process_creation and selection
+            - '/start'
+            - '-start'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

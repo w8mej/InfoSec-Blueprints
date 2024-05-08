@@ -1,0 +1,25 @@
+title: 本地用户创建
+description: 检测Windows服务器上的本地用户创建，这在Active Directory环境中不适用。使用本地日志，非AD日志。
+status: experimental
+tags:
+    - attack.persistence
+    - attack.t1136
+references:
+    - https://patrick-bareiss.com/detecting-local-user-creation-in-ad-with-sigma/
+author: 12306Br0(翻译)
+date: 2020/06/07
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4720 #已创建用户帐户。
+    condition: selection
+fields:
+    - EventCode
+    - AccountName
+    - AccountDomain
+falsepositives:
+    - 域控制器日志
+    - 由特权帐户管理工具管理的本地帐户
+level: low

@@ -10,21 +10,16 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1562.004
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|endswith:
             - \SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile\EnableFirewall
             - \SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\EnableFirewall
         Details: DWORD (0x00000000)
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

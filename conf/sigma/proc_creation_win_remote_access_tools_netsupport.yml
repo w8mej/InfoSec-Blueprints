@@ -13,21 +13,16 @@ modified: 2023/03/06
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Description: NetSupport Client Configurator
         - Product: NetSupport Remote Control
         - Company: NetSupport Ltd
         - OriginalFileName: PCICFGUI.EXE
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

@@ -18,11 +18,6 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
         ScriptBlockText|contains: 'Get-AdComputer '
     selection_option:
@@ -30,8 +25,7 @@ detection:
             - '-Filter '
             - '-LDAPFilter '
             - '-Properties '
-    condition: ps_script and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

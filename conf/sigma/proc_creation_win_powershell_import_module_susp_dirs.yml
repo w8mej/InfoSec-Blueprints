@@ -12,33 +12,28 @@ date: 2023/01/10
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - Import-Module "$Env:Temp\
+            - 'Import-Module "$Env:Temp\'
             - Import-Module '$Env:Temp\
-            - Import-Module $Env:Temp\
-            - Import-Module "$Env:Appdata\
+            - 'Import-Module $Env:Temp\'
+            - 'Import-Module "$Env:Appdata\'
             - Import-Module '$Env:Appdata\
-            - Import-Module $Env:Appdata\
-            - Import-Module C:\Users\Public\
+            - 'Import-Module $Env:Appdata\'
+            - 'Import-Module C:\Users\Public\'
             # Import-Module alias is "ipmo"
-            - ipmo "$Env:Temp\
+            - 'ipmo "$Env:Temp\'
             - ipmo '$Env:Temp\
-            - ipmo $Env:Temp\
-            - ipmo "$Env:Appdata\
+            - 'ipmo $Env:Temp\'
+            - 'ipmo "$Env:Appdata\'
             - ipmo '$Env:Appdata\
-            - ipmo $Env:Appdata\
-            - ipmo C:\Users\Public\
-    condition: process_creation and selection
+            - 'ipmo $Env:Appdata\'
+            - 'ipmo C:\Users\Public\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

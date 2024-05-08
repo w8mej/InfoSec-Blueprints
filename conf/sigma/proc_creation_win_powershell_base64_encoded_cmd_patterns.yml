@@ -10,21 +10,17 @@ modified: 2023/01/05
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.Exe
-              - pwsh.dll
+              - 'PowerShell.Exe'
+              - 'pwsh.dll'
     selection_flags:
         CommandLine|contains:
             - ' -e '
@@ -42,10 +38,9 @@ detection:
             - ' aQBlAHgA'
     filter_gcworker:
         ParentImage|contains:
-            - C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\
-            - \gc_worker.exe
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+            - 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\'
+            - '\gc_worker.exe'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Other tools that work with encoded scripts in the command line instead of script files
 level: high
-ruletype: Sigma

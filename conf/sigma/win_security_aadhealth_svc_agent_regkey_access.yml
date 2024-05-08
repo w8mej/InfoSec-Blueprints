@@ -19,23 +19,20 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 4656
             - 4663
-        ObjectType: Key
-        ObjectName: \REGISTRY\MACHINE\SOFTWARE\Microsoft\ADHealthAgent
+        ObjectType: 'Key'
+        ObjectName: '\REGISTRY\MACHINE\SOFTWARE\Microsoft\ADHealthAgent'
     filter:
         ProcessName|contains:
-            - Microsoft.Identity.Health.Adfs.DiagnosticsAgent.exe
-            - Microsoft.Identity.Health.Adfs.InsightsService.exe
-            - Microsoft.Identity.Health.Adfs.MonitoringAgent.Startup.exe
-            - Microsoft.Identity.Health.Adfs.PshSurrogate.exe
-            - Microsoft.Identity.Health.Common.Clients.ResourceMonitor.exe
-    condition: security and (selection and not filter)
+            - 'Microsoft.Identity.Health.Adfs.DiagnosticsAgent.exe'
+            - 'Microsoft.Identity.Health.Adfs.InsightsService.exe'
+            - 'Microsoft.Identity.Health.Adfs.MonitoringAgent.Startup.exe'
+            - 'Microsoft.Identity.Health.Adfs.PshSurrogate.exe'
+            - 'Microsoft.Identity.Health.Common.Clients.ResourceMonitor.exe'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -16,16 +16,13 @@ logsource:
     service: application
     # warning: The 'data' field used in the detection section is the container for the event data as a whole. You may have to adapt the rule for your backend accordingly
 detection:
-    application:
-        Channel: Application
     selection:
-        Provider_Name: MsiInstaller
+        Provider_Name: 'MsiInstaller'
         EventID:
             - 1040
             - 1042
-        Data|contains: ://
-    condition: application and selection
+        Data|contains: '://'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

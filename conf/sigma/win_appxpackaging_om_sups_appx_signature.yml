@@ -14,14 +14,11 @@ logsource:
     product: windows
     service: appxpackaging-om
 detection:
-    appxpackaging_om:
-        Channel: Microsoft-Windows-AppxPackaging/Operational
     selection:
         EventID: 157
         # Add more known suspicious/malicious certificates used in different attacks
-        subjectName: CN=Foresee Consulting Inc., O=Foresee Consulting Inc., L=North York, S=Ontario, C=CA, SERIALNUMBER=1004913-1, OID.1.3.6.1.4.1.311.60.2.1.3=CA, OID.2.5.4.15=Private Organization
-    condition: appxpackaging_om and selection
+        subjectName: 'CN=Foresee Consulting Inc., O=Foresee Consulting Inc., L=North York, S=Ontario, C=CA, SERIALNUMBER=1004913-1, OID.1.3.6.1.4.1.311.60.2.1.3=CA, OID.2.5.4.15=Private Organization'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

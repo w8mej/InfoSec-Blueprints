@@ -9,19 +9,14 @@ date: 2023/08/16
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventType: SetValue
-        TargetObject|endswith: \Software\Winternals\BGInfo\Database
-    condition: registry_set and selection
+        TargetObject|endswith: '\Software\Winternals\BGInfo\Database'
+    condition: selection
 falsepositives:
     - Legitimate use of external DB to save the results
 level: medium
-ruletype: Sigma

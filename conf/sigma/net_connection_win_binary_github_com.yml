@@ -10,27 +10,22 @@ author: Michael Haag (idea), Florian Roth (Nextron Systems)
 date: 2017/08/24
 modified: 2023/04/18
 tags:
-    - attack.lateral_movement
+    - attack.command_and_control
     - attack.t1105
     - attack.exfiltration
     - attack.t1567.001
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         DestinationHostname|endswith:
-            - .github.com
-            - .githubusercontent.com
-        Image|startswith: C:\Windows\
-    condition: network_connection and selection
+            - '.github.com'
+            - '.githubusercontent.com'
+        Image|startswith: 'C:\Windows\'
+    condition: selection
 falsepositives:
     - Unknown
     - '@subTee in your network'
 level: high
-ruletype: Sigma

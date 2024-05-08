@@ -18,21 +18,16 @@ modified: 2023/08/14
 tags:
     - attack.defense_evasion
     - attack.t1127
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|contains:
-            - C:\Windows\Microsoft.NET\Framework\
-            - C:\Windows\Microsoft.NET\Framework64\
-        Image|endswith: \aspnet_compiler.exe
-    condition: process_creation and selection
+            - 'C:\Windows\Microsoft.NET\Framework\'
+            - 'C:\Windows\Microsoft.NET\Framework64\'
+        Image|endswith: '\aspnet_compiler.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

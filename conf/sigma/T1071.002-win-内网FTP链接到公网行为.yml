@@ -1,0 +1,26 @@
+title: 检测内网FTP链接到公网行为
+description: 通过NETWORK检测内网FTP链接到公网行为
+tags: T1071.002
+status: experimental
+references:
+    - https://www.elastic.co/guide/en/siem/guide/current/ftp-file-transfer-protocol-activity-to-the-internet.html#ftp-file-transfer-protocol-activity-to-the-internet
+logsource:
+    product: network
+detection:
+    selection1:
+          Type: tcp
+          destination.port: 
+                     - 21
+                     - 20
+    selection2:
+          source.ip:
+                     - 10.0.0.0/8
+                     - 172.16.0.0/12
+                     - 192.168.0.0/16
+    selection3:
+          destination.ip:
+                     - 10.0.0.0/8
+                     - 172.16.0.0/12
+                     - 192.168.0.0/16
+    condition: (selection1 and selection2) and not selection3)
+level: low

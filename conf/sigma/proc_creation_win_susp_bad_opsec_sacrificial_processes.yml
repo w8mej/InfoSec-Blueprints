@@ -26,39 +26,35 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     selection_werfault:
-        CommandLine|endswith: WerFault.exe
-        NewProcessName|endswith: \WerFault.exe
+        Image|endswith: '\WerFault.exe'
+        CommandLine|endswith: 'WerFault.exe'
     selection_rundll32:
-        CommandLine|endswith: rundll32.exe
-        NewProcessName|endswith: \rundll32.exe
+        Image|endswith: '\rundll32.exe'
+        CommandLine|endswith: 'rundll32.exe'
     selection_regsvcs:
-        CommandLine|endswith: regsvcs.exe
-        NewProcessName|endswith: \regsvcs.exe
+        Image|endswith: '\regsvcs.exe'
+        CommandLine|endswith: 'regsvcs.exe'
     selection_regasm:
-        CommandLine|endswith: regasm.exe
-        NewProcessName|endswith: \regasm.exe
+        Image|endswith: '\regasm.exe'
+        CommandLine|endswith: 'regasm.exe'
     selection_regsvr32:
-        CommandLine|endswith: regsvr32.exe
-        NewProcessName|endswith: \regsvr32.exe
+        Image|endswith: '\regsvr32.exe'
+        CommandLine|endswith: 'regsvr32.exe'
     filter_main_edge_update:
-        ParentProcessName|contains|all:
-            - :\Users\
-            - \AppData\Local\Microsoft\EdgeUpdate\Install\{
+        ParentImage|contains|all:
+            - ':\Users\'
+            - '\AppData\Local\Microsoft\EdgeUpdate\Install\{'
     filter_optional_chrome_installer:
         # As reported in https://github.com/SigmaHQ/sigma/issues/4570
-        ParentCommandLine|contains: --uninstall --channel=stable
-        CommandLine|endswith: rundll32.exe
-        ParentProcessName|contains|all:
-            - :\Users\
-            - \AppData\Local\Google\Chrome\Application\
-        ParentProcessName|endswith: \Installer\setup.exe
-        NewProcessName|endswith: \rundll32.exe
-    condition: process_creation and (1 of selection_* and not 1 of filter_main_* and not 1 of filter_optional_*)
+        ParentImage|contains|all:
+            - ':\Users\'
+            - '\AppData\Local\Google\Chrome\Application\'
+        ParentImage|endswith: '\Installer\setup.exe'
+        ParentCommandLine|contains: '--uninstall --channel=stable'
+        Image|endswith: '\rundll32.exe'
+        CommandLine|endswith: 'rundll32.exe'
+    condition: 1 of selection_* and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

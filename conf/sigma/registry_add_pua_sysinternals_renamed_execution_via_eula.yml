@@ -15,59 +15,54 @@ modified: 2023/02/07
 tags:
     - attack.resource_development
     - attack.t1588.002
-    - sysmon
 logsource:
     product: windows
     category: registry_add
 detection:
-    registry_add:
-        EventID: 12
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventType: CreateKey
         TargetObject|contains:
             # Please add new values while respecting the alphabetical order
-            - \Active Directory Explorer
-            - \Handle
-            - \LiveKd
-            - \ProcDump
-            - \Process Explorer
-            - \PsExec
-            - \PsLoggedon
-            - \PsLoglist
-            - \PsPasswd
-            - \PsPing
-            - \PsService
-            - \SDelete
-        TargetObject|endswith: \EulaAccepted
+            - '\Active Directory Explorer'
+            - '\Handle'
+            - '\LiveKd'
+            - '\ProcDump'
+            - '\Process Explorer'
+            - '\PsExec'
+            - '\PsLoggedon'
+            - '\PsLoglist'
+            - '\PsPasswd'
+            - '\PsPing'
+            - '\PsService'
+            - '\SDelete'
+        TargetObject|endswith: '\EulaAccepted'
     filter:
         Image|endswith:
             # Please add new values while respecting the alphabetical order
-            - \ADExplorer.exe
-            - \ADExplorer64.exe
-            - \handle.exe
-            - \handle64.exe
-            - \livekd.exe
-            - \livekd64.exe
-            - \procdump.exe
-            - \procdump64.exe
-            - \procexp.exe
-            - \procexp64.exe
-            - \PsExec.exe
-            - \PsExec64.exe
-            - \PsLoggedon.exe
-            - \PsLoggedon64.exe
-            - \psloglist.exe
-            - \psloglist64.exe
-            - \pspasswd.exe
-            - \pspasswd64.exe
-            - \PsPing.exe
-            - \PsPing64.exe
-            - \PsService.exe
-            - \PsService64.exe
-            - \sdelete.exe
-    condition: registry_add and (selection and not filter)
+            - '\ADExplorer.exe'
+            - '\ADExplorer64.exe'
+            - '\handle.exe'
+            - '\handle64.exe'
+            - '\livekd.exe'
+            - '\livekd64.exe'
+            - '\procdump.exe'
+            - '\procdump64.exe'
+            - '\procexp.exe'
+            - '\procexp64.exe'
+            - '\PsExec.exe'
+            - '\PsExec64.exe'
+            - '\PsLoggedon.exe'
+            - '\PsLoggedon64.exe'
+            - '\psloglist.exe'
+            - '\psloglist64.exe'
+            - '\pspasswd.exe'
+            - '\pspasswd64.exe'
+            - '\PsPing.exe'
+            - '\PsPing64.exe'
+            - '\PsService.exe'
+            - '\PsService64.exe'
+            - '\sdelete.exe'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

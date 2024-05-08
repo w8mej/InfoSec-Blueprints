@@ -13,48 +13,44 @@ tags:
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_cli:
         CommandLine|contains:
-            - hctac
-            - kaerb
-            - dnammoc
-            - ekovn   # Also covers 'ekovni'
-            - eliFd
-            - rahc
-            - etirw
-            - golon
-            - tninon
-            - eddih
-            - tpircS
-            - ssecorp
-            - llehsrewop
-            - esnopser
-            - daolnwod
-            - tneilCbeW
-            - tneilc
-            - ptth
-            - elifotevas
-            - 46esab
-            - htaPpmeTteG
-            - tcejbO
-            - maerts
-            - hcaerof
-            - retupmoc
+            - 'hctac'
+            - 'kaerb'
+            - 'dnammoc'
+            - 'ekovn' # Also covers 'ekovni'
+            - 'eliFd'
+            - 'rahc'
+            - 'etirw'
+            - 'golon'
+            - 'tninon'
+            - 'eddih'
+            - 'tpircS'
+            - 'ssecorp'
+            - 'llehsrewop'
+            - 'esnopser'
+            - 'daolnwod'
+            - 'tneilCbeW'
+            - 'tneilc'
+            - 'ptth'
+            - 'elifotevas'
+            - '46esab'
+            - 'htaPpmeTteG'
+            - 'tcejbO'
+            - 'maerts'
+            - 'hcaerof'
+            - 'retupmoc'
     filter_main_encoded_keyword:
         # We exclude usage of encoded commands as they might generate FPs as shown here:
         #   https://github.com/SigmaHQ/sigma/pull/2720
@@ -62,8 +58,7 @@ detection:
         CommandLine|contains:
             - ' -EncodedCommand '
             - ' -enc '
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

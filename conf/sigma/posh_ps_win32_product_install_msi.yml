@@ -14,20 +14,14 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
             - 'Invoke-CimMethod '
             - '-ClassName '
             - 'Win32_Product '
             - '-MethodName '
-            - .msi
-    condition: ps_script and selection
+            - '.msi'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

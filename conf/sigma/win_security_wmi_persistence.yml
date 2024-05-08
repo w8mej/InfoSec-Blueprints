@@ -19,14 +19,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4662
-        ObjectType: WMI Namespace
-        ObjectName|contains: subscription
-    condition: security and selection
+        ObjectType: 'WMI Namespace'
+        ObjectName|contains: 'subscription'
+    condition: selection
 falsepositives:
     - Unknown (data set is too small; further testing needed)
 level: medium
-ruletype: Sigma

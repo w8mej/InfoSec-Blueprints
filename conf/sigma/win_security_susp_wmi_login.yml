@@ -14,14 +14,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
-        ProcessName|endswith: \WmiPrvSE.exe
-    condition: security and selection
+        ProcessName|endswith: '\WmiPrvSE.exe'
+    condition: selection
 falsepositives:
     - Monitoring tools
     - Legitimate system administration
 level: low
-ruletype: Sigma

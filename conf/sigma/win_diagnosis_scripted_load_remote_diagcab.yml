@@ -13,13 +13,10 @@ logsource:
     product: windows
     service: diagnosis-scripted
 detection:
-    diagnosis_scripted:
-        Channel: Microsoft-Windows-Diagnosis-Scripted/Operational
     selection:
         EventID: 101
-        PackagePath|contains: \\\\   # Example would be: \\webdav-test.herokuapp.com@ssl\DavWWWRoot\package
-    condition: diagnosis_scripted and selection
+        PackagePath|contains: '\\\\' # Example would be: \\webdav-test.herokuapp.com@ssl\DavWWWRoot\package
+    condition: selection
 falsepositives:
     - Legitimate package hosted on a known and authorized remote location
 level: high
-ruletype: Sigma

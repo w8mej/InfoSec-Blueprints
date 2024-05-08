@@ -17,14 +17,11 @@ logsource:
     product: windows
     service: openssh
 detection:
-    openssh:
-        Channel: OpenSSH/Operational
     selection:
         EventID: 4
         process: sshd
         payload|startswith: 'Server listening on '
-    condition: openssh and selection
+    condition: selection
 falsepositives:
     - Legitimate administrator activity
 level: medium
-ruletype: Sigma

@@ -18,15 +18,12 @@ logsource:
     service: windefend
     definition: 'Requirements:Enabled Block process creations originating from PSExec and WMI commands from Attack Surface Reduction (GUID: d1e49aac-8f56-4280-b9ba-993a6d77406c)'
 detection:
-    windefend:
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
         EventID: 1121
         ProcessName|endswith:
-            - \wmiprvse.exe
-            - \psexesvc.exe
-    condition: windefend and selection
+            - '\wmiprvse.exe'
+            - '\psexesvc.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

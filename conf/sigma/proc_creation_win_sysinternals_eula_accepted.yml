@@ -9,25 +9,18 @@ references:
     - https://twitter.com/Moti_B/status/1008587936735035392
 author: Markus Neis
 date: 2017/08/28
-modified: 2023/02/24
+modified: 2024/03/13
 tags:
     - attack.resource_development
     - attack.t1588.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains:
-            - ' -accepteula'
-            - ' /accepteula'
-    condition: process_creation and selection
+        CommandLine|contains|windash: ' -accepteula'
+    condition: selection
 falsepositives:
     - Legitimate use of SysInternals tools
     - Programs that use the same command line flag
 level: low
-ruletype: Sigma

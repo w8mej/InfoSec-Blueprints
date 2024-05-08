@@ -19,53 +19,48 @@ modified: 2023/02/21
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_curl:
-        - Image|endswith: \curl.exe
-        - Product: The curl executable
+        - Image|endswith: '\curl.exe'
+        - Product: 'The curl executable'
     selection_susp_locations:
         CommandLine|contains:
             - '%AppData%'
             - '%Public%'
             - '%Temp%'
             - '%tmp%'
-            - \AppData\
-            - \Desktop\
-            - \Temp\
-            - \Users\Public\
-            - C:\PerfLogs\
-            - C:\ProgramData\
-            - C:\Windows\Temp\
+            - '\AppData\'
+            - '\Desktop\'
+            - '\Temp\'
+            - '\Users\Public\'
+            - 'C:\PerfLogs\'
+            - 'C:\ProgramData\'
+            - 'C:\Windows\Temp\'
     selection_susp_extensions:
         CommandLine|endswith:
-            - .dll
-            - .gif
-            - .jpeg
-            - .jpg
-            - .png
-            - .temp
-            - .tmp
-            - .txt
-            - .vbe
-            - .vbs
+            - '.dll'
+            - '.gif'
+            - '.jpeg'
+            - '.jpg'
+            - '.png'
+            - '.temp'
+            - '.tmp'
+            - '.txt'
+            - '.vbe'
+            - '.vbs'
     filter_optional_git_windows:
         # Example FP
         #   CommandLine: "C:\Program Files\Git\mingw64\bin\curl.exe" --silent --show-error --output C:/Users/test/AppData/Local/Temp/gfw-httpget-jVOEoxbS.txt --write-out %{http_code} https://gitforwindows.org/latest-tag.txt
-        ParentImage: C:\Program Files\Git\usr\bin\sh.exe
-        Image: C:\Program Files\Git\mingw64\bin\curl.exe
+        ParentImage: 'C:\Program Files\Git\usr\bin\sh.exe'
+        Image: 'C:\Program Files\Git\mingw64\bin\curl.exe'
         CommandLine|contains|all:
             - '--silent --show-error --output '
-            - gfw-httpget-
-            - AppData
-    condition: process_creation and (selection_curl and 1 of selection_susp_* and not 1 of filter_optional_*)
+            - 'gfw-httpget-'
+            - 'AppData'
+    condition: selection_curl and 1 of selection_susp_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

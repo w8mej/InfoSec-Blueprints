@@ -16,13 +16,10 @@ logsource:
     service: ntlm
     definition: Requires events from Microsoft-Windows-NTLM/Operational
 detection:
-    ntlm:
-        Channel: Microsoft-Windows-NTLM/Operational
     selection:
         EventID: 8002
         ProcessName|contains: '*'  # We use this to avoid false positives with ID 8002 on other log sources if the logsource isn't set correctly
-    condition: ntlm and selection
+    condition: selection
 falsepositives:
     - Legacy hosts
 level: low
-ruletype: Sigma

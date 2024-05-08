@@ -6,55 +6,59 @@ references:
     - https://twitter.com/mrd0x/status/1481630810495139841?s=12
 author: Tim Shelton, Florian Roth (Nextron Systems), Yassine Oukessou
 date: 2022/01/13
-modified: 2024/02/09
+modified: 2024/04/04
 tags:
     - attack.defense_evasion
     - attack.t1218.011
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \rundll32.exe
-        - OriginalFileName: RUNDLL32.EXE
+        - Image|endswith: '\rundll32.exe'
+        - OriginalFileName: 'RUNDLL32.EXE'
     filter_main_null:
-        CommandLine:
+        CommandLine: null
     filter_main_empty:
         CommandLine: ''
     filter_main_known_extension:
         - CommandLine|contains:
               # Note: This aims to cover: single and double quotes in addition to spaces and comma "," usage.
               - '.cpl '
-              - .cpl,
-              - .cpl"
-              - .cpl'
+              - '.cpl,'
+              - '.cpl"'
+              - ".cpl'"
               - '.dll '
-              - .dll,
-              - .dll"
-              - .dll'
+              - '.dll,'
+              - '.dll"'
+              - ".dll'"
               - '.inf '
-              - .inf,
-              - .inf"
-              - .inf'
+              - '.inf,'
+              - '.inf"'
+              - ".inf'"
         - CommandLine|endswith:
               # Note: This aims to cover: single and double quotes in addition to spaces and comma "," usage.
-              - .cpl
-              - .dll
+              - '.cpl'
+              - '.dll'
               - '.inf'
     filter_main_localserver:
         CommandLine|contains: ' -localserver '
     filter_main_zzzzInvokeManagedCustomActionOutOfProc:
-        ParentImage|endswith: \msiexec.exe
+        ParentImage|endswith: '\msiexec.exe'
         CommandLine|contains|all:
-            - :\Windows\Installer\
-            - .tmp
-            - zzzzInvokeManagedCustomActionOutOfProc
-    condition: process_creation and (selection and not 1 of filter_main_*)
+            - ':\Windows\Installer\'
+            - '.tmp'
+            - 'zzzzInvokeManagedCustomActionOutOfProc'
+    filter_optional_EdgeUpdate:
+        ParentCommandLine|contains|all:
+            - ':\Users\'
+            - '\AppData\Local\Microsoft\EdgeUpdate\Install\{'
+            - '\EDGEMITMP_'
+            - '.tmp\setup.exe'
+            - '--install-archive='
+            - '--previous-version='
+            - '--msedgewebview --verbose-logging --do-not-launch-msedge --user-level'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

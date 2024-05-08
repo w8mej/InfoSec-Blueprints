@@ -1,0 +1,21 @@
+title: 明文获取凭证——Procdump
+description: windows server 2008 模拟测试结果
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: sysmon
+detection:
+    selection1:
+        EventID: 1
+        Image: '*\procdump*.exe'
+        Product: ProcDump
+        OriginalFileName: procdump
+        CommandLine: 'procdump*.exe  -ma lsass.exe *.dmp'
+    selection2:
+        EventID: 10
+        SourceImage: '*\procdump*.exe'
+        TargetImage: 'C:\Windows\system32\lsass.exe'
+    timeframe: last 1m
+    condition: all of them
+level: medium

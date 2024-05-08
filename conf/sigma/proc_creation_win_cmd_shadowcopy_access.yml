@@ -12,22 +12,17 @@ modified: 2023/03/07
 tags:
     - attack.impact
     - attack.t1490
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # cmd /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SYSTEM\
         # There is an additional "\" to escape the special "?"
         CommandLine|contains|all:
             - 'copy '
-            - \\\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy
-    condition: process_creation and selection
+            - '\\\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy'
+    condition: selection
 falsepositives:
     - Backup scenarios using the commandline
 level: high
-ruletype: Sigma

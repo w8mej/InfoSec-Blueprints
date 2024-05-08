@@ -18,21 +18,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     test_3:
         ScriptBlockText|contains:
-            - get-localgroup
-            - Get-LocalGroupMember
+            - 'get-localgroup'
+            - 'Get-LocalGroupMember'
     test_6:
         ScriptBlockText|contains|all:
-            - Get-WMIObject
-            - Win32_Group
-    condition: ps_script and (1 of test_*)
+            - 'Get-WMIObject'
+            - 'Win32_Group'
+    condition: 1 of test_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

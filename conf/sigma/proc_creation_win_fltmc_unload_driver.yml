@@ -16,24 +16,19 @@ tags:
     - attack.t1070
     - attack.t1562
     - attack.t1562.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \fltMC.exe
-        - OriginalFileName: fltMC.exe
+        - Image|endswith: '\fltMC.exe'
+        - OriginalFileName: 'fltMC.exe'
     selection_cli:
-        CommandLine|contains: unload
+        CommandLine|contains: 'unload'
     filter_avira:
         # ParentImage: C:\Users\ciadmin\AppData\Local\Temp\is-URCLK.tmp\endpoint-protection-installer-x64.tmp
-        CommandLine|endswith: unload rtp_filesystem_filter
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+        CommandLine|endswith: 'unload rtp_filesystem_filter'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

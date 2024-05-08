@@ -13,45 +13,41 @@ modified: 2023/03/06
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:  # missing space before the /c
         CommandLine|contains:
-            - cmd.exe/c
-            - \cmd/c    # just cmd/c would be prone to false positives
+            - 'cmd.exe/c'
+            - '\cmd/c'  # just cmd/c would be prone to false positives
             - '"cmd/c'
-            - cmd.exe/k
-            - \cmd/k    # just cmd/k would be prone to false positives
+            - 'cmd.exe/k'
+            - '\cmd/k'  # just cmd/k would be prone to false positives
             - '"cmd/k'
-            - cmd.exe/r
-            - \cmd/r    # just cmd/r would be prone to false positives
+            - 'cmd.exe/r'
+            - '\cmd/r'  # just cmd/r would be prone to false positives
             - '"cmd/r'
     selection2: # special cases verified via Virustotal Enterprise search
         CommandLine|contains:
-            - /cwhoami
-            - /cpowershell
-            - /cschtasks
-            - /cbitsadmin
-            - /ccertutil
-            - /kwhoami
-            - /kpowershell
-            - /kschtasks
-            - /kbitsadmin
-            - /kcertutil
+            - '/cwhoami'
+            - '/cpowershell'
+            - '/cschtasks'
+            - '/cbitsadmin'
+            - '/ccertutil'
+            - '/kwhoami'
+            - '/kpowershell'
+            - '/kschtasks'
+            - '/kbitsadmin'
+            - '/kcertutil'
     selection3:  # missing space after the /c
         CommandLine|contains:
-            - cmd.exe /c
-            - cmd /c
-            - cmd.exe /k
-            - cmd /k
-            - cmd.exe /r
-            - cmd /r
+            - 'cmd.exe /c'
+            - 'cmd /c'
+            - 'cmd.exe /k'
+            - 'cmd /k'
+            - 'cmd.exe /r'
+            - 'cmd /r'
     filter_generic:
         CommandLine|contains:
             - 'cmd.exe /c '
@@ -61,11 +57,10 @@ detection:
             - 'cmd.exe /r '
             - 'cmd /r '
     filter_fp:
-        - CommandLine|contains: AppData\Local\Programs\Microsoft VS Code\resources\app\node_modules
-        - CommandLine|endswith: cmd.exe/c .
-        - CommandLine: cmd.exe /c
-    condition: process_creation and (1 of selection* and not 1 of filter_*)
+        - CommandLine|contains: 'AppData\Local\Programs\Microsoft VS Code\resources\app\node_modules'
+        - CommandLine|endswith: 'cmd.exe/c .'
+        - CommandLine: 'cmd.exe /c'
+    condition: 1 of selection* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -10,18 +10,13 @@ modified: 2022/10/09
 tags:
     - attack.initial_access
     - attack.t1566.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|contains: \Temporary Internet Files\Content.Outlook\
-    condition: process_creation and selection
+        Image|contains: '\Temporary Internet Files\Content.Outlook\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

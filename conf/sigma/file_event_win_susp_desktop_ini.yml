@@ -10,29 +10,24 @@ modified: 2022/10/07
 tags:
     - attack.persistence
     - attack.t1547.009
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \desktop.ini
+        TargetFilename|endswith: '\desktop.ini'
     filter_generic:
         Image|startswith:
-            - C:\Windows\
-            - C:\Program Files\
-            - C:\Program Files (x86)\
+            - 'C:\Windows\'
+            - 'C:\Program Files\'
+            - 'C:\Program Files (x86)\'
     filter_jetbrains:
-        Image|endswith: \AppData\Local\JetBrains\Toolbox\bin\7z.exe
-        TargetFilename|contains: \JetBrains\apps\
+        Image|endswith: '\AppData\Local\JetBrains\Toolbox\bin\7z.exe'
+        TargetFilename|contains: '\JetBrains\apps\'
     filter_upgrade:
-        TargetFilename|startswith: C:\$WINDOWS.~BT\NewOS\
-    condition: file_event and (selection and not 1 of filter_*)
+        TargetFilename|startswith: 'C:\$WINDOWS.~BT\NewOS\'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Operations performed through Windows SCCM or equivalent
     - Read only access list authority
 level: medium
-ruletype: Sigma

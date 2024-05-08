@@ -10,28 +10,23 @@ modified: 2022/06/02
 tags:
     - attack.execution
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \schtasks.exe
+        Image|endswith: '\schtasks.exe'
         CommandLine|contains: '/Create '
         ParentImage|contains:
-            - \AppData\Local\
-            - \AppData\Roaming\
-            - \Temporary Internet
-            - \Users\Public\
+            - '\AppData\Local\'
+            - '\AppData\Roaming\'
+            - '\Temporary Internet'
+            - '\Users\Public\'
     filter:
         CommandLine|contains:
-            - update_task.xml
-            - unattended.ini
-    condition: process_creation and (selection and not 1 of filter*)
+            - 'update_task.xml'
+            - 'unattended.ini'
+    condition: selection and not 1 of filter*
 falsepositives:
     - Software installers that run from temporary folders and also install scheduled tasks
 level: medium
-ruletype: Sigma

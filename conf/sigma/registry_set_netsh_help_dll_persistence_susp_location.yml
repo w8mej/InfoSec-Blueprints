@@ -16,38 +16,33 @@ date: 2023/11/28
 tags:
     - attack.persistence
     - attack.t1546.007
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_target:
-        TargetObject|contains: \SOFTWARE\Microsoft\NetSh
+        TargetObject|contains: '\SOFTWARE\Microsoft\NetSh'
     selection_folders_1:
         Details|contains:
-            - :\Perflogs\
-            - :\Users\Public\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-            - \Temporary Internet
+            - ':\Perflogs\'
+            - ':\Users\Public\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+            - '\Temporary Internet'
     selection_folders_2:
         - Details|contains|all:
-              - :\Users\
-              - \Favorites\
+              - ':\Users\'
+              - '\Favorites\'
         - Details|contains|all:
-              - :\Users\
-              - \Favourites\
+              - ':\Users\'
+              - '\Favourites\'
         - Details|contains|all:
-              - :\Users\
-              - \Contacts\
+              - ':\Users\'
+              - '\Contacts\'
         - Details|contains|all:
-              - :\Users\
-              - \Pictures\
-    condition: registry_set and (selection_target and 1 of selection_folders_*)
+              - ':\Users\'
+              - '\Pictures\'
+    condition: selection_target and 1 of selection_folders_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

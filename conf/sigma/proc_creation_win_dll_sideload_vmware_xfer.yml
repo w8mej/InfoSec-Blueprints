@@ -9,20 +9,15 @@ date: 2022/08/02
 tags:
     - attack.defense_evasion
     - attack.t1574.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \VMwareXferlogs.exe
+        Image|endswith: '\VMwareXferlogs.exe'
     filter: # VMware might be installed in another path so update the rule accordingly
-        Image|startswith: C:\Program Files\VMware\
-    condition: process_creation and (selection and not filter)
+        Image|startswith: 'C:\Program Files\VMware\'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

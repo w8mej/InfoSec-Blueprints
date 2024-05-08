@@ -11,19 +11,15 @@ tags:
     - attack.discovery
     - attack.t1033
     - car.2016-03-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_name:
-        Image|endswith: \SharpLdapWhoami.exe
+        Image|endswith: '\SharpLdapWhoami.exe'
     selection_pe: # in case the file has been renamed after compilation
-        - OriginalFileName|contains: SharpLdapWhoami
-        - Product: SharpLdapWhoami
+        - OriginalFileName|contains: 'SharpLdapWhoami'
+        - Product: 'SharpLdapWhoami'
     selection_flags1:
         CommandLine|endswith:
             - ' /method:ntlm'
@@ -32,8 +28,7 @@ detection:
             - ' /m:nego'
             - ' /m:ntlm'
             - ' /m:kerb'
-    condition: process_creation and (1 of selection*)
+    condition: 1 of selection*
 falsepositives:
     - Programs that use the same command line flags
 level: high
-ruletype: Sigma

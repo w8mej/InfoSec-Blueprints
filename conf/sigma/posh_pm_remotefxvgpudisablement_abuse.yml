@@ -7,7 +7,7 @@ related:
       type: similar
     - id: cacef8fc-9d3d-41f7-956d-455c6e881bc5 # PS ScriptBlock
       type: similar
-status: experimental
+status: test
 description: Detects PowerShell module creation where the module Contents are set to "function Get-VMRemoteFXPhysicalVideoAdapter". This could be a sign of potential abuse of the "RemoteFXvGPUDisablement.exe" binary which is known to be vulnerable to module load-order hijacking.
 references:
     - https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1218/T1218.md
@@ -23,15 +23,9 @@ logsource:
     category: ps_module
     definition: 0ad03ef1-f21b-4a79-8ce8-e6900c54b65b
 detection:
-    ps_module:
-        EventID: 4103
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
-        Payload|contains: ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {
-    condition: ps_module and selection
+        Payload|contains: 'ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

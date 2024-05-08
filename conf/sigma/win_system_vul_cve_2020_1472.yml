@@ -14,15 +14,12 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         Provider_Name: NetLogon  # Active Directory: NetLogon ETW GUID {F33959B4-DBEC-11D2-895B-00C04F79AB69}
         EventID: 5829
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unknown
 fields:
     - SAMAccountName
 level: high
-ruletype: Sigma

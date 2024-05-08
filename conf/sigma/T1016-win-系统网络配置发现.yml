@@ -1,0 +1,21 @@
+title: windows 系统网络配置发现
+description: windows server 2016
+references:
+        - https://github.com/redcanaryco/atomic-red-team/blob/910a2a764a66b0905065d8bdedb04b37049a85db/atomics/T1016/T1016.md
+tags: T1016
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security/sysmon
+detection:
+    selection:
+        EventID: 4688 #已创建新的进程。
+        CommandLine:
+               - ipconfig /all
+               - netsh interface show interface
+               - arp -a
+               - nbtstat -n
+               - net config
+               - netsh advfirewall firewall show rule name=all
+level: medium

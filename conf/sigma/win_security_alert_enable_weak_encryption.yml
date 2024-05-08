@@ -16,8 +16,6 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Account Management > Audit User Account Management, Group Policy : Computer Configuration\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\Account Management\Audit User Account Management'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4738
     # According to Microsoft, the bit values are listed here: https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720
@@ -85,8 +83,7 @@ detection:
             - D??
             - E??
             - F??
-    condition: security and (selection and ((newuac_des and not olduac_des) or (newuac_preauth and not olduac_preauth) or (newuac_encrypted and not olduac_encrypted)))
+    condition: selection and ((newuac_des and not olduac_des) or (newuac_preauth and not olduac_preauth) or (newuac_encrypted and not olduac_encrypted))
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

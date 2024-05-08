@@ -14,25 +14,20 @@ modified: 2023/01/16
 tags:
     - attack.command_and_control
     - attack.t1071.004
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         QueryName|startswith:
-            - aaa.stage.
-            - post.1
+            - 'aaa.stage.'
+            - 'post.1'
     selection2:
-        QueryName|contains: .stage.123456.
-    condition: dns_query and (1 of selection*)
+        QueryName|contains: '.stage.123456.'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 fields:
     - Image
     - CommandLine
 level: critical
-ruletype: Sigma

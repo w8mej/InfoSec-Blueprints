@@ -20,42 +20,37 @@ tags:
     - attack.defense_evasion
     - attack.t1486
     - attack.t1562.001
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - ImageLoaded|endswith: \RstrtMgr.dll
-        - OriginalFileName: RstrtMgr.dll
+        - ImageLoaded|endswith: '\RstrtMgr.dll'
+        - OriginalFileName: 'RstrtMgr.dll'
     filter_main_generic:
         Image|contains:
-            - :\$WINDOWS.~BT\
-            - :\$WinREAgent\
-            - :\Program Files (x86)\
-            - :\Program Files\
-            - :\ProgramData\
-            - :\Windows\explorer.exe
-            - :\Windows\SoftwareDistribution\
-            - :\Windows\SysNative\
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-            - :\Windows\WinSxS\
-            - :\WUDownloadCache\
+            - ':\$WINDOWS.~BT\'
+            - ':\$WinREAgent\'
+            - ':\Program Files (x86)\'
+            - ':\Program Files\'
+            - ':\ProgramData\'
+            - ':\Windows\explorer.exe'
+            - ':\Windows\SoftwareDistribution\'
+            - ':\Windows\SysNative\'
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+            - ':\Windows\WinSxS\'
+            - ':\WUDownloadCache\'
     filter_main_user_software_installations:
         Image|contains|all:
-            - :\Users\
-            - \AppData\Local\Temp\is-
-            - .tmp\
-        Image|endswith: .tmp
+            - ':\Users\'
+            - '\AppData\Local\Temp\is-'
+            - '.tmp\'
+        Image|endswith: '.tmp'
     filter_main_admin_software_installations:
-        Image|contains: :\Windows\Temp\
-    condition: image_load and (selection and not 1 of filter_main_*)
+        Image|contains: ':\Windows\Temp\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Other legitimate Windows processes not currently listed
     - Processes related to software installation
 level: low
-ruletype: Sigma

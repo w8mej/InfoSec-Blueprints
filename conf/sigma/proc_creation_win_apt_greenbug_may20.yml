@@ -16,42 +16,37 @@ tags:
     - attack.defense_evasion
     - attack.t1036.005
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         Image|endswith:
-            - :\ProgramData\adobe\Adobe.exe
-            - :\ProgramData\oracle\local.exe
-            - \revshell.exe
-            - \infopagesbackup\ncat.exe
-            - :\ProgramData\comms\comms.exe
+            - ':\ProgramData\adobe\Adobe.exe'
+            - ':\ProgramData\oracle\local.exe'
+            - '\revshell.exe'
+            - '\infopagesbackup\ncat.exe'
+            - ':\ProgramData\comms\comms.exe'
     selection_msf:
         CommandLine|contains|all:
-            - -ExecutionPolicy Bypass -File
-            - \msf.ps1
+            - '-ExecutionPolicy Bypass -File'
+            - '\msf.ps1'
     selection_ncat:
         CommandLine|contains|all:
-            - infopagesbackup
-            - \ncat
-            - -e cmd.exe
+            - 'infopagesbackup'
+            - '\ncat'
+            - '-e cmd.exe'
     selection_powershell:
         CommandLine|contains:
-            - system.Data.SqlClient.SqlDataAdapter($cmd); [void]$da.fill
-            - -nop -w hidden -c $k=new-object
+            - 'system.Data.SqlClient.SqlDataAdapter($cmd); [void]$da.fill'
+            - '-nop -w hidden -c $k=new-object'
             - '[Net.CredentialCache]::DefaultCredentials;IEX '
             - ' -nop -w hidden -c $m=new-object net.webclient;$m'
-            - -noninteractive -executionpolicy bypass whoami
-            - -noninteractive -executionpolicy bypass netstat -a
+            - '-noninteractive -executionpolicy bypass whoami'
+            - '-noninteractive -executionpolicy bypass netstat -a'
     selection_other:
-        CommandLine|contains: L3NlcnZlcj1    # base64 encoded '/server='
-    condition: process_creation and (1 of selection_*)
+        CommandLine|contains: 'L3NlcnZlcj1'  # base64 encoded '/server='
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

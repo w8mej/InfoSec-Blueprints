@@ -9,34 +9,29 @@ date: 2021/12/09
 modified: 2022/12/14
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     image_absolute_path:
-        Image|contains: \
+        Image|contains: '\'
     filter_null:
-        Image:
+        Image: null
     filter_empty:
         Image:
             - '-'
             - ''
     filter_4688:
         - Image:
-              - System
-              - Registry
-              - MemCompression
-              - vmmem
+              - 'System'
+              - 'Registry'
+              - 'MemCompression'
+              - 'vmmem'
         - CommandLine:
-              - Registry
-              - MemCompression
-              - vmmem
-    condition: process_creation and (not image_absolute_path and not 1 of filter*)
+              - 'Registry'
+              - 'MemCompression'
+              - 'vmmem'
+    condition: not image_absolute_path and not 1 of filter*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

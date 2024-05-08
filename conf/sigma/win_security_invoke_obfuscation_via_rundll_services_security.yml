@@ -20,17 +20,14 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
         ServiceFileName|contains|all:
-            - rundll32.exe
-            - shell32.dll
-            - shellexec_rundll
-            - powershell
-    condition: security and selection
+            - 'rundll32.exe'
+            - 'shell32.dll'
+            - 'shellexec_rundll'
+            - 'powershell'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

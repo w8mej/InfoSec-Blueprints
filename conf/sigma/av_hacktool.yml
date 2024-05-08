@@ -13,72 +13,54 @@ tags:
     - attack.t1204
 logsource:
     category: antivirus
-    product: windows
-    service: windefend
 detection:
-    antivirus:
-        EventID:      # https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/troubleshoot-microsoft-defender-antivirus IDs with existing 'Threat Name' or 'Path'
-            - 1006
-            - 1007
-            - 1008
-            - 1009
-            - 1010
-            - 1011
-            - 1012
-            - 1017
-            - 1018
-            - 1019
-            - 1115
-            - 1116
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
-        - ThreatName|startswith:
-              - HTOOL
-              - HKTL
-              - SecurityTool
-              - Adfind
-              - ATK/
-              - Exploit.Script.CVE
+        - Signature|startswith:
+              - 'HTOOL'
+              - 'HKTL'
+              - 'SecurityTool'
+              - 'Adfind'
+              - 'ATK/'
+              - 'Exploit.Script.CVE'
               # - 'FRP.'
-              - PWS.
-              - PWSX
-        - ThreatName|contains:
-              - Hacktool
-              - ATK/    # Sophos
-              - Potato
-              - Rozena
-              - Sbelt
-              - Seatbelt
-              - SecurityTool
-              - SharpDump
-              - Sliver
-              - Splinter
-              - Swrort
-              - Impacket
-              - Koadic
-              - Lazagne
-              - Metasploit
-              - Meterpreter
-              - MeteTool
-              - Mimikatz
-              - Mpreter
-              - Nighthawk
-              - PentestPowerShell
-              - PowerSploit
-              - PowerSSH
-              - PshlSpy
-              - PSWTool
-              - PWCrack
-              - Brutel
-              - BruteR
-              - Cobalt
-              - COBEACON
-              - Cometer
-              - DumpCreds
-              - FastReverseProxy
-              - PWDump
-    condition: antivirus and selection
+              - 'PWS.'
+              - 'PWSX'
+        - Signature|contains:
+              - 'Hacktool'
+              - 'ATK/'  # Sophos
+              - 'Potato'
+              - 'Rozena'
+              - 'Sbelt'
+              - 'Seatbelt'
+              - 'SecurityTool'
+              - 'SharpDump'
+              - 'Sliver'
+              - 'Splinter'
+              - 'Swrort'
+              - 'Impacket'
+              - 'Koadic'
+              - 'Lazagne'
+              - 'Metasploit'
+              - 'Meterpreter'
+              - 'MeteTool'
+              - 'Mimikatz'
+              - 'Mpreter'
+              - 'Nighthawk'
+              - 'PentestPowerShell'
+              - 'PowerSploit'
+              - 'PowerSSH'
+              - 'PshlSpy'
+              - 'PSWTool'
+              - 'PWCrack'
+              - 'Brutel'
+              - 'BruteR'
+              - 'Cobalt'
+              - 'COBEACON'
+              - 'Cometer'
+              - 'DumpCreds'
+              - 'FastReverseProxy'
+              - 'PWDump'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

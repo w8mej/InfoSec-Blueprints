@@ -15,21 +15,16 @@ modified: 2023/03/14
 tags:
     - attack.defense_evasion
     - attack.t1564.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \attrib.exe
-        - OriginalFileName: ATTRIB.EXE
+        - Image|endswith: '\attrib.exe'
+        - OriginalFileName: 'ATTRIB.EXE'
     selection_cli:
         CommandLine|contains: ' +s '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

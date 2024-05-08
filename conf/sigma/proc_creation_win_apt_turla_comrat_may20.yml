@@ -14,25 +14,20 @@ tags:
     - attack.t1053.005
     - attack.t1027
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cli_1:
         CommandLine|contains:
-            - tracert -h 10 yahoo.com
-            - .WSqmCons))|iex;
-            - Fr`omBa`se6`4Str`ing
+            - 'tracert -h 10 yahoo.com'
+            - '.WSqmCons))|iex;'
+            - 'Fr`omBa`se6`4Str`ing'
     selection_cli_2:
         CommandLine|contains|all:
-            - net use https://docs.live.net
+            - 'net use https://docs.live.net'
             - '@aol.co.uk'
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

@@ -14,8 +14,6 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 675
@@ -53,8 +51,7 @@ detection:
             - '0x41'
             - '0x43'
             - '0x44'
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Faulty legacy applications
 level: high
-ruletype: Sigma

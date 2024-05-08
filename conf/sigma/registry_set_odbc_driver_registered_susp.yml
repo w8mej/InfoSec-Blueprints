@@ -10,44 +10,39 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1003
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\ODBC\ODBCINST.INI\
+        TargetObject|contains: '\SOFTWARE\ODBC\ODBCINST.INI\'
         TargetObject|endswith:
-            - \Driver
-            - \Setup
+            - '\Driver'
+            - '\Setup'
         Details|contains:
-            - :\PerfLogs\
-            - :\ProgramData\
-            - :\Temp\
-            - :\Users\Public\
-            - :\Windows\Registration\CRMLog
-            - :\Windows\System32\com\dmp\
-            - :\Windows\System32\FxsTmp\
-            - :\Windows\System32\Microsoft\Crypto\RSA\MachineKeys\
-            - :\Windows\System32\spool\drivers\color\
-            - :\Windows\System32\spool\PRINTERS\
-            - :\Windows\System32\spool\SERVERS\
-            - :\Windows\System32\Tasks_Migrated\
-            - :\Windows\System32\Tasks\Microsoft\Windows\SyncCenter\
-            - :\Windows\SysWOW64\com\dmp\
-            - :\Windows\SysWOW64\FxsTmp\
-            - :\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System\
-            - :\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - :\Windows\Tracing\
-            - \AppData\Local\Temp\
-            - \AppData\Roaming\
-    condition: registry_set and selection
+            - ':\PerfLogs\'
+            - ':\ProgramData\'
+            - ':\Temp\'
+            - ':\Users\Public\'
+            - ':\Windows\Registration\CRMLog'
+            - ':\Windows\System32\com\dmp\'
+            - ':\Windows\System32\FxsTmp\'
+            - ':\Windows\System32\Microsoft\Crypto\RSA\MachineKeys\'
+            - ':\Windows\System32\spool\drivers\color\'
+            - ':\Windows\System32\spool\PRINTERS\'
+            - ':\Windows\System32\spool\SERVERS\'
+            - ':\Windows\System32\Tasks_Migrated\'
+            - ':\Windows\System32\Tasks\Microsoft\Windows\SyncCenter\'
+            - ':\Windows\SysWOW64\com\dmp\'
+            - ':\Windows\SysWOW64\FxsTmp\'
+            - ':\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System\'
+            - ':\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - ':\Windows\Tracing\'
+            - '\AppData\Local\Temp\'
+            - '\AppData\Roaming\'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

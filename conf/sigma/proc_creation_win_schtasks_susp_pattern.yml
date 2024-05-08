@@ -8,20 +8,16 @@ references:
     - https://www.ncsc.gov.uk/static-assets/documents/malware-analysis-reports/devil-bait/NCSC-MAR-Devil-Bait.pdf
 author: Florian Roth (Nextron Systems)
 date: 2022/02/23
-modified: 2023/12/21
+modified: 2024/03/19
 tags:
     - attack.execution
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_schtasks:
-        Image|endswith: \schtasks.exe
+        Image|endswith: '\schtasks.exe'
         CommandLine|contains: '/Create '
     selection_pattern_1:
         CommandLine|contains:
@@ -29,9 +25,9 @@ detection:
             - '/ru system '
     selection_pattern_2:
         CommandLine|contains:
-            - cmd /c
-            - cmd /k
-            - cmd /r
+            - 'cmd /c'
+            - 'cmd /k'
+            - 'cmd /r'
             - 'cmd.exe /c '
             - 'cmd.exe /k '
             - 'cmd.exe /r '
@@ -42,27 +38,30 @@ detection:
             - ' -w hidden '
             - ' bypass '
             - ' IEX'
-            - .DownloadData
-            - .DownloadFile
-            - .DownloadString
+            - '.DownloadData'
+            - '.DownloadFile'
+            - '.DownloadString'
             - '/c start /min ' # https://twitter.com/RedDrip7/status/1506480588827467785
-            - FromBase64String
-            - mshta http
-            - mshta.exe http
+            - 'FromBase64String'
+            - 'mshta http'
+            - 'mshta.exe http'
     selection_anomaly_1:
         CommandLine|contains:
-            - :\Windows\Temp\
-            - \AppData\
+            - ':\ProgramData\'
+            - ':\Temp\'
+            - ':\Tmp\'
+            - ':\Users\Public\'
+            - ':\Windows\Temp\'
+            - '\AppData\'
             - '%AppData%'
             - '%Temp%'
             - '%tmp%'
     selection_anomaly_2:
         CommandLine|contains:
-            - cscript
-            - curl
-            - wscript
-    condition: process_creation and (selection_schtasks and ( all of selection_pattern_* or selection_uncommon or all of selection_anomaly_* ))
+            - 'cscript'
+            - 'curl'
+            - 'wscript'
+    condition: selection_schtasks and ( all of selection_pattern_* or selection_uncommon or all of selection_anomaly_* )
 falsepositives:
     - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives
 level: high
-ruletype: Sigma

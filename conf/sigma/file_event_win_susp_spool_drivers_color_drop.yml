@@ -8,22 +8,17 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/07/28
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: C:\Windows\System32\spool\drivers\color\
+        TargetFilename|startswith: 'C:\Windows\System32\spool\drivers\color\'
         TargetFilename|endswith:
-            - .dll
-            - .exe
-            - .sys
-    condition: file_event and selection
+            - '.dll'
+            - '.exe'
+            - '.sys'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -15,44 +15,39 @@ tags:
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_to_1:
         CommandLine|contains:
-            - ToInt
-            - ToDecimal
-            - ToByte
-            - ToUint
-            - ToSingle
-            - ToSByte
+            - 'ToInt'
+            - 'ToDecimal'
+            - 'ToByte'
+            - 'ToUint'
+            - 'ToSingle'
+            - 'ToSByte'
     selection_to_2:
         CommandLine|contains:
-            - ToChar
-            - ToString
-            - String
+            - 'ToChar'
+            - 'ToString'
+            - 'String'
     selection_gen_1:
         CommandLine|contains|all:
-            - char
-            - join
+            - 'char'
+            - 'join'
     selection_gen_2:
         CommandLine|contains|all:
-            - split
-            - join
-    condition: process_creation and (selection_img and (all of selection_to_* or 1 of selection_gen_*))
+            - 'split'
+            - 'join'
+    condition: selection_img and (all of selection_to_* or 1 of selection_gen_*)
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

@@ -10,29 +10,24 @@ date: 2023/09/18
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \addinutil.exe
-        - OriginalFileName: AddInUtil.exe
+        - Image|endswith: '\addinutil.exe'
+        - OriginalFileName: 'AddInUtil.exe'
     selection_cli:
         CommandLine|contains:
             - '-AddInRoot:'
             - '-PipelineRoot:'
     filter_main_addinroot:
         CommandLine|contains:
-            - -AddInRoot:"C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA
-            - -AddInRoot:C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA
-            - -PipelineRoot:"C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA
-            - -PipelineRoot:C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+            - '-AddInRoot:"C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA'
+            - '-AddInRoot:C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA'
+            - '-PipelineRoot:"C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA'
+            - '-PipelineRoot:C:\Program Files (x86)\Common Files\Microsoft Shared\VSTA'
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

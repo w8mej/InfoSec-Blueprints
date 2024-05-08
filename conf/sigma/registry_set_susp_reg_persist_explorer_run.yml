@@ -10,26 +10,21 @@ modified: 2023/12/11
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
+        TargetObject|endswith: '\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run'
         Details|contains:
-            - :\$Recycle.bin\
-            - :\ProgramData\
-            - :\Temp\
-            - :\Users\Default\
-            - :\Users\Public\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-    condition: registry_set and selection
+            - ':\$Recycle.bin\'
+            - ':\ProgramData\'
+            - ':\Temp\'
+            - ':\Users\Default\'
+            - ':\Users\Public\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -16,17 +16,14 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ServiceName:
-            - srservice
-            - ipvpn
-            - hkmsvc
-    condition: system and selection
+            - 'srservice'
+            - 'ipvpn'
+            - 'hkmsvc'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

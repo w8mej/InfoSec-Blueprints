@@ -10,27 +10,20 @@ date: 2023/02/16
 tags:
     - attack.defense_evasion
     - attack.t1070
-    - sysmon
 logsource:
     category: file_delete
     product: windows
 detection:
-    file_delete:
-        EventID:
-            - 23
-            - 26
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains|all:
-            - \Tomcat
-            - \logs\
+            - '\Tomcat'
+            - '\logs\'
         TargetFilename|contains:
-            - catalina.
-            - _access_log.
-            - localhost.
-    condition: file_delete and selection
+            - 'catalina.'
+            - '_access_log.'
+            - 'localhost.'
+    condition: selection
 falsepositives:
     - During uninstallation of the tomcat server
     - During log rotation
 level: medium
-ruletype: Sigma

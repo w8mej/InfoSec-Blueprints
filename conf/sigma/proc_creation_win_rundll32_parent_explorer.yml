@@ -10,24 +10,19 @@ date: 2022/05/21
 modified: 2023/08/31
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|endswith: \explorer.exe
+        ParentImage|endswith: '\explorer.exe'
     selection_img:
-        - Image|endswith: \rundll32.exe
-        - OriginalFileName: RUNDLL32.EXE
+        - Image|endswith: '\rundll32.exe'
+        - OriginalFileName: 'RUNDLL32.EXE'
     filter_main_generic:
         - CommandLine|contains: ' C:\Windows\System32\' # The space at the start is required
         - CommandLine|endswith: ' -localserver 22d8c27b-47a1-48d1-ad08-7da7abd79617' # Windows 10 volume control
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

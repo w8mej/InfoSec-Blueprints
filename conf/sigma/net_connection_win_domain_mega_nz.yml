@@ -13,21 +13,16 @@ modified: 2024/02/01
 tags:
     - attack.exfiltration
     - attack.t1567.001
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         DestinationHostname|endswith:
-            - mega.co.nz
-            - mega.nz
-    condition: network_connection and selection
+            - 'mega.co.nz'
+            - 'mega.nz'
+    condition: selection
 falsepositives:
     - Legitimate MEGA installers and utilities are expected to communicate with this domain. Exclude hosts that are known to be allowed to use this tool.
 level: medium
-ruletype: Sigma

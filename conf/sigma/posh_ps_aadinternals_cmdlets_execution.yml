@@ -21,37 +21,31 @@ logsource:
     category: ps_script
     definition: Script Block Logging must be enable
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
             # Since most of the cmdlets use a unique enough string which is "-AADInt" we only used that portion. For a complete list please check the references linked above
-            - Add-AADInt
-            - ConvertTo-AADInt
-            - Disable-AADInt
-            - Enable-AADInt
-            - Export-AADInt
-            - Get-AADInt
-            - Grant-AADInt
-            - Install-AADInt
-            - Invoke-AADInt
-            - Join-AADInt
-            - New-AADInt
-            - Open-AADInt
-            - Read-AADInt
-            - Register-AADInt
-            - Remove-AADInt
-            - Restore-AADInt
-            - Search-AADInt
-            - Send-AADInt
-            - Set-AADInt
-            - Start-AADInt
-            - Update-AADInt
-    condition: ps_script and selection
+            - 'Add-AADInt'
+            - 'ConvertTo-AADInt'
+            - 'Disable-AADInt'
+            - 'Enable-AADInt'
+            - 'Export-AADInt'
+            - 'Get-AADInt'
+            - 'Grant-AADInt'
+            - 'Install-AADInt'
+            - 'Invoke-AADInt'
+            - 'Join-AADInt'
+            - 'New-AADInt'
+            - 'Open-AADInt'
+            - 'Read-AADInt'
+            - 'Register-AADInt'
+            - 'Remove-AADInt'
+            - 'Restore-AADInt'
+            - 'Search-AADInt'
+            - 'Send-AADInt'
+            - 'Set-AADInt'
+            - 'Start-AADInt'
+            - 'Update-AADInt'
+    condition: selection
 falsepositives:
     - Legitimate use of the library for administrative activity
 level: high
-ruletype: Sigma

@@ -13,24 +13,19 @@ date: 2022/01/23
 tags:
     - attack.initial_access
     - attack.t1566.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - .docm
-            - .dotm
-            - .xlsm
-            - .xltm
-            - .potm
-            - .pptm
-    condition: file_event and selection
+            - '.docm'
+            - '.dotm'
+            - '.xlsm'
+            - '.xltm'
+            - '.potm'
+            - '.pptm'
+    condition: selection
 falsepositives:
     - Very common in environments that rely heavily on macro documents
 level: low
-ruletype: Sigma

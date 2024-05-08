@@ -18,23 +18,20 @@ logsource:
     product: windows
     service: firewall-as
 detection:
-    firewall_as:
-        Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     selection:
         EventID:
             - 2004 # A rule has been added to the Windows Defender Firewall exception list. (Windows 10)
             - 2071 # A rule has been added to the Windows Defender Firewall exception list. (Windows 11)
         ApplicationPath|contains:
-            - :\PerfLogs\
-            - :\Temp\
-            - :\Users\Public\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
+            - ':\PerfLogs\'
+            - ':\Temp\'
+            - ':\Users\Public\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
     filter_main_block:
         Action: 2
-    condition: firewall_as and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

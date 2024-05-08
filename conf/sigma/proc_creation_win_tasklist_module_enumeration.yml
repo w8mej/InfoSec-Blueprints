@@ -10,28 +10,22 @@ references:
     - https://pentestlab.blog/tag/svchost/
 author: Swachchhanda Shrawan Poudel
 date: 2024/02/12
+modified: 2024/03/13
 tags:
     - attack.t1003
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \tasklist.exe
-        - OriginalFileName: tasklist.exe
+        - Image|endswith: '\tasklist.exe'
+        - OriginalFileName: 'tasklist.exe'
     selection_flags:
-        CommandLine|contains:
-            - /m
-            - -m
+        CommandLine|contains|windash: '-m'
     selection_module:
         # Note: add other interesting modules or binaries
-        CommandLine|contains: rdpcorets.dll
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'rdpcorets.dll'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

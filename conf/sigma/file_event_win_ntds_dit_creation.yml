@@ -9,18 +9,13 @@ date: 2023/05/05
 tags:
     - attack.credential_access
     - attack.t1003.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: ntds.dit
-    condition: file_event and selection
+        TargetFilename|endswith: 'ntds.dit'
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

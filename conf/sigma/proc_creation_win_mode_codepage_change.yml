@@ -18,24 +18,19 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \mode.com
-        - OriginalFileName: MODE.COM
+        - Image|endswith: '\mode.com'
+        - OriginalFileName: 'MODE.COM'
     selection_cli:
         CommandLine|contains|all:
             - ' con '
             - ' cp '
             - ' select='
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

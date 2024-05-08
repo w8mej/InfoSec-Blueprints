@@ -8,31 +8,24 @@ references:
     - https://twitter.com/_JohnHammond/status/1531672601067675648
 author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/05/29
-modified: 2023/02/08
+modified: 2024/03/13
 tags:
     - attack.defense_evasion
     - attack.t1202
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \msdt.exe
-        - OriginalFileName: msdt.exe
+        - Image|endswith: '\msdt.exe'
+        - OriginalFileName: 'msdt.exe'
     selection_cmd_inline:
-        CommandLine|contains: IT_BrowseForFile=
+        CommandLine|contains: 'IT_BrowseForFile='
     selection_cmd_answerfile_flag:
         CommandLine|contains: ' PCWDiagnostic'
     selection_cmd_answerfile_param:
-        CommandLine|contains:
-            - ' /af '
-            - ' -af '
-    condition: process_creation and (selection_img and (selection_cmd_inline or all of selection_cmd_answerfile_*))
+        CommandLine|contains|windash: ' -af '
+    condition: selection_img and (selection_cmd_inline or all of selection_cmd_answerfile_*)
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

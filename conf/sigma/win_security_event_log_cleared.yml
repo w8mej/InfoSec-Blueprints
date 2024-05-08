@@ -13,12 +13,10 @@ logsource:
     service: security
     product: windows
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 1102
         Provider_Name: Microsoft-Windows-Eventlog
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Legitimate administrative activity
 fields:
@@ -27,4 +25,3 @@ fields:
     - SubjectUserSid
     - SubjectDomainName
 level: medium
-ruletype: Sigma

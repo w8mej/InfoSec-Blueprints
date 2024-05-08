@@ -5,7 +5,7 @@ description: Detect suspicious error on protocol RDP, potential CVE-2019-0708
 references:
     - https://github.com/zerosum0x0/CVE-2019-0708
     - https://github.com/Ekultek/BlueKeep
-author: Lionel PRAT, Christophe BROCAS, @atc_project (improvements)
+author: 'Lionel PRAT, Christophe BROCAS, @atc_project (improvements)'
 date: 2019/05/24
 modified: 2022/12/25
 tags:
@@ -16,16 +16,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID:
             - 56
             - 50
         Provider_Name: TermDD
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Bad connections or network interruptions
 # too many false positives
 level: medium
-ruletype: Sigma

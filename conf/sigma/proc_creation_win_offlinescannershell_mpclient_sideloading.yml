@@ -12,25 +12,20 @@ modified: 2023/08/03
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \OfflineScannerShell.exe
-        - OriginalFileName: OfflineScannerShell.exe
+        - Image|endswith: '\OfflineScannerShell.exe'
+        - OriginalFileName: 'OfflineScannerShell.exe'
     filter_main_legit_dir:
-        CurrentDirectory: C:\Program Files\Windows Defender\Offline\
+        CurrentDirectory: 'C:\Program Files\Windows Defender\Offline\'
     filter_main_empty:
         CurrentDirectory: ''
     filter_main_null:
-        CurrentDirectory:
-    condition: process_creation and (selection and not 1 of filter_main_*)
+        CurrentDirectory: null
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

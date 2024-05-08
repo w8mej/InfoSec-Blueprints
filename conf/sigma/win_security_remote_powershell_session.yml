@@ -14,16 +14,13 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5156
         DestPort:
             - 5985
             - 5986
         LayerRTID: 44
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Legitimate use of remote PowerShell execution
 level: high
-ruletype: Sigma

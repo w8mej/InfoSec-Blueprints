@@ -20,40 +20,35 @@ modified: 2023/09/05
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         TargetFilename|endswith:
-            - \lsass.dmp
-            - \lsass.zip
-            - \lsass.rar
-            - \Andrew.dmp
-            - \Coredump.dmp
-            - \NotLSASS.zip    # https://github.com/CCob/MirrorDump
-            - \PPLBlade.dmp    # https://github.com/tastypepperoni/PPLBlade
+            - '\lsass.dmp'
+            - '\lsass.zip'
+            - '\lsass.rar'
+            - '\Andrew.dmp'
+            - '\Coredump.dmp'
+            - '\NotLSASS.zip'  # https://github.com/CCob/MirrorDump
+            - '\PPLBlade.dmp'  # https://github.com/tastypepperoni/PPLBlade
     selection_2:
         TargetFilename|contains:
-            - \lsass_2    # default format of procdump v9.0 is lsass_YYMMDD_HHmmss.dmp
-            - \lsassdump
-            - \lsassdmp
+            - '\lsass_2'  # default format of procdump v9.0 is lsass_YYMMDD_HHmmss.dmp
+            - '\lsassdump'
+            - '\lsassdmp'
     selection_3:
         TargetFilename|contains|all:
-            - \lsass
-            - .dmp
+            - '\lsass'
+            - '.dmp'
     selection_4:
-        TargetFilename|contains: SQLDmpr
-        TargetFilename|endswith: .mdmp
+        TargetFilename|contains: 'SQLDmpr'
+        TargetFilename|endswith: '.mdmp'
     selection_5:
-        TargetFilename|startswith: nanodump
-        TargetFilename|endswith: .dmp
-    condition: file_event and (1 of selection_*)
+        TargetFilename|startswith: 'nanodump'
+        TargetFilename|endswith: '.dmp'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

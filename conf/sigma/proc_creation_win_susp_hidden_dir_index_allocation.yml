@@ -17,19 +17,14 @@ date: 2023/10/09
 tags:
     - attack.defense_evasion
     - attack.t1564.004
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # Note: Both Sysmon and ETW are unable to log the presence of such stream in the CommandLine. But EDRs such as Crowdstrike are able to using for example CMD console history. Users are advised to test this before usage
-        CommandLine|contains: ::$index_allocation
-    condition: process_creation and selection
+        CommandLine|contains: '::$index_allocation'
+    condition: selection
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

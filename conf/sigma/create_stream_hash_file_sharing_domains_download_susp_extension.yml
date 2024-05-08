@@ -17,56 +17,51 @@ tags:
     - attack.defense_evasion
     - attack.s0139
     - attack.t1564.004
-    - sysmon
 logsource:
     product: windows
     category: create_stream_hash
 detection:
-    create_stream_hash:
-        EventID: 15
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_domain:
         Contents|contains:
-            - .githubusercontent.com         # Includes both gists and github repositories / Michael Haag (idea)
-            - anonfiles.com
-            - cdn.discordapp.com
-            - cdn.discordapp.com/attachments/
-            - ddns.net
-            - dl.dropboxusercontent.com
-            - ghostbin.co
-            - glitch.me
-            - gofile.io
-            - hastebin.com
-            - mediafire.com
-            - mega.nz
-            - onrender.com
-            - paste.ee
-            - pastebin.com
-            - pastebin.pl
-            - pastetext.net
-            - privatlab.com
-            - privatlab.net
-            - send.exploit.in
-            - sendspace.com
-            - storage.googleapis.com
-            - storjshare.io
-            - supabase.co
-            - temp.sh
-            - transfer.sh
-            - ufile.io
+            - '.githubusercontent.com'       # Includes both gists and github repositories / Michael Haag (idea)
+            - 'anonfiles.com'
+            - 'cdn.discordapp.com'
+            - 'cdn.discordapp.com/attachments/'
+            - 'ddns.net'
+            - 'dl.dropboxusercontent.com'
+            - 'ghostbin.co'
+            - 'glitch.me'
+            - 'gofile.io'
+            - 'hastebin.com'
+            - 'mediafire.com'
+            - 'mega.nz'
+            - 'onrender.com'
+            - 'paste.ee'
+            - 'pastebin.com'
+            - 'pastebin.pl'
+            - 'pastetext.net'
+            - 'privatlab.com'
+            - 'privatlab.net'
+            - 'send.exploit.in'
+            - 'sendspace.com'
+            - 'storage.googleapis.com'
+            - 'storjshare.io'
+            - 'supabase.co'
+            - 'temp.sh'
+            - 'transfer.sh'
+            - 'ufile.io'
     selection_extension:
         TargetFilename|contains:
-            - .exe:Zone
-            - .vbs:Zone
-            - .vbe:Zone
-            - .dll:Zone
-            - .one:Zone
-            - .hta:Zone
-            - .lnk:Zone
-            - .xll:Zone
-            - .cpl:Zone
-    condition: create_stream_hash and (all of selection*)
+            - '.exe:Zone'
+            - '.vbs:Zone'
+            - '.vbe:Zone'
+            - '.dll:Zone'
+            - '.one:Zone'
+            - '.hta:Zone'
+            - '.lnk:Zone'
+            - '.xll:Zone'
+            - '.cpl:Zone'
+    condition: all of selection*
 falsepositives:
     - Some false positives might occur with binaries download via Github
 level: high
-ruletype: Sigma

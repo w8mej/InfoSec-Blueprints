@@ -10,31 +10,26 @@ date: 2022/10/31
 tags:
     - attack.execution
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        Image|endswith: \schtasks.exe
+        Image|endswith: '\schtasks.exe'
         CommandLine|contains: '/Create '
     selection_tn:
         CommandLine|contains:
             # Can start with single or double quote
-            - /TN "{
-            - /TN '{
-            - /TN {
+            - '/TN "{'
+            - "/TN '{"
+            - "/TN {"
     selection_end:
         CommandLine|contains:
             # Ending of the name to avoid possible FP in the rest of the commandline
             - '}"'
             - "}'"
             - '} '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate software naming their tasks as GUIDs
 level: medium
-ruletype: Sigma

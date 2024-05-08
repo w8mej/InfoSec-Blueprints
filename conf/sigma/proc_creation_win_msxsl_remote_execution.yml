@@ -10,19 +10,14 @@ date: 2023/11/09
 tags:
     - attack.defense_evasion
     - attack.t1220
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \msxsl.exe
-        CommandLine|contains: http
-    condition: process_creation and selection
+        Image|endswith: '\msxsl.exe'
+        CommandLine|contains: 'http'
+    condition: selection
 falsepositives:
     - Msxsl is not installed by default and is deprecated, so unlikely on most systems.
 level: high
-ruletype: Sigma

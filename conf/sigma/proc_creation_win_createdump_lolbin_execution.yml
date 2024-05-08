@@ -15,17 +15,13 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \createdump.exe
-        - OriginalFileName: FX_VER_INTERNALNAME_STR
+        - Image|endswith: '\createdump.exe'
+        - OriginalFileName: 'FX_VER_INTERNALNAME_STR'
     selection_cli:
         CommandLine|contains:
             - ' -u ' # Short version of '--full'
@@ -33,8 +29,7 @@ detection:
             - ' -f ' # Short version of '--name'
             - ' --name '
             - '.dmp '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Command lines that use the same flags
 level: high
-ruletype: Sigma

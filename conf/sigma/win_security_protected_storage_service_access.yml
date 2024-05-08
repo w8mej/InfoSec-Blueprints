@@ -14,14 +14,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5145
-        ShareName|contains: IPC
-        RelativeTargetName: protected_storage
-    condition: security and selection
+        ShareName|contains: 'IPC'
+        RelativeTargetName: 'protected_storage'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

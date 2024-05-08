@@ -19,21 +19,18 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID: 104
-        Provider_Name: Microsoft-Windows-Eventlog
+        Provider_Name: 'Microsoft-Windows-Eventlog'
         Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - Microsoft-Windows-Sysmon/Operational
-            - PowerShellCore/Operational
-            - Security
-            - System
-            - Windows PowerShell
-    condition: system and selection
+            - 'Microsoft-Windows-PowerShell/Operational'
+            - 'Microsoft-Windows-Sysmon/Operational'
+            - 'PowerShellCore/Operational'
+            - 'Security'
+            - 'System'
+            - 'Windows PowerShell'
+    condition: selection
 falsepositives:
     - Rollout of log collection agents (the setup routine often includes a reset of the local Eventlog)
     - System provisioning (system reset before the golden image creation)
 level: high
-ruletype: Sigma

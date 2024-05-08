@@ -15,18 +15,13 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \Microsoft.NodejsTools.PressAnyKey.exe
-    condition: process_creation and selection
+        ParentImage|endswith: '\Microsoft.NodejsTools.PressAnyKey.exe'
+    condition: selection
 falsepositives:
     - Legitimate use by developers as part of NodeJS development with Visual Studio Tools
 level: medium
-ruletype: Sigma

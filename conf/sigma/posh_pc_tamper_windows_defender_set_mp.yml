@@ -17,69 +17,65 @@ logsource:
     product: windows
     category: ps_classic_provider_start
 detection:
-    ps_classic_provider_start:
-        EventID: 600
-        Channel: Windows PowerShell
     selection_set_mppreference:
-        Data|contains: Set-MpPreference
+        Data|contains: 'Set-MpPreference'
     selection_options_bool_allow:
         Data|contains:
-            - -dbaf $true
-            - -dbaf 1
-            - -dbm $true
-            - -dbm 1
-            - -dips $true
-            - -dips 1
-            - -DisableArchiveScanning $true
-            - -DisableArchiveScanning 1
-            - -DisableBehaviorMonitoring $true
-            - -DisableBehaviorMonitoring 1
-            - -DisableBlockAtFirstSeen $true
-            - -DisableBlockAtFirstSeen 1
-            - -DisableCatchupFullScan $true
-            - -DisableCatchupFullScan 1
-            - -DisableCatchupQuickScan $true
-            - -DisableCatchupQuickScan 1
-            - -DisableIntrusionPreventionSystem $true
-            - -DisableIntrusionPreventionSystem 1
-            - -DisableIOAVProtection $true
-            - -DisableIOAVProtection 1
-            - -DisableRealtimeMonitoring $true
-            - -DisableRealtimeMonitoring 1
-            - -DisableRemovableDriveScanning $true
-            - -DisableRemovableDriveScanning 1
-            - -DisableScanningMappedNetworkDrivesForFullScan $true
-            - -DisableScanningMappedNetworkDrivesForFullScan 1
-            - -DisableScanningNetworkFiles $true
-            - -DisableScanningNetworkFiles 1
-            - -DisableScriptScanning $true
-            - -DisableScriptScanning 1
-            - -MAPSReporting $false
-            - -MAPSReporting 0
-            - -drdsc $true
-            - -drdsc 1
-            - -drtm $true
-            - -drtm 1
-            - -dscrptsc $true
-            - -dscrptsc 1
-            - -dsmndf $true
-            - -dsmndf 1
-            - -dsnf $true
-            - -dsnf 1
-            - -dss $true
-            - -dss 1
+            - '-dbaf $true'
+            - '-dbaf 1'
+            - '-dbm $true'
+            - '-dbm 1'
+            - '-dips $true'
+            - '-dips 1'
+            - '-DisableArchiveScanning $true'
+            - '-DisableArchiveScanning 1'
+            - '-DisableBehaviorMonitoring $true'
+            - '-DisableBehaviorMonitoring 1'
+            - '-DisableBlockAtFirstSeen $true'
+            - '-DisableBlockAtFirstSeen 1'
+            - '-DisableCatchupFullScan $true'
+            - '-DisableCatchupFullScan 1'
+            - '-DisableCatchupQuickScan $true'
+            - '-DisableCatchupQuickScan 1'
+            - '-DisableIntrusionPreventionSystem $true'
+            - '-DisableIntrusionPreventionSystem 1'
+            - '-DisableIOAVProtection $true'
+            - '-DisableIOAVProtection 1'
+            - '-DisableRealtimeMonitoring $true'
+            - '-DisableRealtimeMonitoring 1'
+            - '-DisableRemovableDriveScanning $true'
+            - '-DisableRemovableDriveScanning 1'
+            - '-DisableScanningMappedNetworkDrivesForFullScan $true'
+            - '-DisableScanningMappedNetworkDrivesForFullScan 1'
+            - '-DisableScanningNetworkFiles $true'
+            - '-DisableScanningNetworkFiles 1'
+            - '-DisableScriptScanning $true'
+            - '-DisableScriptScanning 1'
+            - '-MAPSReporting $false'
+            - '-MAPSReporting 0'
+            - '-drdsc $true'
+            - '-drdsc 1'
+            - '-drtm $true'
+            - '-drtm 1'
+            - '-dscrptsc $true'
+            - '-dscrptsc 1'
+            - '-dsmndf $true'
+            - '-dsmndf 1'
+            - '-dsnf $true'
+            - '-dsnf 1'
+            - '-dss $true'
+            - '-dss 1'
     selection_options_actions_func:
         Data|contains:
-            - HighThreatDefaultAction Allow
-            - htdefac Allow
-            - LowThreatDefaultAction Allow
-            - ltdefac Allow
-            - ModerateThreatDefaultAction Allow
-            - mtdefac Allow
-            - SevereThreatDefaultAction Allow
-            - stdefac Allow
-    condition: ps_classic_provider_start and (selection_set_mppreference and 1 of selection_options_*)
+            - 'HighThreatDefaultAction Allow'
+            - 'htdefac Allow'
+            - 'LowThreatDefaultAction Allow'
+            - 'ltdefac Allow'
+            - 'ModerateThreatDefaultAction Allow'
+            - 'mtdefac Allow'
+            - 'SevereThreatDefaultAction Allow'
+            - 'stdefac Allow'
+    condition: selection_set_mppreference and 1 of selection_options_*
 falsepositives:
     - Legitimate PowerShell scripts that disable Windows Defender for troubleshooting purposes. Must be investigated.
 level: high
-ruletype: Sigma

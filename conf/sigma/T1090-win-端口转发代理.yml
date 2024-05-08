@@ -1,0 +1,16 @@
+title: netsh端口转发
+description: windows server 2016
+tags: T1090
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4688 #已创建新的进程。
+        Newprocessname: 'C:\Windows\System32\netsh.exe' #新进程名称
+        Creatorprocessname: 'C:\Windows\System32\cmd.exe' #创建者进程名称
+        Processcommandline: "netsh interface portproxy add v4tov4 *"  #进程命令行参数
+    condition: selection
+level: medium

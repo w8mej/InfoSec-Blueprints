@@ -10,24 +10,17 @@ modified: 2021/11/27
 tags:
     - attack.execution
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventID:
             - 12
             - 13
-        TargetObject|contains: SYSTEM\
-        TargetObject|endswith: \services\localNETService
-    condition: registry_event and selection
+        TargetObject|contains: 'SYSTEM\'
+        TargetObject|endswith: '\services\localNETService'
+    condition: selection
 fields:
     - Image
     - TargetObject
@@ -35,4 +28,3 @@ fields:
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

@@ -14,41 +14,36 @@ tags:
     - attack.impact
     - attack.t1490
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \amsi.dll
+        ImageLoaded|endswith: '\amsi.dll'
     filter_main_exact:
         Image|endswith:
-            - :\Windows\explorer.exe
-            - :\Windows\Sysmon64.exe
+            - ':\Windows\explorer.exe'
+            - ':\Windows\Sysmon64.exe'
     filter_main_generic:
         Image|contains:
-            - :\Program Files (x86)\
-            - :\Program Files\
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-            - :\Windows\WinSxS\
+            - ':\Program Files (x86)\'
+            - ':\Program Files\'
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+            - ':\Windows\WinSxS\'
     filter_optional_defender:
-        Image|contains: :\ProgramData\Microsoft\Windows Defender\Platform\
-        Image|endswith: \MsMpEng.exe
+        Image|contains: ':\ProgramData\Microsoft\Windows Defender\Platform\'
+        Image|endswith: '\MsMpEng.exe'
     filter_main_dotnet:
         Image|contains:
-            - :\Windows\Microsoft.NET\Framework\
-            - :\Windows\Microsoft.NET\Framework64\
-        Image|endswith: \ngentask.exe
+            - ':\Windows\Microsoft.NET\Framework\'
+            - ':\Windows\Microsoft.NET\Framework64\'
+        Image|endswith: '\ngentask.exe'
     filter_main_null:
-        Image:
+        Image: null
     filter_main_empty:
         Image: ''
-    condition: image_load and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate third party apps installed in "ProgramData" and "AppData" might generate some false positives. Apply additional filters accordingly
 level: low
-ruletype: Sigma

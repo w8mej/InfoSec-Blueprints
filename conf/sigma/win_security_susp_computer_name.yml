@@ -20,15 +20,13 @@ logsource:
     product: windows
 detection:
     # Not adding an EventID on purpose to try to match on any event in security (including use of account), not just 4741 (computer account created)
-    security:
-        Channel: Security
     selection1:
-        SamAccountName|startswith: SAMTHEADMIN-
-        SamAccountName|endswith: $
+        SamAccountName|startswith: 'SAMTHEADMIN-'
+        SamAccountName|endswith: '$'
     selection2:
-        TargetUserName|startswith: SAMTHEADMIN-
-        TargetUserName|endswith: $
-    condition: security and (1 of selection*)
+        TargetUserName|startswith: 'SAMTHEADMIN-'
+        TargetUserName|endswith: '$'
+    condition: 1 of selection*
 fields:
     - EventID
     - SamAccountName
@@ -37,4 +35,3 @@ fields:
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

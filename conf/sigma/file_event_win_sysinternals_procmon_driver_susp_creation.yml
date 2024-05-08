@@ -10,23 +10,18 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1068
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \procmon
-        TargetFilename|endswith: .sys
+        TargetFilename|contains: '\procmon'
+        TargetFilename|endswith: '.sys'
     filter_main_process_explorer:
         Image|endswith:
-            - \procmon.exe
-            - \procmon64.exe
-    condition: file_event and (selection and not 1 of filter_main_*)
+            - '\procmon.exe'
+            - '\procmon64.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Some false positives may occur with legitimate renamed process monitor binaries
 level: medium
-ruletype: Sigma

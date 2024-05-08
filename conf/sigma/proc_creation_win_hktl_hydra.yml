@@ -11,23 +11,18 @@ tags:
     - attack.credential_access
     - attack.t1110
     - attack.t1110.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
             - '-u '
             - '-p '
         CommandLine|contains:
-            - ^USER^
-            - ^PASS^
-    condition: process_creation and selection
+            - '^USER^'
+            - '^PASS^'
+    condition: selection
 falsepositives:
     - Software that uses the caret encased keywords PASS and USER in its command line
 level: high
-ruletype: Sigma

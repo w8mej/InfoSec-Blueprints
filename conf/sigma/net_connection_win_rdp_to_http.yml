@@ -14,23 +14,18 @@ tags:
     - attack.lateral_movement
     - attack.t1021.001
     - car.2013-07-002
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \svchost.exe
+        Image|endswith: '\svchost.exe'
         Initiated: 'true'
         SourcePort: 3389
         DestinationPort:
             - 80
             - 443
-    condition: network_connection and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

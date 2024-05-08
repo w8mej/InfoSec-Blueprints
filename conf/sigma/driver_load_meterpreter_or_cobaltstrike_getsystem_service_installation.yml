@@ -15,39 +15,35 @@ tags:
     - attack.privilege_escalation
     - attack.t1134.001
     - attack.t1134.002
-    - sysmon
 logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # meterpreter getsystem technique 1: cmd.exe /c echo 559891bb017 > \\.\pipe\5e120a
         - ImagePath|contains|all:
-              - cmd
-              - /c
-              - echo
-              - \pipe\
+            - 'cmd'
+            - '/c'
+            - 'echo'
+            - '\pipe\'
         # cobaltstrike getsystem technique 1: %COMSPEC% /c echo 559891bb017 > \\.\pipe\5e120a
         - ImagePath|contains|all:
-              - '%COMSPEC%'
-              - /c
-              - echo
-              - \pipe\
+            - '%COMSPEC%'
+            - '/c'
+            - 'echo'
+            - '\pipe\'
         # cobaltstrike getsystem technique 1b (expanded %COMSPEC%): %COMSPEC% /c echo 559891bb017 > \\.\pipe\5e120a
         - ImagePath|contains|all:
-              - cmd.exe
-              - /c
-              - echo
-              - \pipe\
+            - 'cmd.exe'
+            - '/c'
+            - 'echo'
+            - '\pipe\'
         # meterpreter getsystem technique 2: rundll32.exe C:\Users\test\AppData\Local\Temp\tmexsn.dll,a /p:tmexsn
         - ImagePath|contains|all:
-              - rundll32
-              - .dll,a
-              - '/p:'
-    condition: driver_load and selection
+            - 'rundll32'
+            - '.dll,a'
+            - '/p:'
+    condition: selection
 fields:
     - ComputerName
     - SubjectDomainName
@@ -56,4 +52,3 @@ fields:
 falsepositives:
     - Highly unlikely
 level: critical
-ruletype: Sigma

@@ -15,25 +15,20 @@ modified: 2023/02/21
 tags:
     - attack.defense_evasion
     - attack.t1562.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - /logon:none
-            - /system:none
-            - /sam:none
-            - /privilege:none
-            - /object:none
-            - /process:none
-            - /policy:none
-    condition: process_creation and selection
+            - '/logon:none'
+            - '/system:none'
+            - '/sam:none'
+            - '/privilege:none'
+            - '/object:none'
+            - '/process:none'
+            - '/policy:none'
+    condition: selection
 falsepositives:
     - The old auditpol utility isn't available by default on recent versions of Windows as it was replaced by a newer version. The FP rate should be very low except for tools that use a similar flag structure
 level: high
-ruletype: Sigma

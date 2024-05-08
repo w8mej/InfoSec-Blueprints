@@ -10,28 +10,23 @@ modified: 2022/06/13
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \certreq.exe
-        - OriginalFileName: CertReq.exe
+        - Image|endswith: '\certreq.exe'
+        - OriginalFileName: 'CertReq.exe'
     selection_cli:
         CommandLine|contains|all:
             - ' -Post '
             - ' -config '
             - ' http'
             - ' C:\windows\win.ini '
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

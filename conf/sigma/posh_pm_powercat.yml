@@ -17,17 +17,11 @@ logsource:
     category: ps_module
     definition: 'Requirements: PowerShell Module Logging must be enabled'
 detection:
-    ps_module:
-        EventID: 4103
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ContextInfo|contains:
             - 'powercat '
-            - powercat.ps1
-    condition: ps_module and selection
+            - 'powercat.ps1'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

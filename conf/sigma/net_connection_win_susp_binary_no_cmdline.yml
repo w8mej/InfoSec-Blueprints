@@ -8,30 +8,25 @@ author: Florian Roth (Nextron Systems)
 date: 2022/07/03
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         Image|endswith:
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \dllhost.exe
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\dllhost.exe'
         CommandLine|endswith:
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \dllhost.exe
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\dllhost.exe'
     filter_no_cmdline:
         CommandLine: ''
     filter_null: # e.g. Sysmon has no CommandLine field in network events with ID 3
-        CommandLine:
-    condition: network_connection and (selection and not 1 of filter*)
+        CommandLine: null
+    condition: selection and not 1 of filter*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

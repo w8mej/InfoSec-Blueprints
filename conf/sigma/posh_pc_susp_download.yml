@@ -17,17 +17,13 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection_webclient:
-        Data|contains: Net.WebClient
+        Data|contains: 'Net.WebClient'
     selection_download:
         Data|contains:
-            - .DownloadFile(
-            - .DownloadString(
-    condition: ps_classic_start and (all of selection_*)
+            - '.DownloadFile('
+            - '.DownloadString('
+    condition: all of selection_*
 falsepositives:
     - PowerShell scripts that download content from the Internet
 level: medium
-ruletype: Sigma

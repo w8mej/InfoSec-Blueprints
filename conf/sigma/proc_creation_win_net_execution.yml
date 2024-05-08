@@ -26,21 +26,17 @@ tags:
     - attack.t1021.002
     - attack.s0039
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \net.exe
-              - \net1.exe
+              - '\net.exe'
+              - '\net1.exe'
         - OriginalFileName:
-              - net.exe
-              - net1.exe
+              - 'net.exe'
+              - 'net1.exe'
     selection_cli:
         CommandLine|contains:
             - ' accounts'
@@ -51,8 +47,7 @@ detection:
             - ' stop '
             - ' user'
             - ' view'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Likely
 level: low
-ruletype: Sigma

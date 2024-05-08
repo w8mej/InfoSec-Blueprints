@@ -10,17 +10,13 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1133
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     chrome_ext:
-        TargetObject|contains: Software\Wow6432Node\Google\Chrome\Extensions
-        TargetObject|endswith: update_url
+        TargetObject|contains: 'Software\Wow6432Node\Google\Chrome\Extensions'
+        TargetObject|endswith: 'update_url'
     chrome_vpn:
         TargetObject|contains:
             - fdcgdnkidjaadafnichfpabhfomcebme # ZenMate VPN
@@ -129,8 +125,7 @@ detection:
             - dpplabbmogkhghncfbfdeeokoefdjegm # Proxy SwitchySharp
             - padekgcemlokbadohgkifijomclgjgif # Proxy SwitchyOmega
             - bfidboloedlamgdmenmlbipfnccokknp # PureVPN
-    condition: registry_set and (all of chrome_*)
+    condition: all of chrome_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

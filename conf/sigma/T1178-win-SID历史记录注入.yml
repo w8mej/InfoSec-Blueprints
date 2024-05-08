@@ -1,0 +1,15 @@
+title: Windows SID历史记录创建域控权限后门
+description: 域环境测试
+references: https://adsecurity.org/?p=1772
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+         - 4766 #尝试将SID历史记录添加到帐户失败。
+         - 4765 #已将 SID 历史记录添加到帐户。
+    condition: selection
+level: medium

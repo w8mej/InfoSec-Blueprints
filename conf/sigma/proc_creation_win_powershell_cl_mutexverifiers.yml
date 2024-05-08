@@ -10,28 +10,23 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1216
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_pwsh:
         ParentImage|endswith:
             # Note: to avoid potential FPs we assume the script was launched from powershell. But in theory it can be launched by any Powershell like process
-            - \powershell.exe
-            - \pwsh.exe
-        Image|endswith: \powershell.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        Image|endswith: '\powershell.exe'
         CommandLine|contains: ' -nologo -windowstyle minimized -file '
     selection_temp:
         # Note: Since the function uses "env:temp" the value will change depending on the context of exec
         CommandLine|contains:
-            - \AppData\Local\Temp\
-            - \Windows\Temp\
-    condition: process_creation and (all of selection_*)
+            - '\AppData\Local\Temp\'
+            - '\Windows\Temp\'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,17 +14,14 @@ logsource:
     product: windows
     service: security-mitigations
 detection:
-    security_mitigations:
-        Channel: Microsoft-Windows-Security-Mitigations*
     selection:
         EventID:
             - 11
             - 12 # MDE: ExploitGuardNonMicrosoftSignedBlocked
         ProcessPath|endswith:
-            - \MpCmdRun.exe
-            - \NisSrv.exe
-    condition: security_mitigations and selection
+            - '\MpCmdRun.exe'
+            - '\NisSrv.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

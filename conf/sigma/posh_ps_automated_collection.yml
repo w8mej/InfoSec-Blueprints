@@ -15,29 +15,23 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_ext:
         ScriptBlockText|contains:
-            - .doc
-            - .docx
-            - .xls
-            - .xlsx
-            - .ppt
-            - .pptx
-            - .rtf
-            - .pdf
-            - .txt
+            - '.doc'
+            - '.docx'
+            - '.xls'
+            - '.xlsx'
+            - '.ppt'
+            - '.pptx'
+            - '.rtf'
+            - '.pdf'
+            - '.txt'
     selection_cmd:
         ScriptBlockText|contains|all:
-            - Get-ChildItem
+            - 'Get-ChildItem'
             - ' -Recurse '
             - ' -Include '
-    condition: ps_script and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

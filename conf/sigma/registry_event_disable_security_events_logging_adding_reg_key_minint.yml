@@ -11,24 +11,17 @@ tags:
     - attack.defense_evasion
     - attack.t1562.001
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
     # Sysmon gives us HKLM\SYSTEM\CurrentControlSet\.. if ControlSetXX is the selected one
-        - TargetObject: HKLM\SYSTEM\CurrentControlSet\Control\MiniNt
-          EventType: CreateKey      # we don't want deletekey
+        - TargetObject: 'HKLM\SYSTEM\CurrentControlSet\Control\MiniNt'
+          EventType: 'CreateKey'    # we don't want deletekey
     # key rename
-        - NewName: HKLM\SYSTEM\CurrentControlSet\Control\MiniNt
-    condition: registry_event and selection
+        - NewName: 'HKLM\SYSTEM\CurrentControlSet\Control\MiniNt'
+    condition: selection
 fields:
     - EventID
     - Image
@@ -37,4 +30,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

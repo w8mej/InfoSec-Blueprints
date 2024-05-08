@@ -15,18 +15,13 @@ tags:
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImagePath|re: (?i).*(set).*&&\s?set.*(environment|invoke|\$?\{?input).*&&.*"
-    condition: driver_load and selection
+        ImagePath|re: '(?i).*(set).*&&\s?set.*(environment|invoke|\$?\{?input).*&&.*"'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

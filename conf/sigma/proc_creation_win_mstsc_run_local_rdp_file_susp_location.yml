@@ -10,35 +10,30 @@ date: 2023/04/18
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \mstsc.exe
-        - OriginalFileName: mstsc.exe
+        - Image|endswith: '\mstsc.exe'
+        - OriginalFileName: 'mstsc.exe'
     selection_extension:
         CommandLine|endswith:
-            - .rdp
-            - .rdp"
+            - '.rdp'
+            - '.rdp"'
     selection_paths:
         # Note: This list of paths is better transformed into a whitelist where you only exclude legitimate locations you use in your env
         CommandLine|contains:
-            - :\Users\Public\
-            - :\Windows\System32\spool\drivers\color
+            - ':\Users\Public\'
+            - ':\Windows\System32\spool\drivers\color'
             - ':\Windows\System32\Tasks_Migrated '
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - :\Windows\Tracing\
-            - \AppData\Local\Temp\
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - ':\Windows\Tracing\'
+            - '\AppData\Local\Temp\'
             # - '\Desktop\' # Could be source of FP depending on the environment
-            - \Downloads\   # Could be source of FP depending on the environment
-    condition: process_creation and (all of selection_*)
+            - '\Downloads\' # Could be source of FP depending on the environment
+    condition: all of selection_*
 falsepositives:
     - Likelihood is related to how often the paths are used in the environment
 level: high
-ruletype: Sigma

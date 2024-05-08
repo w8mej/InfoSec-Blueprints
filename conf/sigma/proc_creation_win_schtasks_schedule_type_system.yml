@@ -13,17 +13,13 @@ date: 2022/08/31
 tags:
     - attack.execution
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \schtasks.exe
-        - OriginalFileName: schtasks.exe
+        - Image|endswith: '\schtasks.exe'
+        - OriginalFileName: 'schtasks.exe'
     selection_time:
         CommandLine|contains:
             - ' ONLOGON '
@@ -32,11 +28,10 @@ detection:
             - ' ONIDLE '
     selection_privs:
         CommandLine|contains:
-            - NT AUT   # This covers the usual NT AUTHORITY\SYSTEM
+            - 'NT AUT' # This covers the usual NT AUTHORITY\SYSTEM
             - ' SYSTEM' # SYSTEM is a valid value for schtasks hence it gets it's own value with space
-            - HIGHEST
-    condition: process_creation and (all of selection_*)
+            - 'HIGHEST'
+    condition: all of selection_*
 falsepositives:
     - Some installers were seen using this method of creation unfortunately. Filter them in your environment
 level: medium
-ruletype: Sigma

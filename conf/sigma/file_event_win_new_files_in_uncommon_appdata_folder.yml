@@ -10,41 +10,36 @@ modified: 2023/02/23
 tags:
     - attack.defense_evasion
     - attack.execution
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: C:\Users\
-        TargetFilename|contains: \AppData\
+        TargetFilename|startswith: 'C:\Users\'
+        TargetFilename|contains: '\AppData\'
         TargetFilename|endswith:
             # Add more as needed
-            - .bat
-            - .cmd
-            - .cpl
-            - .dll
-            - .exe
-            - .hta
-            - .iso
-            - .lnk
-            - .msi
-            - .ps1
-            - .psm1
-            - .scr
-            - .vbe
-            - .vbs
+            - '.bat'
+            - '.cmd'
+            - '.cpl'
+            - '.dll'
+            - '.exe'
+            - '.hta'
+            - '.iso'
+            - '.lnk'
+            - '.msi'
+            - '.ps1'
+            - '.psm1'
+            - '.scr'
+            - '.vbe'
+            - '.vbs'
     filter_main:
-        TargetFilename|startswith: C:\Users\
+        TargetFilename|startswith: 'C:\Users\'
         TargetFilename|contains:
-            - \AppData\Local\
-            - \AppData\LocalLow\
-            - \AppData\Roaming\
-    condition: file_event and (selection and not filter_main)
+            - '\AppData\Local\'
+            - '\AppData\LocalLow\'
+            - '\AppData\Roaming\'
+    condition: selection and not filter_main
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

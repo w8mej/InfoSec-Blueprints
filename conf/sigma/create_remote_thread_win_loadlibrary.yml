@@ -11,19 +11,14 @@ tags:
     - attack.defense_evasion
     - attack.t1055.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        StartModule|endswith: \kernel32.dll
-        StartFunction: LoadLibraryA
-    condition: create_remote_thread and selection
+        StartModule|endswith: '\kernel32.dll'
+        StartFunction: 'LoadLibraryA'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

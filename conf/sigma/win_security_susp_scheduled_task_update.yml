@@ -17,50 +17,47 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The Advanced Audit Policy setting Object Access > Audit Other Object Access Events has to be configured to allow this detection. We also recommend extracting the Command field from the embedded XML in the event data.
+    definition: 'The Advanced Audit Policy setting Object Access > Audit Other Object Access Events has to be configured to allow this detection. We also recommend extracting the Command field from the embedded XML in the event data.'
 detection:
-    security:
-        Channel: Security
     selection_eid:
         EventID: 4702
     selection_paths:
         TaskContentNew|contains:
-            - \AppData\Local\Temp\
-            - \AppData\Roaming\
-            - \Users\Public\
-            - \WINDOWS\Temp\
-            - C:\Temp\
-            - \Desktop\
-            - \Downloads\
-            - \Temporary Internet
-            - C:\ProgramData\
-            - C:\Perflogs\
+            - '\AppData\Local\Temp\'
+            - '\AppData\Roaming\'
+            - '\Users\Public\'
+            - '\WINDOWS\Temp\'
+            - 'C:\Temp\'
+            - '\Desktop\'
+            - '\Downloads\'
+            - '\Temporary Internet'
+            - 'C:\ProgramData\'
+            - 'C:\Perflogs\'
     selection_commands:
         TaskContentNew|contains:
-            - regsvr32
-            - rundll32
-            - cmd.exe</Command>
-            - cmd</Command>
+            - 'regsvr32'
+            - 'rundll32'
+            - 'cmd.exe</Command>'
+            - 'cmd</Command>'
             - '<Arguments>/c '
             - '<Arguments>/k '
             - '<Arguments>/r '
-            - powershell
-            - pwsh
-            - mshta
-            - wscript
-            - cscript
-            - certutil
-            - bitsadmin
-            - bash.exe
+            - 'powershell'
+            - 'pwsh'
+            - 'mshta'
+            - 'wscript'
+            - 'cscript'
+            - 'certutil'
+            - 'bitsadmin'
+            - 'bash.exe'
             - 'bash '
-            - scrcons
+            - 'scrcons'
             - 'wmic '
-            - wmic.exe
-            - forfiles
-            - scriptrunner
-            - hh.exe
-    condition: security and (all of selection_*)
+            - 'wmic.exe'
+            - 'forfiles'
+            - 'scriptrunner'
+            - 'hh.exe'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

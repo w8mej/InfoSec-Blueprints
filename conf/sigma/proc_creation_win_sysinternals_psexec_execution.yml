@@ -11,19 +11,14 @@ tags:
     - attack.execution
     - attack.t1569
     - attack.t1021
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \psexec.exe
-        - OriginalFileName: psexec.c
-    condition: process_creation and selection
+        - Image|endswith: '\psexec.exe'
+        - OriginalFileName: 'psexec.c'
+    condition: selection
 falsepositives:
     - Administrative scripts.
 level: medium
-ruletype: Sigma

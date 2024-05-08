@@ -15,24 +15,19 @@ modified: 2023/11/28
 tags:
     - attack.persistence
     - attack.t1176
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \brave.exe
-            - \chrome.exe
-            - \msedge.exe
-            - \opera.exe
-            - \vivaldi.exe
-        CommandLine|contains: --load-extension=
-    condition: process_creation and selection
+            - '\brave.exe'
+            - '\chrome.exe'
+            - '\msedge.exe'
+            - '\opera.exe'
+            - '\vivaldi.exe'
+        CommandLine|contains: '--load-extension='
+    condition: selection
 falsepositives:
     - Usage of Chrome Extensions in testing tools such as BurpSuite will trigger this alert
 level: medium
-ruletype: Sigma

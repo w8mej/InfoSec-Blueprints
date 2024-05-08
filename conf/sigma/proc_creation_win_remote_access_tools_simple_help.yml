@@ -12,21 +12,16 @@ date: 2024/02/23
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|contains:
-            - \JWrapper-Remote Access\
-            - \JWrapper-Remote Support\
-        Image|endswith: \SimpleService.exe
-    condition: process_creation and selection
+            - '\JWrapper-Remote Access\'
+            - '\JWrapper-Remote Support\'
+        Image|endswith: '\SimpleService.exe'
+    condition: selection
 falsepositives:
     - Legitimate usage of the tool
 level: medium
-ruletype: Sigma

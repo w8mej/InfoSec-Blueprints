@@ -1,0 +1,25 @@
+title: 通过GPO计划任务进行大规模的持久性和执行
+description: 使用GPO计划任务检测横向移动，通常用于大规模部署勒索软件
+author: 12306Br0(翻译+测试)
+date: 2020/06/07
+references:
+    - https://twitter.com/menasec1/status/1106899890377052160
+    - https://www.secureworks.com/blog/ransomware-as-a-distraction
+tags:
+    - attack.persistence
+    - attack.lateral_movement
+    - attack.t1053
+logsource:
+    product: windows
+    service: security
+    description: '必须为成功/失败配置高级审核策略设置“对象访问>审核详细文件共享'
+detection:
+    selection:
+        EventID: 5145
+        ShareName: \\*\SYSVOL
+        RelativeTargetName: '*ScheduledTasks.xml'
+        Accesses: '*WriteData*'
+    condition: selection
+falsepositives:
+    - 如果源IP不是localhost，则它非常可疑，最好同时监视对GPO计划任务的本地和远程更改
+level: high

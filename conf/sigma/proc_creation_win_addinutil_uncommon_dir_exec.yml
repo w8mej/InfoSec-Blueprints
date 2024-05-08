@@ -9,24 +9,19 @@ date: 2023/09/18
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \addinutil.exe
-        - OriginalFileName: AddInUtil.exe
+        - Image|endswith: '\addinutil.exe'
+        - OriginalFileName: 'AddInUtil.exe'
     filter_main_legit_location:
         Image|contains:
-            - :\Windows\Microsoft.NET\Framework\
-            - :\Windows\Microsoft.NET\Framework64\
-            - :\Windows\WinSxS\
-    condition: process_creation and (selection and not 1 of filter_main_*)
+            - ':\Windows\Microsoft.NET\Framework\'
+            - ':\Windows\Microsoft.NET\Framework64\'
+            - ':\Windows\WinSxS\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

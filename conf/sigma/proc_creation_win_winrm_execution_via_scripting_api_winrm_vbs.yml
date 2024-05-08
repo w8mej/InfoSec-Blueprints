@@ -12,25 +12,20 @@ modified: 2023/03/03
 tags:
     - attack.defense_evasion
     - attack.t1216
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         # Note: winrm.vbs can only be run by a process named cscript (see "IsCScriptEnv" function)
-        - Image|endswith: \cscript.exe
-        - OriginalFileName: cscript.exe
+        - Image|endswith: '\cscript.exe'
+        - OriginalFileName: 'cscript.exe'
     selection_cli:
         CommandLine|contains|all:
-            - winrm
-            - invoke Create wmicimv2/Win32_
-            - -r:http
-    condition: process_creation and (all of selection*)
+            - 'winrm'
+            - 'invoke Create wmicimv2/Win32_'
+            - '-r:http'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

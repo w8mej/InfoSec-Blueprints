@@ -14,14 +14,11 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         Provider_Name: Microsoft-Windows-Ntfs
         EventID: 98
         DeviceName|contains: HarddiskVolumeShadowCopy
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Legitimate use of volume shadow copy mounts (backups maybe).
 level: low
-ruletype: Sigma

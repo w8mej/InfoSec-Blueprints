@@ -14,21 +14,16 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \mfdetours.dll
+        ImageLoaded|endswith: '\mfdetours.dll'
     filter_main_legit_path:
-        ImageLoaded|contains: :\Program Files (x86)\Windows Kits\10\bin\
-        SignatureStatus: Valid
-    condition: image_load and (selection and not 1 of filter_main_*)
+        ImageLoaded|contains: ':\Program Files (x86)\Windows Kits\10\bin\'
+        SignatureStatus: 'Valid'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

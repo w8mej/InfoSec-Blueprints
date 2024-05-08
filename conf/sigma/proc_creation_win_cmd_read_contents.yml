@@ -10,28 +10,23 @@ modified: 2023/03/07
 tags:
     - attack.execution
     - attack.t1059.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cmd:
-        - OriginalFileName: Cmd.Exe
-        - Image|endswith: \cmd.exe
+        - OriginalFileName: 'Cmd.Exe'
+        - Image|endswith: '\cmd.exe'
     selection_read:
         - ParentCommandLine|contains|all:
-              - cmd
-              - '/r '
-              - <
+            - 'cmd'
+            - '/r '
+            - '<'
         - CommandLine|contains|all:
-              - cmd
-              - '/r '
-              - <
-    condition: process_creation and (all of selection_*)
+            - 'cmd'
+            - '/r '
+            - '<'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

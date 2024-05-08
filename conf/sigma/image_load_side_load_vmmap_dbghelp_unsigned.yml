@@ -16,23 +16,18 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|contains: C:\Debuggers\dbghelp.dll
+        ImageLoaded|contains: 'C:\Debuggers\dbghelp.dll'
         Image|endswith:
-            - \vmmap.exe
-            - \vmmap64.exe
+            - '\vmmap.exe'
+            - '\vmmap64.exe'
     filter_main_signed:
         Signed: 'true'
-    condition: image_load and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

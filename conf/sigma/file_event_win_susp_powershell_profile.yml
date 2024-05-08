@@ -12,24 +12,19 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1546.013
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \Microsoft.PowerShell_profile.ps1
-            - \PowerShell\profile.ps1
-            - \Program Files\PowerShell\7-preview\profile.ps1
-            - \Program Files\PowerShell\7\profile.ps1
-            - \Windows\System32\WindowsPowerShell\v1.0\profile.ps1
-            - \WindowsPowerShell\profile.ps1
-    condition: file_event and selection
+            - '\Microsoft.PowerShell_profile.ps1'
+            - '\PowerShell\profile.ps1'
+            - '\Program Files\PowerShell\7-preview\profile.ps1'
+            - '\Program Files\PowerShell\7\profile.ps1'
+            - '\Windows\System32\WindowsPowerShell\v1.0\profile.ps1'
+            - '\WindowsPowerShell\profile.ps1'
+    condition: selection
 falsepositives:
     - System administrator creating Powershell profile manually
 level: medium
-ruletype: Sigma

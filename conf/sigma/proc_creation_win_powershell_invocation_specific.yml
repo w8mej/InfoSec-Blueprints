@@ -15,64 +15,59 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/01/05
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_convert_b64:
         CommandLine|contains|all:
-            - -nop
+            - '-nop'
             - ' -w '
-            - hidden
+            - 'hidden'
             - ' -c '
             - '[Convert]::FromBase64String'
     selection_iex:
         CommandLine|contains|all:
             - ' -w '
-            - hidden
-            - -noni
-            - -nop
+            - 'hidden'
+            - '-noni'
+            - '-nop'
             - ' -c '
-            - iex
-            - New-Object
+            - 'iex'
+            - 'New-Object'
     selection_enc:
         CommandLine|contains|all:
             - ' -w '
-            - hidden
-            - -ep
-            - bypass
-            - -Enc
+            - 'hidden'
+            - '-ep'
+            - 'bypass'
+            - '-Enc'
     selection_reg:
         CommandLine|contains|all:
-            - powershell
-            - reg
-            - add
-            - \software\
+            - 'powershell'
+            - 'reg'
+            - 'add'
+            - '\software\'
     selection_webclient:
         CommandLine|contains|all:
-            - bypass
-            - -noprofile
-            - -windowstyle
-            - hidden
-            - new-object
-            - system.net.webclient
-            - .download
+            - 'bypass'
+            - '-noprofile'
+            - '-windowstyle'
+            - 'hidden'
+            - 'new-object'
+            - 'system.net.webclient'
+            - '.download'
     selection_iex_webclient:
         CommandLine|contains|all:
-            - iex
-            - New-Object
-            - Net.WebClient
-            - .Download
+            - 'iex'
+            - 'New-Object'
+            - 'Net.WebClient'
+            - '.Download'
     filter_chocolatey:
         CommandLine|contains:
-            - (New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1
-            - Write-ChocolateyWarning
-    condition: process_creation and (1 of selection_* and not 1 of filter_*)
+            - "(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1"
+            - 'Write-ChocolateyWarning'
+    condition: 1 of selection_* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

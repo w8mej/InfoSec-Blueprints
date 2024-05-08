@@ -15,21 +15,16 @@ tags:
     - attack.execution
     - attack.t1059.005
     - attack.t1059.007
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - TargetFilename|contains|all:
-              - \AppData\Roaming\Oracle\bin\java
-              - .exe
+              - '\AppData\Roaming\Oracle\bin\java'
+              - '.exe'
         - TargetFilename|contains|all:
-              - \Retrive
-              - .vbs
-    condition: file_event and selection
+              - '\Retrive'
+              - '.vbs'
+    condition: selection
 level: high
-ruletype: Sigma

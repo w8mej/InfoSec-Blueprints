@@ -13,16 +13,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_root:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     selection_service:
-        - ImagePath|contains: MeshAgent.exe
-        - ServiceName|contains: Mesh Agent
-    condition: system and (all of selection_*)
+        - ImagePath|contains: 'MeshAgent.exe'
+        - ServiceName|contains: 'Mesh Agent'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of the tool
 level: medium
-ruletype: Sigma

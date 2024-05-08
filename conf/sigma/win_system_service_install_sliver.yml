@@ -16,19 +16,16 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_eid:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     selection_service_1:
-        ImagePath|re: ^[a-zA-Z]:\\windows\\temp\\[a-zA-Z0-9]{10}\.exe
+        ImagePath|re: '^[a-zA-Z]:\\windows\\temp\\[a-zA-Z0-9]{10}\.exe'
     selection_service_2:
         ServiceName:
-            - Sliver
-            - Sliver implant
-    condition: system and (selection_eid and 1 of selection_service_*)
+            - 'Sliver'
+            - 'Sliver implant'
+    condition: selection_eid and 1 of selection_service_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

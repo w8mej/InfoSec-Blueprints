@@ -19,19 +19,14 @@ date: 2023/11/20
 tags:
     - attack.exfiltration
     - attack.t1567.001
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
-        DestinationHostname|endswith: .tunnels.api.visualstudio.com
-    condition: network_connection and selection
+        DestinationHostname|endswith: '.tunnels.api.visualstudio.com'
+    condition: selection
 falsepositives:
     - Legitimate use of Visual Studio Code tunnel will also trigger this.
 level: medium
-ruletype: Sigma

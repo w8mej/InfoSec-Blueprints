@@ -12,24 +12,19 @@ tags:
     - attack.privilege_escalation
     - attack.persistence
     - attack.t1546.008
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: Cmd.Exe
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'Cmd.Exe'
     selection_cli:
         CommandLine|contains|all:
-            - mklink
-            - \osk.exe
-            - \cmd.exe
-    condition: process_creation and (all of selection_*)
+            - 'mklink'
+            - '\osk.exe'
+            - '\cmd.exe'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

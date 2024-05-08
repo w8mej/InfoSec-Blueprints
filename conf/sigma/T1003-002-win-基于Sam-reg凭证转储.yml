@@ -1,0 +1,21 @@
+title: 本地导出sam、system文件，离线进行hash提取(administrator)
+description: windows 7 模拟测试结果
+references: https://github.com/gentilkiwi/mimikatz/wiki/module-~-lsadump
+tags: ATT&CK T1003-002
+status: experimental
+author: 12306Bro
+logsource:
+​    product: windows
+​    service: sysmon
+detection:
+​    selection1:
+​        EventID: 1
+​        Image: 'C:\Windows\System32\reg.exe'
+​        CommandLine: 'reg  save hklm\sam *.hiv'
+​    selection2:
+​        EventID: 1
+​        Image: 'Image: C:\Windows\System32\reg.exe'
+​        CommandLine: 'reg  save hklm\system *.hiv'
+​    timeframe: last 2m
+​    condition: all of them
+level: high

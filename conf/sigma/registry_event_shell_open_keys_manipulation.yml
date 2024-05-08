@@ -15,32 +15,24 @@ tags:
     - attack.privilege_escalation
     - attack.t1548.002
     - attack.t1546.001
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         EventType: SetValue
-        TargetObject|endswith: Classes\ms-settings\shell\open\command\SymbolicLinkValue
-        Details|contains: \Software\Classes\{
+        TargetObject|endswith: 'Classes\ms-settings\shell\open\command\SymbolicLinkValue'
+        Details|contains: '\Software\Classes\{'
     selection2:
-        TargetObject|endswith: Classes\ms-settings\shell\open\command\DelegateExecute
+        TargetObject|endswith: 'Classes\ms-settings\shell\open\command\DelegateExecute'
     selection3:
         EventType: SetValue
         TargetObject|endswith:
-            - Classes\ms-settings\shell\open\command\(Default)
-            - Classes\exefile\shell\open\command\(Default)
+            - 'Classes\ms-settings\shell\open\command\(Default)'
+            - 'Classes\exefile\shell\open\command\(Default)'
     filter_sel3:
-        Details: (Empty)
-    condition: registry_event and (selection1 or selection2 or (selection3 and not filter_sel3))
+        Details: '(Empty)'
+    condition: selection1 or selection2 or (selection3 and not filter_sel3)
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,20 +11,15 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1547.001
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
-        TargetObject|endswith: Startup   # cover Common Startup and Startup
+        TargetObject|contains: 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
+        TargetObject|endswith: 'Startup' # cover Common Startup and Startup
         # can use Details|contains: path if get too many FP
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

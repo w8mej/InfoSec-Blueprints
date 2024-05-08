@@ -11,18 +11,13 @@ modified: 2023/03/05
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: -NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8
-    condition: process_creation and selection
+        CommandLine|contains: '-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

@@ -13,23 +13,18 @@ modified: 2023/09/18
 tags:
     - attack.exfiltration
     - attack.t1048.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|endswith: \svchost.exe
+        ParentImage|endswith: '\svchost.exe'
     selection_img:
-        - Image|endswith: \rundll32.exe
-        - OriginalFileName: RUNDLL32.EXE
+        - Image|endswith: '\rundll32.exe'
+        - OriginalFileName: 'RUNDLL32.EXE'
     selection_cli:
-        CommandLine|contains: C:\windows\system32\davclnt.dll,DavSetCookie
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'C:\windows\system32\davclnt.dll,DavSetCookie'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

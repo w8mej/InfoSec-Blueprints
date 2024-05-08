@@ -18,18 +18,15 @@ logsource:
     service: dns-client
     definition: 'Requirements: Microsoft-Windows-DNS Client Events/Operational Event Log must be enabled/collected in order to receive the events.'
 detection:
-    dns_client:
-        Channel: Microsoft-Windows-DNS Client Events/Operational
     selection_eid:
         EventID: 3008
     selection_query_1:
         QueryName|startswith:
-            - aaa.stage.
-            - post.1
+            - 'aaa.stage.'
+            - 'post.1'
     selection_query_2:
-        QueryName|contains: .stage.123456.
-    condition: dns_client and (selection_eid and 1 of selection_query_*)
+        QueryName|contains: '.stage.123456.'
+    condition: selection_eid and 1 of selection_query_*
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

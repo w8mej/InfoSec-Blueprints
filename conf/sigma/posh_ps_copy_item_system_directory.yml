@@ -15,15 +15,9 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
-        ScriptBlockText|re: (Copy-Item|cpi) .{2,128} -Destination .{1,32}\\Windows\\(System32|SysWOW64)
-    condition: ps_script and selection
+        ScriptBlockText|re: '(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\Windows\\(System32|SysWOW64)'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

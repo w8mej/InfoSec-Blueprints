@@ -15,28 +15,23 @@ modified: 2023/01/30
 tags:
     - attack.execution
     - attack.t1059.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: Cmd.Exe
-        - Image|endswith: \cmd.exe
+        - OriginalFileName: 'Cmd.Exe'
+        - Image|endswith: '\cmd.exe'
     selection_cli:
         CommandLine|contains:
-            - Invoke-UserHunter
-            - Invoke-ShareFinder
-            - Invoke-Kerberoast
-            - Invoke-SMBAutoBrute
-            - Invoke-Nightmare
-            - zerologon
-            - av_query
-    condition: process_creation and (all of selection_*)
+            - 'Invoke-UserHunter'
+            - 'Invoke-ShareFinder'
+            - 'Invoke-Kerberoast'
+            - 'Invoke-SMBAutoBrute'
+            - 'Invoke-Nightmare'
+            - 'zerologon'
+            - 'av_query'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

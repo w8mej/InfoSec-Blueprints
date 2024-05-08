@@ -10,19 +10,14 @@ modified: 2023/08/17
 tags:
     - attack.t1564
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: SYSTEM\CurrentControlSet\Control\CrashControl
-        Details: DWORD (0x00000000)
-    condition: registry_set and selection
+        TargetObject|contains: 'SYSTEM\CurrentControlSet\Control\CrashControl'
+        Details: 'DWORD (0x00000000)'
+    condition: selection
 falsepositives:
     - Legitimate disabling of crashdumps
 level: medium
-ruletype: Sigma

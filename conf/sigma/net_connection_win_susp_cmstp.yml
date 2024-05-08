@@ -9,19 +9,14 @@ date: 2022/08/30
 tags:
     - attack.defense_evasion
     - attack.t1218.003
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \cmstp.exe
+        Image|endswith: '\cmstp.exe'
         Initiated: 'true'
-    condition: network_connection and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

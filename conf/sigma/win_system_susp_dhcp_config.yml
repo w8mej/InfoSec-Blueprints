@@ -16,13 +16,10 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID: 1033
         Provider_Name: Microsoft-Windows-DHCP-Server
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

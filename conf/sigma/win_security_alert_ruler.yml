@@ -22,18 +22,15 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID: 4776
-        Workstation: RULER
+        Workstation: 'RULER'
     selection2:
         EventID:
             - 4624
             - 4625
-        WorkstationName: RULER
-    condition: security and ((1 of selection*))
+        WorkstationName: 'RULER'
+    condition: (1 of selection*)
 falsepositives:
     - Go utilities that use staaldraad awesome NTLM library
 level: high
-ruletype: Sigma

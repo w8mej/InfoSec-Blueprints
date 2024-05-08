@@ -11,25 +11,20 @@ modified: 2022/07/07
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \cscript.exe
-              - \wscript.exe
+              - '\cscript.exe'
+              - '\wscript.exe'
         - OriginalFileName:
-              - cscript.exe
-              - wscript.exe
+              - 'cscript.exe'
+              - 'wscript.exe'
     selection_cli:
         CommandLine|contains: '.vbs -register ' # register_app.vbs
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Other VB scripts that leverage the same starting command line flags
 level: medium
-ruletype: Sigma

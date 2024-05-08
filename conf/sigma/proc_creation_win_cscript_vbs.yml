@@ -10,25 +10,20 @@ modified: 2023/03/06
 tags:
     - attack.execution
     - attack.t1059.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_exe:
         - OriginalFileName:
-              - cscript.exe
-              - wscript.exe
+            - 'cscript.exe'
+            - 'wscript.exe'
         - Image|endswith:
-              - \cscript.exe
-              - \wscript.exe
+            - '\cscript.exe'
+            - '\wscript.exe'
     selection_script:
-        CommandLine|contains: .vbs
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: '.vbs'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

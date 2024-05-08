@@ -12,18 +12,13 @@ modified: 2022/12/25
 tags:
     - attack.credential_access
     - attack.t1552.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \unattend.xml
-    condition: file_event and selection
+        TargetFilename|endswith: '\unattend.xml'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -11,30 +11,25 @@ date: 2023/10/25
 tags:
     - attack.command_and_control
     - attack.t1071.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|contains: \servers\Stable-
-        ParentImage|endswith: \server\node.exe
-        ParentCommandLine|contains: .vscode-server   # Technically one can host its own local server instead of using the VsCode one. And that would probably change the name (requires further research)
+        ParentImage|contains: '\servers\Stable-'
+        ParentImage|endswith: '\server\node.exe'
+        ParentCommandLine|contains: '.vscode-server' # Technically one can host its own local server instead of using the VsCode one. And that would probably change the name (requires further research)
     # Note: Child processes (ie: shells) can be whatever technically (with some efforts)
     selection_child_1:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-        CommandLine|contains: \terminal\browser\media\shellIntegration.ps1
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        CommandLine|contains: '\terminal\browser\media\shellIntegration.ps1'
     selection_child_2:
         Image|endswith:
-            - \wsl.exe
-            - \bash.exe
-    condition: process_creation and (selection_parent and 1 of selection_child_*)
+            - '\wsl.exe'
+            - '\bash.exe'
+    condition: selection_parent and 1 of selection_child_*
 falsepositives:
     - Legitimate use of Visual Studio Code tunnel and running code from there
 level: medium
-ruletype: Sigma

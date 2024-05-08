@@ -11,20 +11,16 @@ modified: 2023/03/05
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - --install
-            - --start-with-win
-            - --silent
-    condition: process_creation and selection
+            - '--install'
+            - '--start-with-win'
+            - '--silent'
+    condition: selection
 fields:
     - CommandLine
     - ParentCommandLine
@@ -32,4 +28,3 @@ fields:
 falsepositives:
     - Legitimate deployment of AnyDesk
 level: high
-ruletype: Sigma

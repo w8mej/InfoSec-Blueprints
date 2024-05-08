@@ -11,60 +11,55 @@ modified: 2023/02/14
 tags:
     - attack.execution
     - attack.persistence
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
         ParentImage|endswith:
-            - \WindowsTerminal.exe
-            - \wt.exe
+            - '\WindowsTerminal.exe'
+            - '\wt.exe'
     selection_susp:
         - Image|endswith:
               # Add more LOLBINS
-              - \rundll32.exe
-              - \regsvr32.exe
-              - \certutil.exe
-              - \cscript.exe
-              - \wscript.exe
-              - \csc.exe
+              - '\rundll32.exe'
+              - '\regsvr32.exe'
+              - '\certutil.exe'
+              - '\cscript.exe'
+              - '\wscript.exe'
+              - '\csc.exe'
         - Image|contains:
               # Add more suspicious paths
-              - C:\Users\Public\
-              - \Downloads\
-              - \Desktop\
-              - \AppData\Local\Temp\
-              - \Windows\TEMP\
+              - 'C:\Users\Public\'
+              - '\Downloads\'
+              - '\Desktop\'
+              - '\AppData\Local\Temp\'
+              - '\Windows\TEMP\'
         - CommandLine|contains:
               # Add more suspicious commandline
               - ' iex '
               - ' icm'
-              - Invoke-
+              - 'Invoke-'
               - 'Import-Module '
               - 'ipmo '
-              - DownloadString(
+              - 'DownloadString('
               - ' /c '
               - ' /k '
               - ' /r '
     filter_builtin_visual_studio_shell:
         CommandLine|contains|all:
-            - Import-Module
-            - Microsoft.VisualStudio.DevShell.dll
-            - Enter-VsDevShell
+            - 'Import-Module'
+            - 'Microsoft.VisualStudio.DevShell.dll'
+            - 'Enter-VsDevShell'
     filter_open_settings:
         CommandLine|contains|all:
-            - \AppData\Local\Packages\Microsoft.WindowsTerminal_
-            - \LocalState\settings.json
+            - '\AppData\Local\Packages\Microsoft.WindowsTerminal_'
+            - '\LocalState\settings.json'
     filter_vsdevcmd:
         CommandLine|contains|all:
-            - C:\Program Files\Microsoft Visual Studio\
-            - \Common7\Tools\VsDevCmd.bat
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+            - 'C:\Program Files\Microsoft Visual Studio\'
+            - '\Common7\Tools\VsDevCmd.bat'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Other legitimate "Windows Terminal" profiles
 level: medium
-ruletype: Sigma

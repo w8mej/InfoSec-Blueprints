@@ -14,21 +14,16 @@ tags:
     - attack.lateral_movement
     - attack.g0047
     - attack.t1021.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
             - '-autoreconnect '
             - '-connect '
             - '-id:'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

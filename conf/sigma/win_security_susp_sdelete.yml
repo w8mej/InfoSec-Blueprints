@@ -21,18 +21,15 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 4656
             - 4663
             - 4658
         ObjectName|endswith:
-            - .AAA
-            - .ZZZ
-    condition: security and selection
+            - '.AAA'
+            - '.ZZZ'
+    condition: selection
 falsepositives:
     - Legitimate usage of SDelete
 level: medium
-ruletype: Sigma

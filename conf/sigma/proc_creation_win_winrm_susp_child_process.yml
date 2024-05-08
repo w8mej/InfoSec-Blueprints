@@ -12,29 +12,24 @@ tags:
     - attack.initial_access
     - attack.persistence
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \wsmprovhost.exe
+        ParentImage|endswith: '\wsmprovhost.exe'
         Image|endswith:
-            - \cmd.exe
-            - \sh.exe
-            - \bash.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \wsl.exe
-            - \schtasks.exe
-            - \certutil.exe
-            - \whoami.exe
-            - \bitsadmin.exe
-    condition: process_creation and selection
+            - '\cmd.exe'
+            - '\sh.exe'
+            - '\bash.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\wsl.exe'
+            - '\schtasks.exe'
+            - '\certutil.exe'
+            - '\whoami.exe'
+            - '\bitsadmin.exe'
+    condition: selection
 falsepositives:
     - Legitimate WinRM usage
 level: high
-ruletype: Sigma

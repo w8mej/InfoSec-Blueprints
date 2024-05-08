@@ -13,19 +13,14 @@ date: 2024/02/26
 tags:
     - attack.collection
     - attack.t1056
-    - sysmon
 logsource:
     category: dns_query
     product: windows
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        QueryName: update.onelaunch.com
-        Image|endswith: \OneLaunch.exe
-    condition: dns_query and selection
+        QueryName: 'update.onelaunch.com'
+        Image|endswith: '\OneLaunch.exe'
+    condition: selection
 falsepositives:
     - Unlikely
 level: low
-ruletype: Sigma

@@ -18,24 +18,18 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_xml:
         ScriptBlockText|contains|all:
-            - New-Object
-            - System.Xml.XmlDocument
-            - .Load
+            - 'New-Object'
+            - 'System.Xml.XmlDocument'
+            - '.Load'
     selection_exec:
         ScriptBlockText|contains:
             - 'IEX '
             - 'Invoke-Expression '
             - 'Invoke-Command '
-            - ICM -
-    condition: ps_script and (all of selection_*)
+            - 'ICM -'
+    condition: all of selection_*
 falsepositives:
     - Legitimate administrative script
 level: medium
-ruletype: Sigma

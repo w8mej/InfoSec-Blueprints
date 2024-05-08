@@ -12,17 +12,13 @@ modified: 2023/12/15
 tags:
     - attack.defense_evasion
     - attack.command_and_control
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
-        Image|endswith: \wordpad.exe
+        Image|endswith: '\wordpad.exe'
     filter_main_ports:
         DestinationPort:
             - 80
@@ -33,8 +29,7 @@ detection:
             - 587
             - 993
             - 995
-    condition: network_connection and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Other ports can be used, apply additional filters accordingly
 level: medium
-ruletype: Sigma

@@ -12,25 +12,17 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1546.002
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \Control Panel\Desktop\SCRNSAVE.EXE   # HKEY_CURRENT_USER\Control Panel\Desktop\SCRNSAVE.EXE
+        TargetObject|endswith: '\Control Panel\Desktop\SCRNSAVE.EXE' # HKEY_CURRENT_USER\Control Panel\Desktop\SCRNSAVE.EXE
     filter:
         Image|endswith:
-            - \rundll32.exe
-            - \explorer.exe
-    condition: registry_event and (selection and not filter)
+            - '\rundll32.exe'
+            - '\explorer.exe'
+    condition: selection and not filter
 falsepositives:
     - Legitimate modification of screensaver
 level: medium
-ruletype: Sigma

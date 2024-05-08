@@ -14,18 +14,12 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
             - '[System.Net.HttpWebRequest]'
-            - System.Net.Sockets.TcpListener
-            - AcceptTcpClient
-    condition: ps_script and selection
+            - 'System.Net.Sockets.TcpListener'
+            - 'AcceptTcpClient'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

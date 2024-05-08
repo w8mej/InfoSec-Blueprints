@@ -13,28 +13,23 @@ tags:
     - attack.defense_evasion
     - attack.t1112
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_reg:
-        - Image|endswith: \reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: '\reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_path:
         CommandLine|contains:
             # Add more suspicious registry locations below
-            - \AppDataLow\Software\Microsoft\
-            - \Policies\Microsoft\Windows\OOBE
-            - \Policies\Microsoft\Windows NT\CurrentVersion\Winlogon
-            - \SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon
-            - \CurrentControlSet\Control\SecurityProviders\WDigest
-            - \Microsoft\Windows Defender\
-    condition: process_creation and (all of selection_*)
+            - '\AppDataLow\Software\Microsoft\'
+            - '\Policies\Microsoft\Windows\OOBE'
+            - '\Policies\Microsoft\Windows NT\CurrentVersion\Winlogon'
+            - '\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon'
+            - '\CurrentControlSet\Control\SecurityProviders\WDigest'
+            - '\Microsoft\Windows Defender\'
+    condition: all of selection_*
 falsepositives:
     - Rare legitimate add to registry via cli (to these locations)
 level: high
-ruletype: Sigma

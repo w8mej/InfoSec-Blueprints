@@ -11,34 +11,29 @@ tags:
     - attack.credential_access
     - attack.t1555
     - cve.2021.35211
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \Serv-U.exe
+        ParentImage|endswith: '\Serv-U.exe'
         Image|endswith:
-            - \cmd.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \wscript.exe
-            - \cscript.exe
-            - \sh.exe
-            - \bash.exe
-            - \schtasks.exe
-            - \regsvr32.exe
-            - \wmic.exe    # https://app.any.run/tasks/c903e9c8-0350-440c-8688-3881b556b8e0/
-            - \mshta.exe
-            - \rundll32.exe
-            - \msiexec.exe
-            - \forfiles.exe
-            - \scriptrunner.exe
-    condition: process_creation and selection
+            - '\cmd.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\wscript.exe'
+            - '\cscript.exe'
+            - '\sh.exe'
+            - '\bash.exe'
+            - '\schtasks.exe'
+            - '\regsvr32.exe'
+            - '\wmic.exe'  # https://app.any.run/tasks/c903e9c8-0350-440c-8688-3881b556b8e0/
+            - '\mshta.exe'
+            - '\rundll32.exe'
+            - '\msiexec.exe'
+            - '\forfiles.exe'
+            - '\scriptrunner.exe'
+    condition: selection
 falsepositives:
     - Legitimate uses in which users or programs use the SSH service of Serv-U for remote command execution
 level: high
-ruletype: Sigma

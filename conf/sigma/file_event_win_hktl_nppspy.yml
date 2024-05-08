@@ -10,20 +10,15 @@ date: 2021/11/29
 modified: 2022/12/25
 tags:
     - attack.credential_access
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \NPPSpy.txt
-            - \NPPSpy.dll
-    condition: file_event and selection
+            - '\NPPSpy.txt'
+            - '\NPPSpy.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

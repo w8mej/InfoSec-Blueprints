@@ -11,20 +11,16 @@ modified: 2022/11/21
 tags:
     - attack.defense_evasion
     - attack.t1222.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \takeown.exe
+        Image|endswith: '\takeown.exe'
         CommandLine|contains|all:
             - '/f '
-            - /r
-    condition: process_creation and selection
+            - '/r'
+    condition: selection
 fields:
     - CommandLine
     - ParentCommandLine
@@ -32,4 +28,3 @@ falsepositives:
     - Scripts created by developers and admins
     - Administrative activity
 level: medium
-ruletype: Sigma

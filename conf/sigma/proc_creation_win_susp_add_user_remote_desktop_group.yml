@@ -18,14 +18,10 @@ tags:
     - attack.t1133
     - attack.t1136.001
     - attack.t1021.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main:
         - CommandLine|contains|all:
               - 'localgroup '
@@ -35,11 +31,10 @@ detection:
               - ' -Group '
     selection_group:
         CommandLine|contains:
-            - Remote Desktop Users
-            - Utilisateurs du Bureau à distance   # French for "Remote Desktop Users"
-            - Usuarios de escritorio remoto   # Spanish for "Remote Desktop Users"
-    condition: process_creation and (all of selection_*)
+            - 'Remote Desktop Users'
+            - 'Utilisateurs du Bureau à distance' # French for "Remote Desktop Users"
+            - 'Usuarios de escritorio remoto' # Spanish for "Remote Desktop Users"
+    condition: all of selection_*
 falsepositives:
     - Administrative activity
 level: high
-ruletype: Sigma

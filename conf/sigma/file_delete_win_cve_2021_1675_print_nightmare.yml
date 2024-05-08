@@ -14,21 +14,14 @@ tags:
     - attack.privilege_escalation
     - attack.t1574
     - cve.2021.1675
-    - sysmon
 logsource:
     category: file_delete
     product: windows
 detection:
-    file_delete:
-        EventID:
-            - 23
-            - 26
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \spoolsv.exe
-        TargetFilename|contains: C:\Windows\System32\spool\drivers\x64\3\
-    condition: file_delete and selection
+        Image|endswith: '\spoolsv.exe'
+        TargetFilename|contains: 'C:\Windows\System32\spool\drivers\x64\3\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

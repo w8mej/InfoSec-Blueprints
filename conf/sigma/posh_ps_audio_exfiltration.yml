@@ -13,16 +13,11 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_main:
         ScriptBlockText|contains|all:
             - '[System.Math]::'
             - '[IO.FileMode]::'
-            - BinaryWriter
+            - 'BinaryWriter'
     selection_header_wav:
         ScriptBlockText|contains|all:
             # Byte chunks from the WAV header used in the example POC
@@ -35,8 +30,7 @@ detection:
             - '0x56'
             - '0x45'
             - '0xAC'
-    condition: ps_script and (selection_main and 1 of selection_header_*)
+    condition: selection_main and 1 of selection_header_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -15,28 +15,22 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
         ScriptBlockText|contains:
-            - New-ScheduledTaskAction
-            - New-ScheduledTaskTrigger
-            - New-ScheduledTaskPrincipal
-            - New-ScheduledTaskSettingsSet
-            - New-ScheduledTask
-            - Register-ScheduledTask
+            - 'New-ScheduledTaskAction'
+            - 'New-ScheduledTaskTrigger'
+            - 'New-ScheduledTaskPrincipal'
+            - 'New-ScheduledTaskSettingsSet'
+            - 'New-ScheduledTask'
+            - 'Register-ScheduledTask'
     selection_cimmethod:
         ScriptBlockText|contains|all:
-            - Invoke-CimMethod
-            - -ClassName
-            - PS_ScheduledTask
-            - -NameSpace
-            - Root\Microsoft\Windows\TaskScheduler
-    condition: ps_script and (1 of selection_*)
+            - 'Invoke-CimMethod'
+            - '-ClassName'
+            - 'PS_ScheduledTask'
+            - '-NameSpace'
+            - 'Root\Microsoft\Windows\TaskScheduler'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -11,25 +11,20 @@ modified: 2022/05/16
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     lolbin:
-        - Image|endswith: \ie4uinit.exe
-        - OriginalFileName: IE4UINIT.EXE
+        - Image|endswith: '\ie4uinit.exe'
+        - OriginalFileName: 'IE4UINIT.EXE'
     filter_correct:
         CurrentDirectory:
-            - c:\windows\system32\
-            - c:\windows\sysWOW64\
+            - 'c:\windows\system32\'
+            - 'c:\windows\sysWOW64\'
     filter_missing:
-        CurrentDirectory:
-    condition: process_creation and (lolbin and not 1 of filter_*)
+        CurrentDirectory: null
+    condition: lolbin and not 1 of filter_*
 falsepositives:
     - ViberPC updater calls this binary with the following commandline "ie4uinit.exe -ClearIconCache"
 level: medium
-ruletype: Sigma

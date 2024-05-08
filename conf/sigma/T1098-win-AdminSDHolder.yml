@@ -1,0 +1,19 @@
+title: Windows-AdminSDHolder
+description: Windows server 2008 R2（AD域控）
+references: 
+    - https://github.com/infosecn1nja/AD-Attack-Defense/blob/master/README.md
+    - https://github.com/0Kee-Team/WatchAD/blob/master/modules/detect/event_log/persistence/AdminSDHolder.py
+tags: 1098
+status: 测试阶段 
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection1:
+        EventID: 5136  #已修改目录服务对象。AdminSDHolder更改，一般用作权限维持，因为更改情况极少
+    selection2:
+        EventID: 4780  #ACL设置在管理员组成员的帐户上
+    timeframe: last 1h #默认等待60分钟之后生效，具体原因可参考下面SDPROP说明
+    condition: all of them
+level: medium

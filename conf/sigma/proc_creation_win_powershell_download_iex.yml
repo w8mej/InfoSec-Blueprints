@@ -11,34 +11,29 @@ modified: 2023/05/04
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_download:
         CommandLine|contains:
-            - .DownloadString(
-            - .DownloadFile(
+            - '.DownloadString('
+            - '.DownloadFile('
             - 'Invoke-WebRequest '
             - 'iwr '
     selection_iex:
         CommandLine|contains:
-            - ;iex $
+            - ';iex $'
             - '| IEX'
             - '|IEX '
-            - I`E`X
-            - I`EX
-            - IE`X
+            - 'I`E`X'
+            - 'I`EX'
+            - 'IE`X'
             - 'iex '
-            - IEX (
-            - IEX(
-            - Invoke-Expression
-    condition: process_creation and (all of selection_*)
+            - 'IEX ('
+            - 'IEX('
+            - 'Invoke-Expression'
+    condition: all of selection_*
 falsepositives:
     - Some PowerShell installers were seen using similar combinations. Apply filters accordingly
 level: high
-ruletype: Sigma

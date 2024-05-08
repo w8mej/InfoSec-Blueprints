@@ -11,22 +11,17 @@ modified: 2022/07/07
 tags:
     - attack.credential_access
     - attack.t1552.004
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: .pfx
+        TargetFilename|endswith: '.pfx'
     filter_main_windows_tmp_key:
         TargetFilename|contains|all:
-            - \Templates\Windows\Windows_TemporaryKey.pfx
-            - \CMake\
-    condition: file_event and (selection and not 1 of filter_main_*)
+            - '\Templates\Windows\Windows_TemporaryKey.pfx'
+            - '\CMake\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - System administrators managing certificates.
 level: medium
-ruletype: Sigma

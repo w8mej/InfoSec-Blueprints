@@ -17,19 +17,15 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection:
         Data|contains|all:
-            - powershell
-            - nslookup
+            - 'powershell'
+            - 'nslookup'
             - '[1]'
         Data|contains:
-            - -q=txt http
-            - -querytype=txt http
-    condition: ps_classic_start and selection
+            - '-q=txt http'
+            - '-querytype=txt http'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

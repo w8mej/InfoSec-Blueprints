@@ -20,13 +20,10 @@ logsource:
     product: windows
     service: windefend
 detection:
-    windefend:
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
         EventID: 5001 # Real-time protection is disabled.
-    condition: windefend and selection
+    condition: selection
 falsepositives:
     - Administrator actions (should be investigated)
     - Seen being triggered occasionally during Windows 8 Defender Updates
 level: high
-ruletype: Sigma

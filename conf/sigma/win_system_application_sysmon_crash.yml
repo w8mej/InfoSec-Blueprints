@@ -14,16 +14,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Application Popup
+        Provider_Name: 'Application Popup'
         EventID: 26
         Caption:
-            - sysmon64.exe - Application Error
-            - sysmon.exe - Application Error
-    condition: system and selection
+            - 'sysmon64.exe - Application Error'
+            - 'sysmon.exe - Application Error'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

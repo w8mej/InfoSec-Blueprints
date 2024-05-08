@@ -20,20 +20,17 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Object Access > Audit Registry (Success)'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4657
         ObjectName|contains|all:
-            - \REGISTRY\MACHINE\SYSTEM
-            - ControlSet
-            - \Control\Lsa
+            - '\REGISTRY\MACHINE\SYSTEM'
+            - 'ControlSet'
+            - '\Control\Lsa'
         ObjectValueName:
-            - LmCompatibilityLevel
-            - NtlmMinClientSec
-            - RestrictSendingNTLMTraffic
-    condition: security and selection
+            - 'LmCompatibilityLevel'
+            - 'NtlmMinClientSec'
+            - 'RestrictSendingNTLMTraffic'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

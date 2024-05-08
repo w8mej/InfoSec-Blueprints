@@ -14,21 +14,18 @@ logsource:
     service: msexchange-management
     product: windows
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     keywords_export_command:
         '|all':
-            - New-ExchangeCertificate
+            - 'New-ExchangeCertificate'
             - ' -GenerateRequest'
             - ' -BinaryEncoded'
             - ' -RequestFile'
     keywords_export_params:
-        - \\\\localhost\\C$
-        - \\\\127.0.0.1\\C$
-        - C:\\inetpub
-        - .aspx
-    condition: msexchange_management and (keywords_export_command and keywords_export_params)
+        - '\\\\localhost\\C$'
+        - '\\\\127.0.0.1\\C$'
+        - 'C:\\inetpub'
+        - '.aspx'
+    condition: keywords_export_command and keywords_export_params
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

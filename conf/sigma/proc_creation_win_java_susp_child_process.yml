@@ -14,43 +14,38 @@ tags:
     - attack.initial_access
     - attack.persistence
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \java.exe
+        ParentImage|endswith: '\java.exe'
         Image|endswith:
-            - \AppVLP.exe
-            - \bitsadmin.exe
-            - \certutil.exe
-            - \cscript.exe
-            - \curl.exe
-            - \forfiles.exe
-            - \hh.exe
-            - \mftrace.exe
-            - \mshta.exe
-            - \net.exe
-            - \net1.exe
-            - \query.exe
-            - \reg.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \schtasks.exe
-            - \scrcons.exe
-            - \scriptrunner.exe
-            - \sh.exe
-            - \systeminfo.exe
-            - \whoami.exe
-            - \wmic.exe          # https://app.any.run/tasks/c903e9c8-0350-440c-8688-3881b556b8e0/
-            - \wscript.exe
-    condition: process_creation and selection
+            - '\AppVLP.exe'
+            - '\bitsadmin.exe'
+            - '\certutil.exe'
+            - '\cscript.exe'
+            - '\curl.exe'
+            - '\forfiles.exe'
+            - '\hh.exe'
+            - '\mftrace.exe'
+            - '\mshta.exe'
+            - '\net.exe'
+            - '\net1.exe'
+            - '\query.exe'
+            - '\reg.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\schtasks.exe'
+            - '\scrcons.exe'
+            - '\scriptrunner.exe'
+            - '\sh.exe'
+            - '\systeminfo.exe'
+            - '\whoami.exe'
+            - '\wmic.exe'        # https://app.any.run/tasks/c903e9c8-0350-440c-8688-3881b556b8e0/
+            - '\wscript.exe'
+    condition: selection
 falsepositives:
     - Legitimate calls to system binaries
     - Company specific internal usage
 level: high
-ruletype: Sigma

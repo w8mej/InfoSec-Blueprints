@@ -24,25 +24,22 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     event_id:
         EventID: 4697
     selection1:
         ServiceFileName|contains|all:
-            - ADMIN$
-            - .exe
+            - 'ADMIN$'
+            - '.exe'
     selection2:
         ServiceFileName|contains|all:
             - '%COMSPEC%'
-            - start
-            - powershell
+            - 'start'
+            - 'powershell'
     selection3:
-        ServiceFileName|contains: powershell -nop -w hidden -encodedcommand
+        ServiceFileName|contains: 'powershell -nop -w hidden -encodedcommand'
     selection4:
         ServiceFileName|base64offset|contains: "IEX (New-Object Net.Webclient).DownloadString('http://127.0.0.1:"
-    condition: security and (event_id and 1 of selection*)
+    condition: event_id and 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,19 +11,14 @@ date: 2021/12/30
 tags:
     - attack.persistence
     - attack.t1547.009
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # Feel free to add more
-        TargetFilename: C:\program.exe
-    condition: file_event and selection
+        TargetFilename: 'C:\program.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

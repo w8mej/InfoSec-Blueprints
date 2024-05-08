@@ -10,19 +10,14 @@ modified: 2021/11/27
 tags:
     - attack.t1546.003
     - attack.persistence
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image: C:\Windows\System32\wbem\WmiPrvSE.exe
-        ImageLoaded|endswith: \wbemcons.dll
-    condition: image_load and selection
+        Image: 'C:\Windows\System32\wbem\WmiPrvSE.exe'
+        ImageLoaded|endswith: '\wbemcons.dll'
+    condition: selection
 falsepositives:
     - Unknown (data set is too small; further testing needed)
 level: high
-ruletype: Sigma

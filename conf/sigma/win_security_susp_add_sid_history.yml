@@ -14,8 +14,6 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID:
             - 4765
@@ -28,8 +26,7 @@ detection:
             - '%%1793'
     filter_null:
         SidHistory:
-    condition: security and (selection1 or (selection2 and not selection3 and not filter_null))
+    condition: selection1 or (selection2 and not selection3 and not filter_null)
 falsepositives:
     - Migration of an account into a new domain
 level: medium
-ruletype: Sigma

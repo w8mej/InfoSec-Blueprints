@@ -18,36 +18,31 @@ modified: 2023/02/23
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: file_event
     product: windows
     definition: 'Requirements: UsageLogs folder must be monitored by the sysmon configuration'
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \UsageLogs\cmstp.exe.log
-            - \UsageLogs\cscript.exe.log
-            - \UsageLogs\mshta.exe.log
-            - \UsageLogs\msxsl.exe.log
-            - \UsageLogs\regsvr32.exe.log
-            - \UsageLogs\rundll32.exe.log
-            - \UsageLogs\svchost.exe.log
-            - \UsageLogs\wscript.exe.log
-            - \UsageLogs\wmic.exe.log
+            - '\UsageLogs\cmstp.exe.log'
+            - '\UsageLogs\cscript.exe.log'
+            - '\UsageLogs\mshta.exe.log'
+            - '\UsageLogs\msxsl.exe.log'
+            - '\UsageLogs\regsvr32.exe.log'
+            - '\UsageLogs\rundll32.exe.log'
+            - '\UsageLogs\svchost.exe.log'
+            - '\UsageLogs\wscript.exe.log'
+            - '\UsageLogs\wmic.exe.log'
     filter_main_rundll32:
         # This filter requires the event to be enriched by additional information such as ParentImage and CommandLine activity
-        ParentImage|endswith: \MsiExec.exe
+        ParentImage|endswith: '\MsiExec.exe'
         ParentCommandLine|contains: ' -Embedding'
-        Image|endswith: \rundll32.exe
+        Image|endswith: '\rundll32.exe'
         CommandLine|contains|all:
-            - Temp
-            - zzzzInvokeManagedCustomActionOutOfProc
-    condition: file_event and (selection and not 1 of filter_main_*)
+            - 'Temp'
+            - 'zzzzInvokeManagedCustomActionOutOfProc'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Rundll32.exe with zzzzInvokeManagedCustomActionOutOfProc in command line and msiexec.exe as parent process - https://twitter.com/SBousseaden/status/1388064061087260675
 level: high
-ruletype: Sigma

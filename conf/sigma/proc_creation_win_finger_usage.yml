@@ -12,19 +12,14 @@ modified: 2022/08/16
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - OriginalFileName: finger.exe
-        - Image|endswith: \finger.exe
-    condition: process_creation and selection
+        - OriginalFileName: 'finger.exe'
+        - Image|endswith: '\finger.exe'
+    condition: selection
 falsepositives:
     - Admin activity (unclear what they do nowadays with finger.exe)
 level: high
-ruletype: Sigma

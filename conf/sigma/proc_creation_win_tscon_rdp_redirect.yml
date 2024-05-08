@@ -14,18 +14,13 @@ tags:
     - attack.t1563.002
     - attack.t1021.001
     - car.2013-07-002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains: ' /dest:rdp-tcp#'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

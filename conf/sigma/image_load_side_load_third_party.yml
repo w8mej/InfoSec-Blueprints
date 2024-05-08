@@ -12,37 +12,32 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
     # Lenovo
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_lenovo:
-        ImageLoaded|endswith: \commfunc.dll
+        ImageLoaded|endswith: '\commfunc.dll'
     filter_lenovo:
-        - ImageLoaded|contains: \AppData\local\Google\Chrome\Application\
+        - ImageLoaded|contains: '\AppData\local\Google\Chrome\Application\'
         - ImageLoaded|startswith:
-              - C:\Program Files\Lenovo\Communications Utility\
-              - C:\Program Files (x86)\Lenovo\Communications Utility\
+              - 'C:\Program Files\Lenovo\Communications Utility\'
+              - 'C:\Program Files (x86)\Lenovo\Communications Utility\'
     # Toshiba
     selection_toshiba:
-        ImageLoaded|endswith: \tosbtkbd.dll
+        ImageLoaded|endswith: '\tosbtkbd.dll'
     filter_toshiba:
         ImageLoaded|startswith:
-            - C:\Program Files\Toshiba\Bluetooth Toshiba Stack\
-            - C:\Program Files (x86)\Toshiba\Bluetooth Toshiba Stack\
+            - 'C:\Program Files\Toshiba\Bluetooth Toshiba Stack\'
+            - 'C:\Program Files (x86)\Toshiba\Bluetooth Toshiba Stack\'
     # Zoom (FP with System32)
     # selection_zoom:
     #     ImageLoaded|endswith: '\version.dll'
     # filter_zoom:
     #     ImageLoaded|startswith: 'C:\Users\'
     #     ImageLoaded|contains: '\AppData\Roaming\Zoom\bin\'
-    condition: image_load and ((selection_lenovo and not filter_lenovo) or (selection_toshiba and not filter_toshiba))
+    condition: (selection_lenovo and not filter_lenovo) or (selection_toshiba and not filter_toshiba)
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -21,35 +21,29 @@ references:
     - https://research.checkpoint.com/2022/evilplayout-attack-against-irans-state-broadcaster/
 author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/09/15
+modifier: 2024/03/05
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: diskshadow.exe
-        - Image|endswith: \diskshadow.exe
+        - OriginalFileName: 'diskshadow.exe'
+        - Image|endswith: '\diskshadow.exe'
     selection_cli:
-        CommandLine|contains:
-            - '/s '
-            - '-s '
+        CommandLine|contains|windash: '-s '
     selection_paths:
         CommandLine|contains:
             # Note: Add additional susp paths based on your org needs
-            - :\Temp\
-            - :\Windows\Temp\
-            - \AppData\Local\
-            - \AppData\Roaming\
-            - \ProgramData\
-            - \Users\Public\
-    condition: process_creation and (all of selection_*)
+            - ':\Temp\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\'
+            - '\AppData\Roaming\'
+            - '\ProgramData\'
+            - '\Users\Public\'
+    condition: all of selection_*
 falsepositives:
     - False positives may occur if you execute the script from one of the paths mentioned in the rule. Apply additional filters that fits your org needs.
 level: medium
-ruletype: Sigma

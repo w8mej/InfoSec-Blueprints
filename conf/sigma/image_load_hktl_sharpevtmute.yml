@@ -13,19 +13,14 @@ modified: 2023/02/17
 tags:
     - attack.defense_evasion
     - attack.t1562.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Hashes|contains: IMPHASH=330768A4F172E10ACB6287B87289D83B
-        - Imphash: 330768a4f172e10acb6287b87289d83b
-    condition: image_load and selection
+        - Hashes|contains: 'IMPHASH=330768A4F172E10ACB6287B87289D83B'
+        - Imphash: '330768a4f172e10acb6287b87289d83b'
+    condition: selection
 falsepositives:
     - Other DLLs with the same Imphash
 level: high
-ruletype: Sigma

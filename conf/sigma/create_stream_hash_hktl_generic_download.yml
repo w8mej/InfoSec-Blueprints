@@ -21,15 +21,11 @@ tags:
     - attack.defense_evasion
     - attack.s0139
     - attack.t1564.004
-    - sysmon
 logsource:
     product: windows
     category: create_stream_hash
     definition: 'Requirements: Sysmon config with Imphash logging activated'
 detection:
-    create_stream_hash:
-        EventID: 15
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Imphash:
               - bcca3c247b619dcd13c8cdff5f123932 # PetitPotam
@@ -237,8 +233,7 @@ detection:
               - IMPHASH=CB2B65BB77D995CC1C0E5DF1C860133C # EDRSandBlast
               - IMPHASH=40445337761D80CF465136FAFB1F63E6 # EDRSandBlast
               - IMPHASH=8A790F401B29FA87BC1E56F7272B3AA6 # EDRSilencer
-    condition: create_stream_hash and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

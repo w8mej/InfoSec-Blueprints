@@ -10,45 +10,40 @@ modified: 2023/03/06
 tags:
     - attack.credential_access
     - attack.t1552.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cmd_img:
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: Cmd.Exe
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'Cmd.Exe'
     selection_cmd_cli:
         CommandLine|contains: 'dir '
     selection_pwsh_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_pwsh_cli:
         CommandLine|contains: 'Get-ChildItem '
     selection_findstr:
-        - Image|endswith: \findstr.exe
-        - OriginalFileName: FINDSTR.EXE
+        - Image|endswith: '\findstr.exe'
+        - OriginalFileName: 'FINDSTR.EXE'
     selection_ext:
         CommandLine|contains:
-            - .key
-            - .pgp
-            - .gpg
-            - .ppk
-            - .p12
-            - .pem
-            - .pfx
-            - .cer
-            - .p7b
-            - .asc
-    condition: process_creation and (selection_ext and (all of selection_cmd_* or all of selection_pwsh_* or selection_findstr))
+            - '.key'
+            - '.pgp'
+            - '.gpg'
+            - '.ppk'
+            - '.p12'
+            - '.pem'
+            - '.pfx'
+            - '.cer'
+            - '.p7b'
+            - '.asc'
+    condition: selection_ext and (all of selection_cmd_* or all of selection_pwsh_* or selection_findstr)
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

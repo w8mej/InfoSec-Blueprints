@@ -19,41 +19,36 @@ modified: 2022/11/07
 tags:
     - attack.defense_evasion
     - attack.t1036.007
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_gen:
         TargetFilename|endswith:
-            - .exe
-            - .iso
+            - '.exe'
+            - '.iso'
             # - '.lnk'  # legitimate links can happen just anywhere
-            - .rar
-            - .zip
+            - '.rar'
+            - '.zip'
         TargetFilename|contains:
-            - .doc.
-            - .docx.
-            - .jpg.
-            - .pdf.
-            - .ppt.
-            - .pptx.
-            - .xls.
-            - .xlsx.
+            - '.doc.'
+            - '.docx.'
+            - '.jpg.'
+            - '.pdf.'
+            - '.ppt.'
+            - '.pptx.'
+            - '.xls.'
+            - '.xlsx.'
     selection_exe:
         TargetFilename|endswith:
-            - .rar.exe
-            - .zip.exe
+            - '.rar.exe'
+            - '.zip.exe'
     # Note: If you wanna keep using the ".lnk" extension. You might uncomment this filter and add additional locations
     # filter_main_lnk:
     #     TargetFilename|contains:
     #         - '\AppData\Roaming\Microsoft\Office\Recent\'
     #         - '\AppData\Roaming\Microsoft\Windows\Recent\'
-    condition: file_event and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

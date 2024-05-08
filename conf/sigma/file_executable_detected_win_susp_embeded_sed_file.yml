@@ -18,18 +18,13 @@ date: 2024/02/05
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     product: windows
     category: file_executable_detected
 detection:
-    file_executable_detected:
-        EventID: 29
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: .sed
-    condition: file_executable_detected and selection
+        TargetFilename|endswith: '.sed'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

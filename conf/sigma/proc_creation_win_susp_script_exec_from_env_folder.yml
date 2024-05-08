@@ -12,19 +12,15 @@ modified: 2023/06/16
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_proc_image:
         Image|endswith:
-            - \cscript.exe
-            - \mshta.exe
-            - \wscript.exe
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\wscript.exe'
     selection_proc_flags:
         CommandLine|contains:
             - ' -ep bypass '
@@ -35,29 +31,28 @@ detection:
             - '/e:vbscript '
     selection_proc_original:
         OriginalFileName:
-            - cscript.exe
-            - mshta.exe
-            - wscript.exe
+            - 'cscript.exe'
+            - 'mshta.exe'
+            - 'wscript.exe'
     selection_folders_1:
         CommandLine|contains:
-            - :\Perflogs\
-            - :\Users\Public\
-            - \AppData\Local\Temp
-            - \AppData\Roaming\Temp
-            - \Temporary Internet
-            - \Windows\Temp
+            - ':\Perflogs\'
+            - ':\Users\Public\'
+            - '\AppData\Local\Temp'
+            - '\AppData\Roaming\Temp'
+            - '\Temporary Internet'
+            - '\Windows\Temp'
     selection_folders_2:
         - CommandLine|contains|all:
-              - :\Users\
-              - \Favorites\
+              - ':\Users\'
+              - '\Favorites\'
         - CommandLine|contains|all:
-              - :\Users\
-              - \Favourites\
+              - ':\Users\'
+              - '\Favourites\'
         - CommandLine|contains|all:
-              - :\Users\
-              - \Contacts\
-    condition: process_creation and (1 of selection_proc_* and 1 of selection_folders_*)
+              - ':\Users\'
+              - '\Contacts\'
+    condition: 1 of selection_proc_* and 1 of selection_folders_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

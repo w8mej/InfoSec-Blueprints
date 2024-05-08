@@ -22,17 +22,14 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection_517:
         EventID: 517
         Provider_Name: Security
     selection_1102:
         EventID: 1102
         Provider_Name: Microsoft-Windows-Eventlog
-    condition: security and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Rollout of log collection agents (the setup routine often includes a reset of the local Eventlog)
     - System provisioning (system reset before the golden image creation)
 level: high
-ruletype: Sigma

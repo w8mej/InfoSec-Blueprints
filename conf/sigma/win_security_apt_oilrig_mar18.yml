@@ -29,15 +29,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection_service:
         EventID: 4698
         TaskName:
-            - SC Scheduled Scan
-            - UpdatMachine
-    condition: security and selection_service
+            - 'SC Scheduled Scan'
+            - 'UpdatMachine'
+    condition: selection_service
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

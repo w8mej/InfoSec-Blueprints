@@ -15,18 +15,13 @@ tags:
     - attack.privilege_escalation
     - attack.t1543.003
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename: C:\Windows\System32\drivers\MoriyaStreamWatchmen.sys
-    condition: file_event and selection
+        TargetFilename: 'C:\Windows\System32\drivers\MoriyaStreamWatchmen.sys'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

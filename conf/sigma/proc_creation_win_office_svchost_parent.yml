@@ -14,26 +14,21 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \svchost.exe
+        ParentImage|endswith: '\svchost.exe'
         Image|endswith:
-            - \eqnedt32.exe
-            - \excel.exe
-            - \msaccess.exe
-            - \mspub.exe
-            - \powerpnt.exe
-            - \visio.exe
-            - \winword.exe
-    condition: process_creation and selection
+            - '\eqnedt32.exe'
+            - '\excel.exe'
+            - '\msaccess.exe'
+            - '\mspub.exe'
+            - '\powerpnt.exe'
+            - '\visio.exe'
+            - '\winword.exe'
+    condition: selection
 falsepositives:
     - Legitimate usage of office automation via scripting
 level: medium
-ruletype: Sigma

@@ -15,17 +15,13 @@ tags:
     - attack.t1197
     - attack.s0190
     - attack.t1036.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \bitsadmin.exe
-        - OriginalFileName: bitsadmin.exe
+        - Image|endswith: '\bitsadmin.exe'
+        - OriginalFileName: 'bitsadmin.exe'
     selection_cmd:
         CommandLine|contains: ' /transfer '
     selection_cli_1:
@@ -33,12 +29,11 @@ detection:
             - ' /create '
             - ' /addfile '
     selection_cli_2:
-        CommandLine|contains: http
-    condition: process_creation and (selection_img and (selection_cmd or all of selection_cli_*))
+        CommandLine|contains: 'http'
+    condition: selection_img and (selection_cmd or all of selection_cli_*)
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - Some legitimate apps use this, but limited.
 level: medium
-ruletype: Sigma

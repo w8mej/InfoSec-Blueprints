@@ -17,20 +17,15 @@ tags:
     - attack.t1137
     - attack.t1008
     - attack.t1546
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \Microsoft\Outlook\VbaProject.OTM
+        TargetFilename|endswith: '\Microsoft\Outlook\VbaProject.OTM'
     filter:
-        Image|endswith: \outlook.exe
-    condition: file_event and (selection and not filter)
+        Image|endswith: '\outlook.exe'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

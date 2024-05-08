@@ -13,18 +13,13 @@ modified: 2023/09/18
 tags:
     - attack.exfiltration
     - attack.t1567.002
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        QueryName|contains: ufile.io
-    condition: dns_query and selection
+        QueryName|contains: 'ufile.io'
+    condition: selection
 falsepositives:
     - DNS queries for "ufile" are not malicious by nature necessarily. Investigate the source to determine the necessary actions to take
 level: low
-ruletype: Sigma

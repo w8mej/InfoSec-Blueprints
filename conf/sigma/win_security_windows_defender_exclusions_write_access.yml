@@ -21,8 +21,6 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Security Settings/Local Policies/Audit Policy, Registry System Access Control (SACL): Auditing/User'
 detection:
-    security:
-        Channel: Security
     selection:
         AccessList|contains:
             - '%%4417' # WriteData
@@ -30,9 +28,8 @@ detection:
         EventID:
             - 4656 # A handle to an object was requested.
             - 4663 # An attempt was made to access an object.
-        ObjectName|contains: \Microsoft\Windows Defender\Exclusions\
-    condition: security and selection
+        ObjectName|contains: '\Microsoft\Windows Defender\Exclusions\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

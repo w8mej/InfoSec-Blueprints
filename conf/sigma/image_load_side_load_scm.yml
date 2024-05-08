@@ -17,22 +17,17 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded:
-            - C:\Windows\System32\WLBSCTRL.dll
-            - C:\Windows\System32\TSMSISrv.dll
-            - C:\Windows\System32\TSVIPSrv.dll
-        Image: C:\Windows\System32\svchost.exe
-    condition: image_load and selection
+            - 'C:\Windows\System32\WLBSCTRL.dll'
+            - 'C:\Windows\System32\TSMSISrv.dll'
+            - 'C:\Windows\System32\TSVIPSrv.dll'
+        Image: 'C:\Windows\System32\svchost.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

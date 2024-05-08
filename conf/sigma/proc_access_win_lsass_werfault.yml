@@ -11,21 +11,16 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        SourceImage|endswith: \WerFault.exe
-        TargetImage|endswith: \lsass.exe
+        SourceImage|endswith: '\WerFault.exe'
+        TargetImage|endswith: '\lsass.exe'
         GrantedAccess: '0x1FFFFF'
-    condition: process_access and selection
+    condition: selection
 falsepositives:
     - Actual failures in lsass.exe that trigger a crash dump (unlikely)
     - Unknown cases in which WerFault accesses lsass.exe
 level: high
-ruletype: Sigma

@@ -13,19 +13,15 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1484.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_reg:
-        - Image|endswith: \reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: '\reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_path:
-        CommandLine|contains: \SOFTWARE\Policies\Microsoft\Windows\System
+        CommandLine|contains: '\SOFTWARE\Policies\Microsoft\Windows\System'
     selection_key:
         CommandLine|contains:
             - GroupPolicyRefreshTimeDC
@@ -34,8 +30,7 @@ detection:
             - GroupPolicyRefreshTimeOffset
             - EnableSmartScreen
             - ShellSmartScreenLevel
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

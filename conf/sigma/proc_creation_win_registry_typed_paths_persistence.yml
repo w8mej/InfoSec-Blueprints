@@ -9,18 +9,13 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/08/22
 tags:
     - attack.persistence
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: \Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
-    condition: process_creation and selection
+        CommandLine|contains: '\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

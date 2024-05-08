@@ -12,33 +12,28 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
         ParentImage|endswith:
-            - \cmd.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \schtasks.exe
-            - \wmic.exe
-            - \wscript.exe
-            - \wsl.exe
+            - '\cmd.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\schtasks.exe'
+            - '\wmic.exe'
+            - '\wscript.exe'
+            - '\wsl.exe'
             # Note: office applications are covered by: 438025f9-5856-4663-83f7-52f878a70a50
     selection_msdt:
-        - Image|endswith: \msdt.exe
-        - OriginalFileName: msdt.exe
-    condition: process_creation and (all of selection_*)
+        - Image|endswith: '\msdt.exe'
+        - OriginalFileName: 'msdt.exe'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,22 +11,17 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
-        TargetFilename|startswith: C:\Users\
-        TargetFilename|endswith: \AppData\Local\Temp\OskSupport.dll
+        TargetFilename|startswith: 'C:\Users\'
+        TargetFilename|endswith: '\AppData\Local\Temp\OskSupport.dll'
     selection2:
-        Image: C:\Windows\system32\DllHost.exe
-        TargetFilename: C:\Program Files\Windows Media Player\osk.exe
-    condition: file_event and (1 of selection*)
+        Image: 'C:\Windows\system32\DllHost.exe'
+        TargetFilename: 'C:\Program Files\Windows Media Player\osk.exe'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

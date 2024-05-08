@@ -12,21 +12,17 @@ modified: 2023/02/21
 tags:
     - attack.collection
     - attack.t1560.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \net.exe
-              - \net1.exe
+              - '\net.exe'
+              - '\net1.exe'
         - OriginalFileName:
-              - net.exe
-              - net1.exe
+              - 'net.exe'
+              - 'net1.exe'
     selection_user_option:
         CommandLine|contains: ' user '
     selection_username:
@@ -64,10 +60,9 @@ detection:
             - " 'DefaultAccount' "
     filter:
         CommandLine|contains|all:
-            - guest
-            - /active no
-    condition: process_creation and (all of selection_* and not filter)
+            - 'guest'
+            - '/active no'
+    condition: all of selection_* and not filter
 falsepositives:
     - Some false positives could occur with the admin or guest account. It depends on the scripts being used by the admins in your env. If you experience a lot of FP you could reduce the level to medium
 level: high
-ruletype: Sigma

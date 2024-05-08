@@ -19,47 +19,43 @@ date: 2022/10/21
 modified: 2023/09/05
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
         ParentImage|endswith:
             # Add more electron based app to the list
-            - \chrome.exe   # Might require additional tuning
+            - '\chrome.exe' # Might require additional tuning
             # - '\code.exe' # Requires additional baseline
-            - \discord.exe
-            - \GitHubDesktop.exe
-            - \keybase.exe
-            - \msedge.exe
-            - \msedgewebview2.exe
-            - \msteams.exe
-            - \slack.exe
-            - \Teams.exe
+            - '\discord.exe'
+            - '\GitHubDesktop.exe'
+            - '\keybase.exe'
+            - '\msedge.exe'
+            - '\msedgewebview2.exe'
+            - '\msteams.exe'
+            - '\slack.exe'
+            - '\Teams.exe'
     selection_child_image:
         Image|endswith:
             # Add more suspicious/unexpected paths
-            - \cmd.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \regsvr32.exe
-            - \wscript.exe
+            - '\cmd.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\regsvr32.exe'
+            - '\wscript.exe'
     selection_child_paths:
         Image|contains:
             # Add more suspicious/unexpected paths
-            - \AppData\Local\Temp\
-            - \Users\Public\
-            - \Windows\Temp\
-            - :\Temp\
+            - '\AppData\Local\Temp\'
+            - '\Users\Public\'
+            - '\Windows\Temp\'
+            - ':\Temp\'
     filter_main_chrome:
-        ParentImage|endswith: \chrome.exe
-        Image|endswith: \chrome.exe
+        ParentImage|endswith: '\chrome.exe'
+        Image|endswith: '\chrome.exe'
     # filter_main_code_1:
     #     ParentImage|endswith: '\code.exe'
     #     Image|endswith: '\code.exe'
@@ -70,39 +66,38 @@ detection:
     #         - '\cmd.exe'
     #         - '\powershell.exe'
     filter_main_discord:
-        ParentImage|endswith: \discord.exe
-        Image|endswith: \discord.exe
+        ParentImage|endswith: '\discord.exe'
+        Image|endswith: '\discord.exe'
     filter_main_githubdesktop:
-        ParentImage|endswith: \GitHubDesktop.exe
-        Image|endswith: \GitHubDesktop.exe
+        ParentImage|endswith: '\GitHubDesktop.exe'
+        Image|endswith: '\GitHubDesktop.exe'
     filter_main_keybase:
-        ParentImage|endswith: \keybase.exe
-        Image|endswith: \keybase.exe
+        ParentImage|endswith: '\keybase.exe'
+        Image|endswith: '\keybase.exe'
     filter_main_msedge:
-        ParentImage|endswith: \msedge.exe
-        Image|endswith: \msedge.exe
+        ParentImage|endswith: '\msedge.exe'
+        Image|endswith: '\msedge.exe'
     filter_main_msedgewebview:
-        ParentImage|endswith: \msedgewebview2.exe
-        Image|endswith: \msedgewebview2.exe
+        ParentImage|endswith: '\msedgewebview2.exe'
+        Image|endswith: '\msedgewebview2.exe'
     filter_main_msteams:
-        ParentImage|endswith: \msteams.exe
-        Image|endswith: \msteams.exe
+        ParentImage|endswith: '\msteams.exe'
+        Image|endswith: '\msteams.exe'
     filter_main_slack:
-        ParentImage|endswith: \slack.exe
-        Image|endswith: \slack.exe
+        ParentImage|endswith: '\slack.exe'
+        Image|endswith: '\slack.exe'
     filter_main_teams:
-        ParentImage|endswith: \teams.exe
-        Image|endswith: \teams.exe
+        ParentImage|endswith: '\teams.exe'
+        Image|endswith: '\teams.exe'
     filter_main_werfault:
         Image:
-            - C:\Windows\SysWOW64\WerFault.exe
-            - C:\Windows\System32\WerFault.exe
+            - 'C:\Windows\SysWOW64\WerFault.exe'
+            - 'C:\Windows\System32\WerFault.exe'
     filter_optional_discord:
-        ParentImage|endswith: \Discord.exe
-        CommandLine|contains: \NVSMI\nvidia-smi.exe
-    condition: process_creation and (selection_parent and 1 of selection_child_* and not 1 of filter_main_* and not 1 of filter_optional_*)
+        ParentImage|endswith: '\Discord.exe'
+        CommandLine|contains: '\NVSMI\nvidia-smi.exe'
+    condition: selection_parent and 1 of selection_child_* and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate child processes can occur in cases of debugging
 # Increase the level once FP rate is known better (see status)
 level: medium
-ruletype: Sigma

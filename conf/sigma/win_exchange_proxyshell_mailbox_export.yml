@@ -14,22 +14,19 @@ logsource:
     service: msexchange-management
     product: windows
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     export_command:
         '|all':
-            - New-MailboxExportRequest
+            - 'New-MailboxExportRequest'
             - ' -Mailbox '
     export_params:
-        - -FilePath "\\\\   # We care about any share location.
-        - .aspx
+        - '-FilePath "\\\\' # We care about any share location.
+        - '.aspx'
     role_assignment:
         '|all':
-            - New-ManagementRoleAssignment
+            - 'New-ManagementRoleAssignment'
             - ' -Role "Mailbox Import Export"'
             - ' -User '
-    condition: msexchange_management and ((export_command and export_params) or role_assignment)
+    condition: (export_command and export_params) or role_assignment
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

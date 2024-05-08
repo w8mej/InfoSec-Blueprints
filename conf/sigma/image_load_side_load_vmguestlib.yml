@@ -12,23 +12,18 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded|contains|all:
-            - \VMware\VMware Tools\vmStatsProvider\win32
-            - \vmGuestLib.dll
-        Image|endswith: \Windows\System32\wbem\WmiApSrv.exe
+            - '\VMware\VMware Tools\vmStatsProvider\win32'
+            - '\vmGuestLib.dll'
+        Image|endswith: '\Windows\System32\wbem\WmiApSrv.exe'
     filter:
         Signed: 'true'
-    condition: image_load and (selection and not filter)
+    condition: selection and not filter
 falsepositives:
     - FP could occur if the legitimate version of vmGuestLib already exists on the system
 level: medium
-ruletype: Sigma

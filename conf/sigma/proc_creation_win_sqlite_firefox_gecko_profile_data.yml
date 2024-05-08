@@ -13,25 +13,20 @@ tags:
     - attack.t1539
     - attack.collection
     - attack.t1005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_sql:
         - Product: SQLite
         - Image|endswith:
-              - \sqlite.exe
-              - \sqlite3.exe
+              - '\sqlite.exe'
+              - '\sqlite3.exe'
     selection_firefox:
         CommandLine|contains:
-            - cookies.sqlite
-            - places.sqlite   # Bookmarks, history
-    condition: process_creation and (all of selection_*)
+            - 'cookies.sqlite'
+            - 'places.sqlite' # Bookmarks, history
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

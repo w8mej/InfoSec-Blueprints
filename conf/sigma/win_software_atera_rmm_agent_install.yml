@@ -13,14 +13,11 @@ logsource:
     service: application
     product: windows
 detection:
-    application:
-        Channel: Application
     selection:
         EventID: 1033
         Provider_Name: MsiInstaller
         Message|contains: AteraAgent
-    condition: application and selection
+    condition: selection
 falsepositives:
     - Legitimate Atera agent installation
 level: high
-ruletype: Sigma

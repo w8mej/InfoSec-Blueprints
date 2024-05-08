@@ -10,20 +10,15 @@ modified: 2021/11/27
 tags:
     - attack.credential_access
     - attack.t1003.002
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains|all:
-            - \AppData\Local\Temp\SAM-
-            - .dmp
-    condition: file_event and selection
+            - '\AppData\Local\Temp\SAM-'
+            - '.dmp'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

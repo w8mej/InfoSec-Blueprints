@@ -10,17 +10,13 @@ modified: 2023/12/11
 tags:
     - attack.defense_evasion
     - attack.t1562.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \netsh.exe
-        - OriginalFileName: netsh.exe
+        - Image|endswith: '\netsh.exe'
+        - OriginalFileName: 'netsh.exe'
     selection_cli:
         # Example:
         #   Old: netsh firewall add portopening TCP 3389 "Open Port 3389"
@@ -31,10 +27,9 @@ detection:
             - 'tcp '
             - '3389'
         CommandLine|contains:
-            - portopening
-            - allow
-    condition: process_creation and (all of selection_*)
+            - 'portopening'
+            - 'allow'
+    condition: all of selection_*
 falsepositives:
     - Legitimate administration activity
 level: high
-ruletype: Sigma

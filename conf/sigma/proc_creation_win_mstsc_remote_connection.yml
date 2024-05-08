@@ -13,25 +13,20 @@ modified: 2023/02/03
 tags:
     - attack.lateral_movement
     - attack.t1021.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \mstsc.exe
-        - OriginalFileName: mstsc.exe
+        - Image|endswith: '\mstsc.exe'
+        - OriginalFileName: 'mstsc.exe'
     selection_cli:
         CommandLine|contains: ' /v:'
     filter_optional_wsl:
         # Example: mstsc.exe /v:XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX /hvsocketserviceid:XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX /silent /wslg /plugin:WSLDVC /wslgsharedmemorypath:WSL\XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\wslg C:\ProgramData\Microsoft\WSL\wslg.rdp
-        ParentImage: C:\Windows\System32\lxss\wslhost.exe
-        CommandLine|contains: C:\ProgramData\Microsoft\WSL\wslg.rdp
-    condition: process_creation and (all of selection_* and not 1 of filter_optional_*)
+        ParentImage: 'C:\Windows\System32\lxss\wslhost.exe'
+        CommandLine|contains: 'C:\ProgramData\Microsoft\WSL\wslg.rdp'
+    condition: all of selection_* and not 1 of filter_optional_*
 falsepositives:
     - WSL (Windows Sub System For Linux)
 level: medium
-ruletype: Sigma

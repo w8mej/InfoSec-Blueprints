@@ -13,22 +13,17 @@ modified: 2024/02/08
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
     # TODO: Link this to the more generic system process rule
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \hxtsr.exe
+        Image|endswith: '\hxtsr.exe'
     filter_main_hxtsr:
-        Image|contains: :\program files\windowsapps\microsoft.windowscommunicationsapps_
-        Image|endswith: \hxtsr.exe
-    condition: process_creation and (selection and not 1 of filter_main_*)
+        Image|contains: ':\program files\windowsapps\microsoft.windowscommunicationsapps_'
+        Image|endswith: '\hxtsr.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

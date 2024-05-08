@@ -10,21 +10,16 @@ modified: 2022/12/31
 tags:
     - attack.defense_evasion
     - attack.t1564.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
             - diantz.exe
             - .cab
-        CommandLine|re: :[^\\]
-    condition: process_creation and selection
+        CommandLine|re: ':[^\\]'
+    condition: selection
 falsepositives:
     - Very Possible
 level: medium
-ruletype: Sigma

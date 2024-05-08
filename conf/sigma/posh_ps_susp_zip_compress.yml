@@ -25,18 +25,12 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Compress-Archive -Path*-DestinationPath $env:TEMP
-            - Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\
-            - Compress-Archive -Path*-DestinationPath*:\Windows\Temp\
-    condition: ps_script and selection
+            - 'Compress-Archive -Path*-DestinationPath $env:TEMP'
+            - 'Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\'
+            - 'Compress-Archive -Path*-DestinationPath*:\Windows\Temp\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

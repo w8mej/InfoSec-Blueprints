@@ -9,19 +9,14 @@ date: 2023/11/03
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Microsoft\WBEM\CIMOM\AllowAnonymousCallback
-        Details: DWORD (0x00000001)
-    condition: registry_set and selection
+        TargetObject|contains: '\Microsoft\WBEM\CIMOM\AllowAnonymousCallback'
+        Details: 'DWORD (0x00000001)'
+    condition: selection
 falsepositives:
     - Administrative activity
 level: medium
-ruletype: Sigma

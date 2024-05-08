@@ -9,14 +9,10 @@ date: 2022/12/25
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_exec:
         CommandLine|contains:
             - 'iex '
@@ -30,8 +26,7 @@ detection:
             - 'type '
     selection_raw:
         CommandLine|contains: ' -raw'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

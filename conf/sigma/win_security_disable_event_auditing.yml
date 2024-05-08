@@ -22,8 +22,6 @@ logsource:
     service: security
     definition: dfd8c0f4-e6ad-4e07-b91b-f2fca0ddef64
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4719
         AuditPolicyChanges|contains:
@@ -47,8 +45,7 @@ detection:
             - '{0CCE923F-69AE-11D9-BED3-505054503030}' # Audit Credential Validation
             - '{0CCE9240-69AE-11D9-BED3-505054503030}' # Audit Kerberos Service Ticket Operations
             - '{0CCE9242-69AE-11D9-BED3-505054503030}' # Audit Kerberos Authentication Service'
-    condition: security and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: low # Increase this after a testing period in your environment
-ruletype: Sigma

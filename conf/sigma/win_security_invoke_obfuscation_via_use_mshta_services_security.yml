@@ -20,17 +20,14 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
         ServiceFileName|contains|all:
-            - mshta
-            - vbscript:createobject
-            - .run
-            - window.close
-    condition: security and selection
+            - 'mshta'
+            - 'vbscript:createobject'
+            - '.run'
+            - 'window.close'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

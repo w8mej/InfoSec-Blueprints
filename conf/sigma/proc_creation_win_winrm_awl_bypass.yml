@@ -10,28 +10,23 @@ modified: 2022/10/09
 tags:
     - attack.defense_evasion
     - attack.t1216
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     contains_format_pretty_arg:
         CommandLine|contains:
-            - format:pretty
-            - format:"pretty"
-            - format:"text"
-            - format:text
+            - 'format:pretty'
+            - 'format:"pretty"'
+            - 'format:"text"'
+            - 'format:text'
     image_from_system_folder:
         Image|startswith:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
     contains_winrm:
-        CommandLine|contains: winrm
-    condition: process_creation and (contains_winrm and (contains_format_pretty_arg and not image_from_system_folder))
+        CommandLine|contains: 'winrm'
+    condition: contains_winrm and (contains_format_pretty_arg and not image_from_system_folder)
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

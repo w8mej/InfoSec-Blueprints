@@ -14,13 +14,10 @@ logsource:
     product: windows
     service: terminalservices-localsessionmanager
 detection:
-    terminalservices_localsessionmanager:
-        Channel: Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
     selection:
         EventID: 21
         Address|contains: '16777216'
-    condition: terminalservices_localsessionmanager and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,19 +11,14 @@ modified: 2021/11/27
 tags:
     - attack.collection
     - attack.t1123
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \SoundRecorder.exe
-        CommandLine|contains: /FILE
-    condition: process_creation and selection
+        Image|endswith: '\SoundRecorder.exe'
+        CommandLine|contains: '/FILE'
+    condition: selection
 falsepositives:
     - Legitimate audio capture by legitimate user.
 level: medium
-ruletype: Sigma

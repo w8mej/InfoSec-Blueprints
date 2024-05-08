@@ -17,22 +17,19 @@ logsource:
     service: security
     definition: The successful use of PtH for lateral movement between workstations would trigger event ID 4624
 detection:
-    security:
-        Channel: Security
     selection_logon3:
         EventID: 4624
-        SubjectUserSid: S-1-0-0
+        SubjectUserSid: 'S-1-0-0'
         LogonType: 3
-        LogonProcessName: NtLmSsp
+        LogonProcessName: 'NtLmSsp'
         KeyLength: 0
     selection_logon9:
         EventID: 4624
         LogonType: 9
-        LogonProcessName: seclogo
+        LogonProcessName: 'seclogo'
     filter:
-        TargetUserName: ANONYMOUS LOGON
-    condition: security and (1 of selection_* and not filter)
+        TargetUserName: 'ANONYMOUS LOGON'
+    condition: 1 of selection_* and not filter
 falsepositives:
     - Administrator activity
 level: medium
-ruletype: Sigma

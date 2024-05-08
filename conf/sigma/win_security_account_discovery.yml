@@ -15,13 +15,11 @@ logsource:
     service: security
     definition: 'Requirements: enable Object Access SAM on your Domain Controllers'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4661
         ObjectType:
-            - SAM_USER
-            - SAM_GROUP
+            - 'SAM_USER'
+            - 'SAM_GROUP'
     selection_object:
         - ObjectName|endswith:
               - '-512'
@@ -33,11 +31,10 @@ detection:
               - '-544'
               - '-551'
               - '-555'
-        - ObjectName|contains: admin
+        - ObjectName|contains: 'admin'
     filter:
-        SubjectUserName|endswith: $
-    condition: security and (selection and selection_object and not filter)
+        SubjectUserName|endswith: '$'
+    condition: selection and selection_object and not filter
 falsepositives:
     - If source account name is not an admin then its super suspicious
 level: high
-ruletype: Sigma

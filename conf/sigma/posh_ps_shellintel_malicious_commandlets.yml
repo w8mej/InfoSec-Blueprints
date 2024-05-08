@@ -15,19 +15,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Invoke-SMBAutoBrute
-            - Invoke-GPOLinks
+            - 'Invoke-SMBAutoBrute'
+            - 'Invoke-GPOLinks'
             # - 'Out-Minidump' # Covered in 89819aa4-bbd6-46bc-88ec-c7f7fe30efa6
-            - Invoke-Potato
-    condition: ps_script and selection
+            - 'Invoke-Potato'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

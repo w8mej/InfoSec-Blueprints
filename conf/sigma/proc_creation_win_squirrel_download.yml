@@ -19,27 +19,22 @@ tags:
     - attack.defense_evasion
     - attack.execution
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         Image|endswith:
-            - \squirrel.exe
-            - \update.exe
+            - '\squirrel.exe'
+            - '\update.exe'
     selection_download_cli:
         CommandLine|contains:
             - ' --download '
             - ' --update '
             - ' --updateRollback='
     selection_download_http_keyword:
-        CommandLine|contains: http
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'http'
+    condition: all of selection_*
 falsepositives:
     - Expected FP with some Electron based applications such as (1Clipboard, Beaker Browser, Caret, Discord, GitHub Desktop, etc.)
 level: medium
-ruletype: Sigma

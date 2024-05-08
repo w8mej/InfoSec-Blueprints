@@ -13,16 +13,12 @@ tags:
     - attack.defense_evasion
     - attack.t1134.001
     - attack.t1134.003
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_commandline_exe:
-        CommandLine|contains: impersonate.exe
+        CommandLine|contains: 'impersonate.exe'
     selection_commandline_opt:
         CommandLine|contains:
             - ' list '
@@ -30,15 +26,14 @@ detection:
             - ' adduser '
     selection_hash_plain:
         Hashes|contains:
-            - MD5=9520714AB576B0ED01D1513691377D01
-            - SHA256=E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A
-            - IMPHASH=0A358FFC1697B7A07D0E817AC740DF62
+            - 'MD5=9520714AB576B0ED01D1513691377D01'
+            - 'SHA256=E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A'
+            - 'IMPHASH=0A358FFC1697B7A07D0E817AC740DF62'
     selection_hash_ext:
-        - md5: 9520714AB576B0ED01D1513691377D01
-        - sha256: E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A
-        - Imphash: 0A358FFC1697B7A07D0E817AC740DF62
-    condition: process_creation and (all of selection_commandline_* or 1 of selection_hash_*)
+        - md5: '9520714AB576B0ED01D1513691377D01'
+        - sha256: 'E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A'
+        - Imphash: '0A358FFC1697B7A07D0E817AC740DF62'
+    condition: all of selection_commandline_* or 1 of selection_hash_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

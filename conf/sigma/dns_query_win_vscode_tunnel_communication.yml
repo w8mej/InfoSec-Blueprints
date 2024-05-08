@@ -20,18 +20,13 @@ modified: 2023/11/20
 tags:
     - attack.command_and_control
     - attack.t1071.001
-    - sysmon
 logsource:
     category: dns_query
     product: windows
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        QueryName|endswith: .tunnels.api.visualstudio.com
-    condition: dns_query and selection
+        QueryName|endswith: '.tunnels.api.visualstudio.com'
+    condition: selection
 falsepositives:
     - Legitimate use of Visual Studio Code tunnel will also trigger this.
 level: medium
-ruletype: Sigma

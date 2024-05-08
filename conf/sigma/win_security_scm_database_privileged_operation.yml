@@ -14,18 +14,15 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4674
-        ObjectType: SC_MANAGER OBJECT
-        ObjectName: servicesactive
-        PrivilegeList: SeTakeOwnershipPrivilege
+        ObjectType: 'SC_MANAGER OBJECT'
+        ObjectName: 'servicesactive'
+        PrivilegeList: 'SeTakeOwnershipPrivilege'
     filter:
         SubjectLogonId: '0x3e4'
-        ProcessName|endswith: :\Windows\System32\services.exe
-    condition: security and (selection and not filter)
+        ProcessName|endswith: ':\Windows\System32\services.exe'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

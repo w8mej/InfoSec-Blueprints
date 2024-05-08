@@ -15,16 +15,13 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
         LogonType: 10
         IpAddress:
-            - ::1
-            - 127.0.0.1
-    condition: security and selection
+            - '::1'
+            - '127.0.0.1'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

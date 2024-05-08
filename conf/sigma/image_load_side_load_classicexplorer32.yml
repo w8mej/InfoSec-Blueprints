@@ -13,20 +13,15 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_classicexplorer:
-        ImageLoaded|endswith: \ClassicExplorer32.dll
+        ImageLoaded|endswith: '\ClassicExplorer32.dll'
     filter_classicexplorer:
-        ImageLoaded|startswith: C:\Program Files\Classic Shell\
-    condition: image_load and (selection_classicexplorer and not filter_classicexplorer)
+        ImageLoaded|startswith: 'C:\Program Files\Classic Shell\'
+    condition: selection_classicexplorer and not filter_classicexplorer
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

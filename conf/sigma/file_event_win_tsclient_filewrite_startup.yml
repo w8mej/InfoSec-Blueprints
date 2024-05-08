@@ -10,19 +10,14 @@ modified: 2021/11/27
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \mstsc.exe
-        TargetFilename|contains: \Microsoft\Windows\Start Menu\Programs\Startup\
-    condition: file_event and selection
+        Image|endswith: '\mstsc.exe'
+        TargetFilename|contains: '\Microsoft\Windows\Start Menu\Programs\Startup\'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

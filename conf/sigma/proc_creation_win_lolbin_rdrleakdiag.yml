@@ -11,24 +11,19 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
-        Image|endswith: \rdrleakdiag.exe
-        CommandLine|contains: /fullmemdmp
+        Image|endswith: '\rdrleakdiag.exe'
+        CommandLine|contains: '/fullmemdmp'
     selection2:
         CommandLine|contains|all:
-            - /fullmemdmp
+            - '/fullmemdmp'
             - ' /o '
             - ' /p '
-    condition: process_creation and (selection1 or selection2)
+    condition: selection1 or selection2
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -16,22 +16,17 @@ modified: 2022/12/23
 tags:
     - attack.credential_access
     - attack.t1185
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_chromium_based:
         # Covers: --remote-debugging-address, --remote-debugging-port, --remote-debugging-socket-name, --remote-debugging-pipe....etc
         CommandLine|contains: ' --remote-debugging-'
     selection_firefox:
-        Image|endswith: \firefox.exe
+        Image|endswith: '\firefox.exe'
         CommandLine|contains: ' -start-debugger-server'
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -20,14 +20,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 633 # Security Enabled Global Group Member Removed
             - 4729 # A member was removed from a security-enabled global group
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

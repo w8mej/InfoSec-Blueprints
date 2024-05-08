@@ -11,20 +11,15 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32\(Default)
+        TargetObject|endswith: '\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32\(Default)'
     filter:
         Details: '%windir%\system32\amsi.dll'
-    condition: registry_set and (selection and not filter)
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

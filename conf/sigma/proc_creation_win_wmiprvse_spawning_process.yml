@@ -19,27 +19,23 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     selection:
-        ParentProcessName|endswith: \WmiPrvSe.exe
+        ParentImage|endswith: '\WmiPrvSe.exe'
     filter_logonid:
-        SubjectLogonId:
+        LogonId:
             - '0x3e7'  # LUID 999 for SYSTEM
             - 'null'   # too many false positives
     filter_system_user:
-        SubjectUserName|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
+        User|contains: # covers many language settings
+            - 'AUTHORI'
+            - 'AUTORI'
     filter_wmiprvse:
-        NewProcessName|endswith: \WmiPrvSE.exe
+        Image|endswith: '\WmiPrvSE.exe'
     filter_werfault:
-        NewProcessName|endswith: \WerFault.exe
+        Image|endswith: '\WerFault.exe'
     filter_null:  # some backends need the null value in a separate expression
-        SubjectLogonId:
-    condition: process_creation and (selection and not 1 of filter_*)
+        LogonId: null
+    condition: selection and not 1 of filter_*
 falsepositives:
     - False positives are expected (e.g. in environments where WinRM is used legitimately)
 level: medium
-ruletype: Sigma

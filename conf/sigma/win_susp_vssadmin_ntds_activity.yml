@@ -14,30 +14,25 @@ references:
 tags:
     - attack.credential_access
     - attack.t1003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine:
-            - vssadmin.exe Delete Shadows
+            - 'vssadmin.exe Delete Shadows'
             - 'vssadmin create shadow /for=C:'
-            - copy \\?\GLOBALROOT\Device\\*\windows\ntds\ntds.dit
-            - copy \\?\GLOBALROOT\Device\\*\config\SAM
+            - 'copy \\?\GLOBALROOT\Device\\*\windows\ntds\ntds.dit'
+            - 'copy \\?\GLOBALROOT\Device\\*\config\SAM'
             - 'vssadmin delete shadows /for=C:'
             - 'reg SAVE HKLM\SYSTEM '
-            - esentutl.exe /y /vss *\ntds.dit*
-            - esentutl.exe /y /vss *\SAM
-            - esentutl.exe /y /vss *\SYSTEM
-    condition: process_creation and selection
+            - 'esentutl.exe /y /vss *\ntds.dit*'
+            - 'esentutl.exe /y /vss *\SAM'
+            - 'esentutl.exe /y /vss *\SYSTEM'
+    condition: selection
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - Administrative activity
 level: high
-ruletype: Sigma

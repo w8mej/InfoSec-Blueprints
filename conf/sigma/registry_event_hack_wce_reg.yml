@@ -11,21 +11,13 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0005
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains: Services\WCESERVICE\Start
-    condition: registry_event and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

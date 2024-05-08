@@ -16,11 +16,6 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_ioc:
         - ScriptBlockText|contains|all:
               - 'New-CimInstance '
@@ -32,8 +27,7 @@ detection:
               - '-Namespace root/subscription '
               - '-ClassName CommandLineEventConsumer '
               - '-Property ' # is a variable name
-    condition: ps_script and selection_ioc
+    condition: selection_ioc
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

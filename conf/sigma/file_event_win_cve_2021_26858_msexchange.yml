@@ -15,28 +15,23 @@ tags:
     - attack.execution
     - cve.2021.26858
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: UMWorkerProcess.exe
+        Image|endswith: 'UMWorkerProcess.exe'
     filter:
         TargetFilename|endswith:
-            - CacheCleanup.bin
-            - .txt
-            - .LOG
-            - .cfg
-            - cleanup.bin
-    condition: file_event and (selection and not filter)
+            - 'CacheCleanup.bin'
+            - '.txt'
+            - '.LOG'
+            - '.cfg'
+            - 'cleanup.bin'
+    condition: selection and not filter
 fields:
     - ComputerName
     - TargetFilename
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -17,25 +17,20 @@ tags:
     - attack.defense_evasion
     - attack.t1140
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_edge:
-        TargetObject|endswith: \SOFTWARE\Policies\Microsoft\Edge\BuiltInDnsClientEnabled
+        TargetObject|endswith: '\SOFTWARE\Policies\Microsoft\Edge\BuiltInDnsClientEnabled'
         Details: DWORD (0x00000001)
     selection_chrome:
-        TargetObject|endswith: \SOFTWARE\Google\Chrome\DnsOverHttpsMode
-        Details: secure
+        TargetObject|endswith: '\SOFTWARE\Google\Chrome\DnsOverHttpsMode'
+        Details: 'secure'
     selection_firefox:
-        TargetObject|endswith: \SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS\Enabled
+        TargetObject|endswith: '\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS\Enabled'
         Details: DWORD (0x00000001)
-    condition: registry_set and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

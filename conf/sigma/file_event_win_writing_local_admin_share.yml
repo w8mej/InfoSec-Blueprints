@@ -12,20 +12,15 @@ modified: 2022/08/13
 tags:
     - attack.lateral_movement
     - attack.t1546.002
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains|all:
-            - \\\\127.0.0
-            - \ADMIN$\
-    condition: file_event and selection
+            - '\\\\127.0.0'
+            - '\ADMIN$\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

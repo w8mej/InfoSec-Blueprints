@@ -17,19 +17,14 @@ date: 2023/10/09
 tags:
     - attack.defense_evasion
     - attack.t1564.004
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # Note: Both Sysmon and ETW are unable to log the presence of such streams in the CommandLine. But EDRs such as Crowdstrike are able to use e.g. CMD console history. Users are advised to test this before usage
-        TargetFilename|contains: ::$index_allocation
-    condition: file_event and selection
+        TargetFilename|contains: '::$index_allocation'
+    condition: selection
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

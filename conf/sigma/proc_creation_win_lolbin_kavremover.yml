@@ -9,22 +9,17 @@ date: 2022/11/01
 tags:
     - attack.defense_evasion
     - attack.t1127
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains: ' run run-cmd '
     filter:
         ParentImage|endswith:
-            - \kavremover.exe   # When launched from kavremover.exe
-            - \cleanapi.exe   # When launched from KES installer
-    condition: process_creation and (selection and not filter)
+            - '\kavremover.exe' # When launched from kavremover.exe
+            - '\cleanapi.exe' # When launched from KES installer
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

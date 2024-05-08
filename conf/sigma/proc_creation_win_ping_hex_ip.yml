@@ -12,21 +12,16 @@ tags:
     - attack.defense_evasion
     - attack.t1140
     - attack.t1027
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \ping.exe
-        CommandLine|contains: 0x
-    condition: process_creation and selection
+        Image|endswith: '\ping.exe'
+        CommandLine|contains: '0x'
+    condition: selection
 fields:
     - ParentCommandLine
 falsepositives:
     - Unlikely, because no sane admin pings IP addresses in a hexadecimal form
 level: high
-ruletype: Sigma

@@ -12,23 +12,18 @@ date: 2022/09/28
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \anydesk.exe
+        Image|endswith: '\anydesk.exe'
         TargetFilename|endswith:
-            - .dll
-            - .exe
+            - '.dll'
+            - '.exe'
     filter_dlls:
-        TargetFilename|endswith: \gcapi.dll
-    condition: file_event and (selection and not 1 of filter_*)
+        TargetFilename|endswith: '\gcapi.dll'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

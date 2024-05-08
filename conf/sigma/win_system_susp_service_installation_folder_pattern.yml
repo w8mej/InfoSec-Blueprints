@@ -16,16 +16,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_eid:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     selection_img_paths:
-        - ImagePath|re: ^[Cc]:\\[Pp]rogram[Dd]ata\\.{1,9}\.exe
-        - ImagePath|re: ^[Cc]:\\.{1,9}\.exe
-    condition: system and (all of selection_*)
+        - ImagePath|re: '^[Cc]:\\[Pp]rogram[Dd]ata\\.{1,9}\.exe'
+        - ImagePath|re: '^[Cc]:\\.{1,9}\.exe'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

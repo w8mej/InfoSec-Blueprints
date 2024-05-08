@@ -8,17 +8,13 @@ author: frack113
 date: 2023/07/20
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     service: sysmon
 detection:
-    sysmon:
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventID: 28  # this is fine, we want to match any FileBlockShredding event
-    condition: sysmon and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

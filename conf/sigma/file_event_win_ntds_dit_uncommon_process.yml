@@ -15,37 +15,32 @@ tags:
     - attack.credential_access
     - attack.t1003.002
     - attack.t1003.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_ntds:
-        TargetFilename|endswith: \ntds.dit
+        TargetFilename|endswith: '\ntds.dit'
     selection_process_img:
         Image|endswith:
             # Add more suspicious processes as you see fit
-            - \cmd.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \wscript.exe
-            - \wsl.exe
-            - \wt.exe
+            - '\cmd.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\wscript.exe'
+            - '\wsl.exe'
+            - '\wt.exe'
     selection_process_paths:
         Image|contains:
-            - \AppData\
-            - \Temp\
-            - \Public\
-            - \PerfLogs\
-    condition: file_event and (selection_ntds and 1 of selection_process_*)
+            - '\AppData\'
+            - '\Temp\'
+            - '\Public\'
+            - '\PerfLogs\'
+    condition: selection_ntds and 1 of selection_process_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

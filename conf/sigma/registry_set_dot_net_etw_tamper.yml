@@ -24,26 +24,21 @@ tags:
     - attack.defense_evasion
     - attack.t1112
     - attack.t1562
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_etw_enabled:
-        TargetObject|endswith: SOFTWARE\Microsoft\.NETFramework\ETWEnabled
-        Details: DWORD (0x00000000)
+        TargetObject|endswith: 'SOFTWARE\Microsoft\.NETFramework\ETWEnabled'
+        Details: 'DWORD (0x00000000)'
     selection_complus:
         TargetObject|endswith:
-            - \COMPlus_ETWEnabled
-            - \COMPlus_ETWFlags
+            - '\COMPlus_ETWEnabled'
+            - '\COMPlus_ETWFlags'
         Details:
             - 0 # For REG_SZ type
-            - DWORD (0x00000000)
-    condition: registry_set and (1 of selection_*)
+            - 'DWORD (0x00000000)'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -10,25 +10,20 @@ date: 2024/01/09
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded|endswith:
-            - \hdwwiz.cpl   # Usually loaded by hdwwiz.exe
-            - \appwiz.cpl   # Usually loaded by fondue.exe
+            - '\hdwwiz.cpl' # Usually loaded by hdwwiz.exe
+            - '\appwiz.cpl' # Usually loaded by fondue.exe
     filter_main_legit_location:
         ImageLoaded|contains:
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-            - :\Windows\WinSxS\
-    condition: image_load and (selection and not 1 of filter_*)
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+            - ':\Windows\WinSxS\'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

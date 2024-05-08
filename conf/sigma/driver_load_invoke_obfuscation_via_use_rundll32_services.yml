@@ -14,21 +14,18 @@ logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImagePath|contains|all:
+        ImagePath|contains|all: 
             - '&&'
-            - rundll32
-            - shell32.dll
-            - shellexec_rundll
-        ImagePath|contains:
-            - value
-            - invoke
-            - comspec
-            - iex
-    condition: driver_load and selection
+            - 'rundll32'
+            - 'shell32.dll'
+            - 'shellexec_rundll'
+        ImagePath|contains:     
+            - 'value'
+            - 'invoke'
+            - 'comspec'
+            - 'iex'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
@@ -37,5 +34,3 @@ tags:
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
-ruletype: Sigma

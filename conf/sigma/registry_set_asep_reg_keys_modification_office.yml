@@ -15,66 +15,62 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     office:
         TargetObject|contains:
-            - \Software\Wow6432Node\Microsoft\Office
-            - \Software\Microsoft\Office
+            - '\Software\Wow6432Node\Microsoft\Office'
+            - '\Software\Microsoft\Office'
     office_details:
         TargetObject|contains:
-            - \Word\Addins
-            - \PowerPoint\Addins
-            - \Outlook\Addins
-            - \Onenote\Addins
-            - \Excel\Addins
-            - \Access\Addins
-            - test\Special\Perf
+            - '\Word\Addins'
+            - '\PowerPoint\Addins'
+            - '\Outlook\Addins'
+            - '\Onenote\Addins'
+            - '\Excel\Addins'
+            - '\Access\Addins'
+            - 'test\Special\Perf'
     filter_empty:
-        Details: (Empty)
+        Details: '(Empty)'
     filter_known_addins:
         Image|startswith:
-            - C:\Program Files\Microsoft Office\
-            - C:\Program Files (x86)\Microsoft Office\
-            - C:\Windows\System32\msiexec.exe
-            - C:\Windows\System32\regsvr32.exe
+            - 'C:\Program Files\Microsoft Office\'
+            - 'C:\Program Files (x86)\Microsoft Office\'
+            - 'C:\Windows\System32\msiexec.exe'
+            - 'C:\Windows\System32\regsvr32.exe'
         TargetObject|contains:
             # Remove any unused addins in your environment from the filter
             # Known addins for excel
-            - \Excel\Addins\AdHocReportingExcelClientLib.AdHocReportingExcelClientAddIn.1\
-            - \Excel\Addins\ExcelPlugInShell.PowerMapConnect\
-            - \Excel\Addins\NativeShim\
-            - \Excel\Addins\NativeShim.InquireConnector.1\
-            - \Excel\Addins\PowerPivotExcelClientAddIn.NativeEntry.1\
+            - '\Excel\Addins\AdHocReportingExcelClientLib.AdHocReportingExcelClientAddIn.1\'
+            - '\Excel\Addins\ExcelPlugInShell.PowerMapConnect\'
+            - '\Excel\Addins\NativeShim\'
+            - '\Excel\Addins\NativeShim.InquireConnector.1\'
+            - '\Excel\Addins\PowerPivotExcelClientAddIn.NativeEntry.1\'
             # Known addins for outlook
-            - \Outlook\AddIns\AccessAddin.DC\
-            - \Outlook\AddIns\ColleagueImport.ColleagueImportAddin\
-            - \Outlook\AddIns\EvernoteCC.EvernoteContactConnector\
-            - \Outlook\AddIns\EvernoteOLRD.Connect\
+            - '\Outlook\AddIns\AccessAddin.DC\'
+            - '\Outlook\AddIns\ColleagueImport.ColleagueImportAddin\'
+            - '\Outlook\AddIns\EvernoteCC.EvernoteContactConnector\'
+            - '\Outlook\AddIns\EvernoteOLRD.Connect\'
             # - '\Outlook\Addins\GrammarlyAddIn.Connect' # Uncomment if you use Grammarly
-            - \Outlook\Addins\Microsoft.VbaAddinForOutlook.1\
-            - \Outlook\Addins\OcOffice.OcForms\
-            - \Outlook\Addins\\OneNote.OutlookAddin
-            - \Outlook\Addins\OscAddin.Connect\
-            - \Outlook\Addins\OutlookChangeNotifier.Connect\
-            - \Outlook\Addins\UCAddin.LyncAddin.1
-            - \Outlook\Addins\UCAddin.UCAddin.1
-            - \Outlook\Addins\UmOutlookAddin.FormRegionAddin\
+            - '\Outlook\Addins\Microsoft.VbaAddinForOutlook.1\'
+            - '\Outlook\Addins\OcOffice.OcForms\'
+            - '\Outlook\Addins\\OneNote.OutlookAddin'
+            - '\Outlook\Addins\OscAddin.Connect\'
+            - '\Outlook\Addins\OutlookChangeNotifier.Connect\'
+            - '\Outlook\Addins\UCAddin.LyncAddin.1'
+            - '\Outlook\Addins\UCAddin.UCAddin.1'
+            - '\Outlook\Addins\UmOutlookAddin.FormRegionAddin\'
     filter_officeclicktorun:
         Image|startswith:
-            - C:\Program Files\Common Files\Microsoft Shared\ClickToRun\
-            - C:\Program Files\Common Files\Microsoft Shared\ClickToRun\Updates\
-        Image|endswith: \OfficeClickToRun.exe
+            - 'C:\Program Files\Common Files\Microsoft Shared\ClickToRun\'
+            - 'C:\Program Files\Common Files\Microsoft Shared\ClickToRun\Updates\'
+        Image|endswith: '\OfficeClickToRun.exe'
     filter_avg:
-        Image: C:\Program Files\AVG\Antivirus\RegSvr.exe
-        TargetObject|contains: \Microsoft\Office\Outlook\Addins\Antivirus.AsOutExt\
-    condition: registry_set and (office and office_details and not 1 of filter_*)
+        Image: 'C:\Program Files\AVG\Antivirus\RegSvr.exe'
+        TargetObject|contains: '\Microsoft\Office\Outlook\Addins\Antivirus.AsOutExt\'
+    condition: office and office_details and not 1 of filter_*
 fields:
     - SecurityID
     - ObjectName
@@ -84,4 +80,3 @@ falsepositives:
     - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason
     - Legitimate administrator sets up autorun keys for legitimate reason
 level: medium
-ruletype: Sigma

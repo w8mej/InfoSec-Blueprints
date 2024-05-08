@@ -12,23 +12,18 @@ tags:
     - attack.discovery
     - attack.credential_access
     - attack.t1040
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \netsh.exe
-        - OriginalFileName: netsh.exe
+        - Image|endswith: '\netsh.exe'
+        - OriginalFileName: 'netsh.exe'
     selection_cli:
         CommandLine|contains|all:
-            - trace
-            - start
-    condition: process_creation and (all of selection_*)
+            - 'trace'
+            - 'start'
+    condition: all of selection_*
 falsepositives:
     - Legitimate administration activity
 level: medium
-ruletype: Sigma

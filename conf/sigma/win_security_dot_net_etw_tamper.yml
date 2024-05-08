@@ -27,22 +27,19 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection_etw_enabled:
         EventID: 4657
-        ObjectName|endswith: \SOFTWARE\Microsoft\.NETFramework
-        ObjectValueName: ETWEnabled
+        ObjectName|endswith: '\SOFTWARE\Microsoft\.NETFramework'
+        ObjectValueName: 'ETWEnabled'
         NewValue: 0
     selection_complus:
         EventID: 4657
-        ObjectName|contains: \Environment
+        ObjectName|contains: '\Environment'
         ObjectValueName:
-            - COMPlus_ETWEnabled
-            - COMPlus_ETWFlags
+            - 'COMPlus_ETWEnabled'
+            - 'COMPlus_ETWFlags'
         NewValue: 0
-    condition: security and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

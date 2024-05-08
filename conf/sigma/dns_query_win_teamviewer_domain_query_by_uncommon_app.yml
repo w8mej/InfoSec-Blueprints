@@ -10,24 +10,19 @@ modified: 2023/09/18
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         QueryName:
-            - taf.teamviewer.com
-            - udp.ping.teamviewer.com
+            - 'taf.teamviewer.com'
+            - 'udp.ping.teamviewer.com'
     filter_main_teamviewer:
         # Note: To avoid evasion based on similar names. Best add full install location of TeamViewer
-        Image|contains: TeamViewer
-    condition: dns_query and (selection and not 1 of filter_main_*)
+        Image|contains: 'TeamViewer'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown binary names of TeamViewer
     - Depending on the environment the rule might require some initial tuning before usage to avoid FP with third party applications
 level: medium
-ruletype: Sigma

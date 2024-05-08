@@ -11,21 +11,16 @@ date: 2022/06/29
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
-        SourceImage|endswith: \svchost.exe
+        TargetImage|endswith: '\lsass.exe'
+        SourceImage|endswith: '\svchost.exe'
         GrantedAccess: '0x14c0'
-        CallTrace|contains: seclogon.dll
-    condition: process_access and selection
+        CallTrace|contains: 'seclogon.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

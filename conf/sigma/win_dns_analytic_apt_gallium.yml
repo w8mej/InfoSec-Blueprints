@@ -21,20 +21,17 @@ logsource:
     service: dns-server-analytic
     definition: 'Requirements: Microsoft-Windows-DNS-Server/Analytical ({EB79061A-A566-4698-9119-3ED2807060E7}) Event Log must be collected in order to receive the events.'
 detection:
-    dns_server_analytic:
-        Channel: Microsoft-Windows-DNS-Server/Analytical
     selection:
         EventID: 257
         QNAME:
-            - asyspy256.ddns.net
-            - hotkillmail9sddcc.ddns.net
-            - rosaf112.ddns.net
-            - cvdfhjh1231.myftp.biz
-            - sz2016rose.ddns.net
-            - dffwescwer4325.myftp.biz
-            - cvdfhjh1231.ddns.net
-    condition: dns_server_analytic and selection
+            - 'asyspy256.ddns.net'
+            - 'hotkillmail9sddcc.ddns.net'
+            - 'rosaf112.ddns.net'
+            - 'cvdfhjh1231.myftp.biz'
+            - 'sz2016rose.ddns.net'
+            - 'dffwescwer4325.myftp.biz'
+            - 'cvdfhjh1231.ddns.net'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

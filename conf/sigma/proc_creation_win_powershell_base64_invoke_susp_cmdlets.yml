@@ -15,32 +15,27 @@ tags:
     - attack.t1059.001
     - attack.defense_evasion
     - attack.t1027
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
             # Invoke-BloodHound
-            - SQBuAHYAbwBrAGUALQBCAGwAbwBvAGQASABvAHUAbgBkA
-            - kAbgB2AG8AawBlAC0AQgBsAG8AbwBkAEgAbwB1AG4AZA
-            - JAG4AdgBvAGsAZQAtAEIAbABvAG8AZABIAG8AdQBuAGQA
+            - 'SQBuAHYAbwBrAGUALQBCAGwAbwBvAGQASABvAHUAbgBkA'
+            - 'kAbgB2AG8AawBlAC0AQgBsAG8AbwBkAEgAbwB1AG4AZA'
+            - 'JAG4AdgBvAGsAZQAtAEIAbABvAG8AZABIAG8AdQBuAGQA'
             # Invoke-Mimikatz
-            - SQBuAHYAbwBrAGUALQBNAGkAbQBpAGsAYQB0AHoA
-            - kAbgB2AG8AawBlAC0ATQBpAG0AaQBrAGEAdAB6A
-            - JAG4AdgBvAGsAZQAtAE0AaQBtAGkAawBhAHQAeg
+            - 'SQBuAHYAbwBrAGUALQBNAGkAbQBpAGsAYQB0AHoA'
+            - 'kAbgB2AG8AawBlAC0ATQBpAG0AaQBrAGEAdAB6A'
+            - 'JAG4AdgBvAGsAZQAtAE0AaQBtAGkAawBhAHQAeg'
             # Invoke-WMIExec
-            - SQBuAHYAbwBrAGUALQBXAE0ASQBFAHgAZQBjA
-            - kAbgB2AG8AawBlAC0AVwBNAEkARQB4AGUAYw
-            - JAG4AdgBvAGsAZQAtAFcATQBJAEUAeABlAGMA
-    condition: process_creation and selection
+            - 'SQBuAHYAbwBrAGUALQBXAE0ASQBFAHgAZQBjA'
+            - 'kAbgB2AG8AawBlAC0AVwBNAEkARQB4AGUAYw'
+            - 'JAG4AdgBvAGsAZQAtAFcATQBJAEUAeABlAGMA'
+    condition: selection
 fields:
     - CommandLine
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

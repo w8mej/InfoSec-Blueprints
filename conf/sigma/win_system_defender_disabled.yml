@@ -18,21 +18,18 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID: 7036
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         # Note: The service name and messages are localized
         param1:
-            - Windows Defender Antivirus Service
-            - Service antivirus Microsoft Defender   # French OS
+            - 'Windows Defender Antivirus Service'
+            - 'Service antivirus Microsoft Defender' # French OS
         param2:
-            - stopped
-            - arrêté
-    condition: system and selection
+            - 'stopped'
+            - 'arrêté'
+    condition: selection
 falsepositives:
     - Administrator actions
     - Auto updates of Windows Defender causes restarts
 level: medium
-ruletype: Sigma

@@ -15,14 +15,10 @@ modified: 2023/03/05
 tags:
     - attack.discovery
     - attack.t1087.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_password: # Listing password policy
         CommandLine|contains:
             - lockoutduration
@@ -34,11 +30,10 @@ detection:
             - pwdhistorylength
             - pwdproperties
     selection_enum_ad: # Enumerate Active Directory Admins
-        CommandLine|contains: -sc admincountdmp
+        CommandLine|contains: '-sc admincountdmp'
     selection_enum_exchange: # Enumerate Active Directory Exchange AD Objects
-        CommandLine|contains: -sc exchaddresses
-    condition: process_creation and (1 of selection_*)
+        CommandLine|contains: '-sc exchaddresses'
+    condition: 1 of selection_*
 falsepositives:
     - Authorized administrative activity
 level: high
-ruletype: Sigma

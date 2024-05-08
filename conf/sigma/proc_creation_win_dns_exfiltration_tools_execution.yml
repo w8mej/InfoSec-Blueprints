@@ -14,19 +14,14 @@ tags:
     - attack.command_and_control
     - attack.t1071.004
     - attack.t1132.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \iodine.exe
-        - Image|contains: \dnscat2
-    condition: process_creation and selection
+        - Image|endswith: '\iodine.exe'
+        - Image|contains: '\dnscat2'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

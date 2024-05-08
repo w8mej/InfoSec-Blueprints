@@ -20,15 +20,12 @@ logsource:
     product: windows
     definition: 'Requirements: The System Security Extension audit subcategory need to be enabled to log the EID 4697'
 detection:
-    security:
-        Channel: Security
     selection_eid:
         EventID: 4697
     selection_pid:
         - ClientProcessId: 0
         - ParentProcessId: 0
-    condition: security and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

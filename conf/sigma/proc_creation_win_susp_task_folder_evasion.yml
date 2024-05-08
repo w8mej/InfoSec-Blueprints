@@ -16,29 +16,24 @@ tags:
     - attack.persistence
     - attack.execution
     - attack.t1574.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         CommandLine|contains:
             - 'echo '
             - 'copy '
             - 'type '
-            - file createnew
+            - 'file createnew'
     selection2:
         CommandLine|contains:
             - ' C:\Windows\System32\Tasks\'
             - ' C:\Windows\SysWow64\Tasks\'
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unknown
 fields:
     - CommandLine
     - ParentProcess
 level: high
-ruletype: Sigma

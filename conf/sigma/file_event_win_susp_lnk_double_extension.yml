@@ -18,45 +18,40 @@ modified: 2023/10/18
 tags:
     - attack.defense_evasion
     - attack.t1036.007
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: .lnk
+        TargetFilename|endswith: '.lnk'
         TargetFilename|contains:
-            - .doc.
-            - .docx.
-            - .jpg.
-            - .pdf.
-            - .ppt.
-            - .pptx.
-            - .xls.
-            - .xlsx.
+            - '.doc.'
+            - '.docx.'
+            - '.jpg.'
+            - '.pdf.'
+            - '.ppt.'
+            - '.pptx.'
+            - '.xls.'
+            - '.xlsx.'
     filter_main_recent:
-        TargetFilename|contains: \AppData\Roaming\Microsoft\Windows\Recent\
+        TargetFilename|contains: '\AppData\Roaming\Microsoft\Windows\Recent\'
     filter_optional_office_recent:
         Image|endswith:
             # Note: Some additional office application might need to be added
-            - \excel.exe
-            - \powerpnt.exe
-            - \winword.exe
-        TargetFilename|contains: \AppData\Roaming\Microsoft\Office\Recent\
+            - '\excel.exe'
+            - '\powerpnt.exe'
+            - '\winword.exe'
+        TargetFilename|contains: '\AppData\Roaming\Microsoft\Office\Recent\'
     filter_optional_office_excel:
-        Image|endswith: \excel.exe
-        TargetFilename|contains: \AppData\Roaming\Microsoft\Excel
+        Image|endswith: '\excel.exe'
+        TargetFilename|contains: '\AppData\Roaming\Microsoft\Excel'
     filter_optional_office_powerpoint:
-        Image|endswith: \powerpnt.exe
-        TargetFilename|contains: \AppData\Roaming\Microsoft\PowerPoint
+        Image|endswith: '\powerpnt.exe'
+        TargetFilename|contains: '\AppData\Roaming\Microsoft\PowerPoint'
     filter_optional_office_word:
-        Image|endswith: \winword.exe
-        TargetFilename|contains: \AppData\Roaming\Microsoft\Word
-    condition: file_event and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        Image|endswith: '\winword.exe'
+        TargetFilename|contains: '\AppData\Roaming\Microsoft\Word'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Some tuning is required for other general purpose directories of third party apps
 level: medium
-ruletype: Sigma

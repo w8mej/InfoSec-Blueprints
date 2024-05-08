@@ -11,24 +11,17 @@ modified: 2022/08/02
 tags:
     - attack.defense_evasion
     - attack.t1564
-    - sysmon
 logsource:
     product: windows
     category: sysmon_status
 detection:
-    sysmon_status:
-        EventID:
-            - 4
-            - 16
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_stop:
         State: Stopped
     selection_conf:
-        - Sysmon config state changed
+        - 'Sysmon config state changed'
     filter:
         State: Started
-    condition: sysmon_status and (1 of selection_* and not filter)
+    condition: 1 of selection_* and not filter
 falsepositives:
     - Legitimate administrative action
 level: high
-ruletype: Sigma

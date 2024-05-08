@@ -15,23 +15,18 @@ modified: 2023/02/10
 tags:
     - attack.persistence
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \schtasks.exe
-        - OriginalFileName: schtasks.exe
+        - Image|endswith: '\schtasks.exe'
+        - OriginalFileName: 'schtasks.exe'
     selection_cli:
         CommandLine|contains|all:
             - 'run '
-            - \Application Experience\Microsoft Compatibility Appraiser
-    condition: process_creation and (all of selection_*)
+            - '\Application Experience\Microsoft Compatibility Appraiser'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

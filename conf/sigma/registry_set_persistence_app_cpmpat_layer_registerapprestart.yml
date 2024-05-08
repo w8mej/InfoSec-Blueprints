@@ -12,19 +12,14 @@ date: 2024/01/01
 tags:
     - attack.persistence
     - attack.t1546.011
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers\
-        Details|contains: REGISTERAPPRESTART
-    condition: registry_set and selection
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers\'
+        Details|contains: 'REGISTERAPPRESTART'
+    condition: selection
 falsepositives:
     - Legitimate applications making use of this feature for compatibility reasons
 level: medium
-ruletype: Sigma

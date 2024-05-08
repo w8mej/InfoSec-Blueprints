@@ -11,21 +11,16 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image: C:\Program Files\Internet Explorer\IEInstal.exe
-        TargetFilename|startswith: C:\Users\
-        TargetFilename|contains: \AppData\Local\Temp\
-        TargetFilename|endswith: consent.exe
-    condition: file_event and selection
+        Image: 'C:\Program Files\Internet Explorer\IEInstal.exe'
+        TargetFilename|startswith: 'C:\Users\'
+        TargetFilename|contains: '\AppData\Local\Temp\'
+        TargetFilename|endswith: 'consent.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

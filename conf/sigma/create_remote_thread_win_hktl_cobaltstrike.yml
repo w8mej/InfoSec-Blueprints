@@ -11,21 +11,16 @@ modified: 2023/05/05
 tags:
     - attack.defense_evasion
     - attack.t1055.001
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         StartAddress|endswith:
-            - 0B80
-            - 0C7C
-            - 0C88
-    condition: create_remote_thread and selection
+            - '0B80'
+            - '0C7C'
+            - '0C88'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

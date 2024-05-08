@@ -10,22 +10,17 @@ date: 2022/01/23
 modified: 2022/02/04
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \InstallUtil.exe
-        Image|contains: Microsoft.NET\Framework
+        Image|endswith: '\InstallUtil.exe'
+        Image|contains: 'Microsoft.NET\Framework'
         CommandLine|contains|all:
             - '/logfile= '
-            - /LogToConsole=false
-    condition: process_creation and selection
+            - '/LogToConsole=false'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

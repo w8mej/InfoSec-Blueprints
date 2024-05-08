@@ -15,26 +15,21 @@ tags:
     - attack.persistence
     - attack.t1053.005
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage: C:\WINDOWS\System32\svchost.exe
+        ParentImage: 'C:\WINDOWS\System32\svchost.exe'
         ParentCommandLine|contains|all:
-            - -k netsvcs
-            - -s Schedule
+            - '-k netsvcs'
+            - '-s Schedule'
         CommandLine|endswith:
             - ' -windowstyle hidden'
             - ' -w hidden'
             - ' -ep bypass'
             - ' -noni'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

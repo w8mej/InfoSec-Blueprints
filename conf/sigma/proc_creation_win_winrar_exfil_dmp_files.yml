@@ -13,27 +13,22 @@ modified: 2023/09/12
 tags:
     - attack.collection
     - attack.t1560.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \rar.exe
-              - \winrar.exe
-        - Description: Command line RAR
+              - '\rar.exe'
+              - '\winrar.exe'
+        - Description: 'Command line RAR'
     selection_extension:
         CommandLine|contains:
-            - .dmp
-            - .dump
-            - .hdmp
-    condition: process_creation and (all of selection_*)
+            - '.dmp'
+            - '.dump'
+            - '.hdmp'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of WinRAR with a command line in which ".dmp" or ".dump" appears accidentally
     - Legitimate use of WinRAR to compress WER ".dmp" files for troubleshooting
 level: medium
-ruletype: Sigma

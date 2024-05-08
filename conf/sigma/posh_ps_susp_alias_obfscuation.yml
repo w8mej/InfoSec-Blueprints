@@ -19,20 +19,14 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         # Example:
         #   Set-Alias -Name Y -Value (-join("Ne","w-O","bje","ct"))
         #   Set-Alias -Name X -Value (-join("Inv","oke","-","Exp","ression"))
         ScriptBlockText|contains|all:
-            - -Alias   # For both "New-Alias" and "Set-Alias"
+            - '-Alias' # For both "New-Alias" and "Set-Alias"
             - ' -Value (-join('
-    condition: ps_script and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

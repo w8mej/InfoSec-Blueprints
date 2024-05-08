@@ -11,24 +11,19 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0349
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
+        TargetImage|endswith: '\lsass.exe'
         CallTrace|contains|all:
-            - C:\Windows\SYSTEM32\ntdll.dll+
+            - 'C:\Windows\SYSTEM32\ntdll.dll+'
             - '|C:\Windows\System32\KERNELBASE.dll+'
-            - _ctypes.pyd+
-            - python27.dll+
+            - '_ctypes.pyd+'
+            - 'python27.dll+'
         GrantedAccess: '0x1FFFFF'
-    condition: process_access and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

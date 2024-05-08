@@ -11,23 +11,18 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \EACore.dll
+        ImageLoaded|endswith: '\EACore.dll'
     filter_main_legit_path:
         Image|contains|all:
-            - C:\Program Files\Electronic Arts\EA Desktop\
-            - \EACoreServer.exe
-        ImageLoaded|startswith: C:\Program Files\Electronic Arts\EA Desktop\
-    condition: image_load and (selection and not 1 of filter_main_*)
+            - 'C:\Program Files\Electronic Arts\EA Desktop\'
+            - '\EACoreServer.exe'
+        ImageLoaded|startswith: 'C:\Program Files\Electronic Arts\EA Desktop\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

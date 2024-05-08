@@ -10,35 +10,30 @@ date: 2023/05/05
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: C:\PerfLogs\
+        TargetFilename|startswith: 'C:\PerfLogs\'
         TargetFilename|endswith:
-            - .7z
-            - .bat
-            - .bin
-            - .chm
-            - .dll
-            - .exe
-            - .hta
-            - .lnk
-            - .ps1
-            - .psm1
-            - .py
-            - .scr
-            - .sys
-            - .vbe
-            - .vbs
-            - .zip
-    condition: file_event and selection
+            - '.7z'
+            - '.bat'
+            - '.bin'
+            - '.chm'
+            - '.dll'
+            - '.exe'
+            - '.hta'
+            - '.lnk'
+            - '.ps1'
+            - '.psm1'
+            - '.py'
+            - '.scr'
+            - '.sys'
+            - '.vbe'
+            - '.vbs'
+            - '.zip'
+    condition: selection
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

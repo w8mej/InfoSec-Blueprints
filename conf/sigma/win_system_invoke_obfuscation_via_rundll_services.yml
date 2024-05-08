@@ -16,18 +16,15 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ImagePath|contains|all:
-            - rundll32.exe
-            - shell32.dll
-            - shellexec_rundll
-            - powershell
-    condition: system and selection
+            - 'rundll32.exe'
+            - 'shell32.dll'
+            - 'shellexec_rundll'
+            - 'powershell'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

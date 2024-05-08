@@ -12,17 +12,13 @@ tags:
     - attack.defense_evasion
     - attack.t1218
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \pcwrun.exe
-    condition: process_creation and selection
+        ParentImage|endswith: '\pcwrun.exe'
+    condition: selection
 fields:
     - ComputerName
     - User
@@ -32,4 +28,3 @@ falsepositives:
     - Need to use extra processing with 'unique_count' / 'filter' to focus on outliers as opposed to commonly seen artifacts
     - Legit usage of scripts
 level: low
-ruletype: Sigma

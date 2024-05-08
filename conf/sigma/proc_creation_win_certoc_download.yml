@@ -13,23 +13,18 @@ modified: 2023/10/18
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \certoc.exe
-        - OriginalFileName: CertOC.exe
+        - Image|endswith: '\certoc.exe'
+        - OriginalFileName: 'CertOC.exe'
     selection_cli:
         CommandLine|contains|all:
-            - -GetCACAPS
-            - http
-    condition: process_creation and (all of selection*)
+            - '-GetCACAPS'
+            - 'http'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

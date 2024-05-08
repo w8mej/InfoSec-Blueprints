@@ -20,25 +20,20 @@ tags:
     - attack.t1003.006
     - attack.t1569.002
     - attack.s0005
-    - sysmon
 logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded|contains:
-            - cachedump
-            - dumpsvc
-            - fgexec
-            - gsecdump
-            - mimidrv
-            - pwdump
-            - servpw
-    condition: driver_load and selection
+            - 'cachedump'
+            - 'dumpsvc'
+            - 'fgexec'
+            - 'gsecdump'
+            - 'mimidrv'
+            - 'pwdump'
+            - 'servpw'
+    condition: selection
 falsepositives:
     - Legitimate Administrator using credential dumping tool for password recovery
 level: critical
-ruletype: Sigma

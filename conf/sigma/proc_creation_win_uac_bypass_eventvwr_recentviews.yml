@@ -13,23 +13,18 @@ date: 2022/11/22
 tags:
     - attack.defense_evasion
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_path:
         # Example: ysoserial.exe -o raw -f BinaryFormatter - g DataSet -c calc > RecentViews & copy RecentViews %LOCALAPPDATA%\Microsoft\EventV~1\RecentViews & eventvwr.exe
         CommandLine|contains:
-            - \Event Viewer\RecentViews
-            - \EventV~1\RecentViews
+            - '\Event Viewer\RecentViews'
+            - '\EventV~1\RecentViews'
     selection_redirect:
         CommandLine|contains: '>'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

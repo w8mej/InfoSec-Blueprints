@@ -14,26 +14,22 @@ tags:
     - attack.defense_evasion
     - attack.t1548.002
     - attack.t1218.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \cmstp.exe
-        - OriginalFileName: CMSTP.EXE
+        - Image|endswith: '\cmstp.exe'
+        - OriginalFileName: 'CMSTP.EXE'
     selection_cli:
         CommandLine|contains:
-            - /s
-            - -s
-            - /au
-            - -au
-            - /ni
-            - -ni
-    condition: process_creation and (all of selection*)
+            - '/s'
+            - '-s'
+            - '/au'
+            - '-au'
+            - '/ni'
+            - '-ni'
+    condition: all of selection*
 fields:
     - ComputerName
     - User
@@ -41,4 +37,3 @@ fields:
 falsepositives:
     - Legitimate use of cmstp.exe utility by legitimate user
 level: high
-ruletype: Sigma

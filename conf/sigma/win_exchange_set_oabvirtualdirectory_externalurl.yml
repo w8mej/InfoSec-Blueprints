@@ -14,16 +14,13 @@ logsource:
     product: windows
     service: msexchange-management
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     keywords:
         '|all':
-            - Set-OabVirtualDirectory
-            - ExternalUrl
-            - Page_Load
-            - script
-    condition: msexchange_management and keywords
+            - 'Set-OabVirtualDirectory'
+            - 'ExternalUrl'
+            - 'Page_Load'
+            - 'script'
+    condition: keywords
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

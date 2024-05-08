@@ -22,20 +22,15 @@ tags:
     - attack.privilege_escalation
     - attack.t1055.001
     - attack.t1218.013
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains: ' /INJECTRUNNING '
     filter:
-        ParentImage: C:\Windows\System32\AppVClient.exe   # This parent is the expected process to launch "mavinject"
-    condition: process_creation and (selection and not filter)
+        ParentImage: 'C:\Windows\System32\AppVClient.exe' # This parent is the expected process to launch "mavinject"
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

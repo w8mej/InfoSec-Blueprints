@@ -10,25 +10,20 @@ date: 2022/06/07
 tags:
     - attack.initial_access
     - attack.t1566
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ParentImage|endswith:
-            - \Winrar.exe
-            - \7zFM.exe
-            - \peazip.exe
+            - '\Winrar.exe'
+            - '\7zFM.exe'
+            - '\peazip.exe'
         Image|endswith:
-            - \isoburn.exe
-            - \PowerISO.exe
-            - \ImgBurn.exe
-    condition: process_creation and selection
+            - '\isoburn.exe'
+            - '\PowerISO.exe'
+            - '\ImgBurn.exe'
+    condition: selection
 falsepositives:
     - Legitimate cases in which archives contain ISO or IMG files and the user opens the archive and the image via clicking and not extraction
 level: high
-ruletype: Sigma

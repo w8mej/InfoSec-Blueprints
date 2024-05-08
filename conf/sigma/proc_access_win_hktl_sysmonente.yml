@@ -12,32 +12,27 @@ modified: 2023/11/28
 tags:
     - attack.defense_evasion
     - attack.t1562.002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_sysmon:
         TargetImage|contains:
-            - :\Windows\Sysmon.exe
-            - :\Windows\Sysmon64.exe
+            - ':\Windows\Sysmon.exe'
+            - ':\Windows\Sysmon64.exe'
         GrantedAccess: '0x1400'
     selection_calltrace:
-        CallTrace: Ente
+        CallTrace: 'Ente'
     filter_main_generic:
         SourceImage|contains:
-            - :\Program Files (x86)\
-            - :\Program Files\
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
+            - ':\Program Files (x86)\'
+            - ':\Program Files\'
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
     filter_main_msdefender:
-        SourceImage|contains: :\ProgramData\Microsoft\Windows Defender\Platform\
-        SourceImage|endswith: \MsMpEng.exe
-    condition: process_access and (( selection_sysmon and not 1 of filter_main_* ) or selection_calltrace)
+        SourceImage|contains: ':\ProgramData\Microsoft\Windows Defender\Platform\'
+        SourceImage|endswith: '\MsMpEng.exe'
+    condition: ( selection_sysmon and not 1 of filter_main_* ) or selection_calltrace
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

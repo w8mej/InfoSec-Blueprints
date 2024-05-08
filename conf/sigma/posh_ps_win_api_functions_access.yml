@@ -23,22 +23,16 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Advapi32.dll
-            - kernel32.dll
-            - KernelBase.dll
-            - ntdll.dll
-            - secur32.dll
-            - user32.dll
-    condition: ps_script and selection
+            - 'Advapi32.dll'
+            - 'kernel32.dll'
+            - 'KernelBase.dll'
+            - 'ntdll.dll'
+            - 'secur32.dll'
+            - 'user32.dll'
+    condition: selection
 falsepositives:
     - Carbon PowerShell Module (https://github.com/webmd-health-services/Carbon)
     - Chocolatey scripts
 level: medium
-ruletype: Sigma

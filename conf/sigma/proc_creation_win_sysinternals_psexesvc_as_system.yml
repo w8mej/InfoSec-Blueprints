@@ -12,21 +12,16 @@ date: 2022/07/21
 modified: 2023/02/28
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage: C:\Windows\PSEXESVC.exe
+        ParentImage: 'C:\Windows\PSEXESVC.exe'
         User|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
-    condition: process_creation and selection
+            - 'AUTHORI'
+            - 'AUTORI'
+    condition: selection
 falsepositives:
     - Users that debug Microsoft Intune issues using the commands mentioned in the official documentation; see https://learn.microsoft.com/en-us/mem/intune/apps/intune-management-extension
 level: high
-ruletype: Sigma

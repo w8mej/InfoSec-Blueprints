@@ -10,25 +10,20 @@ modified: 2023/11/14
 tags:
     - attack.discovery
     - attack.t1518.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \find.exe
-              - \findstr.exe
+              - '\find.exe'
+              - '\findstr.exe'
         - OriginalFileName:
-              - FIND.EXE
-              - FINDSTR.EXE
+              - 'FIND.EXE'
+              - 'FINDSTR.EXE'
     selection_cli:
         CommandLine|contains: ' 385201' # Sysmon driver default altitude
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

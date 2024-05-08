@@ -17,18 +17,13 @@ modified: 2022/11/29
 tags:
     - attack.discovery
     - attack.t1046
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \AppData\Local\Temp\Advanced IP Scanner 2
-    condition: file_event and selection
+        TargetFilename|contains: '\AppData\Local\Temp\Advanced IP Scanner 2'
+    condition: selection
 falsepositives:
     - Legitimate administrative use
 level: medium
-ruletype: Sigma

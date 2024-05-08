@@ -11,28 +11,23 @@ date: 2022/08/01
 modified: 2023/08/17
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main:
-        TargetObject|contains: \System\CurrentControlSet\Control\WMI\Autologger\
+        TargetObject|contains: '\System\CurrentControlSet\Control\WMI\Autologger\'
     selection_values:
         TargetObject|contains: # We only care about some autologger to avoid FP. Add more if you need
-            - \EventLog-
-            - \Defender
+            - '\EventLog-'
+            - '\Defender'
         TargetObject|endswith:
-            - \Enable
-            - \Start
+            - '\Enable'
+            - '\Start'
         Details: DWORD (0x00000000)
     filter_wevtutil:
-        Image: C:\Windows\system32\wevtutil.exe
-    condition: registry_set and (all of selection_* and not 1 of filter_*)
+        Image: 'C:\Windows\system32\wevtutil.exe'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

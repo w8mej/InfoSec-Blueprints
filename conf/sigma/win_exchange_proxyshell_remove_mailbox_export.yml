@@ -14,15 +14,12 @@ logsource:
     service: msexchange-management
     product: windows
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     keywords:
         '|all':
-            - Remove-MailboxExportRequest
+            - 'Remove-MailboxExportRequest'
             - ' -Identity '
             - ' -Confirm "False"'
-    condition: msexchange_management and keywords
+    condition: keywords
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

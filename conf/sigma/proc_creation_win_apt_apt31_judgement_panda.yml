@@ -14,30 +14,25 @@ tags:
     - attack.t1003.001
     - attack.t1560.001
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_ldifde:
         CommandLine|contains|all:
-            - ldifde
-            - -f -n
-            - eprod.ldf
+            - 'ldifde'
+            - '-f -n'
+            - 'eprod.ldf'
     selection_lateral_movement:
         CommandLine|contains|all:
-            - copy \\\\
-            - c$
+            - 'copy \\\\'
+            - 'c$'
         CommandLine|contains:
-            - \aaaa\procdump64.exe
-            - \aaaa\netsess.exe
-            - \aaaa\7za.exe
-            - \c$\aaaa\
-    condition: process_creation and (1 of selection_*)
+            - '\aaaa\procdump64.exe'
+            - '\aaaa\netsess.exe'
+            - '\aaaa\7za.exe'
+            - '\c$\aaaa\'
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

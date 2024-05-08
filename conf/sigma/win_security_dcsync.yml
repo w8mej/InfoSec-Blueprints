@@ -18,28 +18,25 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4662
         Properties|contains:
-            - Replicating Directory Changes All
-            - 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2
-            - 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2
-            - 9923a32a-3607-11d2-b9be-0000f87a36b2
-            - 89e95b76-444d-4c62-991a-0facbeda640c
+            - 'Replicating Directory Changes All'
+            - '1131f6ad-9c07-11d1-f79f-00c04fc2dcd2'
+            - '1131f6aa-9c07-11d1-f79f-00c04fc2dcd2'
+            - '9923a32a-3607-11d2-b9be-0000f87a36b2'
+            - '89e95b76-444d-4c62-991a-0facbeda640c'
         AccessMask: '0x100'
     filter1:
-        SubjectDomainName: Window Manager
+        SubjectDomainName: 'Window Manager'
     filter2:
         SubjectUserName|startswith:
-            - NT AUT
-            - MSOL_
+            - 'NT AUT'
+            - 'MSOL_'
     filter3:
-        SubjectUserName|endswith: $
-    condition: security and (selection and not 1 of filter*)
+        SubjectUserName|endswith: '$'
+    condition: selection and not 1 of filter*
 falsepositives:
     - Valid DC Sync that is not covered by the filters; please report
     - Local Domain Admin account used for Azure AD Connect
 level: high
-ruletype: Sigma

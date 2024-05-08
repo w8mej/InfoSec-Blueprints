@@ -10,23 +10,18 @@ author: Florian Roth (Nextron Systems)
 date: 2022/01/06
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \AccCheckConsole.exe
-        - OriginalFileName: AccCheckConsole.exe
+        - Image|endswith: '\AccCheckConsole.exe'
+        - OriginalFileName: 'AccCheckConsole.exe'
     selection_cli:
         CommandLine|contains|all:
             - ' -window '
-            - .dll
-    condition: process_creation and (all of selection*)
+            - '.dll'
+    condition: all of selection*
 falsepositives:
     - Legitimate use of the UI Accessibility Checker
 level: high
-ruletype: Sigma

@@ -15,17 +15,14 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Policies/Windows Settings/Security Settings/Local Policies/Audit Policy/Audit object access, Policies/Windows Settings/Security Settings/Advanced Audit Policy Configuration/Object Access'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4663
-        ObjectType: File
+        ObjectType: 'File'
         AccessList: '%%1537'
         Keywords: '0x8020000000000000'
     timeframe: 30s
-    condition: (security and selection) | count() by SubjectLogonId > 10
+    condition: selection | count() by SubjectLogonId > 10
 falsepositives:
     - Software uninstallation
     - Files restore activities
 level: medium
-ruletype: Sigma

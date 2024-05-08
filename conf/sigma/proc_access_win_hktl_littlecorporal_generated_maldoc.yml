@@ -11,21 +11,16 @@ tags:
     - attack.execution
     - attack.t1204.002
     - attack.t1055.003
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        SourceImage|endswith: \winword.exe
+        SourceImage|endswith: '\winword.exe'
         CallTrace|contains|all:
-            - :\Windows\Microsoft.NET\Framework64\v2.
-            - UNKNOWN
-    condition: process_access and selection
+            - ':\Windows\Microsoft.NET\Framework64\v2.'
+            - 'UNKNOWN'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

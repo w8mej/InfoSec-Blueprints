@@ -23,14 +23,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4799
-        TargetUserName|startswith: Administr
-        CallerProcessName|endswith: \checkadmin.exe
-    condition: security and selection
+        TargetUserName|startswith: 'Administr'
+        CallerProcessName|endswith: '\checkadmin.exe'
+    condition: selection
 falsepositives:
     - Administrators that use checkadmin.exe tool to enumerate local administrators
 level: high
-ruletype: Sigma

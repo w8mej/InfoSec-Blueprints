@@ -9,17 +9,13 @@ date: 2022/08/16
 modified: 2023/09/16
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     service: sysmon
 detection:
-    sysmon:
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventID: 27  # this is fine, we want to match any FileBlockExecutable event
-    condition: sysmon and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

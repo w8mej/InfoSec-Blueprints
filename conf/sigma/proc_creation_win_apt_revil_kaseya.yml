@@ -16,36 +16,31 @@ tags:
     - attack.t1059
     - attack.g0115
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         CommandLine|contains:
-            - C:\Windows\cert.exe
-            - del /q /f c:\kworking\agent.crt
-            - Kaseya VSA Agent Hot-fix
-            - \AppData\Local\Temp\MsMpEng.exe
-            - rmdir /s /q %SystemDrive%\inetpub\logs
-            - del /s /q /f %SystemDrive%\\*.log
-            - c:\kworking1\agent.exe
-            - c:\kworking1\agent.crt
+            - 'C:\Windows\cert.exe'
+            - 'del /q /f c:\kworking\agent.crt'
+            - 'Kaseya VSA Agent Hot-fix'
+            - '\AppData\Local\Temp\MsMpEng.exe'
+            - 'rmdir /s /q %SystemDrive%\inetpub\logs'
+            - 'del /s /q /f %SystemDrive%\\*.log'
+            - 'c:\kworking1\agent.exe'
+            - 'c:\kworking1\agent.crt'
     selection2:
         Image:
-            - C:\Windows\MsMpEng.exe
-            - C:\Windows\cert.exe
-            - C:\kworking\agent.exe
-            - C:\kworking1\agent.exe
+            - 'C:\Windows\MsMpEng.exe'
+            - 'C:\Windows\cert.exe'
+            - 'C:\kworking\agent.exe'
+            - 'C:\kworking1\agent.exe'
     selection3:
         CommandLine|contains|all:
-            - del /s /q /f
-            - WebPages\Errors\webErrorLog.txt
-    condition: process_creation and (1 of selection*)
+            - 'del /s /q /f'
+            - 'WebPages\Errors\webErrorLog.txt'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

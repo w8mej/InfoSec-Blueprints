@@ -12,24 +12,19 @@ tags:
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - set
+            - 'set'
             - '&&'
-            - mshta
-            - vbscript:createobject
-            - .run
-            - (window.close)
-    condition: process_creation and selection
+            - 'mshta'
+            - 'vbscript:createobject'
+            - '.run'
+            - '(window.close)'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

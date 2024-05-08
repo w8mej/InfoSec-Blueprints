@@ -17,49 +17,44 @@ tags:
     - attack.t1039
     - attack.t1048
     - attack.t1021.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_target:
         CommandLine|contains:
-            - \\\\*$
-            - \Sysvol\
+            - '\\\\*$'
+            - '\Sysvol\'
     selection_other_tools:
         - Image|endswith:
-              - \robocopy.exe
-              - \xcopy.exe
+              - '\robocopy.exe'
+              - '\xcopy.exe'
         - OriginalFileName:
-              - robocopy.exe
-              - XCOPY.EXE
+              - 'robocopy.exe'
+              - 'XCOPY.EXE'
     selection_cmd_img:
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: Cmd.Exe
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'Cmd.Exe'
     selection_cmd_cli:
-        CommandLine|contains: copy
+        CommandLine|contains: 'copy'
     selection_pwsh_img:
         - Image|contains:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_pwsh_cli:
         CommandLine|contains:
-            - copy-item
+            - 'copy-item'
             - 'copy '
             - 'cpi '
             - ' cp '
             - 'move '
-            - move-item
+            - 'move-item'
             - ' mi '
             - ' mv '
-    condition: process_creation and (selection_target and (selection_other_tools or all of selection_cmd_* or all of selection_pwsh_*))
+    condition: selection_target and (selection_other_tools or all of selection_cmd_* or all of selection_pwsh_*)
 falsepositives:
     - Administrative scripts
 level: medium
-ruletype: Sigma

@@ -15,24 +15,19 @@ tags:
     - attack.execution
     - attack.t1218.011
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         SourceImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         TargetImage|endswith:
             # Note: Please add additional potential interesting targets to increase coverage
-            - \rundll32.exe
-            - \regsvr32.exe
-    condition: create_remote_thread and selection
+            - '\rundll32.exe'
+            - '\regsvr32.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

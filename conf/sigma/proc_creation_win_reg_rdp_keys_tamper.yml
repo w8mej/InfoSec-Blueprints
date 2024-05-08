@@ -12,42 +12,37 @@ tags:
     - attack.lateral_movement
     - attack.t1021.001
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main_img:
-        - Image|endswith: \reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: '\reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_main_cli:
         CommandLine|contains|all:
             - ' add '
-            - \CurrentControlSet\Control\Terminal Server
-            - REG_DWORD
+            - '\CurrentControlSet\Control\Terminal Server'
+            - 'REG_DWORD'
             - ' /f'
     selection_values_1:
         CommandLine|contains|all:
-            - Licensing Core
-            - EnableConcurrentSessions
+            - 'Licensing Core'
+            - 'EnableConcurrentSessions'
     selection_values_2:
         CommandLine|contains:
-            - WinStations\RDP-Tcp
-            - MaxInstanceCount
-            - fEnableWinStation
-            - TSUserEnabled
-            - TSEnabled
-            - TSAppCompat
-            - IdleWinStationPoolCount
-            - TSAdvertise
-            - AllowTSConnections
-            - fSingleSessionPerUser
-            - fDenyTSConnections
-    condition: process_creation and (all of selection_main_* and 1 of selection_values_*)
+            - 'WinStations\RDP-Tcp'
+            - 'MaxInstanceCount'
+            - 'fEnableWinStation'
+            - 'TSUserEnabled'
+            - 'TSEnabled'
+            - 'TSAppCompat'
+            - 'IdleWinStationPoolCount'
+            - 'TSAdvertise'
+            - 'AllowTSConnections'
+            - 'fSingleSessionPerUser'
+            - 'fDenyTSConnections'
+    condition: all of selection_main_* and 1 of selection_values_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

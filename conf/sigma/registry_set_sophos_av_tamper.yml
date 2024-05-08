@@ -10,22 +10,17 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \Sophos Endpoint Defense\TamperProtection\Config\SAVEnabled
-            - \Sophos Endpoint Defense\TamperProtection\Config\SEDEnabled
-            - \Sophos\SAVService\TamperProtection\Enabled
+            - '\Sophos Endpoint Defense\TamperProtection\Config\SAVEnabled'
+            - '\Sophos Endpoint Defense\TamperProtection\Config\SEDEnabled'
+            - '\Sophos\SAVService\TamperProtection\Enabled'
         Details: DWORD (0x00000000)
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Some FP may occur when the feature is disabled by the AV itself, you should always investigate if the action was legitimate
 level: high
-ruletype: Sigma

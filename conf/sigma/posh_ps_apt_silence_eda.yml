@@ -22,31 +22,25 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     empire:
         # better to randomise the order
         ScriptBlockText|contains|all:
-            - System.Diagnostics.Process
-            - Stop-Computer
-            - Restart-Computer
-            - Exception in execution
-            - $cmdargs
-            - Close-Dnscat2Tunnel
+            - 'System.Diagnostics.Process'
+            - 'Stop-Computer'
+            - 'Restart-Computer'
+            - 'Exception in execution'
+            - '$cmdargs'
+            - 'Close-Dnscat2Tunnel'
     dnscat:
         # better to randomise the order
         ScriptBlockText|contains|all:
-            - set type=$LookupType`nserver
-            - $Command | nslookup 2>&1 | Out-String
-            - New-RandomDNSField
+            - 'set type=$LookupType`nserver'
+            - '$Command | nslookup 2>&1 | Out-String'
+            - 'New-RandomDNSField'
             - '[Convert]::ToString($SYNOptions, 16)'
-            - $Session.Dead = $True
-            - $Session["Driver"] -eq
-    condition: ps_script and (empire and dnscat)
+            - '$Session.Dead = $True'
+            - '$Session["Driver"] -eq'
+    condition: empire and dnscat
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

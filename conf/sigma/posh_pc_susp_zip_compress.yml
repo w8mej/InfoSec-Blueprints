@@ -24,15 +24,12 @@ logsource:
     product: windows
     service: powershell-classic
 detection:
-    powershell_classic:
-        Channel: Windows PowerShell
     selection:
         Data|contains:
-            - Compress-Archive -Path*-DestinationPath $env:TEMP
-            - Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\
-            - Compress-Archive -Path*-DestinationPath*:\Windows\Temp\
-    condition: powershell_classic and selection
+            - 'Compress-Archive -Path*-DestinationPath $env:TEMP'
+            - 'Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\'
+            - 'Compress-Archive -Path*-DestinationPath*:\Windows\Temp\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

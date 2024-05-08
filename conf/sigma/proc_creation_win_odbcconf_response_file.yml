@@ -14,28 +14,22 @@ references:
     - https://www.hexacorn.com/blog/2020/08/23/odbcconf-lolbin-trifecta/
 author: Kirill Kiryanov, Beyu Denis, Daniil Yugoslavskiy, oscd.community, Nasreddine Bencherchali (Nextron Systems)
 date: 2023/05/22
+modified: 2024/03/05
 tags:
     - attack.defense_evasion
     - attack.t1218.008
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \odbcconf.exe
-        - OriginalFileName: odbcconf.exe
+        - Image|endswith: '\odbcconf.exe'
+        - OriginalFileName: 'odbcconf.exe'
     selection_cli:
-        CommandLine|contains:
-            - ' -f '
-            - ' /f '
+        CommandLine|contains|windash: ' -f '
     selection_rsp_ext:
-        CommandLine|contains: .rsp
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: '.rsp'
+    condition: all of selection_*
 falsepositives:
     - The rule is looking for any usage of response file, which might generate false positive when this function is used legitimately. Investigate the contents of the ".rsp" file to determine if it is malicious and apply additional filters if necessary.
 level: medium
-ruletype: Sigma

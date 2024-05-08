@@ -15,25 +15,21 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     scripts_base:
-        TargetObject|contains: \Software\Policies\Microsoft\Windows\System\Scripts
+        TargetObject|contains: '\Software\Policies\Microsoft\Windows\System\Scripts'
     scripts:
         TargetObject|contains:
-            - \Startup
-            - \Shutdown
-            - \Logon
-            - \Logoff
+            - '\Startup'
+            - '\Shutdown'
+            - '\Logon'
+            - '\Logoff'
     filter:
-        Details: (Empty)
-    condition: registry_set and (scripts_base and scripts and not filter)
+        Details: '(Empty)'
+    condition: scripts_base and scripts and not filter
 fields:
     - SecurityID
     - ObjectName
@@ -43,4 +39,3 @@ falsepositives:
     - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason
     - Legitimate administrator sets up autorun keys for legitimate reason
 level: medium
-ruletype: Sigma

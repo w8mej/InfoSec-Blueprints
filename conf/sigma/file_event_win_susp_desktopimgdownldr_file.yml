@@ -9,31 +9,26 @@ author: Florian Roth (Nextron Systems)
 date: 2020/07/03
 modified: 2022/06/02
 tags:
-    - attack.defense_evasion
+    - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \svchost.exe
-        TargetFilename|contains: \Personalization\LockScreenImage\
+        Image|endswith: '\svchost.exe'
+        TargetFilename|contains: '\Personalization\LockScreenImage\'
     filter1:
-        TargetFilename|contains: C:\Windows\
+        TargetFilename|contains: 'C:\Windows\'
     filter2:
         TargetFilename|contains:
-            - .jpg
-            - .jpeg
-            - .png
-    condition: file_event and (selection and not filter1 and not filter2)
+            - '.jpg'
+            - '.jpeg'
+            - '.png'
+    condition: selection and not filter1 and not filter2
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - False positives depend on scripts and administrative tools used in the monitored environment
 level: high
-ruletype: Sigma

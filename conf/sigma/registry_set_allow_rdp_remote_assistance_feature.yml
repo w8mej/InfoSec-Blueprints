@@ -10,19 +10,14 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: System\CurrentControlSet\Control\Terminal Server\fAllowToGetHelp
+        TargetObject|endswith: 'System\CurrentControlSet\Control\Terminal Server\fAllowToGetHelp'
         Details: DWORD (0x00000001)
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Legitimate use of the feature (alerts should be investigated either way)
 level: medium
-ruletype: Sigma

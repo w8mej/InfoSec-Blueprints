@@ -23,25 +23,20 @@ tags:
     - attack.t1090
     - attack.t1102
     - attack.s0508
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         DestinationHostname|contains:
-            - tunnel.us.ngrok.com
-            - tunnel.eu.ngrok.com
-            - tunnel.ap.ngrok.com
-            - tunnel.au.ngrok.com
-            - tunnel.sa.ngrok.com
-            - tunnel.jp.ngrok.com
-            - tunnel.in.ngrok.com
-    condition: network_connection and selection
+            - 'tunnel.us.ngrok.com'
+            - 'tunnel.eu.ngrok.com'
+            - 'tunnel.ap.ngrok.com'
+            - 'tunnel.au.ngrok.com'
+            - 'tunnel.sa.ngrok.com'
+            - 'tunnel.jp.ngrok.com'
+            - 'tunnel.in.ngrok.com'
+    condition: selection
 falsepositives:
     - Legitimate use of the ngrok service.
 level: high
-ruletype: Sigma

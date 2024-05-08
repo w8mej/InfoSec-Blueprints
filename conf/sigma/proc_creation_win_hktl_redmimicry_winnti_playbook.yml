@@ -13,24 +13,19 @@ tags:
     - attack.t1106
     - attack.t1059.003
     - attack.t1218.011
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \rundll32.exe
-            - \cmd.exe
+            - '\rundll32.exe'
+            - '\cmd.exe'
         CommandLine|contains:
-            - gthread-3.6.dll
-            - \Windows\Temp\tmp.bat
-            - sigcmm-2.4.dll
-    condition: process_creation and selection
+            - 'gthread-3.6.dll'
+            - '\Windows\Temp\tmp.bat'
+            - 'sigcmm-2.4.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

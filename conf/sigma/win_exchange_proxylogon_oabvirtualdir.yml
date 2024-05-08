@@ -14,19 +14,16 @@ logsource:
     product: windows
     service: msexchange-management
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     keywords_cmdlet:
         '|all':
-            - OabVirtualDirectory
+            - 'OabVirtualDirectory'
             - ' -ExternalUrl '
     keywords_params:
-        - eval(request
-        - http://f/<script
+        - 'eval(request'
+        - 'http://f/<script'
         - '"unsafe"};'
-        - function Page_Load()
-    condition: msexchange_management and (keywords_cmdlet and keywords_params)
+        - 'function Page_Load()'
+    condition: keywords_cmdlet and keywords_params
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

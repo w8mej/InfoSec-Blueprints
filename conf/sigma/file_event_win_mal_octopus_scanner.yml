@@ -10,20 +10,15 @@ modified: 2021/11/27
 tags:
     - attack.t1195
     - attack.t1195.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \AppData\Local\Microsoft\Cache134.dat
-            - \AppData\Local\Microsoft\ExplorerSync.db
-    condition: file_event and selection
+            - '\AppData\Local\Microsoft\Cache134.dat'
+            - '\AppData\Local\Microsoft\ExplorerSync.db'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

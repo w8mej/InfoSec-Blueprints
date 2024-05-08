@@ -12,25 +12,20 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \CCleanerDU.dll
+        ImageLoaded|endswith: '\CCleanerDU.dll'
     filter_main_path:
         Image|startswith:
-            - C:\Program Files\CCleaner\
-            - C:\Program Files (x86)\CCleaner\
+            - 'C:\Program Files\CCleaner\'
+            - 'C:\Program Files (x86)\CCleaner\'
         Image|endswith:
-            - \CCleaner.exe
-            - \CCleaner64.exe
-    condition: image_load and (selection and not 1 of filter_main_*)
+            - '\CCleaner.exe'
+            - '\CCleaner64.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - False positives could occur from other custom installation paths. Apply additional filters accordingly.
 level: medium
-ruletype: Sigma

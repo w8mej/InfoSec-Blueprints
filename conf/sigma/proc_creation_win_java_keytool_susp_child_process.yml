@@ -12,43 +12,38 @@ tags:
     - attack.initial_access
     - attack.persistence
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \keytool.exe
+        ParentImage|endswith: '\keytool.exe'
         Image|endswith:
-            - \cmd.exe
-            - \sh.exe
-            - \bash.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \schtasks.exe
-            - \certutil.exe
-            - \whoami.exe
-            - \bitsadmin.exe
-            - \wscript.exe
-            - \cscript.exe
-            - \scrcons.exe
-            - \regsvr32.exe
-            - \hh.exe
-            - \wmic.exe
-            - \mshta.exe
-            - \rundll32.exe
-            - \forfiles.exe
-            - \scriptrunner.exe
-            - \mftrace.exe
-            - \AppVLP.exe
-            - \systeminfo.exe
-            - \reg.exe
-            - \query.exe
-    condition: process_creation and selection
+            - '\cmd.exe'
+            - '\sh.exe'
+            - '\bash.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\schtasks.exe'
+            - '\certutil.exe'
+            - '\whoami.exe'
+            - '\bitsadmin.exe'
+            - '\wscript.exe'
+            - '\cscript.exe'
+            - '\scrcons.exe'
+            - '\regsvr32.exe'
+            - '\hh.exe'
+            - '\wmic.exe'
+            - '\mshta.exe'
+            - '\rundll32.exe'
+            - '\forfiles.exe'
+            - '\scriptrunner.exe'
+            - '\mftrace.exe'
+            - '\AppVLP.exe'
+            - '\systeminfo.exe'
+            - '\reg.exe'
+            - '\query.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

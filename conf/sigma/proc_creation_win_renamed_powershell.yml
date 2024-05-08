@@ -11,26 +11,21 @@ tags:
     - car.2013-05-009
     - attack.defense_evasion
     - attack.t1036.003
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Description|startswith:
-            - Windows PowerShell
-            - pwsh
-        Company: Microsoft Corporation
+            - 'Windows PowerShell'
+            - 'pwsh'
+        Company: 'Microsoft Corporation'
     filter:
         Image|endswith:
-            - \powershell.exe
-            - \powershell_ise.exe
-            - \pwsh.exe
-    condition: process_creation and (selection and not filter)
+            - '\powershell.exe'
+            - '\powershell_ise.exe'
+            - '\pwsh.exe'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

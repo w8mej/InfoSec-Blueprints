@@ -15,21 +15,16 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1574.012
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         TargetObject|endswith:
-            - \COR_ENABLE_PROFILING
-            - \COR_PROFILER
-            - \CORECLR_ENABLE_PROFILING
+            - '\COR_ENABLE_PROFILING'
+            - '\COR_PROFILER'
+            - '\CORECLR_ENABLE_PROFILING'
     selection_2:
-        TargetObject|contains: \CORECLR_PROFILER_PATH
-    condition: registry_set and (1 of selection_*)
+        TargetObject|contains: '\CORECLR_PROFILER_PATH'
+    condition: 1 of selection_*
 level: medium
-ruletype: Sigma

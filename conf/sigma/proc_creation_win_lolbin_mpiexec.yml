@@ -12,24 +12,19 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_binary:
-        - Image|endswith: \mpiexec.exe
-        - Imphash: d8b52ef6aaa3a81501bdfff9dbb96217
-        - Hashes|contains: IMPHASH=d8b52ef6aaa3a81501bdfff9dbb96217
+        - Image|endswith: '\mpiexec.exe'
+        - Imphash: 'd8b52ef6aaa3a81501bdfff9dbb96217'
+        - Hashes|contains: 'IMPHASH=d8b52ef6aaa3a81501bdfff9dbb96217'
     selection_flags:
         CommandLine|contains:
             - ' /n 1 '
             - ' -n 1 '
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

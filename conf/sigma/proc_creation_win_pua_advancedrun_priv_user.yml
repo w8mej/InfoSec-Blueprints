@@ -17,18 +17,14 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1134.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - /EXEFilename
-            - /CommandLine
+            - '/EXEFilename'
+            - '/CommandLine'
     selection_runas:
         - CommandLine|contains:
               - ' /RunAs 8 '
@@ -36,12 +32,11 @@ detection:
               - ' /RunAs 10 '
               - ' /RunAs 11 '
         - CommandLine|endswith:
-              - /RunAs 8
-              - /RunAs 4
-              - /RunAs 10
-              - /RunAs 11
-    condition: process_creation and (all of selection*)
+              - '/RunAs 8'
+              - '/RunAs 4'
+              - '/RunAs 10'
+              - '/RunAs 11'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -13,37 +13,34 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The advanced audit policy setting "Object Access > Audit Detailed File Share" must be configured for Success/Failure
+    definition: 'The advanced audit policy setting "Object Access > Audit Detailed File Share" must be configured for Success/Failure'
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID: 5145
-        ShareName: \\\\\*\\IPC$   # looking for the string \\*\IPC$
+        ShareName: '\\\\\*\\IPC$' # looking for the string \\*\IPC$
     false_positives:
         RelativeTargetName:
-            - atsvc
-            - samr
-            - lsarpc
-            - lsass
-            - winreg
-            - netlogon
-            - srvsvc
-            - protected_storage
-            - wkssvc
-            - browser
-            - netdfs
-            - svcctl
-            - spoolss
-            - ntsvcs
-            - LSM_API_service
-            - HydraLsPipe
-            - TermSrv_API_service
-            - MsFteWds
-            - sql\query
-            - eventlog
-    condition: security and (selection1 and not false_positives)
+            - 'atsvc'
+            - 'samr'
+            - 'lsarpc'
+            - 'lsass'
+            - 'winreg'
+            - 'netlogon'
+            - 'srvsvc'
+            - 'protected_storage'
+            - 'wkssvc'
+            - 'browser'
+            - 'netdfs'
+            - 'svcctl'
+            - 'spoolss'
+            - 'ntsvcs'
+            - 'LSM_API_service'
+            - 'HydraLsPipe'
+            - 'TermSrv_API_service'
+            - 'MsFteWds'
+            - 'sql\query'
+            - 'eventlog'
+    condition: selection1 and not false_positives
 falsepositives:
     - Update the excluded named pipe to filter out any newly observed legit named pipe
 level: high
-ruletype: Sigma

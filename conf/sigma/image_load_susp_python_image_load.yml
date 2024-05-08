@@ -11,27 +11,22 @@ modified: 2023/09/18
 tags:
     - attack.defense_evasion
     - attack.t1027.002
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Description: Python Core
+        Description: 'Python Core'
     filter_main_generic:
-        - Image|contains: Python    # FPs with python38.dll, python.exe etc.
+        - Image|contains: 'Python'  # FPs with python38.dll, python.exe etc.
         - Image|startswith:
-              - C:\Program Files\
-              - C:\Program Files (x86)\
-              - C:\ProgramData\Anaconda3\   # Comment out if you don't use Anaconda in your environment
+              - 'C:\Program Files\'
+              - 'C:\Program Files (x86)\'
+              - 'C:\ProgramData\Anaconda3\' # Comment out if you don't use Anaconda in your environment
     filter_optional_aurora:
-        Image:
-    condition: image_load and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        Image: null
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate Py2Exe Binaries
     - Known false positive caused with Python Anaconda
 level: medium
-ruletype: Sigma

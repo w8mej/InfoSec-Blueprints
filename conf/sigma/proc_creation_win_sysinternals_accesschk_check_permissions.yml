@@ -13,28 +13,24 @@ modified: 2023/02/20
 tags:
     - attack.discovery
     - attack.t1069.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Product|endswith: AccessChk
-        - Description|contains: Reports effective permissions
+        - Product|endswith: 'AccessChk'
+        - Description|contains: 'Reports effective permissions'
         - Image|endswith:
-              - \accesschk.exe
-              - \accesschk64.exe
-        - OriginalFileName: accesschk.exe
+              - '\accesschk.exe'
+              - '\accesschk64.exe'
+        - OriginalFileName: 'accesschk.exe'
     selection_cli:
         CommandLine|contains: # These are the most common flags used with this tool. You could add other combinations if needed
             - 'uwcqv '
             - 'kwsu '
             - 'qwsu '
             - 'uwdqs '
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 fields:
     - IntegrityLevel
     - Product
@@ -43,4 +39,3 @@ fields:
 falsepositives:
     - System administrator Usage
 level: medium
-ruletype: Sigma

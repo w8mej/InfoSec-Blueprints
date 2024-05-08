@@ -15,14 +15,11 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Policy Change > Audit Authorization Policy Change, Group Policy : Computer Configuration\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\Policy Change\Audit Authorization Policy Change'
 detection:
-    security:
-        Channel: Security
     selection_base:
         EventID: 4704
     selection_keywords:
-        PrivilegeList|contains: SeEnableDelegationPrivilege
-    condition: security and (all of selection*)
+        PrivilegeList|contains: 'SeEnableDelegationPrivilege'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

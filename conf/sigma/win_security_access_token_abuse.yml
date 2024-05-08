@@ -17,16 +17,13 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
         LogonType: 9
-        LogonProcessName: Advapi
-        AuthenticationPackageName: Negotiate
+        LogonProcessName: 'Advapi'
+        AuthenticationPackageName: 'Negotiate'
         ImpersonationLevel: '%%1833' # Impersonation
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Anti-Virus
 level: medium
-ruletype: Sigma

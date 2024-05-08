@@ -10,19 +10,14 @@ modified: 2021/11/27
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \lsass.exe
+        Image|endswith: '\lsass.exe'
         Signed: 'false'
-    condition: image_load and selection
+    condition: selection
 falsepositives:
     - Valid user connecting using RDP
 level: medium
-ruletype: Sigma

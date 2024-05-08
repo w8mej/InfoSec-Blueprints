@@ -14,14 +14,10 @@ modified: 2023/02/14
 tags:
     - attack.execution
     - attack.t1047
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
             - 'process '
@@ -29,32 +25,31 @@ detection:
             - 'create '
         CommandLine|contains:
             # Add more susupicious paths and binaries as you see fit in your env
-            - rundll32
-            - bitsadmin
-            - regsvr32
+            - 'rundll32'
+            - 'bitsadmin'
+            - 'regsvr32'
             - 'cmd.exe /c '
             - 'cmd.exe /k '
             - 'cmd.exe /r '
             - 'cmd /c '
             - 'cmd /k '
             - 'cmd /r '
-            - powershell
-            - pwsh
-            - certutil
-            - cscript
-            - wscript
-            - mshta
-            - \Users\Public\
-            - \Windows\Temp\
-            - \AppData\Local\
+            - 'powershell'
+            - 'pwsh'
+            - 'certutil'
+            - 'cscript'
+            - 'wscript'
+            - 'mshta'
+            - '\Users\Public\'
+            - '\Windows\Temp\'
+            - '\AppData\Local\'
             - '%temp%'
             - '%tmp%'
             - '%ProgramData%'
             - '%appdata%'
             - '%comspec%'
             - '%localappdata%'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

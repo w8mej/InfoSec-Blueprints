@@ -16,17 +16,11 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
-            - CL_Mutexverifiers.ps1
-            - runAfterCancelProcess
-    condition: ps_script and selection
+            - 'CL_Mutexverifiers.ps1'
+            - 'runAfterCancelProcess'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

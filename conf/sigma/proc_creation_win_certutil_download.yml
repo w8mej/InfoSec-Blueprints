@@ -16,25 +16,20 @@ date: 2023/02/15
 tags:
     - attack.defense_evasion
     - attack.t1027
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \certutil.exe
-        - OriginalFileName: CertUtil.exe
+        - Image|endswith: '\certutil.exe'
+        - OriginalFileName: 'CertUtil.exe'
     selection_flags:
         CommandLine|contains:
             - 'urlcache '
             - 'verifyctl '
     selection_http:
-        CommandLine|contains: http
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'http'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

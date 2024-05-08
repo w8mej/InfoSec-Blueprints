@@ -14,11 +14,9 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4692
-    condition: security and selection
+    condition: selection
 fields:
     - ComputerName
     - SubjectDomainName
@@ -26,4 +24,3 @@ fields:
 falsepositives:
     - If a computer is a member of a domain, DPAPI has a backup mechanism to allow unprotection of the data. Which will trigger this event.
 level: medium
-ruletype: Sigma

@@ -13,28 +13,23 @@ tags:
     - attack.lateral_movement
     - attack.t1210
     - car.2013-07-002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ParentCommandLine|contains|all:
-            - \svchost.exe
-            - termsvcs
+            - '\svchost.exe'
+            - 'termsvcs'
     filter_img:
         Image|endswith:
-            - \rdpclip.exe
-            - :\Windows\System32\csrss.exe
-            - :\Windows\System32\wininit.exe
-            - :\Windows\System32\winlogon.exe
+            - '\rdpclip.exe'
+            - ':\Windows\System32\csrss.exe'
+            - ':\Windows\System32\wininit.exe'
+            - ':\Windows\System32\winlogon.exe'
     filter_null:
-        Image:
-    condition: process_creation and (selection and not 1 of filter_*)
+        Image: null
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

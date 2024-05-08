@@ -15,51 +15,46 @@ date: 2023/08/29
 tags:
     - attack.defense_evasion
     - attack.t1036.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_tools_cmd:
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         CommandLine|contains: 'copy '
     selection_tools_pwsh:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
-            - copy-item
+            - 'copy-item'
             - ' copy '
             - 'cpi '
             - ' cp '
     selection_tools_other:
         - Image|endswith:
-              - \robocopy.exe
-              - \xcopy.exe
+              - '\robocopy.exe'
+              - '\xcopy.exe'
         - OriginalFileName:
-              - robocopy.exe
-              - XCOPY.EXE
+              - 'robocopy.exe'
+              - 'XCOPY.EXE'
     selection_target_path:
         CommandLine|contains:
-            - \System32
-            - \SysWOW64
-            - \WinSxS
+            - '\System32'
+            - '\SysWOW64'
+            - '\WinSxS'
     selection_target_lolbin:
         CommandLine|contains:
             # Note: add more binaries to increase coverage
-            - \bitsadmin.exe
-            - \calc.exe
-            - \certutil.exe
-            - \cmdl32.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \rundll32.exe
-            - \wscript.exe
-    condition: process_creation and (1 of selection_tools_* and all of selection_target_*)
+            - '\bitsadmin.exe'
+            - '\calc.exe'
+            - '\certutil.exe'
+            - '\cmdl32.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\rundll32.exe'
+            - '\wscript.exe'
+    condition: 1 of selection_tools_* and all of selection_target_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

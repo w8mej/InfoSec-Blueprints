@@ -11,34 +11,29 @@ tags:
     - attack.defense_evasion
     - attack.t1574
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \regsvr32.exe
-        - OriginalFileName: REGSVR32.EXE
+        - Image|endswith: '\regsvr32.exe'
+        - OriginalFileName: 'REGSVR32.EXE'
     filter_main_legit_ext:
         CommandLine|contains:
             # Note: For better accuracy you might not want to use contains
-            - .ax
-            - .cpl
-            - .dll   # Covers ".dll.mui"
-            - .ocx
+            - '.ax'
+            - '.cpl'
+            - '.dll' # Covers ".dll.mui"
+            - '.ocx'
     filter_optional_pascal:
-        CommandLine|contains: .ppl
+        CommandLine|contains: '.ppl'
     filter_optional_avg:
-        CommandLine|contains: .bav
+        CommandLine|contains: '.bav'
     filter_main_null_4688:
-        CommandLine:
+        CommandLine: null
     filter_main_empty_4688:
         CommandLine: ''
-    condition: process_creation and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Other legitimate extensions currently not in the list either from third party or specific Windows components.
 level: medium
-ruletype: Sigma

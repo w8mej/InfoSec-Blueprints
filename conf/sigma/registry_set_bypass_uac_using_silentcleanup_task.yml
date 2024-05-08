@@ -16,20 +16,15 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1548.002
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \Environment\windir
+        TargetObject|endswith: '\Environment\windir'
     filter_main_default:
         Details: '%SystemRoot%'
-    condition: registry_set and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

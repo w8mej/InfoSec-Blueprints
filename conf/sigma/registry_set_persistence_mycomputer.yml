@@ -9,19 +9,14 @@ date: 2022/08/09
 modified: 2024/01/11
 tags:
     - attack.persistence
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Microsoft\Windows\CurrentVersion\Explorer\MyComputer
-        TargetObject|endswith: (Default)
-    condition: registry_set and selection
+        TargetObject|contains: '\Microsoft\Windows\CurrentVersion\Explorer\MyComputer'
+        TargetObject|endswith: '(Default)'
+    condition: selection
 falsepositives:
     - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for
 level: high
-ruletype: Sigma

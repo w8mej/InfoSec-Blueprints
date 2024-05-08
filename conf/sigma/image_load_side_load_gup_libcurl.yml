@@ -12,21 +12,16 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \gup.exe
-        ImageLoaded|endswith: \libcurl.dll
+        Image|endswith: '\gup.exe'
+        ImageLoaded|endswith: '\libcurl.dll'
     filter_main_notepad_plusplus:
-        Image|endswith: \Notepad++\updater\GUP.exe
-    condition: image_load and (selection and not 1 of filter_main_*)
+        Image|endswith: '\Notepad++\updater\GUP.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

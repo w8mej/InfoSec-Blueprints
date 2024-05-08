@@ -21,61 +21,57 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     selection_attrib:
         CommandLine|contains|all:
-            - attrib
+            - 'attrib'
             - ' +h '
             - ' +s '
             - ' +r '
-            - .aspx
+            - '.aspx'
     selection_vsperfmon:
-        - NewProcessName|contains: \ProgramData\VSPerfMon\
+        - Image|contains: '\ProgramData\VSPerfMon\'
         - CommandLine|contains|all:
-              - schtasks
-              - VSPerfMon
+              - 'schtasks'
+              - 'VSPerfMon'
     selection_opera_1:
-        NewProcessName|endswith: Opera_browser.exe
-        ParentProcessName|endswith:
-            - \services.exe
-            - \svchost.exe
+        Image|endswith: 'Opera_browser.exe'
+        ParentImage|endswith:
+            - '\services.exe'
+            - '\svchost.exe'
     selection_opera_2:
-        NewProcessName|endswith: Users\Public\opera\Opera_browser.exe
+        Image|endswith: 'Users\Public\opera\Opera_browser.exe'
     selection_vssadmin:
         CommandLine|contains|all:
-            - vssadmin list shadows
-            - Temp\__output
+            - 'vssadmin list shadows'
+            - 'Temp\__output'
     selection_makecab_1:
+        Image|endswith: '\makecab.exe'
         CommandLine|contains|all:
-            - inetpub\wwwroot\
-            - .dmp.zip
-        NewProcessName|endswith: \makecab.exe
+            - 'inetpub\wwwroot\'
+            - '.dmp.zip'
     selection_makecab_2:
+        Image|endswith: '\makecab.exe'
         CommandLine|contains:
-            - Microsoft\Exchange Server\
-            - compressionmemory
-            - .gif
-        NewProcessName|endswith: \makecab.exe
+            - 'Microsoft\Exchange Server\'
+            - 'compressionmemory'
+            - '.gif'
     selection_7zip:
         CommandLine|contains|all:
             - ' -t7z '
-            - C:\Programdata\pst
-            - \it.zip
+            - 'C:\Programdata\pst'
+            - '\it.zip'
     selection_rundll32:
         CommandLine|contains|all:
-            - \comsvcs.dll
-            - Minidump
+            - '\comsvcs.dll'
+            - 'Minidump'
             - 'full '
-            - \inetpub\wwwroot
+            - '\inetpub\wwwroot'
     selection_other:
         CommandLine|contains:
-            - Windows\Temp\xx.bat
-            - Windows\WwanSvcdcs
-            - Windows\Temp\cw.exe
-    condition: process_creation and (1 of selection*)
+            - 'Windows\Temp\xx.bat'
+            - 'Windows\WwanSvcdcs'
+            - 'Windows\Temp\cw.exe'
+    condition: 1 of selection*
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

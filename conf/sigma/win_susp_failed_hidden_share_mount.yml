@@ -15,17 +15,14 @@ logsource:
     product: windows
     service: smbclient-security
 detection:
-    smbclient_security:
-        Channel: Microsoft-Windows-SmbClient/Security
     selection:
         EventID: 31010
-        ShareName|endswith: $
+        ShareName|endswith: '$'
     timeframe: 1m
-    condition: (smbclient_security and selection) | count() > 10
+    condition: selection | count() > 10
 fields:
     - ShareName
 falsepositives:
     - Legitimate administrative activity
     - Faulty scripts
 level: medium
-ruletype: Sigma

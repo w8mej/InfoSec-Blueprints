@@ -11,21 +11,16 @@ modified: 2022/07/14
 tags:
     - attack.discovery
     - attack.t1120
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \fsutil.exe
-        - OriginalFileName: fsutil.exe
+        - Image|endswith: '\fsutil.exe'
+        - OriginalFileName: 'fsutil.exe'
     selection_cli:
-        CommandLine|contains: drives
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'drives'
+    condition: all of selection_*
 falsepositives:
     - Certain software or administrative tasks may trigger false positives.
 level: low
-ruletype: Sigma

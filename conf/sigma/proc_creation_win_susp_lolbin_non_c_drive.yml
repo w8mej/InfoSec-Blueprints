@@ -11,25 +11,21 @@ modified: 2023/08/29
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_lolbin:
         Image|endswith:
-            - \wscript.exe
-            - \cscript.exe
+            - '\wscript.exe'
+            - '\cscript.exe'
     selection_exetensions:
         CommandLine|contains:
-            - .js
-            - .vbs
-            - .vbe
+            - '.js'
+            - '.vbs'
+            - '.vbe'
     selection_drive_path:
-        CommandLine|contains: :\
+        CommandLine|contains: ':\'
     filter_drive_path:
         CommandLine|contains:
             - ' C:\\'
@@ -39,8 +35,7 @@ detection:
         CommandLine|contains: '%'
     filter_unc_paths:
         CommandLine|contains: ' \\\\'
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Legitimate scripts located on other partitions such as "D:"
 level: medium
-ruletype: Sigma

@@ -15,22 +15,17 @@ tags:
     - attack.t1574
     - cve.2021.1675
     - cve.2021.34527
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \spoolsv.exe
+        Image|endswith: '\spoolsv.exe'
         ImageLoaded|contains:
-            - \Windows\System32\spool\drivers\x64\3\
-            - \Windows\System32\spool\drivers\x64\4\
-        ImageLoaded|endswith: .dll
-    condition: image_load and selection
+            - '\Windows\System32\spool\drivers\x64\3\'
+            - '\Windows\System32\spool\drivers\x64\4\'
+        ImageLoaded|endswith: '.dll'
+    condition: selection
 falsepositives:
     - Loading of legitimate driver
 level: informational
-ruletype: Sigma

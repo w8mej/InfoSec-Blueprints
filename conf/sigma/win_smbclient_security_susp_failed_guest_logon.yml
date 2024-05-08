@@ -16,17 +16,14 @@ logsource:
     product: windows
     service: smbclient-security
 detection:
-    smbclient_security:
-        Channel: Microsoft-Windows-SmbClient/Security
     selection:
         EventID: 31017
         UserName: ''
-        ServerName|startswith: \1
-    condition: smbclient_security and selection
+        ServerName|startswith: '\1'
+    condition: selection
 fields:
     - Computer
     - User
 falsepositives:
     - Account fallback reasons (after failed login with specific account)
 level: medium
-ruletype: Sigma

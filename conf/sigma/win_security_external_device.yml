@@ -16,15 +16,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection_eid:
         EventID: 6416
     selection_field:
-        - ClassName: DiskDrive
-        - DeviceDescription: USB Mass Storage Device
-    condition: security and (all of selection_*)
+        - ClassName: 'DiskDrive'
+        - DeviceDescription: 'USB Mass Storage Device'
+    condition: all of selection_*
 falsepositives:
     - Likely
 level: low
-ruletype: Sigma

@@ -10,19 +10,14 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1546.015
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: InprocServer32\(Default)
-        Details: C:\WINDOWS\system32\scrobj.dll
-    condition: registry_set and selection
+        TargetObject|endswith: 'InprocServer32\(Default)'
+        Details: 'C:\WINDOWS\system32\scrobj.dll'
+    condition: selection
 falsepositives:
     - Legitimate use of the dll.
 level: medium
-ruletype: Sigma

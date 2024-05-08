@@ -14,20 +14,15 @@ modified: 2023/02/16
 tags:
     - attack.credential_access
     - attack.t1558
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - .kirbi   # Kerberos tickets
-            - mimilsa.log   # MemSSP default file
-    condition: file_event and selection
+            - '.kirbi' # Kerberos tickets
+            - 'mimilsa.log' # MemSSP default file
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

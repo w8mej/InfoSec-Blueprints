@@ -15,25 +15,20 @@ tags:
     - attack.t1059.001
     - attack.defense_evasion
     - attack.t1216
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_module:
         ParentImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-        ParentCommandLine|contains: \WindowsPowerShell\Modules\Pester\
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        ParentCommandLine|contains: '\WindowsPowerShell\Modules\Pester\'
     selection_cli:
         ParentCommandLine|contains:
             - '{ Invoke-Pester -EnableExit ;'
             - '{ Get-Help "'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of Pester for writing tests for Powershell scripts and modules
 level: medium
-ruletype: Sigma

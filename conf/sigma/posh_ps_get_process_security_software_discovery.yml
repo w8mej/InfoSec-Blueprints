@@ -17,40 +17,34 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
         ScriptBlockText|contains:
-            - get-process | \?
-            - get-process | where
-            - gps | \?
-            - gps | where
+            - 'get-process | \?'
+            - 'get-process | where'
+            - 'gps | \?'
+            - 'gps | where'
     selection_field:
         ScriptBlockText|contains:
-            - Company -like
-            - Description -like
-            - Name -like
-            - Path -like
-            - Product -like
+            - 'Company -like'
+            - 'Description -like'
+            - 'Name -like'
+            - 'Path -like'
+            - 'Product -like'
     selection_keywords:
         ScriptBlockText|contains:
             # Note: These strings are using wildcard assuming the search is using the "-like" operator.
             #       You can add specific variant with the actual process names to increase coverage
-            - \*avira\*
-            - \*carbonblack\*
-            - \*cylance\*
-            - \*defender\*
-            - \*kaspersky\*
-            - \*malware\*
-            - \*sentinel\*
-            - \*symantec\*
-            - \*virus\*
-    condition: ps_script and (all of selection_*)
+            - '\*avira\*'
+            - '\*carbonblack\*'
+            - '\*cylance\*'
+            - '\*defender\*'
+            - '\*kaspersky\*'
+            - '\*malware\*'
+            - '\*sentinel\*'
+            - '\*symantec\*'
+            - '\*virus\*'
+    condition: all of selection_*
 falsepositives:
     - False positives might occur due to the nature of the ScriptBlock being ingested as a big blob. Initial tuning is required.
     - As the "selection_cmdlet" is common in scripts the matching engine might slow down the search. Change into regex or a more accurate string to avoid heavy resource consumption if experienced
 level: medium
-ruletype: Sigma

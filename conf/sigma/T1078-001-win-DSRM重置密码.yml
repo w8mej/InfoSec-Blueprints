@@ -1,0 +1,19 @@
+title: 目录服务还原模式（DSRM）帐户上的密码更改
+status: 稳定
+description: 目录服务还原模式（DSRM）帐户是域控制器上的本地管理员帐户。攻击者可以更改密码以获得持久性。
+references:
+    - https://adsecurity.org/?p=1714
+tags:
+    - attack.persistence
+    - attack.privilege_escalation
+    - attack.t1098
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4794 #试图设置目录服务还原模式管理员密码
+    condition: selection
+falsepositives:
+    - Initial installation of a domain controller
+level: high

@@ -11,24 +11,20 @@ modified: 2022/12/09
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \Werfault.exe
-        - OriginalFileName: WerFault.exe
+        - Image|endswith: '\Werfault.exe'
+        - OriginalFileName: 'WerFault.exe'
     selection_cli:
         ParentUser|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
         User|contains:
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
         CommandLine|contains|all:
             # Doc: WerFault.exe -u -p <target process> -ip <source process> -s <file mapping handle>
             # Example: C:\Windows\system32\Werfault.exe -u -p 744 -ip 1112 -s 244
@@ -38,9 +34,8 @@ detection:
             - ' -ip '
             - ' -s '
     filter_lsass:
-        ParentImage: C:\Windows\System32\lsass.exe
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+        ParentImage: 'C:\Windows\System32\lsass.exe'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Windows Error Reporting might produce similar behavior. In that case, check the PID associated with the "-p" parameter in the CommandLine.
 level: high
-ruletype: Sigma

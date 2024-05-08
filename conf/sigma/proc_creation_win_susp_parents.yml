@@ -11,39 +11,34 @@ modified: 2022/09/08
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ParentImage|endswith:
-            - \minesweeper.exe
-            - \winver.exe
-            - \bitsadmin.exe
+            - '\minesweeper.exe'
+            - '\winver.exe'
+            - '\bitsadmin.exe'
     selection_special:
         ParentImage|endswith:
-            - \csrss.exe
-            - \certutil.exe
+            - '\csrss.exe'
+            - '\certutil.exe'
          # - '\schtasks.exe'
-            - \eventvwr.exe
-            - \calc.exe
-            - \notepad.exe
+            - '\eventvwr.exe'
+            - '\calc.exe'
+            - '\notepad.exe'
     filter_special:
         Image|endswith:
-            - \WerFault.exe
-            - \wermgr.exe
-            - \conhost.exe   # csrss.exe, certutil.exe
-            - \mmc.exe       # eventvwr.exe
-            - \win32calc.exe   # calc.exe
-            - \notepad.exe
+            - '\WerFault.exe'
+            - '\wermgr.exe'
+            - '\conhost.exe' # csrss.exe, certutil.exe
+            - '\mmc.exe'     # eventvwr.exe
+            - '\win32calc.exe' # calc.exe
+            - '\notepad.exe'
     filter_null:
-        Image:
-    condition: process_creation and (selection or ( selection_special and not 1 of filter_* ))
+        Image: null
+    condition: selection or ( selection_special and not 1 of filter_* )
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

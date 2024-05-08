@@ -15,21 +15,16 @@ tags:
     - attack.defense_evasion
     - attack.t1218.011
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains:
-            - ds7002.lnk
-            - ds7002.pdf
-            - ds7002.zip
-    condition: file_event and selection
+            - 'ds7002.lnk'
+            - 'ds7002.pdf'
+            - 'ds7002.zip'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

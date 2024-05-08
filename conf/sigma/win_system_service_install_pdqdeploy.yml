@@ -15,18 +15,15 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_root:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     selection_service:
-        - ImagePath|contains: PDQDeployService.exe
+        - ImagePath|contains: 'PDQDeployService.exe'
         - ServiceName:
-              - PDQDeploy
-              - PDQ Deploy
-    condition: system and (all of selection_*)
+              - 'PDQDeploy'
+              - 'PDQ Deploy'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of the tool
 level: medium
-ruletype: Sigma

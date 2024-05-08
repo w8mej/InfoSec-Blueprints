@@ -17,29 +17,24 @@ tags:
     - attack.reconnaissance
     - attack.discovery
     - attack.impact
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_cmdlet:
         CommandLine|contains:
             - 'Import-Module '
             - 'ipmo '
     selection_dll:
-        CommandLine|contains: Microsoft.ActiveDirectory.Management.dll
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'Microsoft.ActiveDirectory.Management.dll'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of the library for administrative activity
 level: medium
-ruletype: Sigma

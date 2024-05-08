@@ -9,41 +9,36 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/04/18
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
             # Covers browsers
-            - \brave.exe
-            - \CCleaner Browser\Application\CCleanerBrowser.exe
-            - \chromium.exe
-            - \firefox.exe
-            - \Google\Chrome\Application\chrome.exe
-            - \iexplore.exe
-            - \microsoftedge.exe
-            - \msedge.exe
-            - \Opera.exe
-            - \Vivaldi.exe
-            - \Whale.exe
+            - '\brave.exe'
+            - '\CCleaner Browser\Application\CCleanerBrowser.exe'
+            - '\chromium.exe'
+            - '\firefox.exe'
+            - '\Google\Chrome\Application\chrome.exe'
+            - '\iexplore.exe'
+            - '\microsoftedge.exe'
+            - '\msedge.exe'
+            - '\Opera.exe'
+            - '\Vivaldi.exe'
+            - '\Whale.exe'
             # Covers email clients
-            - \Outlook.exe
-            - \RuntimeBroker.exe   # If the windows mail client is used
-            - \Thunderbird.exe
+            - '\Outlook.exe'
+            - '\RuntimeBroker.exe' # If the windows mail client is used
+            - '\Thunderbird.exe'
             # Covers chat applications
-            - \Discord.exe   # Should open the browser for download, but just in case.
-            - \Keybase.exe
-            - \msteams.exe
-            - \Slack.exe
-            - \teams.exe
-        TargetFilename|contains: .rdp
-    condition: file_event and selection
+            - '\Discord.exe' # Should open the browser for download, but just in case.
+            - '\Keybase.exe'
+            - '\msteams.exe'
+            - '\Slack.exe'
+            - '\teams.exe'
+        TargetFilename|contains: '.rdp'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

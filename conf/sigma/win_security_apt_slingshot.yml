@@ -20,13 +20,10 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Audit Other Object Access Events > Success'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4701
-        TaskName: \Microsoft\Windows\Defrag\ScheduledDefrag
-    condition: security and selection
+        TaskName: '\Microsoft\Windows\Defrag\ScheduledDefrag'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

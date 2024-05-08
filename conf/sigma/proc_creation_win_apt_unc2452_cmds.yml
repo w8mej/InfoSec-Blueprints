@@ -13,49 +13,44 @@ tags:
     - detection.emerging_threats
     # - sunburst
     # - unc2452
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
     # To avoid writing complex condition. "selection_generic_1" and "selection_generic_2" are the same except for the extension used.
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_generic_1:
         CommandLine|contains:
-            - 7z.exe a -v500m -mx9 -r0 -p
-            - 7z.exe a -mx9 -r0 -p
+            - '7z.exe a -v500m -mx9 -r0 -p'
+            - '7z.exe a -mx9 -r0 -p'
         CommandLine|contains|all:
-            - .zip
-            - .txt
+            - '.zip'
+            - '.txt'
     selection_generic_2:
         CommandLine|contains:
-            - 7z.exe a -v500m -mx9 -r0 -p
-            - 7z.exe a -mx9 -r0 -p
+            - '7z.exe a -v500m -mx9 -r0 -p'
+            - '7z.exe a -mx9 -r0 -p'
         CommandLine|contains|all:
-            - .zip
-            - .log
+            - '.zip'
+            - '.log'
     selection_generic_3:
         ParentCommandLine|contains|all:
-            - wscript.exe
-            - .vbs
+            - 'wscript.exe'
+            - '.vbs'
         CommandLine|contains|all:
-            - rundll32.exe
-            - C:\Windows
-            - .dll,Tk_
+            - 'rundll32.exe'
+            - 'C:\Windows'
+            - '.dll,Tk_'
     selection_generic_4:
-        ParentImage|endswith: \rundll32.exe
+        ParentImage|endswith: '\rundll32.exe'
         ParentCommandLine|contains:
-            - C:\Windows
-            - .dll
+            - 'C:\Windows'
+            - '.dll'
         CommandLine|contains: 'cmd.exe /C '
     selection_generic_5:
-        ParentImage|endswith: \rundll32.exe
-        Image|endswith: \dllhost.exe
+        ParentImage|endswith: '\rundll32.exe'
+        Image|endswith: '\dllhost.exe'
         CommandLine: ''
-    condition: process_creation and (1 of selection_generic_*)
+    condition: 1 of selection_generic_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

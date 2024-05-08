@@ -19,25 +19,20 @@ modified: 2023/11/17
 tags:
     - attack.exfiltration
     - attack.t1567.001
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         DestinationHostname|endswith:
-            - .ngrok-free.app
-            - .ngrok-free.dev
-            - .ngrok.app
-            - .ngrok.dev
-            - .ngrok.io
-    condition: network_connection and selection
+            - '.ngrok-free.app'
+            - '.ngrok-free.dev'
+            - '.ngrok.app'
+            - '.ngrok.dev'
+            - '.ngrok.io'
+    condition: selection
 falsepositives:
     - Legitimate use of the ngrok service.
 # Note: The level of this rule is related to your internal policy.
 level: high
-ruletype: Sigma

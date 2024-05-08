@@ -12,21 +12,16 @@ date: 2022/12/23
 tags:
     - attack.command_and_control
     - attack.t1132.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - FromBase64String
-            - MemoryStream
-            - H4sI
-    condition: process_creation and selection
+            - 'FromBase64String'
+            - 'MemoryStream'
+            - 'H4sI'
+    condition: selection
 falsepositives:
     - Legitimate administrative script
 level: medium
-ruletype: Sigma

@@ -15,18 +15,13 @@ tags:
     - attack.execution
     - attack.t1569.002
     - attack.s0029
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \PSEXESVC.exe
-    condition: file_event and selection
+        TargetFilename|endswith: '\PSEXESVC.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

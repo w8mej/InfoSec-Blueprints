@@ -11,27 +11,22 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1055
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|endswith: svchost.exe
-        Image|endswith: \svchost.exe
+        CommandLine|endswith: 'svchost.exe'
+        Image|endswith: '\svchost.exe'
     filter:
         - ParentImage|endswith:
-              - \rpcnet.exe
-              - \rpcnetp.exe
-        - CommandLine:       # no CommandLine value available
-    condition: process_creation and (selection and not filter)
+              - '\rpcnet.exe'
+              - '\rpcnetp.exe'
+        - CommandLine: null  # no CommandLine value available
+    condition: selection and not filter
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - Rpcnet.exe / rpcnetp.exe which is a lojack style software. https://www.blackhat.com/docs/us-14/materials/us-14-Kamlyuk-Kamluk-Computrace-Backdoor-Revisited.pdf
 level: high
-ruletype: Sigma

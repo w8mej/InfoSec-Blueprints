@@ -15,25 +15,20 @@ tags:
     - attack.t1059.005
     - attack.t1059.007
     - attack.t1218.005
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         SourceImage|endswith:
-            - \System32\cscript.exe
-            - \System32\wscript.exe
-            - \System32\mshta.exe
-            - \winword.exe
-            - \excel.exe
-        TargetImage|contains: \SysWOW64\
-        StartModule:
-    condition: create_remote_thread and selection
+            - '\System32\cscript.exe'
+            - '\System32\wscript.exe'
+            - '\System32\mshta.exe'
+            - '\winword.exe'
+            - '\excel.exe'
+        TargetImage|contains: '\SysWOW64\'
+        StartModule: null
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

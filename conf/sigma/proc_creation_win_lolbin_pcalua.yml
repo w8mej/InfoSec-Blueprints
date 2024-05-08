@@ -14,19 +14,14 @@ modified: 2023/01/04
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \pcalua.exe
+        Image|endswith: '\pcalua.exe'
         CommandLine|contains: ' -a' # No space after the flag because it accepts anything as long as there a "-a"
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Legitimate use by a via a batch script or by an administrator.
 level: medium
-ruletype: Sigma

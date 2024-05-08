@@ -16,17 +16,13 @@ tags:
     - attack.defense_evasion
     - attack.t1134.001
     - attack.t1134.003
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \SharpImpersonation.exe
-        - OriginalFileName: SharpImpersonation.exe
+        - Image|endswith: '\SharpImpersonation.exe'
+        - OriginalFileName: 'SharpImpersonation.exe'
     selection_cli:
         - CommandLine|contains|all:
               - ' user:'
@@ -37,8 +33,7 @@ detection:
         - CommandLine|contains:
               - ' technique:CreateProcessAsUserW'
               - ' technique:ImpersonateLoggedOnuser'
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

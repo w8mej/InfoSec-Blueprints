@@ -10,24 +10,16 @@ modified: 2022/12/25
 tags:
     - attack.credential_access
     - attack.t1003.002
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: System\CurrentControlSet\Services\VSS
-        Image|endswith: esentutl.exe   # limit esentutl as in references, too many FP to filter
+        TargetObject|contains: 'System\CurrentControlSet\Services\VSS'
+        Image|endswith: 'esentutl.exe' # limit esentutl as in references, too many FP to filter
     filter:
-        TargetObject|contains: System\CurrentControlSet\Services\VSS\Start
-    condition: registry_event and (selection and not filter)
+        TargetObject|contains: 'System\CurrentControlSet\Services\VSS\Start'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

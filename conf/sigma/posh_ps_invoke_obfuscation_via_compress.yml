@@ -17,21 +17,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_4104:
         ScriptBlockText|contains|all:
-            - new-object
-            - text.encoding]::ascii
+            - 'new-object'
+            - 'text.encoding]::ascii'
         ScriptBlockText|contains:
-            - system.io.compression.deflatestream
-            - system.io.streamreader
-        ScriptBlockText|endswith: readtoend
-    condition: ps_script and selection_4104
+            - 'system.io.compression.deflatestream'
+            - 'system.io.streamreader'
+        ScriptBlockText|endswith: 'readtoend'
+    condition: selection_4104
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

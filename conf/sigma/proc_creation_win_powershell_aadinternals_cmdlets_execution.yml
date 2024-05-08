@@ -16,47 +16,42 @@ tags:
     - attack.discovery
     - attack.credential_access
     - attack.impact
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.Exe
-              - pwsh.dll
+              - 'PowerShell.Exe'
+              - 'pwsh.dll'
     selection_cli:
         CommandLine|contains:
             # Since most of the cmdlets use a unique enough string which is "-AADInt" we only used that portion. For a complete list please check the references linked above
-            - Add-AADInt
-            - ConvertTo-AADInt
-            - Disable-AADInt
-            - Enable-AADInt
-            - Export-AADInt
-            - Get-AADInt
-            - Grant-AADInt
-            - Install-AADInt
-            - Invoke-AADInt
-            - Join-AADInt
-            - New-AADInt
-            - Open-AADInt
-            - Read-AADInt
-            - Register-AADInt
-            - Remove-AADInt
-            - Restore-AADInt
-            - Search-AADInt
-            - Send-AADInt
-            - Set-AADInt
-            - Start-AADInt
-            - Update-AADInt
-    condition: process_creation and (all of selection_*)
+            - 'Add-AADInt'
+            - 'ConvertTo-AADInt'
+            - 'Disable-AADInt'
+            - 'Enable-AADInt'
+            - 'Export-AADInt'
+            - 'Get-AADInt'
+            - 'Grant-AADInt'
+            - 'Install-AADInt'
+            - 'Invoke-AADInt'
+            - 'Join-AADInt'
+            - 'New-AADInt'
+            - 'Open-AADInt'
+            - 'Read-AADInt'
+            - 'Register-AADInt'
+            - 'Remove-AADInt'
+            - 'Restore-AADInt'
+            - 'Search-AADInt'
+            - 'Send-AADInt'
+            - 'Set-AADInt'
+            - 'Start-AADInt'
+            - 'Update-AADInt'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of the library for administrative activity
 level: high
-ruletype: Sigma

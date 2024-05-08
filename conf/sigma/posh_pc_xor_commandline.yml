@@ -14,18 +14,14 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection:
-        Data|contains: HostName=ConsoleHost
+        Data|contains: 'HostName=ConsoleHost'
     filter:
         Data|contains:
-            - bxor
-            - char
-            - join
-    condition: ps_classic_start and (selection and filter)
+            - 'bxor'
+            - 'char'
+            - 'join'
+    condition: selection and filter
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

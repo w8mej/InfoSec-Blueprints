@@ -16,20 +16,17 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ImagePath|contains:
-            - \AppData\
-            - \\\\127.0.0.1
-            - \\\\localhost
+            - '\AppData\'
+            - '\\\\127.0.0.1'
+            - '\\\\localhost'
     filter_optional_zoom:
-        ServiceName: Zoom Sharing Service
-        ImagePath|contains: :\Program Files\Common Files\Zoom\Support\CptService.exe
-    condition: system and (selection and not 1 of filter_optional_*)
+        ServiceName: 'Zoom Sharing Service'
+        ImagePath|contains: ':\Program Files\Common Files\Zoom\Support\CptService.exe'
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -10,19 +10,14 @@ date: 2022/10/01
 tags:
     - attack.impact
     - attack.t1529
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \shutdown.exe
-        CommandLine|contains: /l
-    condition: process_creation and selection
+        Image|endswith: '\shutdown.exe'
+        CommandLine|contains: '/l'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -10,30 +10,25 @@ modified: 2023/03/15
 tags:
     - attack.defense_evasion
     - attack.t1070
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \advapi32.dll
+        ImageLoaded|endswith: '\advapi32.dll'
     filter_common:
         Image|startswith:
-            - C:\Windows\
-            - C:\Program Files (x86)\
-            - C:\Program Files\
+            - 'C:\Windows\'
+            - 'C:\Program Files (x86)\'
+            - 'C:\Program Files\'
     filter_defender:
-        Image|startswith: C:\ProgramData\Microsoft\Windows Defender\platform\
-        Image|endswith: \MpCmdRun.exe
+        Image|startswith: 'C:\ProgramData\Microsoft\Windows Defender\platform\'
+        Image|endswith: '\MpCmdRun.exe'
     filter_onedrive:
-        Image|startswith: C:\Users\
-        Image|contains: \AppData\Local\Microsoft\OneDrive\
-        Image|endswith: FileCoAuth.exe
-    condition: image_load and (selection and not 1 of filter_*)
+        Image|startswith: 'C:\Users\'
+        Image|contains: '\AppData\Local\Microsoft\OneDrive\'
+        Image|endswith: 'FileCoAuth.exe'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: informational
-ruletype: Sigma

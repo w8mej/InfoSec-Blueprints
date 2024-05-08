@@ -10,32 +10,27 @@ modified: 2022/06/28
 tags:
     - attack.defense_evasion
     - attack.t1036.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \svchost.exe
+        Image|endswith: '\svchost.exe'
     filter_main_generic:
         ParentImage|endswith:
-            - \Mrt.exe
-            - \MsMpEng.exe
-            - \ngen.exe
-            - \rpcnet.exe
-            - \services.exe
-            - \TiWorker.exe
+            - '\Mrt.exe'
+            - '\MsMpEng.exe'
+            - '\ngen.exe'
+            - '\rpcnet.exe'
+            - '\services.exe'
+            - '\TiWorker.exe'
     filter_main_parent_null:
-        ParentImage:
+        ParentImage: null
     filter_main_parent_empty:
         ParentImage:
             - '-'
             - ''
-    condition: process_creation and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

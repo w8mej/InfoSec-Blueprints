@@ -16,21 +16,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
-            - cleanLL
-            - usersfiles.war
-            - Remove-Item -Path "$tomcat_dir
-            - SysAidServer
+            - 'cleanLL'
+            - 'usersfiles.war'
+            - 'Remove-Item -Path "$tomcat_dir'
+            - 'SysAidServer'
             - 'sleep '
-            - while(1)
-    condition: ps_script and selection
+            - 'while(1)'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

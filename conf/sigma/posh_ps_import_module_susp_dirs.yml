@@ -18,30 +18,24 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Import-Module "$Env:Temp\
+            - 'Import-Module "$Env:Temp\'
             - Import-Module '$Env:Temp\
-            - Import-Module $Env:Temp\
-            - Import-Module "$Env:Appdata\
+            - 'Import-Module $Env:Temp\'
+            - 'Import-Module "$Env:Appdata\'
             - Import-Module '$Env:Appdata\
-            - Import-Module $Env:Appdata\
-            - Import-Module C:\Users\Public\
+            - 'Import-Module $Env:Appdata\'
+            - 'Import-Module C:\Users\Public\'
             # Import-Module alias is "ipmo"
-            - ipmo "$Env:Temp\
+            - 'ipmo "$Env:Temp\'
             - ipmo '$Env:Temp\
-            - ipmo $Env:Temp\
-            - ipmo "$Env:Appdata\
+            - 'ipmo $Env:Temp\'
+            - 'ipmo "$Env:Appdata\'
             - ipmo '$Env:Appdata\
-            - ipmo $Env:Appdata\
-            - ipmo C:\Users\Public\
-    condition: ps_script and selection
+            - 'ipmo $Env:Appdata\'
+            - 'ipmo C:\Users\Public\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

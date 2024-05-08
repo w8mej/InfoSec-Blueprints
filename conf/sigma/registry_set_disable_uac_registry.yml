@@ -11,19 +11,14 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1548.002
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA
         Details: DWORD (0x00000000)
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

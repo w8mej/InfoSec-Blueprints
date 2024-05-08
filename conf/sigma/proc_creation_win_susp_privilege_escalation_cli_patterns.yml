@@ -8,14 +8,10 @@ author: Florian Roth (Nextron Systems)
 date: 2022/11/11
 tags:
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_user:
         CommandLine|contains:
             - ' -u system '
@@ -36,8 +32,7 @@ detection:
             - ' -c whoami'
             - ' -c wscript'
             - ' -c cscript'
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

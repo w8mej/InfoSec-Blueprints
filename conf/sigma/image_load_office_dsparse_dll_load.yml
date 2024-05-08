@@ -10,26 +10,21 @@ modified: 2023/03/28
 tags:
     - attack.execution
     - attack.t1204.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \excel.exe
-            - \mspub.exe
-            - \onenote.exe
-            - \onenoteim.exe   # Just in case
-            - \outlook.exe
-            - \powerpnt.exe
-            - \winword.exe
-        ImageLoaded|contains: \dsparse.dll
-    condition: image_load and selection
+            - '\excel.exe'
+            - '\mspub.exe'
+            - '\onenote.exe'
+            - '\onenoteim.exe' # Just in case
+            - '\outlook.exe'
+            - '\powerpnt.exe'
+            - '\winword.exe'
+        ImageLoaded|contains: '\dsparse.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

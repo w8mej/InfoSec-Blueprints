@@ -12,24 +12,19 @@ tags:
     - attack.defense_evasion
     - attack.persistence
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|startswith:
-            - C:\Windows\System32\logonUI.exe.local
-            - C:\Windows\System32\werFault.exe.local
-            - C:\Windows\System32\consent.exe.local
-            - C:\Windows\System32\narrator.exe.local
-            - C:\Windows\System32\wermgr.exe.local
-        TargetFilename|endswith: \comctl32.dll
-    condition: file_event and selection
+            - 'C:\Windows\System32\logonUI.exe.local'
+            - 'C:\Windows\System32\werFault.exe.local'
+            - 'C:\Windows\System32\consent.exe.local'
+            - 'C:\Windows\System32\narrator.exe.local'
+            - 'C:\Windows\System32\wermgr.exe.local'
+        TargetFilename|endswith: '\comctl32.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

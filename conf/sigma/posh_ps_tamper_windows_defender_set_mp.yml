@@ -20,73 +20,67 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_options_disabling_preference:
-        ScriptBlockText|contains: Set-MpPreference
+        ScriptBlockText|contains: 'Set-MpPreference'
     selection_options_disabling_function:
         ScriptBlockText|contains:
-            - -dbaf $true
-            - -dbaf 1
-            - -dbm $true
-            - -dbm 1
-            - -dips $true
-            - -dips 1
-            - -DisableArchiveScanning $true
-            - -DisableArchiveScanning 1
-            - -DisableBehaviorMonitoring $true
-            - -DisableBehaviorMonitoring 1
-            - -DisableBlockAtFirstSeen $true
-            - -DisableBlockAtFirstSeen 1
-            - -DisableCatchupFullScan $true
-            - -DisableCatchupFullScan 1
-            - -DisableCatchupQuickScan $true
-            - -DisableCatchupQuickScan 1
-            - -DisableIntrusionPreventionSystem $true
-            - -DisableIntrusionPreventionSystem 1
-            - -DisableIOAVProtection $true
-            - -DisableIOAVProtection 1
-            - -DisableRealtimeMonitoring $true
-            - -DisableRealtimeMonitoring 1
-            - -DisableRemovableDriveScanning $true
-            - -DisableRemovableDriveScanning 1
-            - -DisableScanningMappedNetworkDrivesForFullScan $true
-            - -DisableScanningMappedNetworkDrivesForFullScan 1
-            - -DisableScanningNetworkFiles $true
-            - -DisableScanningNetworkFiles 1
-            - -DisableScriptScanning $true
-            - -DisableScriptScanning 1
-            - -MAPSReporting $false
-            - -MAPSReporting 0
-            - -drdsc $true
-            - -drdsc 1
-            - -drtm $true
-            - -drtm 1
-            - -dscrptsc $true
-            - -dscrptsc 1
-            - -dsmndf $true
-            - -dsmndf 1
-            - -dsnf $true
-            - -dsnf 1
-            - -dss $true
-            - -dss 1
+            - '-dbaf $true'
+            - '-dbaf 1'
+            - '-dbm $true'
+            - '-dbm 1'
+            - '-dips $true'
+            - '-dips 1'
+            - '-DisableArchiveScanning $true'
+            - '-DisableArchiveScanning 1'
+            - '-DisableBehaviorMonitoring $true'
+            - '-DisableBehaviorMonitoring 1'
+            - '-DisableBlockAtFirstSeen $true'
+            - '-DisableBlockAtFirstSeen 1'
+            - '-DisableCatchupFullScan $true'
+            - '-DisableCatchupFullScan 1'
+            - '-DisableCatchupQuickScan $true'
+            - '-DisableCatchupQuickScan 1'
+            - '-DisableIntrusionPreventionSystem $true'
+            - '-DisableIntrusionPreventionSystem 1'
+            - '-DisableIOAVProtection $true'
+            - '-DisableIOAVProtection 1'
+            - '-DisableRealtimeMonitoring $true'
+            - '-DisableRealtimeMonitoring 1'
+            - '-DisableRemovableDriveScanning $true'
+            - '-DisableRemovableDriveScanning 1'
+            - '-DisableScanningMappedNetworkDrivesForFullScan $true'
+            - '-DisableScanningMappedNetworkDrivesForFullScan 1'
+            - '-DisableScanningNetworkFiles $true'
+            - '-DisableScanningNetworkFiles 1'
+            - '-DisableScriptScanning $true'
+            - '-DisableScriptScanning 1'
+            - '-MAPSReporting $false'
+            - '-MAPSReporting 0'
+            - '-drdsc $true'
+            - '-drdsc 1'
+            - '-drtm $true'
+            - '-drtm 1'
+            - '-dscrptsc $true'
+            - '-dscrptsc 1'
+            - '-dsmndf $true'
+            - '-dsmndf 1'
+            - '-dsnf $true'
+            - '-dsnf 1'
+            - '-dss $true'
+            - '-dss 1'
     selection_other_default_actions_allow:
-        ScriptBlockText|contains: Set-MpPreference
+        ScriptBlockText|contains: 'Set-MpPreference'
     selection_other_default_actions_func:
         ScriptBlockText|contains:
-            - HighThreatDefaultAction Allow
-            - htdefac Allow
-            - LowThreatDefaultAction Allow
-            - ltdefac Allow
-            - ModerateThreatDefaultAction Allow
-            - mtdefac Allow
-            - SevereThreatDefaultAction Allow
-            - stdefac Allow
-    condition: ps_script and (all of selection_options_disabling_* or all of selection_other_default_actions_*)
+            - 'HighThreatDefaultAction Allow'
+            - 'htdefac Allow'
+            - 'LowThreatDefaultAction Allow'
+            - 'ltdefac Allow'
+            - 'ModerateThreatDefaultAction Allow'
+            - 'mtdefac Allow'
+            - 'SevereThreatDefaultAction Allow'
+            - 'stdefac Allow'
+    condition: all of selection_options_disabling_* or all of selection_other_default_actions_*
 falsepositives:
     - Legitimate PowerShell scripts that disable Windows Defender for troubleshooting purposes. Must be investigated.
 level: high
-ruletype: Sigma

@@ -11,34 +11,29 @@ modified: 2022/08/26
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_dismhost:
-        Image|endswith: \DismHost.exe
+        Image|endswith: '\DismHost.exe'
         ParentCommandLine|contains|all:
-            - /Online
-            - /Disable-Feature
+            - '/Online'
+            - '/Disable-Feature'
             # - '/FeatureName:'
             # - '/Remove'
             # /NoRestart
             # /quiet
     selection_dism:
-        Image|endswith: \Dism.exe
+        Image|endswith: '\Dism.exe'
         CommandLine|contains|all:
-            - /Online
-            - /Disable-Feature
+            - '/Online'
+            - '/Disable-Feature'
             # - '/FeatureName:'
             # - '/Remove'
             # /NoRestart
             # /quiet
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Legitimate script
 level: medium
-ruletype: Sigma

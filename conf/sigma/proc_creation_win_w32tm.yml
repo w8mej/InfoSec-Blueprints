@@ -10,26 +10,21 @@ date: 2022/09/25
 tags:
     - attack.discovery
     - attack.t1124
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_w32tm:
-        - Image|endswith: \w32tm.exe
-        - OriginalFileName: w32time.dll
+        - Image|endswith: '\w32tm.exe'
+        - OriginalFileName: 'w32time.dll'
     selection_cmd:
         CommandLine|contains|all:
-            - /stripchart
+            - '/stripchart'
             - '/computer:'
             - '/period:'
-            - /dataonly
+            - '/dataonly'
             - '/samples:'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate use
 level: high
-ruletype: Sigma

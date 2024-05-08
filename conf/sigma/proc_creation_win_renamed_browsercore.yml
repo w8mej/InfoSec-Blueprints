@@ -10,20 +10,15 @@ modified: 2023/02/03
 tags:
     - attack.t1528
     - attack.t1036.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         OriginalFileName: BrowserCore.exe
     filter_realbrowsercore:
-        Image|endswith: \BrowserCore.exe
-    condition: process_creation and (selection and not 1 of filter_*)
+        Image|endswith: '\BrowserCore.exe'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

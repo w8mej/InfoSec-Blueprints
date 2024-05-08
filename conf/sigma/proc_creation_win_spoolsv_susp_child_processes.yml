@@ -16,72 +16,68 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     spoolsv:
-        ParentProcessName|endswith: \spoolsv.exe
-        MandatoryLabel: S-1-16-16384
+        ParentImage|endswith: '\spoolsv.exe'
+        IntegrityLevel: System
     suspicious_unrestricted:
-        NewProcessName|endswith:
-            - \gpupdate.exe
-            - \whoami.exe
-            - \nltest.exe
-            - \taskkill.exe
-            - \wmic.exe
-            - \taskmgr.exe
-            - \sc.exe
-            - \findstr.exe
-            - \curl.exe
-            - \wget.exe
-            - \certutil.exe
-            - \bitsadmin.exe
-            - \accesschk.exe
-            - \wevtutil.exe
-            - \bcdedit.exe
-            - \fsutil.exe
-            - \cipher.exe
-            - \schtasks.exe
-            - \write.exe
-            - \wuauclt.exe
-            - \systeminfo.exe
-            - \reg.exe
-            - \query.exe
+        Image|endswith:
+            - '\gpupdate.exe'
+            - '\whoami.exe'
+            - '\nltest.exe'
+            - '\taskkill.exe'
+            - '\wmic.exe'
+            - '\taskmgr.exe'
+            - '\sc.exe'
+            - '\findstr.exe'
+            - '\curl.exe'
+            - '\wget.exe'
+            - '\certutil.exe'
+            - '\bitsadmin.exe'
+            - '\accesschk.exe'
+            - '\wevtutil.exe'
+            - '\bcdedit.exe'
+            - '\fsutil.exe'
+            - '\cipher.exe'
+            - '\schtasks.exe'
+            - '\write.exe'
+            - '\wuauclt.exe'
+            - '\systeminfo.exe'
+            - '\reg.exe'
+            - '\query.exe'
     suspicious_net:
-        NewProcessName|endswith:
-            - \net.exe
-            - \net1.exe
+        Image|endswith:
+            - '\net.exe'
+            - '\net1.exe'
     suspicious_net_filter:
-        CommandLine|contains: start
+        CommandLine|contains: 'start'
     suspicious_cmd:
-        NewProcessName|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
     suspicious_cmd_filter:
         CommandLine|contains:
-            - .spl
-            - route add
-            - program files
+            - '.spl'
+            - 'route add'
+            - 'program files'
     suspicious_netsh:
-        NewProcessName|endswith: \netsh.exe
+        Image|endswith: '\netsh.exe'
     suspicious_netsh_filter:
         CommandLine|contains:
-            - add portopening
-            - rule name
+            - 'add portopening'
+            - 'rule name'
     suspicious_powershell:
-        NewProcessName|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
     suspicious_powershell_filter:
-        CommandLine|contains: .spl
+        CommandLine|contains: '.spl'
     suspicious_rundll32_img:
-        - NewProcessName|endswith: \rundll32.exe
-        - OriginalFileName: RUNDLL32.EXE
+        - Image|endswith: '\rundll32.exe'
+        - OriginalFileName: 'RUNDLL32.EXE'
     suspicious_rundll32_cli:
-        CommandLine|endswith: rundll32.exe
-    condition: process_creation and (spoolsv and ( suspicious_unrestricted or (suspicious_net and not suspicious_net_filter) or (suspicious_cmd and not suspicious_cmd_filter) or (suspicious_netsh and not suspicious_netsh_filter) or (suspicious_powershell and not suspicious_powershell_filter) or all of suspicious_rundll32_* ))
+        CommandLine|endswith: 'rundll32.exe'
+    condition: spoolsv and ( suspicious_unrestricted or (suspicious_net and not suspicious_net_filter) or (suspicious_cmd and not suspicious_cmd_filter) or (suspicious_netsh and not suspicious_netsh_filter) or (suspicious_powershell and not suspicious_powershell_filter) or all of suspicious_rundll32_* )
 fields:
-    - NewProcessName
+    - Image
     - CommandLine
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

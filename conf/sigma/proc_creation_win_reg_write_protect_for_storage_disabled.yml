@@ -12,22 +12,17 @@ modified: 2024/01/18
 tags:
     - attack.defense_evasion
     - attack.t1562
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - \System\CurrentControlSet\Control
-            - Write Protection
+            - '\System\CurrentControlSet\Control'
+            - 'Write Protection'
             - '0'
-            - storage
-    condition: process_creation and selection
+            - 'storage'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

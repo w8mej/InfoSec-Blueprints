@@ -10,24 +10,19 @@ modified: 2023/02/04
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: 'reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_delete:
         CommandLine|contains: ' delete '
     selection_key:
         # Add specific services if you would like the rule to be more specific
-        CommandLine|contains: \SYSTEM\CurrentControlSet\services\
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: '\SYSTEM\CurrentControlSet\services\'
+    condition: all of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

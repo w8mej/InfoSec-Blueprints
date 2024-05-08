@@ -10,23 +10,18 @@ modified: 2022/04/21
 tags:
     - attack.defense_evasion
     - attack.t1548.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \explorer.exe
-        CommandLine|contains: /NOUACCHECK
+        Image|endswith: '\explorer.exe'
+        CommandLine|contains: '/NOUACCHECK'
     filter_dc_logon:
-        - ParentCommandLine: C:\Windows\system32\svchost.exe -k netsvcs -p -s Schedule
-        - ParentImage: C:\Windows\System32\svchost.exe   # coarse filter needed for ID 4688 Events
-    condition: process_creation and (selection and not 1 of filter_*)
+        - ParentCommandLine: 'C:\Windows\system32\svchost.exe -k netsvcs -p -s Schedule'
+        - ParentImage: 'C:\Windows\System32\svchost.exe' # coarse filter needed for ID 4688 Events
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Domain Controller User Logon
     - Unknown how many legitimate software products use that method
 level: high
-ruletype: Sigma

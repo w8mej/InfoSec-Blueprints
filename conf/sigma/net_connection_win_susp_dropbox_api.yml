@@ -10,23 +10,18 @@ date: 2022/04/20
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         DestinationHostname|endswith:
-            - api.dropboxapi.com
-            - content.dropboxapi.com
+            - 'api.dropboxapi.com'
+            - 'content.dropboxapi.com'
     filter:
-        Image|contains: \Dropbox
-    condition: network_connection and (selection and not filter)
+        Image|contains: '\Dropbox'
+    condition: selection and not filter
 falsepositives:
     - Legitimate use of the API with a tool that the author wasn't aware of
 level: high
-ruletype: Sigma

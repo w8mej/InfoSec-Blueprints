@@ -8,23 +8,18 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2022/07/12
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - TVqQAAMAAAAEAAAA   # MZ..........
-            - TVpQAAIAAAAEAA8A
-            - TVqAAAEAAAAEABAA
-            - TVoAAAAAAAAAAAAA
-            - TVpTAQEAAAAEAAAA
-    condition: process_creation and selection
+            - 'TVqQAAMAAAAEAAAA' # MZ..........
+            - 'TVpQAAIAAAAEAA8A'
+            - 'TVqAAAEAAAAEABAA'
+            - 'TVoAAAAAAAAAAAAA'
+            - 'TVpTAQEAAAAEAAAA'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

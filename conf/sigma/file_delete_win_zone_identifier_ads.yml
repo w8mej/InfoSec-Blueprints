@@ -13,20 +13,13 @@ tags:
     - attack.defense_evasion
     - attack.t1070.004
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: file_delete
 detection:
-    file_delete:
-        EventID:
-            - 23
-            - 26
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: :Zone.Identifier
-    condition: file_delete and selection
+        TargetFilename|endswith: ':Zone.Identifier'
+    condition: selection
 falsepositives:
     - Likely
 level: low
-ruletype: Sigma

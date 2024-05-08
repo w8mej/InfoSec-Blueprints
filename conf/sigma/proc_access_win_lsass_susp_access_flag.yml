@@ -18,16 +18,12 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_target:
-        TargetImage|endswith: \lsass.exe
+        TargetImage|endswith: '\lsass.exe'
     selection_access:
         - GrantedAccess|endswith:
               # - '10'  # covered in rule 678dfc63-fefb-47a5-a04c-26bcf8cc9f65
@@ -35,25 +31,25 @@ detection:
               - '50'
               - '70'
               - '90'
-              - B0
-              - D0
-              - F0
+              - 'B0'
+              - 'D0'
+              - 'F0'
               - '18'
               - '38'
               - '58'
               - '78'
               - '98'
-              - B8
-              - D8
-              - F8
-              - 1A
-              - 3A
-              - 5A
-              - 7A
-              - 9A
-              - BA
-              - DA
-              - FA
+              - 'B8'
+              - 'D8'
+              - 'F8'
+              - '1A'
+              - '3A'
+              - '5A'
+              - '7A'
+              - '9A'
+              - 'BA'
+              - 'DA'
+              - 'FA'
               - '0x14C2'  # https://github.com/b4rtik/ATPMiniDump/blob/76304f93b390af3bb66e4f451ca16562a479bdc9/ATPMiniDump/ATPMiniDump.c
         - GrantedAccess|startswith:
               - '0x100000'
@@ -72,17 +68,17 @@ detection:
     filter_main_generic:
         # When using this rule. Remove this filter and replace it by the path of the specific AV you use
         SourceImage|contains:
-            - :\Program Files (x86)\
-            - :\Program Files\
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
+            - ':\Program Files (x86)\'
+            - ':\Program Files\'
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
     filter_optional_malwarebytes:
-        SourceImage|endswith: :\ProgramData\MALWAREBYTES\MBAMSERVICE\ctlrupdate\mbupdatr.exe
+        SourceImage|endswith: ':\ProgramData\MALWAREBYTES\MBAMSERVICE\ctlrupdate\mbupdatr.exe'
     filter_optional_vscode:
-        SourceImage|endswith: \AppData\Local\Programs\Microsoft VS Code\Code.exe
+        SourceImage|endswith: '\AppData\Local\Programs\Microsoft VS Code\Code.exe'
     filter_main_windefend_1:
-        SourceImage|contains: :\ProgramData\Microsoft\Windows Defender\
-        SourceImage|endswith: \MsMpEng.exe
+        SourceImage|contains: ':\ProgramData\Microsoft\Windows Defender\'
+        SourceImage|endswith: '\MsMpEng.exe'
     filter_main_windefend_2:
         CallTrace|contains|all:
             - '|?:\ProgramData\Microsoft\Windows Defender\Definition Updates\{'
@@ -93,38 +89,37 @@ detection:
             - '|c:\program files\windows defender\mprtp.dll'
             - '|c:\program files\windows defender\MpClient.dll'
     filter_optional_vmwaretools:
-        SourceImage|contains: :\ProgramData\VMware\VMware Tools\
-        SourceImage|endswith: \vmtoolsd.exe
+        SourceImage|contains: ':\ProgramData\VMware\VMware Tools\'
+        SourceImage|endswith: '\vmtoolsd.exe'
     filter_optional_sysinternals_process_explorer:
         SourceImage|endswith:
-            - \PROCEXP64.EXE
-            - \PROCEXP.EXE
+            - '\PROCEXP64.EXE'
+            - '\PROCEXP.EXE'
         GrantedAccess: '0x40'
     filter_optional_mbami:
-        SourceImage|endswith: \MBAMInstallerService.exe
+        SourceImage|endswith: '\MBAMInstallerService.exe'
         GrantedAccess: '0x40'
     filter_optional_nextron:
         SourceImage|endswith:
-            - \aurora-agent-64.exe
-            - \aurora-agent.exe
-            - \thor.exe
-            - \thor64.exe
+            - '\aurora-agent-64.exe'
+            - '\aurora-agent.exe'
+            - '\thor.exe'
+            - '\thor64.exe'
         GrantedAccess: '0x40'
     filter_main_explorer:
-        SourceImage|endswith: \explorer.exe
+        SourceImage|endswith: '\explorer.exe'
         GrantedAccess: '0x401'
     filter_optional_sysinternals_handle:
         SourceImage|endswith:
-            - \handle.exe
-            - \handle64.exe
+            - '\handle.exe'
+            - '\handle64.exe'
         GrantedAccess: '0x40'
     filter_optional_webex:
-        SourceImage|endswith: \AppData\Local\WebEx\WebexHost.exe
+        SourceImage|endswith: '\AppData\Local\WebEx\WebexHost.exe'
         GrantedAccess: '0x401'
     filter_optional_steam_apps:
-        SourceImage|contains: \SteamLibrary\steamapps\
-    condition: process_access and (all of selection_* and not 1 of filter_main_* and not 1 of filter_optional_*)
+        SourceImage|contains: '\SteamLibrary\steamapps\'
+    condition: all of selection_* and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate software such as AV and EDR
 level: medium
-ruletype: Sigma

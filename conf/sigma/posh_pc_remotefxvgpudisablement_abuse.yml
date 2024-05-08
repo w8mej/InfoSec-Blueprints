@@ -23,12 +23,9 @@ logsource:
     service: powershell-classic
     definition: fields have to be extract from event
 detection:
-    powershell_classic:
-        Channel: Windows PowerShell
     selection:
-        Data|contains: ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {
-    condition: powershell_classic and selection
+        Data|contains: 'ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

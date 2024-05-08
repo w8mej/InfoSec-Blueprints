@@ -11,24 +11,19 @@ tags:
     - attack.defense_evasion
     - attack.execution
     - attack.t1218.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \mshta.exe
-        - OriginalFileName: MSHTA.EXE
+        - Image|endswith: '\mshta.exe'
+        - OriginalFileName: 'MSHTA.EXE'
     selection_cli:
         CommandLine|contains:
-            - http://
-            - https://
-            - ftp://
-    condition: process_creation and (all of selection_*)
+            - 'http://'
+            - 'https://'
+            - 'ftp://'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

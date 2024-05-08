@@ -14,21 +14,16 @@ modified: 2023/03/03
 tags:
     - attack.defense_evasion
     - attack.t1140
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
             # - <TAB>   # no TAB modifier in sigmac yet, so this matches <TAB> (or TAB in elasticsearch backends without DSL queries)
-            - h^t^t^p
-            - h"t"t"p
-    condition: process_creation and selection
+            - 'h^t^t^p'
+            - 'h"t"t"p'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -13,26 +13,21 @@ modified: 2023/01/27
 tags:
     - attack.command_and_control
     - attack.t1572
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_a:
-        Image|endswith: \plink.exe
-        CommandLine|contains: :127.0.0.1:3389
+        Image|endswith: '\plink.exe'
+        CommandLine|contains: ':127.0.0.1:3389'
     selection_b1:
-        Image|endswith: \plink.exe
-        CommandLine|contains: :3389
+        Image|endswith: '\plink.exe'
+        CommandLine|contains: ':3389'
     selection_b2:
         CommandLine|contains:
             - ' -P 443'
             - ' -P 22'
-    condition: process_creation and (selection_a or all of selection_b*)
+    condition: selection_a or all of selection_b*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

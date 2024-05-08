@@ -11,19 +11,14 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1216
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # Note: As this function is usually called from within powershell, classical process creation even would not catch it. This will only catch inline calls via "-Command" or "-ScriptBlock" flags for example.
         CommandLine|contains: 'SyncInvoke '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

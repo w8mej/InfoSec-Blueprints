@@ -15,26 +15,22 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     wow_nt_current_version_base:
-        TargetObject|contains: \SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion
+        TargetObject|contains: '\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion'
     wow_nt_current_version:
         TargetObject|contains:
-            - \Windows\Appinit_Dlls
-            - \Image File Execution Options
-            - \Drivers32
+            - '\Windows\Appinit_Dlls'
+            - '\Image File Execution Options'
+            - '\Drivers32'
     filter:
         Details:
-            - (Empty)
-            - \REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options
-    condition: registry_set and (wow_nt_current_version_base and wow_nt_current_version and not filter)
+            - '(Empty)'
+            - '\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options'
+    condition: wow_nt_current_version_base and wow_nt_current_version and not filter
 fields:
     - SecurityID
     - ObjectName
@@ -44,4 +40,3 @@ falsepositives:
     - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason
     - Legitimate administrator sets up autorun keys for legitimate reason
 level: medium
-ruletype: Sigma

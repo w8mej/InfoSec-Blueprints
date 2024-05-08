@@ -11,22 +11,17 @@ tags:
     - attack.persistence
     - attack.execution
     - attack.t1053
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \Windows\System32\Tasks
+        TargetFilename|contains: '\Windows\System32\Tasks'
         Image|contains:
-            - \AppData\
-            - C:\PerfLogs
-            - \Windows\System32\config\systemprofile
-    condition: file_event and selection
+            - '\AppData\'
+            - 'C:\PerfLogs'
+            - '\Windows\System32\config\systemprofile'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -12,39 +12,31 @@ modified: 2023/09/09
 tags:
     - attack.execution
     - attack.t1059.005
-    - sysmon
 logsource:
     product: windows
     category: wmi_event
 detection:
-    wmi_event:
-        EventID:
-            - 19
-            - 20
-            - 21
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_destination:
         - Destination|contains|all:
-              - new-object
-              - net.webclient
-              - .downloadstring
+              - 'new-object'
+              - 'net.webclient'
+              - '.downloadstring'
         - Destination|contains|all:
-              - new-object
-              - net.webclient
-              - .downloadfile
+              - 'new-object'
+              - 'net.webclient'
+              - '.downloadfile'
         - Destination|contains:
               - ' iex('
               - ' -nop '
               - ' -noprofile '
               - ' -decode '
               - ' -enc '
-              - WScript.Shell
-              - System.Security.Cryptography.FromBase64Transform
-    condition: wmi_event and selection_destination
+              - 'WScript.Shell'
+              - 'System.Security.Cryptography.FromBase64Transform'
+    condition: selection_destination
 fields:
     - User
     - Operation
 falsepositives:
     - Legitimate administrative scripts
 level: high
-ruletype: Sigma

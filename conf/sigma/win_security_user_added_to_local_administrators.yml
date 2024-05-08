@@ -17,17 +17,14 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection_eid:
         EventID: 4732
     selection_group:
-        - TargetUserName|startswith: Administr
-        - TargetSid: S-1-5-32-544
+        - TargetUserName|startswith: 'Administr'
+        - TargetSid: 'S-1-5-32-544'
     filter_main_computer_accounts:
-        SubjectUserName|endswith: $
-    condition: security and (all of selection_* and not 1 of filter_*)
+        SubjectUserName|endswith: '$'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Legitimate administrative activity
 level: medium
-ruletype: Sigma

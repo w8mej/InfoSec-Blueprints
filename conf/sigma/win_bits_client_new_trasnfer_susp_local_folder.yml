@@ -15,17 +15,14 @@ logsource:
     product: windows
     service: bits-client
 detection:
-    bits_client:
-        Channel: Microsoft-Windows-Bits-Client/Operational
     selection:
         EventID: 16403
         LocalName|contains:
             # TODO: Add more interesting suspicious paths
-            - \Desktop\
-            - C:\Users\Public\
-            - C:\PerfLogs\
-    condition: bits_client and selection
+            - '\Desktop\'
+            - 'C:\Users\Public\'
+            - 'C:\PerfLogs\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

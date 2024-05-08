@@ -11,19 +11,14 @@ modified: 2021/11/27
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \sysprep.exe
-        CommandLine|contains: \AppData\
-    condition: process_creation and selection
+        Image|endswith: '\sysprep.exe'
+        CommandLine|contains: '\AppData\'
+    condition: selection
 falsepositives:
     - False positives depend on scripts and administrative tools used in the monitored environment
 level: medium
-ruletype: Sigma

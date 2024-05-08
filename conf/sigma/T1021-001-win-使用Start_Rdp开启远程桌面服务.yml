@@ -1,0 +1,15 @@
+title: 检测Start_Rdp开启windows远程桌面连接
+tags: T1021_001
+status: experimental
+references:
+    - https://github.com/Ryze-T/Windows_API_Tools
+logsource:
+    product: windows
+    service: Sysmon
+detection:
+    selection:
+          EventID: 13
+          TargetObject: HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
+          Details: DWORD (0x00000000)
+    condition: selection
+level: medium

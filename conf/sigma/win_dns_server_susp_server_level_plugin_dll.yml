@@ -21,15 +21,12 @@ logsource:
     product: windows
     service: dns-server
 detection:
-    dns_server:
-        Channel: DNS Server
     selection:
         EventID:
             - 150
             - 770
             - 771
-    condition: dns_server and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

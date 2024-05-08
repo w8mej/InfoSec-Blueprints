@@ -21,39 +21,34 @@ tags:
     - attack.impact
     - attack.t1112
     - attack.t1491.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
     # TODO: Improve this to also focus on variation using PowerShell and other CLI tools
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_reg_img:
-        - Image|endswith: \reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: '\reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_reg_flag:
-        CommandLine|contains: add
+        CommandLine|contains: 'add'
     selection_keys:
         CommandLine|contains:
-            - Control Panel\Desktop
-            - CurrentVersion\Policies\ActiveDesktop
-            - CurrentVersion\Policies\System
+            - 'Control Panel\Desktop'
+            - 'CurrentVersion\Policies\ActiveDesktop'
+            - 'CurrentVersion\Policies\System'
     selection_cli_reg_1:
         CommandLine|contains|all:
-            - /v NoChangingWallpaper
-            - /d 1   # Prevent changing desktop background
+            - '/v NoChangingWallpaper'
+            - '/d 1' # Prevent changing desktop background
     selection_cli_reg_2:
         CommandLine|contains|all:
-            - /v Wallpaper
-            - /t REG_SZ
+            - '/v Wallpaper'
+            - '/t REG_SZ'
     selection_cli_reg_3:
         CommandLine|contains|all:
-            - /v WallpaperStyle
-            - /d 2   # Stretch
-    condition: process_creation and (all of selection_reg_* and selection_keys and 1 of selection_cli_reg_*)
+            - '/v WallpaperStyle'
+            - '/d 2' # Stretch
+    condition: all of selection_reg_* and selection_keys and 1 of selection_cli_reg_*
 falsepositives:
     - Administrative scripts that change the desktop background to a company logo or other image.
 level: medium
-ruletype: Sigma

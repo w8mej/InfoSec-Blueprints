@@ -12,28 +12,20 @@ tags:
     - attack.execution
     - attack.persistence
     - attack.t1547.008
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \CurrentControlSet\Services\NTDS\DirectoryServiceExtPt
-            - \CurrentControlSet\Services\NTDS\LsaDbExtPt
+            - '\CurrentControlSet\Services\NTDS\DirectoryServiceExtPt'
+            - '\CurrentControlSet\Services\NTDS\LsaDbExtPt'
     filter_domain_controller:
-        Image: C:\Windows\system32\lsass.exe
+        Image: 'C:\Windows\system32\lsass.exe'
         Details:
             - '%%systemroot%%\system32\ntdsa.dll'
             - '%%systemroot%%\system32\lsadb.dll'
-    condition: registry_event and (selection and not 1 of filter_*)
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

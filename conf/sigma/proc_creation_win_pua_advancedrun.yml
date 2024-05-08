@@ -20,16 +20,12 @@ tags:
     - attack.t1564.003
     - attack.t1134.002
     - attack.t1059.003
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - OriginalFileName: AdvancedRun.exe
+        - OriginalFileName: 'AdvancedRun.exe'
         - CommandLine|contains|all:
               - ' /EXEFilename '
               - ' /Run'
@@ -37,8 +33,7 @@ detection:
               - ' /WindowState 0'
               - ' /RunAs '
               - ' /CommandLine '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

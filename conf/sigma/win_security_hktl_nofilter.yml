@@ -19,16 +19,13 @@ logsource:
     service: security
     definition: 'Requirements: Audit Filtering Platform Policy Change needs to be enabled'
 detection:
-    security:
-        Channel: Security
     selection_5447:
         EventID: 5447
-        FilterName|contains: RonPolicy
+        FilterName|contains: 'RonPolicy'
     selection_5449:
         EventID: 5449
-        ProviderContextName|contains: RonPolicy
-    condition: security and (1 of selection_*)
+        ProviderContextName|contains: 'RonPolicy'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

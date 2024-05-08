@@ -14,30 +14,25 @@ date: 2023/01/19
 modified: 2023/09/29
 tags:
     - attack.discovery
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: driverquery.exe
-        - OriginalFileName: drvqry.exe
+        - Image|endswith: 'driverquery.exe'
+        - OriginalFileName: 'drvqry.exe'
     selection_parent:
         - ParentImage|endswith:
-              - \cscript.exe
-              - \mshta.exe
-              - \regsvr32.exe
-              - \rundll32.exe
-              - \wscript.exe
+              - '\cscript.exe'
+              - '\mshta.exe'
+              - '\regsvr32.exe'
+              - '\rundll32.exe'
+              - '\wscript.exe'
         - ParentImage|contains:
-              - \AppData\Local\
-              - \Users\Public\
-              - \Windows\Temp\
-    condition: process_creation and (all of selection_*)
+              - '\AppData\Local\'
+              - '\Users\Public\'
+              - '\Windows\Temp\'
+    condition: all of selection_*
 falsepositives:
     - Legitimate usage by some scripts might trigger this as well
 level: high
-ruletype: Sigma

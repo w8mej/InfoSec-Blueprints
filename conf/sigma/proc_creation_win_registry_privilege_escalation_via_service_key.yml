@@ -11,25 +11,20 @@ modified: 2023/01/30
 tags:
     - attack.privilege_escalation
     - attack.t1574.011
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        IntegrityLevel: Medium
+        IntegrityLevel: 'Medium'
         CommandLine|contains|all:
-            - ControlSet
-            - services
+            - 'ControlSet'
+            - 'services'
         CommandLine|contains:
-            - \ImagePath
-            - \FailureCommand
-            - \ServiceDll
-    condition: process_creation and selection
+            - '\ImagePath'
+            - '\FailureCommand'
+            - '\ServiceDll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

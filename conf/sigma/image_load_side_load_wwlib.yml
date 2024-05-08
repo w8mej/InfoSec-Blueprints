@@ -1,6 +1,6 @@
 title: Potential WWlib.DLL Sideloading
 id: e2e01011-5910-4267-9c3b-4149ed5479cf
-status: experimental
+status: test
 description: Detects potential DLL sideloading of "wwlib.dll"
 references:
     - https://twitter.com/WhichbufferArda/status/1658829954182774784
@@ -13,26 +13,21 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \wwlib.dll
+        ImageLoaded|endswith: '\wwlib.dll'
     filter_main_path:
         Image|startswith:
-            - C:\Program Files (x86)\Microsoft Office\
-            - C:\Program Files\Microsoft Office\
-        Image|endswith: \winword.exe
+            - 'C:\Program Files (x86)\Microsoft Office\'
+            - 'C:\Program Files\Microsoft Office\'
+        Image|endswith: '\winword.exe'
         ImageLoaded|startswith:
-            - C:\Program Files (x86)\Microsoft Office\
-            - C:\Program Files\Microsoft Office\
-    condition: image_load and (selection and not 1 of filter_main_*)
+            - 'C:\Program Files (x86)\Microsoft Office\'
+            - 'C:\Program Files\Microsoft Office\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

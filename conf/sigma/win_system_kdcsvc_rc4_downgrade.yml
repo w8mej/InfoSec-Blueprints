@@ -12,14 +12,11 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID: 42
-        Provider_Name: Kerberos-Key-Distribution-Center
+        Provider_Name: 'Kerberos-Key-Distribution-Center'
         Level: 2  # Error
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

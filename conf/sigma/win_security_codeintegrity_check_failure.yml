@@ -16,14 +16,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 5038
             - 6281
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Disk device errors
 level: informational
-ruletype: Sigma

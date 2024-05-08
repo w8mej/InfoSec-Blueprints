@@ -9,30 +9,15 @@ author: Florian Roth (Nextron Systems)
 date: 2017/06/01
 modified: 2022/10/09
 tags:
-    - attack.lateral_movement
+    - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SYSTEM\CurrentControlSet\services\null\Instance
-    condition: registry_event and selection
-fields:
-    - EventID
-    - CommandLine
-    - ParentCommandLine
-    - Image
-    - User
-    - TargetObject
+        TargetObject|contains: '\SYSTEM\CurrentControlSet\services\null\Instance'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

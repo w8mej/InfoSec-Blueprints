@@ -9,29 +9,24 @@ date: 2022/06/10
 modified: 2023/01/05
 tags:
     - attack.persistence
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \Notepad++\plugins\
-        TargetFilename|endswith: .dll
+        TargetFilename|contains: '\Notepad++\plugins\'
+        TargetFilename|endswith: '.dll'
     filter_gup:
-        Image|endswith: \Notepad++\updater\gup.exe
+        Image|endswith: '\Notepad++\updater\gup.exe'
     filter_install:
         # This filter is for Sigma dataset you could remove it or change when using the rule in your own env
-        Image|startswith: C:\Users\
-        Image|contains: \AppData\Local\Temp\
+        Image|startswith: 'C:\Users\'
+        Image|contains: '\AppData\Local\Temp\'
         Image|endswith:
-            - \target.exe
-            - Installer.x64.exe
-    condition: file_event and (selection and not 1 of filter_*)
+            - '\target.exe'
+            - 'Installer.x64.exe'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Possible FPs during first installation of Notepad++
     - Legitimate use of custom plugins by users in order to enhance notepad++ functionalities
 level: medium
-ruletype: Sigma

@@ -14,20 +14,15 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        OriginalFileName: Microsoft.NodejsTools.PressAnyKey.exe
+        OriginalFileName: 'Microsoft.NodejsTools.PressAnyKey.exe'
     filter_main_legit_name:
-        Image|endswith: \Microsoft.NodejsTools.PressAnyKey.exe
-    condition: process_creation and (selection and not 1 of filter_main_*)
+        Image|endswith: '\Microsoft.NodejsTools.PressAnyKey.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

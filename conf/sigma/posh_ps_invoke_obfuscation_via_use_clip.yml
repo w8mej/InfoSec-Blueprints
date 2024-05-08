@@ -6,7 +6,7 @@ references:
     - https://github.com/SigmaHQ/sigma/issues/1009  # (Task29)
 author: Nikita Nazarov, oscd.community
 date: 2020/10/09
-modified: 2022/11/29
+modified: 2024/04/15
 tags:
     - attack.defense_evasion
     - attack.t1027
@@ -17,15 +17,9 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_4104:
-        ScriptBlockText|re: (?i).*?echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?).*
-    condition: ps_script and selection_4104
+        ScriptBlockText|re: '(?i)echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?)'
+    condition: selection_4104
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

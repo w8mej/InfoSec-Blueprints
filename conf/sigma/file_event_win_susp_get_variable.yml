@@ -15,18 +15,13 @@ tags:
     - attack.t1546
     - attack.defense_evasion
     - attack.t1027
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: Local\Microsoft\WindowsApps\Get-Variable.exe
-    condition: file_event and selection
+        TargetFilename|endswith: 'Local\Microsoft\WindowsApps\Get-Variable.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

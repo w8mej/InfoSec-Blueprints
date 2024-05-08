@@ -16,19 +16,14 @@ tags:
     - attack.t1137
     - attack.t1008
     - attack.t1546
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \outlook.exe
-        TargetFilename|endswith: \Microsoft\Outlook\VbaProject.OTM
-    condition: file_event and selection
+        Image|endswith: '\outlook.exe'
+        TargetFilename|endswith: '\Microsoft\Outlook\VbaProject.OTM'
+    condition: selection
 falsepositives:
     - User genuinely creates a VB Macro for their email
 level: medium
-ruletype: Sigma

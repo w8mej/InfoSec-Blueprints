@@ -11,22 +11,18 @@ modified: 2023/07/18
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \MpCmdRun.exe
+        - Image|endswith: '\MpCmdRun.exe'
         - OriginalFileName: MpCmdRun.exe
     selection_cli:
         CommandLine|contains|all:
             - ' -RemoveDefinitions'
             - ' -All'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 fields:
     - ComputerName
     - User
@@ -35,4 +31,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

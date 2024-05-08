@@ -17,8 +17,6 @@ logsource:
     service: security
     definition: 'Requirements: Audit Policy : Account Management > Audit User Account Management, Group Policy : Computer Configuration\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\Account Management\Audit User Account Management, DS Access > Audit Directory Service Changes, Group Policy : Computer Configuration\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\DS Access\Audit Directory Service Changes'
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID: 4738
     filter_empty:
@@ -26,19 +24,18 @@ detection:
             - ''
             - '-'
     filter_null:
-        AllowedToDelegateTo:
+        AllowedToDelegateTo: null
     selection_5136_1:
         EventID: 5136
-        AttributeLDAPDisplayName: msDS-AllowedToDelegateTo
+        AttributeLDAPDisplayName: 'msDS-AllowedToDelegateTo'
     selection_5136_2:
         EventID: 5136
-        ObjectClass: user
-        AttributeLDAPDisplayName: servicePrincipalName
+        ObjectClass: 'user'
+        AttributeLDAPDisplayName: 'servicePrincipalName'
     selection_5136_3:
         EventID: 5136
-        AttributeLDAPDisplayName: msDS-AllowedToActOnBehalfOfOtherIdentity
-    condition: security and ((selection1 and not 1 of filter_*) or 1 of selection_5136_*)
+        AttributeLDAPDisplayName: 'msDS-AllowedToActOnBehalfOfOtherIdentity'
+    condition: (selection1 and not 1 of filter_*) or 1 of selection_5136_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

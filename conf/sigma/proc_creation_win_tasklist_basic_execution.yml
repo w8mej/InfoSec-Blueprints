@@ -11,20 +11,15 @@ tags:
     - attack.discovery
     - attack.t1057
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - CommandLine|contains: tasklist
-        - Image|endswith: \tasklist.exe
-        - OriginalFileName: tasklist.exe
-    condition: process_creation and selection
+        - CommandLine|contains: 'tasklist'
+        - Image|endswith: '\tasklist.exe'
+        - OriginalFileName: 'tasklist.exe'
+    condition: selection
 falsepositives:
     - Likely from users, administrator and different internal and third party applications.
 level: informational
-ruletype: Sigma

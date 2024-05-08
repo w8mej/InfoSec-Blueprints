@@ -12,17 +12,13 @@ tags:
     - attack.t1018
     - attack.t1033
     - attack.t1087
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_origin:
-        - Image|endswith: \w3wp.exe
-        - ParentImage|endswith: \w3wp.exe
+        - Image|endswith: '\w3wp.exe'
+        - ParentImage|endswith: '\w3wp.exe'
     selection_cmdline:
         CommandLine|contains:
             - '&ipconfig&echo'
@@ -33,8 +29,7 @@ detection:
             - '&dir&echo'
             - '&echo [E]'
             - '&echo [S]'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

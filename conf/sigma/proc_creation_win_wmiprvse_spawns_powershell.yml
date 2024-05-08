@@ -16,27 +16,22 @@ tags:
     - attack.execution
     - attack.t1047
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|endswith: \WmiPrvSE.exe
+        ParentImage|endswith: '\WmiPrvSE.exe'
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
-    condition: process_creation and (all of selection_*)
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
+    condition: all of selection_*
 falsepositives:
     - AppvClient
     - CCM
     - WinRM
 level: medium
-ruletype: Sigma

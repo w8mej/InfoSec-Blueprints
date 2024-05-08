@@ -11,19 +11,14 @@ modified: 2021/11/27
 tags:
     - attack.privilege_escalation
     - attack.t1053.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \at.exe
-        CommandLine|contains: interactive
-    condition: process_creation and selection
+        Image|endswith: '\at.exe'
+        CommandLine|contains: 'interactive'
+    condition: selection
 falsepositives:
     - Unlikely (at.exe deprecated as of Windows 8)
 level: high
-ruletype: Sigma

@@ -10,26 +10,21 @@ date: 2023/07/22
 tags:
     - attack.persistence
     - attack.t1547.015
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
             # Note: Add other potential common applications
-            - \cmd.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \wscript.exe
-        TargetFilename|endswith: \AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
-    condition: file_event and selection
+            - '\cmd.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\wscript.exe'
+        TargetFilename|endswith: '\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
+    condition: selection
 falsepositives:
     - Some false positives may occur with admin scripts that set WT settings.
 level: medium
-ruletype: Sigma

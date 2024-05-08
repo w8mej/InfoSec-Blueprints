@@ -13,46 +13,41 @@ tags:
     - attack.defense_evasion
     - attack.t1222.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         Image|endswith:
-            - \cacls.exe
-            - \icacls.exe
-            - \net.exe   # "grant" Option available when used with "net share"
-            - \net1.exe   # "grant" Option available when used with "net share"
+            - '\cacls.exe'
+            - '\icacls.exe'
+            - '\net.exe' # "grant" Option available when used with "net share"
+            - '\net1.exe' # "grant" Option available when used with "net share"
         CommandLine|contains:
-            - /grant
-            - /setowner
-            - /inheritance:r   # Remove all inherited ACEs
+            - '/grant'
+            - '/setowner'
+            - '/inheritance:r' # Remove all inherited ACEs
     selection_2:
-        Image|endswith: \attrib.exe
-        CommandLine|contains: -r
+        Image|endswith: '\attrib.exe'
+        CommandLine|contains: '-r'
     selection_3:
-        Image|endswith: \takeown.exe   # If this generates FP in your environment. Comment it out or add more suspicious flags and locations
+        Image|endswith: '\takeown.exe' # If this generates FP in your environment. Comment it out or add more suspicious flags and locations
     filter_optional_dynatrace_1:
-        CommandLine|endswith: ICACLS C:\ProgramData\dynatrace\gateway\config\connectivity.history /reset
+        CommandLine|endswith: 'ICACLS C:\ProgramData\dynatrace\gateway\config\connectivity.history /reset'
     filter_optional_dynatrace_2:
         CommandLine|contains|all:
             - 'ICACLS C:\ProgramData\dynatrace\gateway\config\config.properties /grant :r '
-            - S-1-5-19:F
+            - 'S-1-5-19:F'
     filter_optional_vscode:
         CommandLine|contains:
-            - \AppData\Local\Programs\Microsoft VS Code
-            - :\Program Files\Microsoft VS Code
+            - '\AppData\Local\Programs\Microsoft VS Code'
+            - ':\Program Files\Microsoft VS Code'
     filter_optional_avira:
         CommandLine|contains:
-            - :\Program Files (x86)\Avira
-            - :\Program Files\Avira
-    condition: process_creation and (1 of selection_* and not 1 of filter_optional_*)
+            - ':\Program Files (x86)\Avira'
+            - ':\Program Files\Avira'
+    condition: 1 of selection_* and not 1 of filter_optional_*
 falsepositives:
     - Users interacting with the files on their own (unlikely unless privileged users).
     - Dynatrace app
 level: medium
-ruletype: Sigma

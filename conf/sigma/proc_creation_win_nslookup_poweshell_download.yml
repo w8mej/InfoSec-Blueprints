@@ -14,26 +14,21 @@ date: 2022/09/05
 modified: 2022/12/19
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|contains: \nslookup.exe
-        - OriginalFileName: \nslookup.exe
+        - Image|contains: '\nslookup.exe'
+        - OriginalFileName: '\nslookup.exe'
     selection_cmd:
         ParentImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
             - ' -q=txt '
             - ' -querytype=txt '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

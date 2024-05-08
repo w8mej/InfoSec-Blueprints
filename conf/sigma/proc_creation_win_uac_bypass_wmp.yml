@@ -15,22 +15,18 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     selection1:
-        NewProcessName: C:\Program Files\Windows Media Player\osk.exe
-        MandatoryLabel:
-            - S-1-16-12288
-            - S-1-16-16384
+        Image: 'C:\Program Files\Windows Media Player\osk.exe'
+        IntegrityLevel:
+            - 'High'
+            - 'System'
     selection2:
+        Image: 'C:\Windows\System32\cmd.exe'
         ParentCommandLine: '"C:\Windows\system32\mmc.exe" "C:\Windows\system32\eventvwr.msc" /s'
-        NewProcessName: C:\Windows\System32\cmd.exe
-        MandatoryLabel:
-            - S-1-16-12288
-            - S-1-16-16384
-    condition: process_creation and (1 of selection*)
+        IntegrityLevel:
+            - 'High'
+            - 'System'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

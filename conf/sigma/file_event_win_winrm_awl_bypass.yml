@@ -13,24 +13,19 @@ modified: 2022/11/28
 tags:
     - attack.defense_evasion
     - attack.t1216
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     system_files:
         TargetFilename|endswith:
-            - WsmPty.xsl
-            - WsmTxt.xsl
+            - 'WsmPty.xsl'
+            - 'WsmTxt.xsl'
     in_system_folder:
         TargetFilename|startswith:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
-    condition: file_event and (system_files and not in_system_folder)
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
+    condition: system_files and not in_system_folder
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

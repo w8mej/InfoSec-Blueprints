@@ -11,31 +11,26 @@ date: 2023/10/25
 tags:
     - attack.command_and_control
     - attack.t1071.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_only_tunnel:
-        OriginalFileName:
-        CommandLine|endswith: .exe tunnel
+        OriginalFileName: null
+        CommandLine|endswith: '.exe tunnel'
     selection_tunnel_args:
         CommandLine|contains|all:
-            - .exe tunnel
+            - '.exe tunnel'
             - '--name '
-            - --accept-server-license-terms
+            - '--accept-server-license-terms'
     selection_parent_tunnel:
         ParentCommandLine|endswith: ' tunnel'
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         CommandLine|contains|all:
             - '/d /c '
-            - \servers\Stable-
-            - code-server.cmd
-    condition: process_creation and (1 of selection_*)
+            - '\servers\Stable-'
+            - 'code-server.cmd'
+    condition: 1 of selection_*
 falsepositives:
     - Legitimate use of Visual Studio Code tunnel
 level: medium
-ruletype: Sigma

@@ -10,25 +10,20 @@ tags:
     - attack.persistence
     - attack.defense_evasion
     - attack.t1574.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \WerFault.exe
-            - \wer.dll
+            - '\WerFault.exe'
+            - '\wer.dll'
     filter_whitelist:
         TargetFilename|contains:
-            - \System32\
-            - \SysWOW64\
-            - \WinSxS\
-    condition: file_event and (selection and not filter_whitelist)
+            - '\System32\'
+            - '\SysWOW64\'
+            - '\WinSxS\'
+    condition: selection and not filter_whitelist
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

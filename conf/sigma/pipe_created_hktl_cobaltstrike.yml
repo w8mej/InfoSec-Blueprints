@@ -20,43 +20,36 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1055
-    - sysmon
 logsource:
     product: windows
     category: pipe_created
-    definition: Note that you have to configure logging for Named Pipe Events in Sysmon config (Event ID 17 and Event ID 18). The basic configuration is in popular sysmon configuration (https://github.com/SwiftOnSecurity/sysmon-config), but it is worth verifying. You can also use other repo, e.g. https://github.com/Neo23x0/sysmon-config, https://github.com/olafhartong/sysmon-modular. How to test detection? You can always use Cobalt Strike, but also you can check powershell script from this site https://svch0st.medium.com/guide-to-named-pipes-and-hunting-for-cobalt-strike-pipes-dc46b2c5f575
+    definition: 'Note that you have to configure logging for Named Pipe Events in Sysmon config (Event ID 17 and Event ID 18). The basic configuration is in popular sysmon configuration (https://github.com/SwiftOnSecurity/sysmon-config), but it is worth verifying. You can also use other repo, e.g. https://github.com/Neo23x0/sysmon-config, https://github.com/olafhartong/sysmon-modular. How to test detection? You can always use Cobalt Strike, but also you can check powershell script from this site https://svch0st.medium.com/guide-to-named-pipes-and-hunting-for-cobalt-strike-pipes-dc46b2c5f575'
 detection:
-    pipe_created:
-        EventID:
-            - 17
-            - 18
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_MSSE:
         PipeName|contains|all:
-            - \MSSE-
-            - -server
+            - '\MSSE-'
+            - '-server'
     selection_postex:
-        PipeName|startswith: \postex_   # Also include the pipe "\postex_ssh_"
+        PipeName|startswith: '\postex_' # Also include the pipe "\postex_ssh_"
     selection_status:
-        PipeName|startswith: \status_
+        PipeName|startswith: '\status_'
     selection_msagent:
-        PipeName|startswith: \msagent_
+        PipeName|startswith: '\msagent_'
     selection_mojo:
-        PipeName|startswith: \mojo_
+        PipeName|startswith: '\mojo_'
     selection_interprocess:
-        PipeName|startswith: \interprocess_
+        PipeName|startswith: '\interprocess_'
     selection_samr:
-        PipeName|startswith: \samr_
+        PipeName|startswith: '\samr_'
     selection_netlogon:
-        PipeName|startswith: \netlogon_
+        PipeName|startswith: '\netlogon_'
     selection_srvsvc:
-        PipeName|startswith: \srvsvc_
+        PipeName|startswith: '\srvsvc_'
     selection_lsarpc:
-        PipeName|startswith: \lsarpc_
+        PipeName|startswith: '\lsarpc_'
     selection_wkssvc:
-        PipeName|startswith: \wkssvc_
-    condition: pipe_created and (1 of selection*)
+        PipeName|startswith: '\wkssvc_'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

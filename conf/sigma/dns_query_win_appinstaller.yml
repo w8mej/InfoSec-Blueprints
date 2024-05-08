@@ -15,19 +15,14 @@ modified: 2023/11/09
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|startswith: C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_
-        Image|endswith: \AppInstaller.exe
-    condition: dns_query and selection
+        Image|startswith: 'C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_'
+        Image|endswith: '\AppInstaller.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -16,26 +16,21 @@ modified: 2023/03/05
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \AnyDesk.exe
+        - Image|endswith: '\AnyDesk.exe'
         - Description: AnyDesk
         - Product: AnyDesk
         - Company: AnyDesk Software GmbH
     filter:
         Image|contains:
-            - \AppData\
-            - Program Files (x86)\AnyDesk
-            - Program Files\AnyDesk
-    condition: process_creation and (selection and not filter)
+            - '\AppData\'
+            - 'Program Files (x86)\AnyDesk'
+            - 'Program Files\AnyDesk'
+    condition: selection and not filter
 falsepositives:
     - Legitimate use of AnyDesk from a non-standard folder
 level: high
-ruletype: Sigma

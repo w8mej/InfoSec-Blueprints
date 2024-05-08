@@ -18,13 +18,10 @@ logsource:
     service: dns-client
     definition: 'Requirements: Microsoft-Windows-DNS Client Events/Operational Event Log must be enabled/collected in order to receive the events.'
 detection:
-    dns_client:
-        Channel: Microsoft-Windows-DNS Client Events/Operational
     selection:
         EventID: 3008
-        QueryName|contains: ufile.io
-    condition: dns_client and selection
+        QueryName|contains: 'ufile.io'
+    condition: selection
 falsepositives:
     - DNS queries for "ufile" are not malicious by nature necessarily. Investigate the source to determine the necessary actions to take
 level: low
-ruletype: Sigma

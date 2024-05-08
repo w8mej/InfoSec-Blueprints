@@ -14,24 +14,19 @@ tags:
     - attack.defense_evasion
     - attack.execution
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \IMEWDBLD.exe
-        - OriginalFileName: imewdbld.exe
+        - Image|endswith: '\IMEWDBLD.exe'
+        - OriginalFileName: 'imewdbld.exe'
     selection_cli:
         CommandLine|contains:
-            - http://
-            - https://
-    condition: process_creation and (all of selection_*)
+            - 'http://'
+            - 'https://'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 # Note: Please reduce this to medium if you find legitimate use case of this utility with a URL
 level: high
-ruletype: Sigma

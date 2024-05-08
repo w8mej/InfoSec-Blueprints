@@ -13,35 +13,30 @@ tags:
     - attack.lateral_movement
     - attack.credential_access
     - car.2019-04-004
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selector:
-        Image: C:\Windows\System32\rundll32.exe
+        Image: 'C:\Windows\System32\rundll32.exe'
     dllload1:
-        ImageLoaded|endswith: \vaultcli.dll
+        ImageLoaded|endswith: '\vaultcli.dll'
     dllload2:
-        ImageLoaded|endswith: \wlanapi.dll
+        ImageLoaded|endswith: '\wlanapi.dll'
     exclusion:
         ImageLoaded:
-            - ntdsapi.dll
-            - netapi32.dll
-            - imm32.dll
-            - samlib.dll
-            - combase.dll
-            - srvcli.dll
-            - shcore.dll
-            - ntasn1.dll
-            - cryptdll.dll
-            - logoncli.dll
+            - 'ntdsapi.dll'
+            - 'netapi32.dll'
+            - 'imm32.dll'
+            - 'samlib.dll'
+            - 'combase.dll'
+            - 'srvcli.dll'
+            - 'shcore.dll'
+            - 'ntasn1.dll'
+            - 'cryptdll.dll'
+            - 'logoncli.dll'
     timeframe: 30s
-    condition: image_load and (selector | near dllload1 and dllload2 and not exclusion)
+    condition: selector | near dllload1 and dllload2 and not exclusion
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,13 +14,10 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         EventID: 7045
-        ServiceName: KrbSCM
-    condition: system and selection
+        ServiceName: 'KrbSCM'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

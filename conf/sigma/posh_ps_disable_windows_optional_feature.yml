@@ -17,26 +17,20 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmd:
         ScriptBlockText|contains|all:
-            - Disable-WindowsOptionalFeature
-            - -Online
-            - -FeatureName
+            - 'Disable-WindowsOptionalFeature'
+            - '-Online'
+            - '-FeatureName'
     selection_feature:
         # Add any important windows features
         ScriptBlockText|contains:
-            - Windows-Defender-Gui
-            - Windows-Defender-Features
-            - Windows-Defender
-            - Windows-Defender-ApplicationGuard
+            - 'Windows-Defender-Gui'
+            - 'Windows-Defender-Features'
+            - 'Windows-Defender'
+            - 'Windows-Defender-ApplicationGuard'
             # - 'Containers-DisposableClientVM' # Windows Sandbox
-    condition: ps_script and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

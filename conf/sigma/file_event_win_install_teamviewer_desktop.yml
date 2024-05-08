@@ -9,18 +9,13 @@ date: 2022/01/28
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \TeamViewer_Desktop.exe
-    condition: file_event and selection
+        TargetFilename|endswith: '\TeamViewer_Desktop.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

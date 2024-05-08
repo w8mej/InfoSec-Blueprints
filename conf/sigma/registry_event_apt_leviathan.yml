@@ -10,19 +10,11 @@ modified: 2023/09/19
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Software\Microsoft\Windows\CurrentVersion\Run\ntkd
-    condition: registry_event and selection
+        TargetObject|contains: '\Software\Microsoft\Windows\CurrentVersion\Run\ntkd'
+    condition: selection
 level: critical
-ruletype: Sigma

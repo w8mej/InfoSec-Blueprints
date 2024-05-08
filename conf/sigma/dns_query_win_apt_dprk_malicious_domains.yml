@@ -9,20 +9,15 @@ date: 2024/02/20
 tags:
     - attack.command_and_control
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         QueryName:
-            - connection.lockscreen.kro.kr
-            - updating.dothome.co.kr
-    condition: dns_query and selection
+            - 'connection.lockscreen.kro.kr'
+            - 'updating.dothome.co.kr'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

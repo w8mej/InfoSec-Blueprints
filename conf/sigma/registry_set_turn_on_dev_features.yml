@@ -13,24 +13,19 @@ date: 2023/01/12
 modified: 2023/08/17
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \Microsoft\Windows\CurrentVersion\AppModelUnlock
-            - \Policies\Microsoft\Windows\Appx\
+            - '\Microsoft\Windows\CurrentVersion\AppModelUnlock'
+            - '\Policies\Microsoft\Windows\Appx\'
         TargetObject|endswith:
-            - \AllowAllTrustedApps
-            - \AllowDevelopmentWithoutDevLicense
-        Details: DWORD (0x00000001)
-    condition: registry_set and selection
+            - '\AllowAllTrustedApps'
+            - '\AllowDevelopmentWithoutDevLicense'
+        Details: 'DWORD (0x00000001)'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

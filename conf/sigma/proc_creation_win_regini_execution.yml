@@ -15,24 +15,19 @@ modified: 2023/02/08
 tags:
     - attack.t1112
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \regini.exe
-        - OriginalFileName: REGINI.EXE
+        - Image|endswith: '\regini.exe'
+        - OriginalFileName: 'REGINI.EXE'
     filter:
-        CommandLine|re: :[^ \\]   # Covered in 77946e79-97f1-45a2-84b4-f37b5c0d8682
-    condition: process_creation and (selection and not filter)
+        CommandLine|re: ':[^ \\]' # Covered in 77946e79-97f1-45a2-84b4-f37b5c0d8682
+    condition: selection and not filter
 fields:
     - ParentImage
     - CommandLine
 falsepositives:
     - Legitimate modification of keys
 level: low
-ruletype: Sigma

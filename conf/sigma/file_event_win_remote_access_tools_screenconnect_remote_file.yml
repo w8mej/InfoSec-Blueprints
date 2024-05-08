@@ -14,20 +14,15 @@ date: 2023/10/10
 tags:
     - attack.execution
     - attack.t1059.003
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \ScreenConnect.WindowsClient.exe
-        TargetFilename|contains: \Documents\ConnectWiseControl\Temp\
-    condition: file_event and selection
+        Image|endswith: '\ScreenConnect.WindowsClient.exe'
+        TargetFilename|contains: '\Documents\ConnectWiseControl\Temp\'
+    condition: selection
 falsepositives:
     - Legitimate use of ScreenConnect
 # Note: Incase the level if ScreenConnect is not used
 level: low
-ruletype: Sigma

@@ -15,23 +15,18 @@ tags:
     - attack.defense_evasion
     - attack.t1218
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \ldifde.exe
-        - OriginalFileName: ldifde.exe
+        - Image|endswith: '\ldifde.exe'
+        - OriginalFileName: 'ldifde.exe'
     selection_cli:
         CommandLine|contains|all:
-            - -i
-            - -f
-    condition: process_creation and (all of selection_*)
+            - '-i'
+            - '-f'
+    condition: all of selection_*
 falsepositives:
     - Since the content of the files are unknown, false positives are expected
 level: medium
-ruletype: Sigma

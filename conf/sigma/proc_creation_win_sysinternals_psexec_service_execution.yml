@@ -15,20 +15,16 @@ tags:
     - attack.execution
     - attack.t1569.002
     - attack.s0029
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \PSEXESVC.exe
+        Image|endswith: '\PSEXESVC.exe'
         User|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
-    condition: process_creation and selection
+            - 'AUTHORI'
+            - 'AUTORI'
+    condition: selection
 fields:
     - EventID
     - CommandLine
@@ -40,4 +36,3 @@ fields:
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

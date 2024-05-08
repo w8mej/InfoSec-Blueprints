@@ -20,52 +20,47 @@ modified: 2024/02/09
 tags:
     - attack.defense_evasion
     - attack.t1027
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \certutil.exe
-        - OriginalFileName: CertUtil.exe
+        - Image|endswith: '\certutil.exe'
+        - OriginalFileName: 'CertUtil.exe'
     selection_flags:
         CommandLine|contains:
             - 'urlcache '
             - 'verifyctl '
     selection_http:
         CommandLine|contains:
-            - .githubusercontent.com         # Includes both gists and github repositories / Michael Haag (idea)
-            - anonfiles.com
-            - cdn.discordapp.com
-            - cdn.discordapp.com/attachments/
-            - ddns.net
-            - dl.dropboxusercontent.com
-            - ghostbin.co
-            - glitch.me
-            - gofile.io
-            - hastebin.com
-            - mediafire.com
-            - mega.nz
-            - onrender.com
-            - paste.ee
-            - pastebin.com
-            - pastebin.pl
-            - pastetext.net
-            - privatlab.com
-            - privatlab.net
-            - send.exploit.in
-            - sendspace.com
-            - storage.googleapis.com
-            - storjshare.io
-            - supabase.co
-            - temp.sh
-            - transfer.sh
-            - ufile.io
-    condition: process_creation and (all of selection_*)
+            - '.githubusercontent.com'       # Includes both gists and github repositories / Michael Haag (idea)
+            - 'anonfiles.com'
+            - 'cdn.discordapp.com'
+            - 'cdn.discordapp.com/attachments/'
+            - 'ddns.net'
+            - 'dl.dropboxusercontent.com'
+            - 'ghostbin.co'
+            - 'glitch.me'
+            - 'gofile.io'
+            - 'hastebin.com'
+            - 'mediafire.com'
+            - 'mega.nz'
+            - 'onrender.com'
+            - 'paste.ee'
+            - 'pastebin.com'
+            - 'pastebin.pl'
+            - 'pastetext.net'
+            - 'privatlab.com'
+            - 'privatlab.net'
+            - 'send.exploit.in'
+            - 'sendspace.com'
+            - 'storage.googleapis.com'
+            - 'storjshare.io'
+            - 'supabase.co'
+            - 'temp.sh'
+            - 'transfer.sh'
+            - 'ufile.io'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

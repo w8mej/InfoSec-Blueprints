@@ -18,13 +18,10 @@ logsource:
     service: application
     definition: 'Requirements: Must enable MSSQL authentication.'
 detection:
-    application:
-        Channel: Application
     selection:
-        Provider_Name: MSSQLSERVER
+        Provider_Name: 'MSSQLSERVER'
         EventID: 18456
-    condition: application and selection
+    condition: selection
 falsepositives:
     - This event could stem from users changing an account's password that's used to authenticate via a job or an automated process. Investigate the source of such events and mitigate them
 level: low
-ruletype: Sigma

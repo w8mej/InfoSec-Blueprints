@@ -12,19 +12,14 @@ tags:
     - attack.t1047
     - attack.lateral_movement
     - attack.t1021.002
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image: System
-        TargetFilename|endswith: \wbem\wbemcomn.dll
-    condition: file_event and selection
+        TargetFilename|endswith: '\wbem\wbemcomn.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

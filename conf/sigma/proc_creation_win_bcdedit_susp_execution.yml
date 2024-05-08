@@ -13,24 +13,19 @@ tags:
     - attack.t1070
     - attack.persistence
     - attack.t1542.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \bcdedit.exe
-        - OriginalFileName: bcdedit.exe
+        - Image|endswith: '\bcdedit.exe'
+        - OriginalFileName: 'bcdedit.exe'
     selection_cli:
         CommandLine|contains:
-            - delete
-            - deletevalue
-            - import
-            - safeboot
-            - network
-    condition: process_creation and (all of selection_*)
+            - 'delete'
+            - 'deletevalue'
+            - 'import'
+            - 'safeboot'
+            - 'network'
+    condition: all of selection_*
 level: medium
-ruletype: Sigma

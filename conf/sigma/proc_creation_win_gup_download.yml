@@ -10,25 +10,20 @@ modified: 2023/03/02
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \GUP.exe
-        - OriginalFileName: gup.exe
+        - Image|endswith: '\GUP.exe'
+        - OriginalFileName: 'gup.exe'
     selection_cli:
         CommandLine|contains|all:
             - ' -unzipTo '
-            - http
+            - 'http'
     filter:
-        ParentImage|endswith: \notepad++.exe
-    condition: process_creation and (all of selection* and not filter)
+        ParentImage|endswith: '\notepad++.exe'
+    condition: all of selection* and not filter
 falsepositives:
     - Other parent processes other than notepad++ using GUP that are not currently identified
 level: high
-ruletype: Sigma

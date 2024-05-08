@@ -10,26 +10,21 @@ modified: 2022/12/09
 tags:
     - attack.defense_evasion
     - attack.t1055
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \userinit.exe
+        ParentImage|endswith: '\userinit.exe'
     filter1:
-        CommandLine|contains: \netlogon\
+        CommandLine|contains: '\netlogon\'
     filter2:
-        - Image|endswith: \explorer.exe
-        - OriginalFileName: explorer.exe
-    condition: process_creation and (selection and not 1 of filter*)
+        - Image|endswith: '\explorer.exe'
+        - OriginalFileName: 'explorer.exe'
+    condition: selection and not 1 of filter*
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - Administrative scripts
 level: medium
-ruletype: Sigma

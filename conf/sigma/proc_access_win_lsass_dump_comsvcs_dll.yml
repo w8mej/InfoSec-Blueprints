@@ -11,20 +11,15 @@ modified: 2023/11/29
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
-        SourceImage|endswith: \rundll32.exe
-        CallTrace|contains: comsvcs.dll
-    condition: process_access and selection
+        TargetImage|endswith: '\lsass.exe'
+        SourceImage|endswith: '\rundll32.exe'
+        CallTrace|contains: 'comsvcs.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

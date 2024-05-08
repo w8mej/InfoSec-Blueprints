@@ -10,19 +10,14 @@ tags:
     - attack.defense_evasion
     - attack.t1218
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \pcwrun.exe
-        CommandLine|contains: ../
-    condition: process_creation and selection
+        Image|endswith: '\pcwrun.exe'
+        CommandLine|contains: '../'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

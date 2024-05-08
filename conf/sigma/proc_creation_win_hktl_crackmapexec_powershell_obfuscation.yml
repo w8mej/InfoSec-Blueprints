@@ -13,31 +13,27 @@ tags:
     - attack.t1059.001
     - attack.defense_evasion
     - attack.t1027.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_cli:
         CommandLine|contains:
-            - join*split
+            - 'join*split'
             # Line 343ff
-            - ( $ShellId[1]+$ShellId[13]+'x')
-            - ( $PSHome[*]+$PSHOME[*]+
-            - ( $env:Public[13]+$env:Public[5]+'x')
-            - ( $env:ComSpec[4,*,25]-Join'')
-            - "[1,3]+'x'-Join'')"
-    condition: process_creation and (all of selection_*)
+            - '( $ShellId[1]+$ShellId[13]+''x'')'
+            - '( $PSHome[*]+$PSHOME[*]+'
+            - '( $env:Public[13]+$env:Public[5]+''x'')'
+            - '( $env:ComSpec[4,*,25]-Join'''')'
+            - '[1,3]+''x''-Join'''')'
+    condition: all of selection_*
 fields:
     - ComputerName
     - User
@@ -45,4 +41,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

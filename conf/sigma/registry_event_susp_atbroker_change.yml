@@ -13,30 +13,22 @@ tags:
     - attack.t1218
     - attack.persistence
     - attack.t1547
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - Software\Microsoft\Windows NT\CurrentVersion\Accessibility\ATs
-            - Software\Microsoft\Windows NT\CurrentVersion\Accessibility\Configuration
+            - 'Software\Microsoft\Windows NT\CurrentVersion\Accessibility\ATs'
+            - 'Software\Microsoft\Windows NT\CurrentVersion\Accessibility\Configuration'
     filter_atbroker:
-        Image: C:\Windows\system32\atbroker.exe
-        TargetObject|contains: \Microsoft\Windows NT\CurrentVersion\Accessibility\Configuration
-        Details: (Empty)
+        Image: 'C:\Windows\system32\atbroker.exe'
+        TargetObject|contains: '\Microsoft\Windows NT\CurrentVersion\Accessibility\Configuration'
+        Details: '(Empty)'
     filter_uninstallers:
-        Image|startswith: C:\Windows\Installer\MSI
-        TargetObject|contains: Software\Microsoft\Windows NT\CurrentVersion\Accessibility\ATs
-    condition: registry_event and (selection and not 1 of filter_*)
+        Image|startswith: 'C:\Windows\Installer\MSI'
+        TargetObject|contains: 'Software\Microsoft\Windows NT\CurrentVersion\Accessibility\ATs'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Creation of non-default, legitimate at usage
 level: medium
-ruletype: Sigma

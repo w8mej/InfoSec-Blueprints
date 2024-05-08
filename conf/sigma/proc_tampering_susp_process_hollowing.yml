@@ -12,29 +12,24 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1055.012
-    - sysmon
 logsource:
     product: windows
     category: process_tampering
 detection:
-    process_tampering:
-        EventID: 25
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Type: Image is replaced
+        Type: 'Image is replaced'
     filter_main_generic:
         Image|contains:
-            - :\Program Files (x86)
-            - :\Program Files\
-            - :\Windows\System32\wbem\WMIADAP.exe
-            - :\Windows\SysWOW64\wbem\WMIADAP.exe
+            - ':\Program Files (x86)'
+            - ':\Program Files\'
+            - ':\Windows\System32\wbem\WMIADAP.exe'
+            - ':\Windows\SysWOW64\wbem\WMIADAP.exe'
     filter_optional_opera:
-        Image|contains: \AppData\Local\Programs\Opera\
-        Image|endswith: \opera.exe
+        Image|contains: '\AppData\Local\Programs\Opera\'
+        Image|endswith: '\opera.exe'
     filter_optional_edge:
-        Image|endswith: \WindowsApps\MicrosoftEdge.exe
-    condition: process_tampering and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        Image|endswith: '\WindowsApps\MicrosoftEdge.exe'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

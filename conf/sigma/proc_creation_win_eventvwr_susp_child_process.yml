@@ -16,23 +16,18 @@ tags:
     - attack.privilege_escalation
     - attack.t1548.002
     - car.2019-04-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \eventvwr.exe
+        ParentImage|endswith: '\eventvwr.exe'
     filter_main_generic:
         Image|endswith:
-            - :\Windows\System32\mmc.exe
-            - :\Windows\System32\WerFault.exe
-            - :\Windows\SysWOW64\WerFault.exe
-    condition: process_creation and (selection and not 1 of filter_main_*)
+            - ':\Windows\System32\mmc.exe'
+            - ':\Windows\System32\WerFault.exe'
+            - ':\Windows\SysWOW64\WerFault.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

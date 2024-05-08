@@ -14,21 +14,18 @@ logsource:
     product: windows
     service: security-mitigations
 detection:
-    security_mitigations:
-        Channel: Microsoft-Windows-Security-Mitigations*
     selection:
         EventID:
             - 11
             - 12
         ImageName|contains:
-            - \Users\Public\
-            - \PerfLogs\
-            - \Desktop\
-            - \Downloads\
-            - \AppData\Local\Temp\
-            - C:\Windows\TEMP\
-    condition: security_mitigations and selection
+            - '\Users\Public\'
+            - '\PerfLogs\'
+            - '\Desktop\'
+            - '\Downloads\'
+            - '\AppData\Local\Temp\'
+            - 'C:\Windows\TEMP\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

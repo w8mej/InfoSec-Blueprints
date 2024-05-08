@@ -21,23 +21,20 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ImagePath|contains:
             - ' -nop '
             - ' -sta '
             - ' -w hidden '
-            - :\Temp\
-            - .downloadfile(   # PowerShell download command
-            - .downloadstring(   # PowerShell download command
-            - \ADMIN$\
-            - \Perflogs\
+            - ':\Temp\'
+            - '.downloadfile(' # PowerShell download command
+            - '.downloadstring(' # PowerShell download command
+            - '\ADMIN$\'
+            - '\Perflogs\'
             - '&&'
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,19 +11,14 @@ modified: 2022/07/14
 tags:
     - attack.discovery
     - attack.t1082
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \systeminfo.exe
-        - OriginalFileName: sysinfo.exe
-    condition: process_creation and selection
+        - Image|endswith: '\systeminfo.exe'
+        - OriginalFileName: 'sysinfo.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

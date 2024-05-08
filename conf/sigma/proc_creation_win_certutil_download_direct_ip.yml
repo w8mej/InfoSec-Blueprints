@@ -19,32 +19,28 @@ date: 2023/02/15
 tags:
     - attack.defense_evasion
     - attack.t1027
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \certutil.exe
-        - OriginalFileName: CertUtil.exe
+        - Image|endswith: '\certutil.exe'
+        - OriginalFileName: 'CertUtil.exe'
     selection_flags:
         CommandLine|contains:
             - 'urlcache '
             - 'verifyctl '
     selection_http:
         CommandLine|contains:
-            - ://1
-            - ://2
-            - ://3
-            - ://4
-            - ://5
-            - ://6
-            - ://7
-            - ://8
-            - ://9
+            - '://1'
+            - '://2'
+            - '://3'
+            - '://4'
+            - '://5'
+            - '://6'
+            - '://7'
+            - '://8'
+            - '://9'
     # filter_local_ips:
     #     # Note: Uncomment this filter if you want to exclude local IPs
     #     CommandLine|contains:
@@ -69,9 +65,8 @@ detection:
     #         - '://127.' # 127.0.0.0/8
     #         - '://169.254.' # 169.254.0.0/16
     filter_main_seven_zip:
-        CommandLine|contains: ://7-   # For https://7-zip.org/
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+        CommandLine|contains: '://7-' # For https://7-zip.org/
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

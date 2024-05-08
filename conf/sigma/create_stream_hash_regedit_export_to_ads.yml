@@ -11,20 +11,15 @@ modified: 2021/11/27
 tags:
     - attack.defense_evasion
     - attack.t1564.004
-    - sysmon
 logsource:
     product: windows
     category: create_stream_hash
 detection:
-    create_stream_hash:
-        EventID: 15
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \regedit.exe
-    condition: create_stream_hash and selection
+        Image|endswith: '\regedit.exe'
+    condition: selection
 fields:
     - TargetFilename
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

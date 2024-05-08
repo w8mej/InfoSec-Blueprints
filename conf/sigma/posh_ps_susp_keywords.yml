@@ -18,28 +18,22 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - System.Reflection.Assembly.Load($
+            - 'System.Reflection.Assembly.Load($'
             - '[System.Reflection.Assembly]::Load($'
             - '[Reflection.Assembly]::Load($'
-            - System.Reflection.AssemblyName
-            - Reflection.Emit.AssemblyBuilderAccess
-            - Reflection.Emit.CustomAttributeBuilder
-            - Runtime.InteropServices.UnmanagedType
-            - Runtime.InteropServices.DllImportAttribute
-            - SuspendThread
-            - rundll32
+            - 'System.Reflection.AssemblyName'
+            - 'Reflection.Emit.AssemblyBuilderAccess'
+            - 'Reflection.Emit.CustomAttributeBuilder'
+            - 'Runtime.InteropServices.UnmanagedType'
+            - 'Runtime.InteropServices.DllImportAttribute'
+            - 'SuspendThread'
+            - 'rundll32'
             # - 'FromBase64'
             # - 'Invoke-WMIMethod' # Prone to FP
             # - 'http://127.0.0.1' # Prone to FP
-    condition: ps_script and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -9,21 +9,16 @@ date: 2022/08/28
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         Image|endswith:
-            - \wscript.exe
-            - \cscript.exe
-    condition: network_connection and selection
+            - '\wscript.exe'
+            - '\cscript.exe'
+    condition: selection
 falsepositives:
     - Legitimate scripts
 level: medium
-ruletype: Sigma

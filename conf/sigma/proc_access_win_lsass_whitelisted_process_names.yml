@@ -14,49 +14,44 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
+        TargetImage|endswith: '\lsass.exe'
         SourceImage|endswith:
-            - \TrolleyExpress.exe    # Citrix
-            - \ProcessDump.exe       # Cisco Jabber
-            - \dump64.exe            # Visual Studio
+            - '\TrolleyExpress.exe'  # Citrix
+            - '\ProcessDump.exe'     # Cisco Jabber
+            - '\dump64.exe'          # Visual Studio
         GrantedAccess|endswith:
             - '10'
             - '30'
             - '50'
             - '70'
             - '90'
-            - B0
-            - D0
-            - F0
+            - 'B0'
+            - 'D0'
+            - 'F0'
             - '18'
             - '38'
             - '58'
             - '78'
             - '98'
-            - B8
-            - D8
-            - F8
-            - 1A
-            - 3A
-            - 5A
-            - 7A
-            - 9A
-            - BA
-            - DA
-            - FA
+            - 'B8'
+            - 'D8'
+            - 'F8'
+            - '1A'
+            - '3A'
+            - '5A'
+            - '7A'
+            - '9A'
+            - 'BA'
+            - 'DA'
+            - 'FA'
             - '0x14C2'  # https://github.com/b4rtik/ATPMiniDump/blob/76304f93b390af3bb66e4f451ca16562a479bdc9/ATPMiniDump/ATPMiniDump.c
-            - FF
-    condition: process_access and selection
+            - 'FF'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

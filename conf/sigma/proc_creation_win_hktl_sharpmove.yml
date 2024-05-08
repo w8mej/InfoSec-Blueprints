@@ -11,34 +11,29 @@ date: 2024/01/29
 tags:
     - attack.lateral_movement
     - attack.t1021.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \SharpMove.exe
+        - Image|endswith: '\SharpMove.exe'
         - OriginalFileName: SharpMove.exe
     selection_cli_computer:
         # In its current implementation the "computername" flag is required in all actions
-        CommandLine|contains: computername=
+        CommandLine|contains: 'computername='
     selection_cli_actions:
         CommandLine|contains:
-            - action=create
-            - action=dcom
-            - action=executevbs
-            - action=hijackdcom
-            - action=modschtask
-            - action=modsvc
-            - action=query
-            - action=scm
-            - action=startservice
-            - action=taskscheduler
-    condition: process_creation and (selection_img or all of selection_cli_*)
+            - 'action=create'
+            - 'action=dcom'
+            - 'action=executevbs'
+            - 'action=hijackdcom'
+            - 'action=modschtask'
+            - 'action=modsvc'
+            - 'action=query'
+            - 'action=scm'
+            - 'action=startservice'
+            - 'action=taskscheduler'
+    condition: selection_img or all of selection_cli_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -10,27 +10,22 @@ modified: 2023/02/10
 tags:
     - attack.defense_evasion
     - attack.t1562.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \netsh.exe
-        - OriginalFileName: netsh.exe
+        - Image|endswith: '\netsh.exe'
+        - OriginalFileName: 'netsh.exe'
     selection_cli:
         CommandLine|contains|all:
-            - firewall
+            - 'firewall'
             - 'delete '
     filter_optional_dropbox:
-        ParentImage|endswith: \Dropbox.exe
-        CommandLine|contains: name=Dropbox
-    condition: process_creation and (all of selection_* and not 1 of filter_optional_*)
+        ParentImage|endswith: '\Dropbox.exe'
+        CommandLine|contains: 'name=Dropbox'
+    condition: all of selection_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate administration activity
     - Software installations and removal
 level: medium
-ruletype: Sigma

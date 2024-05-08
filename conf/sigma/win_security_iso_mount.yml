@@ -16,22 +16,19 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The advanced audit policy setting "Object Access > Audit Removable Storage" must be configured for Success/Failure
+    definition: 'The advanced audit policy setting "Object Access > Audit Removable Storage" must be configured for Success/Failure'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4663
-        ObjectServer: Security
-        ObjectType: File
-        ObjectName|startswith: \Device\CdRom
+        ObjectServer: 'Security'
+        ObjectType: 'File'
+        ObjectName|startswith: '\Device\CdRom'
     filter_main_generic:
         ObjectName:
-            - \Device\CdRom0\autorun.ico
-            - \Device\CdRom0\setup.exe
-            - \Device\CdRom0\setup64.exe
-    condition: security and (selection and not 1 of filter_main_*)
+            - '\Device\CdRom0\autorun.ico'
+            - '\Device\CdRom0\setup.exe'
+            - '\Device\CdRom0\setup64.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Software installation ISO files
 level: medium
-ruletype: Sigma

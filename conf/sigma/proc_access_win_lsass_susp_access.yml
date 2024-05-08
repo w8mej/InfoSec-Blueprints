@@ -15,16 +15,12 @@ tags:
     - attack.t1003.001
     - attack.s0002
     - car.2019-04-004
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
+        TargetImage|endswith: '\lsass.exe'
         GrantedAccess|startswith:
             - '0x40'
             # - '0x1000'  # minimum access requirements to query basic info from service
@@ -41,23 +37,23 @@ detection:
             - '0x1f3fff'
     filter_exact:
         SourceImage:
-            - C:\WINDOWS\system32\taskmgr.exe
-            - C:\Windows\System32\perfmon.exe
+            - 'C:\WINDOWS\system32\taskmgr.exe'
+            - 'C:\Windows\System32\perfmon.exe'
     filter_generic:
         SourceImage|startswith:
-            - C:\Program Files\
-            - C:\Program Files (x86)\
+            - 'C:\Program Files\'
+            - 'C:\Program Files (x86)\'
         GrantedAccess:
             - '0x1410'
             - '0x410'
     filter_defender:
         SourceImage|startswith:
-            - C:\ProgramData\Microsoft\Windows Defender\
-            - C:\Program Files\Windows Defender\
-            - C:\Program Files\Microsoft Security Client\MsMpEng.exe   # Windows7
-        SourceImage|endswith: \MsMpEng.exe
+            - 'C:\ProgramData\Microsoft\Windows Defender\'
+            - 'C:\Program Files\Windows Defender\'
+            - 'C:\Program Files\Microsoft Security Client\MsMpEng.exe' # Windows7
+        SourceImage|endswith: '\MsMpEng.exe'
     filter_defender_updates:
-        SourceImage: C:\Windows\System32\svchost.exe
+        SourceImage: 'C:\Windows\System32\svchost.exe'
         CallTrace|contains|all:
             - '|C:\ProgramData\Microsoft\Windows Defender\Definition Updates\{'
             - '}\mpengine.dll+'
@@ -67,26 +63,26 @@ detection:
             - '|c:\program files\windows defender\mprtp.dll'
             - '|c:\program files\windows defender\MpClient.dll'
     filter_gaming_services:
-        SourceImage|startswith: C:\Program Files\WindowsApps\
-        SourceImage|endswith: \GamingServices.exe
+        SourceImage|startswith: 'C:\Program Files\WindowsApps\'
+        SourceImage|endswith: '\GamingServices.exe'
         GrantedAccess:
             - '0x1410'
             - '0x410'
     filter_specific_granted_access_1:
         SourceImage|endswith:
-            - \PROCEXP64.EXE
-            - \PROCEXP.EXE
-            - C:\WINDOWS\system32\taskhostw.exe
-            - \MBAMInstallerService.exe
+            - '\PROCEXP64.EXE'
+            - '\PROCEXP.EXE'
+            - 'C:\WINDOWS\system32\taskhostw.exe'
+            - '\MBAMInstallerService.exe'
         GrantedAccess:
             - '0x1410'
             - '0x410'
             - '0x40'
     filter_specific_granted_access_2:
         SourceImage:
-            - C:\WINDOWS\system32\wbem\wmiprvse.exe
-            - C:\Windows\syswow64\MsiExec.exe
-            - C:\Windows\System32\msiexec.exe
+            - 'C:\WINDOWS\system32\wbem\wmiprvse.exe'
+            - 'C:\Windows\syswow64\MsiExec.exe'
+            - 'C:\Windows\System32\msiexec.exe'
         GrantedAccess:
             - '0x1410'
             - '0x410'
@@ -94,61 +90,61 @@ detection:
             - '0x1f3fff'
     filter_specific_granted_access_3:
         SourceImage:
-            - C:\Windows\system32\wininit.exe
-            - C:\Windows\System32\lsass.exe
+            - 'C:\Windows\system32\wininit.exe'
+            - 'C:\Windows\System32\lsass.exe'
         GrantedAccess: '0x1000000'
     filter_vmwaretools:
-        SourceImage|startswith: C:\ProgramData\VMware\VMware Tools\
-        SourceImage|endswith: \vmtoolsd.exe
+        SourceImage|startswith: 'C:\ProgramData\VMware\VMware Tools\'
+        SourceImage|endswith: '\vmtoolsd.exe'
     filter_svchost:
-        SourceImage: C:\WINDOWS\system32\svchost.exe
+        SourceImage: 'C:\WINDOWS\system32\svchost.exe'
         GrantedAccess:
             - '0x100000'
             - '0x1410'
     filter_nextron:
         SourceImage|endswith:
-            - \thor.exe
-            - \thor64.exe
-            - \aurora-agent.exe
-            - \aurora-agent-64.exe
+            - '\thor.exe'
+            - '\thor64.exe'
+            - '\aurora-agent.exe'
+            - '\aurora-agent-64.exe'
         GrantedAccess:
             - '0x40'
             - '0x1010'
     filter_explorer:
-        SourceImage|endswith: \explorer.exe
+        SourceImage|endswith: '\explorer.exe'
         GrantedAccess: '0x401'
     filter_mrt:
-        SourceImage: C:\Windows\system32\MRT.exe   # Windows Malicious Software Removal Tool
+        SourceImage: 'C:\Windows\system32\MRT.exe' # Windows Malicious Software Removal Tool
         GrantedAccess:
             - '0x1410'
             - '0x1418'
     filter_handle:
         GrantedAccess: '0x40'
         SourceImage|endswith:
-            - \handle.exe
-            - \handle64.exe
+            - '\handle.exe'
+            - '\handle64.exe'
     filter_edge: # version in path 96.0.1054.43
-        SourceImage|startswith: C:\Program Files (x86)\Microsoft\Edge\Application\
-        SourceImage|endswith: \Installer\setup.exe
+        SourceImage|startswith: 'C:\Program Files (x86)\Microsoft\Edge\Application\'
+        SourceImage|endswith: '\Installer\setup.exe'
     filter_webex:
-        SourceImage|endswith: \AppData\Local\WebEx\WebexHost.exe
+        SourceImage|endswith: '\AppData\Local\WebEx\WebexHost.exe'
         GrantedAccess: '0x401'
     filter_malwarebytes:
-        SourceImage: C:\PROGRAMDATA\MALWAREBYTES\MBAMSERVICE\ctlrupdate\mbupdatr.exe
+        SourceImage: 'C:\PROGRAMDATA\MALWAREBYTES\MBAMSERVICE\ctlrupdate\mbupdatr.exe'
         GrantedAccess: '0x1410'
     filter_dropbox:
         SourceImage|contains:
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-        SourceImage|endswith: .tmp\DropboxUpdate.exe
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+        SourceImage|endswith: '.tmp\DropboxUpdate.exe'
         GrantedAccess:
             - '0x410'
             - '0x1410'
     filter_msbuild:
         # This FP was generated while building CPython from source and could be related to other similar examples.
         # But if you don't do that kind of stuff consider removing it from the rule ;)
-        SourceImage|startswith: C:\Program Files\Microsoft Visual Studio\
-        SourceImage|endswith: \MSBuild\Current\Bin\MSBuild.exe
+        SourceImage|startswith: 'C:\Program Files\Microsoft Visual Studio\'
+        SourceImage|endswith: '\MSBuild\Current\Bin\MSBuild.exe'
         GrantedAccess: '0x1F3FFF'
     # Old - too broad filter
         # SourceImage|endswith: # easy to bypass. need to implement supportive rule to detect bypass attempts
@@ -162,8 +158,8 @@ detection:
         #     - '\wininit.exe'
         #     - '\vmtoolsd.exe'
     filter_games:
-        SourceImage|contains: \SteamLibrary\steamapps\
-    condition: process_access and (selection and not 1 of filter_*)
+        SourceImage|contains: '\SteamLibrary\steamapps\'
+    condition: selection and not 1 of filter_*
 fields:
     - ComputerName
     - User
@@ -171,4 +167,3 @@ fields:
 falsepositives:
     - Likely
 level: high
-ruletype: Sigma

@@ -14,30 +14,25 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \DumpMinitool.exe
-              - \DumpMinitool.x86.exe
-              - \DumpMinitool.arm64.exe
+              - '\DumpMinitool.exe'
+              - '\DumpMinitool.x86.exe'
+              - '\DumpMinitool.arm64.exe'
         - OriginalFileName:
-              - DumpMinitool.exe
-              - DumpMinitool.x86.exe
-              - DumpMinitool.arm64.exe
+              - 'DumpMinitool.exe'
+              - 'DumpMinitool.x86.exe'
+              - 'DumpMinitool.arm64.exe'
     selection_cli:
         CommandLine|contains:
             - ' Full'
             - ' Mini'
             - ' WithHeap'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

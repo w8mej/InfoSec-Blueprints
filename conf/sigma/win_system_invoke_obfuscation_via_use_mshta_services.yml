@@ -16,16 +16,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ImagePath|contains|all:
-            - mshta
-            - vbscript:createobject
-    condition: system and selection
+            - 'mshta'
+            - 'vbscript:createobject'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

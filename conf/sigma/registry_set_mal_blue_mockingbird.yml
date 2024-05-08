@@ -14,18 +14,13 @@ tags:
     - attack.execution
     - attack.t1112
     - attack.t1047
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \CurrentControlSet\Services\wercplsupport\Parameters\ServiceDll
-    condition: registry_set and selection
+        TargetObject|endswith: '\CurrentControlSet\Services\wercplsupport\Parameters\ServiceDll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

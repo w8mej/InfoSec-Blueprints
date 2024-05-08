@@ -20,21 +20,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
             - 'Set-Service '
-            - DCLCWPDTSD
+            - 'DCLCWPDTSD'
         ScriptBlockText|contains:
             - '-SecurityDescriptorSddl '
             - '-sd '
-    condition: ps_script and selection
+    condition: selection
 falsepositives:
     - Rare intended use of hidden services
     - Rare FP could occur due to the non linearity of the ScriptBlockText log
 level: high
-ruletype: Sigma

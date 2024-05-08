@@ -11,23 +11,18 @@ modified: 2023/12/11
 tags:
     - attack.discovery
     - attack.t1046
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Image|endswith:
-              - \nmap.exe
-              - \zennmap.exe
+              - '\nmap.exe'
+              - '\zennmap.exe'
         - OriginalFileName:
-              - nmap.exe
-              - zennmap.exe
-    condition: process_creation and selection
+              - 'nmap.exe'
+              - 'zennmap.exe'
+    condition: selection
 falsepositives:
     - Legitimate administrator activity
 level: medium
-ruletype: Sigma

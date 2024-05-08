@@ -17,22 +17,17 @@ tags:
     - attack.execution
     - attack.t1615
     - attack.t1059.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: gatherNetworkInfo.vbs
+        CommandLine|contains: 'gatherNetworkInfo.vbs'
     filter:
         Image|endswith:
-            - \cscript.exe
-            - \wscript.exe
-    condition: process_creation and (selection and not filter)
+            - '\cscript.exe'
+            - '\wscript.exe'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

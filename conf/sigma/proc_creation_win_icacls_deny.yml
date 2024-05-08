@@ -9,24 +9,19 @@ date: 2022/07/18
 tags:
     - attack.defense_evasion
     - attack.t1564.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_icacls:
-        - OriginalFileName: iCACLS.EXE
-        - Image|endswith: \icacls.exe
+        - OriginalFileName: 'iCACLS.EXE'
+        - Image|endswith: '\icacls.exe'
     selection_cmd: # icacls "C:\Users\admin\AppData\Local\37f92fe8-bcf0-4ee0-b8ba-561f797f5696" /deny *S-1-1-0:(OI)(CI)(DE,DC)
         CommandLine|contains|all:
-            - C:\Users\
-            - /deny
+            - 'C:\Users\'
+            - '/deny'
             - '*S-1-1-0:'
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

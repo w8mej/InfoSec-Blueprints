@@ -14,17 +14,14 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
         LogonType: 3
-        AuthenticationPackageName: Kerberos
-        IpAddress: 127.0.0.1
-        TargetUserSid|startswith: S-1-5-21-
+        AuthenticationPackageName: 'Kerberos'
+        IpAddress: '127.0.0.1'
+        TargetUserSid|startswith: 'S-1-5-21-'
         TargetUserSid|endswith: '-500'
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -11,28 +11,20 @@ tags:
     - attack.defense_evasion
     - attack.t1562.001
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains|all:
-            - SYSTEM\
-            - ControlSet
-            - \Control\Lsa
+            - 'SYSTEM\'
+            - 'ControlSet'
+            - '\Control\Lsa'
         TargetObject|endswith:
-            - \lmcompatibilitylevel
-            - \NtlmMinClientSec
-            - \RestrictSendingNTLMTraffic
-    condition: registry_event and selection
+            - '\lmcompatibilitylevel'
+            - '\NtlmMinClientSec'
+            - '\RestrictSendingNTLMTraffic'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

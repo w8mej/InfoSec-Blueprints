@@ -11,18 +11,13 @@ tags:
     - attack.command_and_control
     - attack.t1105
     - attack.t1071.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \powershell.exe
+        ParentImage|endswith: '\powershell.exe'
         Image|contains: nslookup
         CommandLine|contains: '=txt '
-    condition: process_creation and selection
+    condition: selection
 level: medium
-ruletype: Sigma

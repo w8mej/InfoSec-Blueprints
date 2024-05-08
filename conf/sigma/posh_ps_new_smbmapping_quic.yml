@@ -20,17 +20,11 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
-            - New-SmbMapping
-            - -TransportType QUIC
-    condition: ps_script and selection
+            - 'New-SmbMapping'
+            - '-TransportType QUIC'
+    condition: selection
 falsepositives:
     - Due to the nature of the script block, the matching of the string could sometimes result in a false positive. Use this rule to hunt for potential malicious or suspicious scripts.
 level: medium
-ruletype: Sigma

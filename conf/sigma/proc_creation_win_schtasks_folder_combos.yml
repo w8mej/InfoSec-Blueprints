@@ -10,23 +10,19 @@ modified: 2022/11/18
 tags:
     - attack.execution
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \schtasks.exe
-        - OriginalFileName: schtasks.exe
+        - Image|endswith: '\schtasks.exe'
+        - OriginalFileName: 'schtasks.exe'
     selection_create:
         CommandLine|contains: ' /create '
     selection_command:
         CommandLine|contains:
-            - powershell
-            - pwsh
+            - 'powershell'
+            - 'pwsh'
             - 'cmd /c '
             - 'cmd /k '
             - 'cmd /r '
@@ -35,10 +31,9 @@ detection:
             - 'cmd.exe /r '
     selection_all_folders:
         CommandLine|contains:
-            - C:\ProgramData\
+            - 'C:\ProgramData\'
             - '%ProgramData%'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

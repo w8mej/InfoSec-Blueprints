@@ -14,45 +14,40 @@ tags:
     - attack.t1070
     - attack.t1562.006
     - car.2016-04-002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_clear_1:
         CommandLine|contains|all:
-            - cl
-            - /Trace
+            - 'cl'
+            - '/Trace'
     selection_clear_2:
         CommandLine|contains|all:
-            - clear-log
-            - /Trace
+            - 'clear-log'
+            - '/Trace'
     selection_disable_1:
         CommandLine|contains|all:
-            - sl
-            - /e:false
+            - 'sl'
+            - '/e:false'
     selection_disable_2:
         CommandLine|contains|all:
-            - set-log
-            - /e:false
+            - 'set-log'
+            - '/e:false'
     selection_disable_3:   # ETW provider removal from a trace session
         CommandLine|contains|all:
-            - logman
-            - update
-            - trace
-            - --p
-            - -ets
+            - 'logman'
+            - 'update'
+            - 'trace'
+            - '--p'
+            - '-ets'
     selection_pwsh_remove:   # Autologger provider removal
-        CommandLine|contains: Remove-EtwTraceProvider
+        CommandLine|contains: 'Remove-EtwTraceProvider'
     selection_pwsh_set:   # Provider “Enable” property modification
         CommandLine|contains|all:
-            - Set-EtwTraceProvider
+            - 'Set-EtwTraceProvider'
             - '0x11'
-    condition: process_creation and (1 of selection*)
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

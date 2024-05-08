@@ -13,19 +13,14 @@ tags:
     - attack.t1572
     - attack.lateral_movement
     - attack.t1021.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Description: Command-line SSH, Telnet, and Rlogin client
+        Description: 'Command-line SSH, Telnet, and Rlogin client'
         CommandLine|contains: ' -R '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Administrative activity using a remote port forwarding to a local port
 level: high
-ruletype: Sigma

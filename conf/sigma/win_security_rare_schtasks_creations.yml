@@ -14,16 +14,13 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The Advanced Audit Policy setting Object Access > Audit Other Object Access Events has to be configured to allow this detection (not in the baseline recommendations by Microsoft). We also recommend extracting the Command field from the embedded XML in the event data.
+    definition: 'The Advanced Audit Policy setting Object Access > Audit Other Object Access Events has to be configured to allow this detection (not in the baseline recommendations by Microsoft). We also recommend extracting the Command field from the embedded XML in the event data.'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4698
     timeframe: 7d
-    condition: (security and selection) | count() by TaskName < 5
+    condition: selection | count() by TaskName < 5
 falsepositives:
     - Software installation
     - Software updates
 level: low
-ruletype: Sigma

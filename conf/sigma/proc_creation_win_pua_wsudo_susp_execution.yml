@@ -11,28 +11,23 @@ tags:
     - attack.execution
     - attack.privilege_escalation
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_metadata:
-        - Image|endswith: \wsudo.exe
-        - OriginalFileName: wsudo.exe
-        - Description: Windows sudo utility
-        - ParentImage|endswith: \wsudo-bridge.exe
+        - Image|endswith: '\wsudo.exe'
+        - OriginalFileName: 'wsudo.exe'
+        - Description: 'Windows sudo utility'
+        - ParentImage|endswith: '\wsudo-bridge.exe'
     selection_cli:
         CommandLine|contains:
-            - -u System
-            - -uSystem
-            - -u TrustedInstaller
-            - -uTrustedInstaller
+            - '-u System'
+            - '-uSystem'
+            - '-u TrustedInstaller'
+            - '-uTrustedInstaller'
             - ' --ti '
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

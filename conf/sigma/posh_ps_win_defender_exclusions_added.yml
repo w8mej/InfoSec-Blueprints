@@ -20,11 +20,6 @@ logsource:
     product: windows
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_args_exc:
         ScriptBlockText|contains:
             - ' -ExclusionPath '
@@ -35,8 +30,7 @@ detection:
         ScriptBlockText|contains:
             - 'Add-MpPreference '
             - 'Set-MpPreference '
-    condition: ps_script and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

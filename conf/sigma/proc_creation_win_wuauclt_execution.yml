@@ -12,28 +12,23 @@ tags:
     - attack.defense_evasion
     - attack.t1105
     - attack.t1218
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \wuauclt.exe
-        - OriginalFileName: wuauclt.exe
+        - Image|endswith: '\wuauclt.exe'
+        - OriginalFileName: 'wuauclt.exe'
     selection_cli:
         CommandLine|contains|all:
-            - /UpdateDeploymentProvider
-            - /RunHandlerComServer
-            - .dll
+            - '/UpdateDeploymentProvider'
+            - '/RunHandlerComServer'
+            - '.dll'
     filter:
         CommandLine|contains:
             - ' /ClassId '
             - ' wuaueng.dll '
-    condition: process_creation and (all of selection* and not filter)
+    condition: all of selection* and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

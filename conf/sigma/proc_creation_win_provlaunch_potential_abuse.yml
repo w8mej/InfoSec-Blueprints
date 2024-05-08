@@ -17,39 +17,34 @@ date: 2023/08/08
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \provlaunch.exe
+        ParentImage|endswith: '\provlaunch.exe'
     filter_main_covered_children:
         # Note: this filter is here to avoid duplicate alerting by f9999590-1f94-4a34-a91e-951e47bedefd
         - Image|endswith:
-              - \calc.exe
-              - \cmd.exe
-              - \cscript.exe
-              - \mshta.exe
-              - \notepad.exe
-              - \powershell.exe
-              - \pwsh.exe
-              - \regsvr32.exe
-              - \rundll32.exe
-              - \wscript.exe
+              - '\calc.exe'
+              - '\cmd.exe'
+              - '\cscript.exe'
+              - '\mshta.exe'
+              - '\notepad.exe'
+              - '\powershell.exe'
+              - '\pwsh.exe'
+              - '\regsvr32.exe'
+              - '\rundll32.exe'
+              - '\wscript.exe'
         - Image|contains:
-              - :\PerfLogs\
-              - :\Temp\
-              - :\Users\Public\
-              - \AppData\Temp\
-              - \Windows\System32\Tasks\
-              - \Windows\Tasks\
-              - \Windows\Temp\
-    condition: process_creation and (selection and not 1 of filter_main_*)
+              - ':\PerfLogs\'
+              - ':\Temp\'
+              - ':\Users\Public\'
+              - '\AppData\Temp\'
+              - '\Windows\System32\Tasks\'
+              - '\Windows\Tasks\'
+              - '\Windows\Temp\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

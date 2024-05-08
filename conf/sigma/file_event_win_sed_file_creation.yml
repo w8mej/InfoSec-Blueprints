@@ -17,25 +17,20 @@ date: 2024/02/05
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains:
-            - :\ProgramData\
-            - :\Temp\
-            - :\Windows\System32\Tasks\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-        TargetFilename|endswith: .sed
-    condition: file_event and selection
+            - ':\ProgramData\'
+            - ':\Temp\'
+            - ':\Windows\System32\Tasks\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+        TargetFilename|endswith: '.sed'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -7,35 +7,27 @@ references:
     - https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/chcp
 author: _pete_0, TheDFIRReport
 date: 2022/02/21
-modified: 2024/02/16
+modified: 2024/03/05
 tags:
     - attack.discovery
     - attack.t1614.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \cmd.exe
-        ParentCommandLine|contains:
-            - ' /c '
+        ParentImage|endswith: '\cmd.exe'
+        ParentCommandLine|contains|windash:
             - ' -c '
-            - ' /r '
             - ' -r '
-            - ' /k '
             - ' -k '
-        Image|endswith: \chcp.com
+        Image|endswith: '\chcp.com'
         CommandLine|endswith:
-            - chcp
+            - 'chcp'
             - 'chcp '
             - 'chcp  '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - During Anaconda update the 'conda.exe' process will eventually execution the 'chcp' command.
     - Discord was seen using chcp to look up code pages
 level: medium
-ruletype: Sigma

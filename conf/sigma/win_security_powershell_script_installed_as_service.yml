@@ -18,15 +18,12 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
         ServiceFileName|contains:
-            - powershell
-            - pwsh
-    condition: security and selection
+            - 'powershell'
+            - 'pwsh'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

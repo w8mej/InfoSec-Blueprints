@@ -1,0 +1,18 @@
+title: windows本地执行Tasklist
+description: windows server 2016
+references: 
+      - https://github.com/redcanaryco/atomic-red-team/blob/910a2a764a66b0905065d8bdedb04b37049a85db/atomics/T1057/T1057.md
+tags: T1057
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4688 #进程创建
+        Newprocessname: 'C:\windows\system32\tasklist.exe' #进程信息>新进程名称
+        Creatorprocessname: 'C:\windows\system32\cmd.exe' #进程信息>创建者进程名称
+        Processcommandline: tasklist  #进程信息>进程命令行
+    condition: selection
+level: low

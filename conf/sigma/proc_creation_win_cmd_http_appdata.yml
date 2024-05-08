@@ -14,25 +14,20 @@ tags:
     - attack.t1059.003
     - attack.t1059.001
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         CommandLine|contains|all:
-            - http   # captures both http and https
-            - ://
+            - 'http' # captures both http and https
+            - '://'
             - '%AppData%'
-    condition: process_creation and selection
+    condition: selection
 fields:
     - CommandLine
     - ParentCommandLine
 falsepositives:
     - High
 level: medium
-ruletype: Sigma

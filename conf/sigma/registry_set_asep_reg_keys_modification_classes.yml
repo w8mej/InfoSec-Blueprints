@@ -15,45 +15,41 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_classes_base:
-        TargetObject|contains: \Software\Classes
+        TargetObject|contains: '\Software\Classes'
     selection_classes_target:
         TargetObject|contains:
-            - \Folder\ShellEx\ExtShellFolderViews
-            - \Folder\ShellEx\DragDropHandlers
-            - \Folder\Shellex\ColumnHandlers
-            - \Filter
-            - \Exefile\Shell\Open\Command\(Default)
-            - \Directory\Shellex\DragDropHandlers
-            - \Directory\Shellex\CopyHookHandlers
-            - \CLSID\{AC757296-3522-4E11-9862-C17BE5A1767E}\Instance
-            - \CLSID\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\Instance
-            - \CLSID\{7ED96837-96F0-4812-B211-F13C24117ED3}\Instance
-            - \CLSID\{083863F1-70DE-11d0-BD40-00A0C911CE86}\Instance
-            - \Classes\AllFileSystemObjects\ShellEx\DragDropHandlers
-            - \.exe
-            - \.cmd
-            - \ShellEx\PropertySheetHandlers
-            - \ShellEx\ContextMenuHandlers
+            - '\Folder\ShellEx\ExtShellFolderViews'
+            - '\Folder\ShellEx\DragDropHandlers'
+            - '\Folder\Shellex\ColumnHandlers'
+            - '\Filter'
+            - '\Exefile\Shell\Open\Command\(Default)'
+            - '\Directory\Shellex\DragDropHandlers'
+            - '\Directory\Shellex\CopyHookHandlers'
+            - '\CLSID\{AC757296-3522-4E11-9862-C17BE5A1767E}\Instance'
+            - '\CLSID\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\Instance'
+            - '\CLSID\{7ED96837-96F0-4812-B211-F13C24117ED3}\Instance'
+            - '\CLSID\{083863F1-70DE-11d0-BD40-00A0C911CE86}\Instance'
+            - '\Classes\AllFileSystemObjects\ShellEx\DragDropHandlers'
+            - '\.exe'
+            - '\.cmd'
+            - '\ShellEx\PropertySheetHandlers'
+            - '\ShellEx\ContextMenuHandlers'
     filter_empty:
-        Details: (Empty)
+        Details: '(Empty)'
     filter_msoffice:
         Details: '{807583E5-5146-11D5-A672-00B0D022E945}'
     filter_drivers:
-        Image: C:\Windows\System32\drvinst.exe
+        Image: 'C:\Windows\System32\drvinst.exe'
     filter_svchost:
-        Image: C:\Windows\System32\svchost.exe
+        Image: 'C:\Windows\System32\svchost.exe'
         # If more targets are found from "svchost". Please exclude the whole image
-        TargetObject|contains: \lnkfile\shellex\ContextMenuHandlers\
-    condition: registry_set and (all of selection_* and not 1 of filter_*)
+        TargetObject|contains: '\lnkfile\shellex\ContextMenuHandlers\'
+    condition: all of selection_* and not 1 of filter_*
 fields:
     - SecurityID
     - ObjectName
@@ -63,4 +59,3 @@ falsepositives:
     - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason
     - Legitimate administrator sets up autorun keys for legitimate reason
 level: medium
-ruletype: Sigma

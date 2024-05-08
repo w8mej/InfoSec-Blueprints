@@ -12,24 +12,19 @@ tags:
     - attack.persistence
     - attack.t1547.001
     - cve.2022.30190
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \msdt.exe
+        Image|endswith: '\msdt.exe'
         TargetFilename|contains:
-            - \Desktop\
-            - \Start Menu\Programs\Startup\
-            - C:\PerfLogs\
-            - C:\ProgramData\
-            - C:\Users\Public\
-    condition: file_event and selection
+            - '\Desktop\'
+            - '\Start Menu\Programs\Startup\'
+            - 'C:\PerfLogs\'
+            - 'C:\ProgramData\'
+            - 'C:\Users\Public\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

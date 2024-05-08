@@ -12,27 +12,22 @@ tags:
     - attack.t1615
     - attack.t1569.002
     - attack.t1574.005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \SharpUp.exe
-        - Description: SharpUp
+        - Image|endswith: '\SharpUp.exe'
+        - Description: 'SharpUp'
         - CommandLine|contains:
-              - HijackablePaths
-              - UnquotedServicePath
-              - ProcessDLLHijack
-              - ModifiableServiceBinaries
-              - ModifiableScheduledTask
-              - DomainGPPPassword
-              - CachedGPPPassword
-    condition: process_creation and selection
+              - 'HijackablePaths'
+              - 'UnquotedServicePath'
+              - 'ProcessDLLHijack'
+              - 'ModifiableServiceBinaries'
+              - 'ModifiableScheduledTask'
+              - 'DomainGPPPassword'
+              - 'CachedGPPPassword'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

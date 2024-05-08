@@ -10,22 +10,18 @@ modified: 2024/01/31
 tags:
     - attack.defense_evasion
     - attack.command_and_control
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
         Image|endswith:
-            - \excel.exe
-            - \outlook.exe
-            - \powerpnt.exe
-            - \winword.exe
-            - \wordview.exe
+            - '\excel.exe'
+            - '\outlook.exe'
+            - '\powerpnt.exe'
+            - '\winword.exe'
+            - '\wordview.exe'
     filter_main_common_ports:
         DestinationPort:
             - 53 # DNS
@@ -34,15 +30,14 @@ detection:
             - 443 # HTTPS
             - 445 # SMB
     filter_main_outlook_ports:
-        Image|contains: :\Program Files\Microsoft Office\
-        Image|endswith: \OUTLOOK.EXE
+        Image|contains: ':\Program Files\Microsoft Office\'
+        Image|endswith: '\OUTLOOK.EXE'
         DestinationPort:
             - 465 # SMTP
             - 587 # SMTP
             - 993 # IMAP
             - 995 # POP3
-    condition: network_connection and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Other ports can be used, apply additional filters accordingly
 level: medium
-ruletype: Sigma

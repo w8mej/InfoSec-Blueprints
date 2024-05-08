@@ -18,20 +18,15 @@ modified: 2023/05/09
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - Invoke-ATHRemoteFXvGPUDisablementCommand
-            - Invoke-ATHRemoteFXvGPUDisableme
-    condition: process_creation and selection
+            - 'Invoke-ATHRemoteFXvGPUDisablementCommand'
+            - 'Invoke-ATHRemoteFXvGPUDisableme'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

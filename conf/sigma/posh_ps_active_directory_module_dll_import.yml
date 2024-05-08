@@ -22,19 +22,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enable'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_generic:
         ScriptBlockText|contains|all:
             - 'Import-Module '
-            - Microsoft.ActiveDirectory.Management.dll
+            - 'Microsoft.ActiveDirectory.Management.dll'
     selection_specific:
-        ScriptBlockText|contains: ipmo Microsoft.ActiveDirectory.Management.dll
-    condition: ps_script and (1 of selection_*)
+        ScriptBlockText|contains: 'ipmo Microsoft.ActiveDirectory.Management.dll'
+    condition: 1 of selection_*
 falsepositives:
     - Legitimate use of the library for administrative activity
 level: medium
-ruletype: Sigma

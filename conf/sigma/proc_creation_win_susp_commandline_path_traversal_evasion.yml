@@ -11,29 +11,24 @@ modified: 2023/03/29
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
-        Image|contains: \Windows\
+        Image|contains: '\Windows\'
         CommandLine|contains:
-            - \..\Windows\
-            - \..\System32\
-            - \..\..\
+            - '\..\Windows\'
+            - '\..\System32\'
+            - '\..\..\'
     selection_2:
-        CommandLine|contains: .exe\..\
+        CommandLine|contains: '.exe\..\'
     filter_optional_google_drive:
-        CommandLine|contains: \Google\Drive\googledrivesync.exe\..\
+        CommandLine|contains: '\Google\Drive\googledrivesync.exe\..\'
     filter_optional_citrix:
-        CommandLine|contains: \Citrix\Virtual Smart Card\Citrix.Authentication.VirtualSmartcard.Launcher.exe\..\
-    condition: process_creation and (1 of selection_* and not 1 of filter_optional_*)
+        CommandLine|contains: '\Citrix\Virtual Smart Card\Citrix.Authentication.VirtualSmartcard.Launcher.exe\..\'
+    condition: 1 of selection_* and not 1 of filter_optional_*
 falsepositives:
     - Google Drive
     - Citrix
 level: medium
-ruletype: Sigma

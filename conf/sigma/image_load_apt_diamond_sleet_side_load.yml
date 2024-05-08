@@ -10,22 +10,17 @@ tags:
     - attack.defense_evasion
     - attack.t1574.002
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
-        Image|endswith: :\ProgramData\clip.exe
-        ImageLoaded|endswith: :\ProgramData\Version.dll
+        Image|endswith: ':\ProgramData\clip.exe'
+        ImageLoaded|endswith: ':\ProgramData\Version.dll'
     selection_2:
-        Image|endswith: :\ProgramData\wsmprovhost.exe
-        ImageLoaded|endswith: :\ProgramData\DSROLE.dll
-    condition: image_load and (1 of selection_*)
+        Image|endswith: ':\ProgramData\wsmprovhost.exe'
+        ImageLoaded|endswith: ':\ProgramData\DSROLE.dll'
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

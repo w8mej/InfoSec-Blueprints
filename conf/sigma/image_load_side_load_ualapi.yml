@@ -12,21 +12,16 @@ tags:
     - attack.defense_evasion
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \fxssvc.exe
-        ImageLoaded|endswith: ualapi.dll
+        Image|endswith: '\fxssvc.exe'
+        ImageLoaded|endswith: 'ualapi.dll'
     filter:
-        ImageLoaded|startswith: C:\Windows\WinSxS\
-    condition: image_load and (selection and not filter)
+        ImageLoaded|startswith: 'C:\Windows\WinSxS\'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

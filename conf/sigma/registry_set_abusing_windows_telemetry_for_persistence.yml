@@ -2,9 +2,9 @@ title: Abusing Windows Telemetry For Persistence - Registry
 id: 4e8d5fd3-c959-441f-a941-f73d0cdcdca5
 status: deprecated
 description: |
-    Windows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections.
-    This binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run.
-    The problem is, it will run any arbitrary command without restriction of location or type.
+  Windows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections.
+  This binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run.
+  The problem is, it will run any arbitrary command without restriction of location or type.
 references:
     - https://www.trustedsec.com/blog/abusing-windows-telemetry-for-persistence/
 author: Sreeman
@@ -15,31 +15,27 @@ tags:
     - attack.persistence
     - attack.t1112
     - attack.t1053
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\
+        TargetObject|contains: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\'
         Details|endswith:
-            - .sh
-            - .exe
-            - .dll
-            - .bin
-            - .bat
-            - .cmd
-            - .js
-            - .ps
-            - .vb
-            - .jar
-            - .hta
-            - .msi
-            - .vbs
-    condition: registry_set and selection
+            - '.sh'
+            - '.exe'
+            - '.dll'
+            - '.bin'
+            - '.bat'
+            - '.cmd'
+            - '.js'
+            - '.ps'
+            - '.vb'
+            - '.jar'
+            - '.hta'
+            - '.msi'
+            - '.vbs'
+    condition: selection
 fields:
     - EventID
     - CommandLine
@@ -48,4 +44,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

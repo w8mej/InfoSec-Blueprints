@@ -15,27 +15,24 @@ logsource:
     product: windows
     service: firewall-as
 detection:
-    firewall_as:
-        Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     selection:
         EventID:
             - 2005 # A rule has been modified in the Windows Defender Firewall exception list (Windows 10)
             - 2073 # A rule has been modified in the Windows Defender Firewall exception list. (Windows 11)
     filter_optional_teams:
-        ApplicationPath|endswith: \AppData\local\microsoft\teams\current\teams.exe
+        ApplicationPath|endswith: '\AppData\local\microsoft\teams\current\teams.exe'
     filter_optional_keybase:
-        ApplicationPath|endswith: \AppData\Local\Keybase\keybase.exe
+        ApplicationPath|endswith: '\AppData\Local\Keybase\keybase.exe'
     filter_optional_messenger:
-        ApplicationPath|endswith: \AppData\Local\Programs\Messenger\Messenger.exe
+        ApplicationPath|endswith: '\AppData\Local\Programs\Messenger\Messenger.exe'
     filter_optional_opera:
         ApplicationPath|contains|all:
-            - :\Users\
-            - \AppData\Local\Programs\Opera\
-            - \opera.exe
+            - ':\Users\'
+            - '\AppData\Local\Programs\Opera\'
+            - '\opera.exe'
     filter_optional_brave:
         ApplicationPath|contains|all:
-            - :\Users\
-            - \AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe
-    condition: firewall_as and (selection and not 1 of filter_optional_*)
+            - ':\Users\'
+            - '\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe'
+    condition: selection and not 1 of filter_optional_*
 level: low
-ruletype: Sigma

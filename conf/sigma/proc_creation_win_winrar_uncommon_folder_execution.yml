@@ -10,31 +10,26 @@ modified: 2023/08/31
 tags:
     - attack.collection
     - attack.t1560.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Image|endswith:
-              - \rar.exe
-              - \winrar.exe
-        - Description: Command line RAR
+              - '\rar.exe'
+              - '\winrar.exe'
+        - Description: 'Command line RAR'
     filter_main_unrar:
         # Note: we filter unrar as it has the same description as the other utilities, and we're only interested in compression
-        Image|endswith: \UnRAR.exe
+        Image|endswith: '\UnRAR.exe'
     filter_main_path:
         Image|contains:
-            - :\Program Files (x86)\WinRAR\
-            - :\Program Files\WinRAR\
+            - ':\Program Files (x86)\WinRAR\'
+            - ':\Program Files\WinRAR\'
     filter_optional_temp:
         # Note: in some occasion installers were seen dropping "rar" in TEMP
-        Image|contains: :\Windows\Temp\
-    condition: process_creation and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        Image|contains: ':\Windows\Temp\'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate use of WinRAR in a folder of a software that bundles WinRAR
 level: medium
-ruletype: Sigma

@@ -15,37 +15,33 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     ie:
         TargetObject|contains:
-            - \Software\Wow6432Node\Microsoft\Internet Explorer
-            - \Software\Microsoft\Internet Explorer
+            - '\Software\Wow6432Node\Microsoft\Internet Explorer'
+            - '\Software\Microsoft\Internet Explorer'
     ie_details:
         TargetObject|contains:
-            - \Toolbar
-            - \Extensions
-            - \Explorer Bars
+            - '\Toolbar'
+            - '\Extensions'
+            - '\Explorer Bars'
     filter_empty:
-        Details: (Empty)
+        Details: '(Empty)'
     filter_extensions:
         TargetObject|contains:
-            - \Extensions\{2670000A-7350-4f3c-8081-5663EE0C6C49}
-            - \Extensions\{31D09BA0-12F5-4CCE-BE8A-2923E76605DA}
-            - \Extensions\{789FE86F-6FC4-46A1-9849-EDE0DB0C95CA}
-            - \Extensions\{A95fe080-8f5d-11d2-a20b-00aa003c157a}
+            - '\Extensions\{2670000A-7350-4f3c-8081-5663EE0C6C49}'
+            - '\Extensions\{31D09BA0-12F5-4CCE-BE8A-2923E76605DA}'
+            - '\Extensions\{789FE86F-6FC4-46A1-9849-EDE0DB0C95CA}'
+            - '\Extensions\{A95fe080-8f5d-11d2-a20b-00aa003c157a}'
     filter_toolbar:
         TargetObject|endswith:
-            - \Toolbar\ShellBrowser\ITBar7Layout
-            - \Toolbar\ShowDiscussionButton
-            - \Toolbar\Locked
-    condition: registry_set and (ie and ie_details and not 1 of filter_*)
+            - '\Toolbar\ShellBrowser\ITBar7Layout'
+            - '\Toolbar\ShowDiscussionButton'
+            - '\Toolbar\Locked'
+    condition: ie and ie_details and not 1 of filter_*
 fields:
     - SecurityID
     - ObjectName
@@ -55,4 +51,3 @@ falsepositives:
     - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reason
     - Legitimate administrator sets up autorun keys for legitimate reason
 level: medium
-ruletype: Sigma

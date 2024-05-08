@@ -9,17 +9,13 @@ author: frack113
 date: 2023/07/20
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     service: sysmon
 detection:
-    sysmon:
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventID: 29  # this is fine, we want to match any FileExecutableDetected event
-    condition: sysmon and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

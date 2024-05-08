@@ -14,22 +14,17 @@ tags:
     - attack.execution
     - attack.t1059.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         SourceImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
     filter_main_compattelrunner:
-        SourceParentImage|endswith: :\Windows\System32\CompatTelRunner.exe
-    condition: create_remote_thread and (selection and not 1 of filter_main_*)
+        SourceParentImage|endswith: ':\Windows\System32\CompatTelRunner.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -19,22 +19,16 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
             - 'Get-ADComputer '
             - ' -Filter \*'
         ScriptBlockText|contains:
             - ' | Select '
-            - Out-File
-            - Set-Content
-            - Add-Content
-    condition: ps_script and selection
+            - 'Out-File'
+            - 'Set-Content'
+            - 'Add-Content'
+    condition: selection
 falsepositives:
     - Legitimate admin scripts may use the same technique, it's better to exclude specific computers or users who execute these commands or scripts often
 level: medium
-ruletype: Sigma

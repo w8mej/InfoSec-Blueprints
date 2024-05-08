@@ -14,32 +14,27 @@ date: 2023/02/13
 tags:
     - attack.defense_evasion
     - attack.t1218.009
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \Regsvcs.exe
-              - \Regasm.exe
+              - '\Regsvcs.exe'
+              - '\Regasm.exe'
         - OriginalFileName:
-              - RegSvcs.exe
-              - RegAsm.exe
+              - 'RegSvcs.exe'
+              - 'RegAsm.exe'
     selection_extension:
         CommandLine|contains:
             # Note: Add more potentially uncommon extensions
-            - .dat
-            - .gif
-            - .jpeg
-            - .jpg
-            - .png
-            - .txt
-    condition: process_creation and (all of selection_*)
+            - '.dat'
+            - '.gif'
+            - '.jpeg'
+            - '.jpg'
+            - '.png'
+            - '.txt'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

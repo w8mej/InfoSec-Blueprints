@@ -15,19 +15,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_compspec:
         ScriptBlockText|contains|all:
-            - Start-Process
+            - 'Start-Process'
             - '-FilePath "$env:comspec" '
             - '-ArgumentList '
             - '>'
-    condition: ps_script and selection_compspec
+    condition: selection_compspec
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

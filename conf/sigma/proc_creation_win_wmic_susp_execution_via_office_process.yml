@@ -25,45 +25,40 @@ tags:
     - attack.t1218.010
     - attack.execution
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
         ParentImage|endswith:
-            - \WINWORD.EXE
-            - \EXCEL.EXE
-            - \POWERPNT.exe
-            - \MSPUB.exe
-            - \VISIO.exe
-            - \MSACCESS.EXE
-            - \EQNEDT32.EXE
-            - \ONENOTE.EXE
-            - \wordpad.exe
-            - \wordview.exe
+            - '\WINWORD.EXE'
+            - '\EXCEL.EXE'
+            - '\POWERPNT.exe'
+            - '\MSPUB.exe'
+            - '\VISIO.exe'
+            - '\MSACCESS.EXE'
+            - '\EQNEDT32.EXE'
+            - '\ONENOTE.EXE'
+            - '\wordpad.exe'
+            - '\wordview.exe'
     selection_wmic_img:
-        - Image|endswith: \wbem\WMIC.exe
-        - OriginalFileName: wmic.exe
+        - Image|endswith: '\wbem\WMIC.exe'
+        - OriginalFileName: 'wmic.exe'
     selection_wmic_cli:
         CommandLine|contains|all:
-            - process
-            - create
-            - call
+            - 'process'
+            - 'create'
+            - 'call'
         CommandLine|contains:
             # Add more suspicious LOLBINs as you see fit
-            - regsvr32
-            - rundll32
-            - msiexec
-            - mshta
-            - verclsid
-            - wscript
-            - cscript
-    condition: process_creation and (all of selection_*)
+            - 'regsvr32'
+            - 'rundll32'
+            - 'msiexec'
+            - 'mshta'
+            - 'verclsid'
+            - 'wscript'
+            - 'cscript'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

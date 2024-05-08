@@ -19,15 +19,11 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection:
         Data|contains:
             - 'powercat '
-            - powercat.ps1
-    condition: ps_classic_start and selection
+            - 'powercat.ps1'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

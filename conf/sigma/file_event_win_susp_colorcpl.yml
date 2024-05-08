@@ -10,24 +10,19 @@ modified: 2023/01/05
 tags:
     - attack.defense_evasion
     - attack.t1564
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \colorcpl.exe
+        Image|endswith: '\colorcpl.exe'
     filter_ext:
         TargetFilename|endswith:
-            - .icm
-            - .gmmp
-            - .cdmp
-            - .camp
-    condition: file_event and (selection and not 1 of filter_*)
+            - '.icm'
+            - '.gmmp'
+            - '.cdmp'
+            - '.camp'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

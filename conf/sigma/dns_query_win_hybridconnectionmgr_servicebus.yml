@@ -10,19 +10,14 @@ modified: 2023/01/16
 tags:
     - attack.persistence
     - attack.t1554
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        QueryName|contains: servicebus.windows.net
-        Image|contains: HybridConnectionManager
-    condition: dns_query and selection
+        QueryName|contains: 'servicebus.windows.net'
+        Image|contains: 'HybridConnectionManager'
+    condition: selection
 falsepositives:
     - Legitimate use of Azure Hybrid Connection Manager and the Azure Service Bus service
 level: high
-ruletype: Sigma

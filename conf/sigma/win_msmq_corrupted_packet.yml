@@ -13,14 +13,11 @@ logsource:
     product: windows
     service: application
 detection:
-    application:
-        Channel: Application
     selection:
-        Provider_Name: MSMQ
+        Provider_Name: 'MSMQ'
         EventID: 2027
         Level: 2
-    condition: application and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

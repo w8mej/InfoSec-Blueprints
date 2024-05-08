@@ -15,27 +15,24 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_eid:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID:
             - 7045
             - 7036
     selection_service_name:
         ServiceName|contains:
-            - cachedump
-            - DumpSvc
-            - gsecdump
-            - pwdump
-            - UACBypassedService
-            - WCE SERVICE
-            - WCESERVICE
-            - winexesvc
+            - 'cachedump'
+            - 'DumpSvc'
+            - 'gsecdump'
+            - 'pwdump'
+            - 'UACBypassedService'
+            - 'WCE SERVICE'
+            - 'WCESERVICE'
+            - 'winexesvc'
     selection_service_image:
-        ImagePath|contains: bypass   # https://gist.github.com/tyranid/c24cfd1bd141d14d4925043ee7e03c82#file-scmuacbypass-cpp-L159
-    condition: system and (selection_eid and 1 of selection_service_*)
+        ImagePath|contains: 'bypass' # https://gist.github.com/tyranid/c24cfd1bd141d14d4925043ee7e03c82#file-scmuacbypass-cpp-L159
+    condition: selection_eid and 1 of selection_service_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

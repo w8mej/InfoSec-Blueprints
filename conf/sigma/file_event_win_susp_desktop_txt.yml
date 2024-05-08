@@ -9,22 +9,17 @@ date: 2021/12/26
 tags:
     - attack.impact
     - attack.t1486
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         TargetFilename|contains|all:
-            - \Users\
-            - \Desktop\
-        TargetFilename|endswith: .txt
-    condition: file_event and selection
+            - '\Users\'
+            - '\Desktop\'
+        TargetFilename|endswith: '.txt'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -17,29 +17,24 @@ date: 2024/01/17
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
     # VT Query: behavior:"mode con cp select=1251"
     # VT Query: behavior:"mode con cp select=866"
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \mode.com
-        - OriginalFileName: MODE.COM
+        - Image|endswith: '\mode.com'
+        - OriginalFileName: 'MODE.COM'
     selection_cli:
         CommandLine|contains|all:
             - ' con '
             - ' cp '
             - ' select='
         CommandLine|endswith:
-            - =1251   # ANSI Cyrillic; Cyrillic (Windows) - Observed ITW by Dharma ransomware
-            - =866   # OEM Russian; Cyrillic (DOS) - Observed ITW by other malware
-    condition: process_creation and (all of selection_*)
+            - '=1251' # ANSI Cyrillic; Cyrillic (Windows) - Observed ITW by Dharma ransomware
+            - '=866' # OEM Russian; Cyrillic (DOS) - Observed ITW by other malware
+    condition: all of selection_*
 falsepositives:
     - Russian speaking people changing the CodePage
 level: medium
-ruletype: Sigma

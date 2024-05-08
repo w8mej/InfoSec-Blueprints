@@ -9,21 +9,16 @@ date: 2022/06/16
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - OriginalFileName: OpenConsole.exe
-        - Image|endswith: \OpenConsole.exe
+        - OriginalFileName: 'OpenConsole.exe'
+        - Image|endswith: '\OpenConsole.exe'
     filter:
-        Image|startswith: C:\Program Files\WindowsApps\Microsoft.WindowsTerminal   # We exclude the default path for WindowsTerminal
-    condition: process_creation and (selection and not filter)
+        Image|startswith: 'C:\Program Files\WindowsApps\Microsoft.WindowsTerminal' # We exclude the default path for WindowsTerminal
+    condition: selection and not filter
 falsepositives:
     - Legitimate use by an administrator
 level: medium
-ruletype: Sigma

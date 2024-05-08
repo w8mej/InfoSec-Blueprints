@@ -16,20 +16,15 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - attack.t1055
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \notepad.exe
+        Image|endswith: '\notepad.exe'
     filter_optional_printing:
         DestinationPort: 9100
-    condition: network_connection and (selection and not 1 of filter_optional_*)
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - Printing documents via notepad might cause communication with the printer via port 9100 or similar.
 level: high
-ruletype: Sigma

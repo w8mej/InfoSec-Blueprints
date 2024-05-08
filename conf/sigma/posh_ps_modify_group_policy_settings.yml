@@ -18,11 +18,6 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_path:
         ScriptBlockText|contains: \SOFTWARE\Policies\Microsoft\Windows\System
     selection_key:
@@ -33,8 +28,7 @@ detection:
             - GroupPolicyRefreshTimeOffset
             - EnableSmartScreen
             - ShellSmartScreenLevel
-    condition: ps_script and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

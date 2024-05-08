@@ -14,21 +14,16 @@ modified: 2022/10/07
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \Microsoft\Windows\Start Menu\Programs\StartUp
+        TargetFilename|contains: '\Microsoft\Windows\Start Menu\Programs\StartUp'
     filter_update:
-        - Image: C:\Windows\System32\wuauclt.exe
-        - TargetFilename|startswith: C:\$WINDOWS.~BT\NewOS\
-    condition: file_event and (selection and not filter_update)
+        - Image: 'C:\Windows\System32\wuauclt.exe'
+        - TargetFilename|startswith: 'C:\$WINDOWS.~BT\NewOS\'
+    condition: selection and not filter_update
 falsepositives:
     - FP could be caused by legitimate application writing shortcuts for example. This folder should always be inspected to make sure that all the files in there are legitimate
 level: medium
-ruletype: Sigma

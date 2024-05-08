@@ -15,21 +15,16 @@ tags:
     - attack.exfiltration
     - attack.t1560
     - attack.t1560.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \tar.exe
-        - OriginalFileName: bsdtar
+        - Image|endswith: '\tar.exe'
+        - OriginalFileName: 'bsdtar'
     selection_extract:
-        CommandLine|contains: -x
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: '-x'
+    condition: all of selection_*
 falsepositives:
     - Likely
 level: low
-ruletype: Sigma

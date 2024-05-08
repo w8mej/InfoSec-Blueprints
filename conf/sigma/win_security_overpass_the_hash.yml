@@ -15,15 +15,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
         LogonType: 9
         LogonProcessName: seclogo
         AuthenticationPackageName: Negotiate
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Runas command-line tool using /netonly parameter
 level: high
-ruletype: Sigma

@@ -13,31 +13,26 @@ modified: 2023/09/12
 tags:
     - attack.collection
     - attack.t1560.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Description|contains: 7-Zip
+        - Description|contains: '7-Zip'
         - Image|endswith:
-              - \7z.exe
-              - \7zr.exe
-              - \7za.exe
+              - '\7z.exe'
+              - '\7zr.exe'
+              - '\7za.exe'
         - OriginalFileName:
-              - 7z.exe
-              - 7za.exe
+              - '7z.exe'
+              - '7za.exe'
     selection_extension:
         CommandLine|contains:
-            - .dmp
-            - .dump
-            - .hdmp
-    condition: process_creation and (all of selection_*)
+            - '.dmp'
+            - '.dump'
+            - '.hdmp'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of 7z with a command line in which ".dmp" or ".dump" appears accidentally
     - Legitimate use of 7z to compress WER ".dmp" files for troubleshooting
 level: medium
-ruletype: Sigma

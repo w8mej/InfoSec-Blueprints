@@ -1,0 +1,17 @@
+title: 检测本地枚举用户组行为
+description: windows server 2016
+references:
+tags: T1069
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+          - 4798 #已枚举用户的本地组成员身份。测试命令：net user
+          - 4799 #已枚举启用了安全机制的本地组成员身份。 测试命令：net localgroup administrators
+        Processname: 'C:\Windows\System32\net1.exe' #进程信息：进程名称
+    condition: selection
+level: medium

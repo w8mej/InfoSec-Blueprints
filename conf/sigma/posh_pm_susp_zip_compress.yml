@@ -25,18 +25,12 @@ logsource:
     category: ps_module
     definition: 0ad03ef1-f21b-4a79-8ce8-e6900c54b65b
 detection:
-    ps_module:
-        EventID: 4103
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ContextInfo|contains|all:
-            - Compress-Archive -Path*-DestinationPath $env:TEMP
-            - Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\
-            - Compress-Archive -Path*-DestinationPath*:\Windows\Temp\
-    condition: ps_module and selection
+            - 'Compress-Archive -Path*-DestinationPath $env:TEMP'
+            - 'Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\'
+            - 'Compress-Archive -Path*-DestinationPath*:\Windows\Temp\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,18 +14,13 @@ modified: 2023/05/09
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: dumpert.dmp
-    condition: file_event and selection
+        TargetFilename|endswith: 'dumpert.dmp'
+    condition: selection
 falsepositives:
     - Very unlikely
 level: critical
-ruletype: Sigma

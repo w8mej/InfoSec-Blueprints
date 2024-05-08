@@ -12,10 +12,6 @@ logsource:
     product: windows
     service: powershell
 detection:
-    powershell:
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_encoded:
         - ' -enc '
         - ' -EncodedCommand '
@@ -26,8 +22,7 @@ detection:
     selection_noninteractive:
         - ' -noni '
         - ' -noninteractive '
-    condition: powershell and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Very special / sneaky PowerShell scripts
 level: high
-ruletype: Sigma

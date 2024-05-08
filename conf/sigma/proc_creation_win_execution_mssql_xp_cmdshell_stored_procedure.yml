@@ -15,21 +15,16 @@ modified: 2023/03/06
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: Cmd.Exe
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'Cmd.Exe'
     selection_parent:
-        ParentImage|endswith: \sqlservr.exe
-    condition: process_creation and (all of selection_*)
+        ParentImage|endswith: '\sqlservr.exe'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

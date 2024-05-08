@@ -8,29 +8,24 @@ author: X__Junior (Nextron Systems)
 date: 2023/09/11
 tags:
     - attack.execution
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         Image|endswith:
-            - \brave.exe
-            - \chrome.exe
-            - \msedge.exe
-            - \opera.exe
-            - \vivaldi.exe
+            - '\brave.exe'
+            - '\chrome.exe'
+            - '\msedge.exe'
+            - '\opera.exe'
+            - '\vivaldi.exe'
     selection_headless:
-        CommandLine|contains: --headless
+        CommandLine|contains: '--headless'
     selection_url:
         CommandLine|contains:
-            - ://run.mocky
-            - ://mockbin
-    condition: process_creation and (all of selection_*)
+            - '://run.mocky'
+            - '://mockbin'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

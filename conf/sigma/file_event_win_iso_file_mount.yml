@@ -11,23 +11,19 @@ date: 2022/07/30
 tags:
     - attack.initial_access
     - attack.t1566.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         TargetFilename|contains|all:
-            - \AppData\Local\Temp\
-            - .zip\
-        TargetFilename|endswith: .iso
+            - '\AppData\Local\Temp\'
+            - '.zip\'
+        TargetFilename|endswith: '.iso'
     selection_2:
-        TargetFilename|contains: \AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\
-        TargetFilename|endswith: .iso
-    condition: file_event and (1 of selection*)
+        TargetFilename|contains: '\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\'
+        TargetFilename|endswith: '.iso'
+    condition: 1 of selection*
 fields:
     - Image
     - ComputerName
@@ -35,4 +31,3 @@ fields:
 falsepositives:
     - Potential FP by sysadmin opening a zip file containing a legitimate ISO file
 level: high
-ruletype: Sigma

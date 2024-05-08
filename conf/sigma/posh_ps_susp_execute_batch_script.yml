@@ -19,19 +19,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_start:
         ScriptBlockText|contains: Start-Process
     selection_batch:
         ScriptBlockText|contains:
-            - .cmd
-            - .bat
-    condition: ps_script and (all of selection_*)
+            - '.cmd'
+            - '.bat'
+    condition: all of selection_*
 falsepositives:
     - Legitimate administration script
 level: medium
-ruletype: Sigma

@@ -16,17 +16,13 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - CL_Invocation.ps1
-            - SyncInvoke
-    condition: (ps_script and selection) | count(ScriptBlockText) by Computer > 2
+            - 'CL_Invocation.ps1'
+            - 'SyncInvoke'
+    condition: selection | count(ScriptBlockText) by Computer > 2
+    # PS > Import-Module c:\Windows\diagnostics\system\Audio\CL_Invocation.ps1
+    # PS > SyncInvoke c:\Evil.exe
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

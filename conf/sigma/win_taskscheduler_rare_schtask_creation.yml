@@ -14,15 +14,12 @@ logsource:
     service: taskscheduler
     definition: the "Microsoft-Windows-TaskScheduler/Operational" is disabled by default and should be enabled in order for this detection to work
 detection:
-    taskscheduler:
-        Channel: Microsoft-Windows-TaskScheduler/Operational
     selection:
         EventID: 106
     filter1:
         TaskName: \Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan
     timeframe: 7d
-    condition: (taskscheduler and selection and not 1 of filter*) | count() by TaskName < 5
+    condition: selection and not 1 of filter* | count() by TaskName < 5
 falsepositives:
     - Software installation
 level: low
-ruletype: Sigma

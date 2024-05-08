@@ -18,15 +18,12 @@ logsource:
     service: security
     definition: 'Requirements: Identifiable administrators usernames (pattern or special unique character. ex: "Admin-*"), internal policy mandating use only as secondary account'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
         LogonType: 10
         AuthenticationPackageName: Negotiate
-        TargetUserName|startswith: Admin
-    condition: security and selection
+        TargetUserName|startswith: 'Admin'
+    condition: selection
 falsepositives:
     - Legitimate administrative activity.
 level: low
-ruletype: Sigma

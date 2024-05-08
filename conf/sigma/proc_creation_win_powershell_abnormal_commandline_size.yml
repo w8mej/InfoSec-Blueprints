@@ -11,27 +11,22 @@ tags:
     - attack.execution
     - attack.t1059.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_powershell:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
-        - Description: Windows Powershell
-        - Product: PowerShell Core 6
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
+        - Description: 'Windows Powershell'
+        - Product: 'PowerShell Core 6'
     selection_length:
-        CommandLine|re: .{1000,}
-    condition: process_creation and (all of selection_*)
+        CommandLine|re: '.{1000,}'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

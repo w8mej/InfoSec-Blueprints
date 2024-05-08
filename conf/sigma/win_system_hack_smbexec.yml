@@ -18,19 +18,16 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection_eid:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     selection_service_name:
-        ServiceName: BTOBTO
+        ServiceName: 'BTOBTO'
     selection_service_image:
         ImagePath|contains:
             - '.bat & del '
-            - __output 2^>^&1 >
-    condition: system and (selection_eid and 1 of selection_service_*)
+            - '__output 2^>^&1 >'
+    condition: selection_eid and 1 of selection_service_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

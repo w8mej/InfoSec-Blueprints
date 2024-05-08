@@ -14,29 +14,24 @@ tags:
     - attack.t1218.010
     - attack.execution
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
     #useful_information: Add more office applications to the rule logic of choice
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
-        - Image|endswith: \wbem\WMIC.exe
+        - Image|endswith: '\wbem\WMIC.exe'
         - CommandLine|contains: 'wmic '
     selection2:
         ParentImage|endswith:
-            - \winword.exe
-            - \excel.exe
-            - \powerpnt.exe
-            - \msaccess.exe
-            - \mspub.exe
-            - \eqnedt32.exe
-            - \visio.exe
-    condition: process_creation and (all of selection*)
+            - '\winword.exe'
+            - '\excel.exe'
+            - '\powerpnt.exe'
+            - '\msaccess.exe'
+            - '\mspub.exe'
+            - '\eqnedt32.exe'
+            - '\visio.exe'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

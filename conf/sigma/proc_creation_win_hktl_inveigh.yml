@@ -11,28 +11,23 @@ modified: 2023/02/04
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \Inveigh.exe
+        - Image|endswith: '\Inveigh.exe'
         - OriginalFileName:
-              - \Inveigh.exe
-              - \Inveigh.dll
-        - Description: Inveigh
+              - '\Inveigh.exe'
+              - '\Inveigh.dll'
+        - Description: 'Inveigh'
         - CommandLine|contains:
               - ' -SpooferIP'
               - ' -ReplyToIPs '
               - ' -ReplyToDomains '
               - ' -ReplyToMACs '
               - ' -SnifferIP'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Very unlikely
 level: critical
-ruletype: Sigma

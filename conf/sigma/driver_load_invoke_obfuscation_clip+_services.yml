@@ -9,24 +9,19 @@ author: Jonathan Cheong, oscd.community
 date: 2020/10/13
 modified: 2021/09/16
 references:
-    - https://github.com/SigmaHQ/sigma/issues/1009  #(Task 26)
+     - https://github.com/SigmaHQ/sigma/issues/1009 #(Task 26)
 tags:
     - attack.defense_evasion
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImagePath|re: .*cmd.{0,5}(?:\/c|\/r).+clip(?:\.exe)?.{0,4}&&.+clipboard]::\(\s\\\"\{\d\}.+\-f.+\"
-    condition: driver_load and selection
+        ImagePath|re: '.*cmd.{0,5}(?:\/c|\/r).+clip(?:\.exe)?.{0,4}&&.+clipboard]::\(\s\\\"\{\d\}.+\-f.+\"'
+    condition: selection 
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

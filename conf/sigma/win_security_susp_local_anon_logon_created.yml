@@ -15,15 +15,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4720
         SamAccountName|contains|all:
-            - ANONYMOUS
-            - LOGON
-    condition: security and selection
+            - 'ANONYMOUS'
+            - 'LOGON'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

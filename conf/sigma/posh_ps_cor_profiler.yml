@@ -19,18 +19,12 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
-            - $env:COR_ENABLE_PROFILING
-            - $env:COR_PROFILER
-            - $env:COR_PROFILER_PATH
-    condition: ps_script and selection
+            - '$env:COR_ENABLE_PROFILING'
+            - '$env:COR_PROFILER'
+            - '$env:COR_PROFILER_PATH'
+    condition: selection
 falsepositives:
     - Legitimate administrative script
 level: medium
-ruletype: Sigma

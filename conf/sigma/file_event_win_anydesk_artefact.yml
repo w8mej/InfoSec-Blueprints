@@ -12,21 +12,16 @@ date: 2022/02/11
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains:
-            - \AppData\Roaming\AnyDesk\user.conf
-            - \AppData\Roaming\AnyDesk\system.conf
-        TargetFilename|endswith: .temp
-    condition: file_event and selection
+            - '\AppData\Roaming\AnyDesk\user.conf'
+            - '\AppData\Roaming\AnyDesk\system.conf'
+        TargetFilename|endswith: '.temp'
+    condition: selection
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

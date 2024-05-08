@@ -9,19 +9,14 @@ date: 2022/06/14
 tags:
     - attack.execution
     - attack.t1059.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentCommandLine|contains: conhost
-        CommandLine|contains: /../../
-    condition: process_creation and selection
+        ParentCommandLine|contains: 'conhost'
+        CommandLine|contains: '/../../'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

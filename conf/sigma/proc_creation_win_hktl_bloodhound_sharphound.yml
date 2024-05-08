@@ -17,23 +17,19 @@ tags:
     - attack.t1069.002
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Product|contains: SharpHound
-        - Description|contains: SharpHound
+        - Product|contains: 'SharpHound'
+        - Description|contains: 'SharpHound'
         - Company|contains:
-              - SpecterOps
-              - evil corp
+              - 'SpecterOps'
+              - 'evil corp'
         - Image|contains:
-              - \Bloodhound.exe
-              - \SharpHound.exe
+              - '\Bloodhound.exe'
+              - '\SharpHound.exe'
     selection_cli_1:
         CommandLine|contains:
             - ' -CollectionMethod All '
@@ -41,8 +37,8 @@ detection:
             - ' --Loop --Loopduration '
             - ' --PortScanTimeout '
             - '.exe -c All -d '
-            - Invoke-Bloodhound
-            - Get-BloodHoundData
+            - 'Invoke-Bloodhound'
+            - 'Get-BloodHoundData'
     selection_cli_2:
         CommandLine|contains|all:
             - ' -JsonFolder '
@@ -51,8 +47,7 @@ detection:
         CommandLine|contains|all:
             - ' DCOnly '
             - ' --NoSaveCache '
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Other programs that use these command line option and accepts an 'All' parameter
 level: high
-ruletype: Sigma

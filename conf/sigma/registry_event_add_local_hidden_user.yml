@@ -10,23 +10,15 @@ modified: 2022/08/05
 tags:
     - attack.persistence
     - attack.t1136.001
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SAM\SAM\Domains\Account\Users\Names\
-        TargetObject|endswith: $
-        Image|endswith: \lsass.exe
-    condition: registry_event and selection
+        TargetObject|contains: '\SAM\SAM\Domains\Account\Users\Names\'
+        TargetObject|endswith: '$'
+        Image|endswith: '\lsass.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

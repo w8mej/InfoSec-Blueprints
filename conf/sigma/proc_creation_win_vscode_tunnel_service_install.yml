@@ -11,22 +11,17 @@ date: 2023/10/25
 tags:
     - attack.command_and_control
     - attack.t1071.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
             - 'tunnel '
-            - service
-            - internal-run
-            - tunnel-service.log
-    condition: process_creation and selection
+            - 'service'
+            - 'internal-run'
+            - 'tunnel-service.log'
+    condition: selection
 falsepositives:
     - Legitimate installation of code-tunnel as a service
 level: medium
-ruletype: Sigma

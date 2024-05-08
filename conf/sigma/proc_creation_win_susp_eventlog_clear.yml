@@ -16,16 +16,12 @@ tags:
     - attack.t1070.001
     - attack.t1562.002
     - car.2016-04-002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_wevtutil:
-        Image|endswith: \wevtutil.exe
+        Image|endswith: '\wevtutil.exe'
         CommandLine|contains:
             - 'clear-log '          # clears specified log
             - ' cl '                # short version of 'clear-log'
@@ -34,8 +30,8 @@ detection:
             - 'lfn:'                # change log file location and name
     selection_other_ps:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
             - 'Clear-EventLog '
             - 'Remove-EventLog '
@@ -43,22 +39,21 @@ detection:
             - 'Clear-WinEvent '
     selection_other_wmi:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-            - \wmic.exe
-        CommandLine|contains: ClearEventLog
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\wmic.exe'
+        CommandLine|contains: 'ClearEventLog'
     filter_msiexec:
         # Example seen during office update/installation:
         #   ParentImage: C:\Windows\SysWOW64\msiexec.exe
         #   CommandLine: "C:\WINDOWS\system32\wevtutil.exe" sl Microsoft-RMS-MSIPC/Debug /q:true /e:true /l:4 /rt:false
         ParentImage:
-            - C:\Windows\SysWOW64\msiexec.exe
-            - C:\Windows\System32\msiexec.exe
+            - 'C:\Windows\SysWOW64\msiexec.exe'
+            - 'C:\Windows\System32\msiexec.exe'
         CommandLine|contains: ' sl '
-    condition: process_creation and (1 of selection_* and not 1 of filter_*)
+    condition: 1 of selection_* and not 1 of filter_*
 falsepositives:
     - Admin activity
     - Scripts and administrative tools used in the monitored environment
     - Maintenance activity
 level: high
-ruletype: Sigma

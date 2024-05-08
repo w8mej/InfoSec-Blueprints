@@ -20,14 +20,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 4728 # A member was added to a security-enabled global group
             - 632 # Security Enabled Global Group Member Added
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

@@ -14,21 +14,16 @@ modified: 2023/03/07
 tags:
     - attack.t1546.008
     - attack.privilege_escalation
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
             - 'copy '
             - '/y '
-            - C:\windows\system32\cmd.exe C:\windows\system32\sethc.exe
-    condition: process_creation and selection
+            - 'C:\windows\system32\cmd.exe C:\windows\system32\sethc.exe'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

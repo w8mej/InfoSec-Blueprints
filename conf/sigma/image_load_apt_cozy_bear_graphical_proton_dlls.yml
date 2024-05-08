@@ -9,33 +9,28 @@ date: 2023/12/18
 tags:
     - attack.defense_evasion
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded|endswith:
-            - \AclNumsInvertHost.dll
-            - \AddressResourcesSpec.dll
-            - \BlendMonitorStringBuild.dll
-            - \ChildPaletteConnected.dll
-            - \DeregisterSeekUsers.dll
-            - \HandleFrequencyAll.dll
-            - \HardSwapColor.dll
-            - \LengthInMemoryActivate.dll
-            - \ModeBitmapNumericAnimate.dll
-            - \ModeFolderSignMove.dll
-            - \ParametersNamesPopup.dll
-            - \PerformanceCaptionApi.dll
-            - \ScrollbarHandleGet.dll
-            - \UnregisterAncestorAppendAuto.dll
-            - \WowIcmpRemoveReg.dll
-    condition: image_load and selection
+            - '\AclNumsInvertHost.dll'
+            - '\AddressResourcesSpec.dll'
+            - '\BlendMonitorStringBuild.dll'
+            - '\ChildPaletteConnected.dll'
+            - '\DeregisterSeekUsers.dll'
+            - '\HandleFrequencyAll.dll'
+            - '\HardSwapColor.dll'
+            - '\LengthInMemoryActivate.dll'
+            - '\ModeBitmapNumericAnimate.dll'
+            - '\ModeFolderSignMove.dll'
+            - '\ParametersNamesPopup.dll'
+            - '\PerformanceCaptionApi.dll'
+            - '\ScrollbarHandleGet.dll'
+            - '\UnregisterAncestorAppendAuto.dll'
+            - '\WowIcmpRemoveReg.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

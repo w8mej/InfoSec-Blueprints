@@ -11,23 +11,18 @@ modified: 2021/11/27
 tags:
     - attack.defense_evasion
     - attack.t1574
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \register-cimprovider.exe
+        Image|endswith: '\register-cimprovider.exe'
         CommandLine|contains|all:
-            - -path
-            - dll
-    condition: process_creation and selection
+            - '-path'
+            - 'dll'
+    condition: selection
 fields:
     - CommandLine
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

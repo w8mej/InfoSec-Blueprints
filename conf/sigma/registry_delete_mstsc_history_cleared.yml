@@ -13,22 +13,17 @@ tags:
     - attack.defense_evasion
     - attack.t1070
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_delete
     product: windows
 detection:
-    registry_delete:
-        EventID: 12
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         EventType: DeleteValue
-        TargetObject|contains: \Microsoft\Terminal Server Client\Default\MRU
+        TargetObject|contains: '\Microsoft\Terminal Server Client\Default\MRU'
     selection2:
         EventType: DeleteKey
-        TargetObject|contains: \Microsoft\Terminal Server Client\Servers\
-    condition: registry_delete and (1 of selection*)
+        TargetObject|contains: '\Microsoft\Terminal Server Client\Servers\'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

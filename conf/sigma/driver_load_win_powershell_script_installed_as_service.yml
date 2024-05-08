@@ -13,20 +13,15 @@ modified: 2023/12/11
 tags:
     - attack.execution
     - attack.t1569.002
-    - sysmon
 logsource:
     product: windows
     category: driver_load
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ImageLoaded|contains:
-            - powershell
-            - pwsh
-    condition: driver_load and selection
+            - 'powershell'
+            - 'pwsh'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

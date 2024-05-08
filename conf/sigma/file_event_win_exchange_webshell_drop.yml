@@ -14,27 +14,22 @@ date: 2022/10/01
 tags:
     - attack.persistence
     - attack.t1505.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \w3wp.exe
-        CommandLine|contains: MSExchange
+        Image|endswith: '\w3wp.exe'
+        CommandLine|contains: 'MSExchange'
         TargetFilename|contains:
-            - FrontEnd\HttpProxy\             # from GTSC and MSTI reports
-            - \inetpub\wwwroot\aspnet_client\   # from GTSC report
+            - 'FrontEnd\HttpProxy\'           # from GTSC and MSTI reports
+            - '\inetpub\wwwroot\aspnet_client\' # from GTSC report
     selection_types:
         TargetFilename|endswith:
-            - .aspx
-            - .asp
-            - .ashx
-    condition: file_event and (all of selection*)
+            - '.aspx'
+            - '.asp'
+            - '.ashx'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

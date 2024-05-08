@@ -10,19 +10,14 @@ modified: 2023/02/14
 tags:
     - attack.credential_access
     - attack.t1555.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Description: Web Browser Password Viewer
-        - Image|endswith: \WebBrowserPassView.exe
-    condition: process_creation and selection
+        - Description: 'Web Browser Password Viewer'
+        - Image|endswith: '\WebBrowserPassView.exe'
+    condition: selection
 falsepositives:
     - Legitimate use
 level: medium
-ruletype: Sigma

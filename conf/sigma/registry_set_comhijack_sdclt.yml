@@ -12,18 +12,13 @@ tags:
     - attack.privilege_escalation
     - attack.t1546
     - attack.t1548
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Software\Classes\Folder\shell\open\command\DelegateExecute
-    condition: registry_set and selection
+        TargetObject|contains: '\Software\Classes\Folder\shell\open\command\DelegateExecute'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

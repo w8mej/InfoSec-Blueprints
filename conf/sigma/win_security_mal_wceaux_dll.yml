@@ -16,17 +16,14 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID:
             - 4656
             - 4658
             - 4660
             - 4663
-        ObjectName|endswith: \wceaux.dll
-    condition: security and selection
+        ObjectName|endswith: '\wceaux.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

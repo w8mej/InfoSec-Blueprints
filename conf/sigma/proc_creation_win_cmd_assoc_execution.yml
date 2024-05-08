@@ -15,20 +15,16 @@ modified: 2023/03/06
 tags:
     - attack.persistence
     - attack.t1546.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: Cmd.Exe
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'Cmd.Exe'
     selection_cli:
-        CommandLine|contains: assoc
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'assoc'
+    condition: all of selection_*
 fields:
     - Image
     - CommandLine
@@ -40,4 +36,3 @@ fields:
 falsepositives:
     - Admin activity
 level: low
-ruletype: Sigma

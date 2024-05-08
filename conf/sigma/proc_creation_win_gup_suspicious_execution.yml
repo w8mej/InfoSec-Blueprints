@@ -10,27 +10,22 @@ modified: 2022/08/13
 tags:
     - attack.defense_evasion
     - attack.t1574.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \GUP.exe
+        Image|endswith: '\GUP.exe'
     filter_programfiles:
         Image|endswith:
-            - \Program Files\Notepad++\updater\GUP.exe
-            - \Program Files (x86)\Notepad++\updater\GUP.exe
+            - '\Program Files\Notepad++\updater\GUP.exe'
+            - '\Program Files (x86)\Notepad++\updater\GUP.exe'
     filter_user:
-        Image|contains: \Users\
+        Image|contains: '\Users\'
         Image|endswith:
-            - \AppData\Local\Notepad++\updater\GUP.exe
-            - \AppData\Roaming\Notepad++\updater\GUP.exe
-    condition: process_creation and (selection and not 1 of filter_*)
+            - '\AppData\Local\Notepad++\updater\GUP.exe'
+            - '\AppData\Roaming\Notepad++\updater\GUP.exe'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Execution of tools named GUP.exe and located in folders different than Notepad++\updater
 level: high
-ruletype: Sigma

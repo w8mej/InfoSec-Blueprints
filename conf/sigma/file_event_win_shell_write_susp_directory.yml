@@ -10,42 +10,37 @@ modified: 2023/03/29
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         Image|endswith:
-            - \bash.exe
-            - \cmd.exe
-            - \cscript.exe
-            - \msbuild.exe    # https://github.com/elastic/detection-rules/blob/c76a39796972ecde44cb1da6df47f1b6562c9770/rules/windows/defense_evasion_execution_msbuild_started_by_office_app.toml
-            - \powershell.exe
-            - \pwsh.exe
-            - \sh.exe
-            - \wscript.exe
+            - '\bash.exe'
+            - '\cmd.exe'
+            - '\cscript.exe'
+            - '\msbuild.exe'  # https://github.com/elastic/detection-rules/blob/c76a39796972ecde44cb1da6df47f1b6562c9770/rules/windows/defense_evasion_execution_msbuild_started_by_office_app.toml
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\sh.exe'
+            - '\wscript.exe'
         TargetFilename|startswith:
-            - C:\PerfLogs\
-            - C:\Users\Public\
+            - 'C:\PerfLogs\'
+            - 'C:\Users\Public\'
     selection_2:
         Image|endswith:
-            - \certutil.exe
-            - \forfiles.exe
-            - \mshta.exe
+            - '\certutil.exe'
+            - '\forfiles.exe'
+            - '\mshta.exe'
             # - '\rundll32.exe' # Potential FP
-            - \schtasks.exe
-            - \scriptrunner.exe
-            - \wmic.exe    # https://app.any.run/tasks/c903e9c8-0350-440c-8688-3881b556b8e0/
+            - '\schtasks.exe'
+            - '\scriptrunner.exe'
+            - '\wmic.exe'  # https://app.any.run/tasks/c903e9c8-0350-440c-8688-3881b556b8e0/
         TargetFilename|contains:
-            - C:\PerfLogs\
-            - C:\Users\Public\
-            - C:\Windows\Temp\
-    condition: file_event and (1 of selection_*)
+            - 'C:\PerfLogs\'
+            - 'C:\Users\Public\'
+            - 'C:\Windows\Temp\'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

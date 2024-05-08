@@ -9,22 +9,17 @@ date: 2022/03/05
 modified: 2023/03/07
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - type %windir%\system32\ntdll.dll
-            - type %systemroot%\system32\ntdll.dll
-            - type c:\windows\system32\ntdll.dll
-            - \\ntdll.dll > \\\\.\\pipe\\
-    condition: process_creation and selection
+            - 'type %windir%\system32\ntdll.dll'
+            - 'type %systemroot%\system32\ntdll.dll'
+            - 'type c:\windows\system32\ntdll.dll'
+            - '\\ntdll.dll > \\\\.\\pipe\\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

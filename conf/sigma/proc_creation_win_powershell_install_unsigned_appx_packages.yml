@@ -13,29 +13,24 @@ date: 2023/01/31
 tags:
     - attack.persistence
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
     selection_cmdlet:
         CommandLine|contains:
             - 'Add-AppPackage '
             - 'Add-AppxPackage '
     selection_flag:
         CommandLine|contains: ' -AllowUnsigned'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Installation of unsigned packages for testing purposes
 level: medium
-ruletype: Sigma

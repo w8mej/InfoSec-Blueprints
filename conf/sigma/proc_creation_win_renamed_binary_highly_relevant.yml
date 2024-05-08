@@ -26,60 +26,55 @@ tags:
     - attack.defense_evasion
     - attack.t1036.003
     - car.2013-05-009
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Description: Execute processes remotely
-        - Product: Sysinternals PsExec
+        - Description: 'Execute processes remotely'
+        - Product: 'Sysinternals PsExec'
         - Description|startswith:
-              - Windows PowerShell
-              - pwsh
+              - 'Windows PowerShell'
+              - 'pwsh'
         - OriginalFileName:
-              - certutil.exe
-              - cmstp.exe
-              - cscript.exe
-              - mshta.exe
-              - msiexec.exe
-              - powershell_ise.exe
-              - powershell.exe
-              - psexec.c          # old versions of psexec (2016 seen)
-              - psexec.exe
-              - psexesvc.exe
-              - pwsh.dll
-              - reg.exe
-              - regsvr32.exe
-              - rundll32.exe
-              - WerMgr
-              - wmic.exe
-              - wscript.exe
+              - 'certutil.exe'
+              - 'cmstp.exe'
+              - 'cscript.exe'
+              - 'mshta.exe'
+              - 'msiexec.exe'
+              - 'powershell_ise.exe'
+              - 'powershell.exe'
+              - 'psexec.c'        # old versions of psexec (2016 seen)
+              - 'psexec.exe'
+              - 'psexesvc.exe'
+              - 'pwsh.dll'
+              - 'reg.exe'
+              - 'regsvr32.exe'
+              - 'rundll32.exe'
+              - 'WerMgr'
+              - 'wmic.exe'
+              - 'wscript.exe'
     filter:
         Image|endswith:
-            - \certutil.exe
-            - \cmstp.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \msiexec.exe
-            - \powershell_ise.exe
-            - \powershell.exe
-            - \psexec.exe
-            - \psexec64.exe
-            - \PSEXESVC.exe
-            - \pwsh.exe
-            - \reg.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \wermgr.exe
-            - \wmic.exe
-            - \wscript.exe
-    condition: process_creation and (selection and not filter)
+            - '\certutil.exe'
+            - '\cmstp.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\msiexec.exe'
+            - '\powershell_ise.exe'
+            - '\powershell.exe'
+            - '\psexec.exe'
+            - '\psexec64.exe'
+            - '\PSEXESVC.exe'
+            - '\pwsh.exe'
+            - '\reg.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\wermgr.exe'
+            - '\wmic.exe'
+            - '\wscript.exe'
+    condition: selection and not filter
 falsepositives:
     - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist
     - PsExec installed via Windows Store doesn't contain original filename field (False negative)
 level: high
-ruletype: Sigma

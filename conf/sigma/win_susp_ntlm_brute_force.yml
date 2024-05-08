@@ -14,22 +14,19 @@ logsource:
     service: ntlm
     definition: Requires events from Microsoft-Windows-NTLM/Operational
 detection:
-    ntlm:
-        Channel: Microsoft-Windows-NTLM/Operational
     selection:
         EventID: 8004
     devicename:
         WorkstationName:
-            - Rdesktop
-            - Remmina
-            - Freerdp
-            - Windows7
-            - Windows8
-            - Windows2012
-            - Windows2016
-            - Windows2019
-    condition: ntlm and (selection and devicename)
+            - 'Rdesktop'
+            - 'Remmina'
+            - 'Freerdp'
+            - 'Windows7'
+            - 'Windows8'
+            - 'Windows2012'
+            - 'Windows2016'
+            - 'Windows2019'
+    condition: selection and devicename
 falsepositives:
     - Systems with names equal to the spoofed ones used by the brute force tools
 level: medium
-ruletype: Sigma

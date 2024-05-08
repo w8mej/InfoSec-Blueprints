@@ -12,19 +12,15 @@ tags:
     - attack.credential_access
     - attack.collection
     - attack.t1056.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Product|contains: Mouse Lock
-        - Company|contains: Misc314
-        - CommandLine|contains: Mouse Lock_
-    condition: process_creation and selection
+        - Product|contains: 'Mouse Lock'
+        - Company|contains: 'Misc314'
+        - CommandLine|contains: 'Mouse Lock_'
+    condition: selection
 fields:
     - Product
     - Company
@@ -32,4 +28,3 @@ fields:
 falsepositives:
     - Legitimate uses of Mouse Lock software
 level: medium
-ruletype: Sigma

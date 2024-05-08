@@ -17,38 +17,33 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1053.005
-    - sysmon
 logsource:
     category: registry_set
     product: windows
     definition: 'Requirements: Sysmon config that monitors \SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController subkey of the HKLM hives'
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\
-        TargetObject|endswith: \Command
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\'
+        TargetObject|endswith: '\Command'
         Details|contains:
-            - .bat
-            - .bin
-            - .cmd
-            - .dat
-            - .dll
-            - .exe
-            - .hta
-            - .jar
-            - .js
-            - .msi
-            - .ps
-            - .sh
-            - .vb
+            - '.bat'
+            - '.bin'
+            - '.cmd'
+            - '.dat'
+            - '.dll'
+            - '.exe'
+            - '.hta'
+            - '.jar'
+            - '.js'
+            - '.msi'
+            - '.ps'
+            - '.sh'
+            - '.vb'
     filter_main_generic:
         Details|contains:
-            - \system32\CompatTelRunner.exe
-            - \system32\DeviceCensus.exe
-    condition: registry_set and (selection and not 1 of filter_main_*)
+            - '\system32\CompatTelRunner.exe'
+            - '\system32\DeviceCensus.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

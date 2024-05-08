@@ -9,30 +9,25 @@ date: 2023/05/23
 modified: 2023/08/17
 tags:
     - attack.persistence
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\ODBC\ODBCINST.INI\
-        TargetObject|endswith: \Driver
+        TargetObject|contains: '\SOFTWARE\ODBC\ODBCINST.INI\'
+        TargetObject|endswith: '\Driver'
     filter_main_sqlserver:
-        TargetObject|contains: \SQL Server\
+        TargetObject|contains: '\SQL Server\'
         Details: '%WINDIR%\System32\SQLSRV32.dll'
     filter_optional_office_access:
         TargetObject|contains: '\Microsoft Access '
-        Details|startswith: C:\Progra
-        Details|endswith: \ACEODBC.DLL
+        Details|startswith: 'C:\Progra'
+        Details|endswith: '\ACEODBC.DLL'
     filter_optional_office_excel:
-        TargetObject|contains: \Microsoft Excel Driver
-        Details|startswith: C:\Progra
-        Details|endswith: \ACEODBC.DLL
-    condition: registry_set and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        TargetObject|contains: '\Microsoft Excel Driver'
+        Details|startswith: 'C:\Progra'
+        Details|endswith: '\ACEODBC.DLL'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Likely
 level: low
-ruletype: Sigma

@@ -15,23 +15,18 @@ tags:
     - attack.t1070
     - attack.t1562
     - attack.t1562.002
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \fltMC.exe
-        - OriginalFileName: fltMC.exe
+        - Image|endswith: '\fltMC.exe'
+        - OriginalFileName: 'fltMC.exe'
     selection_cli:
         CommandLine|contains|all:
-            - unload
-            - sysmon
-    condition: process_creation and (all of selection_*)
+            - 'unload'
+            - 'sysmon'
+    condition: all of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -14,19 +14,14 @@ tags:
     - attack.t1137
     - attack.t1008
     - attack.t1546
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \Outlook\Security\Level
+        TargetObject|endswith: '\Outlook\Security\Level'
         Details|contains: '0x00000001' # Enable all Macros
-    condition: registry_set and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -20,13 +20,10 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
-        ServiceFileName|contains: (Clipboard|i
-    condition: security and selection
+        ServiceFileName|contains: '(Clipboard|i'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

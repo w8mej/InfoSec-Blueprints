@@ -16,36 +16,28 @@ tags:
     - attack.t1204
     - cve.2021.1675
     - cve.2021.34527
-    - sysmon
 logsource:
     product: windows
     category: registry_event
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \Control\Print\Environments\Windows x64\Drivers\Version-3\QMS 810\
-            - \Control\Print\Environments\Windows x64\Drivers\Version-3\mimikatz
+            - '\Control\Print\Environments\Windows x64\Drivers\Version-3\QMS 810\'
+            - '\Control\Print\Environments\Windows x64\Drivers\Version-3\mimikatz'
     selection_alt:
         TargetObject|contains|all:
-            - legitprinter
-            - \Control\Print\Environments\Windows
+            - 'legitprinter'
+            - '\Control\Print\Environments\Windows'
     selection_print:
         TargetObject|contains:
-            - \Control\Print\Environments
-            - \CurrentVersion\Print\Printers
+            - '\Control\Print\Environments'
+            - '\CurrentVersion\Print\Printers'
     selection_kiwi:
         TargetObject|contains:
-            - Gentil Kiwi
-            - mimikatz printer
-            - Kiwi Legit Printer
-    condition: registry_event and (selection or selection_alt or (selection_print and selection_kiwi))
+            - 'Gentil Kiwi'
+            - 'mimikatz printer'
+            - 'Kiwi Legit Printer'
+    condition: selection or selection_alt or (selection_print and selection_kiwi)
 falsepositives:
     - Legitimate installation of printer driver QMS 810, Texas Instruments microLaser printer (unlikely)
 level: critical
-ruletype: Sigma

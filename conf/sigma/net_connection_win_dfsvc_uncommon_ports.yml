@@ -10,17 +10,13 @@ modified: 2024/01/31
 tags:
     - attack.execution
     - attack.t1203
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|contains: :\Windows\Microsoft.NET\
-        Image|endswith: \dfsvc.exe
+        Image|contains: ':\Windows\Microsoft.NET\'
+        Image|endswith: '\dfsvc.exe'
         Initiated: 'true'
     filter_main_known_ports:
         DestinationPort:
@@ -30,8 +26,7 @@ detection:
         # Based on VT. More than 140 binaries made communication over DNS
         DestinationIsIpv6: 'true'
         DestinationPort: 53
-    condition: network_connection and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

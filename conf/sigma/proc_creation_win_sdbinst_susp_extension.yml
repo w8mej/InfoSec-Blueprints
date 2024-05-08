@@ -17,19 +17,15 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1546.011
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \sdbinst.exe
-        - OriginalFileName: sdbinst.exe
+        - Image|endswith: '\sdbinst.exe'
+        - OriginalFileName: 'sdbinst.exe'
     filter_main_legit_ext:
-        CommandLine|contains: .sdb
+        CommandLine|contains: '.sdb'
     filter_main_svchost:
         # ParentImage|endswith: ':\Windows\System32\svchost.exe'
         - CommandLine|endswith:
@@ -39,11 +35,10 @@ detection:
               - ' -t'
         - CommandLine|contains: ' -m -bg'
     filter_main_null:
-        CommandLine:
+        CommandLine: null
     filter_main_empty:
         CommandLine: ''
-    condition: process_creation and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

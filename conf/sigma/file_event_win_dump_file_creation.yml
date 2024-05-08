@@ -9,21 +9,16 @@ date: 2023/09/07
 tags:
     - attack.defense_evasion
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - .dmp
-            - .dump
-            - .hdmp
-    condition: file_event and selection
+            - '.dmp'
+            - '.dump'
+            - '.hdmp'
+    condition: selection
 falsepositives:
     - Likely during crashes of software
 level: low
-ruletype: Sigma

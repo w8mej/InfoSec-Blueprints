@@ -29,43 +29,38 @@ tags:
     - attack.defense_evasion
     - attack.persistence
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_shadow:
         TargetObject|contains:
-            - \Control\Terminal Server\
-            - \Windows NT\Terminal Services\
-        TargetObject|endswith: \Shadow
+            - '\Control\Terminal Server\'
+            - '\Windows NT\Terminal Services\'
+        TargetObject|endswith: '\Shadow'
         Details:
-            - DWORD (0x00000001)   # Full Control with user’s permission
-            - DWORD (0x00000002)   # Full Control without user’s permission
-            - DWORD (0x00000003)   # View Session with user’s permission
-            - DWORD (0x00000004)   # View Session without user’s permission
+            - 'DWORD (0x00000001)' # Full Control with user’s permission
+            - 'DWORD (0x00000002)' # Full Control without user’s permission
+            - 'DWORD (0x00000003)' # View Session with user’s permission
+            - 'DWORD (0x00000004)' # View Session without user’s permission
     selection_terminal_services_key:
         TargetObject|contains:
-            - \Control\Terminal Server\
-            - \Windows NT\Terminal Services\
+            - '\Control\Terminal Server\'
+            - '\Windows NT\Terminal Services\'
         TargetObject|endswith:
-            - \DisableRemoteDesktopAntiAlias   # Disable anti-aliasing for remote desktop (DarkGate malware)
-            - \DisableSecuritySettings   # Disable security settings, allowing access to programs/entire desktop (DarkGate malware)
-            - \fAllowUnsolicited   # Allow unsolicited remote assistance offers
-            - \fAllowUnsolicitedFullControl
-        Details: DWORD (0x00000001)
+            - '\DisableRemoteDesktopAntiAlias' # Disable anti-aliasing for remote desktop (DarkGate malware)
+            - '\DisableSecuritySettings' # Disable security settings, allowing access to programs/entire desktop (DarkGate malware)
+            - '\fAllowUnsolicited' # Allow unsolicited remote assistance offers
+            - '\fAllowUnsolicitedFullControl'
+        Details: 'DWORD (0x00000001)'
     selection_tamper_only:
         # Any changes to these keys should be suspicious and looked at
         TargetObject|contains:
-            - \Control\Terminal Server\InitialProgram   # This value can be set to specify a program to run automatically when a user logs on to a remote computer.
-            - \Control\Terminal Server\WinStations\RDP-Tcp\InitialProgram   # This value can be set to specify a program to run automatically when a user logs on to a remote computer.
-            - \services\TermService\Parameters\ServiceDll   # RDP hijacking
-            - \Windows NT\Terminal Services\InitialProgram   # This value can be set to specify a program to run automatically when a user logs on to a remote computer.
-    condition: registry_set and (selection_shadow or selection_terminal_services_key or selection_tamper_only)
+            - '\Control\Terminal Server\InitialProgram' # This value can be set to specify a program to run automatically when a user logs on to a remote computer.
+            - '\Control\Terminal Server\WinStations\RDP-Tcp\InitialProgram' # This value can be set to specify a program to run automatically when a user logs on to a remote computer.
+            - '\services\TermService\Parameters\ServiceDll' # RDP hijacking
+            - '\Windows NT\Terminal Services\InitialProgram' # This value can be set to specify a program to run automatically when a user logs on to a remote computer.
+    condition: selection_shadow or selection_terminal_services_key or selection_tamper_only
 falsepositives:
     - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way)
 level: high
-ruletype: Sigma

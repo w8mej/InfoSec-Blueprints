@@ -12,14 +12,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4624
         LogonType: 9
-        TargetOutboundUserName: thisisnotvaliduser
-    condition: security and selection
+        TargetOutboundUserName: 'thisisnotvaliduser'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

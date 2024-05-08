@@ -25,20 +25,17 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
         ServiceFileName|contains:
-            - cachedump
-            - dumpsvc
-            - fgexec
-            - gsecdump
-            - mimidrv
-            - pwdump
-            - servpw
-    condition: security and selection
+            - 'cachedump'
+            - 'dumpsvc'
+            - 'fgexec'
+            - 'gsecdump'
+            - 'mimidrv'
+            - 'pwdump'
+            - 'servpw'
+    condition: selection
 falsepositives:
     - Legitimate Administrator using credential dumping tool for password recovery
 level: high
-ruletype: Sigma

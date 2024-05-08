@@ -21,32 +21,27 @@ tags:
     - attack.impact
     - attack.t1112
     - attack.t1491.001
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_keys:
         TargetObject|contains:
-            - Control Panel\Desktop
-            - CurrentVersion\Policies\ActiveDesktop
-            - CurrentVersion\Policies\System
+            - 'Control Panel\Desktop'
+            - 'CurrentVersion\Policies\ActiveDesktop'
+            - 'CurrentVersion\Policies\System'
     selection_values_1:
-        TargetObject|endswith: NoChangingWallpaper
-        Details: DWORD (0x00000001)   # Prevent changing desktop background
+        TargetObject|endswith: 'NoChangingWallpaper'
+        Details: 'DWORD (0x00000001)' # Prevent changing desktop background
     selection_values_2:
-        TargetObject|endswith: \Wallpaper
+        TargetObject|endswith: '\Wallpaper'
     selection_values_3:
-        TargetObject|endswith: \WallpaperStyle
+        TargetObject|endswith: '\WallpaperStyle'
         Details: '2' # Stretch
     filter_main_svchost:
         # Note: Excluding GPO changes
-        Image|endswith: \svchost.exe
-    condition: registry_set and (selection_keys and 1 of selection_values_* and not 1 of filter_main_*)
+        Image|endswith: '\svchost.exe'
+    condition: selection_keys and 1 of selection_values_* and not 1 of filter_main_*
 falsepositives:
     - Administrative scripts that change the desktop background to a company logo or other image.
 level: medium
-ruletype: Sigma

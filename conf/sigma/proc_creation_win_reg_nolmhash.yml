@@ -17,21 +17,16 @@ modified: 2023/12/22
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - \System\CurrentControlSet\Control\Lsa
-            - NoLMHash
+            - '\System\CurrentControlSet\Control\Lsa'
+            - 'NoLMHash'
             - ' 0'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

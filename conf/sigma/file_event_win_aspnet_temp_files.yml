@@ -16,22 +16,17 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/08/14
 tags:
     - attack.execution
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \aspnet_compiler.exe
+        Image|endswith: '\aspnet_compiler.exe'
         TargetFilename|contains|all:
-            - \Temporary ASP.NET Files\
-            - \assembly\tmp\
-            - .dll
-    condition: file_event and selection
+            - '\Temporary ASP.NET Files\'
+            - '\assembly\tmp\'
+            - '.dll'
+    condition: selection
 falsepositives:
     - Legitimate assembly compilation using a build provider
 level: medium
-ruletype: Sigma

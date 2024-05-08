@@ -15,13 +15,10 @@ logsource:
     product: windows
     service: appxdeployment-server
 detection:
-    appxdeployment_server:
-        Channel: Microsoft-Windows-AppXDeploymentServer/Operational
     selection:
         EventID: 401
         ErrorCode: '0x80073cff' # Check ref section to learn more about this error code
-    condition: appxdeployment_server and selection
+    condition: selection
 falsepositives:
     - Legitimate AppX packages not signed by MS used part of an enterprise
 level: medium
-ruletype: Sigma

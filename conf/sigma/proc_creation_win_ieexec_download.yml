@@ -10,23 +10,18 @@ modified: 2023/11/09
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \IEExec.exe
-        - OriginalFileName: IEExec.exe
+        - Image|endswith: '\IEExec.exe'
+        - OriginalFileName: 'IEExec.exe'
     selection_cli:
         CommandLine|contains:
-            - http://
-            - https://
-    condition: process_creation and (all of selection_*)
+            - 'http://'
+            - 'https://'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

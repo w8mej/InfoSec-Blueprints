@@ -14,25 +14,20 @@ modified: 2023/12/11
 tags:
     - attack.persistence
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Image|contains:
               # e.g. C:\$RECYCLER.BIN
-              - RECYCLERS.BIN\
-              - RECYCLER.BIN\
+              - 'RECYCLERS.BIN\'
+              - 'RECYCLER.BIN\'
         - TargetFilename|contains:
               # e.g. C:\$RECYCLER.BIN
-              - RECYCLERS.BIN\
-              - RECYCLER.BIN\
-    condition: file_event and selection
+              - 'RECYCLERS.BIN\'
+              - 'RECYCLER.BIN\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

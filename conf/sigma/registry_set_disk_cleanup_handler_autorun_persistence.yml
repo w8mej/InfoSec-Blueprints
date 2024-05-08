@@ -16,38 +16,33 @@ date: 2022/07/21
 modified: 2023/08/17
 tags:
     - attack.persistence
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     root:
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\'
     selection_autorun:
         # Launching PreCleanupString / CleanupString programs w/o gui, i.e. while using e.g. /autoclean
-        TargetObject|contains: \Autorun
-        Details: DWORD (0x00000001)
+        TargetObject|contains: '\Autorun'
+        Details: 'DWORD (0x00000001)'
     selection_pre_after:
         TargetObject|contains:
-            - \CleanupString
-            - \PreCleanupString
+            - '\CleanupString'
+            - '\PreCleanupString'
         Details|contains:
             # Add more as you see fit
-            - cmd
-            - powershell
-            - rundll32
-            - mshta
-            - cscript
-            - wscript
-            - wsl
-            - \Users\Public\
-            - \Windows\TEMP\
-            - \Microsoft\Windows\Start Menu\Programs\Startup\
-    condition: registry_set and (root and 1 of selection_*)
+            - 'cmd'
+            - 'powershell'
+            - 'rundll32'
+            - 'mshta'
+            - 'cscript'
+            - 'wscript'
+            - 'wsl'
+            - '\Users\Public\'
+            - '\Windows\TEMP\'
+            - '\Microsoft\Windows\Start Menu\Programs\Startup\'
+    condition: root and 1 of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

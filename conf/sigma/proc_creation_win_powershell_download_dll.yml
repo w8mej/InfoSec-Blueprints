@@ -11,24 +11,19 @@ tags:
     - attack.execution
     - attack.t1059.001
     - attack.t1105
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
             - 'Invoke-WebRequest '
             - 'IWR '
         CommandLine|contains|all:
-            - http
-            - OutFile
-            - .dll
-    condition: process_creation and selection
+            - 'http'
+            - 'OutFile'
+            - '.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

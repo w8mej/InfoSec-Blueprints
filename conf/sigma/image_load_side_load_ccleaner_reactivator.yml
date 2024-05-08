@@ -12,23 +12,18 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \CCleanerReactivator.dll
+        ImageLoaded|endswith: '\CCleanerReactivator.dll'
     filter_main_path:
         Image|startswith:
-            - C:\Program Files\CCleaner\
-            - C:\Program Files (x86)\CCleaner\
-        Image|endswith: \CCleanerReactivator.exe
-    condition: image_load and (selection and not 1 of filter_main_*)
+            - 'C:\Program Files\CCleaner\'
+            - 'C:\Program Files (x86)\CCleaner\'
+        Image|endswith: '\CCleanerReactivator.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - False positives could occur from other custom installation paths. Apply additional filters accordingly.
 level: medium
-ruletype: Sigma

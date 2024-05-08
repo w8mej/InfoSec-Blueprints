@@ -22,24 +22,18 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmd:
         ScriptBlockText|contains|all:
             - Copy-Item
-            - -Destination
+            - '-Destination'
     selection_path:
         ScriptBlockText|contains:
-            - \Opera Software\Opera Stable\Login Data
-            - \Mozilla\Firefox\Profiles
-            - \Microsoft\Edge\User Data\Default
-            - \Google\Chrome\User Data\Default\Login Data
-            - \Google\Chrome\User Data\Default\Login Data For Account
-    condition: ps_script and (all of selection_*)
+            - '\Opera Software\Opera Stable\Login Data'
+            - '\Mozilla\Firefox\Profiles'
+            - '\Microsoft\Edge\User Data\Default'
+            - '\Google\Chrome\User Data\Default\Login Data'
+            - '\Google\Chrome\User Data\Default\Login Data For Account'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

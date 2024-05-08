@@ -17,14 +17,11 @@ logsource:
     product: windows
     service: msexchange-management
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     selection:
-        - Install-TransportAgent
-    condition: msexchange_management and selection
+        - 'Install-TransportAgent'
+    condition: selection
 fields:
     - AssemblyPath
 falsepositives:
     - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this.
 level: medium
-ruletype: Sigma

@@ -11,21 +11,16 @@ tags:
     - attack.t1190
     - attack.persistence
     - attack.t1505.003
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \MSExchangeMailboxReplication.exe
+        Image|endswith: '\MSExchangeMailboxReplication.exe'
         TargetFilename|endswith:
-            - .aspx
-            - .asp
-    condition: file_event and selection
+            - '.aspx'
+            - '.asp'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

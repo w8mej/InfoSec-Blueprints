@@ -11,21 +11,16 @@ modified: 2023/08/17
 tags:
     - attack.persistence
     - attack.t1137.006
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: Software\Microsoft\Office\
-        TargetObject|endswith: \Excel\Options
+        TargetObject|contains: 'Software\Microsoft\Office\'
+        TargetObject|endswith: '\Excel\Options'
         Details|startswith: '/R '
-        Details|endswith: .xll
-    condition: registry_set and selection
+        Details|endswith: '.xll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

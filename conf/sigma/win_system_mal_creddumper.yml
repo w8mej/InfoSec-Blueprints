@@ -21,21 +21,18 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ImagePath|contains:
-            - cachedump
-            - dumpsvc
-            - fgexec
-            - gsecdump
-            - mimidrv
-            - pwdump
-            - servpw
-    condition: system and selection
+            - 'cachedump'
+            - 'dumpsvc'
+            - 'fgexec'
+            - 'gsecdump'
+            - 'mimidrv'
+            - 'pwdump'
+            - 'servpw'
+    condition: selection
 falsepositives:
     - Legitimate Administrator using credential dumping tool for password recovery
 level: high
-ruletype: Sigma

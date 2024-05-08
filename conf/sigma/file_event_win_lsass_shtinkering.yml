@@ -10,20 +10,15 @@ date: 2022/12/08
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: C:\Windows\System32\config\systemprofile\AppData\Local\CrashDumps\
-        TargetFilename|contains: lsass.exe.
-        TargetFilename|endswith: .dmp
-    condition: file_event and selection
+        TargetFilename|startswith: 'C:\Windows\System32\config\systemprofile\AppData\Local\CrashDumps\'
+        TargetFilename|contains: 'lsass.exe.'
+        TargetFilename|endswith: '.dmp'
+    condition: selection
 falsepositives:
     - Rare legitimate dump of the process by the operating system due to a crash of lsass
 level: high
-ruletype: Sigma

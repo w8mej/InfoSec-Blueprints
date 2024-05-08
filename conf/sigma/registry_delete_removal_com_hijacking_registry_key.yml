@@ -16,56 +16,51 @@ modified: 2023/01/19
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     product: windows
     category: registry_delete
 detection:
-    registry_delete:
-        EventID: 12
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        EventType: DeleteKey
-        TargetObject|endswith: \shell\open\command
+        EventType: 'DeleteKey'
+        TargetObject|endswith: '\shell\open\command'
     filter_svchost:
-        Image: C:\Windows\system32\svchost.exe
+        Image: 'C:\Windows\system32\svchost.exe'
     filter_office:
         Image|startswith:
-            - C:\Program Files\Common Files\Microsoft Shared\ClickToRun\
-            - C:\Program Files\Common Files\Microsoft Shared\ClickToRun\Updates\
-        Image|endswith: \OfficeClickToRun.exe
+            - 'C:\Program Files\Common Files\Microsoft Shared\ClickToRun\'
+            - 'C:\Program Files\Common Files\Microsoft Shared\ClickToRun\Updates\'
+        Image|endswith: '\OfficeClickToRun.exe'
     filter_integrator:
-        Image: C:\Program Files (x86)\Microsoft Office\root\integration\integrator.exe
+        Image: 'C:\Program Files (x86)\Microsoft Office\root\integration\integrator.exe'
     filter_dropbox:
-        Image|endswith: \Dropbox.exe
+        Image|endswith: '\Dropbox.exe'
         # We don't use the HKCR anchor as it could be logged as a different variation (HKEY_CLASSES_ROOT)
-        TargetObject|contains: \Dropbox.
+        TargetObject|contains: '\Dropbox.'
     filter_wireshark:
-        Image|endswith: \AppData\Local\Temp\Wireshark_uninstaller.exe
+        Image|endswith: '\AppData\Local\Temp\Wireshark_uninstaller.exe'
         # We don't use the HKCR anchor as it could be logged as a different variation (HKEY_CLASSES_ROOT)
-        TargetObject|contains: \wireshark-capture-file\
+        TargetObject|contains: '\wireshark-capture-file\'
     filter_opera:
         Image|startswith:
-            - C:\Program Files\Opera\
-            - C:\Program Files (x86)\Opera\
-        Image|endswith: \installer.exe
+            - 'C:\Program Files\Opera\'
+            - 'C:\Program Files (x86)\Opera\'
+        Image|endswith: '\installer.exe'
     filter_peazip:
-        Image|contains: peazip
+        Image|contains: 'peazip'
         # We don't use the HKCR anchor as it could be logged as a different variation (HKEY_CLASSES_ROOT)
-        TargetObject|contains: \PeaZip.
+        TargetObject|contains: '\PeaZip.'
     filter_everything:
-        Image|endswith: \Everything.exe
+        Image|endswith: '\Everything.exe'
         # We don't use the HKCR anchor as it could be logged as a different variation (HKEY_CLASSES_ROOT)
-        TargetObject|contains: \Everything.
+        TargetObject|contains: '\Everything.'
     filter_uninstallers:
         # This image path is linked with different uninstallers when running as admin unfortunately
-        Image|startswith: C:\Windows\Installer\MSI
+        Image|startswith: 'C:\Windows\Installer\MSI'
     filter_java:
-        Image|startswith: C:\Program Files (x86)\Java\
-        Image|endswith: \installer.exe
-        TargetObject|contains: \Classes\WOW6432Node\CLSID\{4299124F-F2C3-41b4-9C73-9236B2AD0E8F}
-    condition: registry_delete and (selection and not 1 of filter_*)
+        Image|startswith: 'C:\Program Files (x86)\Java\'
+        Image|endswith: '\installer.exe'
+        TargetObject|contains: '\Classes\WOW6432Node\CLSID\{4299124F-F2C3-41b4-9C73-9236B2AD0E8F}'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Legitimate software (un)installations are known to cause some false positives. Please add them as a filter when encountered
 level: medium
-ruletype: Sigma

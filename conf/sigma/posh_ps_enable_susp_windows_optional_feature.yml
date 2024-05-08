@@ -21,27 +21,21 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmd:
         ScriptBlockText|contains|all:
-            - Enable-WindowsOptionalFeature
-            - -Online
-            - -FeatureName
+            - 'Enable-WindowsOptionalFeature'
+            - '-Online'
+            - '-FeatureName'
     selection_feature:
         # Add any insecure/unusual windows features to your env
         ScriptBlockText|contains:
-            - TelnetServer
-            - Internet-Explorer-Optional-amd64
-            - TFTP
-            - SMB1Protocol
-            - Client-ProjFS
-            - Microsoft-Windows-Subsystem-Linux
-    condition: ps_script and (all of selection_*)
+            - 'TelnetServer'
+            - 'Internet-Explorer-Optional-amd64'
+            - 'TFTP'
+            - 'SMB1Protocol'
+            - 'Client-ProjFS'
+            - 'Microsoft-Windows-Subsystem-Linux'
+    condition: all of selection_*
 falsepositives:
     - Legitimate usage of the features listed in the rule.
 level: medium
-ruletype: Sigma

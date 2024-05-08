@@ -14,26 +14,21 @@ tags:
     - attack.defense_evasion
     - attack.t1112
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: Security\Trusted Locations\Location
-        TargetObject|endswith: \Path
+        TargetObject|contains: 'Security\Trusted Locations\Location'
+        TargetObject|endswith: '\Path'
     filter_main_office_click_to_run:
-        Image|contains: :\Program Files\Common Files\Microsoft Shared\ClickToRun\
-        Image|endswith: \OfficeClickToRun.exe
+        Image|contains: ':\Program Files\Common Files\Microsoft Shared\ClickToRun\'
+        Image|endswith: '\OfficeClickToRun.exe'
     filter_main_office_apps:
         Image|contains:
-            - :\Program Files\Microsoft Office\
-            - :\Program Files (x86)\Microsoft Office\
-    condition: registry_set and (selection and not 1 of filter_main_*)
+            - ':\Program Files\Microsoft Office\'
+            - ':\Program Files (x86)\Microsoft Office\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - During office installations or setup, trusted locations are added, which will trigger this rule.
 level: medium
-ruletype: Sigma

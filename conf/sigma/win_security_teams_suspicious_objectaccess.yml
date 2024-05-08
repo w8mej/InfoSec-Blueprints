@@ -14,17 +14,14 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4663
         ObjectName|contains:
-            - \Microsoft\Teams\Cookies
-            - \Microsoft\Teams\Local Storage\leveldb
+            - '\Microsoft\Teams\Cookies'
+            - '\Microsoft\Teams\Local Storage\leveldb'
     filter:
-        ProcessName|contains: \Microsoft\Teams\current\Teams.exe
-    condition: security and (selection and not filter)
+        ProcessName|contains: '\Microsoft\Teams\current\Teams.exe'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

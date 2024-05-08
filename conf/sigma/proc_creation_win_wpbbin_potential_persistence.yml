@@ -11,18 +11,13 @@ tags:
     - attack.persistence
     - attack.defense_evasion
     - attack.t1542.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image: C:\Windows\System32\wpbbin.exe
-    condition: process_creation and selection
+        Image: 'C:\Windows\System32\wpbbin.exe'
+    condition: selection
 falsepositives:
     - Legitimate usage of the file by hardware manufacturer such as lenovo (Thanks @0gtweet for the tip)
 level: high
-ruletype: Sigma

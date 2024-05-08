@@ -14,15 +14,9 @@ logsource:
     category: ps_script
     definition: Script Block Logging must be enable
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains: '[Reflection.Assembly]::load'
-    condition: ps_script and selection
+    condition: selection
 falsepositives:
     - Legitimate use of the library
 level: medium
-ruletype: Sigma

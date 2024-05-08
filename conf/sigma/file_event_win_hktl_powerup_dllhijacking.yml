@@ -15,21 +15,16 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1574.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-        TargetFilename|endswith: .bat
-    condition: file_event and selection
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        TargetFilename|endswith: '.bat'
+    condition: selection
 falsepositives:
     - Any powershell script that creates bat files # highly unlikely (untested)
 level: high
-ruletype: Sigma

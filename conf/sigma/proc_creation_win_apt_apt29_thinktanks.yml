@@ -12,22 +12,17 @@ tags:
     - attack.execution
     - attack.g0016
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - -noni
-            - -ep
-            - bypass
-            - $
-    condition: process_creation and selection
+            - '-noni'
+            - '-ep'
+            - 'bypass'
+            - '$'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

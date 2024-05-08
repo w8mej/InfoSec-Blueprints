@@ -13,28 +13,23 @@ modified: 2023/08/04
 tags:
     - attack.defense_evasion
     - attack.t1574.002
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \mpclient.dll
+        ImageLoaded|endswith: '\mpclient.dll'
         Image|endswith:
-            - \MpCmdRun.exe
-            - \NisSrv.exe
+            - '\MpCmdRun.exe'
+            - '\NisSrv.exe'
     filter_main_known_locations:
         Image|startswith:
-            - C:\Program Files (x86)\Windows Defender\
-            - C:\Program Files\Microsoft Security Client\
-            - C:\Program Files\Windows Defender\
-            - C:\ProgramData\Microsoft\Windows Defender\Platform\
-            - C:\Windows\WinSxS\
-    condition: image_load and (selection and not 1 of filter_main_*)
+            - 'C:\Program Files (x86)\Windows Defender\'
+            - 'C:\Program Files\Microsoft Security Client\'
+            - 'C:\Program Files\Windows Defender\'
+            - 'C:\ProgramData\Microsoft\Windows Defender\Platform\'
+            - 'C:\Windows\WinSxS\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

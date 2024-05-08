@@ -14,21 +14,16 @@ modified: 2023/12/11
 tags:
     - attack.persistence
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|contains:
             # e.g. C:\$RECYCLER.BIN
-            - RECYCLERS.BIN\
-            - RECYCLER.BIN\
-    condition: process_creation and selection
+            - 'RECYCLERS.BIN\'
+            - 'RECYCLER.BIN\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

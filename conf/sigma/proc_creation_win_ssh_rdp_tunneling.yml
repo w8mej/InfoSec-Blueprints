@@ -13,19 +13,14 @@ modified: 2023/01/25
 tags:
     - attack.command_and_control
     - attack.t1572
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \ssh.exe
-        CommandLine|contains: :3389
-    condition: process_creation and selection
+        Image|endswith: '\ssh.exe'
+        CommandLine|contains: ':3389'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

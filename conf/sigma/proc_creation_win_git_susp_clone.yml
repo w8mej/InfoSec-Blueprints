@@ -10,19 +10,15 @@ modified: 2023/01/10
 tags:
     - attack.reconnaissance
     - attack.t1593.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \git.exe
-              - \git-remote-https.exe
-        - OriginalFileName: git.exe
+              - '\git.exe'
+              - '\git-remote-https.exe'
+        - OriginalFileName: 'git.exe'
     selection_cli:
         CommandLine|contains:
             - ' clone '
@@ -30,22 +26,21 @@ detection:
     selection_keyword:
         CommandLine|contains:
             # Add more suspicious keywords
-            - exploit
-            - Vulns
-            - vulnerability
-            - RemoteCodeExecution
-            - Invoke-
-            - CVE-
-            - poc-
-            - ProofOfConcept
+            - 'exploit'
+            - 'Vulns'
+            - 'vulnerability'
+            - 'RemoteCodeExecution'
+            - 'Invoke-'
+            - 'CVE-'
+            - 'poc-'
+            - 'ProofOfConcept'
             # Add more vuln names
-            - proxyshell
-            - log4shell
-            - eternalblue
-            - eternal-blue
-            - MS17-
-    condition: process_creation and (all of selection_*)
+            - 'proxyshell'
+            - 'log4shell'
+            - 'eternalblue'
+            - 'eternal-blue'
+            - 'MS17-'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

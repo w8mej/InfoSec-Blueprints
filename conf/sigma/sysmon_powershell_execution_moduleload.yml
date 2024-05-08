@@ -11,18 +11,14 @@ tags:
     - attack.execution
     - attack.t1086          # an old one
     - attack.t1059.001
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
-    selection:
-        Description: System.Management.Automation
-        ImageLoaded|contains: System.Management.Automation
-    condition: image_load and selection
+    selection: 
+        Description: 'System.Management.Automation'
+        ImageLoaded|contains: 'System.Management.Automation'
+    condition: selection
 fields:
     - ComputerName
     - Image
@@ -31,4 +27,3 @@ fields:
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

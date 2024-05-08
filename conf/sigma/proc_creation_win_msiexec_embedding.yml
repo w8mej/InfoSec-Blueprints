@@ -10,32 +10,27 @@ modified: 2022/07/14
 tags:
     - attack.t1218.007
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-            - \cmd.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\cmd.exe'
         ParentCommandLine|contains|all:
-            - MsiExec.exe
+            - 'MsiExec.exe'
             - '-Embedding '
     filter_splunk_ufw:
-        Image|endswith: :\Windows\System32\cmd.exe
-        CommandLine|contains: C:\Program Files\SplunkUniversalForwarder\bin\
+        Image|endswith: ':\Windows\System32\cmd.exe'
+        CommandLine|contains: 'C:\Program Files\SplunkUniversalForwarder\bin\'
     filter_vs:
-        - CommandLine|contains: \DismFoDInstall.cmd
+        - CommandLine|contains: '\DismFoDInstall.cmd'
         - ParentCommandLine|contains|all:
               - '\MsiExec.exe -Embedding '
-              - Global\MSI0000
-    condition: process_creation and (selection and not 1 of filter*)
+              - 'Global\MSI0000'
+    condition: selection and not 1 of filter*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

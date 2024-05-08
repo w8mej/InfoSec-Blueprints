@@ -14,15 +14,12 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
     timeframe: 7d
-    condition: (system and selection) | count() by ServiceName < 5
+    condition: selection | count() by ServiceName < 5
 falsepositives:
     - Software installation
     - Software updates
 level: low
-ruletype: Sigma

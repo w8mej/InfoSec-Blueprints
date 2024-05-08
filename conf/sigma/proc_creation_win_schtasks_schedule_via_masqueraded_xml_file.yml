@@ -12,44 +12,39 @@ tags:
     - attack.persistence
     - attack.t1036.005
     - attack.t1053.005
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \schtasks.exe
-        - OriginalFileName: schtasks.exe
+        - Image|endswith: '\schtasks.exe'
+        - OriginalFileName: 'schtasks.exe'
     selection_cli_create:
         CommandLine|contains:
-            - /create
-            - -create
+            - '/create'
+            - '-create'
     selection_cli_xml:
         CommandLine|contains:
-            - /xml
-            - -xml
+            - '/xml'
+            - '-xml'
     filter_main_extension_xml:
-        CommandLine|contains: .xml
+        CommandLine|contains: '.xml'
     filter_main_system_process:
-        IntegrityLevel: System
+        IntegrityLevel: 'System'
     filter_main_rundll32:
-        ParentImage|endswith: \rundll32.exe
+        ParentImage|endswith: '\rundll32.exe'
         ParentCommandLine|contains|all:
-            - :\WINDOWS\Installer\MSI
-            - .tmp,zzzzInvokeManagedCustomActionOutOfProc
+            - ':\WINDOWS\Installer\MSI'
+            - '.tmp,zzzzInvokeManagedCustomActionOutOfProc'
     filter_optional_third_party:
         ParentImage|endswith:
             # Consider removing any tools that you don't use to avoid blind spots
-            - :\ProgramData\OEM\UpgradeTool\CareCenter_*\BUnzip\Setup_msi.exe
-            - :\Program Files\Axis Communications\AXIS Camera Station\SetupActions.exe
-            - :\Program Files\Axis Communications\AXIS Device Manager\AdmSetupActions.exe
-            - :\Program Files (x86)\Zemana\AntiMalware\AntiMalware.exe
-            - :\Program Files\Dell\SupportAssist\pcdrcui.exe
-    condition: process_creation and (all of selection_* and not 1 of filter_main_* and not 1 of filter_optional_*)
+            - ':\ProgramData\OEM\UpgradeTool\CareCenter_*\BUnzip\Setup_msi.exe'
+            - ':\Program Files\Axis Communications\AXIS Camera Station\SetupActions.exe'
+            - ':\Program Files\Axis Communications\AXIS Device Manager\AdmSetupActions.exe'
+            - ':\Program Files (x86)\Zemana\AntiMalware\AntiMalware.exe'
+            - ':\Program Files\Dell\SupportAssist\pcdrcui.exe'
+    condition: all of selection_* and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

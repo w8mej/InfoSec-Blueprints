@@ -10,21 +10,16 @@ modified: 2022/08/13
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename:
-            - C:\Windows\System32\config\systemprofile\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
-            - C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-Interactive
-    condition: file_event and selection
+            - 'C:\Windows\System32\config\systemprofile\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt'
+            - 'C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-Interactive'
+    condition: selection
 falsepositives:
     - Administrative activity
     - PowerShell scripts running as SYSTEM user
 level: high
-ruletype: Sigma

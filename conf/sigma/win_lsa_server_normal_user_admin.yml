@@ -17,23 +17,21 @@ logsource:
     service: lsa-server
     definition: 'Requirements: Microsoft-Windows-LSA/Operational (199FE037-2B82-40A9-82AC-E1D46C792B99) Event Log must be enabled and collected in order to use this rule.'
 detection:
-    lsa_server:
-        Channel: Microsoft-Windows-LSA/Operational
     selection:
         EventID: 300
-        TargetUserSid|startswith: S-1-5-21-   # Standard user
+        TargetUserSid|startswith: 'S-1-5-21-' # Standard user
         SidList|contains:
-            - S-1-5-32-544      # Local admin
-            - -500}             # Domain admin
-            - -518}             # Schema admin
-            - -519}             # Enterprise admin
+            - 'S-1-5-32-544'    # Local admin
+            - '-500}'           # Domain admin
+            - '-518}'           # Schema admin
+            - '-519}'           # Enterprise admin
     filter_main_admin:
         TargetUserSid|endswith:
             - '-500'           # Domain admin
             - '-518'           # Schema admin
             - '-519'           # Enterprise admin
-    condition: lsa_server and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
-    - Standard domain users who are part of the administrator group. These users shouldn't have these right. But in the case where it's necessary. They should be filtered out using the "TargetUserName" field
+    - Standard domain users who are part of the administrator group.
+      These users shouldn't have these right. But in the case where it's necessary. They should be filtered out using the "TargetUserName" field
 level: medium
-ruletype: Sigma

@@ -9,20 +9,15 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/10/25
 tags:
     - attack.command_and_control
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|contains: \servers\Stable-
-        Image|endswith: \server\node.exe
-        TargetFilename|contains: \.vscode-server\data\User\History\
-    condition: file_event and selection
+        Image|contains: '\servers\Stable-'
+        Image|endswith: '\server\node.exe'
+        TargetFilename|contains: '\.vscode-server\data\User\History\'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

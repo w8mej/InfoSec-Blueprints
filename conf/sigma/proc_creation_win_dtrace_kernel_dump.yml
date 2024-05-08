@@ -10,23 +10,18 @@ date: 2021/12/28
 tags:
     - attack.discovery
     - attack.t1082
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_plain:
-        Image|endswith: \dtrace.exe
-        CommandLine|contains: lkd(0)
+        Image|endswith: '\dtrace.exe'
+        CommandLine|contains: 'lkd(0)'
     selection_obfuscated:
         CommandLine|contains|all:
-            - syscall:::return
-            - lkd(
-    condition: process_creation and (1 of selection*)
+            - 'syscall:::return'
+            - 'lkd('
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

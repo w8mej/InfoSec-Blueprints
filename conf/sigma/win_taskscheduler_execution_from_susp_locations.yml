@@ -15,23 +15,20 @@ logsource:
     service: taskscheduler
     definition: 'Requirements: The "Microsoft-Windows-TaskScheduler/Operational" is disabled by default and needs to be enabled in order for this detection to trigger'
 detection:
-    taskscheduler:
-        Channel: Microsoft-Windows-TaskScheduler/Operational
     selection:
         EventID: 129 # Created Task Process
         Path|contains:
-            - C:\Windows\Temp\
-            - \AppData\Local\Temp\
-            - \Desktop\
-            - \Downloads\
-            - \Users\Public\
-            - C:\Temp\
+            - 'C:\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+            - '\Desktop\'
+            - '\Downloads\'
+            - '\Users\Public\'
+            - 'C:\Temp\'
     # If you experience FP. Uncomment the filter below and add the specific TaskName with the Program to it
     # filter:
     #     TaskName: '\Exact\Task\Name'
     #     Path: 'Exact\Path'
-    condition: taskscheduler and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

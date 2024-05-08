@@ -11,23 +11,18 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.t1003.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \xordump.exe
+        - Image|endswith: '\xordump.exe'
         - CommandLine|contains:
               - ' -process lsass.exe '
               - ' -m comsvcs '
               - ' -m dbghelp '
               - ' -m dbgcore '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Another tool that uses the command line switches of XORdump
 level: high
-ruletype: Sigma

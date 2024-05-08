@@ -10,23 +10,18 @@ modified: 2023/10/18
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \GfxDownloadWrapper.exe
+        Image|endswith: '\GfxDownloadWrapper.exe'
         CommandLine|contains:
-            - http://
-            - https://
+            - 'http://'
+            - 'https://'
     filter_main_known_urls:
-        CommandLine|contains: https://gameplayapi.intel.com/
-    condition: process_creation and (selection and not 1 of filter_main_*)
+        CommandLine|contains: 'https://gameplayapi.intel.com/'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

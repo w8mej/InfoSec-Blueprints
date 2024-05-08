@@ -4,7 +4,7 @@ status: test
 description: Detection of unusual child processes by different system processes
 references:
     - https://image.slidesharecdn.com/kheirkhabarovoffzonefinal-181117201458/95/hunting-for-privilege-escalation-in-windows-environment-74-638.jpg
-author: Semanur Guneysu @semanurtg, oscd.community
+author: 'Semanur Guneysu @semanurtg, oscd.community'
 date: 2020/10/28
 modified: 2022/11/11
 tags:
@@ -14,42 +14,38 @@ logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 4688
-        Channel: Security
     selection_parent:
-        ParentProcessName|endswith:
-            - \winlogon.exe
-            - \services.exe
-            - \lsass.exe
-            - \csrss.exe
-            - \smss.exe
-            - \wininit.exe
-            - \spoolsv.exe
-            - \searchindexer.exe
-        SubjectUserName|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
+        ParentImage|endswith:
+            - '\winlogon.exe'
+            - '\services.exe'
+            - '\lsass.exe'
+            - '\csrss.exe'
+            - '\smss.exe'
+            - '\wininit.exe'
+            - '\spoolsv.exe'
+            - '\searchindexer.exe'
+        User|contains: # covers many language settings
+            - 'AUTHORI'
+            - 'AUTORI'
     selection_img:
-        - NewProcessName|endswith:
-              - \powershell.exe
-              - \pwsh.exe
-              - \cmd.exe
+        - Image|endswith:
+              - '\powershell.exe'
+              - '\pwsh.exe'
+              - '\cmd.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
-              - Cmd.Exe
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
+              - 'Cmd.Exe'
     filter:
         CommandLine|contains|all:
             - ' route '
             - ' ADD '
-    condition: process_creation and (all of selection_* and not filter)
+    condition: all of selection_* and not filter
 fields:
-    - ParentProcessName
-    - NewProcessName
-    - SubjectUserName
+    - ParentImage
+    - Image
+    - User
     - CommandLine
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

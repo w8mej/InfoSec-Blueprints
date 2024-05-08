@@ -10,19 +10,14 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.persistence
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \AppInstaller\EnableLocalManifestFiles
-        Details: DWORD (0x00000001)
-    condition: registry_set and selection
+        TargetObject|endswith: '\AppInstaller\EnableLocalManifestFiles'
+        Details: 'DWORD (0x00000001)'
+    condition: selection
 falsepositives:
     - Administrators or developers might enable this for testing purposes or to install custom private packages
 level: medium
-ruletype: Sigma

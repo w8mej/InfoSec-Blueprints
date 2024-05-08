@@ -16,27 +16,22 @@ tags:
     - attack.defense_evasion
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \winget.exe
-        - OriginalFileName: winget.exe
+        - Image|endswith: '\winget.exe'
+        - OriginalFileName: 'winget.exe'
     selection_install_flag:
         CommandLine|contains:
-            - install
+            - 'install'
             - ' add ' # https://github.com/microsoft/winget-cli/blob/02d2f93807c9851d73eaacb4d8811a76b64b7b01/src/AppInstallerCLICore/Commands/InstallCommand.h
     selection_manifest_flag:
         CommandLine|contains:
             - '-m '
-            - --manifest
-    condition: process_creation and (all of selection_*)
+            - '--manifest'
+    condition: all of selection_*
 falsepositives:
     - Some false positives are expected in some environment that may use this functionality to install and test their custom applications
 level: medium
-ruletype: Sigma

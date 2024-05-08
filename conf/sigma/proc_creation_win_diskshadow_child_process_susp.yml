@@ -24,28 +24,23 @@ date: 2023/09/15
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \diskshadow.exe
+        ParentImage|endswith: '\diskshadow.exe'
         Image|endswith:
             # Note: add or remove additional binaries according to your org needs
-            - \certutil.exe
-            - \cscript.exe
-            - \mshta.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \wscript.exe
-    condition: process_creation and selection
+            - '\certutil.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\wscript.exe'
+    condition: selection
 falsepositives:
     - False postitve can occur in cases where admin scripts levreage the "exec" flag to execute applications
 level: medium
-ruletype: Sigma

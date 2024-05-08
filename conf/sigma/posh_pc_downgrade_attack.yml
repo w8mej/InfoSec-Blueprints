@@ -15,15 +15,11 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection:
-        Data|contains: EngineVersion=2.
+        Data|contains: 'EngineVersion=2.'
     filter_main:
-        Data|contains: HostVersion=2.
-    condition: ps_classic_start and (selection and not filter_main)
+        Data|contains: 'HostVersion=2.'
+    condition: selection and not filter_main
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

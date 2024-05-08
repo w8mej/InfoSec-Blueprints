@@ -13,68 +13,63 @@ modified: 2023/01/09
 tags:
     - attack.execution
     - attack.t1106
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - AddSecurityPackage
-            - AdjustTokenPrivileges
-            - Advapi32
-            - CloseHandle
-            - CreateProcessWithToken
-            - CreatePseudoConsole
-            - CreateRemoteThread
-            - CreateThread
-            - CreateUserThread
-            - DangerousGetHandle
-            - DuplicateTokenEx
-            - EnumerateSecurityPackages
-            - FreeHGlobal
-            - FreeLibrary
-            - GetDelegateForFunctionPointer
-            - GetLogonSessionData
-            - GetModuleHandle
-            - GetProcAddress
-            - GetProcessHandle
-            - GetTokenInformation
-            - ImpersonateLoggedOnUser
-            - kernel32
-            - LoadLibrary
-            - memcpy
-            - MiniDumpWriteDump
+            - 'AddSecurityPackage'
+            - 'AdjustTokenPrivileges'
+            - 'Advapi32'
+            - 'CloseHandle'
+            - 'CreateProcessWithToken'
+            - 'CreatePseudoConsole'
+            - 'CreateRemoteThread'
+            - 'CreateThread'
+            - 'CreateUserThread'
+            - 'DangerousGetHandle'
+            - 'DuplicateTokenEx'
+            - 'EnumerateSecurityPackages'
+            - 'FreeHGlobal'
+            - 'FreeLibrary'
+            - 'GetDelegateForFunctionPointer'
+            - 'GetLogonSessionData'
+            - 'GetModuleHandle'
+            - 'GetProcAddress'
+            - 'GetProcessHandle'
+            - 'GetTokenInformation'
+            - 'ImpersonateLoggedOnUser'
+            - 'kernel32'
+            - 'LoadLibrary'
+            - 'memcpy'
+            - 'MiniDumpWriteDump'
             # - 'msvcrt'
-            - ntdll
-            - OpenDesktop
-            - OpenProcess
-            - OpenProcessToken
-            - OpenThreadToken
-            - OpenWindowStation
-            - PtrToString
-            - QueueUserApc
-            - ReadProcessMemory
-            - RevertToSelf
-            - RtlCreateUserThread
-            - secur32
-            - SetThreadToken
+            - 'ntdll'
+            - 'OpenDesktop'
+            - 'OpenProcess'
+            - 'OpenProcessToken'
+            - 'OpenThreadToken'
+            - 'OpenWindowStation'
+            - 'PtrToString'
+            - 'QueueUserApc'
+            - 'ReadProcessMemory'
+            - 'RevertToSelf'
+            - 'RtlCreateUserThread'
+            - 'secur32'
+            - 'SetThreadToken'
             # - 'user32'
-            - VirtualAlloc
-            - VirtualFree
-            - VirtualProtect
-            - WaitForSingleObject
-            - WriteInt32
-            - WriteProcessMemory
-            - ZeroFreeGlobalAllocUnicode
+            - 'VirtualAlloc'
+            - 'VirtualFree'
+            - 'VirtualProtect'
+            - 'WaitForSingleObject'
+            - 'WriteInt32'
+            - 'WriteProcessMemory'
+            - 'ZeroFreeGlobalAllocUnicode'
     filter_optional_mpcmdrun:
-        Image|endswith: \MpCmdRun.exe
-        CommandLine|contains: GetLoadLibraryWAddress32
-    condition: process_creation and (selection and not 1 of filter_optional_*)
+        Image|endswith: '\MpCmdRun.exe'
+        CommandLine|contains: 'GetLoadLibraryWAddress32'
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

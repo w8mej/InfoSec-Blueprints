@@ -22,50 +22,45 @@ tags:
     - attack.discovery
     - attack.t1082
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_wmic:
-        - Description: WMI Commandline Utility
-        - OriginalFileName: wmic.exe
-        - Image|endswith: \WMIC.exe
+        - Description: 'WMI Commandline Utility'
+        - OriginalFileName: 'wmic.exe'
+        - Image|endswith: '\WMIC.exe'
     selection_get:
-        CommandLine|contains: get
+        CommandLine|contains: 'get'
     selection_classes:
         CommandLine|contains:
-            - baseboard
-            - bios
-            - cpu
-            - diskdrive
-            - logicaldisk
-            - memphysical
-            - os
-            - path
-            - startup
-            - win32_videocontroller
+            - 'baseboard'
+            - 'bios'
+            - 'cpu'
+            - 'diskdrive'
+            - 'logicaldisk'
+            - 'memphysical'
+            - 'os'
+            - 'path'
+            - 'startup'
+            - 'win32_videocontroller'
     selection_attributes:
         CommandLine|contains:
-            - caption
-            - command
-            - driverversion
-            - maxcapacity
-            - name
-            - osarchitecture
-            - product
-            - size
-            - smbiosbiosversion
-            - version
-            - videomodedescription
+            - 'caption'
+            - 'command'
+            - 'driverversion'
+            - 'maxcapacity'
+            - 'name'
+            - 'osarchitecture'
+            - 'product'
+            - 'size'
+            - 'smbiosbiosversion'
+            - 'version'
+            - 'videomodedescription'
     filter_optional_vmtools:
-        ParentCommandLine|contains: \VMware\VMware Tools\serviceDiscovery\scripts\
-    condition: process_creation and (all of selection_* and not 1 of filter_optional_*)
+        ParentCommandLine|contains: '\VMware\VMware Tools\serviceDiscovery\scripts\'
+    condition: all of selection_* and not 1 of filter_optional_*
 falsepositives:
     - VMWare Tools serviceDiscovery scripts
 # Note: Might be upgraded to a medium detection rules after some time
 level: low
-ruletype: Sigma

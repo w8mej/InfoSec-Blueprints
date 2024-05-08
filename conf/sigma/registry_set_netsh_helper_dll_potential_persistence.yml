@@ -16,19 +16,14 @@ date: 2023/11/28
 tags:
     - attack.persistence
     - attack.t1546.007
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\Microsoft\NetSh
-        Details|contains: .dll
-    condition: registry_set and selection
+        TargetObject|contains: '\SOFTWARE\Microsoft\NetSh'
+        Details|contains: '.dll'
+    condition: selection
 falsepositives:
     - Legitimate helper added by different programs and the OS
 level: medium
-ruletype: Sigma

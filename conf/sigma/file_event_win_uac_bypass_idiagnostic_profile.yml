@@ -11,20 +11,15 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \DllHost.exe
-        TargetFilename|startswith: C:\Windows\System32\
-        TargetFilename|endswith: .dll
-    condition: file_event and selection
+        Image|endswith: '\DllHost.exe'
+        TargetFilename|startswith: 'C:\Windows\System32\'
+        TargetFilename|endswith: '.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -10,20 +10,15 @@ modified: 2023/02/03
 tags:
     - attack.defense_evasion
     - attack.t1036.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        OriginalFileName: msdt.exe
+        OriginalFileName: 'msdt.exe'
     filter:
-        Image|endswith: \msdt.exe
-    condition: process_creation and (selection and not filter)
+        Image|endswith: '\msdt.exe'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -15,17 +15,14 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4769
         TicketOptions: '0x40810000'
         TicketEncryptionType: '0x17'
     reduction:
-        ServiceName|endswith: $
-    condition: security and (selection and not reduction)
+        ServiceName|endswith: '$'
+    condition: selection and not reduction
 falsepositives:
     - Service accounts used on legacy systems (e.g. NetApp)
     - Windows Domains with DFL 2003 and legacy systems
 level: medium
-ruletype: Sigma

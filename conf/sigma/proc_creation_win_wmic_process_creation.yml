@@ -15,24 +15,19 @@ tags:
     - attack.execution
     - attack.t1047
     - car.2016-03-002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \wmic.exe
-        - OriginalFileName: wmic.exe
+        - Image|endswith: '\wmic.exe'
+        - OriginalFileName: 'wmic.exe'
     selection_cli:
         CommandLine|contains|all:
-            - process
-            - call
-            - create
-    condition: process_creation and (all of selection_*)
+            - 'process'
+            - 'call'
+            - 'create'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

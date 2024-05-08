@@ -16,19 +16,16 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID: 4625
         LogonType: 2
     filter:
         ProcessName: '-'
     timeframe: 24h
-    condition: (security and selection1 and not filter) | count(TargetUserName) by ProcessName > 10
+    condition: selection1 and not filter | count(TargetUserName) by ProcessName > 10
 falsepositives:
     - Terminal servers
     - Jump servers
     - Other multiuser systems like Citrix server farms
     - Workstations with frequently changing users
 level: medium
-ruletype: Sigma

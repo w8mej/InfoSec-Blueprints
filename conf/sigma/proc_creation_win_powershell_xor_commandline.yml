@@ -19,38 +19,33 @@ tags:
     - attack.t1059.001
     - attack.t1140
     - attack.t1027
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+              - '\powershell.exe'
+              - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.EXE
-              - pwsh.dll
-        - Description: Windows PowerShell
-        - Product: PowerShell Core 6
+              - 'PowerShell.EXE'
+              - 'pwsh.dll'
+        - Description: 'Windows PowerShell'
+        - Product: 'PowerShell Core 6'
     selection_cli_xor:
-        CommandLine|contains: bxor
+        CommandLine|contains: 'bxor'
     selection_cli_other:
         CommandLine|contains:
-            - ForEach
-            - for(
+            - 'ForEach'
+            - 'for('
             - 'for '
             - '-join '
-            - -join'
-            - -join"
-            - -join`
-            - ::Join
+            - "-join'"
+            - '-join"'
+            - '-join`'
+            - '::Join'
             - '[char]'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -15,27 +15,22 @@ tags:
     - attack.t1027
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - Image|endswith:
-              - \powershell.exe
-              - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         - OriginalFileName:
-              - PowerShell.exe
-              - pwsh.dll
+            - 'PowerShell.exe'
+            - 'pwsh.dll'
     selection_cli:
         CommandLine|contains|all:
-            - ForEach
-            - Xor
-    condition: process_creation and (all of selection_*)
+            - 'ForEach'
+            - 'Xor'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

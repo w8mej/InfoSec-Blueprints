@@ -16,16 +16,12 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
+        TargetImage|endswith: '\lsass.exe'
         GrantedAccess|contains:
             - '0x1038'
             - '0x1438'
@@ -37,25 +33,24 @@ detection:
             # - '0x1410' # Too many false positives
             # - '0x40'   # Too many false positives
         CallTrace|contains:
-            - dbgcore.dll
-            - dbghelp.dll
-            - kernel32.dll
-            - kernelbase.dll
-            - ntdll.dll
+            - 'dbgcore.dll'
+            - 'dbghelp.dll'
+            - 'kernel32.dll'
+            - 'kernelbase.dll'
+            - 'ntdll.dll'
     filter_main_system_user:
         SourceUser|contains: # Covers many language settings
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
     filter_optional_thor:
         CallTrace|contains|all:
-            - :\Windows\Temp\asgard2-agent\
-            - \thor\thor64.exe+
+            - ':\Windows\Temp\asgard2-agent\'
+            - '\thor\thor64.exe+'
             - '|UNKNOWN('
         GrantedAccess: '0x103800'
     filter_optional_sysmon:
-        SourceImage|endswith: :\Windows\Sysmon64.exe
-    condition: process_access and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+        SourceImage|endswith: ':\Windows\Sysmon64.exe'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

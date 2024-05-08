@@ -10,18 +10,13 @@ date: 2022/04/14
 tags:
     - attack.execution
     - attack.t1203
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \eqnedt32.exe
-    condition: network_connection and selection
+        Image|endswith: '\eqnedt32.exe'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

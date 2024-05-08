@@ -11,18 +11,14 @@ tags:
     - attack.execution
     - attack.t1059.001
     - attack.t1021.006
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \wsmprovhost.exe
-        - ParentImage|endswith: \wsmprovhost.exe
-    condition: process_creation and selection
+        - Image|endswith: '\wsmprovhost.exe'
+        - ParentImage|endswith: '\wsmprovhost.exe'
+    condition: selection
 fields:
     - ComputerName
     - User
@@ -30,4 +26,3 @@ fields:
 falsepositives:
     - Legitimate usage of remote Powershell, e.g. for monitoring purposes.
 level: medium
-ruletype: Sigma

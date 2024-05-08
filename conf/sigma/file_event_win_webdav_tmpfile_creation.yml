@@ -12,30 +12,25 @@ tags:
     - attack.t1584
     - attack.t1566
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|contains: \AppData\Local\Temp\TfsStore\Tfs_DAV\
+        TargetFilename|contains: '\AppData\Local\Temp\TfsStore\Tfs_DAV\'
         TargetFilename|endswith:
-            - .7z
-            - .bat
-            - .dat
-            - .ico
-            - .js
-            - .lnk
-            - .ps1
-            - .rar
-            - .vbe
-            - .vbs
-            - .zip
-    condition: file_event and selection
+            - '.7z'
+            - '.bat'
+            - '.dat'
+            - '.ico'
+            - '.js'
+            - '.lnk'
+            - '.ps1'
+            - '.rar'
+            - '.vbe'
+            - '.vbs'
+            - '.zip'
+    condition: selection
 falsepositives:
     - Legitimate use of WebDAV in an environment
 level: medium
-ruletype: Sigma

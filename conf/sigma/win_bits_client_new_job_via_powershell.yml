@@ -15,15 +15,12 @@ logsource:
     product: windows
     service: bits-client
 detection:
-    bits_client:
-        Channel: Microsoft-Windows-Bits-Client/Operational
     selection:
         EventID: 3
         processPath|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-    condition: bits_client and selection
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    condition: selection
 falsepositives:
     - Administrator PowerShell scripts
 level: low
-ruletype: Sigma

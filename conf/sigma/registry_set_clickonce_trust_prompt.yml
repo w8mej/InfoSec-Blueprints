@@ -11,25 +11,20 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\MICROSOFT\.NETFramework\Security\TrustManager\PromptingLevel\
+        TargetObject|contains: '\SOFTWARE\MICROSOFT\.NETFramework\Security\TrustManager\PromptingLevel\'
         TargetObject|endswith:
-            - \Internet
-            - \LocalIntranet
-            - \MyComputer
-            - \TrustedSites
-            - \UntrustedSites
-        Details: Enabled
-    condition: registry_set and selection
+            - '\Internet'
+            - '\LocalIntranet'
+            - '\MyComputer'
+            - '\TrustedSites'
+            - '\UntrustedSites'
+        Details: 'Enabled'
+    condition: selection
 falsepositives:
     - Legitimate internal requirements.
 level: medium
-ruletype: Sigma

@@ -10,23 +10,18 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/10/25
 tags:
     - attack.command_and_control
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \code_tunnel.json
+        TargetFilename|endswith: '\code_tunnel.json'
     filter_main_legit_name:
         # Note: There might be other legitimate names for VsCode. Please add them if found
         Image|endswith:
-            - \code-tunnel.exe
-            - \code.exe
-    condition: file_event and (selection and not 1 of filter_main_*)
+            - '\code-tunnel.exe'
+            - '\code.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

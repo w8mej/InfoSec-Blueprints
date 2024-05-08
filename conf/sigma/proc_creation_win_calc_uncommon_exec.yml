@@ -11,25 +11,20 @@ modified: 2023/11/09
 tags:
     - attack.defense_evasion
     - attack.t1036
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         CommandLine|contains: '\calc.exe '
     selection_2:
-        Image|endswith: \calc.exe
+        Image|endswith: '\calc.exe'
     filter_main_known_locations:
         Image|contains:
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-            - :\Windows\WinSxS\
-    condition: process_creation and (selection_1 or ( selection_2 and not filter_main_known_locations ))
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+            - ':\Windows\WinSxS\'
+    condition: selection_1 or ( selection_2 and not filter_main_known_locations )
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

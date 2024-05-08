@@ -18,19 +18,14 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         # The DLL shouldn't exist on Windows anymore. If for some reason you still have it. You could filter out legitimate calls
-        ImageLoaded|endswith: \ShellChromeAPI.dll
-    condition: image_load and selection
+        ImageLoaded|endswith: '\ShellChromeAPI.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

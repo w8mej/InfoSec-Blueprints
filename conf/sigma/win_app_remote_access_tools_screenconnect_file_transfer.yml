@@ -17,14 +17,11 @@ logsource:
     service: application
     product: windows
 detection:
-    application:
-        Channel: Application
     selection:
-        Provider_Name: ScreenConnect
+        Provider_Name: 'ScreenConnect'
         EventID: 201
-        Data|contains: Transferred files with action
-    condition: application and selection
+        Data|contains: 'Transferred files with action'
+    condition: selection
 falsepositives:
     - Legitimate use of ScreenConnect
 level: low
-ruletype: Sigma

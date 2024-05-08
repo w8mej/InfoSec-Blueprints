@@ -16,13 +16,11 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4656
-        ObjectType: Key
-        ObjectName|endswith: \SAM
-    condition: security and selection
+        ObjectType: 'Key'
+        ObjectName|endswith: '\SAM'
+    condition: selection
 fields:
     - ComputerName
     - SubjectDomainName
@@ -32,4 +30,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

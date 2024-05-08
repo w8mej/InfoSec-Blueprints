@@ -11,14 +11,10 @@ tags:
     - attack.credential_access
     - attack.t1003.001
     - attack.s0005
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         - Imphash:
               - a53a02b997935fd8eedcb5f7abab9b9f
@@ -27,12 +23,11 @@ detection:
               - IMPHASH=a53a02b997935fd8eedcb5f7abab9b9f
               - IMPHASH=e96a73c7bf33a464c510ede582318bf2
     selection_2:
-        CommandLine|endswith: .exe -S
-        ParentImage|endswith: \services.exe
+        CommandLine|endswith: '.exe -S'
+        ParentImage|endswith: '\services.exe'
     filter:
-        Image|endswith: \clussvc.exe
-    condition: process_creation and (1 of selection_* and not filter)
+        Image|endswith: '\clussvc.exe'
+    condition: 1 of selection_* and not filter
 falsepositives:
     - Another service that uses a single -s command line switch
 level: critical
-ruletype: Sigma

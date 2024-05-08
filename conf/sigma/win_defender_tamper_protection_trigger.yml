@@ -15,21 +15,18 @@ logsource:
     product: windows
     service: windefend
 detection:
-    windefend:
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
         EventID: 5013 # Tamper protection blocked a change to Microsoft Defender Antivirus. If Tamper protection is enabled then, any attempt to change any of Defender's settings is blocked. Event ID 5013 is generated and states which setting change was blocked.
         Value|endswith:
-            - \Windows Defender\DisableAntiSpyware
-            - \Windows Defender\DisableAntiVirus
-            - \Windows Defender\Scan\DisableArchiveScanning
-            - \Windows Defender\Scan\DisableScanningNetworkFiles
-            - \Real-Time Protection\DisableRealtimeMonitoring
-            - \Real-Time Protection\DisableBehaviorMonitoring
-            - \Real-Time Protection\DisableIOAVProtection
-            - \Real-Time Protection\DisableScriptScanning
-    condition: windefend and selection
+            - '\Windows Defender\DisableAntiSpyware'
+            - '\Windows Defender\DisableAntiVirus'
+            - '\Windows Defender\Scan\DisableArchiveScanning'
+            - '\Windows Defender\Scan\DisableScanningNetworkFiles'
+            - '\Real-Time Protection\DisableRealtimeMonitoring'
+            - '\Real-Time Protection\DisableBehaviorMonitoring'
+            - '\Real-Time Protection\DisableIOAVProtection'
+            - '\Real-Time Protection\DisableScriptScanning'
+    condition: selection
 falsepositives:
     - Administrator might try to disable defender features during testing (must be investigated)
 level: high
-ruletype: Sigma

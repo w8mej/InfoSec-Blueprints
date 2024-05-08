@@ -14,17 +14,11 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
-            - Get-StorageDiagnosticInfo
-            - -IncludeLiveDump
-    condition: ps_script and selection
+            - 'Get-StorageDiagnosticInfo'
+            - '-IncludeLiveDump'
+    condition: selection
 falsepositives:
     - Diagnostics
 level: high
-ruletype: Sigma

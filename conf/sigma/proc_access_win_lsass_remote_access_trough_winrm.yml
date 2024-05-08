@@ -15,21 +15,16 @@ tags:
     - attack.lateral_movement
     - attack.t1021.006
     - attack.s0002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: \lsass.exe
-        SourceImage|endswith: :\Windows\system32\wsmprovhost.exe
+        TargetImage|endswith: '\lsass.exe'
+        SourceImage|endswith: ':\Windows\system32\wsmprovhost.exe'
     filter_main_access:
         GrantedAccess: '0x80000000'
-    condition: process_access and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

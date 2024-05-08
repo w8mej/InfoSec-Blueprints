@@ -12,23 +12,18 @@ tags:
     - attack.g0045
     - attack.t1059.005
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cscript:
-        Image|endswith: \cscript.exe
+        Image|endswith: '\cscript.exe'
         CommandLine|contains: '.vbs /shell '
     selection_csvde:
         CommandLine|contains|all:
-            - csvde -f C:\windows\web\
-            - .log
-    condition: process_creation and (1 of selection_*)
+            - 'csvde -f C:\windows\web\'
+            - '.log'
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -10,35 +10,30 @@ date: 2023/04/18
 modified: 2023/04/18
 tags:
     - attack.lateral_movement
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
         ParentImage|endswith:
             # Covers potential downloads/clicks from browsers
-            - \brave.exe
-            - \CCleanerBrowser.exe
-            - \chrome.exe
-            - \chromium.exe
-            - \firefox.exe
-            - \iexplore.exe
-            - \microsoftedge.exe
-            - \msedge.exe
-            - \opera.exe
-            - \vivaldi.exe
-            - \whale.exe
+            - '\brave.exe'
+            - '\CCleanerBrowser.exe'
+            - '\chrome.exe'
+            - '\chromium.exe'
+            - '\firefox.exe'
+            - '\iexplore.exe'
+            - '\microsoftedge.exe'
+            - '\msedge.exe'
+            - '\opera.exe'
+            - '\vivaldi.exe'
+            - '\whale.exe'
             # Covers potential downloads/clicks from email clients
-            - \outlook.exe
+            - '\outlook.exe'
     selection_img:
-        - Image|endswith: \mstsc.exe
-        - OriginalFileName: mstsc.exe
-    condition: process_creation and (all of selection_*)
+        - Image|endswith: '\mstsc.exe'
+        - OriginalFileName: 'mstsc.exe'
+    condition: all of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

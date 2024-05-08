@@ -12,20 +12,13 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: \AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command
-    condition: registry_event and selection
+        TargetObject|endswith: '\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command'
+    condition: selection
 fields:
     - ComputerName
     - Image
@@ -34,4 +27,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

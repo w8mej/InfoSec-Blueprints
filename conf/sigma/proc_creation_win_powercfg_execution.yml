@@ -9,31 +9,26 @@ author: frack113
 date: 2022/11/18
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_power:
-        - Image|endswith: \powercfg.exe
-        - OriginalFileName: PowerCfg.exe
+        - Image|endswith: '\powercfg.exe'
+        - OriginalFileName: 'PowerCfg.exe'
     selection_standby:
         # powercfg.exe /SETACVALUEINDEX SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK
         - CommandLine|contains|all:
               - '/setacvalueindex '
-              - SCHEME_CURRENT
-              - SUB_VIDEO
-              - VIDEOCONLOCK
+              - 'SCHEME_CURRENT'
+              - 'SUB_VIDEO'
+              - 'VIDEOCONLOCK'
         # powercfg -change -standby-timeout-dc 3000
         # powercfg -change -standby-timeout-ac 3000
         - CommandLine|contains|all:
               - '-change '
-              - -standby-timeout-
-    condition: process_creation and (all of selection_*)
+              - '-standby-timeout-'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

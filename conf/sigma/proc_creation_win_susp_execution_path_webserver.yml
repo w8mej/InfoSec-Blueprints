@@ -12,28 +12,23 @@ tags:
     - attack.persistence
     - attack.t1505.003
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|contains:
-            - \wwwroot\
-            - \wmpub\
-            - \htdocs\
+            - '\wwwroot\'
+            - '\wmpub\'
+            - '\htdocs\'
     filter_main_generic:
         Image|contains:
-            - bin\
-            - \Tools\
-            - \SMSComponent\
-        ParentImage|endswith: \services.exe
-    condition: process_creation and (selection and not 1 of filter_main_*)
+            - 'bin\'
+            - '\Tools\'
+            - '\SMSComponent\'
+        ParentImage|endswith: '\services.exe'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Various applications
     - Tools that include ping or nslookup command invocations
 level: medium
-ruletype: Sigma

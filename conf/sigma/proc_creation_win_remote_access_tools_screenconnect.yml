@@ -13,20 +13,15 @@ modified: 2023/03/05
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Description: ScreenConnect Service
-        - Product: ScreenConnect
-        - Company: ScreenConnect Software
-    condition: process_creation and selection
+        - Description: 'ScreenConnect Service'
+        - Product: 'ScreenConnect'
+        - Company: 'ScreenConnect Software'
+    condition: selection
 falsepositives:
     - Legitimate usage of the tool
 level: medium
-ruletype: Sigma

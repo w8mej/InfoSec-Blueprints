@@ -17,35 +17,30 @@ tags:
     - attack.privilege_escalation
     - attack.t1055
     - attack.t1036
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \wermgr.exe
+        ParentImage|endswith: '\wermgr.exe'
         Image|endswith:
-            - \cmd.exe
-            - \cscript.exe
-            - \ipconfig.exe
-            - \mshta.exe
-            - \net.exe
-            - \net1.exe
-            - \netstat.exe
-            - \nslookup.exe
-            - \powershell_ise.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-            - \systeminfo.exe
-            - \whoami.exe
-            - \wscript.exe
-    condition: process_creation and selection
+            - '\cmd.exe'
+            - '\cscript.exe'
+            - '\ipconfig.exe'
+            - '\mshta.exe'
+            - '\net.exe'
+            - '\net1.exe'
+            - '\netstat.exe'
+            - '\nslookup.exe'
+            - '\powershell_ise.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\systeminfo.exe'
+            - '\whoami.exe'
+            - '\wscript.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

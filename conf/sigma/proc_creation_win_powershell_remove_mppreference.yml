@@ -12,24 +12,19 @@ date: 2022/08/05
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_remove:
-        CommandLine|contains: Remove-MpPreference
+        CommandLine|contains: 'Remove-MpPreference'
     selection_tamper:
         CommandLine|contains:
             - '-ControlledFolderAccessProtectedFolders '
             - '-AttackSurfaceReductionRules_Ids '
             - '-AttackSurfaceReductionRules_Actions '
             - '-CheckForSignaturesBeforeRunningScan '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate PowerShell scripts
 level: high
-ruletype: Sigma

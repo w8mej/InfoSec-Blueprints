@@ -13,37 +13,32 @@ tags:
     - attack.t1119
     - attack.credential_access
     - attack.t1552.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_ext:
         CommandLine|contains:
-            - .doc
-            - .docx
-            - .xls
-            - .xlsx
-            - .ppt
-            - .pptx
-            - .rtf
-            - .pdf
-            - .txt
+            - '.doc'
+            - '.docx'
+            - '.xls'
+            - '.xlsx'
+            - '.ppt'
+            - '.pptx'
+            - '.rtf'
+            - '.pdf'
+            - '.txt'
     selection_other_dir:
         CommandLine|contains|all:
             - 'dir '
             - ' /b '
             - ' /s '
     selection_other_findstr:
-        OriginalFileName: FINDSTR.EXE
+        OriginalFileName: 'FINDSTR.EXE'
         CommandLine|contains:
             - ' /e '
             - ' /si '
-    condition: process_creation and (selection_ext and 1 of selection_other_*)
+    condition: selection_ext and 1 of selection_other_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

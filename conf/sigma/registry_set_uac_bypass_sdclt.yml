@@ -13,21 +13,16 @@ tags:
     - attack.privilege_escalation
     - attack.t1548.002
     - car.2019-04-001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
-        TargetObject|endswith: Software\Classes\exefile\shell\runas\command\isolatedCommand
+        TargetObject|endswith: 'Software\Classes\exefile\shell\runas\command\isolatedCommand'
     selection2:
-        TargetObject|endswith: Software\Classes\Folder\shell\open\command\SymbolicLinkValue
-        Details|re: -1[0-9]{3}\\Software\\Classes\\
-    condition: registry_set and (1 of selection*)
+        TargetObject|endswith: 'Software\Classes\Folder\shell\open\command\SymbolicLinkValue'
+        Details|re: '-1[0-9]{3}\\Software\\Classes\\'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

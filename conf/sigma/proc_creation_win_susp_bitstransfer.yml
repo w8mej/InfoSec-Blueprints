@@ -11,24 +11,19 @@ tags:
     - attack.exfiltration
     - attack.persistence
     - attack.t1197
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \powershell.exe
-            - \powershell_ise.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\powershell_ise.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
-            - Get-BitsTransfer
-            - Add-BitsFile
-    condition: process_creation and selection
+            - 'Get-BitsTransfer'
+            - 'Add-BitsFile'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

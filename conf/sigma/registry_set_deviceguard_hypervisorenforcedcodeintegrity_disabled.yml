@@ -11,23 +11,18 @@ modified: 2024/01/10
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventType: SetValue
         TargetObject|endswith:
-            - \Microsoft\Windows\DeviceGuard\HypervisorEnforcedCodeIntegrity
-            - \Control\DeviceGuard\HypervisorEnforcedCodeIntegrity
-            - \Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity\Enabled
-        Details: DWORD (0x00000000)
-    condition: registry_set and selection
+            - '\Microsoft\Windows\DeviceGuard\HypervisorEnforcedCodeIntegrity'
+            - '\Control\DeviceGuard\HypervisorEnforcedCodeIntegrity'
+            - '\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity\Enabled'
+        Details: 'DWORD (0x00000000)'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

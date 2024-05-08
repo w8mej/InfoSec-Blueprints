@@ -11,18 +11,13 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1543.003
-    - sysmon
 logsource:
     category: driver_load
     product: windows
 detection:
-    driver_load:
-        EventID: 6
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|contains: \Temp\
-    condition: driver_load and selection
+        ImageLoaded|contains: '\Temp\'
+    condition: selection
 falsepositives:
     - There is a relevant set of false positives depending on applications in the environment
 level: high
-ruletype: Sigma

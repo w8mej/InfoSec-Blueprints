@@ -12,19 +12,15 @@ tags:
     - attack.t1566.001
     - attack.execution
     - attack.initial_access
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: .SettingContent-ms
+        CommandLine|contains: '.SettingContent-ms'
     filter:
-        CommandLine|contains: immersivecontrolpanel
-    condition: process_creation and (selection and not filter)
+        CommandLine|contains: 'immersivecontrolpanel'
+    condition: selection and not filter
 fields:
     - ParentProcess
     - CommandLine
@@ -32,4 +28,3 @@ fields:
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

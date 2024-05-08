@@ -10,19 +10,14 @@ tags:
     - attack.execution
     - attack.defense_evasion
     - attack.t1202
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|re: '[a-zA-Z]:\\'
-        CurrentDirectory|contains: \\\\wsl.localhost   # Note: programs not supporting UNC paths (example: cmd.exe). Will default to another location
-    condition: process_creation and selection
+        CurrentDirectory|contains: '\\\\wsl.localhost' # Note: programs not supporting UNC paths (example: cmd.exe). Will default to another location
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

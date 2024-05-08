@@ -9,25 +9,20 @@ date: 2022/09/19
 modified: 2023/03/05
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - Image|endswith:
-              - \rutserv.exe
-              - \rfusclient.exe
-        - Product: Remote Utilities
+              - '\rutserv.exe'
+              - '\rfusclient.exe'
+        - Product: 'Remote Utilities'
     filter:
         Image|startswith:
-            - C:\Program Files\Remote Utilities
-            - C:\Program Files (x86)\Remote Utilities
-    condition: process_creation and (selection and not filter)
+            - 'C:\Program Files\Remote Utilities'
+            - 'C:\Program Files (x86)\Remote Utilities'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

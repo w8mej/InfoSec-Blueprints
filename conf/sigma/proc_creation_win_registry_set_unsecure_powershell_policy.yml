@@ -15,25 +15,20 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/01/11
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_path:
         CommandLine|contains:
-            - \ShellIds\Microsoft.PowerShell\ExecutionPolicy
-            - \Policies\Microsoft\Windows\PowerShell\ExecutionPolicy
+            - '\ShellIds\Microsoft.PowerShell\ExecutionPolicy'
+            - '\Policies\Microsoft\Windows\PowerShell\ExecutionPolicy'
     selection_values:
         CommandLine|contains:
-            - Bypass
-            - RemoteSigned
-            - Unrestricted
-    condition: process_creation and (all of selection_*)
+            - 'Bypass'
+            - 'RemoteSigned'
+            - 'Unrestricted'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

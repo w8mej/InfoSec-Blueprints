@@ -15,20 +15,15 @@ modified: 2023/11/09
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
-        Image|endswith: \IMEWDBLD.exe
-    condition: network_connection and selection
+        Image|endswith: '\IMEWDBLD.exe'
+    condition: selection
 falsepositives:
     - Unknown
 # Note: Please reduce this to medium if you find legitimate connections
 level: high
-ruletype: Sigma

@@ -15,24 +15,19 @@ tags:
     - attack.privilege_escalation
     - attack.discovery
     - attack.t1033
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: whoami.exe
-        - Image|endswith: \whoami.exe
+        - OriginalFileName: 'whoami.exe'
+        - Image|endswith: '\whoami.exe'
     selection_user:
         User|contains:
-            - AUTHORI
-            - AUTORI
-            - TrustedInstaller
-    condition: process_creation and (all of selection_*)
+            - 'AUTHORI'
+            - 'AUTORI'
+            - 'TrustedInstaller'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

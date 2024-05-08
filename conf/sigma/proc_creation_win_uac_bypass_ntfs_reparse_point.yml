@@ -11,32 +11,27 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         CommandLine|startswith: '"C:\Windows\system32\wusa.exe"  /quiet C:\Users\'
-        CommandLine|endswith: \AppData\Local\Temp\update.msu
+        CommandLine|endswith: '\AppData\Local\Temp\update.msu'
         IntegrityLevel:
-            - High
-            - System
+            - 'High'
+            - 'System'
     selection2:
         ParentCommandLine: '"C:\Windows\system32\dism.exe" /online /quiet /norestart /add-package /packagepath:"C:\Windows\system32\pe386" /ignorecheck'
         IntegrityLevel:
-            - High
-            - System
+            - 'High'
+            - 'System'
         CommandLine|contains|all:
-            - C:\Users\
-            - \AppData\Local\Temp\
-            - \dismhost.exe {
-        Image|endswith: \DismHost.exe
-    condition: process_creation and (1 of selection*)
+            - 'C:\Users\'
+            - '\AppData\Local\Temp\'
+            - '\dismhost.exe {'
+        Image|endswith: '\DismHost.exe'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

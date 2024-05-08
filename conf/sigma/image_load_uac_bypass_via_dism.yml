@@ -13,21 +13,16 @@ tags:
     - attack.privilege_escalation
     - attack.t1548.002
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \dism.exe
-        ImageLoaded|endswith: \dismcore.dll
+        Image|endswith: '\dism.exe'
+        ImageLoaded|endswith: '\dismcore.dll'
     filter:
-        ImageLoaded: C:\Windows\System32\Dism\dismcore.dll
-    condition: image_load and (selection and not filter)
+        ImageLoaded: 'C:\Windows\System32\Dism\dismcore.dll'
+    condition: selection and not filter
 falsepositives:
     - Actions of a legitimate telnet client
 level: high
-ruletype: Sigma

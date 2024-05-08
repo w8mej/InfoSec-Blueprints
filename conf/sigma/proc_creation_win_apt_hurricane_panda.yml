@@ -11,22 +11,17 @@ tags:
     - attack.privilege_escalation
     - attack.g0009
     - attack.t1068
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - CommandLine|contains|all:
-              - localgroup
-              - admin
-              - /add
-        - CommandLine|contains: \Win64.exe
-    condition: process_creation and selection
+            - 'localgroup'
+            - 'admin'
+            - '/add'
+        - CommandLine|contains: '\Win64.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

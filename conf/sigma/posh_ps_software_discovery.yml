@@ -16,20 +16,14 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains|all:
             # Example: Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
-            - get-itemProperty
-            - \software\
-            - select-object
-            - format-table
-    condition: ps_script and selection
+            - 'get-itemProperty'
+            - '\software\'
+            - 'select-object'
+            - 'format-table'
+    condition: selection
 falsepositives:
     - Legitimate administration activities
 level: medium
-ruletype: Sigma

@@ -6,29 +6,22 @@ related:
 status: test
 description: Detects an unexpected file being deleted by dns.exe which my indicate activity related to remote code execution or other forms of exploitation as seen in CVE-2020-1350 (SigRed)
 references:
-    - https://www.elastic.co/guide/en/security/current/unusual-file-modification-by-dns.exe.html
+    - https://www.elastic.co/guide/en/security/current/unusual-file-modification-by-dns-exe.html
 author: Tim Rauch (Nextron Systems), Elastic (idea)
 date: 2022/09/27
 modified: 2023/02/15
 tags:
     - attack.initial_access
     - attack.t1133
-    - sysmon
 logsource:
     category: file_delete
     product: windows
 detection:
-    file_delete:
-        EventID:
-            - 23
-            - 26
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \dns.exe
+        Image|endswith: '\dns.exe'
     filter:
-        TargetFilename|endswith: \dns.log
-    condition: file_delete and (selection and not filter)
+        TargetFilename|endswith: '\dns.log'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

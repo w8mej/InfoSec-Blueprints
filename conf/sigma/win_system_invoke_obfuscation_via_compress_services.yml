@@ -16,20 +16,17 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
         ImagePath|contains|all:
-            - new-object
-            - text.encoding]::ascii
-            - readtoend
+            - 'new-object'
+            - 'text.encoding]::ascii'
+            - 'readtoend'
         ImagePath|contains:
-            - :system.io.compression.deflatestream
-            - system.io.streamreader
-    condition: system and selection
+            - ':system.io.compression.deflatestream'
+            - 'system.io.streamreader'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

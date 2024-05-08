@@ -4,7 +4,7 @@ status: test
 description: Detects log entries that appear in exploitation attempts against MS Exchange RCE CVE-2021-42321
 references:
     - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-42321
-author: Florian Roth (Nextron Systems), @testanull
+author: 'Florian Roth (Nextron Systems), @testanull'
 date: 2021/11/18
 modified: 2022/07/12
 tags:
@@ -16,8 +16,6 @@ logsource:
     service: msexchange-management
     # warning: The 'data' field used in the detection section is the container for the event data as a whole. You may have to adapt the rule for your backend accordingly
 detection:
-    msexchange_management:
-        Channel: MSExchange Management
     selection:
         EventID:
             - 6
@@ -25,8 +23,7 @@ detection:
         Data|contains:
             - 'Cmdlet failed. Cmdlet Get-App, '
             - 'Task Get-App throwing unhandled exception: System.InvalidCastException:'
-    condition: msexchange_management and selection
+    condition: selection
 falsepositives:
     - Unknown, please report false positives via https://github.com/SigmaHQ/sigma/issues
 level: high
-ruletype: Sigma

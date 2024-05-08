@@ -16,8 +16,6 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
         Provider_Name: Microsoft-Windows-WindowsUpdateClient
         EventID:
@@ -26,8 +24,7 @@ detection:
             - 24 # Uninstallation Failure: Windows failed to uninstall the following update with error
             - 213 # Revert Failure: Windows failed to revert the following update with error
             - 217 # Commit Failure: Windows failed to commit the following update with error
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: informational
-ruletype: Sigma

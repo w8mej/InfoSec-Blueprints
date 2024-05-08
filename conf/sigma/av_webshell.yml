@@ -21,81 +21,63 @@ tags:
     - attack.t1505.003
 logsource:
     category: antivirus
-    product: windows
-    service: windefend
 detection:
-    antivirus:
-        EventID:      # https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/troubleshoot-microsoft-defender-antivirus IDs with existing 'Threat Name' or 'Path'
-            - 1006
-            - 1007
-            - 1008
-            - 1009
-            - 1010
-            - 1011
-            - 1012
-            - 1017
-            - 1018
-            - 1019
-            - 1115
-            - 1116
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
-        - ThreatName|startswith:
-              - PHP.
-              - JSP.
-              - ASP.
-              - Perl.
-              - VBS/Uxor   # looking for 'VBS/' would also find downloaders and droppers meant for desktops
-              - IIS/BackDoor
-              - JAVA/Backdoor
-              - Troj/ASP
-              - Troj/PHP
-              - Troj/JSP
-        - ThreatName|contains:
-              - Webshell
-              - Chopper
-              - SinoChoper
-              - ASPXSpy
-              - Aspdoor
-              - filebrowser
-              - PHP_
-              - JSP_
-              - ASP_   # looking for 'VBS_' would also find downloaders and droppers meant for desktops
+        - Signature|startswith:
+              - 'PHP.'
+              - 'JSP.'
+              - 'ASP.'
+              - 'Perl.'
+              - 'VBS/Uxor' # looking for 'VBS/' would also find downloaders and droppers meant for desktops
+              - 'IIS/BackDoor'
+              - 'JAVA/Backdoor'
+              - 'Troj/ASP'
+              - 'Troj/PHP'
+              - 'Troj/JSP'
+        - Signature|contains:
+              - 'Webshell'
+              - 'Chopper'
+              - 'SinoChoper'
+              - 'ASPXSpy'
+              - 'Aspdoor'
+              - 'filebrowser'
+              - 'PHP_'
+              - 'JSP_'
+              - 'ASP_' # looking for 'VBS_' would also find downloaders and droppers meant for desktops
               - 'PHP:'
               - 'JSP:'
               - 'ASP:'
               - 'Perl:'
-              - PHP/
-              - JSP/
-              - ASP/
-              - Perl/
-              - PHPShell
-              - Trojan.PHP
-              - Trojan.ASP
-              - Trojan.JSP
-              - Trojan.VBS
-              - PHP/Agent
-              - ASP/Agent
-              - JSP/Agent
-              - VBS/Agent
-              - Backdoor/PHP
-              - Backdoor/JSP
-              - Backdoor/ASP
-              - Backdoor/VBS
-              - Backdoor/Java
-              - PHP.Agent
-              - ASP.Agent
-              - JSP.Agent
-              - VBS.Agent
-              - Backdoor.PHP
-              - Backdoor.JSP
-              - Backdoor.ASP
-              - Backdoor.VBS
-              - Backdoor.Java
-              - PShlSpy
-              - C99shell
-    condition: antivirus and selection
+              - 'PHP/'
+              - 'JSP/'
+              - 'ASP/'
+              - 'Perl/'
+              - 'PHPShell'
+              - 'Trojan.PHP'
+              - 'Trojan.ASP'
+              - 'Trojan.JSP'
+              - 'Trojan.VBS'
+              - 'PHP/Agent'
+              - 'ASP/Agent'
+              - 'JSP/Agent'
+              - 'VBS/Agent'
+              - 'Backdoor/PHP'
+              - 'Backdoor/JSP'
+              - 'Backdoor/ASP'
+              - 'Backdoor/VBS'
+              - 'Backdoor/Java'
+              - 'PHP.Agent'
+              - 'ASP.Agent'
+              - 'JSP.Agent'
+              - 'VBS.Agent'
+              - 'Backdoor.PHP'
+              - 'Backdoor.JSP'
+              - 'Backdoor.ASP'
+              - 'Backdoor.VBS'
+              - 'Backdoor.Java'
+              - 'PShlSpy'
+              - 'C99shell'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -24,14 +24,11 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
     malsvc_apt29:
-        ServiceName: javamtsup
-    condition: security and (selection and 1 of malsvc_*)
+        ServiceName: 'javamtsup'
+    condition: selection and 1 of malsvc_*
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

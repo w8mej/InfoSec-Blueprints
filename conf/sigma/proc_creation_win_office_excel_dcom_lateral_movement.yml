@@ -12,27 +12,22 @@ date: 2023/11/13
 tags:
     - attack.t1021.003
     - attack.lateral_movement
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|endswith: \excel.exe
+        ParentImage|endswith: '\excel.exe'
     selection_child:
         - OriginalFileName:
-              - foxprow.exe
-              - schdplus.exe
-              - winproj.exe
+          - 'foxprow.exe'
+          - 'schdplus.exe'
+          - 'winproj.exe'
         - Image|endswith:
-              - \foxprow.exe
-              - \schdplus.exe
-              - \winproj.exe
-    condition: process_creation and (all of selection_*)
+          - '\foxprow.exe'
+          - '\schdplus.exe'
+          - '\winproj.exe'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

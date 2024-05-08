@@ -16,31 +16,26 @@ modified: 2022/12/30
 tags:
     - attack.impact
     - attack.t1490
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_get:
         CommandLine|contains:
-            - Get-WmiObject
-            - gwmi
-            - Get-CimInstance
-            - gcim
+            - 'Get-WmiObject'
+            - 'gwmi'
+            - 'Get-CimInstance'
+            - 'gcim'
     selection_shadowcopy:
-        CommandLine|contains: Win32_Shadowcopy
+        CommandLine|contains: 'Win32_Shadowcopy'
     selection_delete:
         CommandLine|contains:
-            - .Delete()
-            - Remove-WmiObject
-            - rwmi
-            - Remove-CimInstance
-            - rcim
-    condition: process_creation and (all of selection*)
+            - '.Delete()'
+            - 'Remove-WmiObject'
+            - 'rwmi'
+            - 'Remove-CimInstance'
+            - 'rcim'
+    condition: all of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

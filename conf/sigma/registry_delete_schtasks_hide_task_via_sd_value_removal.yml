@@ -13,21 +13,16 @@ modified: 2023/02/08
 tags:
     - attack.defense_evasion
     - attack.t1562
-    - sysmon
 logsource:
     product: windows
     category: registry_delete
 detection:
-    registry_delete:
-        EventID: 12
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventType: DeleteKey
         TargetObject|contains|all:
-            - \SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\
-            - SD
-    condition: registry_delete and selection
+            - '\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\'
+            - 'SD'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

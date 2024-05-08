@@ -13,30 +13,25 @@ modified: 2023/02/05
 tags:
     - attack.t1112
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \reg.exe
-        - OriginalFileName: reg.exe
+        - Image|endswith: '\reg.exe'
+        - OriginalFileName: 'reg.exe'
     selection_cli:
         CommandLine|contains: ' import '
     selection_paths:
         CommandLine|contains:
-            - C:\Users\
+            - 'C:\Users\'
             - '%temp%'
             - '%tmp%'
             - '%appdata%'
-            - \AppData\Local\Temp\
-            - C:\Windows\Temp\
-            - C:\ProgramData\
-    condition: process_creation and (all of selection_*)
+            - '\AppData\Local\Temp\'
+            - 'C:\Windows\Temp\'
+            - 'C:\ProgramData\'
+    condition: all of selection_*
 falsepositives:
     - Legitimate import of keys
 level: medium
-ruletype: Sigma

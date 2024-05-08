@@ -15,14 +15,11 @@ logsource:
     service: security
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4697
         ServiceName: HybridConnectionManager
         ServiceFileName|contains: HybridConnectionManager
-    condition: security and selection
+    condition: selection
 falsepositives:
     - Legitimate use of Hybrid Connection Manager via Azure function apps.
 level: high
-ruletype: Sigma

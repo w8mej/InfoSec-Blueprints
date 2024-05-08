@@ -15,15 +15,9 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
-        ScriptBlockText|contains: Start-Dnscat2
-    condition: ps_script and selection
+        ScriptBlockText|contains: 'Start-Dnscat2'
+    condition: selection
 falsepositives:
     - Legitimate usage of PowerShell Dnscat2 — DNS Exfiltration tool (unlikely)
 level: critical
-ruletype: Sigma

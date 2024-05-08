@@ -10,24 +10,19 @@ modified: 2022/04/11
 tags:
     - attack.discovery
     - attack.t1016
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - ipconfig /all
-            - netsh interface show interface
-            - arp -a
-            - nbtstat -n
-            - net config
-            - route print
-    condition: process_creation and selection
+            - 'ipconfig /all'
+            - 'netsh interface show interface'
+            - 'arp -a'
+            - 'nbtstat -n'
+            - 'net config'
+            - 'route print'
+    condition: selection
 falsepositives:
     - Administrator, hotline ask to user
 level: low
-ruletype: Sigma

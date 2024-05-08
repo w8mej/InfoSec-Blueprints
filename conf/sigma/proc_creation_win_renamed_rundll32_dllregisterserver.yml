@@ -13,20 +13,15 @@ date: 2022/08/22
 modified: 2023/02/03
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CommandLine|contains: DllRegisterServer
+        CommandLine|contains: 'DllRegisterServer'
     filter:
-        Image|endswith: \rundll32.exe
-    condition: process_creation and (selection and not filter)
+        Image|endswith: '\rundll32.exe'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -13,25 +13,20 @@ tags:
     - attack.t1218
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: MpCmdRun.exe
-        - Image|endswith: \MpCmdRun.exe
-        - CommandLine|contains: MpCmdRun.exe
-        - Description: Microsoft Malware Protection Command Line Utility
+        - OriginalFileName: 'MpCmdRun.exe'
+        - Image|endswith: '\MpCmdRun.exe'
+        - CommandLine|contains: 'MpCmdRun.exe'
+        - Description: 'Microsoft Malware Protection Command Line Utility'
     selection_cli:
         CommandLine|contains|all:
-            - DownloadFile
-            - url
-    condition: process_creation and (all of selection_*)
+            - 'DownloadFile'
+            - 'url'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

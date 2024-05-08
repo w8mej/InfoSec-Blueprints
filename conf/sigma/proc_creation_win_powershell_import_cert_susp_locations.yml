@@ -11,28 +11,23 @@ modified: 2023/01/16
 tags:
     - attack.defense_evasion
     - attack.t1553.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - Import-Certificate
+            - 'Import-Certificate'
             - ' -FilePath '
-            - Cert:\LocalMachine\Root
+            - 'Cert:\LocalMachine\Root'
         CommandLine|contains:
-            - \AppData\Local\Temp\
-            - :\Windows\TEMP\
-            - \Desktop\
-            - \Downloads\
-            - \Perflogs\
-            - :\Users\Public\
-    condition: process_creation and selection
+            - '\AppData\Local\Temp\'
+            - ':\Windows\TEMP\'
+            - '\Desktop\'
+            - '\Downloads\'
+            - '\Perflogs\'
+            - ':\Users\Public\'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

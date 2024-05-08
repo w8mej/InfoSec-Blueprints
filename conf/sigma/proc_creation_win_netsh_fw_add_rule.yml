@@ -3,7 +3,6 @@ id: cd5cfd80-aa5f-44c0-9c20-108c4ae12e3c
 status: test
 description: Detects the addition of a new rule to the Windows firewall via netsh
 references:
-    - https://attack.mitre.org/software/S0246/ (Lazarus HARDRAIN)
     - https://www.operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-RAT-and-Staging-Report.pdf
 author: Markus Neis, Sander Wiebing
 date: 2019/01/29
@@ -11,6 +10,7 @@ modified: 2023/02/10
 tags:
     - attack.defense_evasion
     - attack.t1562.004
+    - attack.s0246
 logsource:
     category: process_creation
     product: windows
@@ -22,16 +22,12 @@ detection:
         CommandLine|contains|all:
             - ' firewall '
             - ' add '
-    filter_dropbox:
+    filter_optional_dropbox:
         CommandLine|contains:
-            - '\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow "program=C:\Program Files (x86)\Dropbox\Client\Dropbox.exe" enable=yes profile=Any'
-            - '\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow "program=C:\Program Files\Dropbox\Client\Dropbox.exe" enable=yes profile=Any'
-    filter_thor:
-        ParentImage|startswith: 'C:\Windows\Temp\asgard2-agent\'
-        ParentImage|endswith: '\thor64.exe'
-        CommandLine|contains: 'advfirewall firewall show rule name=all'
-    condition: all of selection_* and not 1 of filter_*
+            - 'advfirewall firewall add rule name=Dropbox dir=in action=allow "program=?:\Program Files (x86)\Dropbox\Client\Dropbox.exe" enable=yes profile=Any'
+            - 'advfirewall firewall add rule name=Dropbox dir=in action=allow "program=?:\Program Files\Dropbox\Client\Dropbox.exe" enable=yes profile=Any'
+    condition: all of selection_* and not 1 of filter_optional_*
 falsepositives:
     - Legitimate administration activity
-    - Software installations and removal
+    - Software installations
 level: medium

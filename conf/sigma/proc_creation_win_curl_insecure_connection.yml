@@ -1,6 +1,6 @@
 title: Insecure Transfer Via Curl.EXE
 id: cb9cc1d1-e84e-4bdc-b7ad-c31b1b7908ec
-status: experimental
+status: test
 description: Detects execution of "curl.exe" with the "--insecure" flag.
 references:
     - https://curl.se/docs/manpage.html
@@ -8,22 +8,17 @@ author: X__Junior (Nextron Systems)
 date: 2023/06/30
 tags:
     - attack.execution
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \curl.exe
-        - OriginalFileName: curl.exe
+        - Image|endswith: '\curl.exe'
+        - OriginalFileName: 'curl.exe'
     selection_cli:
-        - CommandLine|re: \s-k\s
-        - CommandLine|contains: --insecure
-    condition: process_creation and (all of selection_*)
+        - CommandLine|re: '\s-k\s'
+        - CommandLine|contains: '--insecure'
+    condition: all of selection_*
 falsepositives:
     - Access to badly maintained internal or development systems
 level: medium
-ruletype: Sigma

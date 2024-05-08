@@ -8,30 +8,23 @@ references:
     - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
 author: Florian Roth (Nextron Systems)
 date: 2018/10/30
-modified: 2023/02/28
+modified: 2024/03/13
 tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.credential_access
     - attack.t1003.001
     - car.2013-05-009
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_flags:
-        CommandLine|contains:
-            - ' -ma '
-            - ' /ma '
+        CommandLine|contains|windash: ' -ma '
     selection_process:
         CommandLine|contains: ' ls' # Short for lsass
-    condition: process_creation and (all of selection*)
+    condition: all of selection*
 falsepositives:
     - Unlikely, because no one should dump an lsass process memory
     - Another tool that uses command line flags similar to ProcDump
 level: high
-ruletype: Sigma

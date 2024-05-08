@@ -14,36 +14,31 @@ date: 2024/02/08
 tags:
     - attack.execution
     - attack.initial_access
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \AnyDesk.exe
-        - Description: AnyDesk
-        - Product: AnyDesk
-        - Company: AnyDesk Software GmbH
+        - Image|endswith: '\AnyDesk.exe'
+        - Description: 'AnyDesk'
+        - Product: 'AnyDesk'
+        - Company: 'AnyDesk Software GmbH'
     selection_version:
         FileVersion|startswith:
-            - 7.0.
-            - 7.1.
-            - 8.0.1
-            - 8.0.2
-            - 8.0.3
-            - 8.0.4
-            - 8.0.5
-            - 8.0.6
-            - 8.0.7
+            - '7.0.'
+            - '7.1.'
+            - '8.0.1'
+            - '8.0.2'
+            - '8.0.3'
+            - '8.0.4'
+            - '8.0.5'
+            - '8.0.6'
+            - '8.0.7'
     filter_main_uninstall:
         CommandLine|contains:
             - ' --remove'
             - ' --uninstall'
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

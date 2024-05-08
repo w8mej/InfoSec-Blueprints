@@ -9,24 +9,19 @@ references:
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - :\Windows\system32\taskmgr.exe
-            - :\Windows\SysWOW64\taskmgr.exe
+            - ':\Windows\system32\taskmgr.exe'
+            - ':\Windows\SysWOW64\taskmgr.exe'
         TargetFilename|contains|all:
-            - \AppData\Local\Temp\
-            - \lsass
-            - .DMP
-    condition: file_event and selection
+            - '\AppData\Local\Temp\'
+            - '\lsass'
+            - '.DMP'
+    condition: selection
 falsepositives:
     - Rare case of troubleshooting by an administrator or support that has to be investigated regardless
 level: high
-ruletype: Sigma

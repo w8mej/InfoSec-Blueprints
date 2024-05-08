@@ -15,19 +15,16 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The advanced audit policy setting "Object Access > Audit Detailed File Share" must be configured for Success/Failure
+    definition: 'The advanced audit policy setting "Object Access > Audit Detailed File Share" must be configured for Success/Failure'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5145
-        ShareName: \\\\\*\\SYSVOL   # looking for the string \\*\SYSVOL
-        RelativeTargetName|endswith: ScheduledTasks.xml
+        ShareName: '\\\\\*\\SYSVOL' # looking for the string \\*\SYSVOL
+        RelativeTargetName|endswith: 'ScheduledTasks.xml'
         Accesses|contains:
-            - WriteData
+            - 'WriteData'
             - '%%4417'
-    condition: security and selection
+    condition: selection
 falsepositives:
     - If the source IP is not localhost then it's super suspicious, better to monitor both local and remote changes to GPO scheduledtasks
 level: high
-ruletype: Sigma

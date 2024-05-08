@@ -15,19 +15,16 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection_create:
         EventID: 4720 # create user
-        SamAccountName|contains: $
+        SamAccountName|contains: '$'
     selection_rename:
         EventID: 4781 # rename user
-        NewTargetUserName|contains: $
+        NewTargetUserName|contains: '$'
     filter_main_homegroup:
         EventID: 4720
-        TargetUserName: HomeGroupUser$
-    condition: security and (1 of selection_* and not 1 of filter_main_*)
+        TargetUserName: 'HomeGroupUser$'
+    condition: 1 of selection_* and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

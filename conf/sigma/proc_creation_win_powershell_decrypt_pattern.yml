@@ -9,47 +9,42 @@ date: 2023/06/30
 modified: 2023/12/05
 tags:
     - attack.execution
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         OriginalFileName:
-            - PowerShell.EXE
-            - pwsh.dll
+            - 'PowerShell.EXE'
+            - 'pwsh.dll'
     selection_cli_dir:
         CommandLine|contains:
-            - 'Get-ChildItem '
-            - 'dir '
-            - 'gci '
-            - 'ls '
+            - "Get-ChildItem "
+            - "dir "
+            - "gci "
+            - "ls "
     selection_cli_gc:
         CommandLine|contains:
-            - 'Get-Content '
-            - 'gc '
+            - "Get-Content "
+            - "gc "
             - 'cat '
             - 'type '
-            - ReadAllBytes
+            - 'ReadAllBytes'
     selection_cli_specific:
         - CommandLine|contains|all:
               - ' ^| '
-              - \*.lnk
-              - -Recurse
+              - '\*.lnk'
+              - '-Recurse'
               - '-Skip '
         - CommandLine|contains|all:
               - ' -ExpandProperty '
-              - \*.lnk
-              - WriteAllBytes
+              - '\*.lnk'
+              - 'WriteAllBytes'
               - ' .length '
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

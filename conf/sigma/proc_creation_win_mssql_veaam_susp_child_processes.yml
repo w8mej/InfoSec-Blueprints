@@ -13,45 +13,40 @@ tags:
     - attack.initial_access
     - attack.persistence
     - attack.privilege_escalation
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_parent:
-        ParentImage|endswith: \sqlservr.exe
-        ParentCommandLine|contains: VEEAMSQL
+        ParentImage|endswith: '\sqlservr.exe'
+        ParentCommandLine|contains: 'VEEAMSQL'
     selection_child_1:
         Image|endswith:
-            - \cmd.exe
-            - \powershell.exe
-            - \pwsh.exe
-            - \wsl.exe
-            - \wt.exe
+            - '\cmd.exe'
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\wsl.exe'
+            - '\wt.exe'
         CommandLine|contains:
             - '-ex '
-            - bypass
-            - cscript
-            - DownloadString
-            - http://
-            - https://
-            - mshta
-            - regsvr32
-            - rundll32
-            - wscript
+            - 'bypass'
+            - 'cscript'
+            - 'DownloadString'
+            - 'http://'
+            - 'https://'
+            - 'mshta'
+            - 'regsvr32'
+            - 'rundll32'
+            - 'wscript'
             - 'copy '
     selection_child_2:
         Image|endswith:
-            - \net.exe
-            - \net1.exe
-            - \netstat.exe
-            - \nltest.exe
-            - \ping.exe
-            - \tasklist.exe
-            - \whoami.exe
-    condition: process_creation and (selection_parent and 1 of selection_child_*)
+            - '\net.exe'
+            - '\net1.exe'
+            - '\netstat.exe'
+            - '\nltest.exe'
+            - '\ping.exe'
+            - '\tasklist.exe'
+            - '\whoami.exe'
+    condition: selection_parent and 1 of selection_child_*
 level: critical
-ruletype: Sigma

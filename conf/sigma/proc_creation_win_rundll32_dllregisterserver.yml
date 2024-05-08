@@ -16,28 +16,23 @@ tags:
     - attack.defense_evasion
     - attack.t1218
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_image:
-        - Image|endswith: \rundll32.exe
-        - OriginalFileName: RUNDLL32.EXE
+        - Image|endswith: '\rundll32.exe'
+        - OriginalFileName: 'RUNDLL32.EXE'
     selection_cmdline:
-        CommandLine|contains: DllRegisterServer
+        CommandLine|contains: 'DllRegisterServer'
     filter_main_legit_paths:
         CommandLine|contains:
-            - :\Program Files (x86)
-            - :\Program Files\
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+            - ':\Program Files (x86)'
+            - ':\Program Files\'
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Legitimate usage as part of application installation, but less likely from e.g. temporary paths.
     - Not every instance is considered malicious, but this rule will capture the malicious usages.
 level: medium
-ruletype: Sigma

@@ -16,14 +16,9 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - WMImplant
+            - 'WMImplant'
             - ' change_user '
             - ' gen_cli '
             - ' command_exec '
@@ -44,8 +39,7 @@ detection:
             - ' power_off '
             - ' vacant_system '
             - ' logon_events '
-    condition: ps_script and selection
+    condition: selection
 falsepositives:
     - Administrative scripts that use the same keywords.
 level: high
-ruletype: Sigma

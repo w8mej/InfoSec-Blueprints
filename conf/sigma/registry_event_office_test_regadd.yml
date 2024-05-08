@@ -10,21 +10,13 @@ modified: 2023/11/08
 tags:
     - attack.persistence
     - attack.t1137.002
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Software\Microsoft\Office test\Special\Perf
-    condition: registry_event and selection
+        TargetObject|contains: '\Software\Microsoft\Office test\Special\Perf'
+    condition: selection
 falsepositives:
     - Unlikely
 level: medium
-ruletype: Sigma

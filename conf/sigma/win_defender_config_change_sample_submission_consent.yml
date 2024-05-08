@@ -21,13 +21,10 @@ logsource:
     product: windows
     service: windefend
 detection:
-    windefend:
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
         EventID: 5007 # The antimalware platform configuration changed.
-        NewValue|contains: \Real-Time Protection\SubmitSamplesConsent = 0x0
-    condition: windefend and selection
+        NewValue|contains: '\Real-Time Protection\SubmitSamplesConsent = 0x0'
+    condition: selection
 falsepositives:
     - Administrator activity (must be investigated)
 level: low
-ruletype: Sigma

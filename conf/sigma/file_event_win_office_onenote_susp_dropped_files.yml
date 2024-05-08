@@ -14,39 +14,34 @@ date: 2023/02/09
 modified: 2023/02/27
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \onenote.exe
-            - \onenotem.exe
-            - \onenoteim.exe
-        TargetFilename|contains: \AppData\Local\Temp\OneNote\
+            - '\onenote.exe'
+            - '\onenotem.exe'
+            - '\onenoteim.exe'
+        TargetFilename|contains: '\AppData\Local\Temp\OneNote\'
         TargetFilename|endswith:
             # TODO: Add more suspicious extensions
-            - .bat
-            - .chm
-            - .cmd
-            - .dll
-            - .exe
-            - .hta
-            - .htm
-            - .html
-            - .js
-            - .lnk
-            - .ps1
-            - .vbe
-            - .vbs
-            - .wsf
-    condition: file_event and selection
+            - '.bat'
+            - '.chm'
+            - '.cmd'
+            - '.dll'
+            - '.exe'
+            - '.hta'
+            - '.htm'
+            - '.html'
+            - '.js'
+            - '.lnk'
+            - '.ps1'
+            - '.vbe'
+            - '.vbs'
+            - '.wsf'
+    condition: selection
 falsepositives:
     - False positives should be very low with the extensions list cited. Especially if you don't heavily utilize OneNote.
     - Occasional FPs might occur if OneNote is used internally to share different embedded documents
 level: high
-ruletype: Sigma

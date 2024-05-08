@@ -11,23 +11,19 @@ tags:
     - attack.lateral_movement
     - attack.t1021.002
     - attack.t1021.003
-    - sysmon
 logsource:
     product: windows
     service: sysmon
 detection:
-    sysmon:
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_one:
         EventID: 11
         Image: System
-        TargetFilename|endswith: \Internet Explorer\iertutil.dll
+        TargetFilename|endswith: '\Internet Explorer\iertutil.dll'
     selection_two:
         EventID: 7
-        Image|endswith: \Internet Explorer\iexplore.exe
-        ImageLoaded|endswith: \Internet Explorer\iertutil.dll
-    condition: sysmon and (1 of selection_*)
+        Image|endswith: '\Internet Explorer\iexplore.exe'
+        ImageLoaded|endswith: '\Internet Explorer\iertutil.dll'
+    condition: 1 of selection_*
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

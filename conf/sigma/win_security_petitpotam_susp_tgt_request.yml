@@ -20,20 +20,17 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The advanced audit policy setting "Account Logon > Kerberos Authentication Service" must be configured for Success/Failure
+    definition: 'The advanced audit policy setting "Account Logon > Kerberos Authentication Service" must be configured for Success/Failure'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4768
-        TargetUserName|endswith: $
+        TargetUserName|endswith: '$'
         CertThumbprint|contains: '*'
     filter_local:
-        IpAddress: ::1
+        IpAddress: '::1'
     filter_thumbprint:
         CertThumbprint: ''
-    condition: security and (selection and not 1 of filter_*)
+    condition: selection and not 1 of filter_*
 falsepositives:
     - False positives are possible if the environment is using certificates for authentication. We recommend filtering Account_Name to the Domain Controller computer accounts.
 level: high
-ruletype: Sigma

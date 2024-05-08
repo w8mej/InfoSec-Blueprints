@@ -14,43 +14,39 @@ tags:
     - attack.t1018
     - attack.t1033
     - attack.t1087
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
    # Webserver
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_webserver_image:
         ParentImage|endswith:
-            - \caddy.exe
-            - \httpd.exe
-            - \nginx.exe
-            - \php-cgi.exe
-            - \w3wp.exe
-            - \ws_tomcatservice.exe
+            - '\caddy.exe'
+            - '\httpd.exe'
+            - '\nginx.exe'
+            - '\php-cgi.exe'
+            - '\w3wp.exe'
+            - '\ws_tomcatservice.exe'
     selection_webserver_characteristics_tomcat1:
         ParentImage|endswith:
-            - \java.exe
-            - \javaw.exe
+            - '\java.exe'
+            - '\javaw.exe'
         ParentImage|contains:
-            - -tomcat-
-            - \tomcat
+            - '-tomcat-'
+            - '\tomcat'
     selection_webserver_characteristics_tomcat2:
         ParentImage|endswith:
-            - \java.exe
-            - \javaw.exe
+            - '\java.exe'
+            - '\javaw.exe'
         CommandLine|contains:
-            - catalina.jar
-            - CATALINA_HOME
+            - 'catalina.jar'
+            - 'CATALINA_HOME'
     # Suspicious child processes
     selection_child_1:
         # Process dumping
         CommandLine|contains|all:
-            - rundll32
-            - comsvcs
+            - 'rundll32'
+            - 'comsvcs'
     selection_child_2:
         # Winrar exfil
         CommandLine|contains|all:
@@ -60,28 +56,28 @@ detection:
     selection_child_3:
         # User add
         CommandLine|contains|all:
-            - net
+            - 'net'
             - ' user '
             - ' /add'
     selection_child_4:
         CommandLine|contains|all:
-            - net
+            - 'net'
             - ' localgroup '
             - ' administrators '
-            - /add
+            - '/add'
     selection_child_5:
         Image|endswith:
             # Credential stealing
-            - \ntdsutil.exe
+            - '\ntdsutil.exe'
             # AD recon
-            - \ldifde.exe
-            - \adfind.exe
+            - '\ldifde.exe'
+            - '\adfind.exe'
             # Process dumping
-            - \procdump.exe
-            - \Nanodump.exe
+            - '\procdump.exe'
+            - '\Nanodump.exe'
             # Destruction / ransom groups
-            - \vssadmin.exe
-            - \fsutil.exe
+            - '\vssadmin.exe'
+            - '\fsutil.exe'
     selection_child_6:
         # SUspicious patterns
         CommandLine|contains:
@@ -91,15 +87,14 @@ detection:
             - ' /decode '  # Used with certutil
             - ' /ticket:'  # Rubeus
             - ' sekurlsa'  # Mimikatz
-            - .dmp full    # Process dumping method apart from procdump
-            - .downloadfile(    # PowerShell download command
-            - .downloadstring(    # PowerShell download command
-            - FromBase64String   # PowerShell encoded payload
-            - process call create   # WMIC process creation
+            - '.dmp full'  # Process dumping method apart from procdump
+            - '.downloadfile('  # PowerShell download command
+            - '.downloadstring('  # PowerShell download command
+            - 'FromBase64String' # PowerShell encoded payload
+            - 'process call create' # WMIC process creation
             - 'reg save '  # save registry SAM - syskey extraction
-            - whoami /priv
-    condition: process_creation and (1 of selection_webserver_* and 1 of selection_child_*)
+            - 'whoami /priv'
+    condition: 1 of selection_webserver_* and 1 of selection_child_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

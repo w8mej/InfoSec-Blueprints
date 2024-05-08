@@ -1,0 +1,30 @@
+title: 使用SDelete安全删除
+status: experimental
+description: 使用SDelete工具删除文件时检测文件重命名
+author: 12306Br0(测试+翻译)
+date: 2020/06/09
+references:
+    - https://jpcertcc.github.io/ToolAnalysisResultSheet
+    - https://www.jpcert.or.jp/english/pub/sr/ir_research.html
+    - https://technet.microsoft.com/en-us/en-en/sysinternals/sdelete.aspx
+tags:
+    - attack.defense_evasion
+    - attack.t1107
+    - attack.t1066
+    - attack.s0195
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4656
+            - 4663
+            - 4658
+        ObjectName:
+            - '*.AAA'
+            - '*.ZZZ'
+    condition: selection
+falsepositives:
+    - 合法使用SDelete，测试结果不如人意，建议谨慎使用
+level: low

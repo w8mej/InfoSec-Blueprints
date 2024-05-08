@@ -16,27 +16,22 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1546.011
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \sdbinst.exe
-        - OriginalFileName: sdbinst.exe
+        - Image|endswith: '\sdbinst.exe'
+        - OriginalFileName: 'sdbinst.exe'
     selection_cli:
-        CommandLine|contains: .sdb
+        CommandLine|contains: '.sdb'
     filter_optional_iis:
-        ParentImage|endswith: \msiexec.exe
+        ParentImage|endswith: '\msiexec.exe'
         CommandLine|contains:
             # Expected behavior for IIS Express (e.g. https://www.hybrid-analysis.com/sample/15d4ff941f77f7bdfc9dfb2399b7b952a0a2c860976ef3e835998ff4796e5e91?environmentId=120)
-            - :\Program Files (x86)\IIS Express\iisexpressshim.sdb
-            - :\Program Files\IIS Express\iisexpressshim.sdb
-    condition: process_creation and (all of selection_* and not 1 of filter_optional_*)
+            - ':\Program Files (x86)\IIS Express\iisexpressshim.sdb'
+            - ':\Program Files\IIS Express\iisexpressshim.sdb'
+    condition: all of selection_* and not 1 of filter_optional_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

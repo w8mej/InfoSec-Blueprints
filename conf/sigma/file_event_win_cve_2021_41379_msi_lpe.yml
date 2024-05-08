@@ -12,19 +12,15 @@ tags:
     - attack.privilege_escalation
     - attack.t1068
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \msiexec.exe
-        TargetFilename|startswith: C:\Program Files (x86)\Microsoft\Edge\Application
-        TargetFilename|endswith: \elevation_service.exe
-    condition: file_event and selection
+        Image|endswith: '\msiexec.exe'
+        TargetFilename|startswith: 'C:\Program Files (x86)\Microsoft\Edge\Application'
+        TargetFilename|endswith: '\elevation_service.exe'
+    condition: selection
 falsepositives:
     - Unknown
     - Possibly some Microsoft Edge upgrades
@@ -32,4 +28,3 @@ fields:
     - ComputerName
     - TargetFilename
 level: critical
-ruletype: Sigma

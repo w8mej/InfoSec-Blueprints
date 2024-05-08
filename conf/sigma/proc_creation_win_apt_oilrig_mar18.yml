@@ -25,33 +25,28 @@ tags:
     - attack.command_and_control
     - attack.t1071.004
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_schtasks:
         CommandLine|contains|all:
-            - SC Scheduled Scan
-            - \microsoft\Taskbar\autoit3.exe
+            - 'SC Scheduled Scan'
+            - '\microsoft\Taskbar\autoit3.exe'
     selection_temp:
-        Image|contains: \Windows\Temp\DB\
-        Image|endswith: .exe
+        Image|contains: '\Windows\Temp\DB\'
+        Image|endswith: '.exe'
     selection_service:
-        Image: C:\Windows\system32\Service.exe
+        Image: 'C:\Windows\system32\Service.exe'
         CommandLine|contains:
-            - i
-            - u
+            - 'i'
+            - 'u'
     selection_autoit:
-        ParentImage|endswith: \local\microsoft\Taskbar\autoit3.exe
+        ParentImage|endswith: '\local\microsoft\Taskbar\autoit3.exe'
         CommandLine|contains|all:
-            - nslookup.exe
-            - -q=TXT
-    condition: process_creation and (1 of selection_*)
+            - 'nslookup.exe'
+            - '-q=TXT'
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

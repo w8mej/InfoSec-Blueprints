@@ -13,18 +13,15 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The advanced audit policy setting "Windows Filtering Platform > Filtering Platform Connection" must be configured for Success
+    definition: 'The advanced audit policy setting "Windows Filtering Platform > Filtering Platform Connection" must be configured for Success'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5156
         DestPort:
             - 3268
             - 3269
     timeframe: 1h
-    condition: (security and selection) | count() by SourceAddress > 2000
+    condition: selection | count() by SourceAddress > 2000
 falsepositives:
     - Exclude known DCs.
 level: medium
-ruletype: Sigma

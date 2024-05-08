@@ -16,26 +16,21 @@ tags:
     - attack.command_and_control
     - attack.t1105
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \curl.exe
-        - Product: The curl executable
+        - Image|endswith: '\curl.exe'
+        - Product: 'The curl executable'
     selection_remote:
         CommandLine|contains:
             - ' -O'  # covers the alias for --remote-name and --output
-            - --remote-name
-            - --output
-    condition: process_creation and (all of selection_*)
+            - '--remote-name'
+            - '--output'
+    condition: all of selection_*
 falsepositives:
     - Scripts created by developers and admins
     - Administrative activity
     - The "\Git\usr\bin\sh.exe" process uses the "--output" flag to download a specific file in the temp directory with the pattern "gfw-httpget-xxxxxxxx.txt "
 level: medium
-ruletype: Sigma

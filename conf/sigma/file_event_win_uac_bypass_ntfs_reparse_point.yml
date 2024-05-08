@@ -11,19 +11,14 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: C:\Users\
-        TargetFilename|endswith: \AppData\Local\Temp\api-ms-win-core-kernel32-legacy-l1.DLL
-    condition: file_event and selection
+        TargetFilename|startswith: 'C:\Users\'
+        TargetFilename|endswith: '\AppData\Local\Temp\api-ms-win-core-kernel32-legacy-l1.DLL'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -14,22 +14,17 @@ tags:
     - attack.t1572
     - attack.t1071.001
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \httptunnel.exe
-            - \plink.exe
-            - \socat.exe
-            - \stunnel.exe
-    condition: process_creation and selection
+            - '\httptunnel.exe'
+            - '\plink.exe'
+            - '\socat.exe'
+            - '\stunnel.exe'
+    condition: selection
 falsepositives:
     - Legitimate administrators using one of these tools
 level: medium
-ruletype: Sigma

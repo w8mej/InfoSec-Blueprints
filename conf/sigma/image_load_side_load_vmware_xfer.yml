@@ -10,21 +10,16 @@ modified: 2023/02/17
 tags:
     - attack.defense_evasion
     - attack.t1574.002
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \VMwareXferlogs.exe
-        ImageLoaded|endswith: \glib-2.0.dll
+        Image|endswith: '\VMwareXferlogs.exe'
+        ImageLoaded|endswith: '\glib-2.0.dll'
     filter: # VMware might be installed in another path so update the rule accordingly
-        ImageLoaded|startswith: C:\Program Files\VMware\
-    condition: image_load and (selection and not filter)
+        ImageLoaded|startswith: 'C:\Program Files\VMware\'
+    condition: selection and not filter
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

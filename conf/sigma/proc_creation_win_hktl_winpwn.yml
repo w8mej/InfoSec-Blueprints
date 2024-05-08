@@ -28,22 +28,17 @@ tags:
     - attack.t1552.001
     - attack.t1555
     - attack.t1555.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - Offline_Winpwn
+            - 'Offline_Winpwn'
             - 'WinPwn '
-            - WinPwn.exe
-            - WinPwn.ps1
-    condition: process_creation and selection
+            - 'WinPwn.exe'
+            - 'WinPwn.ps1'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -12,20 +12,16 @@ tags:
     - attack.defense_evasion
     - attack.persistence
     - attack.t1197
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-        CommandLine|contains: Start-BitsTransfer
-    condition: process_creation and selection
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        CommandLine|contains: 'Start-BitsTransfer'
+    condition: selection
 fields:
     - ComputerName
     - User
@@ -33,4 +29,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

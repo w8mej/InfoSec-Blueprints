@@ -18,16 +18,12 @@ tags:
     - attack.t1218.003
     - attack.g0069
     - car.2019-04-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \DllHost.exe
+        ParentImage|endswith: '\DllHost.exe'
         ParentCommandLine|contains:
             - ' /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}' # cmstplua.dll
             - ' /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}' # CMLUAUTIL
@@ -35,10 +31,9 @@ detection:
             - ' /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}' # colorui.dll
             - ' /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}' # wscui.cpl
         IntegrityLevel:
-            - High
-            - System
-    condition: process_creation and selection
+            - 'High'
+            - 'System'
+    condition: selection
 falsepositives:
     - Legitimate CMSTP use (unlikely in modern enterprise environments)
 level: high
-ruletype: Sigma

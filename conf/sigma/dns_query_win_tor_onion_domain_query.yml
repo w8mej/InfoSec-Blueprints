@@ -13,18 +13,13 @@ modified: 2023/09/18
 tags:
     - attack.command_and_control
     - attack.t1090.003
-    - sysmon
 logsource:
     product: windows
     category: dns_query
 detection:
-    dns_query:
-        EventID: 22
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        QueryName|contains: .onion
-    condition: dns_query and selection
+        QueryName|contains: '.onion'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

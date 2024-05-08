@@ -13,20 +13,15 @@ tags:
     - attack.defense_evasion
     - attack.t1574.002
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|endswith:
-            - \Services\DHCPServer\Parameters\CalloutDlls
-            - \Services\DHCPServer\Parameters\CalloutEnabled
-    condition: registry_set and selection
+            - '\Services\DHCPServer\Parameters\CalloutDlls'
+            - '\Services\DHCPServer\Parameters\CalloutEnabled'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

@@ -19,16 +19,12 @@ logsource:
     product: windows
     category: ps_classic_start
 detection:
-    ps_classic_start:
-        EventID: 400
-        Channel: Windows PowerShell
     selection:
         Data|contains|all:
-            - HostName=ServerRemoteHost
-            - wsmprovhost.exe
-    condition: ps_classic_start and selection
+            - 'HostName=ServerRemoteHost'
+            - 'wsmprovhost.exe'
+    condition: selection
 falsepositives:
     - Legitimate use remote PowerShell sessions
 # Note: Increase the level to "medium" in environments that do not leverage PowerShell remoting
 level: low
-ruletype: Sigma

@@ -14,32 +14,27 @@ tags:
     - attack.execution
     - attack.t1059.005
     - attack.t1059.007
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \wscript.exe
-            - \cscript.exe
+            - '\wscript.exe'
+            - '\cscript.exe'
         TargetFilename|startswith:
-            - C:\Users\
-            - C:\ProgramData
+            - 'C:\Users\'
+            - 'C:\ProgramData'
         TargetFilename|endswith:
-            - .jse
-            - .vbe
-            - .js
-            - .vba
-            - .vbs
-    condition: file_event and selection
+            - '.jse'
+            - '.vbe'
+            - '.js'
+            - '.vba'
+            - '.vbs'
+    condition: selection
 fields:
     - Image
     - TargetFilename
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

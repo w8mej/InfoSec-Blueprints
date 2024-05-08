@@ -14,29 +14,24 @@ tags:
     - attack.defense_evasion
     - attack.t1059.001
     - attack.t1218
-    - sysmon
 logsource:
     category: file_event
     product: windows
     definition: Check your sysmon configuration for monitoring UsageLogs folder. In SwiftOnSecurity configuration we have that thanks @SBousseaden
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains|all:
-            - \AppData\Local\Microsoft\CLR
-            - \UsageLogs\
+            - '\AppData\Local\Microsoft\CLR'
+            - '\UsageLogs\'
         TargetFilename|contains:
-            - mshta
-            - cscript
-            - wscript
-            - regsvr32
-            - wmic
-            - rundll32
-            - svchost
-    condition: file_event and selection
+            - 'mshta'
+            - 'cscript'
+            - 'wscript'
+            - 'regsvr32'
+            - 'wmic'
+            - 'rundll32'
+            - 'svchost'
+    condition: selection
 falsepositives:
     - Rundll32.exe with zzzzInvokeManagedCustomActionOutOfProc in command line and msiexec.exe as parent process - https://twitter.com/SBousseaden/status/1388064061087260675
 level: high
-ruletype: Sigma

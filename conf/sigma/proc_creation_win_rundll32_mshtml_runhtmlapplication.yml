@@ -18,23 +18,18 @@ modified: 2024/02/23
 tags:
     - attack.defense_evasion
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - \..\
-            - mshtml
+            - '\..\'
+            - 'mshtml'
         CommandLine|contains:
             - '#135'
-            - RunHTMLApplication
-    condition: process_creation and selection
+            - 'RunHTMLApplication'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

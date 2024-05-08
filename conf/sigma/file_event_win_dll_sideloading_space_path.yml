@@ -14,22 +14,17 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1574.002
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|startswith:
-            - C:\Windows \
-            - C:\Program Files \
-            - C:\Program Files (x86) \
-        TargetFilename|endswith: .dll
-    condition: file_event and selection
+            - 'C:\Windows \'
+            - 'C:\Program Files \'
+            - 'C:\Program Files (x86) \'
+        TargetFilename|endswith: '.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

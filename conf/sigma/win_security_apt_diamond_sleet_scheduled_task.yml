@@ -16,16 +16,13 @@ tags:
 logsource:
     product: windows
     service: security
-    definition: The Advanced Audit Policy setting Object Access > Audit Other Object Access Events has to be configured to allow this detection. We also recommend extracting the Command field from the embedded XML in the event data.
+    definition: 'The Advanced Audit Policy setting Object Access > Audit Other Object Access Events has to be configured to allow this detection. We also recommend extracting the Command field from the embedded XML in the event data.'
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4698
-        TaskName: \Windows TeamCity Settings User Interface
-        TaskContent|contains: uTYNkfKxHiZrx3KJ
-    condition: security and selection
+        TaskName: '\Windows TeamCity Settings User Interface'
+        TaskContent|contains: 'uTYNkfKxHiZrx3KJ'
+    condition: selection
 falsepositives:
     - Unknown
 level: critical
-ruletype: Sigma

@@ -11,21 +11,16 @@ tags:
     - attack.discovery
     - attack.execution
     - attack.t1047
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \wmic.exe
-        - OriginalFileName: wmic.exe
+        - Image|endswith: '\wmic.exe'
+        - OriginalFileName: 'wmic.exe'
     selection_cli:
-        CommandLine|contains: computersystem
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: 'computersystem'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

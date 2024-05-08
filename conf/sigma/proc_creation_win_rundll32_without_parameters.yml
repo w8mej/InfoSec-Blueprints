@@ -13,19 +13,15 @@ tags:
     - attack.t1570
     - attack.execution
     - attack.t1569.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine:
-            - rundll32.exe
-            - rundll32
-    condition: process_creation and selection
+            - 'rundll32.exe'
+            - 'rundll32'
+    condition: selection
 fields:
     - ComputerName
     - SubjectUserName
@@ -35,4 +31,3 @@ fields:
 falsepositives:
     - False positives may occur if a user called rundll32 from CLI with no options
 level: high
-ruletype: Sigma

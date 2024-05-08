@@ -10,21 +10,14 @@ modified: 2022/12/30
 tags:
     - attack.defense_evasion
     - attack.t1070
-    - sysmon
 logsource:
     category: file_delete
     product: windows
 detection:
-    file_delete:
-        EventID:
-            - 23
-            - 26
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: \Logging\CmdletInfra\LocalPowerShell\Cmdlet\
-        TargetFilename|contains: _Cmdlet_
-    condition: file_delete and selection
+        TargetFilename|startswith: '\Logging\CmdletInfra\LocalPowerShell\Cmdlet\'
+        TargetFilename|contains: '_Cmdlet_'
+    condition: selection
 falsepositives:
     - Possible FP during log rotation
 level: high
-ruletype: Sigma

@@ -12,39 +12,34 @@ tags:
     - attack.persistence
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \arubanetsvc.exe
+        Image|endswith: '\arubanetsvc.exe'
         ImageLoaded|endswith:
-            - \wtsapi32.dll
-            - \msvcr100.dll
-            - \msvcp100.dll
-            - \dbghelp.dll
-            - \dbgcore.dll
-            - \wininet.dll
-            - \iphlpapi.dll
-            - \version.dll
-            - \cryptsp.dll
-            - \cryptbase.dll
-            - \wldp.dll
-            - \profapi.dll
-            - \sspicli.dll
-            - \winsta.dll
-            - \dpapi.dll
+            - '\wtsapi32.dll'
+            - '\msvcr100.dll'
+            - '\msvcp100.dll'
+            - '\dbghelp.dll'
+            - '\dbgcore.dll'
+            - '\wininet.dll'
+            - '\iphlpapi.dll'
+            - '\version.dll'
+            - '\cryptsp.dll'
+            - '\cryptbase.dll'
+            - '\wldp.dll'
+            - '\profapi.dll'
+            - '\sspicli.dll'
+            - '\winsta.dll'
+            - '\dpapi.dll'
     filter:
         ImageLoaded|startswith:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
-            - C:\Windows\WinSxS\
-    condition: image_load and (selection and not filter)
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
+            - 'C:\Windows\WinSxS\'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

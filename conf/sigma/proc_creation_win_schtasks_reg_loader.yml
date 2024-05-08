@@ -14,36 +14,31 @@ tags:
     - attack.persistence
     - attack.t1053.005
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         # schtasks.exe /Create /F /TN "{97F2F70B-10D1-4447-A2F3-9B070C86E261}" /TR "cmd /c start /min \"\" powershell.exe -Command IEX([System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String((Get-ItemProperty -Path HKCU:\SOFTWARE\Pvoeooxf).yzbbvhhdypa))) " /SC MINUTE /MO 30
-        - Image|endswith: \schtasks.exe
-        - OriginalFileName: schtasks.exe
+        - Image|endswith: '\schtasks.exe'
+        - OriginalFileName: 'schtasks.exe'
     selection_cli_create:
-        CommandLine|contains: /Create
+        CommandLine|contains: '/Create'
     selection_cli_get:
         CommandLine|contains:
-            - Get-ItemProperty
+            - 'Get-ItemProperty'
             - ' gp ' # Alias
     selection_cli_hive:
         CommandLine|contains:
             - 'HKCU:'
             - 'HKLM:'
             - 'registry::'
-            - HKEY_
+            - 'HKEY_'
     filter_main_encoding:
         CommandLine|contains:
-            - FromBase64String
-            - encodedcommand
-    condition: process_creation and (all of selection_* and not 1 of filter_*)
+            - 'FromBase64String'
+            - 'encodedcommand'
+    condition: all of selection_* and not 1 of filter_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

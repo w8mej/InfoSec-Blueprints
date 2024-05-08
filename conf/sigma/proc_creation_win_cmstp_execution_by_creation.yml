@@ -13,18 +13,14 @@ tags:
     - attack.t1218.003
     - attack.g0069
     - car.2019-04-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
     # CMSTP Spawning Child Process
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \cmstp.exe
-    condition: process_creation and selection
+        ParentImage|endswith: '\cmstp.exe'
+    condition: selection
 fields:
     - CommandLine
     - ParentCommandLine
@@ -32,4 +28,3 @@ fields:
 falsepositives:
     - Legitimate CMSTP use (unlikely in modern enterprise environments)
 level: high
-ruletype: Sigma

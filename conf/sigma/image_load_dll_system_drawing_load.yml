@@ -12,18 +12,13 @@ tags:
     - attack.collection
     - attack.t1113
     - detection.threat_hunting
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \System.Drawing.ni.dll
-    condition: image_load and selection
+        ImageLoaded|endswith: '\System.Drawing.ni.dll'
+    condition: selection
 falsepositives:
     - False positives are very common from system and third party applications, activity needs to be investigated. This rule is best correlated with other events to increase the level of suspiciousness
 level: low
-ruletype: Sigma

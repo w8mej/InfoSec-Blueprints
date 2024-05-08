@@ -14,23 +14,18 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/02/08
 tags:
     - attack.discovery
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|startswith: C:\Windows\System32\config
+        TargetFilename|startswith: 'C:\Windows\System32\config'
         TargetFilename|endswith:
-            - \Hotfixinfo.txt
-            - \netiostate.txt
-            - \sysportslog.txt
-            - \VmSwitchLog.evtx
-    condition: file_event and selection
+            - '\Hotfixinfo.txt'
+            - '\netiostate.txt'
+            - '\sysportslog.txt'
+            - '\VmSwitchLog.evtx'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -22,22 +22,17 @@ tags:
     - attack.defense_evasion
     - attack.persistence
     - attack.t1112
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|endswith:
-            - \fDenyTSConnections   # Specifies whether Remote Desktop connections are enabled - When set to zero RDP is enabled
-            - \fSingleSessionPerUser   # When changed to 0 it allows multiple RDP sessions
-            - \UserAuthentication   # Specifies that Network-Level user authentication is not required before the remote desktop connection is established
-        Details: DWORD (0x00000000)
-    condition: registry_set and selection
+            - '\fDenyTSConnections' # Specifies whether Remote Desktop connections are enabled - When set to zero RDP is enabled
+            - '\fSingleSessionPerUser' # When changed to 0 it allows multiple RDP sessions
+            - '\UserAuthentication' # Specifies that Network-Level user authentication is not required before the remote desktop connection is established
+        Details: 'DWORD (0x00000000)'
+    condition: selection
 falsepositives:
     - Some of the keys mentioned here could be modified by an administrator while setting group policy (it should be investigated either way)
 level: medium
-ruletype: Sigma

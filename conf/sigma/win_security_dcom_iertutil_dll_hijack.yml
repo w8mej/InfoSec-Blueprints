@@ -15,15 +15,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 5145
-        RelativeTargetName|endswith: \Internet Explorer\iertutil.dll
+        RelativeTargetName|endswith: '\Internet Explorer\iertutil.dll'
     filter:
-        SubjectUserName|endswith: $
-    condition: security and (selection and not filter)
+        SubjectUserName|endswith: '$'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

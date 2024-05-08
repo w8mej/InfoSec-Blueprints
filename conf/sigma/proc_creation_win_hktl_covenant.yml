@@ -12,29 +12,24 @@ tags:
     - attack.defense_evasion
     - attack.t1059.001
     - attack.t1564.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_1:
         CommandLine|contains|all:
-            - -Sta
-            - -Nop
-            - -Window
-            - Hidden
+            - '-Sta'
+            - '-Nop'
+            - '-Window'
+            - 'Hidden'
         CommandLine|contains:
-            - -Command
-            - -EncodedCommand
+            - '-Command'
+            - '-EncodedCommand'
     selection_2:
         CommandLine|contains:
             - 'sv o (New-Object IO.MemorySteam);sv d '
-            - mshta file.hta
-            - GruntHTTP
-            - -EncodedCommand cwB2ACAAbwAgA
-    condition: process_creation and (1 of selection_*)
+            - 'mshta file.hta'
+            - 'GruntHTTP'
+            - '-EncodedCommand cwB2ACAAbwAgA'
+    condition: 1 of selection_*
 level: high
-ruletype: Sigma

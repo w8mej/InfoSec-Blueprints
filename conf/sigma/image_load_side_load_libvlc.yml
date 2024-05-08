@@ -13,22 +13,17 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \libvlc.dll
+        ImageLoaded|endswith: '\libvlc.dll'
     filter_main_vlc:
         ImageLoaded|startswith:
-            - C:\Program Files (x86)\VideoLAN\VLC\
-            - C:\Program Files\VideoLAN\VLC\
-    condition: image_load and (selection and not 1 of filter_main_*)
+            - 'C:\Program Files (x86)\VideoLAN\VLC\'
+            - 'C:\Program Files\VideoLAN\VLC\'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - False positives are expected if VLC is installed in non-default locations
 level: medium
-ruletype: Sigma

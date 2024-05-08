@@ -11,19 +11,14 @@ date: 2023/09/18
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: network_connection
     product: windows
 detection:
-    network_connection:
-        EventID: 3
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Initiated: 'true'
-        Image|endswith: \addinutil.exe
-    condition: network_connection and selection
+        Image|endswith: '\addinutil.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

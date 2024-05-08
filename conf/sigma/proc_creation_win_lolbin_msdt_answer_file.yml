@@ -10,25 +10,20 @@ tags:
     - attack.defense_evasion
     - attack.t1218
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cli:
-        Image|endswith: \msdt.exe
-        CommandLine|contains: \WINDOWS\diagnostics\index\PCWDiagnostic.xml
+        Image|endswith: '\msdt.exe'
+        CommandLine|contains: '\WINDOWS\diagnostics\index\PCWDiagnostic.xml'
     selection_answer:
         CommandLine|contains:
             - ' -af '
             - ' /af '
     filter:
-        ParentImage|endswith: \pcwrun.exe
-    condition: process_creation and (all of selection* and not filter)
+        ParentImage|endswith: '\pcwrun.exe'
+    condition: all of selection* and not filter
 falsepositives:
     - Possible undocumented parents of "msdt" other than "pcwrun"
 level: high
-ruletype: Sigma

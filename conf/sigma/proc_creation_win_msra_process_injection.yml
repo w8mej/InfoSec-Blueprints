@@ -11,28 +11,23 @@ modified: 2023/02/03
 tags:
     - attack.defense_evasion
     - attack.t1055
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \msra.exe
-        ParentCommandLine|endswith: msra.exe
+        ParentImage|endswith: '\msra.exe'
+        ParentCommandLine|endswith: 'msra.exe'
         Image|endswith:
-            - \arp.exe
-            - \cmd.exe
-            - \net.exe
-            - \netstat.exe
-            - \nslookup.exe
-            - \route.exe
-            - \schtasks.exe
-            - \whoami.exe
-    condition: process_creation and selection
+            - '\arp.exe'
+            - '\cmd.exe'
+            - '\net.exe'
+            - '\netstat.exe'
+            - '\nslookup.exe'
+            - '\route.exe'
+            - '\schtasks.exe'
+            - '\whoami.exe'
+    condition: selection
 falsepositives:
     - Legitimate use of Msra.exe
 level: high
-ruletype: Sigma

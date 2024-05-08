@@ -8,22 +8,17 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/07/27
 tags:
     - attack.execution
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \curl.exe
-        - OriginalFileName: curl.exe
+        - Image|endswith: '\curl.exe'
+        - OriginalFileName: 'curl.exe'
     selection_cli:
-        - CommandLine|re: \s-c\s
-        - CommandLine|contains: --cookie-jar
-    condition: process_creation and (all of selection_*)
+        - CommandLine|re: '\s-c\s'
+        - CommandLine|contains: '--cookie-jar'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,20 +14,17 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection1:
         EventID:
             - 4625
             - 4624
         LogonType: 3
-        AuthenticationPackageName: NTLM
-        WorkstationName|re: ^[A-Za-z0-9]{16}$
+        AuthenticationPackageName: 'NTLM'
+        WorkstationName|re: '^[A-Za-z0-9]{16}$'
     selection2:
         EventID: 4776
-        Workstation|re: ^[A-Za-z0-9]{16}$
-    condition: security and (1 of selection*)
+        Workstation|re: '^[A-Za-z0-9]{16}$'
+    condition: 1 of selection*
 falsepositives:
     - Linux hostnames composed of 16 characters.
 level: high
-ruletype: Sigma

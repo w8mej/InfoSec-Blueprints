@@ -14,8 +14,6 @@ logsource:
     product: windows
     service: firewall-as
 detection:
-    firewall_as:
-        Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     selection:
         EventID:
             - 2004 # A rule has been added to the Windows Defender Firewall exception list
@@ -24,24 +22,23 @@ detection:
         Action: 2
     filter_main_generic:
         ApplicationPath|contains:
-            - :\Program Files (x86)\
-            - :\Program Files\
-            - :\Windows\System32\
-            - :\Windows\SysWOW64\
-            - :\Windows\WinSxS\
+            - ':\Program Files (x86)\'
+            - ':\Program Files\'
+            - ':\Windows\System32\'
+            - ':\Windows\SysWOW64\'
+            - ':\Windows\WinSxS\'
     filter_optional_msmpeng:
         ModifyingApplication|contains|all:
-            - :\ProgramData\Microsoft\Windows Defender\Platform\
-            - \MsMpEng.exe
+            - ':\ProgramData\Microsoft\Windows Defender\Platform\'
+            - '\MsMpEng.exe'
     filter_main_covered_paths:
         # This filter is added to avoid duplicate alerting from 9e2575e7-2cb9-4da1-adc8-ed94221dca5e
         ApplicationPath|contains:
-            - :\PerfLogs\
-            - :\Temp\
-            - :\Users\Public\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-    condition: firewall_as and (selection and not 1 of filter_main_* and not 1 of filter_optional_*)
+            - ':\PerfLogs\'
+            - ':\Temp\'
+            - ':\Users\Public\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+    condition: selection and not 1 of filter_main_* and not 1 of filter_optional_*
 level: medium
-ruletype: Sigma

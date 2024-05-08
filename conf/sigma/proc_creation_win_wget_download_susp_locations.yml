@@ -8,46 +8,41 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2024/02/23
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \wget.exe
-        - OriginalFileName: wget.exe
+        - Image|endswith: '\wget.exe'
+        - OriginalFileName: 'wget.exe'
     selection_ip:
-        CommandLine|re: ://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
+        CommandLine|re: '://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
     selection_http:
-        CommandLine|contains: http
+        CommandLine|contains: 'http'
     selection_flag:
-        - CommandLine|re: \s-O\s
-        - CommandLine|contains: --output-document
+        - CommandLine|re: '\s-O\s'
+        - CommandLine|contains: '--output-document'
     selection_paths:
         - CommandLine|contains:
-              - :\PerfLogs\
-              - :\Temp\
-              - :\Users\Public\
-              - :\Windows\Help\
-              - :\Windows\Temp\
-              - \Temporary Internet
+              - ':\PerfLogs\'
+              - ':\Temp\'
+              - ':\Users\Public\'
+              - ':\Windows\Help\'
+              - ':\Windows\Temp\'
+              - '\Temporary Internet'
         - CommandLine|contains|all:
-              - :\Users\
-              - \Favorites\
+              - ':\Users\'
+              - '\Favorites\'
         - CommandLine|contains|all:
-              - :\Users\
-              - \Favourites\
+              - ':\Users\'
+              - '\Favourites\'
         - CommandLine|contains|all:
-              - :\Users\
-              - \Contacts\
+              - ':\Users\'
+              - '\Contacts\'
         - CommandLine|contains|all:
-              - :\Users\
-              - \Pictures\
-    condition: process_creation and (all of selection_*)
+              - ':\Users\'
+              - '\Pictures\'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

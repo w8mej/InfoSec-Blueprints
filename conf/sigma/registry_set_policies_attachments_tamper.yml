@@ -10,27 +10,22 @@ date: 2022/08/01
 modified: 2023/08/17
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main:
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments\
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments\'
     selection_value_hide_zone_info:
-        TargetObject|endswith: \HideZoneInfoOnProperties
-        Details: DWORD (0x00000001)   # On
+        TargetObject|endswith: '\HideZoneInfoOnProperties'
+        Details: 'DWORD (0x00000001)' # On
     selection_value_save_zone_info:
-        TargetObject|endswith: \SaveZoneInformation
-        Details: DWORD (0x00000002)   # Off
+        TargetObject|endswith: '\SaveZoneInformation'
+        Details: 'DWORD (0x00000002)' # Off
     selection_value_scan_with_av:
-        TargetObject|endswith: \ScanWithAntiVirus
-        Details: DWORD (0x00000001)   # Disabled
-    condition: registry_set and (selection_main and 1 of selection_value_*)
+        TargetObject|endswith: '\ScanWithAntiVirus'
+        Details: 'DWORD (0x00000001)' # Disabled
+    condition: selection_main and 1 of selection_value_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

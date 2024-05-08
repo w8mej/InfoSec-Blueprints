@@ -18,20 +18,17 @@ logsource:
     product: windows
     service: powershell-classic
 detection:
-    powershell_classic:
-        Channel: Windows PowerShell
     selection:
-        Data|contains: ProviderName=WSMan
+        Data|contains: 'ProviderName=WSMan'
     filter_main_ps:
         Data|contains:
-            - HostApplication=powershell
-            - HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell
-            - HostApplication=C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell
+            - 'HostApplication=powershell'
+            - 'HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell'
+            - 'HostApplication=C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell'
             # In some cases powershell was invoked with inverted slashes
-            - HostApplication=C:/Windows/System32/WindowsPowerShell/v1.0/powershell
-            - HostApplication=C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell
-    condition: powershell_classic and (selection and not 1 of filter_main_*)
+            - 'HostApplication=C:/Windows/System32/WindowsPowerShell/v1.0/powershell'
+            - 'HostApplication=C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

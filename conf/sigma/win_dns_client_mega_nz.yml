@@ -17,13 +17,10 @@ logsource:
     service: dns-client
     definition: 'Requirements: Microsoft-Windows-DNS Client Events/Operational Event Log must be enabled/collected in order to receive the events.'
 detection:
-    dns_client:
-        Channel: Microsoft-Windows-DNS Client Events/Operational
     selection:
         EventID: 3008
-        QueryName|contains: userstorage.mega.co.nz
-    condition: dns_client and selection
+        QueryName|contains: 'userstorage.mega.co.nz'
+    condition: selection
 falsepositives:
     - Legitimate DNS queries and usage of Mega
 level: medium
-ruletype: Sigma

@@ -12,21 +12,17 @@ modified: 2021/11/27
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - verb:sync
-            - -source:RunCommand
-            - -dest:runCommand
-        Image|endswith: \msdeploy.exe
-    condition: process_creation and selection
+            - 'verb:sync'
+            - '-source:RunCommand'
+            - '-dest:runCommand'
+        Image|endswith: '\msdeploy.exe'
+    condition: selection
 fields:
     - ComputerName
     - User
@@ -35,4 +31,3 @@ fields:
 falsepositives:
     - System administrator Usage
 level: medium
-ruletype: Sigma

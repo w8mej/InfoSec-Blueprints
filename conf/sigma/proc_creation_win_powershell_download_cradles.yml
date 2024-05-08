@@ -12,22 +12,17 @@ tags:
     - attack.execution
     - attack.t1059.001
     - attack.t1105
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - .DownloadString(
-            - .DownloadFile(
+            - '.DownloadString('
+            - '.DownloadFile('
             - 'Invoke-WebRequest '
             - 'iwr '
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Scripts or tools that download files
 level: medium
-ruletype: Sigma

@@ -13,21 +13,17 @@ modified: 2021/11/27
 tags:
     - attack.defense_evasion
     - attack.t1218.011
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \runonce.exe
-        ParentImage|endswith: \rundll32.exe
+        Image|endswith: '\runonce.exe'
+        ParentImage|endswith: '\rundll32.exe'
         ParentCommandLine|contains|all:
-            - setupapi.dll
-            - InstallHinfSection
-    condition: process_creation and selection
+            - 'setupapi.dll'
+            - 'InstallHinfSection'
+    condition: selection
 fields:
     - ComputerName
     - User
@@ -36,4 +32,3 @@ fields:
 falsepositives:
     - Scripts and administrative tools that use INF files for driver installation with setupapi.dll
 level: medium
-ruletype: Sigma

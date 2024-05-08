@@ -15,22 +15,17 @@ author: Nasreddine Bencherchali (Nextron Systems), Michael Haag (idea)
 date: 2023/09/05
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProtocolDefaults
+        TargetObject|contains: '\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProtocolDefaults'
         TargetObject|endswith:
-            - \http
-            - \https
-        Details|contains: DWORD (0x00000000)
-    condition: registry_set and selection
+            - '\http'
+            - '\https'
+        Details|contains: 'DWORD (0x00000000)'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

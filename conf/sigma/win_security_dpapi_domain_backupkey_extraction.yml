@@ -14,15 +14,12 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4662
-        ObjectType: SecretObject
+        ObjectType: 'SecretObject'
         AccessMask: '0x2'
-        ObjectName|contains: BCKUPKEY
-    condition: security and selection
+        ObjectName|contains: 'BCKUPKEY'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

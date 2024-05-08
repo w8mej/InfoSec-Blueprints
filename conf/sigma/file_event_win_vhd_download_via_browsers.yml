@@ -14,33 +14,28 @@ modified: 2023/05/05
 tags:
     - attack.resource_development
     - attack.t1587.001
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \brave.exe
-            - \chrome.exe
-            - \firefox.exe
-            - \iexplore.exe
-            - \maxthon.exe
-            - \MicrosoftEdge.exe
-            - \msedge.exe
-            - \msedgewebview2.exe
-            - \opera.exe
-            - \safari.exe
-            - \seamonkey.exe
-            - \vivaldi.exe
-            - \whale.exe
+            - '\brave.exe'
+            - '\chrome.exe'
+            - '\firefox.exe'
+            - '\iexplore.exe'
+            - '\maxthon.exe'
+            - '\MicrosoftEdge.exe'
+            - '\msedge.exe'
+            - '\msedgewebview2.exe'
+            - '\opera.exe'
+            - '\safari.exe'
+            - '\seamonkey.exe'
+            - '\vivaldi.exe'
+            - '\whale.exe'
         # We don't use "endswith" to also match with ADS logs and ".vhdx". Example: "TargetFilename: C:\Users\xxx\Downloads\windows.vhd:Zone.Identifier"
-        TargetFilename|contains: .vhd
-    condition: file_event and selection
+        TargetFilename|contains: '.vhd'
+    condition: selection
 falsepositives:
     - Legitimate downloads of ".vhd" files would also trigger this
 level: medium
-ruletype: Sigma

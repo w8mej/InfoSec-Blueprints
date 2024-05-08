@@ -12,24 +12,19 @@ modified: 2023/11/09
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \protocolhandler.exe
-        - OriginalFileName: ProtocolHandler.exe
+        - Image|endswith: '\protocolhandler.exe'
+        - OriginalFileName: 'ProtocolHandler.exe'
     selection_cli:
         CommandLine|contains:
-            - ftp://
-            - http://
-            - https://
-    condition: process_creation and (all of selection_*)
+            - 'ftp://'
+            - 'http://'
+            - 'https://'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

@@ -14,31 +14,26 @@ date: 2024/02/05
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
     # VT Query: behavior_processes:"iexpress.exe" and behavior_processes:"/n /q /m" and behavior_processes:"*.sed*" and p:5+
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \iexpress.exe
-        - OriginalFileName: IEXPRESS.exe
+        - Image|endswith: '\iexpress.exe'
+        - OriginalFileName: 'IEXPRESS.exe'
     selection_cli:
         CommandLine|contains: ' /n '
     selection_paths:
         CommandLine|contains:
             # Note: Add more uncommon paths that fit your organizational needs.
-            - :\ProgramData\
-            - :\Temp\
-            - :\Windows\System32\Tasks\
-            - :\Windows\Tasks\
-            - :\Windows\Temp\
-            - \AppData\Local\Temp\
-    condition: process_creation and (all of selection_*)
+            - ':\ProgramData\'
+            - ':\Temp\'
+            - ':\Windows\System32\Tasks\'
+            - ':\Windows\Tasks\'
+            - ':\Windows\Temp\'
+            - '\AppData\Local\Temp\'
+    condition: all of selection_*
 falsepositives:
     - Administrators building packages using iexpress.exe
 level: high
-ruletype: Sigma

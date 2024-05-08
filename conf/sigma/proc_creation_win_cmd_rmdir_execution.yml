@@ -15,25 +15,20 @@ modified: 2023/03/07
 tags:
     - attack.defense_evasion
     - attack.t1070.004
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \cmd.exe
-        - OriginalFileName: Cmd.Exe
+        - Image|endswith: '\cmd.exe'
+        - OriginalFileName: 'Cmd.Exe'
     selection_rmdir:
-        CommandLine|contains: rmdir
+        CommandLine|contains: 'rmdir'
     selection_flags:
         CommandLine|contains:
-            - /s
-            - /q
-    condition: process_creation and (all of selection_*)
+            - '/s'
+            - '/q'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

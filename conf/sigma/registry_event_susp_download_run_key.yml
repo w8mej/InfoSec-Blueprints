@@ -10,25 +10,17 @@ modified: 2021/11/27
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: registry_event
     product: windows
 detection:
-    registry_event:
-        EventID:
-            - 12
-            - 13
-            - 14
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|contains:
-            - \Downloads\
-            - \Temporary Internet Files\Content.Outlook\
-            - \Local Settings\Temporary Internet Files\
-        TargetObject|contains: \SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
-    condition: registry_event and selection
+            - '\Downloads\'
+            - '\Temporary Internet Files\Content.Outlook\'
+            - '\Local Settings\Temporary Internet Files\'
+        TargetObject|contains: '\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\'
+    condition: selection
 falsepositives:
     - Software installers downloaded and used by users
 level: high
-ruletype: Sigma

@@ -15,15 +15,13 @@ logsource:
     product: windows
     service: security
 detection:
-    security:
-        Channel: Security
     selection:
         EventID: 4768
         Status: '0x6'
     filter_computer:
-        TargetUserName|endswith: $
+        TargetUserName|endswith: '$'
     timeframe: 24h
-    condition: (security and selection and not filter_computer) | count(TargetUserName) by IpAddress > 10
+    condition: selection and not filter_computer | count(TargetUserName) by IpAddress > 10
 falsepositives:
     - Vulnerability scanners
     - Misconfigured systems
@@ -31,4 +29,3 @@ falsepositives:
     - VPN terminators
     - Multiuser systems like Citrix server farms
 level: medium
-ruletype: Sigma

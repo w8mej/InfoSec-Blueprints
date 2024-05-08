@@ -1,0 +1,18 @@
+title: 攻击者查找linux下私钥文件
+description: Ubuntu18.04
+references: https://github.com/12306Bro/Threathunting/blob/master/T1145-linux-私钥.md
+tags: T1552-004
+status: experimental
+author: 12306Bro
+logsource:
+    product: linux
+    service: history
+detection:
+    keywords:
+       - sudo find / -name *.pgp
+       - sudo find / -name *.pem
+       - sudo find / -name *.ppk
+       - sudo find / -name *.p12
+       - sudo find / -name *.key
+    condition: keywords
+level: medium

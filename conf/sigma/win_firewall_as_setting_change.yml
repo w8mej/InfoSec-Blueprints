@@ -14,8 +14,6 @@ logsource:
     product: windows
     service: firewall-as
 detection:
-    firewall_as:
-        Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     selection:
         EventID:
             - 2002 # A Windows Defender Firewall setting has changed.
@@ -24,6 +22,5 @@ detection:
             - 2082 # A Windows Defender Firewall setting in the %1 profile has changed. (Windows 11)
             - 2008  # Windows Firewall Group Policy settings have changed. The new settings have been applied
             # - 2010  # Network profile changed on an interface.
-    condition: firewall_as and selection
+    condition: selection
 level: low
-ruletype: Sigma

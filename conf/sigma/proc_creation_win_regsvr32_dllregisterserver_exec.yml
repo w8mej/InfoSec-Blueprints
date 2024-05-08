@@ -18,42 +18,37 @@ tags:
     - attack.defense_evasion
     - attack.t1218
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_image:
-        - Image|endswith: \regsvr32.exe
-        - OriginalFileName: REGSVR32.EXE
+        - Image|endswith: '\regsvr32.exe'
+        - OriginalFileName: 'REGSVR32.EXE'
     selection_cmdline:
         CommandLine|contains:
             - ' /s '
             - ' /e '
     filter_main_paths:
         - CommandLine|contains:
-              - :\Program Files (x86)
-              - :\Program Files\
-              - :\Windows\System32\
-              - :\Windows\SysWOW64\
+              - ':\Program Files (x86)'
+              - ':\Program Files\'
+              - ':\Windows\System32\'
+              - ':\Windows\SysWOW64\'
         - CurrentDirectory|contains:
-              - :\Program Files (x86)
-              - :\Program Files\
-              - :\Windows\System32\
-              - :\Windows\SysWOW64\
+              - ':\Program Files (x86)'
+              - ':\Program Files\'
+              - ':\Windows\System32\'
+              - ':\Windows\SysWOW64\'
     filter_main_other_flags:
         # Note: We filter other flags to keep the logic of the rule
         CommandLine|contains:
             - ' /i:'
             - '/U '
     filter_main_rpcproxy:
-        ParentCommandLine|endswith: :\Windows\System32\RpcProxy\RpcProxy.dll
-        CommandLine: regsvr32 /s rpcproxy.dll
-    condition: process_creation and (all of selection_* and not 1 of filter_main_*)
+        ParentCommandLine|endswith: ':\Windows\System32\RpcProxy\RpcProxy.dll'
+        CommandLine: 'regsvr32 /s rpcproxy.dll'
+    condition: all of selection_* and not 1 of filter_main_*
 falsepositives:
     - Legitimate usage as part of application installation, but less likely from e.g. temporary paths.
 level: medium
-ruletype: Sigma

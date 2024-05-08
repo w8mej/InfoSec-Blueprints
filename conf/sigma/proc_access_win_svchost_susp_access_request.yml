@@ -11,27 +11,22 @@ modified: 2023/01/30
 tags:
     - attack.defense_evasion
     - attack.t1562.002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetImage|endswith: :\Windows\System32\svchost.exe
+        TargetImage|endswith: ':\Windows\System32\svchost.exe'
         GrantedAccess: '0x1F3FFF'
-        CallTrace|contains: UNKNOWN
+        CallTrace|contains: 'UNKNOWN'
     filter_main_msbuild:
-        SourceImage|contains: :\Program Files\Microsoft Visual Studio\
-        SourceImage|endswith: \MSBuild\Current\Bin\MSBuild.exe
+        SourceImage|contains: ':\Program Files\Microsoft Visual Studio\'
+        SourceImage|endswith: '\MSBuild\Current\Bin\MSBuild.exe'
         # Just to make sure it's "really" .NET :)
         CallTrace|contains:
-            - Microsoft.Build.ni.dll
-            - System.ni.dll
-    condition: process_access and (selection and not 1 of filter_main_*)
+            - 'Microsoft.Build.ni.dll'
+            - 'System.ni.dll'
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

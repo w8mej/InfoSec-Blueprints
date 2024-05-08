@@ -14,16 +14,13 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Microsoft-Windows-DistributedCOM
+        Provider_Name: 'Microsoft-Windows-DistributedCOM'
         EventID: 10001
-        param1: C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe    # Binary starting/started
+        param1: 'C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe'  # Binary starting/started
         param2: 2147943140                                                       # ERROR id
         param3: '{054AAE20-4BEA-4347-8A35-64A533254A9D}'                         # DCOM Server
-    condition: system and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

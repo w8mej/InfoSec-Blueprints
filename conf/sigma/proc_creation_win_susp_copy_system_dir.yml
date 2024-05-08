@@ -17,42 +17,37 @@ modified: 2023/08/29
 tags:
     - attack.defense_evasion
     - attack.t1036.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_cmd:
-        Image|endswith: \cmd.exe
+        Image|endswith: '\cmd.exe'
         CommandLine|contains: 'copy '
     selection_pwsh:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
-            - copy-item
+            - 'copy-item'
             - ' copy '
             - 'cpi '
             - ' cp '
     selection_other:
         - Image|endswith:
-              - \robocopy.exe
-              - \xcopy.exe
+              - '\robocopy.exe'
+              - '\xcopy.exe'
         - OriginalFileName:
-              - robocopy.exe
-              - XCOPY.EXE
+              - 'robocopy.exe'
+              - 'XCOPY.EXE'
     target:
         CommandLine|contains:
-            - \System32
-            - \SysWOW64
-            - \WinSxS
-    condition: process_creation and (1 of selection_* and target)
+            - '\System32'
+            - '\SysWOW64'
+            - '\WinSxS'
+    condition: 1 of selection_* and target
 falsepositives:
     - Depend on scripts and administrative tools used in the monitored environment (For example an admin scripts like https://www.itexperience.net/sccm-batch-files-and-32-bits-processes-on-64-bits-os/)
     - When cmd.exe and xcopy.exe are called directly #  C:\Windows\System32\cmd.exe /c copy file1 file2
     - When the command contains the keywords but not in the correct order
 level: medium
-ruletype: Sigma

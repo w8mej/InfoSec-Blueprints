@@ -15,20 +15,15 @@ modified: 2023/12/06
 tags:
     - attack.persistence
     - attack.t1547.009
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains:
-            - :\Windows\apppatch\Custom\
-            - :\Windows\apppatch\CustomSDB\
-    condition: file_event and selection
+            - ':\Windows\apppatch\Custom\'
+            - ':\Windows\apppatch\CustomSDB\'
+    condition: selection
 falsepositives:
     - Legitimate custom SHIM installations will also trigger this rule
 level: medium
-ruletype: Sigma

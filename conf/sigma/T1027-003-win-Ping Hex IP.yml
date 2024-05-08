@@ -1,0 +1,16 @@
+title: Ping Hex IP
+description: win7 模拟测试结果
+references:
+    - https://github.com/Neo23x0/sigma/blob/master/rules/windows/process_creation/win_susp_ping_hex_ip.yml
+status: experimental
+author: 12306Bro
+logsource:
+​    product: windows
+​    service: security
+detection:
+    selection:
+        CommandLine:
+            - '*\ping.exe 0x*'
+            - '*\ping 0x*'
+    condition: selection
+level: high

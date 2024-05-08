@@ -13,21 +13,16 @@ modified: 2023/01/05
 tags:
     - attack.persistence
     - attack.t1547
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection: # %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\target.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}\target.lnk
         TargetFilename|contains|all:
-            - \Microsoft\Windows\Start Menu\Programs\Startup
-            - .lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}
-        Image|endswith: \explorer.exe
-    condition: file_event and selection
+            - '\Microsoft\Windows\Start Menu\Programs\Startup'
+            - '.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}'
+        Image|endswith: '\explorer.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

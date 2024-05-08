@@ -33,19 +33,13 @@ logsource:
     product: windows
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         ScriptBlockText|contains:
-            - Offline_Winpwn
+            - 'Offline_Winpwn'
             - 'WinPwn '
-            - WinPwn.exe
-            - WinPwn.ps1
-    condition: ps_script and selection
+            - 'WinPwn.exe'
+            - 'WinPwn.ps1'
+    condition: selection
 falsepositives:
     - As the script block is a blob of text. False positive may occur with scripts that contain the keyword as a reference or simply use it for detection.
 level: high
-ruletype: Sigma

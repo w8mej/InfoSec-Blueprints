@@ -10,24 +10,19 @@ date: 2023/06/01
 modified: 2023/09/20
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \amsi.dll
+        ImageLoaded|endswith: '\amsi.dll'
         Image|endswith:
             # TODO: Add more interesting processes
-            - \ExtExport.exe
-            - \odbcconf.exe
-            - \regsvr32.exe
-            - \rundll32.exe
-    condition: image_load and selection
+            - '\ExtExport.exe'
+            - '\odbcconf.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

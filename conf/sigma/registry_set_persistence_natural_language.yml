@@ -10,28 +10,23 @@ date: 2022/07/21
 modified: 2023/08/17
 tags:
     - attack.persistence
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_root:
         # The path can be for multiple languages
         # Example:  HKLM\System\CurrentControlSet\Control\ContentIndex\Language\English_UK
         #           HKLM\System\CurrentControlSet\Control\ContentIndex\Language\English_US
         #           HKLM\System\CurrentControlSet\Control\ContentIndex\Language\Neutral
-        TargetObject|contains: \SYSTEM\CurrentControlSet\Control\ContentIndex\Language\
+        TargetObject|contains: '\SYSTEM\CurrentControlSet\Control\ContentIndex\Language\'
     selection_values:
         TargetObject|contains:
-            - \StemmerDLLPathOverride
-            - \WBDLLPathOverride
-            - \StemmerClass
-            - \WBreakerClass
-    condition: registry_set and (all of selection_*)
+            - '\StemmerDLLPathOverride'
+            - '\WBDLLPathOverride'
+            - '\StemmerClass'
+            - '\WBreakerClass'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

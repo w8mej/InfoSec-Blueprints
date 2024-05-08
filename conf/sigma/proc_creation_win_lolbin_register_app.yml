@@ -9,20 +9,15 @@ date: 2022/08/19
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - \register_app.vbs
-            - -register
-    condition: process_creation and selection
+            - '\register_app.vbs'
+            - '-register'
+    condition: selection
 falsepositives:
     - Legitimate usage of the script. Always investigate what's being registered to confirm if it's benign
 level: medium
-ruletype: Sigma

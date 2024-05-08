@@ -15,13 +15,10 @@ logsource:
     product: windows
     service: bits-client
 detection:
-    bits_client:
-        Channel: Microsoft-Windows-Bits-Client/Operational
     selection:
         EventID: 3
-        processPath|endswith: \bitsadmin.exe
-    condition: bits_client and selection
+        processPath|endswith: '\bitsadmin.exe'
+    condition: selection
 falsepositives:
     - Many legitimate applications or scripts could leverage "bitsadmin". This event is best correlated with EID 16403 via the JobID field
 level: low
-ruletype: Sigma

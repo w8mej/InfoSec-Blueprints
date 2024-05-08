@@ -10,23 +10,18 @@ modified: 2022/07/14
 tags:
     - attack.execution
     - attack.t1127
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \csi.exe
+        Image|endswith: '\csi.exe'
         ParentImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-            - \powershell_ise.exe
-        OriginalFileName: csi.exe
-    condition: process_creation and selection
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\powershell_ise.exe'
+        OriginalFileName: 'csi.exe'
+    condition: selection
 falsepositives:
     - Possible depending on environment. Pair with other factors such as net connections, command-line args, etc.
 level: high
-ruletype: Sigma

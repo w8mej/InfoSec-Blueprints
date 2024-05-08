@@ -24,28 +24,24 @@ tags:
     - attack.credential_access
     - attack.discovery
     - attack.t1552
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_wmi:
         CommandLine|contains|all:
-            - Select
-            - Win32_NTLogEvent
+            - 'Select'
+            - 'Win32_NTLogEvent'
     selection_wevtutil_img:
-        - Image|endswith: \wevtutil.exe
-        - OriginalFileName: wevtutil.exe
+        - Image|endswith: '\wevtutil.exe'
+        - OriginalFileName: 'wevtutil.exe'
     selection_wevtutil_cli:
         CommandLine|contains:
             - ' qe '
             - ' query-events '
     selection_wmic_img:
-        - Image|endswith: \wmic.exe
-        - OriginalFileName: wmic.exe
+        - Image|endswith: '\wmic.exe'
+        - OriginalFileName: 'wmic.exe'
     selection_wmic_cli:
         CommandLine|contains: ' ntevent'
     selection_cmdlet:
@@ -55,31 +51,30 @@ detection:
     selection_logs_name:
         CommandLine|contains:
             # Note: Add more event log channels that are interesting for attackers
-            - Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
-            - Microsoft-Windows-Terminal-Services-RemoteConnectionManager/Operational
-            - Security
+            - 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operational'
+            - 'Microsoft-Windows-Terminal-Services-RemoteConnectionManager/Operational'
+            - 'Security'
     selection_logs_eid:
         CommandLine|contains:
             # Note: We use the "?" to account for both a single and a double quote
             # Note: Please add additional interesting event IDs
             # Note: As this only focuses on EIDs and we know EIDs are not unique across providers. Rare FPs might occur with legit queries to EIDs from different providers.
             # This covers EID 4624 from Security Log
-            - -InstanceId 4624
-            - System[EventID=4624]
-            - EventCode=?4624?
-            - EventIdentifier=?4624?
+            - '-InstanceId 4624'
+            - 'System[EventID=4624]'
+            - 'EventCode=?4624?'
+            - "EventIdentifier=?4624?"
             # This covers EID 4778 from Security Log
-            - -InstanceId 4778
-            - System[EventID=4778]
-            - EventCode=?4778?
-            - EventIdentifier=?4778?
+            - '-InstanceId 4778'
+            - 'System[EventID=4778]'
+            - 'EventCode=?4778?'
+            - "EventIdentifier=?4778?"
             # This covers EID 25 from Microsoft-Windows-TerminalServices-LocalSessionManager/Operational log
-            - -InstanceId 25
-            - System[EventID=25]
-            - EventCode=?25?
-            - EventIdentifier=?25?
-    condition: process_creation and (1 of selection_logs_* and (selection_wmi or all of selection_wevtutil_* or all of selection_wmic_* or selection_cmdlet))
+            - '-InstanceId 25'
+            - 'System[EventID=25]'
+            - 'EventCode=?25?'
+            - "EventIdentifier=?25?"
+    condition: 1 of selection_logs_* and (selection_wmi or all of selection_wevtutil_* or all of selection_wmic_* or selection_cmdlet)
 falsepositives:
     - Legitimate usage of the utility by administrators to query the event log
 level: medium
-ruletype: Sigma

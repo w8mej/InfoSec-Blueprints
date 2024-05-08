@@ -8,18 +8,13 @@ author: frack113
 date: 2022/06/08
 tags:
     - attack.resource_development
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: .diagcab
-    condition: file_event and selection
+        TargetFilename|endswith: '.diagcab'
+    condition: selection
 falsepositives:
     - Legitimate microsoft diagcab
 level: medium
-ruletype: Sigma

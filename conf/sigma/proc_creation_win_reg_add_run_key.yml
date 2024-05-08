@@ -11,23 +11,18 @@ modified: 2023/01/30
 tags:
     - attack.persistence
     - attack.t1547.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - reg
+            - 'reg'
             - ' ADD '
-            - Software\Microsoft\Windows\CurrentVersion\Run
-    condition: process_creation and selection
+            - 'Software\Microsoft\Windows\CurrentVersion\Run'
+    condition: selection
 falsepositives:
     - Legitimate software automatically (mostly, during installation) sets up autorun keys for legitimate reasons.
     - Legitimate administrator sets up autorun keys for legitimate reasons.
     - Discord
 level: medium
-ruletype: Sigma

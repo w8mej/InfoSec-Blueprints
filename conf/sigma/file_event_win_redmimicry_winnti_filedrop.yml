@@ -10,21 +10,16 @@ modified: 2023/01/05
 tags:
     - attack.defense_evasion
     - attack.t1027
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \gthread-3.6.dll
-            - \sigcmm-2.4.dll
-            - \Windows\Temp\tmp.bat
-    condition: file_event and selection
+            - '\gthread-3.6.dll'
+            - '\sigcmm-2.4.dll'
+            - '\Windows\Temp\tmp.bat'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

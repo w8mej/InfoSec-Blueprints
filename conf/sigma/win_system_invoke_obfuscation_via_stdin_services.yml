@@ -16,21 +16,18 @@ logsource:
     product: windows
     service: system
 detection:
-    system:
-        Channel: System
     selection:
-        Provider_Name: Service Control Manager
+        Provider_Name: 'Service Control Manager'
         EventID: 7045
-        # ImagePath|re: '(?i).*(set).*&&\s?set.*(environment|invoke|\${?input).*&&.*"'
+        # ImagePath|re: '(?i)(set).*&&\s?set.*(environment|invoke|\${?input).*&&.*"'
         ImagePath|contains|all:
-            - set
+            - 'set'
             - '&&'
         ImagePath|contains:
-            - environment
-            - invoke
-            - input
-    condition: system and selection
+            - 'environment'
+            - 'invoke'
+            - 'input'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

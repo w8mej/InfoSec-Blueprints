@@ -15,21 +15,15 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
         # 4194304 DONT_REQ_PREAUTH
         ScriptBlockText|contains|all:
-            - Get-ADUser
-            - -Filter
-            - useraccountcontrol
-            - -band
+            - 'Get-ADUser'
+            - '-Filter'
+            - 'useraccountcontrol'
+            - '-band'
             - '4194304'
-    condition: ps_script and selection
+    condition: selection
 falsepositives:
     - Legitimate PowerShell scripts
 level: medium
-ruletype: Sigma

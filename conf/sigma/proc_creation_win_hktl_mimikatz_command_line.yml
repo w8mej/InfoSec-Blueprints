@@ -15,31 +15,27 @@ tags:
     - attack.t1003.004
     - attack.t1003.005
     - attack.t1003.006
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_tools_name:
         CommandLine|contains:
-            - DumpCreds
-            - mimikatz
+            - 'DumpCreds'
+            - 'mimikatz'
     selection_function_names: # To cover functions from modules that are not in module_names
         CommandLine|contains:
-            - ::aadcookie   # misc module
-            - ::detours   # misc module
-            - ::memssp   # misc module
-            - ::mflt   # misc module
-            - ::ncroutemon   # misc module
-            - ::ngcsign   # misc module
-            - ::printnightmare   # misc module
-            - ::skeleton   # misc module
-            - ::preshutdown    # service module
-            - ::mstsc    # ts module
-            - ::multirdp    # ts module
+            - '::aadcookie' # misc module
+            - '::detours' # misc module
+            - '::memssp' # misc module
+            - '::mflt' # misc module
+            - '::ncroutemon' # misc module
+            - '::ngcsign' # misc module
+            - '::printnightmare' # misc module
+            - '::skeleton' # misc module
+            - '::preshutdown'  # service module
+            - '::mstsc'  # ts module
+            - '::multirdp'  # ts module
     selection_module_names:
         CommandLine|contains:
             - 'rpc::'
@@ -52,8 +48,7 @@ detection:
             - 'privilege::'
             - 'process::'
             - 'vault::'
-    condition: process_creation and (1 of selection_*)
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

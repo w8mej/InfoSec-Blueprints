@@ -12,14 +12,10 @@ modified: 2023/01/05
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
             - \powershell.exe
@@ -34,10 +30,9 @@ detection:
         CommandLine|contains: ' -Encoding '
     filter_azure:
         ParentImage|contains:
-            - C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\
-            - \gc_worker.exe
-    condition: process_creation and (selection and not 1 of filter_*)
+            - 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\'
+            - '\gc_worker.exe'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

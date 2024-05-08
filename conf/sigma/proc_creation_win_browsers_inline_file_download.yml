@@ -11,38 +11,33 @@ modified: 2023/11/09
 tags:
     - attack.command_and_control
     - attack.t1105
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         Image|endswith:
-            - \brave.exe
-            - \chrome.exe
-            - \msedge.exe
-            - \opera.exe
-            - \vivaldi.exe
+            - '\brave.exe'
+            - '\chrome.exe'
+            - '\msedge.exe'
+            - '\opera.exe'
+            - '\vivaldi.exe'
     selection_http:
-        CommandLine|contains: http
+        CommandLine|contains: 'http'
     selection_extensions:
         CommandLine|endswith:
-            - .7z
-            - .dat
-            - .dll
-            - .exe
-            - .hta
-            - .ps1
-            - .psm1
-            - .txt
-            - .vbe
-            - .vbs
-            - .zip
-    condition: process_creation and (all of selection_*)
+            - '.7z'
+            - '.dat'
+            - '.dll'
+            - '.exe'
+            - '.hta'
+            - '.ps1'
+            - '.psm1'
+            - '.txt'
+            - '.vbe'
+            - '.vbs'
+            - '.zip'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

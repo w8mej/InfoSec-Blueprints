@@ -15,58 +15,53 @@ tags:
     - attack.privilege_escalation
     - attack.defense_evasion
     - attack.t1055
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         SourceImage|endswith:
-            - \bash.exe
-            - \cscript.exe
-            - \cvtres.exe
-            - \defrag.exe
-            - \dnx.exe
-            - \esentutl.exe
-            - \excel.exe
-            - \expand.exe
-            - \find.exe
-            - \findstr.exe
-            - \forfiles.exe
-            - \gpupdate.exe
-            - \hh.exe
-            - \installutil.exe
-            - \lync.exe
-            - \makecab.exe
-            - \mDNSResponder.exe
-            - \monitoringhost.exe   # Loads .NET CLR by default and thus a favorite for process injection for .NET in-memory offensive tools.
-            - \msbuild.exe
-            - \mshta.exe
-            - \mspaint.exe
-            - \outlook.exe
-            - \ping.exe
-            - \provtool.exe
-            - \python.exe
-            - \regsvr32.exe
-            - \robocopy.exe
-            - \runonce.exe
-            - \sapcimc.exe
-            - \smartscreen.exe
-            - \spoolsv.exe
-            - \tstheme.exe
-            - \userinit.exe
-            - \vssadmin.exe
-            - \vssvc.exe
-            - \w3wp.exe
-            - \winscp.exe
-            - \winword.exe
-            - \wmic.exe
-            - \wscript.exe
-    condition: create_remote_thread and selection
+            - '\bash.exe'
+            - '\cscript.exe'
+            - '\cvtres.exe'
+            - '\defrag.exe'
+            - '\dnx.exe'
+            - '\esentutl.exe'
+            - '\excel.exe'
+            - '\expand.exe'
+            - '\find.exe'
+            - '\findstr.exe'
+            - '\forfiles.exe'
+            - '\gpupdate.exe'
+            - '\hh.exe'
+            - '\installutil.exe'
+            - '\lync.exe'
+            - '\makecab.exe'
+            - '\mDNSResponder.exe'
+            - '\monitoringhost.exe' # Loads .NET CLR by default and thus a favorite for process injection for .NET in-memory offensive tools.
+            - '\msbuild.exe'
+            - '\mshta.exe'
+            - '\mspaint.exe'
+            - '\outlook.exe'
+            - '\ping.exe'
+            - '\provtool.exe'
+            - '\python.exe'
+            - '\regsvr32.exe'
+            - '\robocopy.exe'
+            - '\runonce.exe'
+            - '\sapcimc.exe'
+            - '\smartscreen.exe'
+            - '\spoolsv.exe'
+            - '\tstheme.exe'
+            - '\userinit.exe'
+            - '\vssadmin.exe'
+            - '\vssvc.exe'
+            - '\w3wp.exe'
+            - '\winscp.exe'
+            - '\winword.exe'
+            - '\wmic.exe'
+            - '\wscript.exe'
+    condition: selection
 falsepositives:
     - This rule is best put in testing first in order to create a baseline that reflects the data in your environment.
 level: high
-ruletype: Sigma

@@ -15,30 +15,25 @@ modified: 2023/02/07
 tags:
     - attack.resource_development
     - attack.t1588.002
-    - sysmon
 logsource:
     product: windows
     category: registry_add
 detection:
-    registry_add:
-        EventID: 12
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         EventType: CreateKey
         TargetObject|contains:
-            - \Active Directory Explorer
-            - \Handle
-            - \LiveKd
-            - \Process Explorer
-            - \ProcDump
-            - \PsExec
-            - \PsLoglist
-            - \PsPasswd
-            - \SDelete
-            - \Sysinternals   # Global level https://twitter.com/leonzandman/status/1561736801953382400
-        TargetObject|endswith: \EulaAccepted
-    condition: registry_add and selection
+            - '\Active Directory Explorer'
+            - '\Handle'
+            - '\LiveKd'
+            - '\Process Explorer'
+            - '\ProcDump'
+            - '\PsExec'
+            - '\PsLoglist'
+            - '\PsPasswd'
+            - '\SDelete'
+            - '\Sysinternals' # Global level https://twitter.com/leonzandman/status/1561736801953382400
+        TargetObject|endswith: '\EulaAccepted'
+    condition: selection
 falsepositives:
     - Legitimate use of SysInternals tools. Filter the legitimate paths used in your environment
 level: medium
-ruletype: Sigma

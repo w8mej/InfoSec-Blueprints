@@ -18,30 +18,25 @@ tags:
     - car.2013-08-001
     - attack.t1053.005
     - attack.t1059.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ParentImage|endswith:
-            - \powershell.exe
-            - \pwsh.exe
-        Image|endswith: \schtasks.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        Image|endswith: '\schtasks.exe'
         CommandLine|contains|all:
-            - /Create
-            - powershell.exe -NonI
-            - /TN Updater /TR
+            - '/Create'
+            - 'powershell.exe -NonI'
+            - '/TN Updater /TR'
         CommandLine|contains:
-            - /SC ONLOGON
-            - /SC DAILY /ST
-            - /SC ONIDLE
-            - /SC HOURLY
-    condition: process_creation and selection
+            - '/SC ONLOGON'
+            - '/SC DAILY /ST'
+            - '/SC ONIDLE'
+            - '/SC HOURLY'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

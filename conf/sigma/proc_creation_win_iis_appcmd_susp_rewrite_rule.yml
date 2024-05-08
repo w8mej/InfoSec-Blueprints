@@ -9,25 +9,20 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/01/22
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \appcmd.exe
-        - OriginalFileName: appcmd.exe
+        - Image|endswith: '\appcmd.exe'
+        - OriginalFileName: 'appcmd.exe'
     selection_cli:
         CommandLine|contains|all:
-            - set
-            - config
-            - section:system.webServer/rewrite/globalRules
+            - 'set'
+            - 'config'
+            - 'section:system.webServer/rewrite/globalRules'
             - 'commit:'
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Legitimate usage of appcmd to add new URL rewrite rules
 level: medium
-ruletype: Sigma

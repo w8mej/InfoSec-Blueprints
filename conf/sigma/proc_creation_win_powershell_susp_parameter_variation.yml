@@ -10,18 +10,14 @@ modified: 2022/07/14
 tags:
     - attack.execution
     - attack.t1059.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
-            - \powershell.exe
-            - \pwsh.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
         CommandLine|contains:
             - ' -windowstyle h '
             - ' -windowstyl h'
@@ -131,8 +127,7 @@ detection:
             - ' /exe bypass'
             - ' /ex bypass'
             - ' /ep bypass'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

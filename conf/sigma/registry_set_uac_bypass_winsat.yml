@@ -11,21 +11,16 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \Root\InventoryApplicationFile\winsat.exe|
-        TargetObject|endswith: \LowerCaseLongPath
-        Details|startswith: c:\users\
-        Details|endswith: \appdata\local\temp\system32\winsat.exe
-    condition: registry_set and selection
+        TargetObject|contains: '\Root\InventoryApplicationFile\winsat.exe|'
+        TargetObject|endswith: '\LowerCaseLongPath'
+        Details|startswith: 'c:\users\'
+        Details|endswith: '\appdata\local\temp\system32\winsat.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

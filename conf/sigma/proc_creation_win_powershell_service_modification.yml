@@ -13,14 +13,10 @@ modified: 2023/03/04
 tags:
     - attack.defense_evasion
     - attack.t1562.001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_action:
         CommandLine|contains:
             - 'Stop-Service '
@@ -31,9 +27,9 @@ detection:
             - ' McAfeeDLPAgentService'
             - ' Trend Micro Deep Security Manager'
             - ' TMBMServer'
-            - Sophos
-            - Symantec
-    condition: process_creation and (all of selection*)
+            - 'Sophos'
+            - 'Symantec'
+    condition: all of selection*
 fields:
     - ComputerName
     - User
@@ -42,4 +38,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

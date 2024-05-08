@@ -12,54 +12,49 @@ modified: 2023/08/29
 tags:
     - attack.command_and_control
     - attack.t1102
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         ParentImage|contains|all:
-            - \ManageEngine\ServiceDesk\
-            - \java.exe
+            - '\ManageEngine\ServiceDesk\'
+            - '\java.exe'
         Image|endswith:
-            - \AppVLP.exe
-            - \bash.exe
-            - \bitsadmin.exe
-            - \calc.exe
-            - \certutil.exe
-            - \cscript.exe
-            - \curl.exe
-            - \forfiles.exe
-            - \mftrace.exe
-            - \mshta.exe
-            - \net.exe
-            - \net1.exe
-            - \notepad.exe    # Often used in POCs
-            - \powershell.exe
-            - \pwsh.exe
-            - \query.exe
-            - \reg.exe
-            - \schtasks.exe
-            - \scrcons.exe
-            - \sh.exe
-            - \systeminfo.exe
-            - \whoami.exe    # Often used in POCs
-            - \wmic.exe
-            - \wscript.exe
+            - '\AppVLP.exe'
+            - '\bash.exe'
+            - '\bitsadmin.exe'
+            - '\calc.exe'
+            - '\certutil.exe'
+            - '\cscript.exe'
+            - '\curl.exe'
+            - '\forfiles.exe'
+            - '\mftrace.exe'
+            - '\mshta.exe'
+            - '\net.exe'
+            - '\net1.exe'
+            - '\notepad.exe'  # Often used in POCs
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\query.exe'
+            - '\reg.exe'
+            - '\schtasks.exe'
+            - '\scrcons.exe'
+            - '\sh.exe'
+            - '\systeminfo.exe'
+            - '\whoami.exe'  # Often used in POCs
+            - '\wmic.exe'
+            - '\wscript.exe'
             # - '\hh.exe'
             # - '\regsvr32.exe'
             # - '\rundll32.exe'
             # - '\scriptrunner.exe'
     filter_main_net:
         Image|endswith:
-            - \net.exe
-            - \net1.exe
+            - '\net.exe'
+            - '\net1.exe'
         CommandLine|contains: ' stop'
-    condition: process_creation and (selection and not 1 of filter_main_*)
+    condition: selection and not 1 of filter_main_*
 falsepositives:
     - Legitimate sub processes started by Manage Engine ServiceDesk Pro
 level: high
-ruletype: Sigma

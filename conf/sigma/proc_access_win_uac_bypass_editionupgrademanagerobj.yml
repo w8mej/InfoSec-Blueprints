@@ -12,18 +12,13 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CallTrace|contains: editionupgrademanagerobj.dll
-    condition: process_access and selection
+        CallTrace|contains: 'editionupgrademanagerobj.dll'
+    condition: selection
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

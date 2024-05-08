@@ -12,22 +12,17 @@ tags:
     - attack.privilege_escalation
     - attack.t1574.001
     - attack.t1574.002
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ImageLoaded|endswith: \rcdll.dll
+        ImageLoaded|endswith: '\rcdll.dll'
     filter:
         ImageLoaded|startswith:
-            - C:\Program Files (x86)\Microsoft Visual Studio\
-            - C:\Program Files (x86)\Windows Kits\
-    condition: image_load and (selection and not filter)
+            - 'C:\Program Files (x86)\Microsoft Visual Studio\'
+            - 'C:\Program Files (x86)\Windows Kits\'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

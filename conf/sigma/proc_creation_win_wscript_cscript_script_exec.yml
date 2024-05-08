@@ -18,31 +18,26 @@ tags:
     - attack.t1059.005
     - attack.t1059.007
     - detection.threat_hunting
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
         - OriginalFileName:
-              - wscript.exe
-              - cscript.exe
+              - 'wscript.exe'
+              - 'cscript.exe'
         - Image|endswith:
-              - \wscript.exe
-              - \cscript.exe
+              - '\wscript.exe'
+              - '\cscript.exe'
     selection_cli:
         CommandLine|contains:
-            - .js
-            - .jse
-            - .vba
-            - .vbe
-            - .vbs
-            - .wsf
-    condition: process_creation and (all of selection_*)
+            - '.js'
+            - '.jse'
+            - '.vba'
+            - '.vbe'
+            - '.vbs'
+            - '.wsf'
+    condition: all of selection_*
 falsepositives:
     - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy.
 level: medium
-ruletype: Sigma

@@ -11,19 +11,14 @@ tags:
     - attack.defense_evasion
     - attack.t1112
     - attack.t1562
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|endswith: Software\Microsoft\Windows NT\CurrentVersion\Tracing\SCM\Regular\TracingDisabled
-        Details: DWORD (0x00000001)   # Funny (sad) enough, this value is by default 1.
-    condition: registry_set and selection
+        TargetObject|endswith: 'Software\Microsoft\Windows NT\CurrentVersion\Tracing\SCM\Regular\TracingDisabled'
+        Details: 'DWORD (0x00000001)' # Funny (sad) enough, this value is by default 1.
+    condition: selection
 falsepositives:
     - Unknown
 level: low
-ruletype: Sigma

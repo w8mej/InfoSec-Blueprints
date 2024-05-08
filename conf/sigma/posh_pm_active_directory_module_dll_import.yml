@@ -22,19 +22,13 @@ logsource:
     category: ps_module
     definition: 0ad03ef1-f21b-4a79-8ce8-e6900c54b65b
 detection:
-    ps_module:
-        EventID: 4103
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
         Payload|contains:
             - 'Import-Module '
             - 'ipmo '
     selection_dll:
-        Payload|contains: Microsoft.ActiveDirectory.Management.dll
-    condition: ps_module and (all of selection_*)
+        Payload|contains: 'Microsoft.ActiveDirectory.Management.dll'
+    condition: all of selection_*
 falsepositives:
     - Legitimate use of the library for administrative activity
 level: medium
-ruletype: Sigma

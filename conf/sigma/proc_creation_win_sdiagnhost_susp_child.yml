@@ -14,31 +14,26 @@ tags:
     - attack.defense_evasion
     - attack.t1036
     - attack.t1218
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        ParentImage|endswith: \sdiagnhost.exe
+        ParentImage|endswith: '\sdiagnhost.exe'
         Image|endswith:
             # Add more suspicious LOLBins
-            - \powershell.exe
-            - \pwsh.exe
-            - \cmd.exe
-            - \mshta.exe
-            - \cscript.exe
-            - \wscript.exe
-            - \taskkill.exe
-            - \regsvr32.exe
-            - \rundll32.exe
+            - '\powershell.exe'
+            - '\pwsh.exe'
+            - '\cmd.exe'
+            - '\mshta.exe'
+            - '\cscript.exe'
+            - '\wscript.exe'
+            - '\taskkill.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
             # - '\csc.exe'   # https://app.any.run/tasks/f420d295-0457-4e9b-9b9e-6732be227583/
-            - \calc.exe    # https://app.any.run/tasks/f420d295-0457-4e9b-9b9e-6732be227583/
-    condition: process_creation and selection
+            - '\calc.exe'  # https://app.any.run/tasks/f420d295-0457-4e9b-9b9e-6732be227583/
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

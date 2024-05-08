@@ -14,18 +14,13 @@ tags:
     - attack.persistence
     - attack.privilege_escalation
     - attack.t1546.013
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: \Microsoft.VSCode_profile.ps1
-    condition: file_event and selection
+        TargetFilename|endswith: '\Microsoft.VSCode_profile.ps1'
+    condition: selection
 falsepositives:
     - Legitimate use of the profile by developers or administrators
 level: medium
-ruletype: Sigma

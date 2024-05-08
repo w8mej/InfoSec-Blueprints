@@ -13,22 +13,17 @@ tags:
     - attack.defense_evasion
     - attack.privilege_escalation
     - attack.t1548.002
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \changepk.exe
-        ParentImage|endswith: \slui.exe
+        Image|endswith: '\changepk.exe'
+        ParentImage|endswith: '\slui.exe'
         IntegrityLevel:
-            - High
-            - System
-    condition: process_creation and selection
+            - 'High'
+            - 'System'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

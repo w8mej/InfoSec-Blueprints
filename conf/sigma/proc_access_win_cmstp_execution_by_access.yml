@@ -15,19 +15,14 @@ tags:
     - attack.g0069
     - attack.g0080
     - car.2019-04-001
-    - sysmon
 logsource:
     product: windows
     category: process_access
 detection:
     # Process Access Call Trace
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        CallTrace|contains: cmlua.dll
-    condition: process_access and selection
+        CallTrace|contains: 'cmlua.dll'
+    condition: selection
 falsepositives:
     - Legitimate CMSTP use (unlikely in modern enterprise environments)
 level: high
-ruletype: Sigma

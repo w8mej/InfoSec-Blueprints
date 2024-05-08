@@ -18,22 +18,18 @@ tags:
     - attack.t1558.003
     - attack.lateral_movement
     - attack.t1550.003
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \Rubeus.exe
-        - OriginalFileName: Rubeus.exe
-        - Description: Rubeus
+        - Image|endswith: '\Rubeus.exe'
+        - OriginalFileName: 'Rubeus.exe'
+        - Description: 'Rubeus'
         - CommandLine|contains:
               - 'asreproast '
               - 'dump /service:krbtgt '
-              - dump /luid:0x
+              - 'dump /luid:0x'
               - 'kerberoast '
               - 'createnetonly /program:'
               - 'ptt /ticket:'
@@ -46,8 +42,7 @@ detection:
               - 'hash /password:'
               - 'golden /aes256:'
               - 'silver /user:'
-    condition: process_creation and selection
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

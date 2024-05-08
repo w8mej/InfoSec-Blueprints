@@ -18,19 +18,14 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     category: registry_set
     product: windows
     definition: 'Requirements: The registry key "\SOFTWARE\Microsoft\Provisioning\Commands\" and its subkey must be monitored'
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetObject|contains: \SOFTWARE\Microsoft\Provisioning\Commands\
-    condition: registry_set and selection
+        TargetObject|contains: '\SOFTWARE\Microsoft\Provisioning\Commands\'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

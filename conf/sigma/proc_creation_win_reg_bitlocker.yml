@@ -10,32 +10,27 @@ modified: 2022/09/09
 tags:
     - attack.impact
     - attack.t1486
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains|all:
-            - REG
-            - ADD
-            - \SOFTWARE\Policies\Microsoft\FVE
-            - /v
-            - /f
+            - 'REG'
+            - 'ADD'
+            - '\SOFTWARE\Policies\Microsoft\FVE'
+            - '/v'
+            - '/f'
         CommandLine|contains:
-            - EnableBDEWithNoTPM
-            - UseAdvancedStartup
-            - UseTPM
-            - UseTPMKey
-            - UseTPMKeyPIN
-            - RecoveryKeyMessageSource
-            - UseTPMPIN
-            - RecoveryKeyMessage
-    condition: process_creation and selection
+            - 'EnableBDEWithNoTPM'
+            - 'UseAdvancedStartup'
+            - 'UseTPM'
+            - 'UseTPMKey'
+            - 'UseTPMKeyPIN'
+            - 'RecoveryKeyMessageSource'
+            - 'UseTPMPIN'
+            - 'RecoveryKeyMessage'
+    condition: selection
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

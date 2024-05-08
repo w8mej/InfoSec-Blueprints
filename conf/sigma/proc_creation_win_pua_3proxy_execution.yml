@@ -11,22 +11,17 @@ modified: 2023/02/21
 tags:
     - attack.command_and_control
     - attack.t1572
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        Image|endswith: \3proxy.exe
+        Image|endswith: '\3proxy.exe'
     selection_pe:
-        Description: 3proxy - tiny proxy server
+        Description: '3proxy - tiny proxy server'
     selection_params: # param combos seen in the wild
-        CommandLine|contains: .exe -i127.0.0.1 -p
-    condition: process_creation and (1 of selection_*)
+        CommandLine|contains: '.exe -i127.0.0.1 -p'
+    condition: 1 of selection_*
 falsepositives:
     - Administrative activity
 level: high
-ruletype: Sigma

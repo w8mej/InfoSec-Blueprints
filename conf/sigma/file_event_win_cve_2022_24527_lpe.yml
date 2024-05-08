@@ -11,22 +11,17 @@ tags:
     - attack.t1059.001
     - cve.2022.24527
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: file_event
     product: windows
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        TargetFilename|endswith: WindowsPowerShell\Modules\webAdministration\webAdministration.psm1
+        TargetFilename|endswith: 'WindowsPowerShell\Modules\webAdministration\webAdministration.psm1'
     filter:
         User|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
-    condition: file_event and (selection and not filter)
+            - 'AUTHORI'
+            - 'AUTORI'
+    condition: selection and not filter
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

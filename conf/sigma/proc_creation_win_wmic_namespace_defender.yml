@@ -12,21 +12,16 @@ modified: 2023/02/14
 tags:
     - attack.credential_access
     - attack.t1546.008
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: wmic.exe
-        - Image|endswith: \WMIC.exe
+        - OriginalFileName: 'wmic.exe'
+        - Image|endswith: '\WMIC.exe'
     selection_cli:
-        CommandLine|contains: /Namespace:\\\\root\\Microsoft\\Windows\\Defender
-    condition: process_creation and (all of selection_*)
+        CommandLine|contains: '/Namespace:\\\\root\\Microsoft\\Windows\\Defender'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

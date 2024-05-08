@@ -8,22 +8,17 @@ author: Nasreddine Bencherchali (Nextron Systems)
 date: 2023/09/05
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetObject|contains:
-            - \Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\
-            - \Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\
-        TargetObject|endswith: \Enabled
-        Details: DWORD (0x00000001)
-    condition: registry_set and selection
+            - '\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\'
+            - '\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\'
+        TargetObject|endswith: '\Enabled'
+        Details: 'DWORD (0x00000001)'
+    condition: selection
 falsepositives:
     - Legitimate enabling of the old tls versions due to incompatibility
 level: medium
-ruletype: Sigma

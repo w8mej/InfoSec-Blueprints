@@ -10,43 +10,38 @@ date: 2023/07/11
 tags:
     - attack.execution
     - attack.t1059
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_dll:
         ImageLoaded|endswith:
             # Note: Add more generic DLLs that cannot be pin-pointed to a single application
-            - \coreclr.dll
-            - \facesdk.dll
-            - \HPCustPartUI.dll
-            - \libcef.dll
-            - \ZIPDLL.dll
+            - '\coreclr.dll'
+            - '\facesdk.dll'
+            - '\HPCustPartUI.dll'
+            - '\libcef.dll'
+            - '\ZIPDLL.dll'
     selection_folders_1:
         ImageLoaded|contains:
-            - :\Perflogs\
-            - :\Users\Public\
-            - \Temporary Internet
-            - \Windows\Temp\
+            - ':\Perflogs\'
+            - ':\Users\Public\'
+            - '\Temporary Internet'
+            - '\Windows\Temp\'
     selection_folders_2:
         - ImageLoaded|contains|all:
-              - :\Users\
-              - \Favorites\
+              - ':\Users\'
+              - '\Favorites\'
         - ImageLoaded|contains|all:
-              - :\Users\
-              - \Favourites\
+              - ':\Users\'
+              - '\Favourites\'
         - ImageLoaded|contains|all:
-              - :\Users\
-              - \Contacts\
+              - ':\Users\'
+              - '\Contacts\'
         - ImageLoaded|contains|all:
-              - :\Users\
-              - \Pictures\
-    condition: image_load and (selection_dll and 1 of selection_folders_*)
+              - ':\Users\'
+              - '\Pictures\'
+    condition: selection_dll and 1 of selection_folders_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

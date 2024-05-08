@@ -20,35 +20,30 @@ tags:
     - attack.defense_evasion
     - attack.t1486
     - attack.t1562.001
-    - sysmon
 logsource:
     category: image_load
     product: windows
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - ImageLoaded|endswith: \RstrtMgr.dll
-        - OriginalFileName: RstrtMgr.dll
+        - ImageLoaded|endswith: '\RstrtMgr.dll'
+        - OriginalFileName: 'RstrtMgr.dll'
     selection_folders_1:
         Image|contains:
             # Note: increase coverage by adding more suspicious paths
-            - :\Perflogs\
-            - :\Users\Public\
-            - \Temporary Internet
+            - ':\Perflogs\'
+            - ':\Users\Public\'
+            - '\Temporary Internet'
     selection_folders_2:
         - Image|contains|all:
-              - :\Users\
-              - \Favorites\
+              - ':\Users\'
+              - '\Favorites\'
         - Image|contains|all:
-              - :\Users\
-              - \Favourites\
+              - ':\Users\'
+              - '\Favourites\'
         - Image|contains|all:
-              - :\Users\
-              - \Contacts\
-    condition: image_load and (selection_img and 1 of selection_folders_*)
+              - ':\Users\'
+              - '\Contacts\'
+    condition: selection_img and 1 of selection_folders_*
 falsepositives:
     - Processes related to software installation
 level: high
-ruletype: Sigma

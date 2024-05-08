@@ -12,25 +12,20 @@ modified: 2023/08/17
 tags:
     - attack.defense_evasion
     - attack.t1218.011
-    - sysmon
 logsource:
     product: windows
     category: registry_set
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        Image|endswith: \rundll32.exe
+        Image|endswith: '\rundll32.exe'
     registry:
-        TargetObject|contains: \Control Panel\Desktop\SCRNSAVE.EXE
-        Details|endswith: .scr
+        TargetObject|contains: '\Control Panel\Desktop\SCRNSAVE.EXE'
+        Details|endswith: '.scr'
     filter:
         Details|contains:
-            - C:\Windows\System32\
-            - C:\Windows\SysWOW64\
-    condition: registry_set and (selection and registry and not filter)
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
+    condition: selection and registry and not filter
 falsepositives:
     - Legitimate use of screen saver
 level: medium
-ruletype: Sigma

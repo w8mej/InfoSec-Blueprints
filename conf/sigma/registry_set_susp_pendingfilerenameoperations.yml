@@ -13,27 +13,22 @@ date: 2023/01/27
 tags:
     - attack.defense_evasion
     - attack.t1036.003
-    - sysmon
 logsource:
     category: registry_set
     product: windows
 detection:
-    registry_set:
-        EventID: 13
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_main:
-        EventType: SetValue
-        TargetObject|contains: \CurrentControlSet\Control\Session Manager\PendingFileRenameOperations
+        EventType: 'SetValue'
+        TargetObject|contains: '\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations'
     selection_susp_paths:
         Image|contains:
-            - \AppData\Local\Temp\
-            - \Users\Public\
+            - '\AppData\Local\Temp\'
+            - '\Users\Public\'
     selection_susp_images:
         Image|endswith:
-            - \reg.exe
-            - \regedit.exe
-    condition: registry_set and (selection_main and 1 of selection_susp_*)
+            - '\reg.exe'
+            - '\regedit.exe'
+    condition: selection_main and 1 of selection_susp_*
 falsepositives:
     - Installers and updaters may set currently in use files for rename after a reboot.
 level: medium
-ruletype: Sigma

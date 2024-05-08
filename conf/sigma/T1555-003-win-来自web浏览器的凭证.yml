@@ -1,0 +1,22 @@
+title: windows系统 web浏览器获取凭证
+description: windows server 2016 测试结果
+references: 暂无
+tags: T1555-003
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4663 #试图访问对象。
+        Objectserver: Security #对象>对象服务器
+        Objecttype: file #对象>对象类型
+        Objectname:
+           - 'C:\users\*\appdata\roaming\opera software\opera stable\login data' #对象>对象名 Opera
+           - 'C:\Users\IEUser\AppData\Roaming\Mozilla\Firefox\Profiles\kushu3sd.default\key4.db' #Firefox
+           - 'C:\Users\IEUser\AppData\Roaming\Mozilla\Firefox\Profiles\kushu3sd.default\logins.json' #Firefox
+           - 'C:\Users\IEUser\AppData\Local\Google\Chrome\User Data\Default\Login Data' #Chrome
+        Access: ReadData (或listdirectory) #访问请求信息>访问
+    condition: selection
+level: medium

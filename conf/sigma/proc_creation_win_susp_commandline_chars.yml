@@ -9,29 +9,24 @@ date: 2022/04/27
 modified: 2023/03/03
 tags:
     - attack.defense_evasion
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_spacing_modifiers:
         CommandLine|contains: # spacing modifier letters that get auto-replaced
-            - ˣ   # 0x02E3
-            - ˪   # 0x02EA
-            - ˢ   # 0x02E2
+            - 'ˣ' # 0x02E3
+            - '˪' # 0x02EA
+            - 'ˢ' # 0x02E2
     selection_unicode_slashes: # forward slash alternatives
         CommandLine|contains:
-            - ∕   # 0x22FF
-            - ⁄   # 0x206F
+            - '∕' # 0x22FF
+            - '⁄' # 0x206F
     selection_unicode_hyphens: # hyphen alternatives
         CommandLine|contains:
-            - ―   # 0x2015
-            - —   # 0x2014
-    condition: process_creation and (1 of selection*)
+            - '―' # 0x2015
+            - '—' # 0x2014
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

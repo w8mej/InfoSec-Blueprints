@@ -14,20 +14,17 @@ logsource:
     product: windows
     service: microsoft-servicebus-client
 detection:
-    microsoft_servicebus_client:
-        Channel: Microsoft-ServiceBus-Client
     selection:
         EventID:
             - 40300
             - 40301
             - 40302
     keywords:
-        - HybridConnection
-        - sb://
-        - servicebus.windows.net
-        - HybridConnectionManage
-    condition: microsoft_servicebus_client and (selection and keywords)
+        - 'HybridConnection'
+        - 'sb://'
+        - 'servicebus.windows.net'
+        - 'HybridConnectionManage'
+    condition: selection and keywords
 falsepositives:
     - Legitimate use of Hybrid Connection Manager via Azure function apps.
 level: high
-ruletype: Sigma

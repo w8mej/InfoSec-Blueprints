@@ -9,14 +9,10 @@ date: 2022/08/21
 tags:
     - attack.defense_evasion
     - attack.t1218
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         Image|endswith:
             # Microsoft Office Programs Dropping Executables
@@ -45,13 +41,12 @@ detection:
             - \mshta.exe
             - \hh.exe
         TargetFilename|endswith:
-            - .zip
-            - .rar
-            - .7z
-            - .diagcab
-            - .appx
-    condition: file_event and selection
+            - '.zip'
+            - '.rar'
+            - '.7z'
+            - '.diagcab'
+            - '.appx'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

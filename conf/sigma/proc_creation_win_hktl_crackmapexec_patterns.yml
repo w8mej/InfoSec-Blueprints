@@ -10,18 +10,14 @@ modified: 2023/02/13
 tags:
     - attack.credential_access
     - attack.t1003.001
-    - sysmon
 logsource:
     product: windows
     category: process_creation
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_lsass_dump1:
         CommandLine|contains|all:
             - 'tasklist /fi '
-            - Imagename eq lsass.exe
+            - 'Imagename eq lsass.exe'
         CommandLine|contains:
             - 'cmd.exe /c '
             - 'cmd.exe /r '
@@ -30,20 +26,19 @@ detection:
             - 'cmd /r '
             - 'cmd /k '
         User|contains: # covers many language settings
-            - AUTHORI
-            - AUTORI
+            - 'AUTHORI'
+            - 'AUTORI'
     selection_lsass_dump2:
         CommandLine|contains|all:
-            - do rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump
-            - \Windows\Temp\
+            - 'do rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump'
+            - '\Windows\Temp\'
             - ' full'
             - '%%B'
     selection_procdump:
         CommandLine|contains|all:
-            - tasklist /v /fo csv
-            - findstr /i "lsass"
-    condition: process_creation and (1 of selection*)
+            - 'tasklist /v /fo csv'
+            - 'findstr /i "lsass"'
+    condition: 1 of selection*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

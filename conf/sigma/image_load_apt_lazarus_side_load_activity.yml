@@ -14,28 +14,23 @@ tags:
     - attack.t1574.002
     - attack.g0032
     - detection.emerging_threats
-    - sysmon
 logsource:
     product: windows
     category: image_load
 detection:
-    image_load:
-        EventID: 7
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_mscoree:
-        Image: C:\ProgramShared\PresentationHost.exe
-        ImageLoaded: :\ProgramShared\mscoree.dll
+        Image: 'C:\ProgramShared\PresentationHost.exe'
+        ImageLoaded: ':\ProgramShared\mscoree.dll'
     selection_colorui:
-        Image: C:\ProgramData\Adobe\colorcpl.exe
-        ImageLoaded: C:\ProgramData\Adobe\colorui.dll
+        Image: 'C:\ProgramData\Adobe\colorcpl.exe'
+        ImageLoaded: 'C:\ProgramData\Adobe\colorui.dll'
     selection_mapistub:
-        Image: C:\ProgramData\Oracle\Java\fixmapi.exe
-        ImageLoaded: C:\ProgramData\Oracle\Java\mapistub.dll
+        Image: 'C:\ProgramData\Oracle\Java\fixmapi.exe'
+        ImageLoaded: 'C:\ProgramData\Oracle\Java\mapistub.dll'
     selection_hid:
-        Image: C:\ProgramData\Adobe\ARM\tabcal.exe
-        ImageLoaded: C:\ProgramData\Adobe\ARM\HID.dll
-    condition: image_load and (1 of selection_*)
+        Image: 'C:\ProgramData\Adobe\ARM\tabcal.exe'
+        ImageLoaded: 'C:\ProgramData\Adobe\ARM\HID.dll'
+    condition: 1 of selection_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

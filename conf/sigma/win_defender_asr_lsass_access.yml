@@ -15,35 +15,32 @@ logsource:
     service: windefend
     definition: 'Requirements:Enabled Block credential stealing from the Windows local security authority subsystem (lsass.exe) from Attack Surface Reduction (GUID: 9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2)'
 detection:
-    windefend:
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
         EventID: 1121
-        Path|endswith: \lsass.exe
+        Path|endswith: '\lsass.exe'
     filter_thor:
-        ProcessName|startswith: C:\Windows\Temp\asgard2-agent\
+        ProcessName|startswith: 'C:\Windows\Temp\asgard2-agent\'
         ProcessName|endswith:
-            - \thor64.exe
-            - \thor.exe
+            - '\thor64.exe'
+            - '\thor.exe'
     filter_exact:
         ProcessName:
-            - C:\Windows\System32\atiesrxx.exe
-            - C:\Windows\System32\CompatTelRunner.exe
-            - C:\Windows\System32\msiexec.exe
-            - C:\Windows\System32\nvwmi64.exe
-            - C:\Windows\System32\svchost.exe
-            - C:\Windows\System32\Taskmgr.exe
-            - C:\Windows\System32\wbem\WmiPrvSE.exe
-            - C:\Windows\SysWOW64\msiexec.exe
+            - 'C:\Windows\System32\atiesrxx.exe'
+            - 'C:\Windows\System32\CompatTelRunner.exe'
+            - 'C:\Windows\System32\msiexec.exe'
+            - 'C:\Windows\System32\nvwmi64.exe'
+            - 'C:\Windows\System32\svchost.exe'
+            - 'C:\Windows\System32\Taskmgr.exe'
+            - 'C:\Windows\System32\wbem\WmiPrvSE.exe'
+            - 'C:\Windows\SysWOW64\msiexec.exe'
     filter_begins:
         ProcessName|startswith:
-            - C:\Windows\System32\DriverStore\
-            - C:\WINDOWS\Installer\
-            - C:\Program Files\
-            - C:\Program Files (x86)\
-    condition: windefend and (selection and not 1 of filter_*)
+            - 'C:\Windows\System32\DriverStore\'
+            - 'C:\WINDOWS\Installer\'
+            - 'C:\Program Files\'
+            - 'C:\Program Files (x86)\'
+    condition: selection and not 1 of filter_*
 falsepositives:
     - Google Chrome GoogleUpdate.exe
     - Some Taskmgr.exe related activity
 level: high
-ruletype: Sigma

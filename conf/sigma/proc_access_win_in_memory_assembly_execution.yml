@@ -18,27 +18,23 @@ tags:
     - attack.defense_evasion
     - attack.t1055.001
     - attack.t1055.002
-    - sysmon
 logsource:
     category: process_access
     product: windows
 detection:
-    process_access:
-        EventID: 10
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection1:
         CallTrace|contains|all:
-            - C:\WINDOWS\SYSTEM32\ntdll.dll+
+            - 'C:\WINDOWS\SYSTEM32\ntdll.dll+'
             - '|C:\WINDOWS\System32\KERNELBASE.dll+'
             - '|UNKNOWN('
-            - )
+            - ')'
     selection2:
         CallTrace|contains|all:
-            - UNKNOWN(
-            - )|UNKNOWN(
-        CallTrace|endswith: )
+            - 'UNKNOWN('
+            - ')|UNKNOWN('
+        CallTrace|endswith: ')'
     selection3:
-        CallTrace|contains: UNKNOWN
+        CallTrace|contains: 'UNKNOWN'
         GrantedAccess:
             - '0x1F0FFF'
             - '0x1F1FFF'
@@ -50,68 +46,68 @@ detection:
             - '0x1FFFFF'
     filter:
         - SourceImage|endswith:
-              - \Windows\System32\sdiagnhost.exe
-              - \procexp64.exe
-              - \procexp.exe
-              - \Microsoft VS Code\Code.exe
-              - \aurora-agent-64.exe
-              - \aurora-agent.exe
-              - \git\usr\bin\sh.exe
-              - \IDE\devenv.exe
-              - \GitHubDesktop\Update.exe
-              - \RuntimeBroker.exe
-              - \backgroundTaskHost.exe
-              - \GitHubDesktop.exe
+            - '\Windows\System32\sdiagnhost.exe'
+            - '\procexp64.exe'
+            - '\procexp.exe'
+            - '\Microsoft VS Code\Code.exe'
+            - '\aurora-agent-64.exe'
+            - '\aurora-agent.exe'
+            - '\git\usr\bin\sh.exe'
+            - '\IDE\devenv.exe'
+            - '\GitHubDesktop\Update.exe'
+            - '\RuntimeBroker.exe'
+            - '\backgroundTaskHost.exe'
+            - '\GitHubDesktop.exe'
         - SourceImage|startswith:
-              - C:\Program Files (x86)\
-              - C:\Program Files\
-              - C:\Windows\Microsoft.NET\Framework\\*\NGenTask.exe
-              - C:\Program Files (x86)\Microsoft Visual Studio\
-              - C:\Program Files\Microsoft Visual Studio\
-              - C:\Windows\Microsoft.NET\Framework
-              - C:\WINDOWS\System32\DriverStore\
-              - C:\Windows\System32\WindowsPowerShell\
+            - 'C:\Program Files (x86)\'
+            - 'C:\Program Files\'
+            - 'C:\Windows\Microsoft.NET\Framework\\*\NGenTask.exe'
+            - 'C:\Program Files (x86)\Microsoft Visual Studio\'
+            - 'C:\Program Files\Microsoft Visual Studio\'
+            - 'C:\Windows\Microsoft.NET\Framework'
+            - 'C:\WINDOWS\System32\DriverStore\'
+            - 'C:\Windows\System32\WindowsPowerShell\'
         - SourceImage:
-              - C:\WINDOWS\system32\taskhostw.exe
-              - C:\WINDOWS\system32\ctfmon.exe
-              - C:\WINDOWS\system32\NhNotifSys.exe
-              - C:\Windows\ImmersiveControlPanel\SystemSettings.exe
-              - C:\Windows\explorer.exe
-        - TargetImage: C:\Windows\System32\RuntimeBroker.exe
-        - TargetImage|endswith: \Microsoft VS Code\Code.exe
+            - 'C:\WINDOWS\system32\taskhostw.exe'
+            - 'C:\WINDOWS\system32\ctfmon.exe'
+            - 'C:\WINDOWS\system32\NhNotifSys.exe'
+            - 'C:\Windows\ImmersiveControlPanel\SystemSettings.exe'
+            - 'C:\Windows\explorer.exe'
+        - TargetImage: 'C:\Windows\System32\RuntimeBroker.exe'
+        - TargetImage|endswith: '\Microsoft VS Code\Code.exe'
         - CallTrace|contains: '|C:\WINDOWS\System32\RPCRT4.dll+'  # attempt to save the rule with a broader filter
     filter_set_1:
-        SourceImage: C:\WINDOWS\Explorer.EXE
+        SourceImage: 'C:\WINDOWS\Explorer.EXE'
         TargetImage:
-            - C:\WINDOWS\system32\backgroundTaskHost.exe
-            - C:\WINDOWS\explorer.exe
+            - 'C:\WINDOWS\system32\backgroundTaskHost.exe'
+            - 'C:\WINDOWS\explorer.exe'
     filter_msmpeng:
-        SourceImage|startswith: C:\ProgramData\Microsoft\Windows Defender\Platform\
-        SourceImage|endswith: \MsMpEng.exe
+        SourceImage|startswith: 'C:\ProgramData\Microsoft\Windows Defender\Platform\'
+        SourceImage|endswith: '\MsMpEng.exe'
     filter_eclipse:
-        SourceImage|endswith: \eclipse.exe
+        SourceImage|endswith: '\eclipse.exe'
         CallTrace|contains:
-            - \jre\bin\java.dll
+            - '\jre\bin\java.dll'
             - '|C:\Windows\SYSTEM32\windows.storage.dll+'
-            - \configuration\org.eclipse.osgi\
+            - '\configuration\org.eclipse.osgi\'
     filter_openwith:
-        SourceImage: C:\Windows\system32\OpenWith.exe
-        TargetImage: C:\Windows\Explorer.EXE
+        SourceImage: 'C:\Windows\system32\OpenWith.exe'
+        TargetImage: 'C:\Windows\Explorer.EXE'
     filter_teams:
-        SourceImage|startswith: C:\Users\
-        SourceImage|endswith: \AppData\Local\Microsoft\Teams\current\Teams.exe
+        SourceImage|startswith: 'C:\Users\'
+        SourceImage|endswith: '\AppData\Local\Microsoft\Teams\current\Teams.exe'
         TargetImage|endswith:
-            - :\Windows\Explorer.EXE
-            - \AppData\Local\Microsoft\Teams\Update.exe
-            - \AppData\Local\Microsoft\Teams\current\Teams.exe
-            - \MsMpEng.exe
+            - ':\Windows\Explorer.EXE'
+            - '\AppData\Local\Microsoft\Teams\Update.exe'
+            - '\AppData\Local\Microsoft\Teams\current\Teams.exe'
+            - '\MsMpEng.exe'
     filter_wwahost:
-        SourceImage: C:\Windows\System32\WWAHost.exe
-        TargetImage: C:\Windows\System32\svchost.exe
+        SourceImage: 'C:\Windows\System32\WWAHost.exe'
+        TargetImage: 'C:\Windows\System32\svchost.exe'
     filter_sppsvc:
         SourceImage: C:\WINDOWS\system32\sppsvc.exe
         TargetImage: C:\WINDOWS\system32\SppExtComObj.exe
-    condition: process_access and (1 of selection* and not 1 of filter*)
+    condition: 1 of selection* and not 1 of filter*
 fields:
     - ComputerName
     - User
@@ -121,4 +117,3 @@ fields:
 falsepositives:
     - SysInternals Process Explorer
 level: low
-ruletype: Sigma

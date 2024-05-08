@@ -24,23 +24,17 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
-        ScriptBlockText|contains: Set-ExecutionPolicy
+        ScriptBlockText|contains: 'Set-ExecutionPolicy'
     selection_option:
         ScriptBlockText|contains:
-            - Unrestricted
-            - bypass
+            - 'Unrestricted'
+            - 'bypass'
     filter_optional_chocolatey:
         ScriptBlockText|contains:
-            - (New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')
-            - (New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')
-    condition: ps_script and (all of selection_* and not 1 of filter_optional_*)
+            - "(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')"
+            - "(New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')"
+    condition: all of selection_* and not 1 of filter_optional_*
 falsepositives:
     - Administrator script
 level: medium
-ruletype: Sigma

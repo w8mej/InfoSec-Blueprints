@@ -21,29 +21,24 @@ tags:
     - attack.t1053.005
     - attack.t1059.001
     - detection.emerging_threats
-    - sysmon
 logsource:
     category: process_creation
     product: windows
     definition: The 'System Security Extension' audit subcategory need to be enabled to log the EID 4697
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         CommandLine|contains:
-            - checkadmin.exe 127.0.0.1 -all
-            - netsh advfirewall firewall add rule name=powershell dir=in
-            - cmd /c powershell.exe -ep bypass -file c:\s.ps1
-            - /tn win32times /f
-            - create win32times binPath=
-            - \c$\windows\system32\devmgr.dll
+            - 'checkadmin.exe 127.0.0.1 -all'
+            - 'netsh advfirewall firewall add rule name=powershell dir=in'
+            - 'cmd /c powershell.exe -ep bypass -file c:\s.ps1'
+            - '/tn win32times /f'
+            - 'create win32times binPath='
+            - '\c$\windows\system32\devmgr.dll'
             - ' -exec bypass -enc JgAg'
-            - type *keepass\KeePass.config.xml
-            - iie.exe iie.txt
-            - reg query HKEY_CURRENT_USER\Software\\*\PuTTY\Sessions\
-    condition: process_creation and selection
+            - 'type *keepass\KeePass.config.xml'
+            - 'iie.exe iie.txt'
+            - 'reg query HKEY_CURRENT_USER\Software\\*\PuTTY\Sessions\'
+    condition: selection
 falsepositives:
     - Administrators that use checkadmin.exe tool to enumerate local administrators
 level: high
-ruletype: Sigma

@@ -12,21 +12,16 @@ tags:
     - attack.discovery
     - attack.t1033
     - car.2016-03-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        - Image|endswith: \whoami.exe
-        - OriginalFileName: whoami.exe
-    condition: process_creation and selection
+        - Image|endswith: '\whoami.exe'
+        - OriginalFileName: 'whoami.exe'
+    condition: selection
 falsepositives:
     - Admin activity
     - Scripts and administrative tools used in the monitored environment
     - Monitoring activity
 level: low
-ruletype: Sigma

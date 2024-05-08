@@ -14,10 +14,7 @@ logsource:
     product: windows
     service: firewall-as
 detection:
-    firewall_as:
-        Channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     selection:
         EventID: 2009 # The Windows Defender Firewall service failed to load Group Policy
-    condition: firewall_as and selection
+    condition: selection
 level: low
-ruletype: Sigma

@@ -14,30 +14,25 @@ date: 2022/09/09
 tags:
     - attack.impact
     - attack.t1489
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     schtasks_exe:
-        Image|endswith: \schtasks.exe
+        Image|endswith: '\schtasks.exe'
         CommandLine|contains|all:
-            - /delete
-            - /tn
+            - '/delete'
+            - '/tn'
         CommandLine|contains:
             # Add more important tasks
-            - \Windows\SystemRestore\SR
-            - \Windows\Windows Defender\
-            - \Windows\BitLocker
-            - \Windows\WindowsBackup\
-            - \Windows\WindowsUpdate\
-            - \Windows\UpdateOrchestrator\
-            - \Windows\ExploitGuard
-    condition: process_creation and (all of schtasks_*)
+            - '\Windows\SystemRestore\SR'
+            - '\Windows\Windows Defender\'
+            - '\Windows\BitLocker'
+            - '\Windows\WindowsBackup\'
+            - '\Windows\WindowsUpdate\'
+            - '\Windows\UpdateOrchestrator\'
+            - '\Windows\ExploitGuard'
+    condition: all of schtasks_*
 falsepositives:
     - Unlikely
 level: high
-ruletype: Sigma

@@ -10,18 +10,13 @@ modified: 2022/06/02
 tags:
     - attack.defense_evasion
     - attack.t1127
-    - sysmon
 logsource:
     product: windows
     category: create_remote_thread
 detection:
-    create_remote_thread:
-        EventID: 8
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
-        SourceImage|endswith: \ttdinject.exe
-    condition: create_remote_thread and selection
+        SourceImage|endswith: '\ttdinject.exe'
+    condition: selection
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

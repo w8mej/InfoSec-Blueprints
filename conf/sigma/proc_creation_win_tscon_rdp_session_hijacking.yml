@@ -8,21 +8,16 @@ author: '@juju4'
 date: 2022/12/27
 tags:
     - attack.execution
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - Image|endswith: \tscon.exe
-        - OriginalFileName: tscon.exe
+        - Image|endswith: '\tscon.exe'
+        - OriginalFileName: 'tscon.exe'
     selection_integrity:
         IntegrityLevel: SYSTEM
-    condition: process_creation and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Administrative activity
 level: medium
-ruletype: Sigma

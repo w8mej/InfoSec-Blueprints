@@ -11,29 +11,24 @@ date: 2022/10/24
 tags:
     - attack.command_and_control
     - attack.t1219
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|endswith:
-            - \Inveigh-Log.txt
-            - \Inveigh-Cleartext.txt
-            - \Inveigh-NTLMv1Users.txt
-            - \Inveigh-NTLMv2Users.txt
-            - \Inveigh-NTLMv1.txt
-            - \Inveigh-NTLMv2.txt
-            - \Inveigh-FormInput.txt
-            - \Inveigh.dll
-            - \Inveigh.exe
-            - \Inveigh.ps1
-            - \Inveigh-Relay.ps1
-    condition: file_event and selection
+            - '\Inveigh-Log.txt'
+            - '\Inveigh-Cleartext.txt'
+            - '\Inveigh-NTLMv1Users.txt'
+            - '\Inveigh-NTLMv2Users.txt'
+            - '\Inveigh-NTLMv1.txt'
+            - '\Inveigh-NTLMv2.txt'
+            - '\Inveigh-FormInput.txt'
+            - '\Inveigh.dll'
+            - '\Inveigh.exe'
+            - '\Inveigh.ps1'
+            - '\Inveigh-Relay.ps1'
+    condition: selection
 falsepositives:
     - Unlikely
 level: critical
-ruletype: Sigma

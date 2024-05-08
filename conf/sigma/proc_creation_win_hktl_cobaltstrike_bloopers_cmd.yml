@@ -16,34 +16,29 @@ tags:
     - attack.execution
     - attack.t1059.003
     - stp.1u
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_img:
-        - OriginalFileName: Cmd.Exe
-        - Image|endswith: \cmd.exe
+        - OriginalFileName: 'Cmd.Exe'
+        - Image|endswith: '\cmd.exe'
     selection_cli:
         CommandLine|startswith:
             - 'cmd '
-            - cmd.exe
-            - c:\windows\system32\cmd.exe
+            - 'cmd.exe'
+            - 'c:\windows\system32\cmd.exe'
         CommandLine|contains:
-            - psinject
-            - spawnas
-            - make_token
-            - remote-exec
-            - rev2self
-            - dcsync
-            - logonpasswords
-            - execute-assembly
-            - getsystem
-    condition: process_creation and (all of selection_*)
+            - 'psinject'
+            - 'spawnas'
+            - 'make_token'
+            - 'remote-exec'
+            - 'rev2self'
+            - 'dcsync'
+            - 'logonpasswords'
+            - 'execute-assembly'
+            - 'getsystem'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

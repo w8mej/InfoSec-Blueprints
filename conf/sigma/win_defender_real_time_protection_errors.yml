@@ -16,8 +16,6 @@ logsource:
     product: windows
     service: windefend
 detection:
-    windefend:
-        Channel: Microsoft-Windows-Windows Defender/Operational
     selection:
         EventID:
             - 3002 # Real-Time Protection feature has encountered an error and failed
@@ -27,8 +25,7 @@ detection:
         Reason:
             - '%%892' # The system is missing updates that are required for running Network Inspection System.  Install the required updates and restart the device.
             - '%%858' # Antimalware security intelligence has stopped functioning for an unknown reason. In some instances, restarting the service may resolve the problem.
-    condition: windefend and (selection and not 1 of filter_optional_*)
+    condition: selection and not 1 of filter_optional_*
 falsepositives:
     - Some crashes can occur sometimes and the event doesn't provide enough information to tune out these cases. Manual exception is required
 level: medium
-ruletype: Sigma

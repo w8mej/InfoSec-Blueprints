@@ -22,24 +22,19 @@ modified: 2023/12/19
 tags:
     - attack.discovery
     - attack.t1082
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection_wmic:
-        - Description: WMI Commandline Utility
-        - OriginalFileName: wmic.exe
-        - Image|endswith: \WMIC.exe
+        - Description: 'WMI Commandline Utility'
+        - OriginalFileName: 'wmic.exe'
+        - Image|endswith: '\WMIC.exe'
     selection_commands:
         CommandLine|contains:
-            - LOGICALDISK get Name,Size,FreeSpace
-            - os get Caption,OSArchitecture,Version
-    condition: process_creation and (all of selection_*)
+            - 'LOGICALDISK get Name,Size,FreeSpace'
+            - 'os get Caption,OSArchitecture,Version'
+    condition: all of selection_*
 falsepositives:
     - Unknown
 level: medium
-ruletype: Sigma

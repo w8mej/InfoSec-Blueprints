@@ -6,7 +6,7 @@ related:
 description: Detects SyncAppvPublishingServer process execution which usually utilized by adversaries to bypass PowerShell execution restrictions.
 references:
     - https://lolbas-project.github.io/lolbas/Binaries/Syncappvpublishingserver/
-author: Ensar Şamil, @sblmsrsn, OSCD Community
+author: 'Ensar Şamil, @sblmsrsn, OSCD Community'
 date: 2020/10/05
 modified: 2022/04/11
 tags:
@@ -16,15 +16,10 @@ logsource:
     product: windows
     service: powershell
 detection:
-    powershell:
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection:
-        - SyncAppvPublishingServer.exe
-    condition: powershell and selection
+        - 'SyncAppvPublishingServer.exe'
+    condition: selection
 falsepositives:
     - App-V clients
 level: medium
 status: deprecated
-ruletype: Sigma

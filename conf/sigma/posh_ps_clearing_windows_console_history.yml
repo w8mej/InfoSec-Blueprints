@@ -18,11 +18,6 @@ logsource:
     category: ps_script
     definition: 'Requirements: Script Block Logging must be enabled'
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection1:
         ScriptBlockText|contains: Clear-History
     selection2a:
@@ -33,8 +28,7 @@ detection:
         ScriptBlockText|contains:
             - ConsoleHost_history.txt
             - (Get-PSReadlineOption).HistorySavePath
-    condition: ps_script and (selection1 or selection2a and selection2b)
+    condition: selection1 or selection2a and selection2b
 falsepositives:
     - Unknown
 level: high
-ruletype: Sigma

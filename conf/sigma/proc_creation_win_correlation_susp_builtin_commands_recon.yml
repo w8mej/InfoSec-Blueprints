@@ -14,37 +14,32 @@ tags:
     - attack.t1087
     - attack.t1082
     - car.2016-03-001
-    - sysmon
 logsource:
     category: process_creation
     product: windows
 detection:
-    process_creation:
-        EventID: 1
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         - CommandLine:
-              - tasklist
-              - net time
-              - systeminfo
-              - whoami
-              - nbtstat
-              - net start
-              - qprocess
-              - nslookup
-              - hostname.exe
-              - netstat -an
+            - tasklist
+            - net time
+            - systeminfo
+            - whoami
+            - nbtstat
+            - net start
+            - qprocess
+            - nslookup
+            - hostname.exe
+            - 'netstat -an'
         - CommandLine|endswith:
-              - \net1 start
-              - \net1 user /domain
-              - \net1 group /domain
-              - \net1 group "domain admins" /domain
-              - \net1 group "Exchange Trusted Subsystem" /domain
-              - \net1 accounts /domain
-              - \net1 user net localgroup administrators
+            - '\net1 start'
+            - '\net1 user /domain'
+            - '\net1 group /domain'
+            - '\net1 group "domain admins" /domain'
+            - '\net1 group "Exchange Trusted Subsystem" /domain'
+            - '\net1 accounts /domain'
+            - '\net1 user net localgroup administrators'
     timeframe: 15s
-    condition: (process_creation and selection) | count() by CommandLine > 4
+    condition: selection | count() by CommandLine > 4
 falsepositives:
     - False positives depend on scripts and administrative tools used in the monitored environment
 level: medium
-ruletype: Sigma

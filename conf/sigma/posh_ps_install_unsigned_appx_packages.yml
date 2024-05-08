@@ -18,19 +18,13 @@ logsource:
     category: ps_script
     definition: Script Block Logging must be enable
 detection:
-    ps_script:
-        EventID: 4104
-        Channel:
-            - Microsoft-Windows-PowerShell/Operational
-            - PowerShellCore/Operational
     selection_cmdlet:
         ScriptBlockText|contains:
             - 'Add-AppPackage '
             - 'Add-AppxPackage '
     selection_flag:
         ScriptBlockText|contains: ' -AllowUnsigned'
-    condition: ps_script and (all of selection_*)
+    condition: all of selection_*
 falsepositives:
     - Installation of unsigned packages for testing purposes
 level: medium
-ruletype: Sigma

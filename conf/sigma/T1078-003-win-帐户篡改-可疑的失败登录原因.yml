@@ -1,0 +1,29 @@
+title: 帐户篡改-可疑的失败登录原因
+description: 此方法对失败的登录使用不常见的错误代码来确定可疑活动并篡改已禁用或受某种方式限制的帐户。
+author: 12306Br0(测试+翻译)
+date: 2020/06/09
+references:
+    - https://twitter.com/SBousseaden/status/1101431884540710913
+tags:
+    - attack.persistence
+    - attack.privilege_escalation
+    - attack.t1078
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4625 #普通账户登录失败
+            - 4776 #域账户登录失败
+        Status:
+            - '0xC0000072'  # 用户登录到帐户已被管理员禁用
+            - '0xC000006F'  # 用户在授权时间之外登录
+            - '0xC0000070'  # 用户从未经授权的工作站登录
+            - '0xC0000413'  # 登录失败：您登录的计算机受到身份验证防火墙的保护。 指定的帐户不允许对计算机进行身份验证
+            - '0xC000018C'  # 登录请求失败，因为主域和可信域之间的信任关系失败
+            - '0xC000015B'  # 用户尚未在此计算机上被授予请求的登录类型（也称为登录权限）
+    condition: selection
+falsepositives:
+    - 使用禁用帐户的用户
+level: high

@@ -10,20 +10,15 @@ modified: 2023/05/09
 tags:
     - attack.exfiltration
     - attack.t1567.002
-    - sysmon
 logsource:
     product: windows
     category: file_event
 detection:
-    file_event:
-        EventID: 11
-        Channel: Microsoft-Windows-Sysmon/Operational
     selection:
         TargetFilename|contains|all:
-            - :\Users\
-            - \.config\rclone\
-    condition: file_event and selection
+            - ':\Users\'
+            - '\.config\rclone\'
+    condition: selection
 falsepositives:
     - Legitimate Rclone usage
 level: medium
-ruletype: Sigma
