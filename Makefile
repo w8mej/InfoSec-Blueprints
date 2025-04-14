@@ -14,7 +14,7 @@
 # deps - Visualize dependencies
 # lint - Lint source code
 # format - Format source code
-# docs - Generate documentation
+# playbooks - Generate documentation
 # audit - Audit dependencies
 # test - Run tests
 # help - Show Help
@@ -25,7 +25,7 @@
 #   - Documentation build may require network access
 #   - If you wish to expand this project, please break into multiple Makefiles
 
-#   - Sphinx (for docs)
+#   - Sphinx (for playbooks)
 
 
 
@@ -48,7 +48,7 @@ SHELL := /bin/bash
 AIENV := "Not available for public consumption."
 
 # Documentation output
-DOCS_OUT := docs
+DOCS_OUT := playbooks
 
 BUILD := build
 
