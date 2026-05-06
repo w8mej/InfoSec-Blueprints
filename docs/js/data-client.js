@@ -33,7 +33,7 @@
   async function fetchDashboardData(dashboardId) {
     try {
       window.SM_DATA_LOADING[dashboardId] = true;
-      const response = await fetch(`/data/${dashboardId}.json`);
+      const response = await fetch(`./data/${dashboardId}.json`);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
