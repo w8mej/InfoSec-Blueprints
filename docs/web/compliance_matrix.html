@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regulatory Compliance Coverage Matrix — AgenticSOC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heatmap-cell { cursor: default; transition: opacity 0.15s; }
+    .heatmap-cell:hover { opacity: 0.8; }
+    #heatmap-container { overflow-x: auto; min-height: 400px; }
+    .tooltip {
+      position: fixed; pointer-events: none; opacity: 0;
+      background: #1e293b; border: 1px solid #334155;
+      border-radius: 6px; padding: 8px 12px; font-size: 13px;
+      color: #e2e8f0; z-index: 100; transition: opacity 0.1s;
+    }
+    th { cursor: pointer; user-select: none; }
+    th:hover { color: #5eead4; }
+  </style>
+</head>
+<body class="min-h-screen text-gray-100 bg-gray-950">
+
+<script id="compliance-data" type="application/json">
+{
+  "generated_at": "2026-05-06T04:58:11.757772+00:00",
+  "regimes": [
+    {
+      "name": "NYDFS Part 500",
+      "category": "Financial",
+      "total_playbooks": 9869,
+      "by_domain": {
+        "Staged": 2068,
+        "Enterprise": 4782,
+        "ICS-OT": 1263,
+        "Mobile": 1360,
+        "General": 396
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.4,
+        "Enterprise": 14.6,
+        "ICS-OT": 14.4,
+        "Mobile": 14.4,
+        "General": 15.2
+      }
+    },
+    {
+      "name": "SOX 404",
+      "category": "Financial",
+      "total_playbooks": 9987,
+      "by_domain": {
+        "Staged": 2124,
+        "Enterprise": 4799,
+        "ICS-OT": 1286,
+        "Mobile": 1401,
+        "General": 377
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.2,
+        "Enterprise": 14.7,
+        "ICS-OT": 14.7,
+        "Mobile": 14.9,
+        "General": 14.5
+      }
+    },
+    {
+      "name": "GLBA",
+      "category": "Financial",
+      "total_playbooks": 9847,
+      "by_domain": {
+        "Staged": 2101,
+        "Enterprise": 4743,
+        "ICS-OT": 1259,
+        "Mobile": 1355,
+        "General": 389
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.8,
+        "Enterprise": 14.5,
+        "ICS-OT": 14.4,
+        "Mobile": 14.4,
+        "General": 15.0
+      }
+    },
+    {
+      "name": "NCUA",
+      "category": "Financial",
+      "total_playbooks": 9845,
+      "by_domain": {
+        "Staged": 2069,
+        "Enterprise": 4726,
+        "ICS-OT": 1302,
+        "Mobile": 1356,
+        "General": 392
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.4,
+        "Enterprise": 14.5,
+        "ICS-OT": 14.9,
+        "Mobile": 14.4,
+        "General": 15.1
+      }
+    },
+    {
+      "name": "FFIEC",
+      "category": "Financial",
+      "total_playbooks": 9770,
+      "by_domain": {
+        "Staged": 2046,
+        "Enterprise": 4772,
+        "ICS-OT": 1252,
+        "Mobile": 1348,
+        "General": 352
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.1,
+        "Enterprise": 14.6,
+        "ICS-OT": 14.3,
+        "Mobile": 14.3,
+        "General": 13.5
+      }
+    },
+    {
+      "name": "FDIC",
+      "category": "Financial",
+      "total_playbooks": 9545,
+      "by_domain": {
+        "Staged": 2069,
+        "Enterprise": 4530,
+        "ICS-OT": 1254,
+        "Mobile": 1336,
+        "General": 356
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.4,
+        "Enterprise": 13.9,
+        "ICS-OT": 14.3,
+        "Mobile": 14.2,
+        "General": 13.7
+      }
+    },
+    {
+      "name": "OCC",
+      "category": "Financial",
+      "total_playbooks": 10244,
+      "by_domain": {
+        "Staged": 2184,
+        "Enterprise": 4979,
+        "ICS-OT": 1296,
+        "Mobile": 1403,
+        "General": 382
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 30.0,
+        "Enterprise": 15.2,
+        "ICS-OT": 14.8,
+        "Mobile": 14.9,
+        "General": 14.7
+      }
+    },
+    {
+      "name": "PCI-DSS v4.0",
+      "category": "Payment",
+      "total_playbooks": 10257,
+      "by_domain": {
+        "Staged": 2152,
+        "Enterprise": 4972,
+        "ICS-OT": 1355,
+        "Mobile": 1409,
+        "General": 369
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.5,
+        "Enterprise": 15.2,
+        "ICS-OT": 15.5,
+        "Mobile": 14.9,
+        "General": 14.2
+      }
+    },
+    {
+      "name": "NACHA (ACH)",
+      "category": "Payment",
+      "total_playbooks": 10321,
+      "by_domain": {
+        "Staged": 2190,
+        "Enterprise": 4989,
+        "ICS-OT": 1338,
+        "Mobile": 1415,
+        "General": 389
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 30.1,
+        "Enterprise": 15.3,
+        "ICS-OT": 15.3,
+        "Mobile": 15.0,
+        "General": 15.0
+      }
+    },
+    {
+      "name": "SWIFT CSP",
+      "category": "Payment",
+      "total_playbooks": 10012,
+      "by_domain": {
+        "Staged": 2103,
+        "Enterprise": 4951,
+        "ICS-OT": 1234,
+        "Mobile": 1351,
+        "General": 373
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.9,
+        "Enterprise": 15.1,
+        "ICS-OT": 14.1,
+        "Mobile": 14.3,
+        "General": 14.4
+      }
+    },
+    {
+      "name": "PSD2",
+      "category": "Payment",
+      "total_playbooks": 10187,
+      "by_domain": {
+        "Staged": 2135,
+        "Enterprise": 4945,
+        "ICS-OT": 1309,
+        "Mobile": 1408,
+        "General": 390
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.3,
+        "Enterprise": 15.1,
+        "ICS-OT": 14.9,
+        "Mobile": 14.9,
+        "General": 15.0
+      }
+    },
+    {
+      "name": "BACS / CHAPS",
+      "category": "Payment",
+      "total_playbooks": 9811,
+      "by_domain": {
+        "Staged": 2092,
+        "Enterprise": 4731,
+        "ICS-OT": 1263,
+        "Mobile": 1339,
+        "General": 386
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.7,
+        "Enterprise": 14.5,
+        "ICS-OT": 14.4,
+        "Mobile": 14.2,
+        "General": 14.9
+      }
+    },
+    {
+      "name": "HIPAA Security Rule",
+      "category": "Healthcare",
+      "total_playbooks": 9546,
+      "by_domain": {
+        "Staged": 2075,
+        "Enterprise": 4555,
+        "ICS-OT": 1226,
+        "Mobile": 1342,
+        "General": 348
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.5,
+        "Enterprise": 13.9,
+        "ICS-OT": 14.0,
+        "Mobile": 14.2,
+        "General": 13.4
+      }
+    },
+    {
+      "name": "HITECH",
+      "category": "Healthcare",
+      "total_playbooks": 10013,
+      "by_domain": {
+        "Staged": 2114,
+        "Enterprise": 4877,
+        "ICS-OT": 1270,
+        "Mobile": 1352,
+        "General": 400
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.0,
+        "Enterprise": 14.9,
+        "ICS-OT": 14.5,
+        "Mobile": 14.3,
+        "General": 15.4
+      }
+    },
+    {
+      "name": "HITRUST CSF",
+      "category": "Healthcare",
+      "total_playbooks": 9776,
+      "by_domain": {
+        "Staged": 2059,
+        "Enterprise": 4746,
+        "ICS-OT": 1296,
+        "Mobile": 1326,
+        "General": 349
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.3,
+        "Enterprise": 14.5,
+        "ICS-OT": 14.8,
+        "Mobile": 14.1,
+        "General": 13.4
+      }
+    },
+    {
+      "name": "GxP (FDA 21 CFR Part 11)",
+      "category": "Healthcare",
+      "total_playbooks": 10027,
+      "by_domain": {
+        "Staged": 2139,
+        "Enterprise": 4809,
+        "ICS-OT": 1286,
+        "Mobile": 1403,
+        "General": 390
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.4,
+        "Enterprise": 14.7,
+        "ICS-OT": 14.7,
+        "Mobile": 14.9,
+        "General": 15.0
+      }
+    },
+    {
+      "name": "FedRAMP High",
+      "category": "Defense/DoD",
+      "total_playbooks": 10149,
+      "by_domain": {
+        "Staged": 2135,
+        "Enterprise": 4895,
+        "ICS-OT": 1284,
+        "Mobile": 1430,
+        "General": 405
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.3,
+        "Enterprise": 15.0,
+        "ICS-OT": 14.7,
+        "Mobile": 15.2,
+        "General": 15.6
+      }
+    },
+    {
+      "name": "CMMC Level 3+",
+      "category": "Defense/DoD",
+      "total_playbooks": 10526,
+      "by_domain": {
+        "Staged": 2229,
+        "Enterprise": 5089,
+        "ICS-OT": 1357,
+        "Mobile": 1427,
+        "General": 424
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 30.6,
+        "Enterprise": 15.6,
+        "ICS-OT": 15.5,
+        "Mobile": 15.1,
+        "General": 16.3
+      }
+    },
+    {
+      "name": "ITAR",
+      "category": "Defense/DoD",
+      "total_playbooks": 10213,
+      "by_domain": {
+        "Staged": 2173,
+        "Enterprise": 4938,
+        "ICS-OT": 1307,
+        "Mobile": 1423,
+        "General": 372
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.8,
+        "Enterprise": 15.1,
+        "ICS-OT": 14.9,
+        "Mobile": 15.1,
+        "General": 14.3
+      }
+    },
+    {
+      "name": "IL4/IL5/IL6",
+      "category": "Defense/DoD",
+      "total_playbooks": 10216,
+      "by_domain": {
+        "Staged": 2138,
+        "Enterprise": 4944,
+        "ICS-OT": 1325,
+        "Mobile": 1429,
+        "General": 380
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.3,
+        "Enterprise": 15.1,
+        "ICS-OT": 15.1,
+        "Mobile": 15.2,
+        "General": 14.6
+      }
+    },
+    {
+      "name": "CJIS (Criminal Justice)",
+      "category": "Defense/DoD",
+      "total_playbooks": 9803,
+      "by_domain": {
+        "Staged": 2104,
+        "Enterprise": 4659,
+        "ICS-OT": 1290,
+        "Mobile": 1377,
+        "General": 373
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.9,
+        "Enterprise": 14.2,
+        "ICS-OT": 14.7,
+        "Mobile": 14.6,
+        "General": 14.4
+      }
+    },
+    {
+      "name": "IRS 1075 (FTI)",
+      "category": "Defense/DoD",
+      "total_playbooks": 9743,
+      "by_domain": {
+        "Staged": 2136,
+        "Enterprise": 4572,
+        "ICS-OT": 1275,
+        "Mobile": 1388,
+        "General": 372
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.3,
+        "Enterprise": 14.0,
+        "ICS-OT": 14.6,
+        "Mobile": 14.7,
+        "General": 14.3
+      }
+    },
+    {
+      "name": "GDPR (EU)",
+      "category": "Privacy",
+      "total_playbooks": 9819,
+      "by_domain": {
+        "Staged": 2103,
+        "Enterprise": 4709,
+        "ICS-OT": 1247,
+        "Mobile": 1414,
+        "General": 346
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.9,
+        "Enterprise": 14.4,
+        "ICS-OT": 14.2,
+        "Mobile": 15.0,
+        "General": 13.3
+      }
+    },
+    {
+      "name": "CCPA/CPRA (California)",
+      "category": "Privacy",
+      "total_playbooks": 9845,
+      "by_domain": {
+        "Staged": 2096,
+        "Enterprise": 4734,
+        "ICS-OT": 1233,
+        "Mobile": 1398,
+        "General": 384
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.8,
+        "Enterprise": 14.5,
+        "ICS-OT": 14.1,
+        "Mobile": 14.8,
+        "General": 14.8
+      }
+    },
+    {
+      "name": "LGPD (Brazil)",
+      "category": "Privacy",
+      "total_playbooks": 9784,
+      "by_domain": {
+        "Staged": 2140,
+        "Enterprise": 4603,
+        "ICS-OT": 1266,
+        "Mobile": 1384,
+        "General": 391
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.4,
+        "Enterprise": 14.1,
+        "ICS-OT": 14.5,
+        "Mobile": 14.7,
+        "General": 15.1
+      }
+    },
+    {
+      "name": "PIPEDA (Canada)",
+      "category": "Privacy",
+      "total_playbooks": 9943,
+      "by_domain": {
+        "Staged": 2131,
+        "Enterprise": 4781,
+        "ICS-OT": 1280,
+        "Mobile": 1368,
+        "General": 383
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.3,
+        "Enterprise": 14.6,
+        "ICS-OT": 14.6,
+        "Mobile": 14.5,
+        "General": 14.7
+      }
+    },
+    {
+      "name": "EU Data Boundary",
+      "category": "Privacy",
+      "total_playbooks": 9802,
+      "by_domain": {
+        "Staged": 2124,
+        "Enterprise": 4622,
+        "ICS-OT": 1262,
+        "Mobile": 1409,
+        "General": 385
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.2,
+        "Enterprise": 14.1,
+        "ICS-OT": 14.4,
+        "Mobile": 14.9,
+        "General": 14.8
+      }
+    },
+    {
+      "name": "China PIPL",
+      "category": "Privacy",
+      "total_playbooks": 9817,
+      "by_domain": {
+        "Staged": 2120,
+        "Enterprise": 4644,
+        "ICS-OT": 1305,
+        "Mobile": 1345,
+        "General": 403
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.1,
+        "Enterprise": 14.2,
+        "ICS-OT": 14.9,
+        "Mobile": 14.3,
+        "General": 15.5
+      }
+    },
+    {
+      "name": "SecNumCloud (France)",
+      "category": "Privacy",
+      "total_playbooks": 9879,
+      "by_domain": {
+        "Staged": 2111,
+        "Enterprise": 4778,
+        "ICS-OT": 1276,
+        "Mobile": 1327,
+        "General": 387
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.0,
+        "Enterprise": 14.6,
+        "ICS-OT": 14.6,
+        "Mobile": 14.1,
+        "General": 14.9
+      }
+    },
+    {
+      "name": "NERC CIP (Energy)",
+      "category": "Critical Infrastructure",
+      "total_playbooks": 10167,
+      "by_domain": {
+        "Staged": 2174,
+        "Enterprise": 4865,
+        "ICS-OT": 1320,
+        "Mobile": 1409,
+        "General": 399
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.8,
+        "Enterprise": 14.9,
+        "ICS-OT": 15.1,
+        "Mobile": 14.9,
+        "General": 15.4
+      }
+    },
+    {
+      "name": "NIS2 (EU Infrastructure)",
+      "category": "Critical Infrastructure",
+      "total_playbooks": 9757,
+      "by_domain": {
+        "Staged": 2098,
+        "Enterprise": 4669,
+        "ICS-OT": 1266,
+        "Mobile": 1371,
+        "General": 353
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 28.8,
+        "Enterprise": 14.3,
+        "ICS-OT": 14.5,
+        "Mobile": 14.5,
+        "General": 13.6
+      }
+    },
+    {
+      "name": "TISAX (AL3)",
+      "category": "Critical Infrastructure",
+      "total_playbooks": 10118,
+      "by_domain": {
+        "Staged": 2139,
+        "Enterprise": 4921,
+        "ICS-OT": 1268,
+        "Mobile": 1407,
+        "General": 383
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 29.4,
+        "Enterprise": 15.0,
+        "ICS-OT": 14.5,
+        "Mobile": 14.9,
+        "General": 14.7
+      }
+    },
+    {
+      "name": "EU AI Act (High-Risk)",
+      "category": "Critical Infrastructure",
+      "total_playbooks": 0,
+      "by_domain": {
+        "Staged": 0,
+        "Enterprise": 0,
+        "ICS-OT": 0,
+        "Mobile": 0,
+        "General": 0
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 0.0,
+        "Enterprise": 0.0,
+        "ICS-OT": 0.0,
+        "Mobile": 0.0,
+        "General": 0.0
+      }
+    },
+    {
+      "name": "NIST AI RMF",
+      "category": "Critical Infrastructure",
+      "total_playbooks": 0,
+      "by_domain": {
+        "Staged": 0,
+        "Enterprise": 0,
+        "ICS-OT": 0,
+        "Mobile": 0,
+        "General": 0
+      },
+      "coverage_pct_by_domain": {
+        "Staged": 0.0,
+        "Enterprise": 0.0,
+        "ICS-OT": 0.0,
+        "Mobile": 0.0,
+        "General": 0.0
+      }
+    }
+  ],
+  "domain_totals": {
+    "Staged": 7285,
+    "Enterprise": 32698,
+    "ICS-OT": 8760,
+    "Mobile": 9426,
+    "General": 2598
+  },
+  "summary": {
+    "total_playbooks": 60767,
+    "most_covered_regime": "CMMC Level 3+",
+    "least_covered_regime": "FDIC",
+    "uncovered_regimes": [
+      "EU AI Act (High-Risk)",
+      "NIST AI RMF"
+    ],
+    "domain_totals": {
+      "Staged": 7285,
+      "Enterprise": 32698,
+      "ICS-OT": 8760,
+      "Mobile": 9426,
+      "General": 2598
+    },
+    "domains": [
+      "Staged",
+      "Enterprise",
+      "ICS-OT",
+      "Mobile",
+      "General"
+    ]
+  },
+  "domains": [
+    "Staged",
+    "Enterprise",
+    "ICS-OT",
+    "Mobile",
+    "General"
+  ]
+}
+</script>
+
+<div class="tooltip" id="tooltip"></div>
+
+<header class="border-b border-gray-800 px-6 py-4">
+  <h1 class="text-2xl font-bold text-teal-400">Regulatory Compliance Coverage Matrix</h1>
+  <p class="text-gray-400 text-sm mt-1">
+    60767 playbooks indexed &mdash; generated 2026-05-06 04:58:11 UTC
+  </p>
+  <div class="flex gap-6 mt-3 text-sm">
+    <span>Most covered: <strong class="text-emerald-400">CMMC Level 3+</strong></span>
+    <span>Least covered (non-zero): <strong class="text-yellow-400">FDIC</strong></span>
+    <span class="text-red-400">2 regimes with zero coverage</span>
+  </div>
+</header>
+
+<div class="flex gap-0">
+  <!-- Filter Sidebar -->
+  <aside class="w-56 shrink-0 border-r border-gray-800 px-4 py-5 bg-gray-900 min-h-screen">
+    <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-3">Category</h2>
+    <div id="category-filters" class="space-y-1 mb-6"></div>
+    <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-3">Domain</h2>
+    <div id="domain-filters" class="space-y-1 mb-6"></div>
+    <button id="reset-btn"
+      class="w-full mt-2 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 rounded text-xs text-gray-300">
+      Reset Filters
+    </button>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-1 px-6 py-5 space-y-8 overflow-x-hidden">
+    <!-- Search -->
+    <div>
+      <input id="search-input" type="search" placeholder="Search regimes…"
+        class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded px-3 py-1.5
+               text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-teal-500"/>
+    </div>
+
+    <!-- D3 Heatmap -->
+    <section>
+      <h2 class="text-lg font-semibold text-gray-200 mb-3">Coverage Heatmap</h2>
+      <div id="heatmap-container"></div>
+    </section>
+
+    <!-- Chart.js Bar Chart -->
+    <section>
+      <h2 class="text-lg font-semibold text-gray-200 mb-3">Coverage % by Category</h2>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" style="max-height:340px;">
+        <canvas id="bar-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section>
+      <h2 class="text-lg font-semibold text-gray-200 mb-3">Detail Table</h2>
+      <div class="overflow-x-auto rounded-lg border border-gray-800">
+        <table class="w-full text-sm text-left" id="detail-table">
+          <thead class="bg-gray-800 text-gray-300 uppercase text-xs">
+            <tr>
+              <th class="px-3 py-2" data-col="name">Regime</th>
+              <th class="px-3 py-2" data-col="category">Category</th>
+              <th class="px-3 py-2 text-right" data-col="total_playbooks">Total</th>
+              <th class="px-3 py-2 text-right" data-col="Staged">Staged</th>
+              <th class="px-3 py-2 text-right" data-col="Enterprise">Enterprise</th>
+              <th class="px-3 py-2 text-right" data-col="ICS-OT">ICS-OT</th>
+              <th class="px-3 py-2 text-right" data-col="Mobile">Mobile</th>
+              <th class="px-3 py-2 text-right" data-col="General">General</th>
+            </tr>
+          </thead>
+          <tbody id="table-body" class="divide-y divide-gray-800"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const RAW = JSON.parse(document.getElementById('compliance-data').textContent);
+const DOMAINS = RAW.domains;
+const CATEGORIES = [...new Set(RAW.regimes.map(r => r.category))];
+const DOMAIN_COLORS = {"Staged": "#0d9488", "Enterprise": "#2563eb", "ICS-OT": "#d97706", "Mobile": "#7c3aed", "General": "#475569"};
+
+let state = {
+  categories: new Set(CATEGORIES),
+  domains: new Set(DOMAINS),
+  search: '',
+  sortCol: 'total_playbooks',
+  sortDir: -1,
+};
+
+// ---- Filter sidebar ----
+function buildSidebar() {
+  const cf = document.getElementById('category-filters');
+  CATEGORIES.forEach(cat => {
+    const label = document.createElement('label');
+    label.className = 'flex items-center gap-2 text-sm text-gray-300 cursor-pointer';
+    label.innerHTML = `<input type="checkbox" checked data-cat="${cat}"
+      class="accent-teal-500"/> ${cat}`;
+    cf.appendChild(label);
+  });
+  const df = document.getElementById('domain-filters');
+  DOMAINS.forEach(d => {
+    const label = document.createElement('label');
+    label.className = 'flex items-center gap-2 text-sm text-gray-300 cursor-pointer';
+    label.innerHTML = `<input type="checkbox" checked data-domain="${d}"
+      class="accent-teal-500"/> ${d}`;
+    df.appendChild(label);
+  });
+
+  document.querySelectorAll('[data-cat]').forEach(cb =>
+    cb.addEventListener('change', () => {
+      cb.checked ? state.categories.add(cb.dataset.cat) : state.categories.delete(cb.dataset.cat);
+      applyFilters();
+    })
+  );
+  document.querySelectorAll('[data-domain]').forEach(cb =>
+    cb.addEventListener('change', () => {
+      cb.checked ? state.domains.add(cb.dataset.domain) : state.domains.delete(cb.dataset.domain);
+      applyFilters();
+    })
+  );
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    state.categories = new Set(CATEGORIES);
+    state.domains = new Set(DOMAINS);
+    state.search = '';
+    document.getElementById('search-input').value = '';
+    document.querySelectorAll('[data-cat],[data-domain]').forEach(cb => cb.checked = true);
+    applyFilters();
+  });
+  document.getElementById('search-input').addEventListener('input', e => {
+    state.search = e.target.value.toLowerCase();
+    applyFilters();
+  });
+}
+
+function filteredRegimes() {
+  return RAW.regimes.filter(r =>
+    state.categories.has(r.category) &&
+    r.name.toLowerCase().includes(state.search)
+  );
+}
+
+// ---- D3 Heatmap ----
+let heatmapSvg = null;
+
+function drawHeatmap(regimes) {
+  const activeDomains = DOMAINS.filter(d => state.domains.has(d));
+  const container = document.getElementById('heatmap-container');
+  container.innerHTML = '';
+
+  const marginLeft = 200, marginTop = 60, marginRight = 20, marginBottom = 20;
+  const cellW = 90, cellH = 28;
+  const svgW = marginLeft + cellW * activeDomains.length + marginRight;
+  const svgH = marginTop + cellH * regimes.length + marginBottom;
+
+  const colorScale = d3.scaleSequential()
+    .domain([0, 100])
+    .interpolator(d3.interpolate('#134e4a', '#34d399'));
+
+  const svg = d3.select(container).append('svg')
+    .attr('width', Math.max(svgW, 400))
+    .attr('height', svgH)
+    .attr('style', 'background:#111827; border-radius:8px;');
+
+  const tooltip = document.getElementById('tooltip');
+
+  // Column headers
+  svg.selectAll('.col-header')
+    .data(activeDomains)
+    .join('text')
+    .attr('class', 'col-header')
+    .attr('x', (d, i) => marginLeft + i * cellW + cellW / 2)
+    .attr('y', marginTop - 10)
+    .attr('text-anchor', 'middle')
+    .attr('fill', '#94a3b8')
+    .attr('font-size', 12)
+    .text(d => d);
+
+  // Category separators + row labels
+  let prevCat = null;
+  regimes.forEach((regime, i) => {
+    const y = marginTop + i * cellH;
+    if (regime.category !== prevCat) {
+      prevCat = regime.category;
+      svg.append('text')
+        .attr('x', 4)
+        .attr('y', y + 10)
+        .attr('fill', '#475569')
+        .attr('font-size', 10)
+        .attr('font-weight', 'bold')
+        .text(regime.category.toUpperCase());
+    }
+    svg.append('text')
+      .attr('x', marginLeft - 6)
+      .attr('y', y + cellH / 2 + 4)
+      .attr('text-anchor', 'end')
+      .attr('fill', regime.total_playbooks === 0 ? '#ef4444' : '#cbd5e1')
+      .attr('font-size', 11)
+      .text(regime.name);
+
+    activeDomains.forEach((domain, j) => {
+      const pct = regime.coverage_pct_by_domain[domain] || 0;
+      const count = regime.by_domain[domain] || 0;
+      const fill = count === 0 ? '#1f2937' : colorScale(pct);
+
+      svg.append('rect')
+        .attr('class', 'heatmap-cell')
+        .attr('x', marginLeft + j * cellW)
+        .attr('y', y)
+        .attr('width', cellW - 2)
+        .attr('height', cellH - 2)
+        .attr('fill', fill)
+        .attr('rx', 3)
+        .on('mousemove', (evt) => {
+          tooltip.style.opacity = '1';
+          tooltip.style.left = (evt.clientX + 14) + 'px';
+          tooltip.style.top = (evt.clientY - 10) + 'px';
+          tooltip.innerHTML = `<strong>${regime.name}</strong><br/>
+            Domain: ${domain}<br/>
+            Count: ${count}<br/>
+            Coverage: ${pct}%`;
+        })
+        .on('mouseleave', () => { tooltip.style.opacity = '0'; });
+
+      if (count > 0) {
+        svg.append('text')
+          .attr('x', marginLeft + j * cellW + cellW / 2 - 1)
+          .attr('y', y + cellH / 2 + 4)
+          .attr('text-anchor', 'middle')
+          .attr('fill', pct > 40 ? '#0f172a' : '#e2e8f0')
+          .attr('font-size', 11)
+          .text(count);
+      }
+    });
+  });
+}
+
+// ---- Chart.js Bar Chart ----
+let barChart = null;
+
+function drawBarChart(regimes) {
+  const activeDomains = DOMAINS.filter(d => state.domains.has(d));
+  const activeCategories = [...new Set(regimes.map(r => r.category))];
+
+  const datasets = activeDomains.map(domain => ({
+    label: domain,
+    data: activeCategories.map(cat => {
+      const inCat = regimes.filter(r => r.category === cat);
+      if (!inCat.length) return 0;
+      const avg = inCat.reduce((s, r) => s + (r.coverage_pct_by_domain[domain] || 0), 0) / inCat.length;
+      return Math.round(avg * 10) / 10;
+    }),
+    backgroundColor: DOMAIN_COLORS[domain] + 'cc',
+    borderColor: DOMAIN_COLORS[domain],
+    borderWidth: 1,
+  }));
+
+  const ctx = document.getElementById('bar-chart');
+  if (barChart) barChart.destroy();
+  barChart = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: activeCategories, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { position: 'top', labels: { color: '#94a3b8', boxWidth: 12 } },
+        tooltip: { mode: 'index', intersect: false },
+      },
+      scales: {
+        x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
+        y: {
+          min: 0, max: 100,
+          ticks: { color: '#94a3b8', callback: v => v + '%' },
+          grid: { color: '#1e293b' },
+        },
+      },
+    },
+  });
+}
+
+// ---- Table ----
+let sortState = { col: 'total_playbooks', dir: -1 };
+
+function drawTable(regimes) {
+  const activeDomains = DOMAINS.filter(d => state.domains.has(d));
+  const sorted = [...regimes].sort((a, b) => {
+    const av = activeDomains.includes(sortState.col)
+      ? (a.by_domain[sortState.col] || 0)
+      : (a[sortState.col] ?? '');
+    const bv = activeDomains.includes(sortState.col)
+      ? (b.by_domain[sortState.col] || 0)
+      : (b[sortState.col] ?? '');
+    return typeof av === 'number' ? (av - bv) * sortState.dir : String(av).localeCompare(String(bv)) * sortState.dir;
+  });
+
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = '';
+  sorted.forEach(regime => {
+    const tr = document.createElement('tr');
+    tr.className = 'hover:bg-gray-800/50';
+    const nameColor = regime.total_playbooks === 0 ? 'text-red-400' : 'text-gray-100';
+    tr.innerHTML = `
+      <td class="px-3 py-1.5 ${nameColor} font-medium">${regime.name}</td>
+      <td class="px-3 py-1.5 text-gray-400">${regime.category}</td>
+      <td class="px-3 py-1.5 text-right text-gray-200">${regime.total_playbooks}</td>
+      ${DOMAINS.map(d => state.domains.has(d)
+          ? `<td class="px-3 py-1.5 text-right text-gray-300">
+               ${regime.by_domain[d] || 0}
+               <span class="text-gray-500 text-xs">(${regime.coverage_pct_by_domain[d] || 0}%)</span>
+             </td>`
+          : ''
+      ).join('')}
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Sort headers
+document.querySelectorAll('#detail-table th').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortState.col === col) sortState.dir *= -1;
+    else { sortState.col = col; sortState.dir = -1; }
+    drawTable(filteredRegimes());
+  });
+});
+
+// ---- Apply filters (master render) ----
+function applyFilters() {
+  const regimes = filteredRegimes();
+  drawHeatmap(regimes);
+  drawBarChart(regimes);
+  drawTable(regimes);
+  // Persist filter state to URL
+  const params = new URLSearchParams({
+    cats: [...state.categories].join(','),
+    domains: [...state.domains].join(','),
+    q: state.search,
+  });
+  history.replaceState(null, '', '?' + params.toString());
+}
+
+// ---- Init ----
+buildSidebar();
+applyFilters();
+</script>
+</body>
+</html>

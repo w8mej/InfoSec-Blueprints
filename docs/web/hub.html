@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoSec-Blueprints — ASO Playbook Infrastructure</title>
+    <meta name="description" content="High-assurance, autonomic incident response playbooks and security intelligence infrastructure.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --surface: rgba(17, 24, 39, 0.7);
+            --border: rgba(75, 85, 99, 0.3);
+            --text: #f9fafb;
+            --muted: #9ca3af;
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.4);
+            --cyan: #06b6d4;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            flex: 1;
+        }
+
+        /* ── Hero Section ── */
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .badge-container {
+            margin-bottom: 24px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ── Feature Grid ── */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px -20px var(--accent-glow);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--accent);
+        }
+
+        .card-footer svg {
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-footer svg {
+            transform: translateX(4px);
+        }
+
+        /* ── Secondary Links ── */
+        .secondary-section {
+            margin-top: 100px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .links-flex {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .sec-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sec-link:hover {
+            color: var(--text);
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="badge-container">
+                <span class="badge">Autonomic Security Operations</span>
+            </div>
+            <h1>InfoSec-Blueprints</h1>
+            <p class="subtitle">
+                High-assurance, machine-readable incident response infrastructure. 
+                Deterministic playbooks for the agentic SOC era.
+            </p>
+        </header>
+
+        <div class="grid">
+            <!-- Project Dashboard -->
+            <a href="index.html" class="card">
+                <div>
+                    <div class="card-icon">📊</div>
+                    <h2 class="card-title">Project Dashboard</h2>
+                    <p class="card-desc">
+                        Real-time metrics on playbook coverage, MITRE ATT&CK alignment, 
+                        and Sigma rule severity distribution.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    View Analytics
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Impact & Risk Dashboard -->
+            <a href="impact_tier_risk.html" class="card">
+                <div>
+                    <div class="card-icon">⚖️</div>
+                    <h2 class="card-title">Impact & Business Risk</h2>
+                    <p class="card-desc">
+                        Quantitative analysis of business impact tiers and operational risk 
+                        indices for agentic response loops.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Assess Risk
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- CVE Radar -->
+            <a href="cve_radar.html" class="card">
+                <div>
+                    <div class="card-icon">⚠️</div>
+                    <h2 class="card-title">CVE Radar</h2>
+                    <p class="card-desc">
+                        Dynamic exposure analysis mapping Sigma detection rules to 
+                        active CISA KEV vulnerabilities and zero-day threats.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Explore Threats
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- VERIS Intelligence -->
+            <a href="veris_intelligence.html" class="card">
+                <div>
+                    <div class="card-icon">🧬</div>
+                    <h2 class="card-title">VERIS Intelligence</h2>
+                    <p class="card-desc">
+                        Incident category intelligence mapping the corpus to VERIS 
+                        taxonomies and simulating response efficiency.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Analyze Incidents
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- ATT&CK Matrix -->
+            <a href="attck_matrix.html" class="card">
+                <div>
+                    <div class="card-icon">🗺️</div>
+                    <h2 class="card-title">ATT&CK Matrix</h2>
+                    <p class="card-desc">
+                        Interactive heat-map visualization of the current detection 
+                        and response coverage across the MITRE ATT&CK framework.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Navigate Framework
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Performance Analytics -->
+            <a href="analytics.html" class="card">
+                <div>
+                    <div class="card-icon">📈</div>
+                    <h2 class="card-title">Performance Analytics</h2>
+                    <p class="card-desc">
+                        Deep dive into MTTD/MTTR metrics, SLO compliance, and 
+                        TAME agentic profile performance across all domains.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Performance Data
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Threat Actor Cards -->
+            <a href="actor_cards.html" class="card">
+                <div>
+                    <div class="card-icon">🕵️</div>
+                    <h2 class="card-title">Threat Intelligence</h2>
+                    <p class="card-desc">
+                        Intelligence cards for primary threat actors, correlating 
+                        APT techniques with validated response playbooks.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Intel Profiles
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Chain of Custody -->
+            <a href="chain_of_custody.html" class="card">
+                <div>
+                    <div class="card-icon">🔐</div>
+                    <h2 class="card-title">Chain of Custody</h2>
+                    <p class="card-desc">
+                        Cryptographic audit trails and Merkle tree integrity checks 
+                        for autonomic playbook execution and evidence handling.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Audit Integrity
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Marimo Coverage -->
+            <a href="marimo_coverage.html" class="card">
+                <div>
+                    <div class="card-icon">📔</div>
+                    <h2 class="card-title">Marimo Coverage</h2>
+                    <p class="card-desc">
+                        Reactive notebook coverage analysis, visualizing the state 
+                        of reactive playbooks across the detection corpus.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Explore Notebooks
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Blast Radius Intelligence -->
+            <a href="blast_radius.html" class="card">
+                <div>
+                    <div class="card-icon">🕸️</div>
+                    <h2 class="card-title">Blast Radius</h2>
+                    <p class="card-desc">
+                        Propagational risk analysis and incident impact scoping 
+                        for agentic response workflows and asset protection.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Scope Impact
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Compliance Coverage Matrix -->
+            <a href="compliance_matrix.html" class="card">
+                <div>
+                    <div class="card-icon">⚖️</div>
+                    <h2 class="card-title">Compliance Matrix</h2>
+                    <p class="card-desc">
+                        Regulatory mapping across the playbook corpus, tracking 
+                        coverage for HIPAA, PCI-DSS, GDPR, and NIST frameworks.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Audit Coverage
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- D3FEND/CAPEC Coverage -->
+            <a href="d3fend_capec.html" class="card">
+                <div>
+                    <div class="card-icon">🛡️</div>
+                    <h2 class="card-title">D3FEND & CAPEC</h2>
+                    <p class="card-desc">
+                        Analysis of defensive countermeasure depth and attack pattern 
+                        class coverage across the playbook corpus.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Defensive Posture
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- Detection Fidelity Scorecard -->
+            <a href="detection_fidelity.html" class="card">
+                <div>
+                    <div class="card-icon">🎯</div>
+                    <h2 class="card-title">Detection Fidelity</h2>
+                    <p class="card-desc">
+                        Scorecard tracking Sigma assurance levels and the completeness 
+                        of false positive/negative documentation per log source.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Review Rules
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+
+            <!-- HITL Gate Composition -->
+            <a href="hitl_composition.html" class="card">
+                <div>
+                    <div class="card-icon">🚦</div>
+                    <h2 class="card-title">HITL Gate Composition</h2>
+                    <p class="card-desc">
+                        Analysis of Human-in-the-Loop bottlenecks, role dependencies, 
+                        and latency simulations across the agentic workflows.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    Analyze Bottlenecks
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+            </a>
+        </div>
+
+        <div class="secondary-section">
+            <h3 style="color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Documentation & Resources</h3>
+            <div class="links-flex">
+                <a href="playbook_catalog.md" class="sec-link">📚 Playbook Catalog</a>
+                <a href="THREAT_ACTORS.md" class="sec-link">🎭 Threat Actor Index</a>
+                <a href="attck_coverage.json" class="sec-link">🧩 ATT&CK Layer (JSON)</a>
+                <a href="https://github.com/w8mej/InfoSec-Blueprints" class="sec-link">⭐ Project GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Project by <a href="https://www.linkedin.com/in/w8mej" target="_blank">John Menerick</a> · 
+            Infrastructure auto-generated 2026-05-06 04:48 UTC · 
+            <a href="https://securesql.info" target="_blank">securesql.info</a>
+        </p>
+    </footer>
+
+</body>
+</html>

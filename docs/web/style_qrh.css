@@ -1,0 +1,51 @@
+/* 
+ * style_qrh.css — FAA QRH Typography Standards
+ * --------------------------------------------
+ * Base: 14pt (Minimum)
+ * Line Spacing: 1.33 (33%)
+ * Purpose: Minimize optical fatigue and maximize scan-ability in high-stress ops.
+ */
+
+:root {
+    --qrh-font-size: 14pt;
+    --qrh-line-height: 1.33;
+}
+
+body {
+    font-size: var(--qrh-font-size) !important;
+    line-height: var(--qrh-line-height) !important;
+}
+
+/* Ensure all interactive elements meet the minimum size */
+button, input, select, textarea, .btn, .chip, .badge {
+    font-size: var(--qrh-font-size) !important;
+}
+
+/* Tables should also follow the standard for readability */
+table, th, td {
+    font-size: var(--qrh-font-size) !important;
+    line-height: var(--qrh-line-height) !important;
+}
+
+/* Headers should be proportional but no smaller than 14pt */
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.5rem; }
+h4, h5, h6 { font-size: 1.1rem; }
+
+/* Small text/captions/muted text must also be at least 14pt */
+small, .text-muted, .muted, .subtitle, .header-left p, .stat-label, .ctrl-label {
+    font-size: var(--qrh-font-size) !important;
+}
+
+/* Specific component overrides for high density matrices/dashboards */
+.tech-cell .cell-name, .tech-cell .cell-tid, .tactic-id, .tactic-name {
+    font-size: 11pt !important; /* Allow slightly smaller for dense matrix, but still readable */
+    line-height: 1.1 !important;
+}
+
+/* Monospace fonts for code/forensics */
+code, pre, .monospace {
+    font-size: 12pt !important;
+    line-height: 1.25 !important;
+}

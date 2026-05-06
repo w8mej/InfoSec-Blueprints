@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERIS Incident Category Intelligence — AgenticSOC</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  body { background:#0f172a; color:#f1f5f9; font-family:system-ui,sans-serif; }
+  .card { background:#1e293b; border:1px solid #334155; border-radius:0.75rem; padding:1.25rem; }
+  #treemap-container svg text { fill:#f1f5f9; font-size:11px; pointer-events:none; }
+  table { border-collapse:collapse; width:100%; }
+  th,td { padding:0.5rem 0.75rem; text-align:left; border-bottom:1px solid #334155; }
+  th { cursor:pointer; color:#94a3b8; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; }
+  th:hover { color:#f1f5f9; }
+  tr:hover td { background:rgba(255,255,255,0.04); }
+  .badge { display:inline-block; padding:0.15rem 0.5rem; border-radius:9999px;
+             font-size:0.7rem; font-weight:600; }
+  .pg-btn { padding:0.25rem 0.75rem; background:#1e293b; border:1px solid #334155;
+              border-radius:0.375rem; color:#94a3b8; cursor:pointer; }
+  .pg-btn:hover { color:#f1f5f9; border-color:#64748b; }
+</style>
+</head>
+<body class="min-h-screen p-6">
+
+<!-- Header -->
+<div class="mb-6">
+  <h1 class="text-2xl font-bold text-slate-100">VERIS Incident Category Intelligence</h1>
+  <p class="text-slate-400 text-sm mt-1">
+    Extended VERIS taxonomy distribution across the AgenticSOC playbook corpus &mdash;
+    including AI/ML and Space/Orbital threat categories.
+  </p>
+  <p class="text-slate-500 text-xs mt-1">Generated 2026-05-06T04:54:02.741148Z &bull; All MTTR values are simulated</p>
+</div>
+
+<!-- Disclaimer alert -->
+<div class="mb-4 p-3 rounded-lg border border-amber-700 bg-amber-900/20 text-amber-300 text-xs">
+  &#9888; MTTR values are deterministically simulated from structural playbook metadata
+  (step counts, CACAO SLO targets, domain). They do not reflect live incident telemetry.
+  GAI scores shown only when present in notebook BLUF cells.
+</div>
+
+<!-- Summary stat cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" id="stat-cards"></div>
+
+<!-- Row 1: treemap + radar -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+  <div class="card">
+    <h2 class="text-sm font-semibold text-slate-300 mb-3">
+      Super-Group &rarr; Category Treemap
+      <span class="text-xs text-slate-500 ml-2">(color = avg MTTR)</span>
+    </h2>
+    <div id="treemap-container"></div>
+    <div id="treemap-tooltip"
+         class="hidden fixed z-50 pointer-events-none bg-slate-800 border border-slate-600
+                rounded p-2 text-xs text-slate-200 shadow-xl max-w-xs"></div>
+  </div>
+  <div class="card">
+    <h2 class="text-sm font-semibold text-slate-300 mb-3">Super-Group Radar</h2>
+    <canvas id="radarChart" height="300"></canvas>
+  </div>
+</div>
+
+<!-- Row 2: horizontal bar -->
+<div class="card mb-4">
+  <h2 class="text-sm font-semibold text-slate-300 mb-3">
+    Top 15 Categories by Playbook Count
+    <span class="text-xs text-slate-500 ml-2">(color = autonomous ratio)</span>
+  </h2>
+  <canvas id="barChart" height="220"></canvas>
+</div>
+
+<!-- Row 3: table -->
+<div class="card">
+  <div class="flex items-center justify-between mb-3">
+    <h2 class="text-sm font-semibold text-slate-300">Category Detail</h2>
+    <input id="tableSearch" type="text" placeholder="Filter categories..."
+           class="bg-slate-700 border border-slate-600 rounded px-3 py-1 text-sm text-slate-200
+                  placeholder-slate-500 focus:outline-none focus:border-slate-400 w-48">
+  </div>
+  <div class="overflow-x-auto">
+    <table id="catTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable('name')">Category</th>
+          <th onclick="sortTable('supergroup')">Super-Group</th>
+          <th onclick="sortTable('count')">Count</th>
+          <th onclick="sortTable('avg_mttr')">Avg MTTR (m)</th>
+          <th onclick="sortTable('avg_gai')">Avg GAI</th>
+          <th onclick="sortTable('hitl_ratio')">HITL %</th>
+          <th onclick="sortTable('autonomous_ratio')">Auto %</th>
+          <th>Top Domain</th>
+        </tr>
+      </thead>
+      <tbody id="catTbody"></tbody>
+    </table>
+  </div>
+  <div class="flex items-center justify-between mt-3" id="pagination"></div>
+</div>
+
+<script>
+const DATA = {"generated_at":"2026-05-06T04:54:02.741148Z","total_playbooks":14580,"categories":[{"name":"UNKNOWN","supergroup":"Unclassified","dual_tags":[],"count":14326,"avg_mttr":22.14,"avg_gai":3.491,"hitl_ratio":0.584,"autonomous_ratio":0.416,"domains":{"Canary / Honeypot":7157,"Enterprise IT":6298,"ICS / OT":209,"Mobile":223,"Unclassified":439}},{"name":"MALWARE","supergroup":"Traditional Cyber","dual_tags":[],"count":102,"avg_mttr":22.59,"avg_gai":3.61,"hitl_ratio":0.583,"autonomous_ratio":0.417,"domains":{"Canary / Honeypot":51,"Enterprise IT":36,"ICS / OT":9,"Mobile":6}},{"name":"POLICY","supergroup":"Traditional Cyber","dual_tags":["Traditional Cyber","Operational"],"count":78,"avg_mttr":21.38,"avg_gai":3.441,"hitl_ratio":0.583,"autonomous_ratio":0.417,"domains":{"Canary / Honeypot":39,"Enterprise IT":31,"ICS / OT":1,"Mobile":6,"Unclassified":1}},{"name":"ERROR","supergroup":"Traditional Cyber","dual_tags":["Traditional Cyber","Operational"],"count":42,"avg_mttr":22.65,"avg_gai":3.396,"hitl_ratio":0.587,"autonomous_ratio":0.413,"domains":{"Canary / Honeypot":22,"Enterprise IT":13,"Mobile":4,"Unclassified":3}},{"name":"TARGET","supergroup":"Traditional Cyber","dual_tags":[],"count":14,"avg_mttr":22.51,"avg_gai":4.041,"hitl_ratio":0.584,"autonomous_ratio":0.416,"domains":{"Canary / Honeypot":7,"Enterprise IT":6,"Unclassified":1}},{"name":"HACKING","supergroup":"Traditional Cyber","dual_tags":[],"count":8,"avg_mttr":22.51,"avg_gai":3.834,"hitl_ratio":0.584,"autonomous_ratio":0.416,"domains":{"Canary / Honeypot":4,"Enterprise IT":4}},{"name":"MISUSE","supergroup":"Traditional Cyber","dual_tags":["Traditional Cyber","Operational"],"count":6,"avg_mttr":20.95,"avg_gai":3.206,"hitl_ratio":0.583,"autonomous_ratio":0.417,"domains":{"Canary / Honeypot":3,"Enterprise IT":3}},{"name":"SOCIAL","supergroup":"Traditional Cyber","dual_tags":[],"count":4,"avg_mttr":22.58,"avg_gai":3.042,"hitl_ratio":0.584,"autonomous_ratio":0.416,"domains":{"Canary / Honeypot":2,"Enterprise IT":2}}],"supergroups":[{"name":"Unclassified","count":14326,"avg_mttr":22.14,"avg_gai":3.491,"hitl_ratio":0.584,"autonomous_ratio":0.416,"category_names":["UNKNOWN"],"color":"#64748b"},{"name":"Traditional Cyber","count":254,"avg_mttr":22.18,"avg_gai":3.535,"hitl_ratio":0.584,"autonomous_ratio":0.416,"category_names":["MALWARE","POLICY","ERROR","TARGET","HACKING","MISUSE","SOCIAL"],"color":"#3b82f6"},{"name":"Operational","count":126,"avg_mttr":21.78,"avg_gai":3.415,"hitl_ratio":0.584,"autonomous_ratio":0.416,"category_names":["POLICY","ERROR","MISUSE"],"color":"#10b981"}],"summary":{"total_playbooks":14580,"categories_observed":8,"supergroups_observed":3,"fastest_category":"MISUSE","slowest_category":"ERROR","most_autonomous_category":"MALWARE","highest_hitl_category":"ERROR","best_gai_category":"TARGET","ai_ml_coverage_pct":0.0,"orbital_coverage_pct":0.0}};
+const SUPERGROUP_COLORS = {
+  "Traditional Cyber": "#3b82f6",
+  "AI/ML Threats":     "#a855f7",
+  "Space/Orbital":     "#06b6d4",
+  "Identity":          "#f59e0b",
+  "Operational":       "#10b981",
+  "Unclassified":      "#64748b",
+};
+const GRID = "rgba(148,163,184,0.15)";
+
+// ── Stat cards ────────────────────────────────────────────────────────────────
+const s = DATA.summary;
+[
+  ["Total Playbooks",    s.total_playbooks,         "Corpus size"],
+  ["Categories Found",   s.categories_observed,      "Distinct VERIS categories"],
+  ["AI/ML Coverage",     s.ai_ml_coverage_pct + "%", "% of corpus addressing AI/ML threats"],
+  ["Orbital Coverage",   s.orbital_coverage_pct + "%","% of corpus addressing space/orbital threats"],
+].forEach(([label, val, desc]) => {
+  document.getElementById("stat-cards").insertAdjacentHTML("beforeend", `
+    <div class="card text-center">
+      <div class="text-2xl font-bold text-slate-100">${val}</div>
+      <div class="text-xs font-semibold text-slate-300 mt-1">${label}</div>
+      <div class="text-xs text-slate-500 mt-0.5">${desc}</div>
+    </div>`);
+});
+
+// ── D3 Treemap ────────────────────────────────────────────────────────────────
+(function() {
+  const W = document.getElementById("treemap-container").clientWidth || 500;
+  const H = 340;
+
+  const mttrVals = DATA.categories.map(c => c.avg_mttr);
+  const colorScale = d3.scaleSequential()
+    .domain([d3.min(mttrVals), d3.max(mttrVals)])
+    .interpolator(d3.interpolateRgb("#3b82f6", "#ef4444"));
+
+  const root = d3.hierarchy({
+    name: "root",
+    children: DATA.supergroups.map(sg => ({
+      name: sg.name,
+      color: SUPERGROUP_COLORS[sg.name] || "#64748b",
+      children: DATA.categories
+        .filter(c => c.supergroup === sg.name || (c.dual_tags && c.dual_tags.includes(sg.name)))
+        .map(c => ({ name: c.name, value: c.count, data: c }))
+    }))
+  }).sum(d => d.value || 0).sort((a,b) => b.value - a.value);
+
+  d3.treemap().size([W, H]).padding(2).paddingTop(18)(root);
+
+  const svg = d3.select("#treemap-container")
+    .append("svg").attr("width", W).attr("height", H);
+
+  const tooltip = document.getElementById("treemap-tooltip");
+
+  // Supergroup labels
+  svg.selectAll(".sg-label")
+    .data(root.children || [])
+    .join("text")
+    .attr("class", "sg-label")
+    .attr("x", d => d.x0 + 4)
+    .attr("y", d => d.y0 + 13)
+    .text(d => d.x1 - d.x0 > 60 ? d.data.name : "")
+    .style("font-weight", "700")
+    .style("font-size", "11px")
+    .style("fill", d => SUPERGROUP_COLORS[d.data.name] || "#94a3b8");
+
+  // Category nodes
+  const leaves = svg.selectAll(".leaf")
+    .data(root.leaves())
+    .join("g")
+    .attr("class", "leaf")
+    .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+  leaves.append("rect")
+    .attr("width", d => Math.max(0, d.x1 - d.x0))
+    .attr("height", d => Math.max(0, d.y1 - d.y0))
+    .attr("fill", d => colorScale(d.data.data.avg_mttr))
+    .attr("stroke", "#0f172a")
+    .attr("stroke-width", 1)
+    .attr("rx", 2)
+    .style("cursor", "pointer")
+    .on("mousemove", (e, d) => {
+      const cd = d.data.data;
+      tooltip.classList.remove("hidden");
+      tooltip.style.left = (e.clientX + 12) + "px";
+      tooltip.style.top  = (e.clientY - 10) + "px";
+      tooltip.innerHTML = `
+        <div class="font-semibold">${cd.name}</div>
+        <div class="text-slate-400">${cd.supergroup}</div>
+        <div>Count: <b>${cd.count}</b></div>
+        <div>Avg MTTR: <b>${cd.avg_mttr.toFixed(1)} min</b></div>
+        <div>Avg GAI: <b>${cd.avg_gai !== null ? cd.avg_gai.toFixed(2) : "N/A"}</b></div>
+        <div>Auto%: <b>${(cd.autonomous_ratio * 100).toFixed(0)}%</b></div>`;
+    })
+    .on("mouseleave", () => tooltip.classList.add("hidden"));
+
+  leaves.append("text")
+    .attr("x", 3).attr("y", 12)
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const label = d.data.name.replace(/_/g, " ");
+      return w > 55 ? label : (w > 30 ? label.slice(0, 6) + "…" : "");
+    })
+    .style("font-size", "10px");
+})(-7);
+
+// ── Radar chart ───────────────────────────────────────────────────────────────
+(function() {
+  const sgs = DATA.supergroups;
+  const axes = ["Avg MTTR↓", "Avg GAI", "Auto Ratio", "HITL Ratio↓", "Coverage %"];
+
+  // Normalize each axis to 0-1 across supergroups
+  const maxMttr = Math.max(...sgs.map(s => s.avg_mttr));
+  const minMttr = Math.min(...sgs.map(s => s.avg_mttr));
+  const maxGai  = Math.max(...sgs.filter(s => s.avg_gai).map(s => s.avg_gai || 0));
+  const totalPb = DATA.summary.total_playbooks || 1;
+
+  const datasets = sgs.map(sg => {
+    const norm_mttr  = maxMttr > minMttr ? 1 - (sg.avg_mttr - minMttr) / (maxMttr - minMttr) : 0.5;
+    const norm_gai   = (sg.avg_gai || 0) > 0 && maxGai > 0 ? (sg.avg_gai || 0) / maxGai : 0;
+    
+    const norm_auto  = sg.autonomous_ratio;
+    const norm_hitl  = 1 - sg.hitl_ratio;
+    const norm_cov   = sg.count / totalPb;
+    const color = SUPERGROUP_COLORS[sg.name] || "#64748b";
+    return {
+      label: sg.name,
+      data: [norm_mttr, norm_gai, norm_auto, norm_hitl, norm_cov],
+      borderColor: color,
+      backgroundColor: color + "33",
+      pointBackgroundColor: color,
+      borderWidth: 2,
+    };
+  });
+
+  new Chart(document.getElementById("radarChart"), {
+    type: "radar",
+    data: { labels: axes, datasets },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { color: "#94a3b8", boxWidth: 10 } } },
+      scales: {
+        r: {
+          min: 0, max: 1,
+          ticks: { color: "#64748b", stepSize: 0.25, backdropColor: "transparent" },
+          grid:  { color: GRID },
+          pointLabels: { color: "#94a3b8", font: { size: 11 } },
+          angleLines: { color: GRID },
+        }
+      }
+    }
+  });
+})(-7);
+
+// ── Horizontal bar chart ──────────────────────────────────────────────────────
+(function() {
+  const top15 = DATA.categories.slice(0, 15);
+  const labels  = top15.map(c => c.name.replace(/_/g, " "));
+  const counts  = top15.map(c => c.count);
+  const colors  = top15.map(c => {
+    const t = c.autonomous_ratio;
+    const r = Math.round(239 + (16  - 239) * t);
+    const g = Math.round(68  + (185 - 68)  * t);
+    const b = Math.round(68  + (129 - 68)  * t);
+    return `rgba(${r},${g},${b},0.85)`;
+  });
+
+  new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: { labels, datasets: [{ label: "Playbook Count", data: counts, backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            afterLabel: ctx => {
+              const c = top15[ctx.dataIndex];
+              return `MTTR: ${c.avg_mttr.toFixed(1)} min  Auto: ${(c.autonomous_ratio*100).toFixed(0)}%`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { grid: { color: GRID }, ticks: { color: "#94a3b8" } },
+        y: { grid: { color: GRID }, ticks: { color: "#94a3b8", font: { size: 11 } } },
+      }
+    }
+  });
+})(-7);
+
+// ── Category table ────────────────────────────────────────────────────────────
+let tableData = [...DATA.categories];
+let sortKey = "count";
+let sortAsc  = false;
+let currentPage = 1;
+const PAGE_SIZE = 20;
+
+function topDomain(domains) {
+  return Object.entries(domains).sort((a,b) => b[1]-a[1])[0]?.[0] ?? "—";
+}
+
+function renderTable() {
+  const q = document.getElementById("tableSearch").value.toLowerCase();
+  const filtered = tableData.filter(c => c.name.toLowerCase().includes(q));
+  filtered.sort((a, b) => {
+    const av = a[sortKey] ?? -1;
+    const bv = b[sortKey] ?? -1;
+    return sortAsc ? (av < bv ? -1 : 1) : (av > bv ? -1 : 1);
+  });
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  currentPage = Math.min(currentPage, totalPages);
+  const page = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const tbody = document.getElementById("catTbody");
+  tbody.innerHTML = page.map(c => `
+    <tr>
+      <td class="font-mono text-xs text-slate-300">${c.name}</td>
+      <td>
+        <span class="badge" style="background:${SUPERGROUP_COLORS[c.supergroup] || "#64748b"}22;
+              color:${SUPERGROUP_COLORS[c.supergroup] || "#94a3b8"};
+              border:1px solid ${SUPERGROUP_COLORS[c.supergroup] || "#64748b"}44">
+          ${c.supergroup}
+        </span>
+      </td>
+      <td class="text-slate-200">${c.count}</td>
+      <td class="text-amber-400">${c.avg_mttr.toFixed(1)}</td>
+      <td>${c.avg_gai !== null && c.avg_gai !== undefined ? c.avg_gai.toFixed(2) : '<span class="text-slate-600">N/A</span>'}</td>
+      <td>${(c.hitl_ratio * 100).toFixed(0)}%</td>
+      <td class="${c.autonomous_ratio > 0.7 ? 'text-emerald-400' : c.autonomous_ratio > 0.4 ? 'text-amber-400' : 'text-red-400'}">
+        ${(c.autonomous_ratio * 100).toFixed(0)}%
+      </td>
+      <td class="text-xs text-slate-400">${topDomain(c.domains)}</td>
+    </tr>`).join("");
+
+  document.getElementById("pagination").innerHTML = `
+    <span class="text-xs text-slate-500">
+      ${filtered.length} categories &bull; page ${currentPage} of ${totalPages}
+    </span>
+    <div class="flex gap-2">
+      <button class="pg-btn" onclick="changePage(-1)" ${currentPage===1?'disabled':''}>&laquo; Prev</button>
+      <button class="pg-btn" onclick="changePage(1)"  ${currentPage===totalPages?'disabled':''}>Next &raquo;</button>
+    </div>`;
+}
+
+function sortTable(key) {
+  if (sortKey === key) sortAsc = !sortAsc;
+  else { sortKey = key; sortAsc = false; }
+  currentPage = 1;
+  renderTable();
+}
+
+function changePage(delta) {
+  currentPage += delta;
+  renderTable();
+}
+
+document.getElementById("tableSearch").addEventListener("input", () => {
+  currentPage = 1;
+  renderTable();
+});
+
+renderTable();
+</script>
+
+<footer class="mt-8 text-center text-xs text-slate-600">
+  AgenticSOC &bull; VERIS Incident Category Intelligence &bull;
+  MTTR/GAI metrics are deterministically simulated from structural playbook metadata.
+  Not live incident telemetry.
+</footer>
+</body>
+</html>
