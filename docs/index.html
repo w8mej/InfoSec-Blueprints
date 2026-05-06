@@ -35,49 +35,22 @@
 <body>
 <div id="root"></div>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script data-cfasync="false" src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script data-cfasync="false" src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script data-cfasync="false" src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin="anonymous"></script>
 
-<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin="anonymous"></script>
+<script data-cfasync="false" src="./js/data-client.js"></script>
 
-<script src="./js/data-client.js"></script>
+<script data-cfasync="false" type="text/babel" src="./js/app.jsx"></script>
+<script data-cfasync="false" type="text/babel" src="./js/tweaks-panel.jsx"></script>
+<script data-cfasync="false" type="text/babel" src="./js/charts.jsx"></script>
+<script data-cfasync="false" type="text/babel" src="./js/pages-1.jsx"></script>
+<script data-cfasync="false" type="text/babel" src="./js/pages-2.jsx"></script>
+<script data-cfasync="false" type="text/babel" src="./js/pages-3.jsx"></script>
 
-<script type="text/babel" src="./js/app.jsx"></script>
-<script type="text/babel" src="./js/tweaks-panel.jsx"></script>
-<script type="text/babel" src="./js/charts.jsx"></script>
-<script type="text/babel" src="./js/pages-1.jsx"></script>
-<script type="text/babel" src="./js/pages-2.jsx"></script>
-<script type="text/babel" src="./js/pages-3.jsx"></script>
-
-<script type="text/babel">
-  console.log("🚀 Babel is successfully compiling the inline script!");
-  
-  try {
-    if (typeof App === "undefined") {
-      console.error("❌ 'App' is undefined. This means app.jsx failed to compile or didn't expose 'App' globally.");
-    } else {
-      console.log("✅ 'App' component found. Attempting to render...");
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(<App/>);
-      console.log("✅ React render executed without throwing.");
-    }
-  } catch (e) {
-    console.error("❌ React crashed during render:", e);
-  }
+<script data-cfasync="false" type="text/babel">
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<App/>);
 </script>
-
-<script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const rootEl = document.getElementById('root');
-      if (rootEl && rootEl.innerHTML.trim() === "") {
-        console.error("🛑 CRITICAL: Babel silently aborted before reaching the inline script.");
-        console.error("👉 Check your Network tab very carefully. If any .jsx file returned a 404, Babel stops the queue. Ensure there are absolutely no file path typos.");
-      }
-    }, 2000);
-  });
-</script>
-</body>
-</html>
 </body>
 </html>
