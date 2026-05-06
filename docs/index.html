@@ -33,7 +33,6 @@
 </template>
 </head>
 <body>
-
 <div id="root"></div>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
@@ -51,7 +50,34 @@
 <script type="text/babel" src="./js/pages-3.jsx"></script>
 
 <script type="text/babel">
-  ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  console.log("🚀 Babel is successfully compiling the inline script!");
+  
+  try {
+    if (typeof App === "undefined") {
+      console.error("❌ 'App' is undefined. This means app.jsx failed to compile or didn't expose 'App' globally.");
+    } else {
+      console.log("✅ 'App' component found. Attempting to render...");
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App/>);
+      console.log("✅ React render executed without throwing.");
+    }
+  } catch (e) {
+    console.error("❌ React crashed during render:", e);
+  }
 </script>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const rootEl = document.getElementById('root');
+      if (rootEl && rootEl.innerHTML.trim() === "") {
+        console.error("🛑 CRITICAL: Babel silently aborted before reaching the inline script.");
+        console.error("👉 Check your Network tab very carefully. If any .jsx file returned a 404, Babel stops the queue. Ensure there are absolutely no file path typos.");
+      }
+    }, 2000);
+  });
+</script>
+</body>
+</html>
 </body>
 </html>
