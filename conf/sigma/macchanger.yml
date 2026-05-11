@@ -1,0 +1,80 @@
+title: Simple keyword detection rule for macchanger
+id: ed261efd-cb1c-444e-8de8-bccc372f5ddd
+status: experimental
+description: Detects interesting keywords based on macchanger tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1036.004
+- attack.T1059.001
+- attack.T1497.001
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*macchanger -r *'
+  - CommandLine:
+    - '*macchanger -r *'
+  - Details:
+    - '*macchanger -r *'
+  - registry.value:
+    - '*macchanger -r *'
+  - process.args:
+    - '*macchanger -r *'
+  - process.command_line:
+    - '*macchanger -r *'
+  - process.env_vars:
+    - '*macchanger -r *'
+  - process.io.text:
+    - '*macchanger -r *'
+  - process.title:
+    - '*macchanger -r *'
+  - pe.company:
+    - '*macchanger -r *'
+  - pe.description:
+    - '*macchanger -r *'
+  - pe.product:
+    - '*macchanger -r *'
+  - os.full:
+    - '*macchanger -r *'
+  - host.hostname:
+    - '*macchanger -r *'
+  - event.original:
+    - '*macchanger -r *'
+  - email.subject:
+    - '*macchanger -r *'
+  - device.model.name:
+    - '*macchanger -r *'
+  - container.image.name:
+    - '*macchanger -r *'
+  - container.name:
+    - '*macchanger -r *'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

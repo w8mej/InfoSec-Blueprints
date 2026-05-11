@@ -1,0 +1,33 @@
+title: Bitsadmin Download
+status: 测试阶段
+description: 试用bitsadmin进行下载任务
+references:
+    - https://blog.netspi.com/15-ways-to-download-a-file/#bitsadmin
+    - https://isc.sans.edu/diary/22264
+tags:
+    - attack.defense_evasion
+    - attack.persistence
+    - attack.t1197
+    - attack.s0190
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection1:
+        Eventid:
+            - 4688 #windows 进程创建，当系统版本在2012以上，可记录命令行参数，可基于命令行参数进行监控。
+            - 1    #sysmon 进程创建，当系统中部署有sysmon，可通过sysmon中的进程创建日志进行监控。
+        Image:
+            - '*\bitsadmin.exe' #此规则检测作用有限，不针对powershelll下场景做检测
+        CommandLine:
+            - '* /transfer *'
+    selection2:
+        CommandLine:
+            - '*copy bitsadmin.exe*'
+    condition: selection1 or selection2
+fields:
+    - CommandLine
+    - ParentCommandLine
+falsepositives:
+    - Some legitimate apps use this, but limited.
+level: medium

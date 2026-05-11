@@ -1,0 +1,1347 @@
+title: Simple keyword detection rule for RagingRotator
+id: b953df25-c9b4-407d-8b05-6967cd2d4aad
+status: experimental
+description: Detects interesting keywords based on RagingRotator tool
+references:
+- https://github.com/nickzer0/RagingRotator
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1071
+- attack.T1090
+- attack.T1110
+- attack.TA0001
+- attack.TA0005
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - OriginalFileName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - CurrentDirectory:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ParentImage:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ParentCommandLine:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - TargetFilename:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Signature:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - signature:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ImageLoaded:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Company:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Description:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - description:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - CommandLine:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - SourceImage:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - TargetImage:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - CallTrace:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - TargetObject:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Details:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - PipeName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Consumer:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Destination:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Query:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - NewName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - StartAddress:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - StartModule:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - StartFunction:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - SourceHostname:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Device:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - file_name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - file_path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - original_file_name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - parent_process:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process_path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - service_path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry_path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry_value_data:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry_value_name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ContextInfo:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Payload:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ScriptBlockText:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ServerName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - TransportName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - NewProcessName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ParentProcessName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Application:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Product Name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Threat Name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Process Name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ImagePath:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ServiceName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ProcessPath:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - AppName:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - AppPath:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ModulePath:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry.data.strings:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry.path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry.value:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.args:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.command_line:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.env_vars:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.io.text:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.executable:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.title:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.company:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.description:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.original_file_name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.product:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - os.full:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - host.hostname:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - file.fork_name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - file.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - file.path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - file.target_path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - email.attachments.file.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - email.subject:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - dll.path:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - device.model.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - container.image.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - container.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - object:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - ParentCommandLine:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - CommandLine:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - Details:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - registry.value:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.args:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.command_line:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.env_vars:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.io.text:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - process.title:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.company:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.description:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - pe.product:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - os.full:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - host.hostname:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - event.original:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - email.subject:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - device.model.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - container.image.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - container.name:
+    - '*/RagingRotator.git*'
+    - '* -userpassfile ./userpass_file.txt*'
+    - '*[+] Valid login* user must enroll in MFA.*'
+    - '*[!] Valid login* expired password: *'
+    - '*RagingRotator-main.*'
+    - '* RagingRotator.go*'
+    - '*\RagingRotator.go*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - url:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - dest_url:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - uri:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - uri_query:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - query:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - url_domain:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - uri_path:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - domain:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - QueryName:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - QueryResults:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - DestinationHostname:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - DestinationIp:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - http_referrer:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - http_referrer_domain:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - http_user_agent:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - dest_nt_host:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - sender:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - recipient:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - orig_recipient:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - subject:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - url.domain:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - url.full:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - url.original:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - url.query:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - user_agent.original:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - network.application:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - http.request.body.content:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - http.request.referrer:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - email.from.address:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - dns.question.name:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  - destination.domain:
+    - '*/RagingRotator.git*'
+    - '*RagingRotator-main.*'
+    - '*/RagingRotator.go*'
+    - '*nickzer0/RagingRotator*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

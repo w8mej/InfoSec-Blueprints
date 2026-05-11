@@ -1,0 +1,22 @@
+title: win-vaultcmd获取系统凭据基本信息
+description: windows server 2016
+tags: T1003
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security/Sysmon
+detection:
+    selection:
+        EventID:
+           - 4688 #windows安全日志，已创建新的进程。
+           - 1 #windows Sysmon日志，创建新的进程
+        New processname: C:\Windows\System32\VaultCmd.exe #新进程名称/image
+        Parent processname: C:\Windows\System32\cmd.exe #创建者进程名称/ParentImage
+        Process commandline:
+           - vaultcmd  /list  #列出保管库(vault)列表
+           - vaultcmd  /listschema #列出保管库(vault)概要，凭据名称和GUID
+           - vaultcmd  /listcreds:{*} #中文系统，列出GUID为{* }的保管库(vault)下的所有凭据
+           - vaultcmd /listcreds:"*"  #英文系统 ，列出名为”*”的保管库(vault)下的所有凭据信息
+           - vaultcmd  /listproperties:{*} #中文系统，列出GUID为{*}的保管库(vault)的属性，包括文件位置、包含的凭据数量、保护方法
+    condition: selection

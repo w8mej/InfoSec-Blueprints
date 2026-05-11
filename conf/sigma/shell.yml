@@ -1,0 +1,1364 @@
+title: Simple keyword detection rule for shell
+id: 098889dc-7ad7-4f28-b026-7100edb16c08
+status: experimental
+description: Detects interesting keywords based on shell tool
+references:
+- https://attack.mitre.org/techniques/T1562/001/
+- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/lnx_shell_susp_rev_shells.yml
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.001
+- attack.T1021.002
+- attack.T1055
+- attack.T1070.004
+- attack.T1105
+- attack.T1218.011
+- attack.T1562.001
+- attack.T1562.002
+- attack.TA0002
+- attack.TA0005
+- attack.TA0007
+- attack.TA0008
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - CommandLine:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Details:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry.value:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.args:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.command_line:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.env_vars:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.io.text:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.title:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.company:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.description:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.product:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - os.full:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - host.hostname:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - event.original:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - email.subject:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - device.model.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - container.image.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - container.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Image:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - OriginalFileName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - CurrentDirectory:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ParentImage:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ParentCommandLine:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - TargetFilename:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Signature:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - signature:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ImageLoaded:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Company:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Description:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - description:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - CommandLine:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - SourceImage:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - TargetImage:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - CallTrace:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - TargetObject:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Details:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - PipeName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Consumer:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Destination:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Query:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - NewName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - StartAddress:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - StartModule:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - StartFunction:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - SourceHostname:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Device:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - file_name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - file_path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - original_file_name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - parent_process:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process_path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - service_path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry_path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry_value_data:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry_value_name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ContextInfo:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Payload:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ScriptBlockText:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ServerName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - TransportName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - NewProcessName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ParentProcessName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Application:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Product Name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Threat Name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Process Name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - Path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ImagePath:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ServiceName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ProcessPath:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - AppName:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - AppPath:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - ModulePath:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry.data.strings:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry.path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - registry.value:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.args:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.command_line:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.env_vars:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.io.text:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.executable:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - process.title:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.company:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.description:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.original_file_name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - pe.product:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - os.full:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - host.hostname:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - file.fork_name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - file.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - file.path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - file.target_path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - email.attachments.file.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - email.subject:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - dll.path:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - device.model.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - container.image.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - container.name:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - object:
+    - '*/bin/sh -i <&3 >&3 2>&3*'
+    - schkconfig off cbdaemon
+    - '*/bin/sh | nc*'
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+    - '*rm -f backpipe* mknod /tmp/backpipe p && nc *'
+    - '*sc config WinDefend start= disabled*'
+    - setenforce 0
+    - '*uname -a* w* id* /bin/bash -i*'
+    - '*STDIN->fdopen($c*r)*$~->fdopen($c*w)*system$_ while<>*'
+    - service cbdaemon stop
+  - url:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - dest_url:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - uri:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - uri_query:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - query:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - url_domain:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - uri_path:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - domain:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - QueryName:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - QueryResults:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - DestinationHostname:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - DestinationIp:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - http_referrer:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - http_referrer_domain:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - http_user_agent:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - dest_nt_host:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - sender:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - recipient:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - orig_recipient:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - subject:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - url.domain:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - url.full:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - url.original:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - url.query:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - user_agent.original:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - network.application:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - http.request.body.content:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - http.request.referrer:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - email.from.address:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - dns.question.name:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  - destination.domain:
+    - '*socket(S*PF_INET*SOCK_STREAM*getprotobyname(*tcp*))*if(connect(S*sockaddr_in($p*inet_aton($i))))*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

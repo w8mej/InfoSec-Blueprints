@@ -1,0 +1,859 @@
+title: Simple keyword detection rule for netcat
+id: a8f58467-a11e-4555-837d-cae4bd184d88
+status: experimental
+description: Detects interesting keywords based on netcat tool
+references:
+- http://netcat.sourceforge.net/
+- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.001
+- attack.T1021.002
+- attack.T1043
+- attack.T1052
+- attack.T1071
+- attack.T1095
+- attack.T1105
+- attack.T1132
+- attack.T1573
+- attack.TA0001
+- attack.TA0002
+- attack.TA0007
+- attack.TA0008
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - CommandLine:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Details:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry.value:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.args:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.command_line:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.env_vars:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.io.text:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.title:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.company:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.description:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.product:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - os.full:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - host.hostname:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - event.original:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - email.subject:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - device.model.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - container.image.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - container.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Image:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - OriginalFileName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - CurrentDirectory:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ParentImage:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ParentCommandLine:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - TargetFilename:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Signature:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - signature:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ImageLoaded:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Company:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Description:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - description:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - CommandLine:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - SourceImage:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - TargetImage:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - CallTrace:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - TargetObject:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Details:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - PipeName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Consumer:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Destination:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Query:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - NewName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - StartAddress:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - StartModule:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - StartFunction:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - SourceHostname:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Device:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - file_name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - file_path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - original_file_name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - parent_process:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process_path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - service_path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry_path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry_value_data:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry_value_name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ContextInfo:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Payload:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ScriptBlockText:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ServerName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - TransportName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - NewProcessName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ParentProcessName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Application:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Product Name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Threat Name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Process Name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - Path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ImagePath:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ServiceName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ProcessPath:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - AppName:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - AppPath:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - ModulePath:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry.data.strings:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry.path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - registry.value:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.args:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.command_line:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.env_vars:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.io.text:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.executable:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - process.title:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.company:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.description:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.original_file_name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - pe.product:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - os.full:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - host.hostname:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - file.fork_name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - file.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - file.path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - file.target_path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - email.attachments.file.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - email.subject:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - dll.path:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - device.model.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - container.image.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - container.name:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  - object:
+    - '*nc -u -lvp *'
+    - '*ncat * -e /bin/bash*'
+    - '*nc * -e /bin/bash*'
+    - '*netCat*'
+    - '*ncat --udp * -e /bin/bash*'
+    - nc -vz *
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

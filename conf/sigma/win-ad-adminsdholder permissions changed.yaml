@@ -1,0 +1,30 @@
+title: AdminSDHolder permissions changed for persistence
+description: Detects scenarios where an attacker changes permissions on the AdminSDHolder container to establish persistence.
+requirements: auditing SACL "Modify permissions" must be placed on the "AdminSDHolder" container using the Active Directory console (https://www.manageengine.com/products/active-directory-audit/active-directory-auditing-configuration-guide-configure-object-level-auditing-manually.html).
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1546-Event%20Triggered%20Execution
+- https://adsecurity.org/?p=1906
+- https://stealthbits.com/blog/20170619persistence-using-adminsdholder-and-sdprop/
+- https://attack.stealthbits.com/adminsdholder-modification-ad-persistence
+- https://adds-security.blogspot.com/2017/08/adminsdholder-backdoor-via-substitution.html
+- https://www.netwrix.com/adminsdholder_modification_ad_persistence.html
+- https://www.sentinelone.com/blog/protecting-your-active-directory-from-adminsdholder-attacks/
+- https://pentestlab.blog/2022/01/04/domain-persistence-adminsdholder/
+tags:
+- attack.persistence
+- attack.t1546
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5136
+    OperationType: '%%14674' # Value added
+    AttributeLDAPDisplayName: nTSecurityDescriptor
+    ObjectDN|startswith: CN=AdminSDHolder
+  condition: selection
+falsepositives:
+- Unknown
+level: high

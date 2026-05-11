@@ -8,7 +8,7 @@ const { useState, useEffect, useMemo, useRef, useCallback } = React;
 
 // ---------- Routes registry ----------
 const ROUTES = [
-  { id: "dashboard",         path: "#/dashboard",         label: "Project Dashboard",     group: "Operations",  audience: ["secops","ic"],          icon: "grid",     desc: "Real-time agentic SOC operations" },
+  { id: "dashboard",         path: "#/dashboard",         label: "Project Dashboard",     group: "Operations",  audience: ["secops","ic"],          icon: "grid",     desc: "Real-time Sentinel Mesh operations" },
   { id: "performance",       path: "#/performance",       label: "Performance Analytics", group: "Operations",  audience: ["exec","secops"],         icon: "trend",    desc: "Throughput, MTTD/MTTR, SLO budget" },
   { id: "hitl",              path: "#/hitl",              label: "HITL Gate Composition", group: "Operations",  audience: ["secops","ic","dev"],     icon: "users",    desc: "Human-in-the-loop checkpoint analytics" },
   { id: "marimo",            path: "#/marimo",            label: "Marimo Coverage",       group: "Engineering", audience: ["dev","secops"],          icon: "notebook", desc: "Reactive notebook adoption" },
@@ -198,7 +198,7 @@ function Nav() {
         <BrandMark size={22}/>
         <div>
           <div className="nav__brand-name">Sentinel Mesh</div>
-          <div className="nav__brand-tag">AGENTIC SOC · v2.4</div>
+          <div className="nav__brand-tag">Sentinel Mesh · v2.4</div>
         </div>
       </div>
       <div className="nav__list">

@@ -1,0 +1,245 @@
+title: Simple keyword detection rule for sc
+id: ce45bcae-2b7f-4ad7-9fe9-fc43413ff2dc
+status: experimental
+description: Detects interesting keywords based on sc tool
+references:
+- https://thedfirreport.com/2023/02/06/collect-exfiltrate-sleep-repeat/
+- https://thedfirreport.com/wp-content/uploads/2023/12/19208-013.png
+- https://twitter.com/splinter_code/status/1715876413474025704
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.006
+- attack.T1049
+- attack.T1059.003
+- attack.T1489
+- attack.T1518.001
+- attack.T1562.001
+- attack.T1569.002
+- attack.TA0002
+- attack.TA0004
+- 'attack.TA0004 '
+- attack.TA0005
+- attack.TA0007
+- attack.TA0009
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - CommandLine:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - Details:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - registry.value:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - process.args:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - process.command_line:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - process.env_vars:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - process.io.text:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - process.title:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - pe.company:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - pe.description:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - pe.product:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - os.full:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - host.hostname:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - event.original:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - email.subject:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - device.model.name:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - container.image.name:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  - container.name:
+    - '*sc delete MBAMProtection*'
+    - '*sc stop MBAMProtection*'
+    - '*sc start RemoteRegistry*'
+    - '* /c sc query WinDefend*'
+    - '*sc qtriggerinfo RemoteRegistry*'
+    - '*sc create *nc.exe -*cmd.exe*'
+    - '*sc stop MBAMService*'
+    - '*echo start > \\.\pipe\winreg*'
+    - '*sc delete MBAMService*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

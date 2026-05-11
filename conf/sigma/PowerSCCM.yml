@@ -1,0 +1,1032 @@
+title: Simple keyword detection rule for PowerSCCM
+id: 96e778e1-4f86-4248-8dd7-80b1f7c1ab8d
+status: experimental
+description: Detects interesting keywords based on PowerSCCM tool
+references:
+- https://github.com/PowerShellMafia/PowerSCCM
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1047
+- attack.T1059.001
+- attack.T1072
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - OriginalFileName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - CurrentDirectory:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ParentImage:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ParentCommandLine:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - TargetFilename:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Signature:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - signature:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ImageLoaded:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Company:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Description:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - description:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - CommandLine:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - SourceImage:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - TargetImage:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - CallTrace:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - TargetObject:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Details:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - PipeName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Consumer:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Destination:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Query:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - NewName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - StartAddress:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - StartModule:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - StartFunction:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - SourceHostname:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Device:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - file_name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - file_path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - original_file_name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - parent_process:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process_path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - service_path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - registry_path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - registry_value_data:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - registry_value_name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ContextInfo:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Payload:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ScriptBlockText:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ServerName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - TransportName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - NewProcessName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ParentProcessName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Application:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Product Name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Threat Name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Process Name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - Path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ImagePath:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ServiceName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ProcessPath:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - AppName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - AppPath:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - ModulePath:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - registry.data.strings:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - registry.path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - registry.value:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.args:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.command_line:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.env_vars:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.io.text:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.executable:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - process.title:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - pe.company:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - pe.description:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - pe.original_file_name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - pe.product:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - os.full:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - host.hostname:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - file.fork_name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - file.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - file.path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - file.target_path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - email.attachments.file.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - email.subject:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - dll.path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - device.model.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - container.image.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - container.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - object:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*0ac82760-3e0d-4124-bd1c-92c8dab97171*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - url:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - dest_url:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - uri:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - uri_query:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - query:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - url_domain:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - uri_path:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - domain:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - QueryName:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - QueryResults:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - DestinationHostname:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - DestinationIp:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - http_referrer:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - http_referrer_domain:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - http_user_agent:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - dest_nt_host:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - sender:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - recipient:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - orig_recipient:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - subject:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - url.domain:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - url.full:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - url.original:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - url.query:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - user_agent.original:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - network.application:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - http.request.body.content:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - http.request.referrer:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - email.from.address:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - dns.question.name:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  - destination.domain:
+    - '*PowerSCCM.ps1*'
+    - '*/PowerSCCM.git*'
+    - '*PowerSCCM.psm1*'
+    - '*PowerSCCM.psd1*'
+    - '*PowerSCCM-master*'
+    - '*PowerShellMafia/PowerSCCM*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

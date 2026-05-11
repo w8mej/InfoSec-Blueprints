@@ -1,0 +1,1103 @@
+title: Simple keyword detection rule for GithubC2
+id: 3891f0f7-20a8-46e5-8bc7-536e6db698c2
+status: experimental
+description: Detects interesting keywords based on GithubC2 tool
+references:
+- https://github.com/TheD1rkMtr/GithubC2
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1071.001
+- attack.T1095
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - OriginalFileName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - CurrentDirectory:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ParentImage:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ParentCommandLine:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - TargetFilename:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Signature:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - signature:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ImageLoaded:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Company:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Description:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - description:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - CommandLine:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - SourceImage:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - TargetImage:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - CallTrace:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - TargetObject:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Details:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - PipeName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Consumer:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Destination:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Query:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - NewName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - StartAddress:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - StartModule:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - StartFunction:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - SourceHostname:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Device:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - file_name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - file_path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - original_file_name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - parent_process:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process_path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - service_path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - registry_path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - registry_value_data:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - registry_value_name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ContextInfo:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Payload:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ScriptBlockText:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ServerName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - TransportName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - NewProcessName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ParentProcessName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Application:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Product Name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Threat Name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Process Name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - Path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ImagePath:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ServiceName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ProcessPath:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - AppName:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - AppPath:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - ModulePath:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - registry.data.strings:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - registry.path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - registry.value:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.args:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.command_line:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.env_vars:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.io.text:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.executable:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - process.title:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - pe.company:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - pe.description:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - pe.original_file_name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - pe.product:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - os.full:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - host.hostname:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - file.fork_name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - file.name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - file.path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - file.target_path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - email.attachments.file.name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - email.subject:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - dll.path:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - device.model.name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - container.image.name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - container.name:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - object:
+    - '*AbuseGithubAPI*.cpp*'
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*AbuseGithubAPI*.exe*'
+    - '*TeamServer.exe *github.com*'
+    - '*F3C62326-E221-4481-AC57-EF7F76AAF27B*'
+    - '*29446C11-A1A5-47F6-B418-0D699C6C3339*'
+    - '*GithubC2-main*'
+    - '*\Implant.exe *'
+  - url:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - dest_url:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - uri:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - uri_query:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - query:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - url_domain:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - uri_path:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - domain:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - QueryName:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - QueryResults:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - DestinationHostname:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - DestinationIp:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - http_referrer:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - http_referrer_domain:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - http_user_agent:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - dest_nt_host:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - sender:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - recipient:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - orig_recipient:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - subject:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - url.domain:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - url.full:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - url.original:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - url.query:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - user_agent.original:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - network.application:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - http.request.body.content:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - http.request.referrer:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - email.from.address:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - dns.question.name:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  - destination.domain:
+    - '*TheD1rkMtr/GithubC2*'
+    - '*/GithubC2.git*'
+    - '*GithubC2-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

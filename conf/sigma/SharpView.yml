@@ -1,0 +1,1481 @@
+title: Simple keyword detection rule for SharpView
+id: c0376e81-7fd0-4c79-872e-e8df4f1ec56e
+status: experimental
+description: Detects interesting keywords based on SharpView tool
+references:
+- https://github.com/tevora-threat/SharpView/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1069.002
+- attack.T1087.002
+- attack.T1482
+- attack.TA0001
+- attack.TA0003
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - OriginalFileName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - CurrentDirectory:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ParentImage:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ParentCommandLine:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - TargetFilename:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Signature:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - signature:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ImageLoaded:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Company:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Description:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - description:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - CommandLine:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - SourceImage:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - TargetImage:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - CallTrace:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - TargetObject:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Details:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - PipeName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Consumer:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Destination:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Query:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - NewName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - StartAddress:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - StartModule:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - StartFunction:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - SourceHostname:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Device:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - file_name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - file_path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - original_file_name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - parent_process:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process_path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - service_path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry_path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry_value_data:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry_value_name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ContextInfo:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Payload:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ScriptBlockText:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ServerName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - TransportName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - NewProcessName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ParentProcessName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Application:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Product Name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Threat Name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Process Name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ImagePath:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ServiceName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ProcessPath:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - AppName:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - AppPath:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ModulePath:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry.data.strings:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry.path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry.value:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.args:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.command_line:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.env_vars:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.io.text:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.executable:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.title:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.company:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.description:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.original_file_name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.product:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - os.full:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - host.hostname:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - file.fork_name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - file.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - file.path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - file.target_path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - email.attachments.file.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - email.subject:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - dll.path:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - device.model.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - container.image.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - container.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - object:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - ParentCommandLine:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - CommandLine:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - Details:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - registry.value:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.args:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.command_line:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.env_vars:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.io.text:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - process.title:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.company:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.description:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - pe.product:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - os.full:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - host.hostname:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - event.original:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - email.subject:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - device.model.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - container.image.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - container.name:
+    - '*22A156EA-2623-45C7-8E50-E864D9FC44D3*'
+    - '*using SharpView.Enums*'
+    - '*SharpView\SharpView*'
+    - '*SharpView-master*'
+    - '*.exe Get-DomainController -Domain * -Server * -Credential *'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*Args_Invoke_Kerberoast*'
+    - '*tevora-threat/SharpView/*'
+  - url:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - dest_url:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - uri:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - uri_query:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - query:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - url_domain:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - uri_path:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - domain:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - QueryName:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - QueryResults:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - DestinationHostname:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - DestinationIp:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - http_referrer:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - http_referrer_domain:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - http_user_agent:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - dest_nt_host:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - sender:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - recipient:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - orig_recipient:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - subject:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - url.domain:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - url.full:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - url.original:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - url.query:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - user_agent.original:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - network.application:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - http.request.body.content:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - http.request.referrer:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - email.from.address:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - dns.question.name:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  - destination.domain:
+    - '*SharpView-master*'
+    - '*/PowerView.ps1*'
+    - '*/SharpView.git*'
+    - '*SharpView.exe*'
+    - '*tevora-threat/SharpView/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

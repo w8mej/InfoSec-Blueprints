@@ -1,0 +1,1449 @@
+title: Simple keyword detection rule for dns-black-cat
+id: ba2f0742-3d61-4f61-93fc-41a2c7073373
+status: experimental
+description: Detects interesting keywords based on dns-black-cat tool
+references:
+- https://github.com/lawrenceamer/dns-black-cat
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1048.003
+- attack.T1071.004
+- attack.T1140
+- attack.TA0001
+- attack.TA0011
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - OriginalFileName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - CurrentDirectory:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ParentImage:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ParentCommandLine:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - TargetFilename:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Signature:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - signature:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ImageLoaded:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Company:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Description:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - description:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - CommandLine:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - SourceImage:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - TargetImage:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - CallTrace:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - TargetObject:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Details:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - PipeName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Consumer:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Destination:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Query:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - NewName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - StartAddress:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - StartModule:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - StartFunction:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - SourceHostname:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Device:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - file_name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - file_path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - original_file_name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - parent_process:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process_path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - service_path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry_path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry_value_data:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry_value_name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ContextInfo:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Payload:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ScriptBlockText:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ServerName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - TransportName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - NewProcessName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ParentProcessName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Application:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Product Name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Threat Name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Process Name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ImagePath:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ServiceName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ProcessPath:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - AppName:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - AppPath:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ModulePath:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry.data.strings:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry.path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry.value:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.args:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.command_line:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.env_vars:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.io.text:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.executable:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.title:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.company:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.description:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.original_file_name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.product:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - os.full:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - host.hostname:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - file.fork_name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - file.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - file.path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - file.target_path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - email.attachments.file.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - email.subject:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - dll.path:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - device.model.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - container.image.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - container.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - object:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - ParentCommandLine:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - CommandLine:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - Details:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - registry.value:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.args:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.command_line:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.env_vars:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.io.text:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - process.title:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.company:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.description:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - pe.product:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - os.full:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - host.hostname:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - event.original:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - email.subject:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - device.model.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - container.image.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - container.name:
+    - '*\dns-cat.exe*'
+    - '*dns_server.py -d *'
+    - '*/dns-black-cat.git*'
+    - '*dns-cat.exe -*'
+    - '* DNS-Black-CAT Server *'
+    - '*/dns-cat.exe*'
+    - '*agent.exe -dns -srvhost *'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - url:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - dest_url:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - uri:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - uri_query:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - query:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - url_domain:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - uri_path:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - domain:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - QueryName:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - QueryResults:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - DestinationHostname:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - DestinationIp:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - http_referrer:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - http_referrer_domain:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - http_user_agent:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - dest_nt_host:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - sender:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - recipient:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - orig_recipient:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - subject:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - url.domain:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - url.full:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - url.original:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - url.query:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - user_agent.original:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - network.application:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - http.request.body.content:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - http.request.referrer:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - email.from.address:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - dns.question.name:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  - destination.domain:
+    - '*/dns-black-cat.git*'
+    - '*lawrenceamer/dns-black-cat*'
+    - '*dns-black-cat-main*'
+    - '*/DBC-Server.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

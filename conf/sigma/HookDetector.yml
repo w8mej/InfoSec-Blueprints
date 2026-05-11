@@ -1,0 +1,871 @@
+title: Simple keyword detection rule for HookDetector
+id: 9e9e0359-41f0-4463-bc79-fbc0908317d4
+status: experimental
+description: Detects interesting keywords based on HookDetector tool
+references:
+- https://github.com/matterpreter/OffensiveCSharp/tree/master/HookDetector
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.012
+- attack.T1057
+- attack.T1082
+- attack.TA0003
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - OriginalFileName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - CurrentDirectory:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ParentImage:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ParentCommandLine:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - TargetFilename:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Signature:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - signature:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ImageLoaded:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Company:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Description:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - description:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - CommandLine:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - SourceImage:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - TargetImage:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - CallTrace:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - TargetObject:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Details:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - PipeName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Consumer:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Destination:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Query:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - NewName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - StartAddress:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - StartModule:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - StartFunction:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - SourceHostname:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Device:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - file_name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - file_path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - original_file_name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - parent_process:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process_path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - service_path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry_path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry_value_data:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry_value_name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ContextInfo:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Payload:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ScriptBlockText:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ServerName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - TransportName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - NewProcessName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ParentProcessName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Application:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Product Name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Threat Name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Process Name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ImagePath:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ServiceName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ProcessPath:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - AppName:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - AppPath:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ModulePath:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry.data.strings:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry.path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry.value:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.args:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.command_line:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.env_vars:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.io.text:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.executable:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.title:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.company:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.description:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.original_file_name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.product:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - os.full:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - host.hostname:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - file.fork_name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - file.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - file.path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - file.target_path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - email.attachments.file.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - email.subject:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - dll.path:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - device.model.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - container.image.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - container.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - object:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - ParentCommandLine:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - CommandLine:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - Details:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - registry.value:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.args:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.command_line:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.env_vars:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.io.text:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - process.title:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.company:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.description:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - pe.product:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - os.full:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - host.hostname:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - event.original:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - email.subject:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - device.model.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - container.image.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - container.name:
+    - '*\HookDetector.csproj*'
+    - '*\HookDetector.exe*'
+    - '* * 0x* - HOOK DETECTED*'
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - url:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - dest_url:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - uri:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - uri_query:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - query:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - url_domain:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - uri_path:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - domain:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - QueryName:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - QueryResults:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - DestinationHostname:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - DestinationIp:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - http_referrer:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - http_referrer_domain:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - http_user_agent:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - dest_nt_host:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - sender:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - recipient:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - orig_recipient:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - subject:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - url.domain:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - url.full:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - url.original:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - url.query:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - user_agent.original:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - network.application:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - http.request.body.content:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - http.request.referrer:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - email.from.address:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - dns.question.name:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  - destination.domain:
+    - '*master/HookDetector*'
+    - '*/HookDetector.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

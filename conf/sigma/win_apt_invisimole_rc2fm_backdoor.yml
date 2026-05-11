@@ -1,0 +1,46 @@
+action: global
+title: InvisiMole RC2FM backdoor
+id: 3a1c6d7c-e910-428d-a054-56af50d9fb0c
+status: experimental
+description: Detects artefacts associated with InvisiMole RC2FM backdoor, as reported in 2018 and 2020
+references:
+    - https://www.welivesecurity.com/2018/06/07/invisimole-equipped-spyware-undercover/
+    - https://www.welivesecurity.com/2020/06/18/digging-up-invisimole-hidden-arsenal/
+author: ESET Research
+date: 2021/05/17
+tags:
+    - attack.collection
+    - attack.defense_evasion
+    - attack.t1112
+    - attack.t1074.001
+detection:
+    condition: 1 of them
+falsepositives:
+    - Unknown
+level: high
+logsource:
+    category: file_event
+    product: windows
+detection:
+    selection1:
+        TargetFilename|contains:
+            - '\Microsoft\Internet Explorer\Cache\AMB6HER8'
+            - '\Microsoft\Internet Explorer\Cache\Y68JG1TH'
+            - '\Microsoft\Internet Explorer\Cache\OUB1N96O'
+            - '\Microsoft\Internet Explorer\Cache\V2JMDODG'
+            - '\Microsoft\Internet Explorer\Cache\KQP70AQV'
+            - '\Microsoft\Internet Explorer\Cache\74BWF9JV'
+            - '\Microsoft\Internet Explorer\Cache\MX0ROSB1'
+            - '\Microsoft\Internet Explorer\Cache\4AINFWUJ'
+            - '\Microsoft\Internet Explorer\Cache\6FFT03MB'
+            - '\Microsoft\Internet Explorer\Cache\W9U2CJ6T'
+            - '\Microsoft\Internet Explorer\Cache\NI8NKODB'
+            - '\Microsoft\Internet Explorer\Cache\0IOQ61KI'
+            - '\Microsoft\Internet Explorer\Cache\7KWRPZWK'
+            - '\Microsoft\Internet Explorer\Cache\CZPOL9V4'
+        TargetFilename|endswith:
+            - 'content.dat'
+            - 'cache.dat'
+            - 'index.dat'
+    selection2:
+        TargetFilename|endswith: '\Microsoft\Internet Explorer\Cache\index0.dat'

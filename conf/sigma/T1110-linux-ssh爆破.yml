@@ -1,0 +1,15 @@
+title: linux下ssh暴力破解
+description: Ubuntu18.04、kali
+references:
+tags: T1110
+status: experimental
+author: 12306Bro
+logsource:
+    product: linux
+    service: auth.log/audit.log
+detection:
+    keywords:
+       - 'Failed password for * ssh2' #linux auth.log
+       - '* exe="/usr/sbin/sshd" * terminal=ssh res=failed'  #linux audit.log
+    condition: keywords
+level: medium

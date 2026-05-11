@@ -1,0 +1,746 @@
+title: Simple keyword detection rule for ntdsutil
+id: c5fea77d-b985-4708-89cb-365c3c37ecf4
+status: experimental
+description: Detects interesting keywords based on ntdsutil tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.T1059
+- attack.T1070.004
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - CommandLine:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Details:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry.value:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.args:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.command_line:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.env_vars:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.io.text:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.title:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.company:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.description:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.product:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - os.full:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - host.hostname:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - event.original:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - email.subject:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - device.model.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - container.image.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - container.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Image:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - OriginalFileName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - CurrentDirectory:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ParentImage:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ParentCommandLine:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - TargetFilename:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Signature:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - signature:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ImageLoaded:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Company:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Description:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - description:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - CommandLine:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - SourceImage:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - TargetImage:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - CallTrace:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - TargetObject:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Details:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - PipeName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Consumer:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Destination:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Query:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - NewName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - StartAddress:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - StartModule:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - StartFunction:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - SourceHostname:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Device:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - file_name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - file_path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - original_file_name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - parent_process:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process_path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - service_path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry_path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry_value_data:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry_value_name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ContextInfo:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Payload:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ScriptBlockText:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ServerName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - TransportName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - NewProcessName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ParentProcessName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Application:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Product Name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Threat Name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Process Name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - Path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ImagePath:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ServiceName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ProcessPath:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - AppName:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - AppPath:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - ModulePath:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry.data.strings:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry.path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - registry.value:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.args:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.command_line:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.env_vars:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.io.text:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.executable:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - process.title:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.company:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.description:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.original_file_name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - pe.product:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - os.full:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - host.hostname:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - file.fork_name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - file.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - file.path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - file.target_path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - email.attachments.file.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - email.subject:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - dll.path:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - device.model.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - container.image.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - container.name:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  - object:
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *users\public*'
+    - '*\system32.zip*'
+    - '*ntdsutil *ac i ntds* *create full*\temp*'
+    - '*ntdsutil.exe *ac i ntds*ifm*create full *temp*'
+    - '*ntdsutil.exe *ac i ntds* *ifm* *create full *c:\ProgramData*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

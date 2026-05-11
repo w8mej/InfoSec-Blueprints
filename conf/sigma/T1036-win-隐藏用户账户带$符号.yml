@@ -1,0 +1,25 @@
+title: 在属性'SamAccountName'中使用'$'的新用户帐户或重命名用户帐户
+status: experimental
+description: 通过异常的用户帐户名检测可能的旁路EDR和SIEM。
+tags:
+    - attack.defense_evasion
+    - attack.t1036
+author: 12306Br0(测试+翻译)
+date: 2020/06/09
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4720 # 创建用户
+            - 4781 # 修改用户名
+        UserName|contains: '$'    #Sam用户名
+    condition: selection
+fields:
+    - EventID
+    - UserName
+    - SubjectAccountName
+falsepositives:
+    - Unkown
+level: high

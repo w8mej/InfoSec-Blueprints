@@ -1,0 +1,18 @@
+title: AWS FederatedLogin
+author: wssheldo
+date: 2020/05/20
+description: Alert when a user logs in with a federated URL.
+references:
+  - https://blog.netspi.com/gaining-aws-console-access-via-api-keys/
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d@d
+  userIdentity.type="FederatedUser"
+severity: 3
+page: false
+falsepositives: >
+  - A user legitmately using the federated login API,
+  this should rarely happen since we have Isengard.
+tags: >
+  - attack.t1078

@@ -1,0 +1,1137 @@
+title: Simple keyword detection rule for Darkside
+id: d95f90c1-753f-4474-8db1-afdb28896bcc
+status: experimental
+description: Detects interesting keywords based on Darkside tool
+references:
+- https://github.com/ph4nt0mbyt3/Darkside
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1547.006
+- attack.T1562.001
+- attack.TA0003
+- 'attack.TA0004  '
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - OriginalFileName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - CurrentDirectory:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ParentImage:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ParentCommandLine:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - TargetFilename:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Signature:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - signature:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ImageLoaded:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Company:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Description:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - description:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - CommandLine:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - SourceImage:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - TargetImage:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - CallTrace:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - TargetObject:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Details:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - PipeName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Consumer:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Destination:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Query:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - NewName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - StartAddress:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - StartModule:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - StartFunction:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - SourceHostname:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Device:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - file_name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - file_path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - original_file_name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - parent_process:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process_path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - service_path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - registry_path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - registry_value_data:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - registry_value_name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ContextInfo:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Payload:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ScriptBlockText:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ServerName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - TransportName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - NewProcessName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ParentProcessName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Application:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Product Name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Threat Name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Process Name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - Path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ImagePath:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ServiceName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ProcessPath:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - AppName:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - AppPath:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - ModulePath:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - registry.data.strings:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - registry.path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - registry.value:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.args:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.command_line:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.env_vars:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.io.text:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.executable:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - process.title:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - pe.company:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - pe.description:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - pe.original_file_name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - pe.product:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - os.full:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - host.hostname:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - file.fork_name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - file.name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - file.path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - file.target_path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - email.attachments.file.name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - email.subject:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - dll.path:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - device.model.name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - container.image.name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - container.name:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - object:
+    - '*Darkside.exe -p*'
+    - '*/Darkside.sln*'
+    - '*D90EFC93-2F8B-4427-B967-0E78ED45611E*'
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*\Darkside.sln*'
+    - '*\Darkside.exe*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - url:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - dest_url:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - uri:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - uri_query:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - query:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - url_domain:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - uri_path:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - domain:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - QueryName:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - QueryResults:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - DestinationHostname:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - DestinationIp:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - http_referrer:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - http_referrer_domain:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - http_user_agent:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - dest_nt_host:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - sender:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - recipient:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - orig_recipient:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - subject:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - url.domain:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - url.full:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - url.original:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - url.query:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - user_agent.original:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - network.application:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - http.request.body.content:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - http.request.referrer:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - email.from.address:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - dns.question.name:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  - destination.domain:
+    - '*/Darkside.git*'
+    - '*Darkside-master.zip*'
+    - '*ph4nt0mbyt3/Darkside*'
+    - '*/Darkside.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

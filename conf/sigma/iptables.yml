@@ -1,0 +1,140 @@
+title: Simple keyword detection rule for iptables
+id: 1fbbb096-5118-4072-81b9-27135850e697
+status: experimental
+description: Detects interesting keywords based on iptables tool
+references:
+- https://attack.mitre.org/techniques/T1562/001/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1070.004
+- attack.T1218.011
+- attack.TA0005
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - CommandLine:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - Details:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - registry.value:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - process.args:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - process.command_line:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - process.env_vars:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - process.io.text:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - process.title:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - pe.company:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - pe.description:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - pe.product:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - os.full:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - host.hostname:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - event.original:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - email.subject:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - device.model.name:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - container.image.name:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  - container.name:
+    - service ip6tables stop
+    - service iptables stop
+    - chkconfig off ip6tables
+    - chkconfig off iptables
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,1059 @@
+title: Simple keyword detection rule for petipotam
+id: 7b464a2c-82da-4da5-a6dc-4258367d6c4b
+status: experimental
+description: Detects interesting keywords based on petipotam tool
+references:
+- https://github.com/topotam/PetitPotam
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021
+- attack.T1557.001
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - OriginalFileName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - CurrentDirectory:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ParentImage:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ParentCommandLine:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - TargetFilename:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Signature:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - signature:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ImageLoaded:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Company:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Description:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - description:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - CommandLine:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - SourceImage:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - TargetImage:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - CallTrace:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - TargetObject:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Details:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - PipeName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Consumer:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Destination:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Query:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - NewName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - StartAddress:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - StartModule:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - StartFunction:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - SourceHostname:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Device:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - file_name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - file_path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - original_file_name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - parent_process:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process_path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - service_path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - registry_path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - registry_value_data:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - registry_value_name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ContextInfo:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Payload:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ScriptBlockText:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ServerName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - TransportName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - NewProcessName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ParentProcessName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Application:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Product Name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Threat Name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Process Name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - Path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ImagePath:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ServiceName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ProcessPath:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - AppName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - AppPath:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - ModulePath:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - registry.data.strings:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - registry.path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - registry.value:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.args:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.command_line:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.env_vars:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.io.text:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.executable:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - process.title:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - pe.company:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - pe.description:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - pe.original_file_name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - pe.product:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - os.full:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - host.hostname:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - file.fork_name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - file.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - file.path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - file.target_path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - email.attachments.file.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - email.subject:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - dll.path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - device.model.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - container.image.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - container.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - object:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - url:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - dest_url:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - uri:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - uri_query:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - query:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - url_domain:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - uri_path:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - domain:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - QueryName:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - QueryResults:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - DestinationHostname:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - DestinationIp:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - http_referrer:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - http_referrer_domain:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - http_user_agent:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - dest_nt_host:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - sender:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - recipient:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - orig_recipient:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - subject:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - url.domain:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - url.full:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - url.original:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - url.query:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - user_agent.original:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - network.application:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - http.request.body.content:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - http.request.referrer:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - email.from.address:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - dns.question.name:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  - destination.domain:
+    - '*topotam.exe*'
+    - '*PetitPotam.sln*'
+    - '*PetitPotam.cpp*'
+    - '*/PetitPotam.git*'
+    - '*PetitPotam.exe*'
+    - '*PetitPotam.py*'
+    - '*topotam/PetitPotam*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

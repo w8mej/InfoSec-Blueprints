@@ -1,0 +1,18 @@
+title: SPN服务扫描蜜罐账户
+description: 0day.org模拟测试结果
+references: https://adsecurity.org/?p=3458
+tags: T1003
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4769  #已请求 Kerberos 服务票证。
+        ServiceName: abcc #服务信息>服务名称（蜜罐账户用户）
+        Clientaddress: ::ffff:* #网络信息>客户端地址
+        Ticketoptions: 0x40810000 #附加信息>票证信息
+        Ticketencryptiontype: 0x17 #附加信息>票证加密类型
+    condition: selection
+level: medium

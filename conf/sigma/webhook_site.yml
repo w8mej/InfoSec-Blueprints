@@ -1,0 +1,964 @@
+title: Simple keyword detection rule for webhook.site
+id: 0aad0710-da7d-4618-b3ee-77354ee6b009
+status: experimental
+description: Detects interesting keywords based on webhook.site tool
+references:
+- https://github.com/webhooksite/webhook.site
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1071
+- attack.T1102
+- attack.T1560.001
+- attack.TA0011
+- attack.TA0042
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - OriginalFileName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - CurrentDirectory:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ParentImage:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ParentCommandLine:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - TargetFilename:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Signature:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - signature:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ImageLoaded:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Company:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Description:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - description:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - CommandLine:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - SourceImage:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - TargetImage:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - CallTrace:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - TargetObject:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Details:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - PipeName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Consumer:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Destination:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Query:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - NewName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - StartAddress:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - StartModule:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - StartFunction:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - SourceHostname:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Device:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - file_name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - file_path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - original_file_name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - parent_process:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process_path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - service_path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry_path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry_value_data:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry_value_name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ContextInfo:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Payload:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ScriptBlockText:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ServerName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - TransportName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - NewProcessName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ParentProcessName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Application:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Product Name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Threat Name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Process Name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ImagePath:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ServiceName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ProcessPath:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - AppName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - AppPath:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ModulePath:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry.data.strings:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry.path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry.value:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.args:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.command_line:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.env_vars:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.io.text:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.executable:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.title:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.company:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.description:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.original_file_name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.product:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - os.full:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - host.hostname:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - file.fork_name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - file.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - file.path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - file.target_path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - email.attachments.file.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - email.subject:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - dll.path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - device.model.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - container.image.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - container.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - object:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - ParentCommandLine:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - CommandLine:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - Details:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - registry.value:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.args:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.command_line:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.env_vars:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.io.text:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - process.title:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.company:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.description:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - pe.product:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - os.full:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - host.hostname:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - event.original:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - email.subject:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - device.model.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - container.image.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - container.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - url:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - dest_url:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - uri:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - uri_query:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - query:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - url_domain:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - uri_path:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - domain:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - QueryName:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - QueryResults:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - DestinationHostname:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - DestinationIp:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - http_referrer:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - http_referrer_domain:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - http_user_agent:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - dest_nt_host:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - sender:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - recipient:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - orig_recipient:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - subject:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - url.domain:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - url.full:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - url.original:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - url.query:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - user_agent.original:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - network.application:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - http.request.body.content:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - http.request.referrer:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - email.from.address:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - dns.question.name:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  - destination.domain:
+    - '*@email.webhook.site*'
+    - '*whcli forward --token=*-*-* --target=https://localhost*'
+    - '*/webhook.site.git*'
+    - '*webhooksite/webhook.site*'
+    - '*https://webhook.site/*-*-*-*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

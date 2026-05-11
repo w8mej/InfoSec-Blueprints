@@ -1,0 +1,698 @@
+title: Simple keyword detection rule for WSPCoerce
+id: 9bd9367b-4257-472b-8c16-a81bc09c28b6
+status: experimental
+description: Detects interesting keywords based on WSPCoerce tool
+references:
+- https://github.com/slemire/WSPCoerce
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.003
+- attack.T1078.003
+- attack.T1557.001
+- attack.TA0002
+- attack.TA0004
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - OriginalFileName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - CurrentDirectory:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ParentImage:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ParentCommandLine:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - TargetFilename:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Signature:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - signature:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ImageLoaded:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Company:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Description:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - description:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - CommandLine:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - SourceImage:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - TargetImage:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - CallTrace:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - TargetObject:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Details:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - PipeName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Consumer:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Destination:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Query:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - NewName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - StartAddress:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - StartModule:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - StartFunction:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - SourceHostname:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Device:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - file_name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - file_path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - original_file_name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - parent_process:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process_path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - service_path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - registry_path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - registry_value_data:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - registry_value_name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ContextInfo:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Payload:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ScriptBlockText:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ServerName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - TransportName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - NewProcessName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ParentProcessName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Application:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Product Name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Threat Name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Process Name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - Path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ImagePath:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ServiceName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ProcessPath:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - AppName:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - AppPath:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - ModulePath:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - registry.data.strings:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - registry.path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - registry.value:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.args:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.command_line:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.env_vars:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.io.text:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.executable:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - process.title:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - pe.company:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - pe.description:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - pe.original_file_name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - pe.product:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - os.full:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - host.hostname:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - file.fork_name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - file.name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - file.path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - file.target_path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - email.attachments.file.name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - email.subject:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - dll.path:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - device.model.name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - container.image.name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - container.name:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  - object:
+    - '*WSPCoerce.ex*'
+    - '* WSPCoerce.cs*'
+    - '*slemire/WSPCoerce*'
+    - '*/WSPCoerce.git*'
+    - '*\WSPCoerce.cs*'
+    - '*WSPCoerce-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

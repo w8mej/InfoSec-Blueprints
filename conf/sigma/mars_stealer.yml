@@ -1,0 +1,79 @@
+title: Simple keyword detection rule for mars stealer
+id: 004885f4-4ab8-4a5e-b79b-73e6bc177f93
+status: experimental
+description: Detects interesting keywords based on mars stealer tool
+references:
+- https://3xp0rt.com/posts/mars-stealer
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1587
+- attack.TA0002
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - CommandLine:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - Details:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - registry.value:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - process.args:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - process.command_line:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - process.env_vars:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - process.io.text:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - process.title:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - pe.company:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - pe.description:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - pe.product:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - os.full:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - host.hostname:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - event.original:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - email.subject:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - device.model.name:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - container.image.name:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  - container.name:
+    - '*cmd.exe /c timeout /t 5 & del /f /q *%s* & exit*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

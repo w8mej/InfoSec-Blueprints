@@ -1,0 +1,39 @@
+action: global
+title: InvisiMole Wdigest Exploit Chain
+id: b498a9ec-d8da-47f7-8584-5ee6aeca1d39
+status: experimental
+description: Detects artefacts associated with InvisiMole Wdigest exploit persistence chain, as reported in June 2020
+references:
+    - https://www.welivesecurity.com/2020/06/18/digging-up-invisimole-hidden-arsenal/
+author: ESET Research
+date: 2021/05/17
+tags:
+    - attack.execution
+    - attack.persistence
+    - attack.t1203
+    - attack.t1053.005
+falsepositives:
+    - Legitimate use of the Wireless Network Setup Wizard
+level: high
+logsource:
+    category: registry_event
+    product: windows
+detection:
+    selection1:
+        TargetObject:
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\M'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\A'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\B'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\C'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\D'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ODBC\M'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ODBC\A'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ODBC\B'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ODBC\C'
+            - 'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\ODBC\D'
+    selection2:
+        TargetObject: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CsPower\Parameters\ServiceDll'
+        Details|endswith: '\System32\FXSCOMPOSE.dll'
+    selection3:
+        TargetObject: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CsPower\Parameters\ServiceMain'
+        Details: 'HrSelectEmailRecipient'

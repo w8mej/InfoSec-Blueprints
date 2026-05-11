@@ -1,0 +1,30 @@
+title: Suspicious modification of a sensitive Group Policy (GPO)
+description: Detects scenarios where an attacker will attempt to take control over a group policy.
+requirements: native and existing auditing SACL ("Write all properties") should already be present on "Policies" container.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0004-Privilege%20Escalation/T1484.001-Domain%20Policy%20Modification-Group%20Policy%20Modification
+tags:
+- attack.privilege_escalation
+- attack.t1484.001
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5136
+    AttributeLDAPDisplayName: versionNumber
+    ObjectClass: groupPolicyContainer
+    OperationType: '%%14674' # Value is added
+    ObjectGUID|contains:     # List of sensitive GPO GUID
+      - xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      - xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      - xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      - xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  filter:
+    AttributeValue: '0' # First value when GPO is created. Refers to the GPO version number.
+  condition: selection and not filter
+falsepositives:
+- Group policy administrator activity / AGPM activity
+level: medium

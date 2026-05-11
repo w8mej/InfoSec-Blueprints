@@ -1,0 +1,1080 @@
+title: Simple keyword detection rule for demiguise
+id: 220e806b-037f-47b3-9759-0c17ab4064da
+status: experimental
+description: Detects interesting keywords based on demiguise tool
+references:
+- https://github.com/nccgroup/demiguise
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059
+- attack.T1070
+- attack.T1071.001
+- attack.T1071.004
+- attack.T1564
+- attack.TA0002
+- attack.TA0008
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - CommandLine:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Details:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry.value:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.args:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.command_line:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.env_vars:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.io.text:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.title:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.company:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.description:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.product:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - os.full:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - host.hostname:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - event.original:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - email.subject:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - device.model.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - container.image.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - container.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Image:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - OriginalFileName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - CurrentDirectory:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ParentImage:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ParentCommandLine:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - TargetFilename:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Signature:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - signature:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ImageLoaded:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Company:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Description:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - description:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - CommandLine:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - SourceImage:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - TargetImage:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - CallTrace:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - TargetObject:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Details:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - PipeName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Consumer:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Destination:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Query:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - NewName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - StartAddress:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - StartModule:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - StartFunction:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - SourceHostname:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Device:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - file_name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - file_path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - original_file_name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - parent_process:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process_path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - service_path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry_path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry_value_data:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry_value_name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ContextInfo:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Payload:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ScriptBlockText:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ServerName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - TransportName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - NewProcessName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ParentProcessName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Application:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Product Name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Threat Name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Process Name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - Path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ImagePath:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ServiceName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ProcessPath:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - AppName:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - AppPath:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - ModulePath:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry.data.strings:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry.path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - registry.value:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.args:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.command_line:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.env_vars:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.io.text:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.executable:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - process.title:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.company:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.description:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.original_file_name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - pe.product:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - os.full:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - host.hostname:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - file.fork_name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - file.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - file.path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - file.target_path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - email.attachments.file.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - email.subject:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - dll.path:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - device.model.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - container.image.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - container.name:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - object:
+    - '* -k * -c *.exe* -p Outlook.Application -o *.hta*'
+    - '* demiguise.py*'
+    - '*Yh0Js82rIfFEbS6pR7oUkN0Use54pIZBa3fpYprAMuURNrZZGc6cM8dc+AC*'
+    - '*nccgroup/demiguise*'
+    - '* -k * -c *cmd.exe /c * -o *.hta -p ShellBrowserWindow*'
+    - '*/demiguise.py*'
+    - '*\demiguise.py*'
+  - url:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - dest_url:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - uri:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - uri_query:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - query:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - url_domain:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - uri_path:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - domain:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - QueryName:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - QueryResults:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - DestinationHostname:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - DestinationIp:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - http_referrer:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - http_referrer_domain:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - http_user_agent:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - dest_nt_host:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - sender:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - recipient:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - orig_recipient:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - subject:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - url.domain:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - url.full:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - url.original:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - url.query:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - user_agent.original:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - network.application:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - http.request.body.content:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - http.request.referrer:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - email.from.address:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - dns.question.name:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  - destination.domain:
+    - '*nccgroup/demiguise*'
+    - '*/demiguise.py*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

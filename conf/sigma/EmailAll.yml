@@ -1,0 +1,1345 @@
+title: Simple keyword detection rule for EmailAll
+id: da1d0665-5c9b-4851-ac73-e2505371114f
+status: experimental
+description: Detects interesting keywords based on EmailAll tool
+references:
+- https://github.com/Taonn/EmailAll
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1087.003
+- attack.T1113
+- attack.T1114.001
+- attack.TA0003
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - OriginalFileName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - CurrentDirectory:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ParentImage:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ParentCommandLine:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - TargetFilename:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Signature:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - signature:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ImageLoaded:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Company:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Description:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - description:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - CommandLine:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - SourceImage:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - TargetImage:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - CallTrace:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - TargetObject:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Details:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - PipeName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Consumer:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Destination:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Query:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - NewName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - StartAddress:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - StartModule:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - StartFunction:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - SourceHostname:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Device:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - file_name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - file_path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - original_file_name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - parent_process:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process_path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - service_path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry_path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry_value_data:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry_value_name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ContextInfo:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Payload:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ScriptBlockText:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ServerName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - TransportName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - NewProcessName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ParentProcessName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Application:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Product Name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Threat Name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Process Name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ImagePath:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ServiceName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ProcessPath:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - AppName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - AppPath:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ModulePath:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry.data.strings:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry.path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry.value:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.args:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.command_line:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.env_vars:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.io.text:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.executable:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.title:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.company:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.description:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.original_file_name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.product:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - os.full:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - host.hostname:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - file.fork_name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - file.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - file.path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - file.target_path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - email.attachments.file.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - email.subject:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - dll.path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - device.model.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - container.image.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - container.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - object:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - ParentCommandLine:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - CommandLine:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - Details:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - registry.value:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.args:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.command_line:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.env_vars:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.io.text:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - process.title:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.company:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.description:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - pe.product:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - os.full:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - host.hostname:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - event.original:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - email.subject:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - device.model.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - container.image.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - container.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '* emailall.py*'
+    - '*emailall.py check*'
+    - '*emailall.py -*'
+    - '*\emailall.py*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+    - '* --domains ./domains.txt run*'
+  - url:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - dest_url:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - uri:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - uri_query:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - query:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - url_domain:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - uri_path:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - domain:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - QueryName:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - QueryResults:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - DestinationHostname:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - DestinationIp:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - http_referrer:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - http_referrer_domain:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - http_user_agent:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - dest_nt_host:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - sender:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - recipient:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - orig_recipient:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - subject:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - url.domain:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - url.full:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - url.original:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - url.query:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - user_agent.original:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - network.application:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - http.request.body.content:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - http.request.referrer:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - email.from.address:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - dns.question.name:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  - destination.domain:
+    - '*EmailAll-master.*'
+    - '*/EmailAll.git*'
+    - '*/emailall.py*'
+    - '*Taonn/EmailAll*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

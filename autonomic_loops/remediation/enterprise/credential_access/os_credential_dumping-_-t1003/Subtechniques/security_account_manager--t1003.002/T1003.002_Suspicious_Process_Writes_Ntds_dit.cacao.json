@@ -1,0 +1,329 @@
+{
+  "type": "playbook",
+  "spec_version": "cacao-2.0",
+  "id": "playbook--11b1ed55-154d-4e82-8ad7-83739298f720",
+  "name": "Suspicious Process Writes Ntds.dit",
+  "description": "Detects suspicious processes that write (copy) a Active Directory database (ntds.dit) file",
+  "playbook_types": [
+    "investigation"
+  ],
+  "created_by": "identity--8d998220-808b-5b09-89f4-45e1ccec2e52",
+  "created": "2022-01-11T00:00:00.000Z",
+  "modified": "2022-07-14T00:00:00.000Z",
+  "revived": false,
+  "valid_from": "2026-04-21T00:00:00.000Z",
+  "derived_from": [
+    "playbook--0010d305-c690-5611-8780-4547780561fc"
+  ],
+  "external_references": [
+    {
+      "name": "Sigma Rule",
+      "url": "uri://aso/rules/Suspicious_Process_Writes_Ntds.dit.yml"
+    }
+  ],
+  "detection_context": {
+    "mitre_ttps": [],
+    "sigma_refs": [
+      "uri://aso/rules/Suspicious_Process_Writes_Ntds.dit.yml"
+    ],
+    "confidence_threshold": 0.85
+  },
+  "execution_constraints": {
+    "agent_autonomy_level": "semi-autonomous",
+    "blast_radius_classification": "localized-endpoint",
+    "reversibility": true,
+    "idempotency_enforced": true,
+    "dry_run_mode": {
+      "enabled": true,
+      "required_for_mutations": true,
+      "description": "All state-mutating actions must be executed in dry-run mode first to calculate blast radius",
+      "tool_schema_extensions": {
+        "dry_run": {
+          "type": "boolean",
+          "default": true,
+          "description": "Execute in read-only mode (dry_run=True) or for real (dry_run=False)"
+        }
+      }
+    },
+    "named_fields_schema": {
+      "standard_fields": [
+        "src_ip",
+        "dest_ip",
+        "user_principal_name",
+        "process_guid",
+        "hostname",
+        "sha256_hash"
+      ],
+      "required": [
+        "src_ip",
+        "dest_ip",
+        "hostname"
+      ],
+      "description": "Standardized field names for SIEM interoperability"
+    },
+    "reasoning_schema": {
+      "format": "collapsible-html",
+      "content_sources": [
+        "<think> tags",
+        "JSON reasoning field"
+      ],
+      "audit_logging": true
+    },
+    "confidence_gating": {
+      "enabled": true,
+      "required_threshold_percent": 85,
+      "fidelity_model": "siem_sigma_v1",
+      "gate_failure_action": "require_human_review",
+      "description": "Enforce statistical confidence threshold for autonomous execution. Alert must meet or exceed required confidence percentage to proceed with automation.",
+      "alert_confidence_source": "sigma_rule_detection_score | ml_classifier_confidence | manual_analyst_assessment"
+    }
+  },
+  "auth_gates": {
+    "required_roles_hitl": [
+      "forensics-specialist",
+      "security-architect",
+      "soc-tier-2"
+    ],
+    "mcp_tool_allowlist": [
+      "aws_incident_manager",
+      "carbon_black_live_ops",
+      "cloud_custodian",
+      "cortex_xdr_terminal",
+      "crowdstrike_rtr",
+      "cybereason_powershell",
+      "cylance_optics",
+      "defender_for_cloud",
+      "defender_live_response",
+      "diffy_cloud_triage",
+      "f_response_tactical",
+      "fastir_collector",
+      "gao_agent",
+      "gcp_scc_remediation",
+      "grr_rapid_response",
+      "kansa_ir",
+      "kape_collector",
+      "lacework_polygraph",
+      "limacharlie_agent",
+      "magnet_axiom_cyber",
+      "mandiant_hx",
+      "mitiga_cloud_ir",
+      "orca_security_remediation",
+      "osquery_fleet",
+      "prisma_cloud_compute",
+      "prowler_pro",
+      "sentinelone_shell",
+      "sophos_live_response",
+      "steampipe_security",
+      "sweet_security_runtime",
+      "sysdig_secure",
+      "tamnoon_automation",
+      "tanium_interact",
+      "thehive_cortex",
+      "velociraptor",
+      "wazuh_agent",
+      "wiz_defend"
+    ]
+  },
+  "slos": {
+    "ttd_target_sec": 120,
+    "ttc_target_sec": 240,
+    "ttr_target_sec": 1560
+  },
+  "workflow_start": "step--a966cb31-660a-5965-b38d-c06fcdc0ff2c",
+  "workflow": {
+    "step--a966cb31-660a-5965-b38d-c06fcdc0ff2c": {
+      "type": "start",
+      "on_completion": "step--0fb2e45b-be3b-5809-bb71-104878d03b67"
+    },
+    "step--0fb2e45b-be3b-5809-bb71-104878d03b67": {
+      "type": "action",
+      "name": "Triage & Verification",
+      "on_completion": "step--55358a5d-9cc1-590d-ad96-77c02bb98ab7"
+    },
+    "step--55358a5d-9cc1-590d-ad96-77c02bb98ab7": {
+      "type": "end"
+    }
+  },
+  "execution_signature_config": {
+    "algorithm": "HS256",
+    "storage": "notebook_metadata",
+    "chain_of_custody_enabled": true,
+    "detached_jws_format": "header.signature"
+  },
+  "execution_environment": {
+    "python_version": "3.10.0+",
+    "os_kernel": "5.15.0+",
+    "snapshot_timestamp": "2022/01/11",
+    "packages_hash": "snapshot-pending-at-execution-time"
+  },
+  "execution_telemetry_config": {
+    "enabled": true,
+    "sink_type": "file",
+    "log_path": "/var/log/aso/execution.jsonl",
+    "agent_model_version": "claude-3-5-sonnet-20241022",
+    "batch_size": 100
+  },
+  "regulatory_compliance_config": {
+    "enabled": true,
+    "regulations": {
+      "GDPR": {
+        "detection_to_notification_hours": 72,
+        "data_breach_deadline_hours": 72,
+        "dpia_required_days": 14
+      },
+      "HIPAA": {
+        "discovery_to_investigation_days": 5,
+        "discovery_to_notification_days": 60,
+        "investigation_complete_days": 10
+      },
+      "CCPA": {
+        "detection_to_notification_days": 45,
+        "data_deletion_days": 45
+      }
+    },
+    "timeline_export_format": "compliance_report"
+  },
+  "cell_integrity_config": {
+    "enabled": true,
+    "algorithm": "sha256",
+    "detection_scenarios": [
+      "source_code_modification",
+      "output_result_change",
+      "metadata_tampering",
+      "timestamp_forgery",
+      "cell_reordering",
+      "cell_deletion",
+      "cell_insertion",
+      "checksum_substitution"
+    ],
+    "storage_format": "notebook_metadata",
+    "forensic_chain_of_custody": true
+  },
+  "query_standardization_config": {
+    "enabled": true,
+    "supported_platforms": [
+      "splunk",
+      "elastic",
+      "datadog",
+      "sumologic",
+      "kql"
+    ],
+    "field_mappings": {
+      "src_ip": {
+        "splunk": "src",
+        "elastic": "source.ip",
+        "datadog": "network.client.ip",
+        "sumologic": "src_ip",
+        "kql": "SourceIp"
+      },
+      "dest_ip": {
+        "splunk": "dest",
+        "elastic": "destination.ip",
+        "datadog": "network.server.ip",
+        "sumologic": "dest_ip",
+        "kql": "DestinationIp"
+      },
+      "hostname": {
+        "splunk": "host",
+        "elastic": "host.name",
+        "datadog": "host.name",
+        "sumologic": "hostname",
+        "kql": "Computer"
+      },
+      "user": {
+        "splunk": "user",
+        "elastic": "user.name",
+        "datadog": "user",
+        "sumologic": "user",
+        "kql": "Account"
+      },
+      "process_name": {
+        "splunk": "process",
+        "elastic": "process.name",
+        "datadog": "process.name",
+        "sumologic": "process",
+        "kql": "ProcessCommandLine"
+      }
+    },
+    "operators_supported": [
+      "eq",
+      "neq",
+      "gt",
+      "lt",
+      "contains",
+      "regex"
+    ],
+    "time_range_support": true
+  },
+  "json_validation_config": {
+    "enabled": true,
+    "schema_validation": true,
+    "retry_on_failure": true,
+    "max_retries": 3,
+    "field_type_validation": true,
+    "enum_validation": true,
+    "required_fields_enforcement": true,
+    "enums": {
+      "verdict": [
+        "true_positive",
+        "false_positive",
+        "benign",
+        "requires_investigation"
+      ],
+      "confidence_level": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "containment_type": [
+        "isolate",
+        "block",
+        "monitor",
+        "eradicate"
+      ]
+    }
+  },
+  "visualization_config": {
+    "enabled": true,
+    "graph_types": [
+      "attack_graph",
+      "containment_flowchart",
+      "incident_timeline"
+    ],
+    "rendering_engine": "mermaid",
+    "styling": {
+      "risk_level_colors": {
+        "critical": "#ff0000",
+        "high": "#ff9900",
+        "medium": "#ffff00",
+        "low": "#00ff00"
+      },
+      "node_styling": true,
+      "edge_labels": true
+    },
+    "export_formats": [
+      "mermaid",
+      "png",
+      "svg"
+    ]
+  },
+  "time_lock_puzzle_config": {
+    "enabled": true,
+    "difficulty_levels_seconds": [
+      5,
+      15,
+      30,
+      60
+    ],
+    "expiration_minutes": 5,
+    "required_for_playbook_types": [
+      "remediation"
+    ],
+    "algorithm": "sha256_pow",
+    "override_mechanism": {
+      "enabled": true,
+      "env_var": "HITL_OVERRIDE",
+      "reason_required": true
+    }
+  }
+}

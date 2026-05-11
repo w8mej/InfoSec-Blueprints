@@ -1,0 +1,1186 @@
+title: Simple keyword detection rule for NPPSpy
+id: 91b0626d-bc09-4516-a764-da7047a18547
+status: experimental
+description: Detects interesting keywords based on NPPSpy tool
+references:
+- https://github.com/gtworek/PSBits/blob/master/PasswordStealing/NPPSpy
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - OriginalFileName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - CurrentDirectory:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ParentImage:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ParentCommandLine:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - TargetFilename:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Signature:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - signature:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ImageLoaded:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Company:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Description:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - description:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - CommandLine:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - SourceImage:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - TargetImage:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - CallTrace:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - TargetObject:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Details:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - PipeName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Consumer:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Destination:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Query:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - NewName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - StartAddress:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - StartModule:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - StartFunction:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - SourceHostname:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Device:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - file_name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - file_path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - original_file_name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - parent_process:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process_path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - service_path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - registry_path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - registry_value_data:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - registry_value_name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ContextInfo:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Payload:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ScriptBlockText:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ServerName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - TransportName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - NewProcessName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ParentProcessName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Application:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Product Name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Threat Name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Process Name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - Path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ImagePath:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ServiceName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ProcessPath:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - AppName:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - AppPath:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - ModulePath:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - registry.data.strings:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - registry.path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - registry.value:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.args:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.command_line:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.env_vars:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.io.text:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.executable:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - process.title:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - pe.company:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - pe.description:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - pe.original_file_name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - pe.product:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - os.full:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - host.hostname:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - file.fork_name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - file.name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - file.path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - file.target_path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - email.attachments.file.name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - email.subject:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - dll.path:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - device.model.name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - container.image.name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - container.name:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - object:
+    - '*\PSPY.dll*'
+    - '*/NPPSPY.dll*'
+    - '*\PSPY.exe*'
+    - '*\StolenPasswords.txt*'
+    - '*\NPPSpy.c*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+    - '*\NPPSPY.dll*'
+    - '*\NPPSpy.txt*'
+    - '*\NPPSpy.exe*'
+  - url:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - dest_url:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - uri:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - uri_query:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - query:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - url_domain:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - uri_path:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - domain:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - QueryName:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - QueryResults:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - DestinationHostname:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - DestinationIp:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - http_referrer:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - http_referrer_domain:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - http_user_agent:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - dest_nt_host:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - sender:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - recipient:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - orig_recipient:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - subject:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - url.domain:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - url.full:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - url.original:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - url.query:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - user_agent.original:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - network.application:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - http.request.body.content:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - http.request.referrer:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - email.from.address:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - dns.question.name:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  - destination.domain:
+    - '*/NPPSPY.dll*'
+    - '*/NPPSpy.exe*'
+    - '*/PSPY.dll*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

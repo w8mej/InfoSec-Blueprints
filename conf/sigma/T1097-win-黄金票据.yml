@@ -1,0 +1,19 @@
+title: windows本地账户操纵
+description: win7测试
+references:
+tags: T1087/T1069
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection1:
+        EventID: 4624  #账户登录
+        Account domain: '*.*' #可参考示例日志进行理解
+    selection2:
+        EventID: 4672  #特殊登录
+        Account domain: _ #账户域为空
+    timeframe: last 5s
+    condition: all of them
+level: medium

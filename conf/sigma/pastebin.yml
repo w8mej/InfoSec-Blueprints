@@ -1,0 +1,603 @@
+title: Simple keyword detection rule for pastebin
+id: fecabece-073a-44d5-9318-f21b2e277a9e
+status: experimental
+description: Detects interesting keywords based on pastebin tool
+references:
+- pastebin.com
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1048
+- attack.T1094
+- attack.T1102
+- attack.T1119
+- attack.T1608.001
+- attack.TA0009
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - OriginalFileName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - CurrentDirectory:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ParentImage:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ParentCommandLine:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - TargetFilename:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Signature:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - signature:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ImageLoaded:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Company:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Description:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - description:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - CommandLine:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - SourceImage:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - TargetImage:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - CallTrace:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - TargetObject:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Details:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - PipeName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Consumer:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Destination:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Query:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - NewName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - StartAddress:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - StartModule:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - StartFunction:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - SourceHostname:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Device:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - file_name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - file_path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - original_file_name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - parent_process:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process_path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - service_path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - registry_path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - registry_value_data:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - registry_value_name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ContextInfo:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Payload:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ScriptBlockText:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ServerName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - TransportName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - NewProcessName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ParentProcessName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Application:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Product Name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Threat Name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Process Name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - Path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ImagePath:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ServiceName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ProcessPath:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - AppName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - AppPath:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - ModulePath:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - registry.data.strings:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - registry.path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - registry.value:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.args:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.command_line:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.env_vars:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.io.text:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.executable:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - process.title:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - pe.company:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - pe.description:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - pe.original_file_name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - pe.product:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - os.full:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - host.hostname:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - file.fork_name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - file.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - file.path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - file.target_path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - email.attachments.file.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - email.subject:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - dll.path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - device.model.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - container.image.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - container.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - object:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - url:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - dest_url:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - uri:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - uri_query:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - query:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - url_domain:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - uri_path:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - domain:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - QueryName:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - QueryResults:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - DestinationHostname:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - DestinationIp:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - http_referrer:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - http_referrer_domain:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - http_user_agent:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - dest_nt_host:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - sender:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - recipient:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - orig_recipient:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - subject:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - url.domain:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - url.full:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - url.original:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - url.query:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - user_agent.original:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - network.application:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - http.request.body.content:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - http.request.referrer:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - email.from.address:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - dns.question.name:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  - destination.domain:
+    - '*pastebin.com*/rw/*'
+    - '*pastebin.com*/raw/* '
+    - '*pastebin.com*api/api_post.php*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

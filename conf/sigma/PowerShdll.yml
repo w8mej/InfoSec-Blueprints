@@ -1,0 +1,542 @@
+title: Simple keyword detection rule for PowerShdll
+id: 7a3f6678-7cf8-45e7-b3a3-07b901334446
+status: experimental
+description: Detects interesting keywords based on PowerShdll tool
+references:
+- https://github.com/p3nt4/PowerShdll
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1053
+- attack.T1059
+- attack.T1118
+- attack.T1216
+- attack.T1218
+- attack.TA0002
+- attack.TA0003
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - OriginalFileName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - CurrentDirectory:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ParentImage:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ParentCommandLine:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - TargetFilename:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Signature:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - signature:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ImageLoaded:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Company:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Description:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - description:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - CommandLine:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - SourceImage:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - TargetImage:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - CallTrace:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - TargetObject:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Details:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - PipeName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Consumer:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Destination:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Query:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - NewName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - StartAddress:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - StartModule:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - StartFunction:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - SourceHostname:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Device:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - file_name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - file_path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - original_file_name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - parent_process:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process_path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - service_path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - registry_path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - registry_value_data:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - registry_value_name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ContextInfo:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Payload:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ScriptBlockText:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ServerName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - TransportName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - NewProcessName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ParentProcessName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Application:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Product Name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Threat Name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Process Name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - Path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ImagePath:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ServiceName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ProcessPath:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - AppName:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - AppPath:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - ModulePath:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - registry.data.strings:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - registry.path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - registry.value:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.args:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.command_line:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.env_vars:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.io.text:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.executable:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - process.title:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - pe.company:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - pe.description:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - pe.original_file_name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - pe.product:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - os.full:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - host.hostname:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - file.fork_name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - file.name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - file.path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - file.target_path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - email.attachments.file.name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - email.subject:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - dll.path:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - device.model.name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - container.image.name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - container.name:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - object:
+    - '*PowerShdll*'
+    - '*5067F916-9971-47D6-BBCB-85FB3982584F*'
+    - '*36EBF9AA-2F37-4F1D-A2F1-F2A45DEEAF21*'
+  - url:
+    - '*PowerShdll*'
+  - dest_url:
+    - '*PowerShdll*'
+  - uri:
+    - '*PowerShdll*'
+  - uri_query:
+    - '*PowerShdll*'
+  - query:
+    - '*PowerShdll*'
+  - url_domain:
+    - '*PowerShdll*'
+  - uri_path:
+    - '*PowerShdll*'
+  - domain:
+    - '*PowerShdll*'
+  - QueryName:
+    - '*PowerShdll*'
+  - QueryResults:
+    - '*PowerShdll*'
+  - DestinationHostname:
+    - '*PowerShdll*'
+  - DestinationIp:
+    - '*PowerShdll*'
+  - http_referrer:
+    - '*PowerShdll*'
+  - http_referrer_domain:
+    - '*PowerShdll*'
+  - http_user_agent:
+    - '*PowerShdll*'
+  - dest_nt_host:
+    - '*PowerShdll*'
+  - sender:
+    - '*PowerShdll*'
+  - recipient:
+    - '*PowerShdll*'
+  - orig_recipient:
+    - '*PowerShdll*'
+  - subject:
+    - '*PowerShdll*'
+  - url.domain:
+    - '*PowerShdll*'
+  - url.full:
+    - '*PowerShdll*'
+  - url.original:
+    - '*PowerShdll*'
+  - url.query:
+    - '*PowerShdll*'
+  - user_agent.original:
+    - '*PowerShdll*'
+  - network.application:
+    - '*PowerShdll*'
+  - http.request.body.content:
+    - '*PowerShdll*'
+  - http.request.referrer:
+    - '*PowerShdll*'
+  - email.from.address:
+    - '*PowerShdll*'
+  - dns.question.name:
+    - '*PowerShdll*'
+  - destination.domain:
+    - '*PowerShdll*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,29 @@
+title: User account creation disguised in a computer account
+description: Detects scenarios where an attacker creates a user account that fakes a computer account.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1136-Create%20account
+tags:
+- attack.persistence
+- attack.t1098 # account manipulation
+- attack.t1136 # user creation
+- attack.defense_evesion
+- attack.t0136 # masquerading
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+
+  selection_creation:
+    EventID: 4720 # User account creation
+    TargetUserName|endswith: '$'
+
+  selection_renamed:
+    EventID: 4781 # User account name change
+    NewTargetUserName|endswith: '$' 
+
+  condition: selection_creation or selection_renamed
+falsepositives:
+- None
+level: high

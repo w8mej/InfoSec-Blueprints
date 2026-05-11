@@ -1,0 +1,100 @@
+title: Simple keyword detection rule for cut
+id: b661d86f-42d3-48e6-aaf0-4512cfb14634
+status: experimental
+description: Detects interesting keywords based on cut tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1012
+- attack.T1027
+- attack.T1035
+- attack.T1036
+- attack.T1041
+- attack.T1053.005
+- attack.T1057
+- attack.T1059.003
+- attack.T1070.001
+- attack.T1083
+- attack.T1105
+- attack.T1112
+- attack.T1136
+- attack.T1562.001
+- attack.T1564.001
+- attack.T1564.002
+- attack.T1564.003
+- attack.T1564.005
+- attack.TA0002
+- attack.TA0003
+- attack.TA0006
+- attack.TA0007
+- attack.TA0008
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*cut -d: -f1 /etc/passwd*'
+  - CommandLine:
+    - '*cut -d: -f1 /etc/passwd*'
+  - Details:
+    - '*cut -d: -f1 /etc/passwd*'
+  - registry.value:
+    - '*cut -d: -f1 /etc/passwd*'
+  - process.args:
+    - '*cut -d: -f1 /etc/passwd*'
+  - process.command_line:
+    - '*cut -d: -f1 /etc/passwd*'
+  - process.env_vars:
+    - '*cut -d: -f1 /etc/passwd*'
+  - process.io.text:
+    - '*cut -d: -f1 /etc/passwd*'
+  - process.title:
+    - '*cut -d: -f1 /etc/passwd*'
+  - pe.company:
+    - '*cut -d: -f1 /etc/passwd*'
+  - pe.description:
+    - '*cut -d: -f1 /etc/passwd*'
+  - pe.product:
+    - '*cut -d: -f1 /etc/passwd*'
+  - os.full:
+    - '*cut -d: -f1 /etc/passwd*'
+  - host.hostname:
+    - '*cut -d: -f1 /etc/passwd*'
+  - event.original:
+    - '*cut -d: -f1 /etc/passwd*'
+  - email.subject:
+    - '*cut -d: -f1 /etc/passwd*'
+  - device.model.name:
+    - '*cut -d: -f1 /etc/passwd*'
+  - container.image.name:
+    - '*cut -d: -f1 /etc/passwd*'
+  - container.name:
+    - '*cut -d: -f1 /etc/passwd*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

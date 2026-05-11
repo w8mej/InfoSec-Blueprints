@@ -1,0 +1,32 @@
+title: SQL Server started in single mode (command)
+description: Detects scenarios where an attacker starts SQL Server service in single mode to perform password recovery actions using, for example, the native sqlcmd tool. Indeed, when the SQL Server is started in single user mode, all the users who are a member of the host’s local administrator group can connect to the SQL instance.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1505.001-SQL%20Stored%20Procedures
+- https://www.sqlshack.com/different-ways-to-start-a-sql-server-single-user-mode/
+- https://www.sqlshack.com/recover-lost-sa-password/
+tags:
+- attack.persistence
+- attack.t1505.001
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection: # full command example: "C:\Windows\system32\net.exe" start MSSQL$INSTANCE /m"
+  selection:
+    EventID: 4688
+    NewProcessName|endswith:
+      - \net1.exe
+      - \net.exe
+    CommandLine|contains|all:
+      - start
+      - MSSQL$
+    CommandLine|contains: # indicate single mode
+      - /m
+      - -m
+  condition: selection
+falsepositives:
+- Master database restore procedure
+- Maintenance operation
+- Legitim SA account password recovery
+level: high

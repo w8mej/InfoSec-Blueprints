@@ -1,0 +1,49 @@
+title: LOLBAS MSdt (via cmdline)
+status: stable
+description: Detects use of msdt as a living off the land technique.
+references:
+- https://nao-sec.org/2023/08/groundpeony-crawling-with-malice.html
+- https://thehackernews.com/2022/06/researchers-warn-of-unpatched-dogwalk.html
+- https://irsl.medium.com/the-trouble-with-microsofts-troubleshooters-6e32fc80b8bd
+- https://twitter.com/j00sean/status/1531643635543990275
+- https://twitter.com/nao_sec/status/1530196847679401984
+- https://doublepulsar.com/follina-a-microsoft-office-code-execution-vulnerability-1a47fce5629e
+- https://app.any.run/tasks/713f05d2-fe78-4b9d-a744-f7c133e3fafb/
+- https://github.com/LOLBAS-Project/LOLBAS/blob/master/yml/OSBinaries/Msdt.yml
+author: SOC Prime Team
+tags:
+- attack.defense_evasion
+- attack.execution
+- attack.t1218
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_cmdline_part1:
+    CommandLine|contains:
+    - 'af '
+    - ts_AUTO
+    - param
+    - skip
+    - ..\
+    - ../
+    - /cab
+  selection_cmdline_part2:
+    CommandLine|contains:
+    - ms-msdt:/id
+    - ms-msdt:-id
+    - IT_BrowseForFile
+    - IT_RebrowseForFile
+  selection_image:
+    Image|endswith: \msdt.exe
+  filters:
+    CommandLine|contains:
+    - DeviceCenterDiagnostic
+    - AudioPlaybackDiagnostic
+    - NetworkDiagnostics
+  condition: (selection_image and selection_cmdline_part1 and selection_cmdline_part2)
+    and not filters
+falsepositives:
+- Legitimate diagnostic invocation.
+level: medium
+id: 8e4725f6-eddc-47d5-8152-80dc03f76b12

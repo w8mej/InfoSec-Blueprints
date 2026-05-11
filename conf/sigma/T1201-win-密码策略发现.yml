@@ -1,0 +1,22 @@
+title: windows 系统密码策略发现
+description: windows server 2016
+references:
+tags: T1016
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection1:
+        EventID: 4688 #已创建新的进程。
+        Newprocessname: 'C:\Windows\System32\net.exe' #进程信息>新进程名称
+        Creatorprocessname: 'C:\Windows\System32\cmd.exe' #进程信息>创建者进程名称
+        Processcommandline: net  accounts #进程信息>进程命令行
+    selection2:
+        EventID: 4688 #已创建新的进程。
+        Newprocessname: 'C:\Windows\System32\net1.exe' #进程信息>新进程名称
+        Creatorprocessname: 'C:\Windows\System32\net.exe' #进程信息>创建者进程名称
+        Processcommandline: C:\Windows\system32\net1  accounts #进程信息>进程命令行
+    condition: selection1 and selection2
+level: low

@@ -1,0 +1,1221 @@
+title: Simple keyword detection rule for hakrawler
+id: db2c29e8-e9e4-4a03-896c-c245188b547a
+status: experimental
+description: Detects interesting keywords based on hakrawler tool
+references:
+- https://github.com/hakluke/hakrawler
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1087.001
+- attack.T1190
+- attack.T1212
+- attack.TA0003
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - OriginalFileName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - CurrentDirectory:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ParentImage:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ParentCommandLine:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - TargetFilename:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Signature:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - signature:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ImageLoaded:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Company:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Description:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - description:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - CommandLine:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - SourceImage:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - TargetImage:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - CallTrace:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - TargetObject:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Details:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - PipeName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Consumer:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Destination:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Query:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - NewName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - StartAddress:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - StartModule:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - StartFunction:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - SourceHostname:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Device:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - file_name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - file_path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - original_file_name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - parent_process:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process_path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - service_path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - registry_path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - registry_value_data:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - registry_value_name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ContextInfo:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Payload:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ScriptBlockText:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ServerName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - TransportName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - NewProcessName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ParentProcessName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Application:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Product Name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Threat Name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Process Name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - Path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ImagePath:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ServiceName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ProcessPath:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - AppName:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - AppPath:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - ModulePath:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - registry.data.strings:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - registry.path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - registry.value:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.args:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.command_line:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.env_vars:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.io.text:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.executable:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - process.title:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - pe.company:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - pe.description:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - pe.original_file_name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - pe.product:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - os.full:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - host.hostname:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - file.fork_name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - file.name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - file.path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - file.target_path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - email.attachments.file.name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - email.subject:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - dll.path:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - device.model.name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - container.image.name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - container.name:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - object:
+    - '*hakrawler -*'
+    - '*hakrawler-master*'
+    - '*hakrawler@latest*'
+    - '*/hakrawler.git*'
+    - '*haktrails subdomains*'
+    - '*hakrawler.go*'
+    - '*install hakrawler*'
+    - '*hakluke/hakrawler*'
+    - '*/bin/hakrawler*'
+    - '*| hakrawler*'
+  - url:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - dest_url:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - uri:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - uri_query:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - query:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - url_domain:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - uri_path:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - domain:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - QueryName:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - QueryResults:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - DestinationHostname:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - DestinationIp:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - http_referrer:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - http_referrer_domain:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - http_user_agent:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - dest_nt_host:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - sender:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - recipient:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - orig_recipient:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - subject:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - url.domain:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - url.full:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - url.original:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - url.query:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - user_agent.original:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - network.application:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - http.request.body.content:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - http.request.referrer:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - email.from.address:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - dns.question.name:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  - destination.domain:
+    - '*hakrawler-master*'
+    - '*/hakrawler.git*'
+    - '*hakrawler.go*'
+    - '*hakluke/hakrawler*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

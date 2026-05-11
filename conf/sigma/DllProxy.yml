@@ -1,0 +1,798 @@
+title: Simple keyword detection rule for DllProxy
+id: 84d94ec5-5e30-4087-85a1-d1dcdf7cc671
+status: experimental
+description: Detects interesting keywords based on DllProxy tool
+references:
+- https://github.com/Iansus/DllProxy/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1036.005
+- attack.T1574.002
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - OriginalFileName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - CurrentDirectory:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ParentImage:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ParentCommandLine:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - TargetFilename:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Signature:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - signature:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ImageLoaded:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Company:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Description:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - description:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - CommandLine:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - SourceImage:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - TargetImage:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - CallTrace:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - TargetObject:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Details:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - PipeName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Consumer:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Destination:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Query:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - NewName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - StartAddress:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - StartModule:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - StartFunction:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - SourceHostname:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Device:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - file_name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - file_path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - original_file_name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - parent_process:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process_path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - service_path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry_path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry_value_data:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry_value_name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ContextInfo:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Payload:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ScriptBlockText:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ServerName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - TransportName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - NewProcessName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ParentProcessName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Application:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Product Name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Threat Name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Process Name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ImagePath:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ServiceName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ProcessPath:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - AppName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - AppPath:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ModulePath:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry.data.strings:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry.path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry.value:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.args:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.command_line:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.env_vars:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.io.text:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.executable:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.title:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.company:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.description:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.original_file_name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.product:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - os.full:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - host.hostname:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - file.fork_name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - file.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - file.path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - file.target_path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - email.attachments.file.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - email.subject:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - dll.path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - device.model.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - container.image.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - container.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - object:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - ParentCommandLine:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - CommandLine:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - Details:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - registry.value:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.args:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.command_line:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.env_vars:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.io.text:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - process.title:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.company:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.description:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - pe.product:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - os.full:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - host.hostname:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - event.original:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - email.subject:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - device.model.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - container.image.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - container.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*.py *.exe *NormalDLL.dll*'
+    - '*DllProxy-main*'
+  - url:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - dest_url:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - uri:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - uri_query:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - query:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - url_domain:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - uri_path:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - domain:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - QueryName:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - QueryResults:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - DestinationHostname:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - DestinationIp:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - http_referrer:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - http_referrer_domain:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - http_user_agent:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - dest_nt_host:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - sender:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - recipient:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - orig_recipient:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - subject:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - url.domain:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - url.full:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - url.original:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - url.query:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - user_agent.original:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - network.application:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - http.request.body.content:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - http.request.referrer:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - email.from.address:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - dns.question.name:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  - destination.domain:
+    - '*dllproxy.py*'
+    - '*/DllProxy.git*'
+    - '*DllProxy-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

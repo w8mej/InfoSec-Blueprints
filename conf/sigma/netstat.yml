@@ -1,0 +1,443 @@
+title: Simple keyword detection rule for netstat
+id: a7fc2a9c-df9d-4889-a1f0-abbb9b877172
+status: experimental
+description: Detects interesting keywords based on netstat tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1069
+- attack.TA0002
+- attack.TA0003
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - OriginalFileName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - CurrentDirectory:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ParentImage:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ParentCommandLine:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - TargetFilename:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Signature:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - signature:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ImageLoaded:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Company:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Description:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - description:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - CommandLine:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - SourceImage:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - TargetImage:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - CallTrace:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - TargetObject:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Details:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - PipeName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Consumer:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Destination:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Query:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - NewName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - StartAddress:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - StartModule:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - StartFunction:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - SourceHostname:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Device:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - file_name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - file_path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - original_file_name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - parent_process:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process_path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - service_path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - registry_path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - registry_value_data:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - registry_value_name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ContextInfo:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Payload:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ScriptBlockText:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ServerName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - TransportName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - NewProcessName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ParentProcessName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Application:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Product Name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Threat Name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Process Name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - Path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ImagePath:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ServiceName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ProcessPath:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - AppName:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - AppPath:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - ModulePath:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - registry.data.strings:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - registry.path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - registry.value:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.args:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.command_line:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.env_vars:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.io.text:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.executable:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - process.title:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - pe.company:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - pe.description:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - pe.original_file_name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - pe.product:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - os.full:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - host.hostname:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - file.fork_name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - file.name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - file.path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - file.target_path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - email.attachments.file.name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - email.subject:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - dll.path:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - device.model.name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - container.image.name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - container.name:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  - object:
+    - '*netstat -ant*'
+    - '*NETSTAT.EXE* -ano*'
+    - '*netstat -ano*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

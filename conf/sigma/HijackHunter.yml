@@ -1,0 +1,853 @@
+title: Simple keyword detection rule for HijackHunter
+id: e90e803c-9894-4022-af02-7441aaddb304
+status: experimental
+description: Detects interesting keywords based on HijackHunter tool
+references:
+- https://github.com/matterpreter/OffensiveCSharp/tree/master/HijackHunter
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.003
+- attack.T1078.004
+- attack.T1574.002
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - OriginalFileName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - CurrentDirectory:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ParentImage:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ParentCommandLine:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - TargetFilename:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Signature:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - signature:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ImageLoaded:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Company:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Description:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - description:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - CommandLine:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - SourceImage:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - TargetImage:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - CallTrace:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - TargetObject:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Details:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - PipeName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Consumer:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Destination:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Query:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - NewName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - StartAddress:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - StartModule:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - StartFunction:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - SourceHostname:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Device:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - file_name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - file_path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - original_file_name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - parent_process:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process_path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - service_path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - registry_path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - registry_value_data:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - registry_value_name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ContextInfo:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Payload:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ScriptBlockText:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ServerName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - TransportName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - NewProcessName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ParentProcessName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Application:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Product Name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Threat Name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Process Name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - Path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ImagePath:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ServiceName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ProcessPath:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - AppName:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - AppPath:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - ModulePath:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - registry.data.strings:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - registry.path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - registry.value:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.args:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.command_line:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.env_vars:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.io.text:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.executable:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - process.title:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - pe.company:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - pe.description:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - pe.original_file_name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - pe.product:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - os.full:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - host.hostname:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - file.fork_name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - file.name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - file.path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - file.target_path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - email.attachments.file.name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - email.subject:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - dll.path:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - device.model.name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - container.image.name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - container.name:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - object:
+    - '*HijackHunter.exe*'
+    - '*\HijackHunter\*'
+    - '*dll* [HIJACKABLE]*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+    - '*hijackProgDirMissingDll*'
+  - url:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - dest_url:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - uri:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - uri_query:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - query:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - url_domain:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - uri_path:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - domain:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - QueryName:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - QueryResults:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - DestinationHostname:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - DestinationIp:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - http_referrer:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - http_referrer_domain:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - http_user_agent:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - dest_nt_host:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - sender:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - recipient:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - orig_recipient:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - subject:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - url.domain:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - url.full:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - url.original:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - url.query:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - user_agent.original:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - network.application:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - http.request.body.content:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - http.request.referrer:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - email.from.address:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - dns.question.name:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  - destination.domain:
+    - '*HijackHunter.exe*'
+    - '*HijackHunter.csproj*'
+    - '*/HijackHunter/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

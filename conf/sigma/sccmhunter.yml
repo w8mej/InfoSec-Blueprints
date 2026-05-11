@@ -1,0 +1,1031 @@
+title: Simple keyword detection rule for sccmhunter
+id: 7bb2aae7-171e-427d-b544-1f7232ed9f3d
+status: experimental
+description: Detects interesting keywords based on sccmhunter tool
+references:
+- https://github.com/garrettfoster13/sccmhunter
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1046
+- attack.T1087
+- attack.T1484
+- attack.TA0003
+- attack.TA0006
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - OriginalFileName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - CurrentDirectory:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ParentImage:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ParentCommandLine:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - TargetFilename:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Signature:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - signature:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ImageLoaded:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Company:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Description:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - description:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - CommandLine:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - SourceImage:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - TargetImage:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - CallTrace:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - TargetObject:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Details:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - PipeName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Consumer:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Destination:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Query:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - NewName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - StartAddress:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - StartModule:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - StartFunction:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - SourceHostname:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Device:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - file_name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - file_path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - original_file_name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - parent_process:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process_path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - service_path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - registry_path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - registry_value_data:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - registry_value_name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ContextInfo:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Payload:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ScriptBlockText:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ServerName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - TransportName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - NewProcessName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ParentProcessName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Application:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Product Name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Threat Name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Process Name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - Path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ImagePath:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ServiceName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ProcessPath:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - AppName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - AppPath:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - ModulePath:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - registry.data.strings:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - registry.path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - registry.value:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.args:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.command_line:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.env_vars:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.io.text:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.executable:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - process.title:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - pe.company:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - pe.description:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - pe.original_file_name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - pe.product:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - os.full:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - host.hostname:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - file.fork_name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - file.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - file.path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - file.target_path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - email.attachments.file.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - email.subject:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - dll.path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - device.model.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - container.image.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - container.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - object:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*.sccmhunter*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - url:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - dest_url:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - uri:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - uri_query:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - query:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - url_domain:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - uri_path:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - domain:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - QueryName:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - QueryResults:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - DestinationHostname:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - DestinationIp:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - http_referrer:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - http_referrer_domain:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - http_user_agent:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - dest_nt_host:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - sender:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - recipient:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - orig_recipient:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - subject:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - url.domain:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - url.full:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - url.original:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - url.query:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - user_agent.original:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - network.application:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - http.request.body.content:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - http.request.referrer:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - email.from.address:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - dns.question.name:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  - destination.domain:
+    - '*/sccmhunter*'
+    - '*sccmhunter.py*'
+    - '*sccmwtf.py*'
+    - '*cmpivot.py*'
+    - '*sccmhunter.git*'
+    - '*sccmhunter.db'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

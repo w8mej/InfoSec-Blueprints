@@ -1,0 +1,798 @@
+title: Simple keyword detection rule for pxethief
+id: 51232771-9094-4675-aa36-2b7619ab77c5
+status: experimental
+description: Detects interesting keywords based on pxethief tool
+references:
+- https://github.com/MWR-CyberSec/PXEThief
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1555.002
+- attack.T1555.004
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - OriginalFileName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - CurrentDirectory:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ParentImage:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ParentCommandLine:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - TargetFilename:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Signature:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - signature:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ImageLoaded:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Company:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Description:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - description:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - CommandLine:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - SourceImage:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - TargetImage:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - CallTrace:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - TargetObject:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Details:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - PipeName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Consumer:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Destination:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Query:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - NewName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - StartAddress:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - StartModule:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - StartFunction:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - SourceHostname:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Device:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - file_name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - file_path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - original_file_name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - parent_process:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process_path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - service_path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - registry_path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - registry_value_data:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - registry_value_name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ContextInfo:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Payload:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ScriptBlockText:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ServerName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - TransportName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - NewProcessName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ParentProcessName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Application:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Product Name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Threat Name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Process Name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - Path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ImagePath:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ServiceName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ProcessPath:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - AppName:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - AppPath:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - ModulePath:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - registry.data.strings:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - registry.path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - registry.value:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.args:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.command_line:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.env_vars:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.io.text:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.executable:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - process.title:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - pe.company:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - pe.description:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - pe.original_file_name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - pe.product:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - os.full:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - host.hostname:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - file.fork_name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - file.name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - file.path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - file.target_path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - email.attachments.file.name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - email.subject:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - dll.path:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - device.model.name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - container.image.name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - container.name:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - object:
+    - '*auto_exploit_blank_password*'
+    - '*pxethief *'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - url:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - dest_url:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - uri:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - uri_query:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - query:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - url_domain:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - uri_path:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - domain:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - QueryName:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - QueryResults:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - DestinationHostname:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - DestinationIp:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - http_referrer:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - http_referrer_domain:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - http_user_agent:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - dest_nt_host:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - sender:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - recipient:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - orig_recipient:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - subject:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - url.domain:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - url.full:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - url.original:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - url.query:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - user_agent.original:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - network.application:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - http.request.body.content:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - http.request.referrer:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - email.from.address:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - dns.question.name:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  - destination.domain:
+    - '*auto_exploit_blank_password*'
+    - '*media_variable_file_cryptography.py*'
+    - '*/PXEThief*'
+    - '*pxethief.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,98 @@
+title: Simple keyword detection rule for ssfd
+id: cd45ab27-462a-4bdc-bae0-98b6c966dd40
+status: experimental
+description: Detects interesting keywords based on ssfd tool
+references:
+- https://github.com/securesocketfunneling/ssf
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1218.011
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - CommandLine:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - Details:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - registry.value:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - process.args:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - process.command_line:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - process.env_vars:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - process.io.text:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - process.title:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - pe.company:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - pe.description:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - pe.product:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - os.full:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - host.hostname:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - event.original:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - email.subject:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - device.model.name:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - container.image.name:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  - container.name:
+    - '*ssf.exe -D * -p * 127.0.0.1*'
+    - '*ssfd.exe -p *'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

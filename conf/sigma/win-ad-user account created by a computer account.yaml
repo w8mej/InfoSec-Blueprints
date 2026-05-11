@@ -1,0 +1,25 @@
+title: User account created by a computer account
+description: Detects scenarios where an attacker would abuse some privileges while realying host credentials to escalate privileges.
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4741
+tags:
+- attack.persistence
+- attack.t1136 # user creation
+- attack.defense_evesion
+- attack.t0136 # masquerading
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4720
+    SubjectUserName|endswith: '$' # Computer account
+    SubjectUserSid|startswith: 'S-1-5-21-' # SYSTEM account 'S-1-5-18' would trigger a false positive
+  filter:
+    TargetUserName|endswith: '$' # covered in another rule: User account creation disguised in a computer account
+  condition: selection
+falsepositives:
+- Exchange servers
+level: high

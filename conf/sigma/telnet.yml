@@ -1,0 +1,102 @@
+title: Simple keyword detection rule for telnet
+id: e5e2f34d-5bd1-48c3-a2a7-90e6ed438682
+status: experimental
+description: Detects interesting keywords based on telnet tool
+references:
+- https://github.com/SigmaHQ/sigma/blob/master/rules/linux/lnx_apt_equationgroup_lnx.yml
+- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.001
+- attack.T1021.002
+- attack.T1105
+- attack.TA0002
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - CommandLine:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - Details:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - registry.value:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - process.args:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - process.command_line:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - process.env_vars:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - process.io.text:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - process.title:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - pe.company:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - pe.description:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - pe.product:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - os.full:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - host.hostname:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - event.original:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - email.subject:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - device.model.name:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - container.image.name:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  - container.name:
+    - '*telnet * | /bin/bash | telnet *'
+    - '*&& telnet * 2>&1 </dev/console*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

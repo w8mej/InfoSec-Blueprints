@@ -1,0 +1,1367 @@
+title: Simple keyword detection rule for EfsPotato
+id: 25b105a6-c961-430d-93c2-eb229c263a7e
+status: experimental
+description: Detects interesting keywords based on EfsPotato tool
+references:
+- https://github.com/zcgonvh/EfsPotato
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.002
+- attack.T1068
+- attack.T1070.004
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - OriginalFileName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - CurrentDirectory:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ParentImage:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ParentCommandLine:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - TargetFilename:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Signature:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - signature:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ImageLoaded:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Company:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Description:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - description:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - CommandLine:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - SourceImage:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - TargetImage:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - CallTrace:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - TargetObject:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Details:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - PipeName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Consumer:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Destination:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Query:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - NewName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - StartAddress:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - StartModule:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - StartFunction:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - SourceHostname:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Device:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - file_name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - file_path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - original_file_name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - parent_process:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process_path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - service_path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry_path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry_value_data:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry_value_name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ContextInfo:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Payload:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ScriptBlockText:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ServerName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - TransportName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - NewProcessName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ParentProcessName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Application:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Product Name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Threat Name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Process Name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ImagePath:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ServiceName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ProcessPath:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - AppName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - AppPath:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ModulePath:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry.data.strings:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry.path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry.value:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.args:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.command_line:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.env_vars:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.io.text:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.executable:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.title:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.company:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.description:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.original_file_name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.product:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - os.full:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - host.hostname:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - file.fork_name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - file.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - file.path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - file.target_path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - email.attachments.file.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - email.subject:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - dll.path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - device.model.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - container.image.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - container.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - object:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - ParentCommandLine:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - CommandLine:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - Details:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - registry.value:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.args:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.command_line:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.env_vars:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.io.text:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - process.title:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.company:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.description:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - pe.product:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - os.full:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - host.hostname:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - event.original:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - email.subject:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - device.model.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - container.image.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - container.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - url:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - dest_url:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - uri:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - uri_query:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - query:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - url_domain:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - uri_path:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - domain:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - QueryName:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - QueryResults:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - DestinationHostname:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - DestinationIp:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - http_referrer:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - http_referrer_domain:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - http_user_agent:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - dest_nt_host:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - sender:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - recipient:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - orig_recipient:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - subject:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - url.domain:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - url.full:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - url.original:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - url.query:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - user_agent.original:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - network.application:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - http.request.body.content:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - http.request.referrer:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - email.from.address:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - dns.question.name:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  - destination.domain:
+    - '*EfsPotato*netlogon*'
+    - '*csc.exe EfsPotato.cs *'
+    - '*EfsPotato-main*'
+    - '*EfsPotato*lsass*'
+    - '*EfsPotato*lsarpc*'
+    - '*EfsPotato*samr*'
+    - '*EfsPotato*efsrpc*'
+    - '*/EfsPotato.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

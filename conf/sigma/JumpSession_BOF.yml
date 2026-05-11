@@ -1,0 +1,885 @@
+title: Simple keyword detection rule for JumpSession_BOF
+id: 017a2c38-f8a1-4686-af6e-48916066da1c
+status: experimental
+description: Detects interesting keywords based on JumpSession_BOF tool
+references:
+- https://github.com/Octoberfest7/JumpSession_BOF
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1055.012
+- attack.T1548.002
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - OriginalFileName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - CurrentDirectory:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ParentImage:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ParentCommandLine:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - TargetFilename:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Signature:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - signature:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ImageLoaded:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Company:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Description:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - description:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - CommandLine:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - SourceImage:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - TargetImage:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - CallTrace:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - TargetObject:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Details:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - PipeName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Consumer:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Destination:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Query:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - NewName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - StartAddress:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - StartModule:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - StartFunction:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - SourceHostname:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Device:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - file_name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - file_path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - original_file_name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - parent_process:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process_path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - service_path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - registry_path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - registry_value_data:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - registry_value_name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ContextInfo:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Payload:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ScriptBlockText:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ServerName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - TransportName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - NewProcessName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ParentProcessName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Application:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Product Name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Threat Name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Process Name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - Path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ImagePath:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ServiceName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ProcessPath:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - AppName:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - AppPath:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - ModulePath:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - registry.data.strings:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - registry.path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - registry.value:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.args:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.command_line:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.env_vars:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.io.text:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.executable:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - process.title:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - pe.company:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - pe.description:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - pe.original_file_name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - pe.product:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - os.full:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - host.hostname:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - file.fork_name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - file.name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - file.path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - file.target_path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - email.attachments.file.name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - email.subject:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - dll.path:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - device.model.name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - container.image.name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - container.name:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - object:
+    - '*/JumpSession.cna*'
+    - '* JumpSession.x86.o*'
+    - '*/JumpSession_BOF.git*'
+    - '* JumpSession.x64.o*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - url:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - dest_url:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - uri:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - uri_query:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - query:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - url_domain:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - uri_path:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - domain:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - QueryName:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - QueryResults:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - DestinationHostname:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - DestinationIp:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - http_referrer:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - http_referrer_domain:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - http_user_agent:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - dest_nt_host:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - sender:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - recipient:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - orig_recipient:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - subject:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - url.domain:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - url.full:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - url.original:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - url.query:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - user_agent.original:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - network.application:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - http.request.body.content:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - http.request.referrer:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - email.from.address:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - dns.question.name:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  - destination.domain:
+    - '*/JumpSession.cna*'
+    - '*/JumpSession_BOF.git*'
+    - '*JumpSession_BOF-main*'
+    - '*Octoberfest7/JumpSession_BOF*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

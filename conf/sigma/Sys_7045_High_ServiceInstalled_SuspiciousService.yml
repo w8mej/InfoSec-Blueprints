@@ -1,0 +1,31 @@
+author: Zach Mathis
+date: 2022/02/06
+modified: 2023/02/27
+
+title: 'Susp Svc Installed'
+details: 'Svc: %ServiceName% ¦ Path: %ImagePath% ¦ Acct: %AccountName% ¦ StartType: %StartType%'
+description: A new service was installed. (Possibly malware.)
+
+id: cc429813-21db-4019-b520-2f19648e1ef1
+level: high
+status: stable
+logsource:
+    product: windows
+    service: system
+detection:
+    selection:
+        Channel: 'System'
+        EventID: 7045
+    selection_suspicious_keywords:
+        ImagePath|contains: 
+            - 'cmd'
+            - 'powershell'
+    condition: selection and selection_suspicious_keywords
+falsepositives:
+    - 'normal system usage'
+tags:
+    - attack.persistence
+    - attack.t1543.003
+references:
+    - https://attack.mitre.org/techniques/T1543/003/
+ruletype: Hayabusa

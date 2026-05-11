@@ -1,0 +1,942 @@
+title: Simple keyword detection rule for GIUDA
+id: e611b549-8452-4a18-8d66-7ddb256559d1
+status: experimental
+description: Detects interesting keywords based on GIUDA tool
+references:
+- https://github.com/foxlox/GIUDA
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.003
+- attack.T1558.003
+- attack.TA0002
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - OriginalFileName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - CurrentDirectory:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ParentImage:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ParentCommandLine:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - TargetFilename:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Signature:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - signature:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ImageLoaded:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Company:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Description:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - description:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - CommandLine:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - SourceImage:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - TargetImage:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - CallTrace:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - TargetObject:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Details:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - PipeName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Consumer:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Destination:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Query:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - NewName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - StartAddress:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - StartModule:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - StartFunction:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - SourceHostname:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Device:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - file_name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - file_path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - original_file_name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - parent_process:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process_path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - service_path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry_path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry_value_data:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry_value_name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ContextInfo:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Payload:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ScriptBlockText:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ServerName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - TransportName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - NewProcessName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ParentProcessName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Application:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Product Name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Threat Name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Process Name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ImagePath:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ServiceName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ProcessPath:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - AppName:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - AppPath:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ModulePath:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry.data.strings:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry.path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry.value:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.args:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.command_line:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.env_vars:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.io.text:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.executable:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.title:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.company:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.description:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.original_file_name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.product:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - os.full:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - host.hostname:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - file.fork_name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - file.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - file.path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - file.target_path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - email.attachments.file.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - email.subject:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - dll.path:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - device.model.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - container.image.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - container.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - object:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - ParentCommandLine:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - CommandLine:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - Details:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - registry.value:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.args:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.command_line:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.env_vars:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.io.text:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - process.title:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.company:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.description:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - pe.product:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - os.full:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - host.hostname:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - event.original:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - email.subject:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - device.model.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - container.image.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - container.name:
+    - '*guida.exe -*'
+    - '*GIUDA-main.zip*'
+    - '*.exe -ptt ticket:*.kirbi*'
+    - '*.exe -gettgs -luid:*'
+    - '*GIUDA* -askluids*'
+    - '* -runaslsass*'
+  - url:
+    - '*GIUDA-main.zip*'
+  - dest_url:
+    - '*GIUDA-main.zip*'
+  - uri:
+    - '*GIUDA-main.zip*'
+  - uri_query:
+    - '*GIUDA-main.zip*'
+  - query:
+    - '*GIUDA-main.zip*'
+  - url_domain:
+    - '*GIUDA-main.zip*'
+  - uri_path:
+    - '*GIUDA-main.zip*'
+  - domain:
+    - '*GIUDA-main.zip*'
+  - QueryName:
+    - '*GIUDA-main.zip*'
+  - QueryResults:
+    - '*GIUDA-main.zip*'
+  - DestinationHostname:
+    - '*GIUDA-main.zip*'
+  - DestinationIp:
+    - '*GIUDA-main.zip*'
+  - http_referrer:
+    - '*GIUDA-main.zip*'
+  - http_referrer_domain:
+    - '*GIUDA-main.zip*'
+  - http_user_agent:
+    - '*GIUDA-main.zip*'
+  - dest_nt_host:
+    - '*GIUDA-main.zip*'
+  - sender:
+    - '*GIUDA-main.zip*'
+  - recipient:
+    - '*GIUDA-main.zip*'
+  - orig_recipient:
+    - '*GIUDA-main.zip*'
+  - subject:
+    - '*GIUDA-main.zip*'
+  - url.domain:
+    - '*GIUDA-main.zip*'
+  - url.full:
+    - '*GIUDA-main.zip*'
+  - url.original:
+    - '*GIUDA-main.zip*'
+  - url.query:
+    - '*GIUDA-main.zip*'
+  - user_agent.original:
+    - '*GIUDA-main.zip*'
+  - network.application:
+    - '*GIUDA-main.zip*'
+  - http.request.body.content:
+    - '*GIUDA-main.zip*'
+  - http.request.referrer:
+    - '*GIUDA-main.zip*'
+  - email.from.address:
+    - '*GIUDA-main.zip*'
+  - dns.question.name:
+    - '*GIUDA-main.zip*'
+  - destination.domain:
+    - '*GIUDA-main.zip*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,1078 @@
+title: Simple keyword detection rule for MaliciousMacroMSBuild
+id: 1de1ec82-c3e4-4be4-907c-5f745391bffc
+status: experimental
+description: Detects interesting keywords based on MaliciousMacroMSBuild tool
+references:
+- https://github.com/infosecn1nja/MaliciousMacroMSBuild
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027.002
+- attack.T1059.001
+- attack.T1059.003
+- attack.T1127
+- attack.TA0002
+- attack.TA0004
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - CommandLine:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Details:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry.value:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.args:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.command_line:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.env_vars:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.io.text:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.title:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.company:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.description:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.product:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - os.full:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - host.hostname:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - event.original:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - email.subject:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - device.model.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - container.image.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - container.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Image:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - OriginalFileName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - CurrentDirectory:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ParentImage:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ParentCommandLine:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - TargetFilename:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Signature:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - signature:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ImageLoaded:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Company:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Description:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - description:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - CommandLine:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - SourceImage:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - TargetImage:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - CallTrace:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - TargetObject:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Details:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - PipeName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Consumer:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Destination:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Query:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - NewName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - StartAddress:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - StartModule:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - StartFunction:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - SourceHostname:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Device:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - file_name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - file_path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - original_file_name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - parent_process:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process_path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - service_path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry_path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry_value_data:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry_value_name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ContextInfo:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Payload:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ScriptBlockText:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ServerName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - TransportName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - NewProcessName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ParentProcessName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Application:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Product Name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Threat Name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Process Name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - Path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ImagePath:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ServiceName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ProcessPath:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - AppName:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - AppPath:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - ModulePath:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry.data.strings:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry.path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - registry.value:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.args:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.command_line:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.env_vars:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.io.text:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.executable:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - process.title:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.company:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.description:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.original_file_name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - pe.product:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - os.full:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - host.hostname:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - file.fork_name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - file.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - file.path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - file.target_path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - email.attachments.file.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - email.subject:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - dll.path:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - device.model.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - container.image.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - container.name:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - object:
+    - '* m3-gen.py *'
+    - '* -p powershell -i *.ps1 -o *.vba*'
+    - '*\m3-gen.py*'
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+    - '*/m3-gen.py *'
+    - '* -p shellcode -i *.bin -o *.vba*'
+  - url:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - dest_url:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - uri:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - uri_query:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - query:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - url_domain:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - uri_path:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - domain:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - QueryName:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - QueryResults:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - DestinationHostname:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - DestinationIp:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - http_referrer:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - http_referrer_domain:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - http_user_agent:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - dest_nt_host:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - sender:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - recipient:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - orig_recipient:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - subject:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - url.domain:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - url.full:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - url.original:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - url.query:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - user_agent.original:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - network.application:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - http.request.body.content:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - http.request.referrer:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - email.from.address:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - dns.question.name:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  - destination.domain:
+    - '*MaliciousMacroMSBuild-master*'
+    - '*/MaliciousMacroMSBuild*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

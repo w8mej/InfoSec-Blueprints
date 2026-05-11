@@ -1,0 +1,768 @@
+title: Simple keyword detection rule for SimpleNTSyscallFuzzer
+id: a95295e7-305b-4eb3-9817-172f32b4c7d9
+status: experimental
+description: Detects interesting keywords based on SimpleNTSyscallFuzzer tool
+references:
+- https://github.com/waleedassar/SimpleNTSyscallFuzzer
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.011
+- attack.T1218
+- 'attack.TA0005 '
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - OriginalFileName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - CurrentDirectory:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ParentImage:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ParentCommandLine:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - TargetFilename:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Signature:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - signature:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ImageLoaded:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Company:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Description:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - description:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - CommandLine:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - SourceImage:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - TargetImage:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - CallTrace:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - TargetObject:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Details:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - PipeName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Consumer:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Destination:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Query:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - NewName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - StartAddress:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - StartModule:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - StartFunction:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - SourceHostname:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Device:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - file_name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - file_path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - original_file_name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - parent_process:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process_path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - service_path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - registry_path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - registry_value_data:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - registry_value_name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ContextInfo:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Payload:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ScriptBlockText:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ServerName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - TransportName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - NewProcessName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ParentProcessName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Application:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Product Name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Threat Name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Process Name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - Path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ImagePath:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ServiceName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ProcessPath:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - AppName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - AppPath:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - ModulePath:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - registry.data.strings:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - registry.path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - registry.value:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.args:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.command_line:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.env_vars:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.io.text:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.executable:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - process.title:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - pe.company:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - pe.description:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - pe.original_file_name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - pe.product:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - os.full:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - host.hostname:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - file.fork_name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - file.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - file.path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - file.target_path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - email.attachments.file.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - email.subject:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - dll.path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - device.model.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - container.image.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - container.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - object:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+    - '*FB351327-0816-448B-8FB7-63B550D6C808*'
+    - '*SimpleNTSyscallFuzzer-main\*'
+  - url:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - dest_url:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - uri:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - uri_query:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - query:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - url_domain:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - uri_path:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - domain:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - QueryName:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - QueryResults:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - DestinationHostname:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - DestinationIp:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - http_referrer:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - http_referrer_domain:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - http_user_agent:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - dest_nt_host:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - sender:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - recipient:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - orig_recipient:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - subject:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - url.domain:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - url.full:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - url.original:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - url.query:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - user_agent.original:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - network.application:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - http.request.body.content:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - http.request.referrer:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - email.from.address:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - dns.question.name:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  - destination.domain:
+    - '*/SimpleNTSyscallFuzzer.git*'
+    - '*SimpleNtSyscallFuzzer.v11.suo*'
+    - '*waleedassar/SimpleNTSyscallFuzzer*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

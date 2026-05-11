@@ -86,7 +86,7 @@ function ProjectDashboardContent({ D, setDrawerContent, tweaks }) {
   return (
     <Page>
       <PageHeader
-        subtitle="Real-time agentic SOC operations — autonomous and HITL throughput across all playbooks, agents, and tenants."
+        subtitle="Real-time Sentinel Mesh operations — autonomous and HITL throughput across all playbooks, agents, and tenants."
         audience={["secops", "ic", "exec"]}
         owner="SOC-Platform"
         lastUpdated="just now"

@@ -1,0 +1,832 @@
+title: Simple keyword detection rule for hoaxshell
+id: 78366ef0-464d-4e87-93b6-8cbc05f37039
+status: experimental
+description: Detects interesting keywords based on hoaxshell tool
+references:
+- https://github.com/t3l3machus/hoaxshell
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1133
+- attack.T1190
+- attack.T1203
+- attack.TA0001
+- attack.TA0002
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - OriginalFileName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - CurrentDirectory:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ParentImage:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ParentCommandLine:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - TargetFilename:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Signature:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - signature:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ImageLoaded:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Company:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Description:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - description:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - CommandLine:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - SourceImage:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - TargetImage:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - CallTrace:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - TargetObject:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Details:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - PipeName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Consumer:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Destination:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Query:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - NewName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - StartAddress:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - StartModule:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - StartFunction:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - SourceHostname:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Device:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - file_name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - file_path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - original_file_name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - parent_process:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process_path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - service_path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - registry_path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - registry_value_data:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - registry_value_name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ContextInfo:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Payload:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ScriptBlockText:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ServerName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - TransportName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - NewProcessName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ParentProcessName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Application:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Product Name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Threat Name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Process Name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - Path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ImagePath:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ServiceName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ProcessPath:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - AppName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - AppPath:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - ModulePath:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - registry.data.strings:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - registry.path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - registry.value:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.args:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.command_line:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.env_vars:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.io.text:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.executable:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - process.title:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - pe.company:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - pe.description:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - pe.original_file_name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - pe.product:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - os.full:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - host.hostname:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - file.fork_name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - file.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - file.path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - file.target_path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - email.attachments.file.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - email.subject:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - dll.path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - device.model.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - container.image.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - container.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - object:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - url:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - dest_url:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - uri:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - uri_query:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - query:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - url_domain:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - uri_path:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - domain:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - QueryName:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - QueryResults:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - DestinationHostname:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - DestinationIp:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - http_referrer:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - http_referrer_domain:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - http_user_agent:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - dest_nt_host:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - sender:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - recipient:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - orig_recipient:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - subject:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - url.domain:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - url.full:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - url.original:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - url.query:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - user_agent.original:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - network.application:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - http.request.body.content:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - http.request.referrer:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - email.from.address:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - dns.question.name:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  - destination.domain:
+    - '*/http_payload.ps1*'
+    - '*hoaxshell.py*'
+    - '*/hoaxshell*'
+    - '*./hoaxshell*'
+    - '*/https_payload.ps1*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

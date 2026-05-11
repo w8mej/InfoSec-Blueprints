@@ -1,0 +1,22 @@
+title: windows 系统网络链接发现
+description: windows server 2016
+references:
+      - https://github.com/redcanaryco/atomic-red-team/blob/910a2a764a66b0905065d8bdedb04b37049a85db/atomics/T1049/T1049.md
+tags: T1049
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security/sysmon
+detection:
+    selection1:
+        EventID: 4688 #已创建新的进程。
+        Commandline: 
+                - net use
+                - net sessions
+                - netstat -ano
+    selection2: 
+        keywords:   
+                - Get-NetTCPConnection #powershell
+    condition: all of them
+level: medium

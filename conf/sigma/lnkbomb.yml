@@ -1,0 +1,1448 @@
+title: Simple keyword detection rule for lnkbomb
+id: dc72e87e-31e3-4702-83da-28f5e2469c65
+status: experimental
+description: Detects interesting keywords based on lnkbomb tool
+references:
+- https://github.com/dievus/lnkbomb
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1023.003
+- attack.T1046
+- attack.T1557.002
+- attack.TA0006
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - OriginalFileName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - CurrentDirectory:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ParentImage:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ParentCommandLine:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - TargetFilename:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Signature:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - signature:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ImageLoaded:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Company:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Description:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - description:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - CommandLine:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - SourceImage:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - TargetImage:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - CallTrace:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - TargetObject:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Details:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - PipeName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Consumer:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Destination:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Query:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - NewName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - StartAddress:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - StartModule:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - StartFunction:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - SourceHostname:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Device:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - file_name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - file_path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - original_file_name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - parent_process:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process_path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - service_path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry_path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry_value_data:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry_value_name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ContextInfo:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Payload:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ScriptBlockText:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ServerName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - TransportName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - NewProcessName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ParentProcessName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Application:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Product Name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Threat Name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Process Name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ImagePath:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ServiceName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ProcessPath:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - AppName:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - AppPath:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ModulePath:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry.data.strings:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry.path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry.value:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.args:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.command_line:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.env_vars:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.io.text:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.executable:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.title:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.company:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.description:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.original_file_name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.product:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - os.full:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - host.hostname:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - file.fork_name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - file.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - file.path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - file.target_path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - email.attachments.file.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - email.subject:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - dll.path:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - device.model.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - container.image.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - container.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - object:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - ParentCommandLine:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - CommandLine:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - Details:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - registry.value:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.args:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.command_line:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.env_vars:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.io.text:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - process.title:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.company:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.description:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - pe.product:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - os.full:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - host.hostname:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - event.original:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - email.subject:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - device.model.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - container.image.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - container.name:
+    - '*lnkbomb.py *'
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*[warn] You either fat fingered this or something else. Either way*'
+    - '*\lnkbomb.py*'
+    - '*\lnkbomb-1.0\*'
+    - '* lnkbomb.py*'
+    - '*Malicious Shortcut Generator*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - url:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - dest_url:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - uri:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - uri_query:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - query:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - url_domain:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - uri_path:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - domain:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - QueryName:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - QueryResults:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - DestinationHostname:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - DestinationIp:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - http_referrer:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - http_referrer_domain:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - http_user_agent:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - dest_nt_host:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - sender:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - recipient:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - orig_recipient:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - subject:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - url.domain:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - url.full:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - url.original:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - url.query:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - user_agent.original:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - network.application:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - http.request.body.content:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - http.request.referrer:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - email.from.address:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - dns.question.name:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  - destination.domain:
+    - '*lnkbomb-1.0.zip*'
+    - '*/lnkbomb.git*'
+    - '*dievus/lnkbomb*'
+    - '*/lnkbomb.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

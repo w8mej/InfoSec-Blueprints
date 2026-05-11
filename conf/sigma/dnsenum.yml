@@ -1,0 +1,373 @@
+title: Simple keyword detection rule for dnsenum
+id: 402dc45f-c684-4a18-a7e9-3f1b60044b15
+status: experimental
+description: Detects interesting keywords based on dnsenum tool
+references:
+- https://github.com/fwaeytens/dnsenum
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1012
+- attack.T1018
+- attack.T1190
+- attack.T1218
+- attack.T1590
+- attack.TA0002
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*dnsenum.pl*'
+  - OriginalFileName:
+    - '*dnsenum.pl*'
+  - CurrentDirectory:
+    - '*dnsenum.pl*'
+  - ParentImage:
+    - '*dnsenum.pl*'
+  - ParentCommandLine:
+    - '*dnsenum.pl*'
+  - TargetFilename:
+    - '*dnsenum.pl*'
+  - Signature:
+    - '*dnsenum.pl*'
+  - signature:
+    - '*dnsenum.pl*'
+  - ImageLoaded:
+    - '*dnsenum.pl*'
+  - Company:
+    - '*dnsenum.pl*'
+  - Description:
+    - '*dnsenum.pl*'
+  - description:
+    - '*dnsenum.pl*'
+  - CommandLine:
+    - '*dnsenum.pl*'
+  - SourceImage:
+    - '*dnsenum.pl*'
+  - TargetImage:
+    - '*dnsenum.pl*'
+  - CallTrace:
+    - '*dnsenum.pl*'
+  - TargetObject:
+    - '*dnsenum.pl*'
+  - Details:
+    - '*dnsenum.pl*'
+  - PipeName:
+    - '*dnsenum.pl*'
+  - Consumer:
+    - '*dnsenum.pl*'
+  - Destination:
+    - '*dnsenum.pl*'
+  - Name:
+    - '*dnsenum.pl*'
+  - Query:
+    - '*dnsenum.pl*'
+  - NewName:
+    - '*dnsenum.pl*'
+  - StartAddress:
+    - '*dnsenum.pl*'
+  - StartModule:
+    - '*dnsenum.pl*'
+  - StartFunction:
+    - '*dnsenum.pl*'
+  - SourceHostname:
+    - '*dnsenum.pl*'
+  - Device:
+    - '*dnsenum.pl*'
+  - file_name:
+    - '*dnsenum.pl*'
+  - file_path:
+    - '*dnsenum.pl*'
+  - process:
+    - '*dnsenum.pl*'
+  - original_file_name:
+    - '*dnsenum.pl*'
+  - parent_process:
+    - '*dnsenum.pl*'
+  - process_path:
+    - '*dnsenum.pl*'
+  - service_path:
+    - '*dnsenum.pl*'
+  - registry_path:
+    - '*dnsenum.pl*'
+  - registry_value_data:
+    - '*dnsenum.pl*'
+  - registry_value_name:
+    - '*dnsenum.pl*'
+  - ContextInfo:
+    - '*dnsenum.pl*'
+  - Payload:
+    - '*dnsenum.pl*'
+  - ScriptBlockText:
+    - '*dnsenum.pl*'
+  - ServerName:
+    - '*dnsenum.pl*'
+  - TransportName:
+    - '*dnsenum.pl*'
+  - NewProcessName:
+    - '*dnsenum.pl*'
+  - ParentProcessName:
+    - '*dnsenum.pl*'
+  - Application:
+    - '*dnsenum.pl*'
+  - Product Name:
+    - '*dnsenum.pl*'
+  - Threat Name:
+    - '*dnsenum.pl*'
+  - Process Name:
+    - '*dnsenum.pl*'
+  - Path:
+    - '*dnsenum.pl*'
+  - ImagePath:
+    - '*dnsenum.pl*'
+  - ServiceName:
+    - '*dnsenum.pl*'
+  - ProcessPath:
+    - '*dnsenum.pl*'
+  - AppName:
+    - '*dnsenum.pl*'
+  - AppPath:
+    - '*dnsenum.pl*'
+  - ModulePath:
+    - '*dnsenum.pl*'
+  - registry.data.strings:
+    - '*dnsenum.pl*'
+  - registry.path:
+    - '*dnsenum.pl*'
+  - registry.value:
+    - '*dnsenum.pl*'
+  - process.args:
+    - '*dnsenum.pl*'
+  - process.command_line:
+    - '*dnsenum.pl*'
+  - process.env_vars:
+    - '*dnsenum.pl*'
+  - process.io.text:
+    - '*dnsenum.pl*'
+  - process.executable:
+    - '*dnsenum.pl*'
+  - process.name:
+    - '*dnsenum.pl*'
+  - process.title:
+    - '*dnsenum.pl*'
+  - pe.company:
+    - '*dnsenum.pl*'
+  - pe.description:
+    - '*dnsenum.pl*'
+  - pe.original_file_name:
+    - '*dnsenum.pl*'
+  - pe.product:
+    - '*dnsenum.pl*'
+  - os.full:
+    - '*dnsenum.pl*'
+  - host.hostname:
+    - '*dnsenum.pl*'
+  - file.fork_name:
+    - '*dnsenum.pl*'
+  - file.name:
+    - '*dnsenum.pl*'
+  - file.path:
+    - '*dnsenum.pl*'
+  - file.target_path:
+    - '*dnsenum.pl*'
+  - email.attachments.file.name:
+    - '*dnsenum.pl*'
+  - email.subject:
+    - '*dnsenum.pl*'
+  - dll.path:
+    - '*dnsenum.pl*'
+  - device.model.name:
+    - '*dnsenum.pl*'
+  - container.image.name:
+    - '*dnsenum.pl*'
+  - container.name:
+    - '*dnsenum.pl*'
+  - object:
+    - '*dnsenum.pl*'
+  - url:
+    - '*dnsenum.pl*'
+  - dest_url:
+    - '*dnsenum.pl*'
+  - uri:
+    - '*dnsenum.pl*'
+  - uri_query:
+    - '*dnsenum.pl*'
+  - query:
+    - '*dnsenum.pl*'
+  - url_domain:
+    - '*dnsenum.pl*'
+  - uri_path:
+    - '*dnsenum.pl*'
+  - domain:
+    - '*dnsenum.pl*'
+  - QueryName:
+    - '*dnsenum.pl*'
+  - QueryResults:
+    - '*dnsenum.pl*'
+  - DestinationHostname:
+    - '*dnsenum.pl*'
+  - DestinationIp:
+    - '*dnsenum.pl*'
+  - http_referrer:
+    - '*dnsenum.pl*'
+  - http_referrer_domain:
+    - '*dnsenum.pl*'
+  - http_user_agent:
+    - '*dnsenum.pl*'
+  - dest_nt_host:
+    - '*dnsenum.pl*'
+  - sender:
+    - '*dnsenum.pl*'
+  - recipient:
+    - '*dnsenum.pl*'
+  - orig_recipient:
+    - '*dnsenum.pl*'
+  - subject:
+    - '*dnsenum.pl*'
+  - url.domain:
+    - '*dnsenum.pl*'
+  - url.full:
+    - '*dnsenum.pl*'
+  - url.original:
+    - '*dnsenum.pl*'
+  - url.query:
+    - '*dnsenum.pl*'
+  - user_agent.original:
+    - '*dnsenum.pl*'
+  - network.application:
+    - '*dnsenum.pl*'
+  - http.request.body.content:
+    - '*dnsenum.pl*'
+  - http.request.referrer:
+    - '*dnsenum.pl*'
+  - email.from.address:
+    - '*dnsenum.pl*'
+  - dns.question.name:
+    - '*dnsenum.pl*'
+  - destination.domain:
+    - '*dnsenum.pl*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

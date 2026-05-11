@@ -1,0 +1,21 @@
+title: AWS Restore Public DB Instance
+status: experimental
+author: wssheldo
+date: 2020/05/20
+description: >
+  Detects the recovery of a new public database
+  instance from a snapshot. It may be a part of data exfiltration.
+references:
+  - https://github.com/RhinoSecurityLabs/pacu/blob/master/modules/rds__explore_snapshots/main.py#L10
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d@d
+  (eventSource="rds.amazonaws.com" responseElements.publiclyAccessible="true"
+  eventName="RestoreDBInstanceFromDBSnapshot")
+severity: 3
+page: false
+falsepositives: >
+    -
+tags: >
+  - attack.t1537

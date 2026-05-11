@@ -1,0 +1,1053 @@
+title: Simple keyword detection rule for GhostInTheNet
+id: 6451d543-bc3c-4e1f-ad76-7eccddc756b8
+status: experimental
+description: Detects interesting keywords based on GhostInTheNet tool
+references:
+- https://github.com/cryptolok/GhostInTheNet
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1565
+- attack.T1574
+- attack.TA0007
+- attack.TA0040
+- attack.TA0043
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - OriginalFileName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - CurrentDirectory:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ParentImage:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ParentCommandLine:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - TargetFilename:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Signature:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - signature:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ImageLoaded:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Company:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Description:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - description:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - CommandLine:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - SourceImage:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - TargetImage:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - CallTrace:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - TargetObject:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Details:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - PipeName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Consumer:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Destination:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Query:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - NewName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - StartAddress:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - StartModule:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - StartFunction:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - SourceHostname:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Device:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - file_name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - file_path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - original_file_name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - parent_process:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process_path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - service_path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - registry_path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - registry_value_data:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - registry_value_name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ContextInfo:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Payload:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ScriptBlockText:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ServerName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - TransportName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - NewProcessName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ParentProcessName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Application:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Product Name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Threat Name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Process Name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - Path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ImagePath:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ServiceName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ProcessPath:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - AppName:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - AppPath:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - ModulePath:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - registry.data.strings:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - registry.path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - registry.value:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.args:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.command_line:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.env_vars:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.io.text:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.executable:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - process.title:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - pe.company:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - pe.description:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - pe.original_file_name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - pe.product:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - os.full:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - host.hostname:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - file.fork_name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - file.name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - file.path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - file.target_path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - email.attachments.file.name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - email.subject:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - dll.path:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - device.model.name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - container.image.name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - container.name:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - object:
+    - '*GhostInTheNet off*'
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*GhostInTheNet on*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+    - '*/tmp/host.ghost*'
+    - '*/tmp/mac.ghost*'
+  - url:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - dest_url:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - uri:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - uri_query:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - query:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - url_domain:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - uri_path:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - domain:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - QueryName:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - QueryResults:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - DestinationHostname:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - DestinationIp:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - http_referrer:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - http_referrer_domain:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - http_user_agent:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - dest_nt_host:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - sender:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - recipient:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - orig_recipient:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - subject:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - url.domain:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - url.full:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - url.original:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - url.query:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - user_agent.original:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - network.application:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - http.request.body.content:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - http.request.referrer:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - email.from.address:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - dns.question.name:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  - destination.domain:
+    - '*/GhostInTheNet.git*'
+    - '*/GhostInTheNet.sh*'
+    - '*/GhostInTheNet-master*'
+    - '*GhostInTheNet.sh *'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

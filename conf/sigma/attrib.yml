@@ -1,0 +1,141 @@
+title: Simple keyword detection rule for attrib
+id: 291f233a-bcfd-417d-9c98-a041f3ea2fa6
+status: experimental
+description: Detects interesting keywords based on attrib tool
+references:
+- https://github.com/RoseSecurity/Red-Teaming-TTPs/blob/main/Anti-Forensics.md
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1081.001
+- attack.T1555.003
+- attack.T1562.001
+- attack.TA0002
+- attack.TA0006
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - CommandLine:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - Details:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - registry.value:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - process.args:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - process.command_line:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - process.env_vars:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - process.io.text:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - process.title:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - pe.company:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - pe.description:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - pe.product:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - os.full:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - host.hostname:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - event.original:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - email.subject:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - device.model.name:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - container.image.name:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  - container.name:
+    - '*echo [.ShellClassInfo] > desktop.ini*'
+    - '*attrib +s +h desktop.ini*'
+    - '*echo IconResource=\\*\* >> desktop.ini*'
+    - '*\attrib.exe* +H *'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

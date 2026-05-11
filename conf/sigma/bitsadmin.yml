@@ -1,0 +1,82 @@
+title: Simple keyword detection rule for bitsadmin
+id: a2e807a0-7d6e-4829-99a2-ef999f6990b6
+status: experimental
+description: Detects interesting keywords based on bitsadmin tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1041
+- attack.T1048
+- attack.T1105
+- attack.TA0002
+- attack.TA0003
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - CommandLine:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - Details:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - registry.value:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - process.args:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - process.command_line:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - process.env_vars:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - process.io.text:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - process.title:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - pe.company:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - pe.description:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - pe.product:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - os.full:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - host.hostname:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - event.original:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - email.subject:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - device.model.name:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - container.image.name:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  - container.name:
+    - '*bitsadmin /transfer debjob /download /priority normal \*\C$\Windows\*.dll'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

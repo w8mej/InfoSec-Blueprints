@@ -1,0 +1,119 @@
+title: Simple keyword detection rule for dns
+id: 74175ba3-184c-4365-b9d5-ad9e178385fd
+status: experimental
+description: Detects interesting keywords based on dns tool
+references:
+- https://github.com/ossec/ossec-hids/blob/master/etc/rules/named_rules.xml
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1071.004
+- attack.T1078.004
+- attack.TA0006
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - CommandLine:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - Details:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - registry.value:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - process.args:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - process.command_line:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - process.env_vars:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - process.io.text:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - process.title:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - pe.company:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - pe.description:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - pe.product:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - os.full:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - host.hostname:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - event.original:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - email.subject:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - device.model.name:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - container.image.name:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  - container.name:
+    - '* dropping source port zero packet from *'
+    - '* denied AXFR from *'
+    - '* exiting (due to fatal error)*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,140 @@
+title: Simple keyword detection rule for systemctl
+id: 9750bed9-011a-400c-b98f-d2bc8c985402
+status: experimental
+description: Detects interesting keywords based on systemctl tool
+references:
+- https://attack.mitre.org/techniques/T1562/001/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055
+- attack.T1070.004
+- attack.T1218.011
+- attack.TA0005
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - CommandLine:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - Details:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - registry.value:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - process.args:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - process.command_line:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - process.env_vars:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - process.io.text:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - process.title:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - pe.company:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - pe.description:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - pe.product:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - os.full:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - host.hostname:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - event.original:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - email.subject:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - device.model.name:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - container.image.name:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  - container.name:
+    - '*systemctl stop cbdaemon*'
+    - '*systemctl disable falcon-sensor.service*'
+    - '*systemctl stop falcon-sensor.service*'
+    - '*systemctl disable cbdaemon*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

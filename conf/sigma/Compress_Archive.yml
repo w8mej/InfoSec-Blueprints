@@ -1,0 +1,642 @@
+title: Simple keyword detection rule for Compress-Archive
+id: 1650558f-70a2-494b-beb2-90b9cbcd3ced
+status: experimental
+description: Detects interesting keywords based on Compress-Archive tool
+references:
+- https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-347a
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1020
+- attack.T1041
+- attack.T1560
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - OriginalFileName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - CurrentDirectory:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ParentImage:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ParentCommandLine:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - TargetFilename:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Signature:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - signature:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ImageLoaded:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Company:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Description:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - description:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - CommandLine:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - SourceImage:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - TargetImage:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - CallTrace:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - TargetObject:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Details:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - PipeName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Consumer:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Destination:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Query:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - NewName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - StartAddress:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - StartModule:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - StartFunction:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - SourceHostname:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Device:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - file_name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - file_path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - original_file_name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - parent_process:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process_path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - service_path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry_path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry_value_data:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry_value_name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ContextInfo:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Payload:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ScriptBlockText:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ServerName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - TransportName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - NewProcessName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ParentProcessName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Application:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Product Name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Threat Name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Process Name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ImagePath:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ServiceName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ProcessPath:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - AppName:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - AppPath:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ModulePath:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry.data.strings:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry.path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry.value:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.args:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.command_line:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.env_vars:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.io.text:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.executable:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.title:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.company:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.description:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.original_file_name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.product:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - os.full:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - host.hostname:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - file.fork_name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - file.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - file.path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - file.target_path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - email.attachments.file.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - email.subject:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - dll.path:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - device.model.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - container.image.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - container.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - object:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - ParentCommandLine:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - CommandLine:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - Details:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - registry.value:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.args:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.command_line:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.env_vars:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.io.text:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - process.title:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.company:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.description:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - pe.product:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - os.full:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - host.hostname:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - event.original:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - email.subject:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - device.model.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - container.image.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  - container.name:
+    - '*Compress-Archive -Path*-DestinationPath*:\Windows\Temp\*'
+    - '*Compress-Archive -Path*-DestinationPath $env:TEMP*'
+    - '*Compress-Archive -Path*-DestinationPath*\AppData\Local\Temp\''*'
+    - '*:\programdata\cloud.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

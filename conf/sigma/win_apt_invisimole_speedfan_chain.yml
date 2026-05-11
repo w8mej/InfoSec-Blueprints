@@ -1,0 +1,40 @@
+action: global
+title: InvisiMole Speedfan Exploit Chain
+id: 71745aa9-9ac0-444e-9685-af788989d2f7
+status: experimental
+description: Detects artefacts associated with InvisiMole Speedfan exploit persistence chain, as reported in June 2020
+references:
+    - https://www.welivesecurity.com/2020/06/18/digging-up-invisimole-hidden-arsenal/
+author: ESET Research
+date: 2021/05/17
+tags:
+    - attack.defense_evasion
+    - attack.execution
+    - attack.persistence
+    - attack.t1202
+    - attack.t1569.002
+    - attack.t1543.003
+falsepositives:
+    - Unknown
+level: high
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    srvanyng:
+        sha1: '9987c0b97cb6a0239d3af6e5a70b552e1c38810f'
+    winapiexec_path:
+        Image|endswith: '\intel_log64.exe'
+        ParentCommandLine|endswith:
+            - '\NGEN.exe'
+            - '\winapiexec.exe'
+            - '\winapiexec64.exe'
+    winapiexec_hash:
+        sha1:
+            - '9fdb5b3311ba5b61ff9008469dbaff271c29fa51'
+            - '4a6dc6a32a777dc5dd47221bf79604bc0258a987'
+    commandline:
+        CommandLine|contains:
+            - 'CreateFileW *Ngen.cab* 0x80000000 0 0 3 0 0'
+            - 'EnumUILanguagesA $$:1 4 $$:1'
+    condition: (srvanyng or winapiexec_hash or winapiexec_path) and commandline

@@ -1,0 +1,844 @@
+title: Simple keyword detection rule for Pcredz
+id: 3211ebf2-e86d-449d-b09a-5f4dfc2fc1df
+status: experimental
+description: Detects interesting keywords based on Pcredz tool
+references:
+- https://github.com/lgandx/Pcredz
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1001
+- attack.T1002
+- attack.T1003
+- attack.T1005
+- attack.T1116
+- attack.T1552
+- attack.TA0002
+- attack.TA0003
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - CommandLine:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Details:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry.value:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.args:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.command_line:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.env_vars:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.io.text:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.title:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.company:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.description:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.product:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - os.full:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - host.hostname:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - event.original:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - email.subject:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - device.model.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - container.image.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - container.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Image:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - OriginalFileName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - CurrentDirectory:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ParentImage:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ParentCommandLine:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - TargetFilename:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Signature:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - signature:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ImageLoaded:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Company:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Description:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - description:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - CommandLine:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - SourceImage:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - TargetImage:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - CallTrace:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - TargetObject:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Details:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - PipeName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Consumer:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Destination:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Query:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - NewName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - StartAddress:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - StartModule:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - StartFunction:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - SourceHostname:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Device:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - file_name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - file_path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - original_file_name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - parent_process:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process_path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - service_path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry_path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry_value_data:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry_value_name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ContextInfo:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Payload:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ScriptBlockText:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ServerName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - TransportName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - NewProcessName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ParentProcessName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Application:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Product Name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Threat Name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Process Name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - Path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ImagePath:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ServiceName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ProcessPath:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - AppName:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - AppPath:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - ModulePath:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry.data.strings:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry.path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - registry.value:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.args:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.command_line:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.env_vars:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.io.text:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.executable:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - process.title:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.company:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.description:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.original_file_name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - pe.product:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - os.full:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - host.hostname:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - file.fork_name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - file.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - file.path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - file.target_path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - email.attachments.file.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - email.subject:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - dll.path:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - device.model.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - container.image.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - container.name:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - object:
+    - '*Pcredz -d *'
+    - '*lgandx/Pcredz*'
+    - '*Pcredz -i *'
+    - '*./Pcredz *'
+    - '*Pcredz -f *'
+  - url:
+    - '*lgandx/Pcredz*'
+  - dest_url:
+    - '*lgandx/Pcredz*'
+  - uri:
+    - '*lgandx/Pcredz*'
+  - uri_query:
+    - '*lgandx/Pcredz*'
+  - query:
+    - '*lgandx/Pcredz*'
+  - url_domain:
+    - '*lgandx/Pcredz*'
+  - uri_path:
+    - '*lgandx/Pcredz*'
+  - domain:
+    - '*lgandx/Pcredz*'
+  - QueryName:
+    - '*lgandx/Pcredz*'
+  - QueryResults:
+    - '*lgandx/Pcredz*'
+  - DestinationHostname:
+    - '*lgandx/Pcredz*'
+  - DestinationIp:
+    - '*lgandx/Pcredz*'
+  - http_referrer:
+    - '*lgandx/Pcredz*'
+  - http_referrer_domain:
+    - '*lgandx/Pcredz*'
+  - http_user_agent:
+    - '*lgandx/Pcredz*'
+  - dest_nt_host:
+    - '*lgandx/Pcredz*'
+  - sender:
+    - '*lgandx/Pcredz*'
+  - recipient:
+    - '*lgandx/Pcredz*'
+  - orig_recipient:
+    - '*lgandx/Pcredz*'
+  - subject:
+    - '*lgandx/Pcredz*'
+  - url.domain:
+    - '*lgandx/Pcredz*'
+  - url.full:
+    - '*lgandx/Pcredz*'
+  - url.original:
+    - '*lgandx/Pcredz*'
+  - url.query:
+    - '*lgandx/Pcredz*'
+  - user_agent.original:
+    - '*lgandx/Pcredz*'
+  - network.application:
+    - '*lgandx/Pcredz*'
+  - http.request.body.content:
+    - '*lgandx/Pcredz*'
+  - http.request.referrer:
+    - '*lgandx/Pcredz*'
+  - email.from.address:
+    - '*lgandx/Pcredz*'
+  - dns.question.name:
+    - '*lgandx/Pcredz*'
+  - destination.domain:
+    - '*lgandx/Pcredz*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

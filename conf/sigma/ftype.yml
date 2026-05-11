@@ -1,0 +1,138 @@
+title: Simple keyword detection rule for ftype
+id: 9489108e-247b-4721-ae54-593d0d06de85
+status: experimental
+description: Detects interesting keywords based on ftype tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1033
+- attack.T1059
+- attack.T1083
+- attack.TA0002
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - CommandLine:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - Details:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - registry.value:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - process.args:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - process.command_line:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - process.env_vars:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - process.io.text:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - process.title:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - pe.company:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - pe.description:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - pe.product:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - os.full:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - host.hostname:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - event.original:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - email.subject:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - device.model.name:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - container.image.name:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  - container.name:
+    - '*ftype *findstr dfil*'
+    - '*ftype *findstr SHCm*'
+    - '*ftype *findstr *SHCm*'
+    - '*ftype *findstr *dfil*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

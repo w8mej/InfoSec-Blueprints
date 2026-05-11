@@ -1,0 +1,1070 @@
+title: Simple keyword detection rule for dcomhijack
+id: ed93b7a9-b3d2-4980-a0d9-f50e68aabca9
+status: experimental
+description: Detects interesting keywords based on dcomhijack tool
+references:
+- https://github.com/WKL-Sec/dcomhijack
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021
+- attack.T1021.003
+- attack.T1574
+- attack.T1574.002
+- attack.T1574.007
+- attack.TA0002
+- attack.TA0005
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - OriginalFileName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - CurrentDirectory:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ParentImage:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ParentCommandLine:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - TargetFilename:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Signature:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - signature:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ImageLoaded:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Company:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Description:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - description:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - CommandLine:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - SourceImage:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - TargetImage:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - CallTrace:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - TargetObject:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Details:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - PipeName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Consumer:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Destination:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Query:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - NewName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - StartAddress:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - StartModule:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - StartFunction:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - SourceHostname:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Device:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - file_name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - file_path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - original_file_name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - parent_process:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process_path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - service_path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry_path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry_value_data:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry_value_name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ContextInfo:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Payload:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ScriptBlockText:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ServerName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - TransportName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - NewProcessName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ParentProcessName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Application:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Product Name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Threat Name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Process Name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ImagePath:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ServiceName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ProcessPath:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - AppName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - AppPath:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ModulePath:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry.data.strings:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry.path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry.value:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.args:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.command_line:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.env_vars:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.io.text:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.executable:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.title:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.company:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.description:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.original_file_name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.product:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - os.full:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - host.hostname:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - file.fork_name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - file.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - file.path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - file.target_path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - email.attachments.file.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - email.subject:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - dll.path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - device.model.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - container.image.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - container.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - object:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - ParentCommandLine:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - CommandLine:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - Details:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - registry.value:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.args:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.command_line:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.env_vars:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.io.text:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - process.title:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.company:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.description:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - pe.product:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - os.full:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - host.hostname:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - event.original:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - email.subject:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - device.model.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - container.image.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - container.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+    - '*upload-dll * *.dll*'
+  - url:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - dest_url:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - uri:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - uri_query:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - query:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - url_domain:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - uri_path:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - domain:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - QueryName:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - QueryResults:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - DestinationHostname:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - DestinationIp:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - http_referrer:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - http_referrer_domain:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - http_user_agent:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - dest_nt_host:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - sender:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - recipient:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - orig_recipient:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - subject:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - url.domain:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - url.full:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - url.original:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - url.query:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - user_agent.original:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - network.application:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - http.request.body.content:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - http.request.referrer:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - email.from.address:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - dns.question.name:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  - destination.domain:
+    - '*/dcomhijack.git*'
+    - '*WKL-Sec/dcomhijack*'
+    - '*dcomhijack.cna*'
+    - '*dcomhijack.py*'
+    - '*dcomhijack-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

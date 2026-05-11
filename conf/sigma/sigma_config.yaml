@@ -1,0 +1,367 @@
+title: Timesketch Sigma config
+order: 20
+backends:
+  - es-dsl
+  - es-qs
+  - es-qr
+  - es-rule
+logsources:
+  linux_file:
+    category: file_event
+    product: linux
+    conditions:
+      data_type: "fs:stat"
+  linux_network:
+    category: network_connection
+    product: linux
+    conditions:
+      data_type:
+        - "shell:zsh:history"
+        - "bash:history:command"
+        - "apt:history:line"
+        - "selinux:line"
+        - "syslog"
+  linux_process_creation:
+    category: process_creation
+    product: linux
+    conditions:
+      data_type:
+        - "shell:zsh:history"
+        - "bash:history:command"
+        - "apt:history:line"
+        - "selinux:line"
+  sshd:
+    service: sshd
+    conditions:
+      data_type: "syslog/sshd"
+  auth:
+    service: auth
+    conditions:
+      data_type: "syslog"
+  apache:
+    product: apache
+    conditions:
+      data_type: "apache:access"
+  vsftp:
+    service: vsftp
+    conditions:
+      data_type: "vsftpd:log"
+  webserver:
+    category: webserver
+    conditions:
+      data_type:
+        - "apache:access"
+        - "iis:log:line"
+  santa:
+    category: osx_santa
+    conditions:
+      data_type:
+        - "filesystem:santa:entry"
+  shell:
+    service: shell
+    conditions:
+      data_type:
+        - "shell:zsh:history"
+        - "bash:history:command"
+        - "apt:history:line"
+        - "selinux:line"
+  selinux:
+    service: selinux
+    conditions:
+      data_type:
+        - "selinux:line"
+  winprefetch:
+    service: winprefetch
+    conditions:
+      data_type: "windows:prefetch:execution"
+  product_windows:
+    product: windows
+    conditions:
+      data_type: "windows:evtx:record"
+  service_windows_security:
+    service: security
+    conditions:
+      source_name:
+        - "Microsoft-Windows-Security-Auditing"
+        - "Microsoft-Windows-Eventlog"
+  service_windows_system:
+    service: system
+    conditions:
+      source_name:
+        - "Microsoft-Windows-Eventlog"
+  powershell:
+    service: powershell
+    conditions:
+      source_name:
+        - "Microsoft-Windows-Security-Auditing"
+  files:
+    service: filesystem
+    conditions:
+      data_type:
+        - "fs:stat"
+        - "fs:mactime:line"
+        - "filesystem:santa:entry"
+        - "fs:bodyfile:entry"
+  sysmon:
+    service: sysmon
+    conditions:
+      source_name:
+        - "Microsoft-Windows-Sysmon"
+  syslog:
+    service: syslog
+    conditions:
+      data_type:
+        - "syslog:line"
+  # GCP
+  gcp_audit:
+    service: gcp.audit
+    conditions:
+      query:
+        - "cloudaudit.googleapis.com"
+  # log source configurations for generic sigma rules
+  process_creation:
+    category: process_creation
+    product: windows
+    conditions:
+      EventID:
+        - 1
+        - 4688
+      source_name:
+        - "Microsoft-Windows-Sysmon"
+        - "Microsoft-Windows-Security-Auditing"
+        - "Microsoft-Windows-Eventlog"
+    fieldmappings:
+      Image: NewProcessName
+      ParentImage: ParentProcessName
+  network_connection:
+    category: network_connection
+    product: windows
+    conditions:
+      EventID: 3
+    rewrite:
+      product: windows
+      service: sysmon
+  process_terminated:
+    category: process_termination
+    product: windows
+    conditions:
+      EventID: 5
+    rewrite:
+      product: windows
+      service: sysmon
+  driver_loaded:
+    category: driver_load
+    product: windows
+    conditions:
+      EventID: 6
+    rewrite:
+      product: windows
+      service: sysmon
+  image_loaded:
+    category: image_load
+    product: windows
+    conditions:
+      EventID: 7
+    rewrite:
+      product: windows
+      service: sysmon
+  create_remote_thread:
+    category: create_remote_thread
+    product: windows
+    conditions:
+      EventID: 8
+    rewrite:
+      product: windows
+      service: sysmon
+  raw_access_thread:
+    category: raw_access_thread
+    product: windows
+    conditions:
+      EventID: 9
+    rewrite:
+      product: windows
+      service: sysmon
+  process_access:
+    category: process_access
+    product: windows
+    conditions:
+      EventID: 10
+    rewrite:
+      product: windows
+      service: sysmon
+  file_creation:
+    category: file_event
+    product: windows
+    conditions:
+      EventID: 11
+    rewrite:
+      product: windows
+      service: sysmon
+  registry_event:
+    category: registry_event
+    product: windows
+    conditions:
+      EventID:
+        - 12
+        - 13
+        - 14
+    rewrite:
+      product: windows
+      service: sysmon
+  create_stream_hash:
+    category: create_stream_hash
+    product: windows
+    conditions:
+      EventID: 15
+    rewrite:
+      product: windows
+      service: sysmon
+  pipe_created:
+    category: pipe_created
+    product: windows
+    conditions:
+      EventID:
+        - 17
+        - 18
+    rewrite:
+      product: windows
+      service: sysmon
+  wmi_event:
+    category: wmi_event
+    product: windows
+    conditions:
+      EventID:
+        - 19
+        - 20
+        - 21
+    rewrite:
+      product: windows
+      service: sysmon
+  dns_query:
+    category: dns_query
+    product: windows
+    conditions:
+      EventID: 22
+    rewrite:
+      product: windows
+      service: sysmon
+  file_delete:
+    category: file_delete
+    product: windows
+    conditions:
+      EventID: 23
+    rewrite:
+      product: windows
+      service: sysmon
+  ssh:
+    service: ssh
+    conditions:
+      data_type:
+        - "syslog:ssh:login"
+        - "syslog:line"
+fieldmappings:
+    EventID: event_identifier
+    ComputerName: computer_name
+    EventType: event_type
+    EventIdentifier: event_identifier
+    ObjectName: xml_string # that is a bit hacky but the processName is currently not being parsed that is why searching in the raw xml
+    ObjectType: xml_string # that is a bit hacky but the processName is currently not being parsed that is why searching in the raw xml
+    ProcessName: xml_string # that is a bit hacky but the processName is currently not being parsed that is why searching in the raw xml
+    GroupSid: xml_string
+    CommandLine: xml_string
+    ServiceName: xml_string
+    Service: xml_string
+    Message: xml_string
+    keywords: xml_string # that might be wrong, only introduced during powershell stuff
+    Source: message
+    LogonType: xml_string
+    LogonProcessName: xml_string
+    LogonGuid: xml_string
+    SubjectDomainName: xml_string
+    SubjectUserName: xml_string
+    TargetUserSid: xml_string
+    TargetUserName: xml_String
+    TargetDomainName: xml_string
+    TargetLogonId: xml_string
+    AuthenticationPackageName: xml_string
+    WorkstationName: xml_string
+    TransmittedServices: xml_string
+    ProcessId: xml_string
+    IpAddress: xml_string
+    IpPort: xml_String #not sure if that mapping is used somewhere else
+    SourceNetworkAddress: xml_string
+    TargetOutboundUserName: xml_string
+    TargetOutboundDomainName: xml_string
+    Level: xml_string # this might also cause conflicts.
+    ServiceFileName: xml_string
+    ObjectValueName: xml_string
+    DestPort: xml_string
+    LayerRTID: xml_string
+    AccessMask: xml_string
+    ShareName: xml_string
+    RelativeTargetName: xml_string
+    AccountName: xml_string
+    PrivilegeList: xml_string
+    SubjectLogonId: xml_string
+    CallingProcessName: xml_string
+    SAMAccountName: xml_string
+    ObjectServer: xml_string
+    Properties: xml_string
+    HiveName: xml_string
+    AttributeLDAPDisplayName: xml_string
+    GroupName: xml_string
+    UserName: xml_string
+    DeviceDescription: xml_string
+    DeviceClassName: xml_string
+    TicketOptions: xml_string
+    TicketEncryptionType: xml_string
+    SourceWorkstation: xml_string
+    DestinationAddress: xml_string
+    DestinationPort: xml_string
+    SourceAddress: xml_string
+    Keywords: xml_string
+    LDAPDisplayName: xml_string
+    AuditPolicyChanges: xml_string
+    SourceImage: xml_string
+    TargetImage: xml_string
+    TargetFilename:
+      product=linux: filename
+      default: xml_string
+    ImageLoaded: xml_string
+    QueryName: xml_string
+    TargetProcessAddress: xml_string
+    TargetObject: xml_string
+    Signature: xml_string
+    StartModule: xml_string
+    StartFunction: xml_string
+    IntegrityLevel: xml_string
+    Description: xml_string
+    Signed: xml_string
+    ScriptBlockText: xml_string
+    ContextInfo: xml_string
+    OriginalFileName: xml_string # 80167ada-7a12-41ed-b8e9-aa47195c66a1
+    Payload: xml_string
+    HostName: xml_string #96b9f619-aa91-478f-bacb-c3e50f8df575
+    HostApplication: xml_string #96b9f619-aa91-478f-bacb-c3e50f8df575
+    gcp.audit.method_name: methodName
+    ParentImage: xml_string
+    Mutex: message
+    Value:
+      service=windefend: xml_string
+      default: Value
+    Provider_Name: xml_string
+    param1: #6c0a7755-6d31-44fa-80e1-133e57752680
+      product=windows: xml_string
+      default: param1
+    param2: #6c0a7755-6d31-44fa-80e1-133e57752680
+      product=windows: xml_string
+      default: param2
+    GrantedAccess: xml_string #aa35a627-33fb-4d04-a165-d33b4afca3e8
+    DestinationIp:
+      product=linux: message
+      product=windows: xml_string
+      default: message
+    Image: #42df45e7-e6e9-43b5-8f26-bec5b39cc239
+      product=linux: message
+      product=windows: xml_string
+      default: message

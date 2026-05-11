@@ -1,0 +1,28 @@
+title: Net.exe创建本地用户
+status: 测试阶段
+description: 通过创建本地用户net.exe文件命令
+tags:
+    - attack.t1098
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Eventid:
+            - 4688 #进程创建，windows 安全日志，Windows server 2012及以上版本配置相关审核策略，可记录系统命令行参数
+            - 1    #进程创建，Windows sysmon日志，需要自行安装并配置sysmon
+        Image|endswith: 
+            - '\net.exe'
+            - '\net1.exe'
+        CommandLine|contains|all: 
+            - 'user'
+            - 'add'
+    condition: selection
+fields:
+    - ComputerName
+    - User
+    - CommandLine
+falsepositives:
+    - Legit user creation
+    - Better use event ids for user creation rather than command line rules
+level: medium

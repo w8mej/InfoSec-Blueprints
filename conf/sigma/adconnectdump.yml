@@ -1,0 +1,1305 @@
+title: Simple keyword detection rule for adconnectdump
+id: 12af3b78-b79c-479a-a3b3-0761fcf563ae
+status: experimental
+description: Detects interesting keywords based on adconnectdump tool
+references:
+- https://github.com/fox-it/adconnectdump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.004
+- attack.T1059.001
+- attack.T1082
+- attack.TA0002
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - OriginalFileName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - CurrentDirectory:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ParentImage:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ParentCommandLine:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - TargetFilename:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Signature:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - signature:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ImageLoaded:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Company:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Description:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - description:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - CommandLine:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - SourceImage:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - TargetImage:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - CallTrace:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - TargetObject:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Details:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - PipeName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Consumer:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Destination:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Query:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - NewName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - StartAddress:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - StartModule:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - StartFunction:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - SourceHostname:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Device:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - file_name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - file_path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - original_file_name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - parent_process:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process_path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - service_path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry_path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry_value_data:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry_value_name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ContextInfo:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Payload:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ScriptBlockText:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ServerName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - TransportName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - NewProcessName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ParentProcessName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Application:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Product Name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Threat Name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Process Name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ImagePath:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ServiceName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ProcessPath:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - AppName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - AppPath:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ModulePath:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry.data.strings:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry.path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry.value:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.args:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.command_line:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.env_vars:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.io.text:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.executable:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.title:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.company:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.description:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.original_file_name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.product:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - os.full:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - host.hostname:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - file.fork_name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - file.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - file.path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - file.target_path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - email.attachments.file.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - email.subject:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - dll.path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - device.model.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - container.image.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - container.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - object:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - ParentCommandLine:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - CommandLine:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - Details:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - registry.value:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.args:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.command_line:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.env_vars:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.io.text:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - process.title:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.company:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.description:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - pe.product:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - os.full:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - host.hostname:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - event.original:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - email.subject:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - device.model.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - container.image.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - container.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncQuery*ADSync.mdf*.txt*'
+    - '*ADSyncDecrypt.exe*'
+    - '*decrypt.py .\*.txt utf-16-le*'
+  - url:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - dest_url:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - uri:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - uri_query:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - query:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - url_domain:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - uri_path:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - domain:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - QueryName:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - QueryResults:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - DestinationHostname:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - DestinationIp:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - http_referrer:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - http_referrer_domain:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - http_user_agent:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - dest_nt_host:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - sender:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - recipient:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - orig_recipient:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - subject:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - url.domain:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - url.full:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - url.original:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - url.query:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - user_agent.original:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - network.application:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - http.request.body.content:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - http.request.referrer:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - email.from.address:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - dns.question.name:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  - destination.domain:
+    - '*/adconnectdump.git*'
+    - '*adconnectdump.py*'
+    - '*fox-it/adconnectdump*'
+    - '*ADSyncGather.exe*'
+    - '*adconnectdump-master*'
+    - '*ADSyncDecrypt.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,107 @@
+title: Simple keyword detection rule for ProxyShell
+id: 892dad9d-def3-471c-87aa-951f23b563ab
+status: experimental
+description: Detects interesting keywords based on ProxyShell tool
+references:
+- https://www.cert.ssi.gouv.fr/uploads/ANSSI_TLPWHITE_ProxyShell_ProxyLogon_Sigma_yml.txt
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.001
+- attack.T1059.003
+- attack.T1059.005
+- attack.T1190
+- attack.T1210.003
+- attack.T1505
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0006
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - CommandLine:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - Details:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - registry.value:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - process.args:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - process.command_line:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - process.env_vars:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - process.io.text:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - process.title:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - pe.company:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - pe.description:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - pe.product:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - os.full:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - host.hostname:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - event.original:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - email.subject:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - device.model.name:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - container.image.name:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  - container.name:
+    - '*Set-OabVirtualDirectory -ExternalUrl ''http*://*function Page_Load(){*}</script>*'
+    - '*New-MailBoxExportRequest -Mailbox *@* -FilePath *.aspx*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

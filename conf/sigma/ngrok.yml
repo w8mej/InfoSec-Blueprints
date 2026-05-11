@@ -1,0 +1,747 @@
+title: Simple keyword detection rule for ngrok
+id: 1bb2ef6c-4ef5-4f7a-9bf5-794c6d08f60f
+status: experimental
+description: Detects interesting keywords based on ngrok tool
+references:
+- https://github.com/RoseSecurity/Red-Teaming-TTPs/blob/main/Linux.md
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1008
+- attack.T1090
+- attack.T1095
+- attack.TA0002
+- attack.TA0004
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - OriginalFileName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - CurrentDirectory:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ParentImage:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ParentCommandLine:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - TargetFilename:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Signature:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - signature:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ImageLoaded:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Company:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Description:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - description:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - CommandLine:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - SourceImage:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - TargetImage:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - CallTrace:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - TargetObject:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Details:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - PipeName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Consumer:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Destination:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Query:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - NewName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - StartAddress:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - StartModule:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - StartFunction:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - SourceHostname:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Device:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - file_name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - file_path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - original_file_name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - parent_process:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process_path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - service_path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry_path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry_value_data:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry_value_name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ContextInfo:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Payload:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ScriptBlockText:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ServerName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - TransportName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - NewProcessName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ParentProcessName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Application:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Product Name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Threat Name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Process Name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ImagePath:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ServiceName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ProcessPath:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - AppName:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - AppPath:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ModulePath:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry.data.strings:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry.path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry.value:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.args:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.command_line:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.env_vars:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.io.text:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.executable:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.title:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.company:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.description:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.original_file_name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.product:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - os.full:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - host.hostname:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - file.fork_name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - file.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - file.path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - file.target_path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - email.attachments.file.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - email.subject:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - dll.path:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - device.model.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - container.image.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - container.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - object:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - ParentCommandLine:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - CommandLine:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - Details:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - registry.value:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.args:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.command_line:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.env_vars:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.io.text:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - process.title:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.company:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.description:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - pe.product:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - os.full:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - host.hostname:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - event.original:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - email.subject:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - device.model.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - container.image.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  - container.name:
+    - '*/ngrok.exe*'
+    - '*\ngrok.exe*'
+    - '*ngrok tcp *'
+    - '*LHOST=0.tcp.ngrok.io*'
+    - '*tcp://0.tcp.ngrok.io:*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

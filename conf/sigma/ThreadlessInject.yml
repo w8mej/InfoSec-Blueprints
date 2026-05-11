@@ -1,0 +1,1139 @@
+title: Simple keyword detection rule for ThreadlessInject
+id: 9d18e4b7-13a0-4516-9d68-2f8dd97f201a
+status: experimental
+description: Detects interesting keywords based on ThreadlessInject tool
+references:
+- https://github.com/CCob/ThreadlessInject
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.003
+- attack.T1055.012
+- attack.T1177
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - OriginalFileName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - CurrentDirectory:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ParentImage:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ParentCommandLine:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - TargetFilename:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Signature:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - signature:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ImageLoaded:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Company:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Description:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - description:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - CommandLine:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - SourceImage:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - TargetImage:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - CallTrace:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - TargetObject:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Details:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - PipeName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Consumer:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Destination:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Query:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - NewName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - StartAddress:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - StartModule:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - StartFunction:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - SourceHostname:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Device:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - file_name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - file_path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - original_file_name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - parent_process:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process_path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - service_path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry_path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry_value_data:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry_value_name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ContextInfo:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Payload:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ScriptBlockText:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ServerName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - TransportName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - NewProcessName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ParentProcessName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Application:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Product Name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Threat Name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Process Name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ImagePath:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ServiceName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ProcessPath:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - AppName:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - AppPath:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ModulePath:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry.data.strings:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry.path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry.value:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.args:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.command_line:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.env_vars:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.io.text:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.executable:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.title:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.company:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.description:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.original_file_name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.product:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - os.full:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - host.hostname:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - file.fork_name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - file.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - file.path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - file.target_path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - email.attachments.file.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - email.subject:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - dll.path:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - device.model.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - container.image.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - container.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - object:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - ParentCommandLine:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - CommandLine:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - Details:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - registry.value:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.args:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.command_line:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.env_vars:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.io.text:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - process.title:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.company:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.description:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - pe.product:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - os.full:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - host.hostname:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - event.original:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - email.subject:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - device.model.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - container.image.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - container.name:
+    - '*ThreadlessInject.exe*'
+    - '* -p * -d *.dll -e OpenProcess*'
+    - '*ThreadlessInject* -p * -d *'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+    - '*Needles without the Thread.pptx*'
+  - url:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - dest_url:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - uri:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - uri_query:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - query:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - url_domain:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - uri_path:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - domain:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - QueryName:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - QueryResults:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - DestinationHostname:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - DestinationIp:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - http_referrer:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - http_referrer_domain:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - http_user_agent:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - dest_nt_host:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - sender:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - recipient:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - orig_recipient:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - subject:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - url.domain:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - url.full:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - url.original:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - url.query:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - user_agent.original:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - network.application:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - http.request.body.content:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - http.request.referrer:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - email.from.address:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - dns.question.name:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  - destination.domain:
+    - '*ThreadlessInject.exe*'
+    - '*/ThreadlessInject.git*'
+    - '*CCob/ThreadlessInject*'
+    - '*ThreadlessInject-master*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

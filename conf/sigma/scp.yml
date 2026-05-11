@@ -1,0 +1,102 @@
+title: Simple keyword detection rule for scp
+id: 0a57abbc-753e-4ba0-a692-ce9088ccfbc2
+status: experimental
+description: Detects interesting keywords based on scp tool
+references:
+- https://attack.mitre.org/techniques/T1105/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1041
+- attack.T1105
+- attack.T1106
+- attack.TA0002
+- attack.TA0008
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - CommandLine:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - Details:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - registry.value:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - process.args:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - process.command_line:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - process.env_vars:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - process.io.text:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - process.title:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - pe.company:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - pe.description:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - pe.product:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - os.full:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - host.hostname:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - event.original:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - email.subject:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - device.model.name:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - container.image.name:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  - container.name:
+    - '*scp * *@*:*'
+    - '*scp *@*:* *'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

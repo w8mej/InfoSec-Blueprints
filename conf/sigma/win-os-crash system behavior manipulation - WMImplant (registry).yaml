@@ -1,0 +1,38 @@
+title: System crash behavior manipulation - WMImplant (registry)
+description: Detects scenarios where an attacker abuses the Windows "system failure and recovery" capacities (CrashControl) to store information or to establish persistence.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1546-Event%20Triggered%20Execution
+- https://github.com/FortyNorthSecurity/WMImplant/
+- https://docs.microsoft.com/en-us/windows/client-management/system-failure-recovery-options
+- https://mathieubuisson.github.io/crash-behaviour-with-powershell/
+- https://fortynorthsecurity.com/blog/an-introduction-to-wmimplant-post-exploitation/
+- https://fr.slideshare.net/CTruncer/blackhat-usa-2019-wmimplant-an-offensive-use-case-of-wmi
+- https://securityaffairs.co/wordpress/117001/ics-scada/ot-network-hack-smart-meters.html
+- https://logrhythm.com/blog/bad-rabbit-ransomware-technical-analysis/
+- https://www.darkoperator.com/blog/2017/10/14/basics-of-tracking-wmi-activity
+- https://lolbas-project.github.io/lolbas/Binaries/Wmic/
+tags:
+- attack.persistence
+- attack.t1546.003
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: registry_event
+detection: # full command: "wmic recoveros set AutoReboot = False"
+  selection:
+    Image|endswith: \wmiprvse.exe
+    EventType: SetValue
+    TargetObject|endswith:
+      - \CurrentControlSet\Control\CrashControl\AutoReboot
+      - \CurrentControlSet\Control\CrashControl\CrashDumpEnabled
+      - \CurrentControlSet\Control\CrashControl\DumpFile
+      - \CurrentControlSet\Control\CrashControl\KernelDumpOnly
+      - \CurrentControlSet\Control\CrashControl\LogEvent
+      - \CurrentControlSet\Control\CrashControl\MiniDumpDir
+      - \CurrentControlSet\Control\CrashControl\Overwrite
+      - \CurrentControlSet\Control\CrashControl\SendAlert
+  condition: selection
+falsepositives:
+- Forensic, BSOD investigation
+level: high

@@ -1,0 +1,15 @@
+title: windows wmi发现本地安全软件
+description: windows server 2016
+references: 暂无
+tags: T1518-001
+status: experimental
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4688 #进程创建
+        Newprocessname: 'C:\Windows\System32\wbem\WMIC.exe' #进程信息>新进程名称
+        Processcommandline: '/namespace:\\root\SecurityCenter2 * GET *'  #进程信息>进程命令行
+    condition: selection
+level: low

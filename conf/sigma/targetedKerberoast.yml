@@ -1,0 +1,830 @@
+title: Simple keyword detection rule for targetedKerberoast
+id: f9abdb2f-ea10-41a5-af45-6ea501a89722
+status: experimental
+description: Detects interesting keywords based on targetedKerberoast tool
+references:
+- https://github.com/ShutdownRepo/targetedKerberoast
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1208
+- attack.T1558.003
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - OriginalFileName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - CurrentDirectory:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ParentImage:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ParentCommandLine:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - TargetFilename:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Signature:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - signature:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ImageLoaded:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Company:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Description:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - description:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - CommandLine:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - SourceImage:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - TargetImage:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - CallTrace:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - TargetObject:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Details:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - PipeName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Consumer:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Destination:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Query:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - NewName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - StartAddress:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - StartModule:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - StartFunction:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - SourceHostname:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Device:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - file_name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - file_path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - original_file_name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - parent_process:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process_path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - service_path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - registry_path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - registry_value_data:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - registry_value_name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ContextInfo:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Payload:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ScriptBlockText:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ServerName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - TransportName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - NewProcessName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ParentProcessName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Application:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Product Name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Threat Name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Process Name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - Path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ImagePath:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ServiceName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ProcessPath:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - AppName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - AppPath:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - ModulePath:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - registry.data.strings:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - registry.path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - registry.value:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.args:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.command_line:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.env_vars:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.io.text:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.executable:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - process.title:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - pe.company:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - pe.description:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - pe.original_file_name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - pe.product:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - os.full:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - host.hostname:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - file.fork_name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - file.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - file.path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - file.target_path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - email.attachments.file.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - email.subject:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - dll.path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - device.model.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - container.image.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - container.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - object:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - url:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - dest_url:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - uri:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - uri_query:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - query:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - url_domain:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - uri_path:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - domain:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - QueryName:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - QueryResults:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - DestinationHostname:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - DestinationIp:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - http_referrer:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - http_referrer_domain:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - http_user_agent:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - dest_nt_host:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - sender:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - recipient:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - orig_recipient:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - subject:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - url.domain:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - url.full:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - url.original:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - url.query:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - user_agent.original:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - network.application:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - http.request.body.content:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - http.request.referrer:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - email.from.address:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - dns.question.name:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  - destination.domain:
+    - '*kerberoastables.txt*'
+    - '*/targetedKerberoast*'
+    - '*targetedKerberoast-main*'
+    - '*targetedKerberoast.py*'
+    - '*targetedKerberoast.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

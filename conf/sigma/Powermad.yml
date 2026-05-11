@@ -1,0 +1,1003 @@
+title: Simple keyword detection rule for Powermad
+id: ed75a384-2543-415a-a703-abfd7a6049c1
+status: experimental
+description: Detects interesting keywords based on Powermad tool
+references:
+- https://github.com/Kevin-Robertson/Powermad
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1018
+- attack.T1046
+- attack.T1081
+- attack.T1087
+- attack.T1098
+- attack.TA0001
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - OriginalFileName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - CurrentDirectory:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ParentImage:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ParentCommandLine:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - TargetFilename:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Signature:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - signature:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ImageLoaded:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Company:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Description:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - description:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - CommandLine:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - SourceImage:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - TargetImage:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - CallTrace:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - TargetObject:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Details:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - PipeName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Consumer:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Destination:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Query:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - NewName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - StartAddress:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - StartModule:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - StartFunction:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - SourceHostname:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Device:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - file_name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - file_path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - original_file_name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - parent_process:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process_path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - service_path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - registry_path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - registry_value_data:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - registry_value_name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ContextInfo:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Payload:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ScriptBlockText:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ServerName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - TransportName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - NewProcessName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ParentProcessName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Application:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Product Name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Threat Name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Process Name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - Path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ImagePath:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ServiceName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ProcessPath:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - AppName:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - AppPath:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - ModulePath:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - registry.data.strings:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - registry.path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - registry.value:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.args:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.command_line:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.env_vars:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.io.text:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.executable:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - process.title:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - pe.company:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - pe.description:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - pe.original_file_name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - pe.product:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - os.full:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - host.hostname:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - file.fork_name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - file.name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - file.path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - file.target_path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - email.attachments.file.name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - email.subject:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - dll.path:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - device.model.name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - container.image.name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - container.name:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - object:
+    - '*\Powermad*'
+    - '*Invoke-DNSUpdate.ps1*'
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - url:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - dest_url:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - uri:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - uri_query:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - query:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - url_domain:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - uri_path:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - domain:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - QueryName:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - QueryResults:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - DestinationHostname:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - DestinationIp:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - http_referrer:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - http_referrer_domain:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - http_user_agent:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - dest_nt_host:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - sender:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - recipient:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - orig_recipient:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - subject:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - url.domain:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - url.full:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - url.original:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - url.query:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - user_agent.original:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - network.application:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - http.request.body.content:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - http.request.referrer:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - email.from.address:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - dns.question.name:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  - destination.domain:
+    - '*Powermad-master*'
+    - '*Powermad.psd1*'
+    - '*/Powermad.git*'
+    - '*Powermad.psm1*'
+    - '*powermad.ps1*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

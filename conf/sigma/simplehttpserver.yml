@@ -1,0 +1,642 @@
+title: Simple keyword detection rule for simplehttpserver
+id: f1ffaf6e-19b5-4fd0-b218-52ee2adf1cb4
+status: experimental
+description: Detects interesting keywords based on simplehttpserver tool
+references:
+- https://docs.python.org/2/library/simplehttpserver.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.002
+- attack.T1059.006
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - OriginalFileName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - CurrentDirectory:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ParentImage:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ParentCommandLine:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - TargetFilename:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Signature:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - signature:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ImageLoaded:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Company:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Description:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - description:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - CommandLine:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - SourceImage:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - TargetImage:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - CallTrace:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - TargetObject:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Details:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - PipeName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Consumer:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Destination:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Query:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - NewName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - StartAddress:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - StartModule:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - StartFunction:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - SourceHostname:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Device:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - file_name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - file_path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - original_file_name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - parent_process:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process_path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - service_path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry_path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry_value_data:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry_value_name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ContextInfo:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Payload:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ScriptBlockText:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ServerName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - TransportName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - NewProcessName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ParentProcessName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Application:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Product Name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Threat Name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Process Name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ImagePath:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ServiceName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ProcessPath:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - AppName:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - AppPath:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ModulePath:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry.data.strings:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry.path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry.value:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.args:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.command_line:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.env_vars:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.io.text:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.executable:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.title:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.company:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.description:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.original_file_name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.product:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - os.full:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - host.hostname:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - file.fork_name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - file.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - file.path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - file.target_path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - email.attachments.file.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - email.subject:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - dll.path:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - device.model.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - container.image.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - container.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - object:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - ParentCommandLine:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - CommandLine:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - Details:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - registry.value:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.args:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.command_line:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.env_vars:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.io.text:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - process.title:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.company:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.description:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - pe.product:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - os.full:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - host.hostname:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - event.original:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - email.subject:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - device.model.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - container.image.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  - container.name:
+    - '*SimpleHTTPServer.SimpleHTTPRequestHandler*'
+    - '* -m SimpleHTTPServer *'
+    - '*python -m SimpleHTTPServer*'
+    - '*import SimpleHTTPServer*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

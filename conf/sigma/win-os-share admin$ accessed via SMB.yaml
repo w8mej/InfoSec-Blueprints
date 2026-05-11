@@ -1,0 +1,30 @@
+title: SMB admin share accessed
+description: Detects scenarios where an attacker attempts to connect to the administrative SMB share.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0008-Lateral%20Movement/T1021.002%20-SMB%20Windows%20Admin%20Shares
+tags:
+- attack.lateral_movement
+- attack.t1021.002
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID:
+      - 5140
+      - 5145
+    ShareName: '\\*\ADMIN$'
+  filter: # Filter works only with ID 5145
+    - RelativeTargetName|endswith:
+      - \cmd.exe        # see remote shell execution via SMB rule
+      - \powershell.exe # see remote shell execution via SMB rule
+      - \pwsh.exe       # see remote shell execution via SMB rule
+    - IpAddress:
+      - '%vulnerability_scanners%'
+      - '%admin_netork_administration%'
+  condition: selection and not filter
+falsepositives:
+- Administrator activity, backup solutions
+level: medium

@@ -1,0 +1,770 @@
+title: Simple keyword detection rule for adiskreader
+id: 95bac609-b1c1-4684-9b9e-2b3c18bcfc5c
+status: experimental
+description: Detects interesting keywords based on adiskreader tool
+references:
+- https://github.com/skelsec/adiskreader
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1020
+- attack.T1048
+- attack.T1074
+- attack.T1560.001
+- attack.TA0005
+- attack.TA0009
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - OriginalFileName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - CurrentDirectory:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ParentImage:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ParentCommandLine:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - TargetFilename:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Signature:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - signature:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ImageLoaded:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Company:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Description:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - description:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - CommandLine:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - SourceImage:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - TargetImage:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - CallTrace:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - TargetObject:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Details:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - PipeName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Consumer:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Destination:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Query:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - NewName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - StartAddress:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - StartModule:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - StartFunction:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - SourceHostname:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Device:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - file_name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - file_path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - original_file_name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - parent_process:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process_path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - service_path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry_path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry_value_data:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry_value_name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ContextInfo:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Payload:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ScriptBlockText:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ServerName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - TransportName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - NewProcessName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ParentProcessName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Application:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Product Name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Threat Name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Process Name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ImagePath:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ServiceName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ProcessPath:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - AppName:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - AppPath:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ModulePath:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry.data.strings:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry.path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry.value:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.args:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.command_line:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.env_vars:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.io.text:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.executable:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.title:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.company:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.description:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.original_file_name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.product:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - os.full:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - host.hostname:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - file.fork_name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - file.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - file.path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - file.target_path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - email.attachments.file.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - email.subject:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - dll.path:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - device.model.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - container.image.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - container.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - object:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - ParentCommandLine:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - CommandLine:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - Details:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - registry.value:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.args:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.command_line:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.env_vars:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.io.text:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - process.title:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.company:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.description:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - pe.product:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - os.full:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - host.hostname:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - event.original:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - email.subject:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - device.model.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - container.image.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - container.name:
+    - '*adiskreader.disks.raw*'
+    - '*\adiskreader\*'
+    - '*adiskreader.disks.vhdx*'
+    - '*# adiskreader *'
+  - url:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - dest_url:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - uri:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - uri_query:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - query:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - url_domain:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - uri_path:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - domain:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - QueryName:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - QueryResults:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - DestinationHostname:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - DestinationIp:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - http_referrer:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - http_referrer_domain:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - http_user_agent:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - dest_nt_host:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - sender:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - recipient:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - orig_recipient:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - subject:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - url.domain:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - url.full:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - url.original:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - url.query:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - user_agent.original:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - network.application:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - http.request.body.content:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - http.request.referrer:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - email.from.address:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - dns.question.name:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  - destination.domain:
+    - '*adiskreader.disks.raw*'
+    - '*adiskreader.disks.vhdx*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

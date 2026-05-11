@@ -1,0 +1,488 @@
+title: Simple keyword detection rule for smbcrawler
+id: eb6c0c19-d6f5-4d87-8114-4f8d2eed79a9
+status: experimental
+description: Detects interesting keywords based on smbcrawler tool
+references:
+- https://github.com/SySS-Research/smbcrawler
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021
+- attack.T1077
+- attack.T1083
+- attack.T1110
+- attack.TA0002
+- attack.TA0008
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - OriginalFileName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - CurrentDirectory:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ParentImage:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ParentCommandLine:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - TargetFilename:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Signature:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - signature:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ImageLoaded:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Company:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Description:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - description:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - CommandLine:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - SourceImage:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - TargetImage:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - CallTrace:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - TargetObject:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Details:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - PipeName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Consumer:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Destination:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Query:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - NewName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - StartAddress:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - StartModule:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - StartFunction:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - SourceHostname:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Device:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - file_name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - file_path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - original_file_name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - parent_process:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process_path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - service_path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - registry_path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - registry_value_data:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - registry_value_name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ContextInfo:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Payload:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ScriptBlockText:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ServerName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - TransportName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - NewProcessName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ParentProcessName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Application:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Product Name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Threat Name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Process Name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - Path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ImagePath:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ServiceName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ProcessPath:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - AppName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - AppPath:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - ModulePath:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - registry.data.strings:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - registry.path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - registry.value:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.args:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.command_line:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.env_vars:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.io.text:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.executable:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - process.title:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - pe.company:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - pe.description:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - pe.original_file_name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - pe.product:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - os.full:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - host.hostname:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - file.fork_name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - file.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - file.path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - file.target_path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - email.attachments.file.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - email.subject:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - dll.path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - device.model.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - container.image.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - container.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - object:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - url:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - dest_url:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - uri:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - uri_query:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - query:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - url_domain:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - uri_path:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - domain:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - QueryName:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - QueryResults:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - DestinationHostname:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - DestinationIp:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - http_referrer:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - http_referrer_domain:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - http_user_agent:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - dest_nt_host:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - sender:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - recipient:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - orig_recipient:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - subject:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - url.domain:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - url.full:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - url.original:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - url.query:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - user_agent.original:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - network.application:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - http.request.body.content:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - http.request.referrer:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - email.from.address:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - dns.question.name:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  - destination.domain:
+    - '*impacket.smbconnection*'
+    - '*smbcrawler*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

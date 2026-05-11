@@ -1,0 +1,651 @@
+title: Simple keyword detection rule for FindUncommonShares
+id: 577c8ef6-2437-46c5-a2e7-53abd962e7f1
+status: experimental
+description: Detects interesting keywords based on FindUncommonShares tool
+references:
+- https://github.com/p0dalirius/FindUncommonShares
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1135
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - OriginalFileName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - CurrentDirectory:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ParentImage:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ParentCommandLine:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - TargetFilename:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Signature:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - signature:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ImageLoaded:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Company:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Description:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - description:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - CommandLine:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - SourceImage:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - TargetImage:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - CallTrace:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - TargetObject:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Details:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - PipeName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Consumer:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Destination:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Query:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - NewName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - StartAddress:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - StartModule:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - StartFunction:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - SourceHostname:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Device:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - file_name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - file_path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - original_file_name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - parent_process:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process_path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - service_path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - registry_path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - registry_value_data:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - registry_value_name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ContextInfo:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Payload:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ScriptBlockText:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ServerName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - TransportName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - NewProcessName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ParentProcessName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Application:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Product Name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Threat Name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Process Name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - Path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ImagePath:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ServiceName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ProcessPath:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - AppName:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - AppPath:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - ModulePath:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - registry.data.strings:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - registry.path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - registry.value:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.args:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.command_line:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.env_vars:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.io.text:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.executable:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - process.title:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - pe.company:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - pe.description:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - pe.original_file_name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - pe.product:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - os.full:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - host.hostname:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - file.fork_name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - file.name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - file.path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - file.target_path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - email.attachments.file.name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - email.subject:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - dll.path:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - device.model.name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - container.image.name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - container.name:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - object:
+    - '*FindUncommonShares.git*'
+    - '*--dc-ip *--check-user-access*'
+    - '*FindUncommonShares-main*'
+    - '*FindUncommonShares.py *'
+  - url:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - dest_url:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - uri:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - uri_query:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - query:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - url_domain:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - uri_path:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - domain:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - QueryName:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - QueryResults:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - DestinationHostname:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - DestinationIp:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - http_referrer:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - http_referrer_domain:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - http_user_agent:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - dest_nt_host:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - sender:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - recipient:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - orig_recipient:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - subject:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - url.domain:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - url.full:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - url.original:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - url.query:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - user_agent.original:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - network.application:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - http.request.body.content:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - http.request.referrer:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - email.from.address:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - dns.question.name:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  - destination.domain:
+    - '*FindUncommonShares.git*'
+    - '*FindUncommonShares-main*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

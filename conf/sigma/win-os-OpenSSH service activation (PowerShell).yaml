@@ -1,0 +1,52 @@
+title: OpenSSH service activation on Windows
+description: Detects scenarios where an attacker enables the OpenSSH server on Windows to perform stealthy lateral movement.
+references:
+ - https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0008-Lateral%20Movement/T1021.004-Remote%20Service%20SSH
+ - https://winaero.com/enable-openssh-server-windows-10/
+ - https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
+ - https://virtualizationreview.com/articles/2020/05/21/ssh-server-on-windows-10.aspx
+ - https://medium.com/threatpunter/detecting-adversary-tradecraft-with-image-load-event-logging-and-eql-8de93338c16
+ - https://www.microsoft.com/en-us/security/blog/2022/10/18/defenders-beware-a-case-for-post-ransomware-investigations/
+tags:
+- attack.lateral_movement
+- attack.t1021.004
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category:
+    - ps_module
+    - ps_classic_script
+    - ps_script
+detection:
+  selection_powershell_native:
+    EventID: 800
+    EventData|contains|all:
+      - Set-Service
+      - StartupType
+      - Name
+      - sshd
+      #- Automatic / Manual
+
+  selection_powershell_modern:
+    EventID: 4103
+    Payload|contains|all:
+      - Set-Service
+      - StartupType
+      - Name
+      - sshd
+      #- Automatic / Manual
+
+  selection_powershell_block:
+    EventID: 4104
+    ScriptBlockText|contains|all:
+      - Set-Service
+      - StartupType
+      - Name
+      - sshd
+      #- Automatic / Manual
+
+  condition: 1 of selection*
+falsepositives:
+- legitimate administrator activation
+level: medium

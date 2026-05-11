@@ -1,0 +1,358 @@
+title: Simple keyword detection rule for Procdump
+id: d0ef4c82-de9e-454a-bcaf-a1c2997f4fcb
+status: experimental
+description: Detects interesting keywords based on Procdump tool
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - OriginalFileName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - CurrentDirectory:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ParentImage:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ParentCommandLine:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - TargetFilename:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Signature:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - signature:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ImageLoaded:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Company:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Description:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - description:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - CommandLine:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - SourceImage:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - TargetImage:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - CallTrace:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - TargetObject:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Details:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - PipeName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Consumer:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Destination:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Query:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - NewName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - StartAddress:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - StartModule:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - StartFunction:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - SourceHostname:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Device:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - file_name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - file_path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - original_file_name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - parent_process:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process_path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - service_path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - registry_path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - registry_value_data:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - registry_value_name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ContextInfo:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Payload:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ScriptBlockText:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ServerName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - TransportName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - NewProcessName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ParentProcessName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Application:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Product Name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Threat Name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Process Name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - Path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ImagePath:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ServiceName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ProcessPath:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - AppName:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - AppPath:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - ModulePath:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - registry.data.strings:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - registry.path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - registry.value:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.args:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.command_line:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.env_vars:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.io.text:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.executable:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - process.title:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - pe.company:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - pe.description:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - pe.original_file_name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - pe.product:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - os.full:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - host.hostname:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - file.fork_name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - file.name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - file.path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - file.target_path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - email.attachments.file.name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - email.subject:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - dll.path:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - device.model.name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - container.image.name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - container.name:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  - object:
+    - '*procdump64*lsass*'
+    - '*procdump*lsass*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,99 @@
+title: Simple keyword detection rule for bcdedit
+id: 571f702c-d5fc-4fde-87bc-b08f03a970bc
+status: experimental
+description: Detects interesting keywords based on bcdedit tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1218.004
+- attack.T1562.001
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - CommandLine:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - Details:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - registry.value:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - process.args:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - process.command_line:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - process.env_vars:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - process.io.text:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - process.title:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - pe.company:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - pe.description:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - pe.product:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - os.full:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - host.hostname:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - event.original:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - email.subject:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - device.model.name:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - container.image.name:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  - container.name:
+    - '*bcdedit* /set {default} recoveryenabled No*'
+    - '*bcdedit* /set {default} bootstatuspolicy ignoreallfailures*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

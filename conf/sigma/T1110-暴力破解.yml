@@ -1,0 +1,25 @@
+title: 暴力破解
+description: 检测从一个源到一个目的地的许多身份验证失败，这表明可能存在暴力行为
+tags:
+    - attack.t1110
+author: Aleksandr Akhremchik, oscd.community
+Translator: 12306Bro
+date: 2019/10/25
+status: experimental
+logsource:
+    category: authentication #认证数据
+detection:
+    selection:
+         action: failure #失败
+    timeframe: 600s
+    condition: selection | count(category) by dst_ip > 30 #统计认证数据中10分钟内目标IP大于30个且认证失败的源IP地址
+fields:
+    - src_ip #源IP
+    - dst_ip #目的IP
+    - user # 用户
+falsepositives: #误报
+    - Inventarization #库存化
+    - Penetration testing #渗透测试
+    - Vulnerability scanner #漏洞扫描器
+    - Legitimate application #合法申请
+level: medium #中

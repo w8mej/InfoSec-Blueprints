@@ -1,0 +1,1109 @@
+title: Simple keyword detection rule for wifite2
+id: e0c4d25b-ab3d-4231-ad84-551cdcee7dd7
+status: experimental
+description: Detects interesting keywords based on wifite2 tool
+references:
+- https://github.com/derv82/wifite2
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1170
+- attack.T1590
+- attack.T1595
+- attack.TA0002
+- attack.TA0003
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - CommandLine:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Details:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry.value:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.args:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.command_line:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.env_vars:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.io.text:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.title:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.company:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.description:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.product:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - os.full:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - host.hostname:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - event.original:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - email.subject:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - device.model.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - container.image.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - container.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Image:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - OriginalFileName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - CurrentDirectory:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ParentImage:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ParentCommandLine:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - TargetFilename:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Signature:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - signature:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ImageLoaded:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Company:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Description:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - description:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - CommandLine:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - SourceImage:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - TargetImage:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - CallTrace:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - TargetObject:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Details:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - PipeName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Consumer:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Destination:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Query:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - NewName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - StartAddress:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - StartModule:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - StartFunction:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - SourceHostname:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Device:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - file_name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - file_path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - original_file_name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - parent_process:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process_path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - service_path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry_path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry_value_data:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry_value_name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ContextInfo:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Payload:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ScriptBlockText:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ServerName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - TransportName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - NewProcessName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ParentProcessName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Application:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Product Name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Threat Name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Process Name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - Path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ImagePath:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ServiceName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ProcessPath:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - AppName:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - AppPath:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - ModulePath:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry.data.strings:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry.path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - registry.value:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.args:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.command_line:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.env_vars:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.io.text:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.executable:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - process.title:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.company:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.description:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.original_file_name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - pe.product:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - os.full:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - host.hostname:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - file.fork_name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - file.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - file.path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - file.target_path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - email.attachments.file.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - email.subject:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - dll.path:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - device.model.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - container.image.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - container.name:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - object:
+    - '*wifite -e *'
+    - '*/wifite -c *'
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*wifite --crack*'
+    - '*Wifite.py*'
+    - '*wifite --wep *'
+  - url:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - dest_url:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - uri:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - uri_query:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - query:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - url_domain:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - uri_path:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - domain:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - QueryName:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - QueryResults:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - DestinationHostname:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - DestinationIp:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - http_referrer:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - http_referrer_domain:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - http_user_agent:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - dest_nt_host:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - sender:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - recipient:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - orig_recipient:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - subject:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - url.domain:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - url.full:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - url.original:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - url.query:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - user_agent.original:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - network.application:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - http.request.body.content:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - http.request.referrer:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - email.from.address:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - dns.question.name:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  - destination.domain:
+    - '*/wifite2*'
+    - '*wifite2.git*'
+    - '*Wifite.py*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

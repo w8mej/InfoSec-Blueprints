@@ -1,0 +1,137 @@
+title: Simple keyword detection rule for cytool
+id: e4cb570b-3f2e-4eca-a2d0-4c7ea818f0f6
+status: experimental
+description: Detects interesting keywords based on cytool tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.001
+- attack.T1547.001
+- attack.T1562.001
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - CommandLine:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - Details:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - registry.value:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - process.args:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - process.command_line:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - process.env_vars:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - process.io.text:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - process.title:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - pe.company:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - pe.description:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - pe.product:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - os.full:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - host.hostname:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - event.original:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - email.subject:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - device.model.name:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - container.image.name:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  - container.name:
+    - '*cytool.exe runtime disable*'
+    - '*cytool.exe protect disable*'
+    - '*cytool.exe event_collection disable*'
+    - '*cytool.exe startup disable*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

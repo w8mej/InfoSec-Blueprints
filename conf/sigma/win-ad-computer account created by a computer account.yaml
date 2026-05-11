@@ -1,0 +1,23 @@
+title: Suspicious computer account created by a computer account
+description: Detects scenarios where an attacker abuse MachineAccountQuota privilege and pre-create a computer object for abusing RBCD delegation.
+references:
+- https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/
+tags:
+- attack.persistence
+- attack.t1136
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4741
+    SubjectUserName|endswith: '$'
+    SubjectUserSid|startswith: 'S-1-5-21-' # SYSTEM account 'S-1-5-18' would trigger a false positive
+    TargetUserName|endswith: '$'
+  condition: selection
+falsepositives:
+- Offline domain join host  
+- Windows Autopilot Hybrid Azure AD Join
+level: high

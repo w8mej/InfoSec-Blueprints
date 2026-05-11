@@ -1,0 +1,17 @@
+title: 在windows系统信息发现
+description: windows server 2012 测试结果
+references: https://github.com/0xpwntester/CB-Threat-Hunting/blob/master/ATT%26CK/T1082-%20systeminfo%20executions.md
+tags: T1082
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4688 #已创建新的进程。
+        Newprocessname: 'C:\Windows\System32\systeminfo.exe' #新进程名称
+        Tokenpromotiontype: 'TokenElevationTypeDefault (1)'  #令牌提升类型
+        Processcommandline: 'systeminfo'  #进程命令行
+    condition: selection
+level: medium

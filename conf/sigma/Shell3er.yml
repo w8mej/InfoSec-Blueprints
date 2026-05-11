@@ -1,0 +1,768 @@
+title: Simple keyword detection rule for Shell3er
+id: 9d6fd061-043f-440e-a4ea-f04bcf5d1a63
+status: experimental
+description: Detects interesting keywords based on Shell3er tool
+references:
+- https://github.com/yehia-mamdouh/Shell3er/blob/main/Shell3er.ps1
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021.004
+- attack.T1059.001
+- attack.T1090.002
+- attack.TA0002
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - OriginalFileName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - CurrentDirectory:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ParentImage:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ParentCommandLine:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - TargetFilename:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Signature:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - signature:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ImageLoaded:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Company:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Description:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - description:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - CommandLine:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - SourceImage:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - TargetImage:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - CallTrace:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - TargetObject:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Details:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - PipeName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Consumer:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Destination:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Query:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - NewName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - StartAddress:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - StartModule:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - StartFunction:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - SourceHostname:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Device:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - file_name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - file_path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - original_file_name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - parent_process:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process_path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - service_path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry_path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry_value_data:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry_value_name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ContextInfo:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Payload:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ScriptBlockText:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ServerName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - TransportName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - NewProcessName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ParentProcessName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Application:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Product Name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Threat Name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Process Name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ImagePath:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ServiceName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ProcessPath:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - AppName:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - AppPath:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ModulePath:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry.data.strings:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry.path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry.value:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.args:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.command_line:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.env_vars:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.io.text:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.executable:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.title:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.company:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.description:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.original_file_name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.product:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - os.full:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - host.hostname:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - file.fork_name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - file.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - file.path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - file.target_path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - email.attachments.file.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - email.subject:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - dll.path:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - device.model.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - container.image.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - container.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - object:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - ParentCommandLine:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - CommandLine:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - Details:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - registry.value:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.args:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.command_line:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.env_vars:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.io.text:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - process.title:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.company:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.description:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - pe.product:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - os.full:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - host.hostname:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - event.original:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - email.subject:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - device.model.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - container.image.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - container.name:
+    - '*Shell3er.ps1*'
+    - '*nc -nlvp 4444*'
+    - '*cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAQwA6AFwAUAByAG8AZwByAGEAbQBEAGEAdABhAFwAUwBoAGUAbABsADMAZQByAC4AcABzADEA*'
+    - '*/Shell3er/*'
+  - url:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - dest_url:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - uri:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - uri_query:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - query:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - url_domain:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - uri_path:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - domain:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - QueryName:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - QueryResults:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - DestinationHostname:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - DestinationIp:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - http_referrer:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - http_referrer_domain:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - http_user_agent:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - dest_nt_host:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - sender:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - recipient:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - orig_recipient:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - subject:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - url.domain:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - url.full:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - url.original:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - url.query:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - user_agent.original:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - network.application:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - http.request.body.content:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - http.request.referrer:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - email.from.address:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - dns.question.name:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  - destination.domain:
+    - '*Shell3er.ps1*'
+    - '*/Shell3er/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

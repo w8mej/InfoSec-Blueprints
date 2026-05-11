@@ -1,0 +1,951 @@
+title: Simple keyword detection rule for pywerview
+id: 8ab86dc4-982e-48d6-8116-9774a0eecac8
+status: experimental
+description: Detects interesting keywords based on pywerview tool
+references:
+- https://github.com/the-useless-one/pywerview
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1016
+- attack.T1018
+- attack.T1033
+- attack.T1069.001
+- attack.T1069.002
+- attack.T1087.001
+- attack.T1087.002
+- attack.T1482
+- attack.TA0007
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - OriginalFileName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - CurrentDirectory:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ParentImage:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ParentCommandLine:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - TargetFilename:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Signature:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - signature:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ImageLoaded:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Company:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Description:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - description:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - CommandLine:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - SourceImage:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - TargetImage:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - CallTrace:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - TargetObject:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Details:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - PipeName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Consumer:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Destination:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Query:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - NewName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - StartAddress:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - StartModule:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - StartFunction:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - SourceHostname:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Device:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - file_name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - file_path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - original_file_name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - parent_process:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process_path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - service_path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - registry_path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - registry_value_data:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - registry_value_name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ContextInfo:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Payload:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ScriptBlockText:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ServerName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - TransportName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - NewProcessName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ParentProcessName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Application:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Product Name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Threat Name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Process Name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - Path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ImagePath:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ServiceName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ProcessPath:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - AppName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - AppPath:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - ModulePath:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - registry.data.strings:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - registry.path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - registry.value:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.args:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.command_line:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.env_vars:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.io.text:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.executable:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - process.title:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - pe.company:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - pe.description:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - pe.original_file_name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - pe.product:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - os.full:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - host.hostname:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - file.fork_name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - file.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - file.path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - file.target_path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - email.attachments.file.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - email.subject:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - dll.path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - device.model.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - container.image.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - container.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - object:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - url:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - dest_url:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - uri:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - uri_query:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - query:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - url_domain:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - uri_path:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - domain:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - QueryName:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - QueryResults:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - DestinationHostname:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - DestinationIp:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - http_referrer:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - http_referrer_domain:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - http_user_agent:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - dest_nt_host:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - sender:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - recipient:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - orig_recipient:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - subject:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - url.domain:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - url.full:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - url.original:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - url.query:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - user_agent.original:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - network.application:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - http.request.body.content:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - http.request.referrer:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - email.from.address:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - dns.question.name:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  - destination.domain:
+    - '*/pywerview*'
+    - '*invoke-userhunter*'
+    - '*invoke-eventhunter*'
+    - '*invoke-checklocaladminaccess*'
+    - '*invoke-processhunter*'
+    - '*pywerview.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

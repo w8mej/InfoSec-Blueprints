@@ -1,0 +1,1080 @@
+title: Simple keyword detection rule for AWS-Loot
+id: eb47b87f-d26c-481b-9b10-1a4d0dde84b0
+status: experimental
+description: Detects interesting keywords based on AWS-Loot tool
+references:
+- https://github.com/sebastian-mora/AWS-Loot
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1552
+- attack.TA0002
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - OriginalFileName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - CurrentDirectory:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ParentImage:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ParentCommandLine:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - TargetFilename:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Signature:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - signature:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ImageLoaded:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Company:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Description:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - description:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - CommandLine:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - SourceImage:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - TargetImage:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - CallTrace:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - TargetObject:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Details:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - PipeName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Consumer:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Destination:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Query:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - NewName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - StartAddress:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - StartModule:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - StartFunction:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - SourceHostname:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Device:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - file_name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - file_path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - original_file_name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - parent_process:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process_path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - service_path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - registry_path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - registry_value_data:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - registry_value_name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ContextInfo:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Payload:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ScriptBlockText:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ServerName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - TransportName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - NewProcessName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ParentProcessName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Application:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Product Name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Threat Name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Process Name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - Path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ImagePath:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ServiceName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ProcessPath:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - AppName:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - AppPath:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - ModulePath:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - registry.data.strings:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - registry.path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - registry.value:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.args:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.command_line:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.env_vars:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.io.text:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.executable:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - process.title:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - pe.company:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - pe.description:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - pe.original_file_name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - pe.product:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - os.full:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - host.hostname:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - file.fork_name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - file.name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - file.path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - file.target_path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - email.attachments.file.name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - email.subject:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - dll.path:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - device.model.name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - container.image.name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - container.name:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - object:
+    - '*./awsloot.py*'
+    - '*./awsloot *'
+    - '* awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+    - '*awsloot.py *'
+  - url:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - dest_url:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - uri:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - uri_query:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - query:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - url_domain:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - uri_path:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - domain:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - QueryName:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - QueryResults:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - DestinationHostname:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - DestinationIp:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - http_referrer:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - http_referrer_domain:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - http_user_agent:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - dest_nt_host:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - sender:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - recipient:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - orig_recipient:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - subject:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - url.domain:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - url.full:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - url.original:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - url.query:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - user_agent.original:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - network.application:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - http.request.body.content:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - http.request.referrer:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - email.from.address:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - dns.question.name:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  - destination.domain:
+    - '*./awsloot.py*'
+    - '*/EC2Looter.py*'
+    - '*/AWS-Loot*'
+    - '*/CodeBuildLooter.py*'
+    - '*/LambdaLooter.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

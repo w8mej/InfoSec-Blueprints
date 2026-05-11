@@ -1,0 +1,82 @@
+title: Simple keyword detection rule for ren
+id: 0afed2ee-1375-4cb0-be41-02c6ae960410
+status: experimental
+description: Detects interesting keywords based on ren tool
+references:
+- https://www.pavel.gr/blog/neutralising-amsi-system-wide-as-an-admin
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027.002
+- attack.T1055.001
+- attack.T1574.001
+- attack.TA0005
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - CommandLine:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - Details:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - registry.value:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - process.args:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - process.command_line:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - process.env_vars:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - process.io.text:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - process.title:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - pe.company:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - pe.description:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - pe.product:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - os.full:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - host.hostname:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - event.original:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - email.subject:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - device.model.name:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - container.image.name:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  - container.name:
+    - '*ren C:\Windows\System32\amsi.dll *.dll'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

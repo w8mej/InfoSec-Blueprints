@@ -1,0 +1,38 @@
+title: Stickey key called CMD via command execution
+description: Detects scenarios where an attacker calls the stickey key and execute CMD.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0004-Privilege%20Escalation/T1546-Image%20File%20Execution%20Options%20Injection
+- https://blogs.technet.microsoft.com/jonathantrull/2016/10/03/detecting-sticky-key-backdoors/
+- https://www.mandiant.com/resources/apt29-domain-frontin
+- https://www.clearskysec.com/wp-content/uploads/2020/02/ClearSky-Fox-Kitten-Campaign-v1.pdf
+- https://blog.talosintelligence.com/2022/08/recent-cyber-attack.html?m=1
+tags:
+- attack.privilege_escalation
+- attack.t1546.008
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_process:
+    EventID: 4688
+    Version: 2  # parent process name is available starting Windows 10 / Server 2016 and higher
+    ParentProcessName|endswith: \winlogon.exe
+
+  selection_sysmon:
+    EventID: 1
+    ParentImage|endswith: \winlogon.exe
+
+  selection_command_line:
+    CommandLine|contains: cmd
+    CommandLine|contains:
+      - sethc.exe
+      - utilman.exe
+      - osk.exe
+      - Magnify.exe
+      - Narrator.exe
+      - DisplaySwitch.exe
+  condition: (selection_process or selection_sysmon) and selection_command_line
+falsepositives:
+- None
+level: high

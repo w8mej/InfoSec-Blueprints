@@ -1,0 +1,120 @@
+title: Simple keyword detection rule for wbadmin
+id: 2fa96b4c-96b9-4409-8839-ebb82efaddf0
+status: experimental
+description: Detects interesting keywords based on wbadmin tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1485
+- attack.T1490
+- attack.T1562.001
+- attack.TA0005
+- attack.TA0007
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - CommandLine:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - Details:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - registry.value:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - process.args:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - process.command_line:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - process.env_vars:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - process.io.text:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - process.title:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - pe.company:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - pe.description:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - pe.product:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - os.full:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - host.hostname:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - event.original:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - email.subject:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - device.model.name:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - container.image.name:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  - container.name:
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP*'
+    - '*wbadmin delete backup*'
+    - '*wbadmin DELETE SYSTEMSTATEBACKUP -deleteOldest*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

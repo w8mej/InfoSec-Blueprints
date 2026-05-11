@@ -1,0 +1,26 @@
+title: Netsh helper DLL abuse (Reg via Sysmon)
+description: Detects scenarios where an attacker abuses the Netsh DLL feature to perform some code execution.
+references:
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1546-Event%20Triggered%20Execution
+- https://www.hackingarticles.in/windows-persistence-using-netsh/
+- https://liberty-shell.com/sec/2018/07/28/netshlep/
+- https://github.com/outflanknl/NetshHelperBeacon
+- https://www.ired.team/offensive-security/persistence/t1128-netsh-helper-dll
+- https://lolbas-project.github.io/lolbas/Binaries/Netsh/
+- https://pentestlab.blog/2019/10/29/persistence-netsh-helper-dll/
+tags:
+- attack.persistence
+- attack.t1546.007
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  category: registry_event
+detection:
+  selection:
+    NewProcessName|endswith: '\netsh.exe' # Full path "C:\Windows\system32\netsh.exe"
+    TargetObject|endswith: '\SOFTWARE\Microsoft\NetSh'
+  condition: selection
+falsepositives:
+- None
+level: high

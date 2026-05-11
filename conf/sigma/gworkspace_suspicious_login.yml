@@ -1,0 +1,26 @@
+title: Workspace Login Marked Suspicious
+id: 87fb3484-0038-4ec5-93f6-af109151534e
+description: Identifies when a workspace login is marked suspicious
+author: Center for Threat-Informed Defense, Google CSA, Michael Butt
+status: experimental
+date: 2022/06/07
+references:
+    - https://github.com/GoogleCloudPlatform/security-analytics/blob/main/src/1.02/1.02.md
+logsource:
+  product: google_workspace
+  service: google_workspace.admin
+detection:
+    selection:
+        gcp.audit.service_name: admin.googleapis.com
+        gcp.audit.method_name:
+            - google.login.LoginService.loginSuccess
+        protoPayload.metadata.event.parameter|contains:  '\"boolValue\": true'
+    selection_suspicious:
+        protoPayload.metadata.event.parameter|contains:  '\"name\": \"is_suspicious\"'
+    condition: selection and selection_suspicious
+level: low
+tags:
+    - attack.initial_access
+    - attack.t1078.004
+falsepositives:
+ - Multiple bool values in  parameter payload may trigger false positives.

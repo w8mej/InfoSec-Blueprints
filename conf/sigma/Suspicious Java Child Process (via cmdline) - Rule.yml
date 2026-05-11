@@ -1,0 +1,72 @@
+title: Suspicious Java Child Process (via cmdline)
+status: stable
+description: This rule identifies potentially malicious child processes spawned by
+  Java-based malware. This may indicate an attempt by the malware to perform malicious
+  actions such as downloading additional payloads, stealing sensitive information,
+  or establishing persistence. The reliance on the surrounding environment may necessitate
+  the implementation of additional filtering measures to prevent false positives.
+references:
+- https://www.sysaid.com/blog/service-desk/on-premise-software-security-vulnerability-notification
+- https://badoption.eu/blog/2023/06/01/zipjar.html#poc
+- https://www.mandiant.com/resources/blog/unc961-multiverse-financially-motivated
+- https://www.horizon3.ai/manageengine-cve-2022-47966-technical-deep-dive/
+- https://securitylabs.datadoghq.com/articles/openssl-november-1-vulnerabilities/
+- https://www.volexity.com/blog/2022/06/02/zero-day-exploitation-of-atlassian-confluence/
+- https://app.any.run/tasks/5f279c68-8ec2-4f27-9f79-1cfa2d99c631/
+- https://app.any.run/tasks/65dc6f6e-f32b-4e4f-b214-b060b81f5804/
+- https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html
+author: SOC Prime Team
+tags:
+- attack.initial_access
+- attack.t1190
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    ParentImage|endswith: java.exe
+  selection_child:
+    Image|endswith:
+    - appvlp.exe
+    - atbroker.exe
+    - bash.exe
+    - bginfo.exe
+    - bitsadmin.exe
+    - cmd.exe
+    - certutil.exe
+    - devtoolslauncher.exe
+    - ftp.exe
+    - hh.exe
+    - ieexec.exe
+    - installutil.exe
+    - jjs.exe
+    - mavinject.exe
+    - microsoft.workflow.compiler.exe
+    - msbuild.exe
+    - msdt.exe
+    - mshta.exe
+    - msxsl.exe
+    - odbcconf.exe
+    - powershell.exe
+    - presentationhost.exe
+    - regasm.exe
+    - regsvcs.exe
+    - regsvr32.exe
+    - rundll32.exe
+    - runscripthelper.exe
+    - schtasks.exe
+    - sqlps.exe
+    - sqltoolsps.exe
+    - syncappvpublishingserver.exe
+    - tracker.exe
+    - verclsid.exe
+    - vsjitdebugger.exe
+    - wmic.exe
+    - wsl.exe
+  condition: selection and selection_child
+falsepositives:
+- Java Application (which based on java) specific actions, like OS operations, etc.
+- The reliance on the surrounding environment may necessitate the implementation of
+  additional filtering measures to prevent false positives.
+level: high
+id: 635fc86d-af6b-4a1b-a8d7-358d70dc3f5d

@@ -1,0 +1,833 @@
+title: Simple keyword detection rule for chromedump
+id: b27d52e5-627d-460a-a640-e98c16a2385c
+status: experimental
+description: Detects interesting keywords based on chromedump tool
+references:
+- https://github.com/g4l4drim/ChromeDump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059.007
+- attack.T1114.001
+- attack.T1518.001
+- attack.T1552.002
+- attack.TA0005
+- attack.TA0009
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - OriginalFileName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - CurrentDirectory:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ParentImage:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ParentCommandLine:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - TargetFilename:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Signature:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - signature:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ImageLoaded:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Company:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Description:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - description:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - CommandLine:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - SourceImage:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - TargetImage:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - CallTrace:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - TargetObject:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Details:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - PipeName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Consumer:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Destination:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Query:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - NewName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - StartAddress:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - StartModule:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - StartFunction:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - SourceHostname:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Device:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - file_name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - file_path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - original_file_name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - parent_process:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process_path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - service_path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - registry_path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - registry_value_data:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - registry_value_name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ContextInfo:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Payload:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ScriptBlockText:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ServerName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - TransportName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - NewProcessName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ParentProcessName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Application:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Product Name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Threat Name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Process Name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - Path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ImagePath:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ServiceName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ProcessPath:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - AppName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - AppPath:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - ModulePath:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - registry.data.strings:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - registry.path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - registry.value:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.args:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.command_line:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.env_vars:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.io.text:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.executable:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - process.title:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - pe.company:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - pe.description:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - pe.original_file_name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - pe.product:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - os.full:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - host.hostname:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - file.fork_name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - file.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - file.path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - file.target_path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - email.attachments.file.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - email.subject:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - dll.path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - device.model.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - container.image.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - container.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - object:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - url:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - dest_url:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - uri:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - uri_query:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - query:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - url_domain:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - uri_path:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - domain:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - QueryName:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - QueryResults:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - DestinationHostname:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - DestinationIp:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - http_referrer:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - http_referrer_domain:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - http_user_agent:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - dest_nt_host:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - sender:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - recipient:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - orig_recipient:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - subject:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - url.domain:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - url.full:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - url.original:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - url.query:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - user_agent.original:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - network.application:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - http.request.body.content:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - http.request.referrer:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - email.from.address:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - dns.question.name:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  - destination.domain:
+    - '*/dumpweb.log*'
+    - '*chromedump.py*'
+    - '*ChromeDump-main.zip*'
+    - '*/ChromeDump/*'
+    - '*ChromeDump.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

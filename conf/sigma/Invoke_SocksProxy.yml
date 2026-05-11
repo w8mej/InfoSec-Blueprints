@@ -1,0 +1,888 @@
+title: Simple keyword detection rule for Invoke-SocksProxy
+id: 211558b6-ccfb-4ac5-b3f2-cf4a7f039fc5
+status: experimental
+description: Detects interesting keywords based on Invoke-SocksProxy tool
+references:
+- https://github.com/p3nt4/Invoke-SocksProxy
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1021
+- attack.T1021.001
+- attack.T1021.002
+- attack.T1059
+- attack.T1090
+- attack.T1573
+- attack.TA0002
+- attack.TA0008
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - OriginalFileName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - CurrentDirectory:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ParentImage:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ParentCommandLine:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - TargetFilename:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Signature:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - signature:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ImageLoaded:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Company:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Description:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - description:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - CommandLine:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - SourceImage:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - TargetImage:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - CallTrace:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - TargetObject:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Details:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - PipeName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Consumer:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Destination:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Query:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - NewName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - StartAddress:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - StartModule:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - StartFunction:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - SourceHostname:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Device:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - file_name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - file_path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - original_file_name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - parent_process:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process_path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - service_path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - registry_path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - registry_value_data:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - registry_value_name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ContextInfo:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Payload:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ScriptBlockText:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ServerName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - TransportName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - NewProcessName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ParentProcessName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Application:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Product Name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Threat Name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Process Name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - Path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ImagePath:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ServiceName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ProcessPath:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - AppName:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - AppPath:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - ModulePath:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - registry.data.strings:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - registry.path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - registry.value:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.args:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.command_line:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.env_vars:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.io.text:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.executable:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - process.title:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - pe.company:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - pe.description:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - pe.original_file_name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - pe.product:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - os.full:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - host.hostname:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - file.fork_name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - file.name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - file.path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - file.target_path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - email.attachments.file.name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - email.subject:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - dll.path:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - device.model.name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - container.image.name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - container.name:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - object:
+    - '*Invoke-SocksProxy *'
+    - '*Invoke-ReverseSocksProxy*'
+    - '*Invoke-SocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - url:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - dest_url:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - uri:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - uri_query:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - query:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - url_domain:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - uri_path:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - domain:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - QueryName:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - QueryResults:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - DestinationHostname:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - DestinationIp:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - http_referrer:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - http_referrer_domain:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - http_user_agent:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - dest_nt_host:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - sender:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - recipient:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - orig_recipient:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - subject:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - url.domain:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - url.full:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - url.original:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - url.query:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - user_agent.original:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - network.application:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - http.request.body.content:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - http.request.referrer:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - email.from.address:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - dns.question.name:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  - destination.domain:
+    - '*Invoke-ReverseSocksProxy*'
+    - '*ReverseSocksProxyHandler.*'
+    - '*Invoke-SocksProxy.*'
+    - '*ReverseSocksProxyHandler.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,765 @@
+title: Simple keyword detection rule for GONET-Scanner
+id: 6b819414-dd54-4a61-9c75-f6ab2c576b65
+status: experimental
+description: Detects interesting keywords based on GONET-Scanner tool
+references:
+- https://github.com/luijait/GONET-Scanner
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1595
+- attack.TA0001
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - CommandLine:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Details:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry.value:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.args:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.command_line:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.env_vars:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.io.text:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.title:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.company:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.description:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.product:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - os.full:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - host.hostname:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - event.original:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - email.subject:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - device.model.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - container.image.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - container.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Image:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - OriginalFileName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - CurrentDirectory:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ParentImage:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ParentCommandLine:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - TargetFilename:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Signature:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - signature:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ImageLoaded:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Company:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Description:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - description:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - CommandLine:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - SourceImage:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - TargetImage:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - CallTrace:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - TargetObject:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Details:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - PipeName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Consumer:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Destination:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Query:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - NewName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - StartAddress:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - StartModule:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - StartFunction:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - SourceHostname:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Device:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - file_name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - file_path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - original_file_name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - parent_process:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process_path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - service_path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry_path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry_value_data:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry_value_name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ContextInfo:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Payload:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ScriptBlockText:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ServerName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - TransportName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - NewProcessName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ParentProcessName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Application:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Product Name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Threat Name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Process Name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - Path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ImagePath:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ServiceName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ProcessPath:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - AppName:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - AppPath:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - ModulePath:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry.data.strings:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry.path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - registry.value:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.args:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.command_line:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.env_vars:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.io.text:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.executable:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - process.title:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.company:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.description:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.original_file_name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - pe.product:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - os.full:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - host.hostname:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - file.fork_name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - file.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - file.path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - file.target_path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - email.attachments.file.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - email.subject:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - dll.path:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - device.model.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - container.image.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - container.name:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - object:
+    - '*go run scannerPort.go*'
+    - '*/GONET-Scanner/*'
+    - '*scannerport.go -*'
+    - '*/scannerPort.go*'
+  - url:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - dest_url:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - uri:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - uri_query:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - query:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - url_domain:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - uri_path:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - domain:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - QueryName:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - QueryResults:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - DestinationHostname:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - DestinationIp:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - http_referrer:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - http_referrer_domain:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - http_user_agent:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - dest_nt_host:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - sender:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - recipient:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - orig_recipient:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - subject:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - url.domain:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - url.full:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - url.original:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - url.query:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - user_agent.original:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - network.application:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - http.request.body.content:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - http.request.referrer:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - email.from.address:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - dns.question.name:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  - destination.domain:
+    - '*/GONET-Scanner/*'
+    - '*/scannerPort.go*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

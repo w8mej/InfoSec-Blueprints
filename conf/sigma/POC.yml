@@ -1,0 +1,1477 @@
+title: Simple keyword detection rule for poc
+id: 241dbb89-5d10-40f4-9971-0b1fb31f7011
+status: experimental
+description: Detects interesting keywords based on poc tool
+references:
+- https://github.com/Hashi0x/PoC-CVE-2023-21554
+- https://github.com/ka7ana/CVE-2023-23397
+- https://github.com/sqrtZeroKnowledge/CVE-2023-23397_EXPLOIT_0DAY
+- https://github.com/Trackflaw/CVE-2023-23397
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1068
+- attack.T1187
+- attack.T1192
+- attack.T1212 -T1003.001
+- attack.T1507
+- attack.T1550
+- attack.T1557.001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - CommandLine:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Details:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry.value:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.args:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.command_line:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.env_vars:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.io.text:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.title:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.company:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.description:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.product:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - os.full:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - host.hostname:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - event.original:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - email.subject:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - device.model.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - container.image.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - container.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Image:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - OriginalFileName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - CurrentDirectory:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ParentImage:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ParentCommandLine:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - TargetFilename:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Signature:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - signature:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ImageLoaded:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Company:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Description:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - description:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - CommandLine:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - SourceImage:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - TargetImage:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - CallTrace:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - TargetObject:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Details:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - PipeName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Consumer:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Destination:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Query:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - NewName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - StartAddress:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - StartModule:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - StartFunction:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - SourceHostname:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Device:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - file_name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - file_path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - original_file_name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - parent_process:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process_path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - service_path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry_path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry_value_data:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry_value_name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ContextInfo:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Payload:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ScriptBlockText:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ServerName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - TransportName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - NewProcessName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ParentProcessName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Application:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Product Name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Threat Name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Process Name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - Path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ImagePath:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ServiceName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ProcessPath:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - AppName:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - AppPath:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - ModulePath:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry.data.strings:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry.path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - registry.value:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.args:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.command_line:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.env_vars:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.io.text:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.executable:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - process.title:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.company:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.description:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.original_file_name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - pe.product:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - os.full:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - host.hostname:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - file.fork_name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - file.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - file.path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - file.target_path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - email.attachments.file.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - email.subject:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - dll.path:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - device.model.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - container.image.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - container.name:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - object:
+    - '* RCE.py -*'
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - url:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - dest_url:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - uri:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - uri_query:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - query:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - url_domain:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - uri_path:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - domain:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - QueryName:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - QueryResults:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - DestinationHostname:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - DestinationIp:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - http_referrer:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - http_referrer_domain:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - http_user_agent:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - dest_nt_host:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - sender:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - recipient:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - orig_recipient:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - subject:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - url.domain:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - url.full:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - url.original:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - url.query:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - user_agent.original:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - network.application:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - http.request.body.content:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - http.request.referrer:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - email.from.address:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - dns.question.name:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  - destination.domain:
+    - '*cve-2023-21554.nse*'
+    - '*/Trackflaw/CVE*.py*'
+    - '*/MsgKitTestTool/*'
+    - '*/CVE-*_EXPLOIT_0DAY/*'
+    - '*/sqrtZeroKnowledge/CVE-*'
+    - '*/Hashi0x/*'
+    - '*/PoC-CVE-2023-21554*'
+    - '*/ka7ana/CVE*.ps1*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,599 @@
+title: Simple keyword detection rule for FakeAMSI
+id: 0b1249f5-d41e-44a6-b867-a95302ac524f
+status: experimental
+description: Detects interesting keywords based on FakeAMSI tool
+references:
+- https://github.com/gtworek/PSBits/tree/master/FakeAMSI
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- 'attack.T1117 '
+- 'attack.TA0003 '
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - OriginalFileName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - CurrentDirectory:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ParentImage:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ParentCommandLine:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - TargetFilename:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Signature:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - signature:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ImageLoaded:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Company:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Description:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - description:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - CommandLine:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - SourceImage:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - TargetImage:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - CallTrace:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - TargetObject:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Details:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - PipeName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Consumer:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Destination:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Query:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - NewName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - StartAddress:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - StartModule:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - StartFunction:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - SourceHostname:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Device:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - file_name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - file_path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - original_file_name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - parent_process:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process_path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - service_path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - registry_path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - registry_value_data:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - registry_value_name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ContextInfo:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Payload:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ScriptBlockText:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ServerName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - TransportName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - NewProcessName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ParentProcessName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Application:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Product Name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Threat Name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Process Name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - Path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ImagePath:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ServiceName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ProcessPath:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - AppName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - AppPath:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - ModulePath:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - registry.data.strings:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - registry.path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - registry.value:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.args:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.command_line:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.env_vars:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.io.text:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.executable:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - process.title:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - pe.company:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - pe.description:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - pe.original_file_name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - pe.product:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - os.full:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - host.hostname:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - file.fork_name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - file.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - file.path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - file.target_path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - email.attachments.file.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - email.subject:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - dll.path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - device.model.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - container.image.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - container.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - object:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - url:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - dest_url:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - uri:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - uri_query:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - query:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - url_domain:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - uri_path:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - domain:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - QueryName:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - QueryResults:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - DestinationHostname:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - DestinationIp:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - http_referrer:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - http_referrer_domain:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - http_user_agent:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - dest_nt_host:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - sender:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - recipient:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - orig_recipient:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - subject:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - url.domain:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - url.full:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - url.original:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - url.query:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - user_agent.original:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - network.application:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - http.request.body.content:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - http.request.referrer:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - email.from.address:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - dns.question.name:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  - destination.domain:
+    - '*FakeAMSI.exe*'
+    - '*FakeAMSI.dll*'
+    - '*FakeAMSI.c*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

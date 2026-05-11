@@ -1,0 +1,856 @@
+title: Simple keyword detection rule for h8mail
+id: 6a16ce58-6777-4f99-96eb-9e4021f9fa5f
+status: experimental
+description: Detects interesting keywords based on h8mail tool
+references:
+- https://github.com/khast3x/h8mail
+- https://github.com/opencubicles/h8mail
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1217.001
+- attack.T1581.002
+- attack.T1590
+- attack.T1591
+- attack.T1592
+- attack.T1596
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - OriginalFileName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - CurrentDirectory:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ParentImage:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ParentCommandLine:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - TargetFilename:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Signature:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - signature:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ImageLoaded:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Company:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Description:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - description:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - CommandLine:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - SourceImage:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - TargetImage:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - CallTrace:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - TargetObject:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Details:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - PipeName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Consumer:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Destination:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Query:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - NewName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - StartAddress:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - StartModule:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - StartFunction:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - SourceHostname:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Device:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - file_name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - file_path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - original_file_name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - parent_process:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process_path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - service_path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - registry_path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - registry_value_data:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - registry_value_name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ContextInfo:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Payload:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ScriptBlockText:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ServerName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - TransportName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - NewProcessName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ParentProcessName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Application:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Product Name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Threat Name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Process Name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - Path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ImagePath:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ServiceName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ProcessPath:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - AppName:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - AppPath:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - ModulePath:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - registry.data.strings:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - registry.path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - registry.value:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.args:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.command_line:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.env_vars:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.io.text:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.executable:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - process.title:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - pe.company:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - pe.description:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - pe.original_file_name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - pe.product:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - os.full:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - host.hostname:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - file.fork_name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - file.name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - file.path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - file.target_path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - email.attachments.file.name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - email.subject:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - dll.path:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - device.model.name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - container.image.name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - container.name:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - object:
+    - '*opencubicles/h8mail*'
+    - '*h8mail*'
+    - '*install h8mail*'
+    - '*h8mail -*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - url:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - dest_url:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - uri:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - uri_query:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - query:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - url_domain:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - uri_path:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - domain:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - QueryName:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - QueryResults:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - DestinationHostname:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - DestinationIp:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - http_referrer:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - http_referrer_domain:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - http_user_agent:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - dest_nt_host:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - sender:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - recipient:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - orig_recipient:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - subject:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - url.domain:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - url.full:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - url.original:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - url.query:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - user_agent.original:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - network.application:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - http.request.body.content:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - http.request.referrer:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - email.from.address:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - dns.question.name:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  - destination.domain:
+    - '*opencubicles/h8mail*'
+    - '*khast3x/h8mail*'
+    - '*/h8mail/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

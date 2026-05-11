@@ -1,0 +1,532 @@
+title: Simple keyword detection rule for sudoSnatch
+id: 9362eb9b-da77-464a-b593-6c8a92e74ae8
+status: experimental
+description: Detects interesting keywords based on sudoSnatch tool
+references:
+- https://github.com/hak5/omg-payloads/tree/master/payloads/library/credentials/SudoSnatch
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1056.001
+- attack.T1071.001
+- attack.T1552.001
+- attack.TA0004
+- attack.TA0006
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - CommandLine:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Details:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry.value:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.args:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.command_line:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.env_vars:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.io.text:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.title:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.company:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.description:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.product:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - os.full:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - host.hostname:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - event.original:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - email.subject:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - device.model.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - container.image.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - container.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Image:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - OriginalFileName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - CurrentDirectory:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ParentImage:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ParentCommandLine:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - TargetFilename:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Signature:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - signature:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ImageLoaded:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Company:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Description:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - description:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - CommandLine:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - SourceImage:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - TargetImage:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - CallTrace:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - TargetObject:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Details:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - PipeName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Consumer:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Destination:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Query:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - NewName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - StartAddress:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - StartModule:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - StartFunction:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - SourceHostname:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Device:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - file_name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - file_path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - original_file_name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - parent_process:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process_path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - service_path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry_path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry_value_data:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry_value_name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ContextInfo:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Payload:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ScriptBlockText:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ServerName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - TransportName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - NewProcessName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ParentProcessName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Application:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Product Name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Threat Name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Process Name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - Path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ImagePath:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ServiceName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ProcessPath:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - AppName:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - AppPath:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - ModulePath:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry.data.strings:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry.path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - registry.value:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.args:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.command_line:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.env_vars:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.io.text:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.executable:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - process.title:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.company:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.description:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.original_file_name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - pe.product:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - os.full:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - host.hostname:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - file.fork_name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - file.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - file.path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - file.target_path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - email.attachments.file.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - email.subject:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - dll.path:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - device.model.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - container.image.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - container.name:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - object:
+    - '*nIFS=* read -s pass\necho -e *User=*$(whoami)*Password=*$pass*> /var/tmp*'
+    - '*/credentials/SudoSnatch*'
+  - url:
+    - '*/credentials/SudoSnatch*'
+  - dest_url:
+    - '*/credentials/SudoSnatch*'
+  - uri:
+    - '*/credentials/SudoSnatch*'
+  - uri_query:
+    - '*/credentials/SudoSnatch*'
+  - query:
+    - '*/credentials/SudoSnatch*'
+  - url_domain:
+    - '*/credentials/SudoSnatch*'
+  - uri_path:
+    - '*/credentials/SudoSnatch*'
+  - domain:
+    - '*/credentials/SudoSnatch*'
+  - QueryName:
+    - '*/credentials/SudoSnatch*'
+  - QueryResults:
+    - '*/credentials/SudoSnatch*'
+  - DestinationHostname:
+    - '*/credentials/SudoSnatch*'
+  - DestinationIp:
+    - '*/credentials/SudoSnatch*'
+  - http_referrer:
+    - '*/credentials/SudoSnatch*'
+  - http_referrer_domain:
+    - '*/credentials/SudoSnatch*'
+  - http_user_agent:
+    - '*/credentials/SudoSnatch*'
+  - dest_nt_host:
+    - '*/credentials/SudoSnatch*'
+  - sender:
+    - '*/credentials/SudoSnatch*'
+  - recipient:
+    - '*/credentials/SudoSnatch*'
+  - orig_recipient:
+    - '*/credentials/SudoSnatch*'
+  - subject:
+    - '*/credentials/SudoSnatch*'
+  - url.domain:
+    - '*/credentials/SudoSnatch*'
+  - url.full:
+    - '*/credentials/SudoSnatch*'
+  - url.original:
+    - '*/credentials/SudoSnatch*'
+  - url.query:
+    - '*/credentials/SudoSnatch*'
+  - user_agent.original:
+    - '*/credentials/SudoSnatch*'
+  - network.application:
+    - '*/credentials/SudoSnatch*'
+  - http.request.body.content:
+    - '*/credentials/SudoSnatch*'
+  - http.request.referrer:
+    - '*/credentials/SudoSnatch*'
+  - email.from.address:
+    - '*/credentials/SudoSnatch*'
+  - dns.question.name:
+    - '*/credentials/SudoSnatch*'
+  - destination.domain:
+    - '*/credentials/SudoSnatch*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

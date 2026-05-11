@@ -1,0 +1,21 @@
+title: Windows 万能密码
+description: Windows server 2008 R2\win 7
+references: https://0xsp.com/ad-attack-or-defense/ad-ttps-list
+tags: T1098
+status: 测试阶段
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection1:
+        EventID: 4673  #调用权限的服务
+    selection2:
+        EventID: 4611  #受信任的登录进程已在本地安全机构注册
+    selection3:
+        EventID: 4688  #新进程创建
+    selection4:
+        EventID: 4689  #退出进程
+    condition: all of them
+    timeframe: last 5s
+level: medium

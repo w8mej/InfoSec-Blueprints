@@ -1,0 +1,1110 @@
+title: Simple keyword detection rule for invoke-piper
+id: 6ae2046f-31a8-49c0-80f7-001d7ba3eccb
+status: experimental
+description: Detects interesting keywords based on invoke-piper tool
+references:
+- https://github.com/p3nt4/Invoke-Piper
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.T1021.001
+- attack.T1021.002
+- attack.T1048
+- attack.T1090
+- attack.TA0002 -TA0006
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - OriginalFileName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - CurrentDirectory:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ParentImage:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ParentCommandLine:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - TargetFilename:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Signature:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - signature:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ImageLoaded:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Company:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Description:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - description:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - CommandLine:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - SourceImage:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - TargetImage:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - CallTrace:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - TargetObject:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Details:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - PipeName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Consumer:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Destination:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Query:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - NewName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - StartAddress:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - StartModule:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - StartFunction:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - SourceHostname:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Device:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - file_name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - file_path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - original_file_name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - parent_process:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process_path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - service_path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry_path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry_value_data:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry_value_name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ContextInfo:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Payload:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ScriptBlockText:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ServerName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - TransportName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - NewProcessName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ParentProcessName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Application:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Product Name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Threat Name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Process Name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ImagePath:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ServiceName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ProcessPath:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - AppName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - AppPath:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ModulePath:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry.data.strings:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry.path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry.value:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.args:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.command_line:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.env_vars:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.io.text:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.executable:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.title:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.company:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.description:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.original_file_name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.product:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - os.full:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - host.hostname:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - file.fork_name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - file.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - file.path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - file.target_path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - email.attachments.file.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - email.subject:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - dll.path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - device.model.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - container.image.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - container.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - object:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - ParentCommandLine:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - CommandLine:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - Details:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - registry.value:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.args:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.command_line:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.env_vars:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.io.text:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - process.title:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.company:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.description:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - pe.product:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - os.full:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - host.hostname:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - event.original:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - email.subject:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - device.model.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - container.image.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - container.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*-destPipe * -pipeHost * -bindPort *'
+    - '* -remote -bindPipe *  -bindPort * -security*'
+    - '*-remote -destPipe * -pipeHost * -destHost *'
+    - '* -bindPipe * -destHost * -destPort *'
+    - '*Invoke-PiperClient*'
+  - url:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - dest_url:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - uri:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - uri_query:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - query:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - url_domain:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - uri_path:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - domain:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - QueryName:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - QueryResults:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - DestinationHostname:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - DestinationIp:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - http_referrer:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - http_referrer_domain:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - http_user_agent:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - dest_nt_host:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - sender:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - recipient:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - orig_recipient:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - subject:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - url.domain:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - url.full:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - url.original:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - url.query:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - user_agent.original:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - network.application:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - http.request.body.content:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - http.request.referrer:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - email.from.address:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - dns.question.name:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  - destination.domain:
+    - '*Invoke-Piper*'
+    - '*Invoke-PiperServer*'
+    - '*Invoke-PiperClient*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

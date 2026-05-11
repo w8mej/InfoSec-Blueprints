@@ -1,0 +1,440 @@
+title: Simple keyword detection rule for dir
+id: 4b44ab43-3a92-4818-84a8-b3f68099568b
+status: experimental
+description: Detects interesting keywords based on dir tool
+references:
+- https://casvancooten.com/posts/2020/11/windows-active-directory-exploitation-cheat-sheet-and-command-reference
+- https://thedfirreport.com/2023/04/03/malicious-iso-file-leads-to-domain-wide-ransomware/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.A0002
+- attack.T1018
+- attack.T1059
+- attack.T1083
+- attack.T1595 T1590 T1591
+- attack.TA0009
+- attack.TA0040
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - Image:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - OriginalFileName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - CurrentDirectory:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ParentImage:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ParentCommandLine:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - TargetFilename:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Signature:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - signature:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ImageLoaded:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Company:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Description:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - description:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - CommandLine:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - SourceImage:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - TargetImage:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - CallTrace:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - TargetObject:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Details:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - PipeName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Consumer:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Destination:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Query:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - NewName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - StartAddress:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - StartModule:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - StartFunction:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - SourceHostname:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Device:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - file_name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - file_path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - original_file_name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - parent_process:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process_path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - service_path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry_path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry_value_data:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry_value_name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ContextInfo:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Payload:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ScriptBlockText:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ServerName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - TransportName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - NewProcessName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ParentProcessName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Application:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Product Name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Threat Name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Process Name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ImagePath:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ServiceName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ProcessPath:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - AppName:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - AppPath:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ModulePath:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry.data.strings:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry.path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry.value:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.args:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.command_line:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.env_vars:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.io.text:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.executable:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.title:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.company:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.description:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.original_file_name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.product:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - os.full:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - host.hostname:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - file.fork_name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - file.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - file.path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - file.target_path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - email.attachments.file.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - email.subject:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - dll.path:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - device.model.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - container.image.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - container.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - object:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - ParentCommandLine:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - CommandLine:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - Details:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - registry.value:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.args:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.command_line:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.env_vars:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.io.text:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - process.title:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.company:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.description:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - pe.product:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - os.full:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - host.hostname:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - event.original:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - email.subject:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - device.model.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - container.image.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  - container.name:
+    - '*dir C:\Users\*\AppData\Local\Microsoft\Credentials*'
+    - '* dir /s */ Microsoft.ActiveDirectory.Management.dll*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

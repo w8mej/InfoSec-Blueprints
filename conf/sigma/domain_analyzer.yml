@@ -1,0 +1,1275 @@
+title: Simple keyword detection rule for domain_analyzer
+id: 476fe545-7448-49e7-8e39-6150bb444075
+status: experimental
+description: Detects interesting keywords based on domain_analyzer tool
+references:
+- https://github.com/eldraco/domain_analyzer
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1057
+- attack.T1200
+- attack.T1213
+- attack.T1560
+- attack.T1590
+- attack.TA0002
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - OriginalFileName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - CurrentDirectory:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ParentImage:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ParentCommandLine:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - TargetFilename:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Signature:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - signature:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ImageLoaded:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Company:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Description:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - description:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - CommandLine:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - SourceImage:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - TargetImage:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - CallTrace:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - TargetObject:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Details:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - PipeName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Consumer:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Destination:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Query:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - NewName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - StartAddress:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - StartModule:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - StartFunction:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - SourceHostname:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Device:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - file_name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - file_path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - original_file_name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - parent_process:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process_path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - service_path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry_path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry_value_data:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry_value_name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ContextInfo:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Payload:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ScriptBlockText:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ServerName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - TransportName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - NewProcessName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ParentProcessName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Application:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Product Name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Threat Name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Process Name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ImagePath:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ServiceName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ProcessPath:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - AppName:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - AppPath:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ModulePath:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry.data.strings:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry.path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry.value:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.args:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.command_line:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.env_vars:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.io.text:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.executable:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.title:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.company:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.description:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.original_file_name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.product:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - os.full:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - host.hostname:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - file.fork_name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - file.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - file.path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - file.target_path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - email.attachments.file.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - email.subject:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - dll.path:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - device.model.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - container.image.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - container.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - object:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - ParentCommandLine:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - CommandLine:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - Details:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - registry.value:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.args:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.command_line:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.env_vars:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.io.text:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - process.title:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.company:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.description:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - pe.product:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - os.full:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - host.hostname:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - event.original:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - email.subject:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - device.model.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - container.image.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - container.name:
+    - '*/domain_analyzer.git*'
+    - '*/crawler.py -u http*'
+    - '*/domain_analyzer:latest*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '* crawler.py -u http*'
+    - '*verovaleros/domain_analyzer*'
+  - url:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - dest_url:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - uri:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - uri_query:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - query:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - url_domain:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - uri_path:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - domain:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - QueryName:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - QueryResults:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - DestinationHostname:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - DestinationIp:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - http_referrer:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - http_referrer_domain:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - http_user_agent:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - dest_nt_host:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - sender:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - recipient:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - orig_recipient:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - subject:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - url.domain:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - url.full:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - url.original:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - url.query:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - user_agent.original:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - network.application:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - http.request.body.content:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - http.request.referrer:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - email.from.address:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - dns.question.name:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  - destination.domain:
+    - '*/domain_analyzer.git*'
+    - '*eldraco/domain_analyzer*'
+    - '*domain_analyzer.py*'
+    - '*domain_analyzer-master*'
+    - '*verovaleros/domain_analyzer*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

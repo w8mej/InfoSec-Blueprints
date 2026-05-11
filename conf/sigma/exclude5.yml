@@ -1,0 +1,23 @@
+title: Excluded Rule 5
+date: 2019/04/18
+detection:
+  SELECTION_1:
+    EventID: 4720
+  condition: SELECTION_1
+falsepositives:
+- Domain Controller Logs
+- Local accounts managed by privileged account management tools
+fields:
+- EventCode
+- AccountName
+- AccountDomain
+id: 00000000-0000-0000-0000-000000000000
+level: low
+logsource:
+  product: windows
+  service: security
+modified: 2020/08/23
+references:
+- https://patrick-bareiss.com/detecting-local-user-creation-in-ad-with-sigma/
+status: experimental
+ruletype: SIGMA

@@ -1,0 +1,1184 @@
+title: Simple keyword detection rule for fgdump
+id: 43992cfa-fec1-4654-b268-17c98fdfbac1
+status: experimental
+description: Detects interesting keywords based on fgdump tool
+references:
+- https://gitlab.com/kalilinux/packages/windows-binaries/-/tree/kali/master/fgdump
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.001
+- attack.T1003.002
+- attack.T1021.002
+- attack.T1035
+- attack.T1059
+- attack.T1077
+- attack.T1562.001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+- attack.TA0005
+- attack.TA0007
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - OriginalFileName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - CurrentDirectory:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ParentImage:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ParentCommandLine:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - TargetFilename:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Signature:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - signature:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ImageLoaded:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Company:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Description:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - description:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - CommandLine:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - SourceImage:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - TargetImage:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - CallTrace:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - TargetObject:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Details:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - PipeName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Consumer:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Destination:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Query:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - NewName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - StartAddress:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - StartModule:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - StartFunction:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - SourceHostname:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Device:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - file_name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - file_path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - original_file_name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - parent_process:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process_path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - service_path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - registry_path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - registry_value_data:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - registry_value_name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ContextInfo:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Payload:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ScriptBlockText:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ServerName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - TransportName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - NewProcessName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ParentProcessName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Application:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Product Name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Threat Name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Process Name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - Path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ImagePath:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ServiceName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ProcessPath:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - AppName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - AppPath:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - ModulePath:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - registry.data.strings:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - registry.path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - registry.value:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.args:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.command_line:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.env_vars:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.io.text:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.executable:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - process.title:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - pe.company:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - pe.description:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - pe.original_file_name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - pe.product:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - os.full:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - host.hostname:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - file.fork_name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - file.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - file.path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - file.target_path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - email.attachments.file.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - email.subject:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - dll.path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - device.model.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - container.image.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - container.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - object:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - url:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - dest_url:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - uri:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - uri_query:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - query:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - url_domain:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - uri_path:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - domain:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - QueryName:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - QueryResults:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - DestinationHostname:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - DestinationIp:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - http_referrer:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - http_referrer_domain:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - http_user_agent:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - dest_nt_host:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - sender:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - recipient:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - orig_recipient:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - subject:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - url.domain:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - url.full:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - url.original:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - url.query:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - user_agent.original:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - network.application:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - http.request.body.content:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - http.request.referrer:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - email.from.address:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - dns.question.name:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  - destination.domain:
+    - '*pstgdump.exe*'
+    - '*fgdump.exe*'
+    - '*cachedump.exe*'
+    - '*pwdump.exe*'
+    - '*fgexec.exe*'
+    - '*servpw.exe*'
+    - '*servpw64.exe*'
+    - '*cachedump64.exe*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

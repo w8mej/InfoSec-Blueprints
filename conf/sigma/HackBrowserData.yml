@@ -1,0 +1,1142 @@
+title: Simple keyword detection rule for HackBrowserData
+id: 7606abea-7441-4547-96f9-7abe15a7c4ea
+status: experimental
+description: Detects interesting keywords based on HackBrowserData tool
+references:
+- https://github.com/moonD4rk/HackBrowserData
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1185
+- attack.T1189
+- attack.T1217
+- attack.T1555
+- attack.TA0001
+- attack.TA0002
+- attack.TA0009
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - CommandLine:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Details:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry.value:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.args:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.command_line:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.env_vars:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.io.text:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.title:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.company:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.description:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.product:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - os.full:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - host.hostname:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - event.original:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - email.subject:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - device.model.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - container.image.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - container.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Image:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - OriginalFileName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - CurrentDirectory:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ParentImage:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ParentCommandLine:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - TargetFilename:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Signature:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - signature:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ImageLoaded:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Company:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Description:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - description:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - CommandLine:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - SourceImage:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - TargetImage:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - CallTrace:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - TargetObject:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Details:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - PipeName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Consumer:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Destination:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Query:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - NewName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - StartAddress:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - StartModule:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - StartFunction:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - SourceHostname:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Device:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - file_name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - file_path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - original_file_name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - parent_process:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process_path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - service_path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry_path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry_value_data:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry_value_name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ContextInfo:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Payload:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ScriptBlockText:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ServerName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - TransportName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - NewProcessName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ParentProcessName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Application:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Product Name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Threat Name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Process Name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - Path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ImagePath:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ServiceName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ProcessPath:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - AppName:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - AppPath:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - ModulePath:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry.data.strings:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry.path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - registry.value:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.args:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.command_line:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.env_vars:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.io.text:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.executable:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - process.title:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.company:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.description:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.original_file_name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - pe.product:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - os.full:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - host.hostname:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - file.fork_name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - file.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - file.path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - file.target_path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - email.attachments.file.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - email.subject:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - dll.path:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - device.model.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - container.image.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - container.name:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - object:
+    - '*.exe -b all -f json --dir results -cc*'
+    - '*Sharp-HackBrowserData*'
+    - '*.exe -b * -p ''C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default''*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+    - '* HackBrowserData'
+  - url:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - dest_url:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - uri:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - uri_query:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - query:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - url_domain:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - uri_path:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - domain:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - QueryName:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - QueryResults:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - DestinationHostname:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - DestinationIp:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - http_referrer:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - http_referrer_domain:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - http_user_agent:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - dest_nt_host:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - sender:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - recipient:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - orig_recipient:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - subject:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - url.domain:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - url.full:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - url.original:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - url.query:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - user_agent.original:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - network.application:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - http.request.body.content:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - http.request.referrer:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - email.from.address:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - dns.question.name:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  - destination.domain:
+    - '*Sharp-HackBrowserData*'
+    - '*hack-browser-data.exe*'
+    - '*/HackBrowserData*'
+    - '*Reflective-HackBrowserData*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

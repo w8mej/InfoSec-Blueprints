@@ -1,0 +1,833 @@
+title: Simple keyword detection rule for ICMP-TransferTools
+id: 2f30ab30-a74a-49e1-ad9a-0f9b68d6ecbb
+status: experimental
+description: Detects interesting keywords based on ICMP-TransferTools tool
+references:
+- https://github.com/icyguider/ICMP-TransferTools
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1001
+- attack.T1041
+- attack.T1105
+- attack.T1205
+- attack.TA0001
+- attack.TA0005
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - OriginalFileName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - CurrentDirectory:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ParentImage:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ParentCommandLine:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - TargetFilename:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Signature:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - signature:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ImageLoaded:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Company:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Description:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - description:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - CommandLine:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - SourceImage:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - TargetImage:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - CallTrace:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - TargetObject:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Details:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - PipeName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Consumer:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Destination:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Query:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - NewName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - StartAddress:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - StartModule:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - StartFunction:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - SourceHostname:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Device:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - file_name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - file_path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - original_file_name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - parent_process:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process_path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - service_path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - registry_path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - registry_value_data:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - registry_value_name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ContextInfo:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Payload:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ScriptBlockText:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ServerName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - TransportName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - NewProcessName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ParentProcessName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Application:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Product Name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Threat Name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Process Name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - Path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ImagePath:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ServiceName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ProcessPath:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - AppName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - AppPath:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - ModulePath:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - registry.data.strings:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - registry.path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - registry.value:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.args:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.command_line:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.env_vars:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.io.text:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.executable:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - process.title:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - pe.company:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - pe.description:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - pe.original_file_name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - pe.product:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - os.full:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - host.hostname:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - file.fork_name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - file.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - file.path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - file.target_path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - email.attachments.file.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - email.subject:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - dll.path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - device.model.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - container.image.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - container.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - object:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - url:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - dest_url:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - uri:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - uri_query:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - query:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - url_domain:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - uri_path:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - domain:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - QueryName:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - QueryResults:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - DestinationHostname:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - DestinationIp:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - http_referrer:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - http_referrer_domain:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - http_user_agent:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - dest_nt_host:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - sender:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - recipient:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - orig_recipient:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - subject:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - url.domain:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - url.full:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - url.original:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - url.query:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - user_agent.original:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - network.application:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - http.request.body.content:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - http.request.referrer:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - email.from.address:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - dns.question.name:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  - destination.domain:
+    - '*ICMP-SendFile.py*'
+    - '*Invoke-IcmpUpload.ps1*'
+    - '*Invoke-IcmpDownload.ps1*'
+    - '*Invoke-IcmpDownload*'
+    - '*ICMP-ReceiveFile.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

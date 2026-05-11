@@ -1,0 +1,799 @@
+title: Simple keyword detection rule for HTMLSmuggler
+id: a2e461a0-5b07-42ae-9359-c93a336670ea
+status: experimental
+description: Detects interesting keywords based on HTMLSmuggler tool
+references:
+- https://github.com/D00Movenok/HTMLSmuggler
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1564.001
+- attack.T1566
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - OriginalFileName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - CurrentDirectory:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ParentImage:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ParentCommandLine:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - TargetFilename:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Signature:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - signature:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ImageLoaded:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Company:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Description:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - description:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - CommandLine:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - SourceImage:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - TargetImage:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - CallTrace:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - TargetObject:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Details:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - PipeName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Consumer:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Destination:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Query:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - NewName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - StartAddress:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - StartModule:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - StartFunction:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - SourceHostname:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Device:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - file_name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - file_path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - original_file_name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - parent_process:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process_path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - service_path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - registry_path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - registry_value_data:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - registry_value_name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ContextInfo:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Payload:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ScriptBlockText:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ServerName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - TransportName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - NewProcessName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ParentProcessName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Application:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Product Name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Threat Name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Process Name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - Path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ImagePath:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ServiceName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ProcessPath:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - AppName:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - AppPath:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - ModulePath:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - registry.data.strings:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - registry.path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - registry.value:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.args:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.command_line:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.env_vars:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.io.text:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.executable:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - process.title:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - pe.company:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - pe.description:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - pe.original_file_name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - pe.product:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - os.full:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - host.hostname:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - file.fork_name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - file.name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - file.path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - file.target_path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - email.attachments.file.name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - email.subject:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - dll.path:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - device.model.name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - container.image.name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - container.name:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - object:
+    - '*\HTMLSmuggler\*'
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - url:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - dest_url:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - uri:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - uri_query:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - query:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - url_domain:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - uri_path:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - domain:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - QueryName:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - QueryResults:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - DestinationHostname:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - DestinationIp:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - http_referrer:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - http_referrer_domain:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - http_user_agent:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - dest_nt_host:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - sender:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - recipient:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - orig_recipient:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - subject:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - url.domain:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - url.full:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - url.original:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - url.query:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - user_agent.original:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - network.application:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - http.request.body.content:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - http.request.referrer:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - email.from.address:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - dns.question.name:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  - destination.domain:
+    - '*/HTMLSmuggler.git*'
+    - '*/HTMLSmuggler/*'
+    - '*HTMLSmuggler-main*'
+    - '*D00Movenok/HTMLSmuggler*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

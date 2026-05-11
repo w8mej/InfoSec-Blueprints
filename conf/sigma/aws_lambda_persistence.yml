@@ -1,0 +1,26 @@
+title: AWS Lambda Persistence
+status: experimental
+author: wssheldo
+date: 2020/05/19
+description: >
+  A lambda function executing a suspicious action by,
+  a. Creating an access key to backdoor an IAM user
+  b. Updating a security group to allow ingress on a port
+  c. Updating an assume role policy to allow external access.
+references:
+  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
+logsource:
+  service: cloudtrail
+detection: |-
+  sourcetype=aws:cloudtrail earliest=-1d@d
+  ("userIdentity.invokedBy"="lambda.amazonaws.com" AND
+  ("eventName"="CreateAccessKey" OR "eventName"="AuthorizeSecurityGroupIngress"
+  OR "eventName"="UpdateAssumeRolePolicy"))
+severity: 3
+page: false
+falsepositives: >
+  - Rare
+tags: >
+  - attack.t1136
+  - attack.t1108
+  - attack.t1098

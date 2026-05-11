@@ -1,0 +1,1548 @@
+title: Simple keyword detection rule for EDRSilencer
+id: 64e6d159-3dd1-456b-b483-233698360dfb
+status: experimental
+description: Detects interesting keywords based on EDRSilencer tool
+references:
+- https://github.com/netero1010/EDRSilencer
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1562.004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - OriginalFileName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - CurrentDirectory:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ParentImage:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ParentCommandLine:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - TargetFilename:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Signature:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - signature:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ImageLoaded:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Company:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Description:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - description:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - CommandLine:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - SourceImage:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - TargetImage:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - CallTrace:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - TargetObject:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Details:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - PipeName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Consumer:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Destination:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Query:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - NewName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - StartAddress:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - StartModule:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - StartFunction:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - SourceHostname:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Device:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - file_name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - file_path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - original_file_name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - parent_process:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process_path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - service_path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry_path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry_value_data:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry_value_name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ContextInfo:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Payload:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ScriptBlockText:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ServerName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - TransportName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - NewProcessName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ParentProcessName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Application:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Product Name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Threat Name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Process Name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ImagePath:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ServiceName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ProcessPath:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - AppName:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - AppPath:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ModulePath:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry.data.strings:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry.path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry.value:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.args:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.command_line:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.env_vars:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.io.text:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.executable:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.title:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.company:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.description:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.original_file_name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.product:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - os.full:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - host.hostname:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - file.fork_name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - file.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - file.path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - file.target_path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - email.attachments.file.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - email.subject:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - dll.path:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - device.model.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - container.image.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - container.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - object:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - ParentCommandLine:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - CommandLine:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - Details:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - registry.value:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.args:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.command_line:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.env_vars:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.io.text:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - process.title:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.company:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.description:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - pe.product:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - os.full:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - host.hostname:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - event.original:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - email.subject:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - device.model.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - container.image.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - container.name:
+    - '*EDRSilencer.exe*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific
+      process*'
+    - '*netero1010/EDRSilencer*'
+    - '*\EDRSilencer.c*'
+    - '* EDRSilencer.c*'
+    - '*.exe blockedr*'
+    - '*/EDRSilencer.c*'
+    - '*Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected
+      EDR processes*'
+    - '*/EDRSilencer.git*'
+  - url:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - dest_url:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - uri:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - uri_query:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - query:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - url_domain:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - uri_path:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - domain:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - QueryName:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - QueryResults:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - DestinationHostname:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - DestinationIp:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - http_referrer:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - http_referrer_domain:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - http_user_agent:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - dest_nt_host:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - sender:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - recipient:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - orig_recipient:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - subject:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - url.domain:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - url.full:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - url.original:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - url.query:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - user_agent.original:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - network.application:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - http.request.body.content:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - http.request.referrer:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - email.from.address:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - dns.question.name:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  - destination.domain:
+    - '*EDRSilencer.exe*'
+    - '*netero1010/EDRSilencer*'
+    - '*/EDRSilencer.c*'
+    - '*/EDRSilencer.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

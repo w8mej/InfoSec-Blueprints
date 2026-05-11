@@ -1,0 +1,1177 @@
+title: Simple keyword detection rule for vRealizeLogInsightRCE
+id: 9754c143-2f6e-460c-833d-37eb1c62244b
+status: experimental
+description: Detects interesting keywords based on vRealizeLogInsightRCE tool
+references:
+- https://github.com/horizon3ai/vRealizeLogInsightRCE
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1069
+- attack.T1071
+- attack.T1110
+- attack.T1190
+- attack.T1222
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - OriginalFileName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - CurrentDirectory:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ParentImage:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ParentCommandLine:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - TargetFilename:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Signature:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - signature:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ImageLoaded:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Company:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Description:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - description:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - CommandLine:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - SourceImage:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - TargetImage:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - CallTrace:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - TargetObject:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Details:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - PipeName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Consumer:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Destination:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Query:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - NewName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - StartAddress:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - StartModule:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - StartFunction:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - SourceHostname:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Device:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - file_name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - file_path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - original_file_name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - parent_process:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process_path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - service_path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry_path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry_value_data:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry_value_name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ContextInfo:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Payload:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ScriptBlockText:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ServerName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - TransportName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - NewProcessName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ParentProcessName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Application:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Product Name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Threat Name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Process Name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ImagePath:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ServiceName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ProcessPath:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - AppName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - AppPath:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ModulePath:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry.data.strings:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry.path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry.value:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.args:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.command_line:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.env_vars:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.io.text:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.executable:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.title:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.company:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.description:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.original_file_name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.product:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - os.full:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - host.hostname:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - file.fork_name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - file.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - file.path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - file.target_path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - email.attachments.file.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - email.subject:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - dll.path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - device.model.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - container.image.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - container.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - object:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - ParentCommandLine:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - CommandLine:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - Details:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - registry.value:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.args:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.command_line:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.env_vars:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.io.text:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - process.title:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.company:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.description:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - pe.product:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - os.full:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - host.hostname:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - event.original:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - email.subject:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - device.model.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - container.image.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - container.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+    - '* --payload_file * --payload_path*'
+    - '*Downloading */*.tar to /tmp/*.pak*'
+  - url:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - dest_url:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - uri:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - uri_query:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - query:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - url_domain:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - uri_path:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - domain:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - QueryName:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - QueryResults:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - DestinationHostname:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - DestinationIp:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - http_referrer:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - http_referrer_domain:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - http_user_agent:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - dest_nt_host:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - sender:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - recipient:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - orig_recipient:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - subject:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - url.domain:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - url.full:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - url.original:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - url.query:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - user_agent.original:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - network.application:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - http.request.body.content:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - http.request.referrer:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - email.from.address:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - dns.question.name:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  - destination.domain:
+    - '*VMware-vRealize-Log-Insight.cert*'
+    - '*/horizon3ai/*'
+    - '*vRealizeLogInsightRCE*'
+    - '*VMSA-2023-0001.py*'
+    - '*loginsight.thrift*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,17 @@
+title: kerberos 弱加密
+description: 域环境测试
+references: https://adsecurity.org/?p=3458
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4769  #kerberos服务票证请求
+        TicketOptions: 0x40810000  #附加信息>票证选项
+        TicketEncryptiontype: 0x17 #附加信息>票证加密类型
+    reduction:
+        - ServiceName: '$*' #服务名称>服务信息
+    condition: selection and not reduction
+level: medium

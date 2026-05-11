@@ -1,0 +1,24 @@
+title: WinRS usage for remote execution
+description: Detects scenarios where an attacker abuses the WinRS capacities for remote execution.
+references:
+- https://www.ired.team/offensive-security/lateral-movement/winrs-for-lateral-movement
+- https://bohops.com/2020/05/12/ws-management-com-another-approach-for-winrm-lateral-movement/
+- https://4sysops.com/archives/powershell-remoting-without-administrator-rights/
+tags:
+- attack.lateral_movement
+- attack.t1021.006
+author: mdecrevoisier
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection: # Full command example: "winrs -r:<target> -u:domain\user -p:<psw> 'whoami /priv'"
+    EventID: 4688
+    NewProcessName|endswith: \winrs.exe
+    CommandLine|contains:
+      - '-r:'
+      - '/r:'
+  condition: selection
+falsepositives:
+- Pentest, Administrator activity
+level: high

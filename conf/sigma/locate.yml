@@ -1,0 +1,81 @@
+title: Simple keyword detection rule for locate
+id: 74cf5a24-4672-42d5-917d-b2533c5f2734
+status: experimental
+description: Detects interesting keywords based on locate tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1005
+- attack.T1083
+- attack.T1213.002
+- attack.TA0007
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*locate password | more*'
+  - CommandLine:
+    - '*locate password | more*'
+  - Details:
+    - '*locate password | more*'
+  - registry.value:
+    - '*locate password | more*'
+  - process.args:
+    - '*locate password | more*'
+  - process.command_line:
+    - '*locate password | more*'
+  - process.env_vars:
+    - '*locate password | more*'
+  - process.io.text:
+    - '*locate password | more*'
+  - process.title:
+    - '*locate password | more*'
+  - pe.company:
+    - '*locate password | more*'
+  - pe.description:
+    - '*locate password | more*'
+  - pe.product:
+    - '*locate password | more*'
+  - os.full:
+    - '*locate password | more*'
+  - host.hostname:
+    - '*locate password | more*'
+  - event.original:
+    - '*locate password | more*'
+  - email.subject:
+    - '*locate password | more*'
+  - device.model.name:
+    - '*locate password | more*'
+  - container.image.name:
+    - '*locate password | more*'
+  - container.name:
+    - '*locate password | more*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

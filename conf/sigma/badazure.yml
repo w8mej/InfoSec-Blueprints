@@ -1,0 +1,1377 @@
+title: Simple keyword detection rule for badazure
+id: 7d513ae1-e84f-48d1-9907-74a6c43e28bf
+status: experimental
+description: Detects interesting keywords based on badazure tool
+references:
+- https://github.com/mvelazc0/BadZure/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1078.004
+- attack.T1095
+- attack.T1583
+- attack.TA0005
+- attack.TA0006
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - CommandLine:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Details:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry.value:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.args:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.command_line:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.env_vars:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.io.text:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.title:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.company:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.description:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.product:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - os.full:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - host.hostname:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - event.original:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - email.subject:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - device.model.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - container.image.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - container.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Image:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - OriginalFileName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - CurrentDirectory:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ParentImage:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ParentCommandLine:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - TargetFilename:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Signature:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - signature:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ImageLoaded:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Company:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Description:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - description:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - CommandLine:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - SourceImage:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - TargetImage:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - CallTrace:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - TargetObject:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Details:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - PipeName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Consumer:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Destination:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Query:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - NewName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - StartAddress:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - StartModule:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - StartFunction:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - SourceHostname:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Device:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - file_name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - file_path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - original_file_name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - parent_process:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process_path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - service_path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry_path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry_value_data:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry_value_name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ContextInfo:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Payload:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ScriptBlockText:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ServerName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - TransportName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - NewProcessName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ParentProcessName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Application:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Product Name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Threat Name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Process Name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - Path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ImagePath:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ServiceName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ProcessPath:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - AppName:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - AppPath:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - ModulePath:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry.data.strings:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry.path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - registry.value:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.args:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.command_line:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.env_vars:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.io.text:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.executable:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - process.title:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.company:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.description:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.original_file_name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - pe.product:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - os.full:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - host.hostname:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - file.fork_name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - file.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - file.path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - file.target_path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - email.attachments.file.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - email.subject:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - dll.path:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - device.model.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - container.image.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - container.name:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - object:
+    - '* -Build -NoAttackPaths*'
+    - '*-RandomAttackPath -Token*'
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*-Build $RandomAttackPath*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+    - '*\BadZure*'
+  - url:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - dest_url:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - uri:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - uri_query:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - query:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - url_domain:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - uri_path:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - domain:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - QueryName:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - QueryResults:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - DestinationHostname:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - DestinationIp:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - http_referrer:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - http_referrer_domain:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - http_user_agent:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - dest_nt_host:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - sender:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - recipient:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - orig_recipient:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - subject:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - url.domain:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - url.full:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - url.original:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - url.query:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - user_agent.original:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - network.application:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - http.request.body.content:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - http.request.referrer:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - email.from.address:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - dns.question.name:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  - destination.domain:
+    - '*Invoke-BadZure*'
+    - '*BadZure-main*'
+    - '*/BadZure.git*'
+    - '*mvelazc0/BadZure*'
+    - '*/BadZure/*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

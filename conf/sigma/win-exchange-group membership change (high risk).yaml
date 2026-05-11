@@ -1,0 +1,34 @@
+title: New member added to an Exchange administration group (high risk)
+description: Detects scenarios where a new member is added to a sensitive group related to Exchange server
+references:
+- https://msexchangeguru.com/2015/12/18/rbac-2016/
+- https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0003-Persistence/T1098.xxx-Account%20manipulation
+tags:
+- attack.persistence
+- attack.t1098
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID:
+      - 4728 # security global group member added
+      - 4756 # universal group member added
+      - 4732 # local and domain local group member added
+    TargetUserName:
+      #- 'Exchange Trusted Subsystem' > See related rule for DC sync group change
+      #- 'Exchange Windows Permissions' > See related rule for DC sync group change
+      - 'Exchange Organization Administrators'
+      - 'Exchange Public Folder Administrators'
+      - 'Exchange Recipient Administrators'
+      - 'Security Administrator'
+      - 'Exchange Domain Servers'
+      - 'Exchange Enterprise Servers'
+      - 'Exchange Servers'
+  condition: selection
+falsepositives:
+- Exchange administrator updating server configuration
+- Exchange upgrade or migration
+level: medium

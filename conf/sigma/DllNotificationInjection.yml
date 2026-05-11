@@ -1,0 +1,1259 @@
+title: Simple keyword detection rule for DllNotificationInjection
+id: 47a03bf2-9e0f-481b-a5bc-9f9327136953
+status: experimental
+description: Detects interesting keywords based on DllNotificationInjection tool
+references:
+- https://github.com/ShorSec/DllNotificationInjection
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1055.001
+- attack.T1055.011
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - OriginalFileName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - CurrentDirectory:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ParentImage:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ParentCommandLine:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - TargetFilename:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Signature:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - signature:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ImageLoaded:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Company:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Description:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - description:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - CommandLine:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - SourceImage:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - TargetImage:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - CallTrace:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - TargetObject:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Details:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - PipeName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Consumer:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Destination:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Query:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - NewName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - StartAddress:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - StartModule:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - StartFunction:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - SourceHostname:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Device:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - file_name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - file_path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - original_file_name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - parent_process:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process_path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - service_path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - registry_path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - registry_value_data:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - registry_value_name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ContextInfo:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Payload:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ScriptBlockText:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ServerName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - TransportName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - NewProcessName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ParentProcessName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Application:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Product Name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Threat Name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Process Name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - Path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ImagePath:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ServiceName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ProcessPath:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - AppName:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - AppPath:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - ModulePath:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - registry.data.strings:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - registry.path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - registry.value:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.args:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.command_line:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.env_vars:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.io.text:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.executable:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - process.title:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - pe.company:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - pe.description:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - pe.original_file_name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - pe.product:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - os.full:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - host.hostname:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - file.fork_name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - file.name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - file.path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - file.target_path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - email.attachments.file.name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - email.subject:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - dll.path:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - device.model.name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - container.image.name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - container.name:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - object:
+    - '*DllNotificationInjection.exe*'
+    - '*0A1C2C46-33F7-4D4C-B8C6-1FC9B116A6DF*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - url:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - dest_url:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - uri:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - uri_query:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - query:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - url_domain:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - uri_path:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - domain:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - QueryName:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - QueryResults:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - DestinationHostname:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - DestinationIp:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - http_referrer:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - http_referrer_domain:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - http_user_agent:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - dest_nt_host:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - sender:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - recipient:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - orig_recipient:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - subject:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - url.domain:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - url.full:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - url.original:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - url.query:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - user_agent.original:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - network.application:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - http.request.body.content:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - http.request.referrer:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - email.from.address:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - dns.question.name:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  - destination.domain:
+    - '*DllNotificationInjection.exe*'
+    - '*ShellcodeTemplate.x64.bin*'
+    - '*DllNotificationInjection.vcxproj*'
+    - '*DllNotificationInjection.cpp*'
+    - '*/DllNotificationInjection.git*'
+    - '*DllNotificationInjection-master*'
+    - '*ShorSec/DllNotificationInjection*'
+    - '*DllNotificationInjection.sln*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

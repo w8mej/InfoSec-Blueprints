@@ -1,0 +1,485 @@
+title: Simple keyword detection rule for vncpwdump
+id: dc4aaf7c-e077-4b85-a5cd-eea30ca802f9
+status: experimental
+description: Detects interesting keywords based on vncpwdump tool
+references:
+- https://www.codebus.net/d-2v0u.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003.003
+- attack.T1021.001
+- attack.TA0006
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - OriginalFileName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - CurrentDirectory:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ParentImage:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ParentCommandLine:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - TargetFilename:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Signature:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - signature:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ImageLoaded:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Company:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Description:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - description:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - CommandLine:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - SourceImage:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - TargetImage:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - CallTrace:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - TargetObject:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Details:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - PipeName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Consumer:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Destination:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Query:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - NewName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - StartAddress:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - StartModule:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - StartFunction:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - SourceHostname:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Device:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - file_name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - file_path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - original_file_name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - parent_process:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process_path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - service_path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - registry_path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - registry_value_data:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - registry_value_name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ContextInfo:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Payload:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ScriptBlockText:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ServerName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - TransportName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - NewProcessName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ParentProcessName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Application:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Product Name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Threat Name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Process Name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - Path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ImagePath:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ServiceName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ProcessPath:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - AppName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - AppPath:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - ModulePath:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - registry.data.strings:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - registry.path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - registry.value:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.args:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.command_line:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.env_vars:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.io.text:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.executable:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - process.title:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - pe.company:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - pe.description:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - pe.original_file_name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - pe.product:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - os.full:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - host.hostname:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - file.fork_name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - file.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - file.path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - file.target_path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - email.attachments.file.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - email.subject:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - dll.path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - device.model.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - container.image.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - container.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - object:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - url:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - dest_url:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - uri:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - uri_query:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - query:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - url_domain:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - uri_path:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - domain:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - QueryName:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - QueryResults:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - DestinationHostname:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - DestinationIp:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - http_referrer:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - http_referrer_domain:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - http_user_agent:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - dest_nt_host:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - sender:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - recipient:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - orig_recipient:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - subject:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - url.domain:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - url.full:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - url.original:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - url.query:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - user_agent.original:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - network.application:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - http.request.body.content:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - http.request.referrer:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - email.from.address:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - dns.question.name:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  - destination.domain:
+    - '*vncdumpdll*'
+    - '*vncpwdump.*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

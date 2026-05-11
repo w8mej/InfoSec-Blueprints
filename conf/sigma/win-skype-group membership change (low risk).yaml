@@ -1,0 +1,42 @@
+title: New member added to a "OCS/Lync/Skype for Business" administration group (low risk)
+description: Detects scenarios where a new member is added to a sensitive administration group related to OCS/Lync/Skype for Business in order to scan topology, infiltrate servers and move laterally.
+references:
+- https://docs.microsoft.com/en-us/previous-versions/office/lync-server-2013/lync-server-2013-planning-for-role-based-access-control
+- https://docs.microsoft.com/en-us/skypeforbusiness/schema-reference/active-directory-schema-extensions-classes-and-attributes/changes-made-by-forest-preparation
+- https://blog.insideo365.com/2012/11/a-lync-administrator-access-refresher/
+tags:
+- attack.persistence
+- attack.t1098
+author: mdecrevoisier
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID:
+      - 4728 # security global group member added
+      - 4756 # universal group member added
+      - 4732 # local and domain local group member added
+    TargetUserName:
+      - CSHelpDesk
+      - CSLocationAdministrator
+      - CSPersistentChatAdministrator
+      - CSResponseGroupAdministrator
+      - CSResponseGroupManager
+      - CSViewOnlyAdministrator
+      - CSVoiceAdministrator
+      - RTCComponentUniversalServices
+      - RTCProxyUniversalServices
+      - RTCSBAUniversalServices
+      - RTCUniversalConfigReplicator
+      - RTCUniversalGlobalReadOnlyGroup
+      - RTCUniversalReadOnlyAdmins
+      - RTCUniversalServerReadOnlyGroup
+      - RTCUniversalUserAdmins
+      - RTCUniversalUserReadOnlyGroup
+  condition: selection
+falsepositives:
+- OCS/Lync/Skype administrator updating server configuration or topology
+- OCS/Lync/Skype upgrade or migration
+level: high

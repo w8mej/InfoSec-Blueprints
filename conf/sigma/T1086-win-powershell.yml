@@ -1,0 +1,17 @@
+title: T1086  非交互式PowerShell
+description: 通过将powershell.exe以explorer.exe作为父级，来检测非交互式PowerShell活动。
+status: experimental
+author: 12306Bro
+references: 无
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4688
+        NewProcessName: '*\powershell.exe'
+        ParentProcessName: '*\explorer.exe'
+    condition: selection
+falsepositives:
+    - Unknown
+level: critical

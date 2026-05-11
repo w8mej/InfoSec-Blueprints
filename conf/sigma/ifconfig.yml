@@ -1,0 +1,102 @@
+title: Simple keyword detection rule for ifconfig
+id: 10805fc3-1b73-42a7-9dfe-6d302c037ccd
+status: experimental
+description: Detects interesting keywords based on ifconfig tool
+references:
+- https://github.com/RoseSecurity/Red-Teaming-TTPs/blob/main/Linux.md
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1036.004
+- attack.T1059.001
+- attack.T1497.001
+- attack.TA0002
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - CommandLine:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - Details:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - registry.value:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - process.args:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - process.command_line:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - process.env_vars:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - process.io.text:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - process.title:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - pe.company:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - pe.description:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - pe.product:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - os.full:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - host.hostname:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - event.original:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - email.subject:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - device.model.name:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - container.image.name:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  - container.name:
+    - '*ifconfig * hw ether *'
+    - '*ifconfig * hw ether *:*:*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

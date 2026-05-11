@@ -1,0 +1,716 @@
+title: Simple keyword detection rule for FMFASweep
+id: d92765e3-a9fb-4c1c-80b5-02afe7e185eb
+status: experimental
+description: Detects interesting keywords based on FMFASweep tool
+references:
+- https://github.com/dafthack/MFASweep
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1078.003
+- attack.T1595
+- attack.T1595.002
+- attack.TA0006
+- attack.TA0009
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - OriginalFileName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - CurrentDirectory:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ParentImage:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ParentCommandLine:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - TargetFilename:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Signature:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - signature:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ImageLoaded:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Company:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Description:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - description:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - CommandLine:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - SourceImage:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - TargetImage:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - CallTrace:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - TargetObject:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Details:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - PipeName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Consumer:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Destination:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Query:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - NewName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - StartAddress:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - StartModule:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - StartFunction:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - SourceHostname:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Device:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - file_name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - file_path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - original_file_name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - parent_process:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process_path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - service_path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - registry_path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - registry_value_data:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - registry_value_name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ContextInfo:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Payload:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ScriptBlockText:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ServerName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - TransportName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - NewProcessName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ParentProcessName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Application:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Product Name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Threat Name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Process Name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - Path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ImagePath:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ServiceName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ProcessPath:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - AppName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - AppPath:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - ModulePath:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - registry.data.strings:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - registry.path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - registry.value:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.args:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.command_line:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.env_vars:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.io.text:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.executable:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - process.title:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - pe.company:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - pe.description:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - pe.original_file_name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - pe.product:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - os.full:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - host.hostname:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - file.fork_name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - file.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - file.path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - file.target_path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - email.attachments.file.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - email.subject:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - dll.path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - device.model.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - container.image.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - container.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - object:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - url:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - dest_url:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - uri:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - uri_query:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - query:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - url_domain:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - uri_path:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - domain:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - QueryName:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - QueryResults:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - DestinationHostname:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - DestinationIp:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - http_referrer:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - http_referrer_domain:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - http_user_agent:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - dest_nt_host:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - sender:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - recipient:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - orig_recipient:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - subject:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - url.domain:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - url.full:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - url.original:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - url.query:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - user_agent.original:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - network.application:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - http.request.body.content:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - http.request.referrer:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - email.from.address:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - dns.question.name:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  - destination.domain:
+    - '*MFASweep.ps1*'
+    - '*dafthack/MFASweep*'
+    - '*Invoke-MFASweep*'
+    - '*/MFASweep.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

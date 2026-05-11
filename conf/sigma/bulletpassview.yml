@@ -1,0 +1,724 @@
+title: Simple keyword detection rule for bulletpassview
+id: e15415ec-581c-4dd3-b354-64a75190b629
+status: experimental
+description: Detects interesting keywords based on bulletpassview tool
+references:
+- https://www.nirsoft.net/utils/bullets_password_view.html
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1021
+- attack.T1056
+- attack.T1110
+- attack.T1212
+- attack.T1552
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - OriginalFileName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - CurrentDirectory:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ParentImage:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ParentCommandLine:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - TargetFilename:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Signature:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - signature:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ImageLoaded:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Company:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Description:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - description:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - CommandLine:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - SourceImage:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - TargetImage:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - CallTrace:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - TargetObject:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Details:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - PipeName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Consumer:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Destination:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Query:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - NewName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - StartAddress:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - StartModule:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - StartFunction:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - SourceHostname:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Device:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - file_name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - file_path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - original_file_name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - parent_process:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process_path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - service_path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - registry_path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - registry_value_data:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - registry_value_name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ContextInfo:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Payload:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ScriptBlockText:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ServerName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - TransportName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - NewProcessName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ParentProcessName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Application:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Product Name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Threat Name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Process Name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - Path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ImagePath:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ServiceName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ProcessPath:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - AppName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - AppPath:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - ModulePath:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - registry.data.strings:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - registry.path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - registry.value:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.args:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.command_line:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.env_vars:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.io.text:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.executable:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - process.title:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - pe.company:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - pe.description:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - pe.original_file_name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - pe.product:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - os.full:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - host.hostname:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - file.fork_name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - file.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - file.path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - file.target_path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - email.attachments.file.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - email.subject:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - dll.path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - device.model.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - container.image.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - container.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - object:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - url:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - dest_url:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - uri:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - uri_query:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - query:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - url_domain:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - uri_path:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - domain:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - QueryName:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - QueryResults:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - DestinationHostname:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - DestinationIp:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - http_referrer:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - http_referrer_domain:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - http_user_agent:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - dest_nt_host:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - sender:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - recipient:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - orig_recipient:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - subject:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - url.domain:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - url.full:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - url.original:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - url.query:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - user_agent.original:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - network.application:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - http.request.body.content:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - http.request.referrer:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - email.from.address:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - dns.question.name:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  - destination.domain:
+    - '*BulletsPassView.exe*'
+    - '*BulletsPassView_setup.exe*'
+    - '*BulletsPassView_x64.exe*'
+    - '*BulletsPassView.zip*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

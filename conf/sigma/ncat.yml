@@ -1,0 +1,123 @@
+title: Simple keyword detection rule for ncat
+id: b4a58d07-3d52-4744-a8ee-ac1c63af4b29
+status: experimental
+description: Detects interesting keywords based on ncat tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1012
+- attack.T1027
+- attack.T1035
+- attack.T1036
+- attack.T1041
+- attack.T1053.005
+- attack.T1057
+- attack.T1059.003
+- attack.T1059.004
+- attack.T1059.005
+- attack.T1070.001
+- attack.T1083
+- attack.T1105
+- attack.T1112
+- attack.T1136
+- attack.T1562.001
+- attack.T1564.001
+- attack.T1564.002
+- attack.T1564.003
+- attack.T1564.005
+- attack.TA0002
+- 'attack.TA0002 '
+- attack.TA0003
+- attack.TA0005
+- attack.TA0006
+- attack.TA0007
+- attack.TA0008
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - CommandLine:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - Details:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - registry.value:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - process.args:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - process.command_line:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - process.env_vars:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - process.io.text:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - process.title:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - pe.company:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - pe.description:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - pe.product:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - os.full:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - host.hostname:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - event.original:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - email.subject:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - device.model.name:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - container.image.name:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  - container.name:
+    - '* ncat * -e /bin/bash*|crontab*'
+    - '*ncat * -p 4444*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

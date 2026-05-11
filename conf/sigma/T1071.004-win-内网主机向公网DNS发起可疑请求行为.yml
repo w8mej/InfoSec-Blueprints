@@ -1,0 +1,30 @@
+title: 检测内网主机向公网dns发起可疑请求行为
+description: 通过网络流量检测内网主机向公网dns发起可疑请求行为
+tags: T1071。004
+status: experimental
+references:
+    - https://www.elastic.co/guide/en/siem/guide/current/dns-activity-to-the-internet.html
+logsource:
+    product: network
+detection:
+    selection1:
+          destination.port: 53
+    selection2:
+          source.ip:
+                - 10.0.0.0/8
+                - 172.16.0.0/12
+                - 192.168.0.0/16
+    slection3:
+          destination.ip: 
+                - 10.0.0.0/8
+                - 127.0.0.0/8
+                - 169.254.169.254/32
+                - 172.16.0.0/12
+                - 192.168.0.0/16
+                - 224.0.0.251
+                - 224.0.0.252
+                - ::1
+                - 255.255.255.255
+                - ff02::fb
+    condition: selection1 and not selection2
+level: medium

@@ -1,0 +1,829 @@
+title: Simple keyword detection rule for NTLMSleuth
+id: 63539173-6522-46db-906b-5955b7c437ee
+status: experimental
+description: Detects interesting keywords based on NTLMSleuth tool
+references:
+- https://github.com/jmarr73/NTLMSleuth
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1003
+- attack.T1555
+- attack.TA0006
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - OriginalFileName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - CurrentDirectory:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ParentImage:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ParentCommandLine:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - TargetFilename:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Signature:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - signature:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ImageLoaded:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Company:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Description:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - description:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - CommandLine:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - SourceImage:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - TargetImage:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - CallTrace:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - TargetObject:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Details:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - PipeName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Consumer:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Destination:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Query:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - NewName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - StartAddress:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - StartModule:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - StartFunction:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - SourceHostname:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Device:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - file_name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - file_path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - original_file_name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - parent_process:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process_path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - service_path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - registry_path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - registry_value_data:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - registry_value_name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ContextInfo:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Payload:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ScriptBlockText:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ServerName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - TransportName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - NewProcessName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ParentProcessName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Application:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Product Name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Threat Name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Process Name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - Path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ImagePath:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ServiceName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ProcessPath:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - AppName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - AppPath:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - ModulePath:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - registry.data.strings:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - registry.path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - registry.value:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.args:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.command_line:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.env_vars:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.io.text:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.executable:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - process.title:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - pe.company:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - pe.description:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - pe.original_file_name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - pe.product:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - os.full:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - host.hostname:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - file.fork_name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - file.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - file.path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - file.target_path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - email.attachments.file.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - email.subject:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - dll.path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - device.model.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - container.image.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - container.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - object:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - url:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - dest_url:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - uri:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - uri_query:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - query:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - url_domain:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - uri_path:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - domain:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - QueryName:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - QueryResults:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - DestinationHostname:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - DestinationIp:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - http_referrer:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - http_referrer_domain:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - http_user_agent:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - dest_nt_host:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - sender:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - recipient:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - orig_recipient:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - subject:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - url.domain:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - url.full:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - url.original:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - url.query:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - user_agent.original:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - network.application:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - http.request.body.content:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - http.request.referrer:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - email.from.address:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - dns.question.name:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  - destination.domain:
+    - '*https://ntlm.pw/*'
+    - '*NTLMSleuth.ps1*'
+    - '*/NTLMSleuth.git*'
+    - '*jmarr73/NTLMSleuth*'
+    - '*NTLMSleuth.sh*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

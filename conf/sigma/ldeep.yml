@@ -1,0 +1,1640 @@
+title: Simple keyword detection rule for ldeep
+id: 19c8fe3f-1457-4592-8174-d5c0d102bf6b
+status: experimental
+description: Detects interesting keywords based on ldeep tool
+references:
+- https://github.com/franc-pentest/ldeep
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1589 T1590 T1591
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - OriginalFileName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - CurrentDirectory:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ParentImage:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ParentCommandLine:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - TargetFilename:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Signature:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - signature:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ImageLoaded:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Company:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Description:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - description:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - CommandLine:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - SourceImage:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - TargetImage:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - CallTrace:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - TargetObject:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Details:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - PipeName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Consumer:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Destination:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Query:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - NewName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - StartAddress:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - StartModule:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - StartFunction:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - SourceHostname:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Device:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - file_name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - file_path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - original_file_name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - parent_process:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process_path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - service_path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry_path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry_value_data:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry_value_name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ContextInfo:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Payload:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ScriptBlockText:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ServerName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - TransportName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - NewProcessName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ParentProcessName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Application:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Product Name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Threat Name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Process Name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ImagePath:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ServiceName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ProcessPath:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - AppName:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - AppPath:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ModulePath:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry.data.strings:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry.path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry.value:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.args:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.command_line:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.env_vars:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.io.text:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.executable:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.title:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.company:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.description:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.original_file_name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.product:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - os.full:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - host.hostname:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - file.fork_name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - file.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - file.path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - file.target_path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - email.attachments.file.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - email.subject:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - dll.path:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - device.model.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - container.image.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - container.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - object:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - ParentCommandLine:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - CommandLine:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - Details:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - registry.value:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.args:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.command_line:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.env_vars:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.io.text:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - process.title:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.company:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.description:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - pe.product:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - os.full:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - host.hostname:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - event.original:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - email.subject:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - device.model.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - container.image.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - container.name:
+    - '*/ldeep/*'
+    - '* ldeep_dump *'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*ldeep cache *'
+    - '*cache_activedirectory.py*'
+    - '*ldeep ldap -u *'
+    - ldeep *
+  - url:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - dest_url:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - uri:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - uri_query:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - query:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - url_domain:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - uri_path:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - domain:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - QueryName:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - QueryResults:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - DestinationHostname:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - DestinationIp:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - http_referrer:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - http_referrer_domain:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - http_user_agent:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - dest_nt_host:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - sender:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - recipient:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - orig_recipient:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - subject:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - url.domain:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - url.full:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - url.original:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - url.query:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - user_agent.original:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - network.application:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - http.request.body.content:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - http.request.referrer:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - email.from.address:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - dns.question.name:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  - destination.domain:
+    - '*/ldeep/*'
+    - '*ldeep_dump_users_enabled.json'
+    - '*ldeep*activedirectory.py*'
+    - '*_dump_users.lst*'
+    - '*ldeep_dump_users_enabled.lst'
+    - '*ldeep*ldap_activedirectory.py*'
+    - '*cache_activedirectory.py*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

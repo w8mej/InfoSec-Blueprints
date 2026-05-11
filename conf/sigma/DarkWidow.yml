@@ -1,0 +1,1185 @@
+title: Simple keyword detection rule for DarkWidow
+id: 64291c0a-b408-4a7d-ba9d-701cb5c6ecce
+status: experimental
+description: Detects interesting keywords based on DarkWidow tool
+references:
+- https://github.com/reveng007/DarkWidow
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1027
+- attack.T1027.001
+- attack.T1036
+- attack.T1055
+- attack.T1055.002
+- attack.T1055.012
+- attack.T1070.004
+- attack.T1098
+- attack.T1134
+- attack.T1140
+- attack.TA0002
+- attack.TA0003
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - OriginalFileName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - CurrentDirectory:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ParentImage:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ParentCommandLine:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - TargetFilename:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Signature:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - signature:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ImageLoaded:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Company:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Description:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - description:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - CommandLine:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - SourceImage:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - TargetImage:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - CallTrace:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - TargetObject:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Details:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - PipeName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Consumer:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Destination:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Query:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - NewName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - StartAddress:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - StartModule:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - StartFunction:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - SourceHostname:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Device:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - file_name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - file_path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - original_file_name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - parent_process:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process_path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - service_path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - registry_path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - registry_value_data:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - registry_value_name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ContextInfo:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Payload:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ScriptBlockText:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ServerName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - TransportName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - NewProcessName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ParentProcessName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Application:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Product Name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Threat Name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Process Name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - Path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ImagePath:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ServiceName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ProcessPath:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - AppName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - AppPath:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - ModulePath:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - registry.data.strings:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - registry.path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - registry.value:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.args:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.command_line:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.env_vars:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.io.text:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.executable:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - process.title:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - pe.company:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - pe.description:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - pe.original_file_name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - pe.product:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - os.full:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - host.hostname:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - file.fork_name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - file.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - file.path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - file.target_path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - email.attachments.file.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - email.subject:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - dll.path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - device.model.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - container.image.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - container.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - object:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - url:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - dest_url:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - uri:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - uri_query:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - query:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - url_domain:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - uri_path:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - domain:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - QueryName:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - QueryResults:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - DestinationHostname:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - DestinationIp:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - http_referrer:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - http_referrer_domain:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - http_user_agent:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - dest_nt_host:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - sender:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - recipient:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - orig_recipient:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - subject:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - url.domain:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - url.full:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - url.original:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - url.query:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - user_agent.original:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - network.application:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - http.request.body.content:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - http.request.referrer:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - email.from.address:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - dns.question.name:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  - destination.domain:
+    - '*/blindeventlog.exe*'
+    - '*reveng007/DarkWidow*'
+    - '* blindeventlog.exe*'
+    - '*DarkWidow-main*'
+    - '*4D1B765D-1287-45B1-AEDC-C4B96CF5CAA2*'
+    - '*\x64\Release\indirect.exe *'
+    - '*\blindeventlog.exe*'
+    - '*/DarkWidow.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

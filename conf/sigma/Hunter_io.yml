@@ -1,0 +1,748 @@
+title: Simple keyword detection rule for Hunter.io
+id: a7f8c712-f1a3-4240-ae22-ce7b5f96333e
+status: experimental
+description: Detects interesting keywords based on Hunter.io tool
+references:
+- https://hunter.io/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1016
+- attack.T1018
+- attack.T1056
+- attack.T1078
+- attack.T1087
+- attack.T1526
+- attack.T1583
+- attack.T1589
+- attack.T1597
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0005
+- attack.TA0007
+- attack.TA0011
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - OriginalFileName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - CurrentDirectory:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ParentImage:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ParentCommandLine:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - TargetFilename:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Signature:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - signature:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ImageLoaded:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Company:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Description:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - description:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - CommandLine:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - SourceImage:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - TargetImage:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - CallTrace:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - TargetObject:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Details:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - PipeName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Consumer:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Destination:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Query:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - NewName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - StartAddress:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - StartModule:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - StartFunction:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - SourceHostname:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Device:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - file_name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - file_path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - original_file_name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - parent_process:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process_path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - service_path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - registry_path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - registry_value_data:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - registry_value_name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ContextInfo:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Payload:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ScriptBlockText:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ServerName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - TransportName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - NewProcessName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ParentProcessName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Application:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Product Name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Threat Name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Process Name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - Path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ImagePath:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ServiceName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ProcessPath:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - AppName:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - AppPath:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - ModulePath:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - registry.data.strings:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - registry.path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - registry.value:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.args:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.command_line:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.env_vars:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.io.text:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.executable:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - process.title:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - pe.company:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - pe.description:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - pe.original_file_name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - pe.product:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - os.full:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - host.hostname:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - file.fork_name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - file.name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - file.path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - file.target_path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - email.attachments.file.name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - email.subject:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - dll.path:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - device.model.name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - container.image.name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - container.name:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - object:
+    - '*curl https://api.hunter.io/v2/domain-search?domain=*'
+    - '*https://hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-finder?domain=*'
+    - '*https://api.hunter.io/*'
+    - '*curl https://api.hunter.io/v2/email-verifier?email=*'
+  - url:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - dest_url:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - uri:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - uri_query:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - query:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - url_domain:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - uri_path:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - domain:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - QueryName:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - QueryResults:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - DestinationHostname:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - DestinationIp:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - http_referrer:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - http_referrer_domain:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - http_user_agent:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - dest_nt_host:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - sender:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - recipient:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - orig_recipient:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - subject:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - url.domain:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - url.full:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - url.original:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - url.query:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - user_agent.original:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - network.application:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - http.request.body.content:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - http.request.referrer:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - email.from.address:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - dns.question.name:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  - destination.domain:
+    - '*https://hunter.io/*'
+    - '*https://api.hunter.io/*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

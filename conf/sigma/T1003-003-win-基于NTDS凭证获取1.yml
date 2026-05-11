@@ -1,0 +1,27 @@
+title: VSS卷影复制本地读取Ntds.dit文件(域控主机操作，也适用于VSS卷影复制远程读取Ntds.dit文件)
+description: windows server 2008 模拟测试结果
+references: https://1sparrow.com/2018/02/19/域渗透相关/
+tags: T1003-003
+status: experimental
+author: 12306Bro
+logsource:
+    product: windows
+    service: sysmon
+detection:
+    selection1:
+        EventID: 1  # 进程创建
+        Image: 'C:\Windows\System32\vssadmin.exe'
+        CommandLine: 'VSSADMIN.EXE'
+        CurrentDirectory: 'vssadmin  create shadow /for=C:'
+    selection2:
+        EventID: 1
+        Image: 'C:\Windows\System32\reg.exe'
+        CommandLine: 'reg.exe'
+        CurrentDirectory: 'reg  SAVE HKLM\SYSTEM *'
+    selection3:
+        EventID: 1  # 进程创建
+        Image: 'C:\Windows\System32\vssadmin.exe'
+        CommandLine: 'VSSADMIN.EXE'
+        CurrentDirectory: 'vssadmin  delete shadows /all'
+    condition: selection1 or selection2 or selection3
+level: medium

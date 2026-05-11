@@ -1,0 +1,1055 @@
+title: Simple keyword detection rule for Zloader
+id: e70952b6-afef-4a9f-833a-762c97ee2974
+status: experimental
+description: Detects interesting keywords based on Zloader tool
+references:
+- https://news.sophos.com/en-us/2022/01/19/zloader-installs-remote-access-backdoors-and-delivers-cobalt-strike/
+- https://www.mcafee.com/blogs/other-blogs/mcafee-labs/zloader-with-a-new-infection-technique/
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1059
+- attack.T1059.005
+- attack.T1204
+- attack.T1218.011
+- attack.T1220
+- attack.T1562.001
+- attack.T1566.001
+- attack.TA0001
+- attack.TA0002
+- attack.TA0003
+- attack.TA0006
+- attack.TA0008
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - CommandLine:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Details:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry.value:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.args:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.command_line:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.env_vars:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.io.text:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.title:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.company:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.description:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.product:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - os.full:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - host.hostname:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - event.original:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - email.subject:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - device.model.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - container.image.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - container.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Image:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - OriginalFileName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - CurrentDirectory:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ParentImage:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ParentCommandLine:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - TargetFilename:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Signature:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - signature:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ImageLoaded:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Company:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Description:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - description:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - CommandLine:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - SourceImage:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - TargetImage:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - CallTrace:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - TargetObject:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Details:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - PipeName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Consumer:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Destination:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Query:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - NewName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - StartAddress:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - StartModule:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - StartFunction:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - SourceHostname:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Device:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - file_name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - file_path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - original_file_name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - parent_process:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process_path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - service_path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry_path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry_value_data:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry_value_name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ContextInfo:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Payload:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ScriptBlockText:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ServerName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - TransportName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - NewProcessName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ParentProcessName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Application:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Product Name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Threat Name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Process Name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - Path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ImagePath:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ServiceName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ProcessPath:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - AppName:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - AppPath:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - ModulePath:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry.data.strings:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry.path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - registry.value:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.args:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.command_line:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.env_vars:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.io.text:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.executable:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - process.title:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.company:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.description:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.original_file_name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - pe.product:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - os.full:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - host.hostname:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - file.fork_name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - file.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - file.path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - file.target_path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - email.attachments.file.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - email.subject:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - dll.path:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - device.model.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - container.image.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - container.name:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - object:
+    - '*powershell Invoke-WebRequest http*.bat *'
+    - '*zoom2.dll.gpg*'
+    - '*flashupdate.ps1*'
+    - '*Zloader-FCVP*'
+    - '* flash.bat*'
+    - '*zoom1.msi.gpg*'
+    - '*cmd.exe /c zoom1.msi*'
+  - url:
+    - '*flashupdate.ps1*'
+  - dest_url:
+    - '*flashupdate.ps1*'
+  - uri:
+    - '*flashupdate.ps1*'
+  - uri_query:
+    - '*flashupdate.ps1*'
+  - query:
+    - '*flashupdate.ps1*'
+  - url_domain:
+    - '*flashupdate.ps1*'
+  - uri_path:
+    - '*flashupdate.ps1*'
+  - domain:
+    - '*flashupdate.ps1*'
+  - QueryName:
+    - '*flashupdate.ps1*'
+  - QueryResults:
+    - '*flashupdate.ps1*'
+  - DestinationHostname:
+    - '*flashupdate.ps1*'
+  - DestinationIp:
+    - '*flashupdate.ps1*'
+  - http_referrer:
+    - '*flashupdate.ps1*'
+  - http_referrer_domain:
+    - '*flashupdate.ps1*'
+  - http_user_agent:
+    - '*flashupdate.ps1*'
+  - dest_nt_host:
+    - '*flashupdate.ps1*'
+  - sender:
+    - '*flashupdate.ps1*'
+  - recipient:
+    - '*flashupdate.ps1*'
+  - orig_recipient:
+    - '*flashupdate.ps1*'
+  - subject:
+    - '*flashupdate.ps1*'
+  - url.domain:
+    - '*flashupdate.ps1*'
+  - url.full:
+    - '*flashupdate.ps1*'
+  - url.original:
+    - '*flashupdate.ps1*'
+  - url.query:
+    - '*flashupdate.ps1*'
+  - user_agent.original:
+    - '*flashupdate.ps1*'
+  - network.application:
+    - '*flashupdate.ps1*'
+  - http.request.body.content:
+    - '*flashupdate.ps1*'
+  - http.request.referrer:
+    - '*flashupdate.ps1*'
+  - email.from.address:
+    - '*flashupdate.ps1*'
+  - dns.question.name:
+    - '*flashupdate.ps1*'
+  - destination.domain:
+    - '*flashupdate.ps1*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

@@ -1,0 +1,100 @@
+title: Simple keyword detection rule for getent
+id: ae35ded6-a975-44b2-910f-4e39dbbf38ea
+status: experimental
+description: Detects interesting keywords based on getent tool
+references: []
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1012
+- attack.T1027
+- attack.T1035
+- attack.T1036
+- attack.T1041
+- attack.T1053.005
+- attack.T1057
+- attack.T1059.003
+- attack.T1070.001
+- attack.T1083
+- attack.T1105
+- attack.T1112
+- attack.T1136
+- attack.T1562.001
+- attack.T1564.001
+- attack.T1564.002
+- attack.T1564.003
+- attack.T1564.005
+- attack.TA0002
+- attack.TA0003
+- attack.TA0006
+- attack.TA0007
+- attack.TA0008
+- attack.TA0010
+logsource:
+  category:
+  - endpoint
+detection:
+  selection:
+  - ParentCommandLine:
+    - '*getent passwd | cut -d: -f1*'
+  - CommandLine:
+    - '*getent passwd | cut -d: -f1*'
+  - Details:
+    - '*getent passwd | cut -d: -f1*'
+  - registry.value:
+    - '*getent passwd | cut -d: -f1*'
+  - process.args:
+    - '*getent passwd | cut -d: -f1*'
+  - process.command_line:
+    - '*getent passwd | cut -d: -f1*'
+  - process.env_vars:
+    - '*getent passwd | cut -d: -f1*'
+  - process.io.text:
+    - '*getent passwd | cut -d: -f1*'
+  - process.title:
+    - '*getent passwd | cut -d: -f1*'
+  - pe.company:
+    - '*getent passwd | cut -d: -f1*'
+  - pe.description:
+    - '*getent passwd | cut -d: -f1*'
+  - pe.product:
+    - '*getent passwd | cut -d: -f1*'
+  - os.full:
+    - '*getent passwd | cut -d: -f1*'
+  - host.hostname:
+    - '*getent passwd | cut -d: -f1*'
+  - event.original:
+    - '*getent passwd | cut -d: -f1*'
+  - email.subject:
+    - '*getent passwd | cut -d: -f1*'
+  - device.model.name:
+    - '*getent passwd | cut -d: -f1*'
+  - container.image.name:
+    - '*getent passwd | cut -d: -f1*'
+  - container.name:
+    - '*getent passwd | cut -d: -f1*'
+  condition: selection
+fields:
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+falsepositives:
+- unknown
+level: medium

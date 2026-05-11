@@ -1,0 +1,32 @@
+action: global
+title: InvisiMole Control Panel Misuse Chain
+id: d57fd9ea-0ed5-4435-bff0-c998f0feeacf
+status: experimental
+description: Detects artefacts associated with InvisiMole Control Panel persistence chain, as reported in June 2020
+references:
+    - https://www.welivesecurity.com/2020/06/18/digging-up-invisimole-hidden-arsenal/
+author: ESET Research
+date: 2021/05/17
+tags:
+    - attack.defense_evasion
+    - attack.execution
+    - attack.persistence
+    - attack.t1218.002
+    - attack.t1059.007
+    - attack.t1547.001
+    - attack.t1547.009
+falsepositives:
+    - Unknown
+level: high
+
+logsource:
+    category: file_event
+    product: windows
+detection:
+    selection:
+        TargetFilename|endswith:
+            - '\Startup\Control Panel.lnk'
+            - '\AppData\Roaming\Control\Control.js'
+            - '\Microsoft\AddIns\infocardadd.cpl'
+            - '\Microsoft\AddIns\imageapplet.dat'
+    condition: selection

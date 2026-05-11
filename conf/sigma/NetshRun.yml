@@ -1,0 +1,802 @@
+title: Simple keyword detection rule for NetshRun
+id: cecb1fe5-d2c0-4426-ba14-4631996c8eed
+status: experimental
+description: Detects interesting keywords based on NetshRun tool
+references:
+- https://github.com/gtworek/PSBits/blob/master/NetShRun
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1037
+- attack.T1055
+- attack.T1112
+- attack.T1218.001
+- attack.T1546.008
+- attack.TA0002
+- attack.TA0003
+- attack.TA0008
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - OriginalFileName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - CurrentDirectory:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ParentImage:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ParentCommandLine:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - TargetFilename:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Signature:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - signature:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ImageLoaded:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Company:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Description:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - description:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - CommandLine:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - SourceImage:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - TargetImage:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - CallTrace:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - TargetObject:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Details:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - PipeName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Consumer:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Destination:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Query:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - NewName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - StartAddress:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - StartModule:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - StartFunction:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - SourceHostname:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Device:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - file_name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - file_path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - original_file_name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - parent_process:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process_path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - service_path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry_path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry_value_data:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry_value_name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ContextInfo:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Payload:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ScriptBlockText:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ServerName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - TransportName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - NewProcessName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ParentProcessName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Application:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Product Name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Threat Name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Process Name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ImagePath:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ServiceName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ProcessPath:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - AppName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - AppPath:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ModulePath:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry.data.strings:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry.path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry.value:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.args:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.command_line:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.env_vars:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.io.text:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.executable:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.title:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.company:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.description:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.original_file_name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.product:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - os.full:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - host.hostname:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - file.fork_name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - file.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - file.path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - file.target_path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - email.attachments.file.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - email.subject:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - dll.path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - device.model.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - container.image.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - container.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - object:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - ParentCommandLine:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - CommandLine:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - Details:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - registry.value:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.args:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.command_line:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.env_vars:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.io.text:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - process.title:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.company:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.description:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - pe.product:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - os.full:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - host.hostname:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - event.original:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - email.subject:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - device.model.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - container.image.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - container.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+    - '*netsh.exe add helper *\temp\*.dll*'
+  - url:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - dest_url:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - uri:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - uri_query:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - query:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - url_domain:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - uri_path:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - domain:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - QueryName:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - QueryResults:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - DestinationHostname:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - DestinationIp:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - http_referrer:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - http_referrer_domain:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - http_user_agent:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - dest_nt_host:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - sender:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - recipient:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - orig_recipient:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - subject:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - url.domain:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - url.full:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - url.original:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - url.query:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - user_agent.original:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - network.application:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - http.request.body.content:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - http.request.referrer:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - email.from.address:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - dns.question.name:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  - destination.domain:
+    - '*netshrun.dll*'
+    - '*/netshrun.c*'
+    - '*PSBits*NetShRun*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium

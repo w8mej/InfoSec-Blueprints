@@ -1,0 +1,24 @@
+---
+title: MAC Hidden Users
+status: experimental
+author: wssheldo
+date: 2020/05/20
+description: >
+    There is a property value in
+    /Library/Preferences/com.apple.loginwindow called
+    Hide500Users that prevents users with userIDs 500 and
+    lower from appearing at the login screen.
+references:
+    - https://attack.mitre.org/techniques/T1147/
+logsource:
+    category: process_creation
+    product: macos
+detection: |-
+    sourcetype=osquery earliest=-1d@d
+    name=shell_history "dscl" columns.command="*dscl*.*-create*UniqueID*"
+severity: 3
+page: false
+falsepositives: >
+    - low
+tags: >
+    - attack.t1147

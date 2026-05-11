@@ -1,0 +1,1212 @@
+title: Simple keyword detection rule for LAPSDumper
+id: e63f143c-7020-4c8f-b57f-56cb2d12096c
+status: experimental
+description: Detects interesting keywords based on LAPSDumper tool
+references:
+- https://github.com/n00py/LAPSDumper
+author: '@mthcht'
+date: 2022/01/01
+modified: 2024/02/29
+tags:
+- attack.T1078.001
+- attack.T1112
+- attack.T1136.001
+- attack.TA0002
+- attack.TA0004
+- attack.TA0005
+logsource:
+  category:
+  - endpoint
+  - network
+detection:
+  selection:
+  - Image:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - OriginalFileName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - CurrentDirectory:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ParentImage:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ParentCommandLine:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - TargetFilename:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Signature:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - signature:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ImageLoaded:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Company:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Description:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - description:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - CommandLine:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - SourceImage:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - TargetImage:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - CallTrace:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - TargetObject:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Details:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - PipeName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Consumer:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Destination:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Query:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - NewName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - StartAddress:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - StartModule:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - StartFunction:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - SourceHostname:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Device:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - file_name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - file_path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - original_file_name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - parent_process:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process_path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - service_path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry_path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry_value_data:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry_value_name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ContextInfo:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Payload:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ScriptBlockText:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ServerName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - TransportName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - NewProcessName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ParentProcessName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Application:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Product Name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Threat Name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Process Name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ImagePath:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ServiceName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ProcessPath:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - AppName:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - AppPath:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ModulePath:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry.data.strings:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry.path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry.value:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.args:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.command_line:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.env_vars:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.io.text:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.executable:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.title:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.company:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.description:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.original_file_name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.product:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - os.full:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - host.hostname:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - file.fork_name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - file.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - file.path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - file.target_path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - email.attachments.file.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - email.subject:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - dll.path:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - device.model.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - container.image.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - container.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - object:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - ParentCommandLine:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - CommandLine:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - Details:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - registry.value:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.args:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.command_line:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.env_vars:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.io.text:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - process.title:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.company:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.description:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - pe.product:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - os.full:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - host.hostname:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - event.original:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - email.subject:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - device.model.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - container.image.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - container.name:
+    - '*LAPSDumper-main*'
+    - '* laps.py *-u * -p *'
+    - '* laps.py *--ldapserver*'
+    - '*/laps.py *--ldapserver*'
+    - '*/laps.py *-u * -p *'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+    - '*\LAPSDumper\*'
+  - url:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - dest_url:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - uri:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - uri_query:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - query:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - url_domain:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - uri_path:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - domain:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - QueryName:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - QueryResults:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - DestinationHostname:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - DestinationIp:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - http_referrer:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - http_referrer_domain:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - http_user_agent:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - dest_nt_host:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - sender:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - recipient:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - orig_recipient:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - subject:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - url.domain:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - url.full:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - url.original:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - url.query:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - user_agent.original:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - network.application:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - http.request.body.content:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - http.request.referrer:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - email.from.address:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - dns.question.name:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  - destination.domain:
+    - '*LAPSDumper-main*'
+    - '*n00py/LAPSDumper*'
+    - '*/LAPSDumper.git*'
+  condition: selection
+fields:
+- Image
+- OriginalFileName
+- CurrentDirectory
+- ParentImage
+- ParentCommandLine
+- TargetFilename
+- Signature
+- signature
+- ImageLoaded
+- Company
+- Description
+- description
+- CommandLine
+- SourceImage
+- TargetImage
+- CallTrace
+- TargetObject
+- Details
+- PipeName
+- Consumer
+- Destination
+- Name
+- Query
+- NewName
+- StartAddress
+- StartModule
+- StartFunction
+- SourceHostname
+- Device
+- file_name
+- file_path
+- process
+- original_file_name
+- parent_process
+- process_path
+- service_path
+- registry_path
+- registry_value_data
+- registry_value_name
+- ContextInfo
+- Payload
+- ScriptBlockText
+- ServerName
+- TransportName
+- NewProcessName
+- ParentProcessName
+- Application
+- Product Name
+- Threat Name
+- Process Name
+- Path
+- ImagePath
+- ServiceName
+- ProcessPath
+- AppName
+- AppPath
+- ModulePath
+- registry.data.strings
+- registry.path
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.executable
+- process.name
+- process.title
+- pe.company
+- pe.description
+- pe.original_file_name
+- pe.product
+- os.full
+- host.hostname
+- file.fork_name
+- file.name
+- file.path
+- file.target_path
+- email.attachments.file.name
+- email.subject
+- dll.path
+- device.model.name
+- container.image.name
+- container.name
+- object
+- ParentCommandLine
+- CommandLine
+- Details
+- registry.value
+- process.args
+- process.command_line
+- process.env_vars
+- process.io.text
+- process.title
+- pe.company
+- pe.description
+- pe.product
+- os.full
+- host.hostname
+- event.original
+- email.subject
+- device.model.name
+- container.image.name
+- container.name
+- url
+- dest_url
+- uri
+- uri_query
+- query
+- url_domain
+- uri_path
+- domain
+- QueryName
+- QueryResults
+- DestinationHostname
+- DestinationIp
+- http_referrer
+- http_referrer_domain
+- http_user_agent
+- dest_nt_host
+- sender
+- recipient
+- orig_recipient
+- subject
+- url.domain
+- url.full
+- url.original
+- url.query
+- user_agent.original
+- network.application
+- http.request.body.content
+- http.request.referrer
+- email.from.address
+- dns.question.name
+- destination.domain
+falsepositives:
+- unknown
+level: medium
