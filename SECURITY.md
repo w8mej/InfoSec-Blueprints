@@ -56,7 +56,7 @@ For vulnerability reports, use **GitHub Private Vulnerability Reporting** (prefe
 
 **Primary Contact**: John Menerick  
 **Email**: coding@haxx.ninja  
-**GitHub**: https://github.com/w8mej/infosec-SentinelMesh/security/advisories/new
+**GitHub**: https://github.com/w8mej/InfoSec-Blueprints/security/advisories/new
 
 ---
 
@@ -68,7 +68,7 @@ For vulnerability reports, use **GitHub Private Vulnerability Reporting** (prefe
 
 #### Primary: GitHub Private Vulnerability Reporting
 
-- **URL**: https://github.com/w8mej/infosec-SentinelMesh/security/advisories/new
+- **URL**: https://github.com/w8mej/InfoSec-Blueprints/security/advisories/new
 - **Expected acknowledgment**: Within 7 days
 - **Advantages**: Structured submission, secure communication, CVE assignment support
 

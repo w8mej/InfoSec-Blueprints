@@ -1,4 +1,4 @@
-# SentinelMesh Google MNDA Documentation Suite Design
+# SentinelMesh MNDA Documentation Suite Design
 
 **Date**: 2023-04-29  
 **Status**: Design Phase  

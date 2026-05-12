@@ -553,7 +553,7 @@ All dashboards update in **real-time** as investigations complete.
 **Questions about dashboards?**
 
 - Email: [team@SentinelMesh.example.com](mailto:team@SentinelMesh.example.com)
-- GitHub Discussions: [InfoSec-SentinelMeshs](https://github.com/w8mej/infosec-SentinelMesh/discussions)
+- GitHub Discussions: [InfoSec-SentinelMeshs](https://github.com/w8mej/InfoSec-Blueprints/discussions)
 - For licensed customers: Your dedicated support team
 
 ---

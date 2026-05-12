@@ -16,7 +16,7 @@ Before installing, ensure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/w8mej/infosec-SentinelMesh
+git clone https://github.com/w8mej/InfoSec-Blueprints
 cd SentinelMesh
 ```
 
@@ -299,8 +299,8 @@ If you're stuck:
 
 1. **Check the FAQ**: [reference/guides/FAQ.md](reference/guides/FAQ.md)
 2. **Review documentation**: [reference/](reference/)
-3. **Open an issue**: [GitHub Issues](https://github.com/w8mej/infosec-SentinelMesh/issues)
-4. **Ask a question**: [GitHub Discussions](https://github.com/w8mej/infosec-SentinelMesh/issues/new?template=QUESTION.md)
+3. **Open an issue**: [GitHub Issues](https://github.com/w8mej/InfoSec-Blueprints/issues)
+4. **Ask a question**: [GitHub Discussions](https://github.com/w8mej/InfoSec-Blueprints/issues/new?template=QUESTION.md)
 
 ---
 

@@ -12,8 +12,8 @@ We are committed to providing a welcoming and inspiring community for all. Pleas
 
 If you encounter a bug, please:
 
-1. Check if the issue already exists on [GitHub Issues](https://github.com/w8mej/infosec-SentinelMesh/issues)
-2. Use the [Bug Report](https://github.com/w8mej/infosec-SentinelMesh/issues/new?template=BUG_REPORT.md) template
+1. Check if the issue already exists on [GitHub Issues](https://github.com/w8mej/InfoSec-Blueprints/issues)
+2. Use the [Bug Report](https://github.com/w8mej/InfoSec-Blueprints/issues/new?template=BUG_REPORT.md) template
 3. Include:
    - Your environment (OS, Python version)
    - Steps to reproduce the issue
@@ -24,8 +24,8 @@ If you encounter a bug, please:
 
 To suggest a feature:
 
-1. Check [GitHub Issues](https://github.com/w8mej/infosec-SentinelMesh/issues) for existing requests
-2. Use the [Feature Request](https://github.com/w8mej/infosec-SentinelMesh/issues/new?template=FEATURE_REQUEST.md) template
+1. Check [GitHub Issues](https://github.com/w8mej/InfoSec-Blueprints/issues) for existing requests
+2. Use the [Feature Request](https://github.com/w8mej/InfoSec-Blueprints/issues/new?template=FEATURE_REQUEST.md) template
 3. Describe:
    - What problem it solves
    - Proposed solution and alternatives
@@ -33,7 +33,7 @@ To suggest a feature:
 
 ### Asking Questions
 
-Have a question? Use the [Question](https://github.com/w8mej/infosec-SentinelMesh/issues/new?template=QUESTION.md) template instead of opening an issue.
+Have a question? Use the [Question](https://github.com/w8mej/InfoSec-Blueprints/issues/new?template=QUESTION.md) template instead of opening an issue.
 
 ## Setting Up Your Development Environment
 
@@ -48,7 +48,7 @@ Have a question? Use the [Question](https://github.com/w8mej/infosec-SentinelMes
 1. **Fork the repository**
 
    ```bash
-   # Go to https://github.com/w8mej/infosec-SentinelMesh and click "Fork"
+   # Go to https://github.com/w8mej/InfoSec-Blueprints and click "Fork"
    ```
 
 2. **Clone your fork**
@@ -227,7 +227,7 @@ If you have questions:
 1. Check the [FAQ](reference/guides/FAQ.md)
 2. Review the [Getting Started Guide](GETTING_STARTED.md)
 3. Read the [Architecture](ARCHITECTURE.md) documentation
-4. Open a [Question Issue](https://github.com/w8mej/infosec-SentinelMesh/issues/new?template=QUESTION.md)
+4. Open a [Question Issue](https://github.com/w8mej/InfoSec-Blueprints/issues/new?template=QUESTION.md)
 
 ## License
 

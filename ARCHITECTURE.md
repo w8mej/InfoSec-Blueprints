@@ -349,8 +349,8 @@ Planned enhancements:
 
 - Check [FAQ](reference/guides/FAQ.md)
 - Review [GETTING_STARTED.md](GETTING_STARTED.md)
-- Open an [Issue](https://github.com/w8mej/infosec-SentinelMesh/issues)
-- Submit a [Question](https://github.com/w8mej/infosec-SentinelMesh/issues/new?template=QUESTION.md)
+- Open an [Issue](https://github.com/w8mej/InfoSec-Blueprints/issues)
+- Submit a [Question](https://github.com/w8mej/InfoSec-Blueprints/issues/new?template=QUESTION.md)
 
 ---
 

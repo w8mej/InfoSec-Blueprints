@@ -187,7 +187,7 @@ graph TD
 
 - ✉️ Email: [team@SentinelMesh.example.com](mailto:team@SentinelMesh.example.com)
 - 🌐 Website: [SentinelMesh.example.com](https://SentinelMesh.example.com)
-- 💬 Questions: Open a [GitHub Discussion](https://github.com/w8mej/infosec-SentinelMesh/discussions)
+- 💬 Questions: Open a [GitHub Discussion](https://github.com/w8mej/InfoSec-Blueprints/discussions)
 
 ---
 
@@ -868,8 +868,8 @@ These dashboards represent what your organization will have visibility into when
 
 | Question Type          | Where to Ask                                                                                |
 | ---------------------- | ------------------------------------------------------------------------------------------- |
-| 💡 General questions   | [Open a GitHub Discussion](https://github.com/w8mej/infosec-SentinelMesh/discussions)         |
-| 🐛 Found a bug?        | [GitHub Issues](https://github.com/w8mej/infosec-SentinelMesh/issues)                         |
+| 💡 General questions   | [Open a GitHub Discussion](https://github.com/w8mej/InfoSec-Blueprints/discussions)         |
+| 🐛 Found a bug?        | [GitHub Issues](https://github.com/w8mej/InfoSec-Blueprints/issues)                         |
 | 🔒 Security issue?     | [../../SECURITY.md](../../SECURITY.md)                                                      |
 | 📧 Partnership / Sales | Email: [team@SentinelMesh.example.com](mailto:team@SentinelMesh.example.com)                    |
 | 📞 Enterprise Support  | Contact your account manager                                                                |

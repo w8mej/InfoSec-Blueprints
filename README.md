@@ -374,7 +374,7 @@ See interactive dashboards with:
 
 ```bash
 # 1. Set up locally
-git clone https://github.com/w8mej/InfoSec-SentinelMesh.git
+git clone https://github.com/w8mej/InfoSec-Blueprints.git
 cd InfoSec-SentinelMesh/ && make install && make generate
 ```
 

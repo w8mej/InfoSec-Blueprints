@@ -1,8 +1,8 @@
-# SentinelMesh: Google MNDA Quick-Start Guide
+# SentinelMesh: MNDA Quick-Start Guide
 
 ## Document Metadata
 
-- **Audience**: All CONFIDENTIAL/Google Personnel
+- **Audience**: All CONFIDENTIAL/personnel
 - **Last Updated**: 2023-04-29
 - **MNDA Restriction**: CONFIDENTIAL MNDA-signed only
 

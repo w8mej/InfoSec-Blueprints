@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document serves as the master index for the SentinelMesh Google MNDA documentation suite. It is organized by **Progressive Depth Layers** to help different audiences find the information they need efficiently.
+This document serves as the master index for the SentinelMesh MNDA documentation suite. It is organized by **Progressive Depth Layers** to help different audiences find the information they need efficiently.
 
 ---
 
