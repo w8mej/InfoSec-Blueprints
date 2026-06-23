@@ -38,17 +38,25 @@
 <script data-cfasync="false" src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script data-cfasync="false" src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script data-cfasync="false" src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin="anonymous"></script>
+<script data-cfasync="false">
+  Babel.registerPreset('app', {
+    presets: [
+      [Babel.availablePresets['env'], {}],
+      [Babel.availablePresets['react'], { runtime: 'classic' }]
+    ]
+  });
+</script>
 
 <script data-cfasync="false" src="./js/data-client.js"></script>
 
-<script data-cfasync="false" type="text/babel" src="./js/app.jsx"></script>
-<script data-cfasync="false" type="text/babel" src="./js/tweaks-panel.jsx"></script>
-<script data-cfasync="false" type="text/babel" src="./js/charts.jsx"></script>
-<script data-cfasync="false" type="text/babel" src="./js/pages-1.jsx"></script>
-<script data-cfasync="false" type="text/babel" src="./js/pages-2.jsx"></script>
-<script data-cfasync="false" type="text/babel" src="./js/pages-3.jsx"></script>
+<script data-cfasync="false" type="text/babel" data-presets="app" src="./js/app.jsx"></script>
+<script data-cfasync="false" type="text/babel" data-presets="app" src="./js/tweaks-panel.jsx"></script>
+<script data-cfasync="false" type="text/babel" data-presets="app" src="./js/charts.jsx"></script>
+<script data-cfasync="false" type="text/babel" data-presets="app" src="./js/pages-1.jsx"></script>
+<script data-cfasync="false" type="text/babel" data-presets="app" src="./js/pages-2.jsx"></script>
+<script data-cfasync="false" type="text/babel" data-presets="app" src="./js/pages-3.jsx"></script>
 
-<script data-cfasync="false" type="text/babel">
+<script data-cfasync="false" type="text/babel" data-presets="app">
   const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(<App/>);
 </script>

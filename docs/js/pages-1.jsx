@@ -606,7 +606,7 @@ function DetectionPageContent({ D, setDrawerContent }) {
         <Card title="Mean F1"><div className="kpi"><div className="kpi__value kpi__value--green">{meanF1.toFixed(3)}</div><div className="kpi__delta kpi__delta--up">▲ +0.02 QoQ</div></div></Card>
         <Card title="Mean Precision"><div className="kpi"><div className="kpi__value kpi__value--signal">{meanPrec.toFixed(3)}</div><div className="kpi__delta">FP rate {((1-meanPrec)*100).toFixed(1)}%</div></div></Card>
         <Card title="Mean Recall"><div className="kpi"><div className="kpi__value kpi__value--violet">{meanRec.toFixed(3)}</div><div className="kpi__delta">FN rate {((1-meanRec)*100).toFixed(1)}%</div></div></Card>
-        <Card title="Drift Risk"><div className="kpi"><div className="kpi__value kpi__value--amber">{driftHi}</div><div className="kpi__delta">rules > 14d untuned</div></div></Card>
+        <Card title="Drift Risk"><div className="kpi"><div className="kpi__value kpi__value--amber">{driftHi}</div><div className="kpi__delta">rules &gt; 14d untuned</div></div></Card>
       </div>
 
       <Card title="Detection Rules" subtitle="DETAIL">
